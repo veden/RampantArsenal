@@ -1,0 +1,10 @@
+{
+    "name" : "AlienResource",
+    "factorio_version" : "0.16",
+    "version" : "0.16.0",
+    "title" : "Alien Resource",
+    "author" : "Veden",
+    "homepage" : "",
+    "description" : "",
+    "dependencies" : ["base >= 0.16.24"]
+}
