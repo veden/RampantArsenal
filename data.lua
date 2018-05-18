@@ -57,6 +57,31 @@ local alienGooYellowName = addFluid({
 	name = "alien-goo-yellow"
 })
 
+local function nameTranslator(name)
+    local angels = mods["angels"]
+    local bobs = mods["bobs"]
+
+    local result = name
+    
+    if bobs then
+	
+	if angels then
+	    if (name == "stone") then
+		result = "cracked-stone"
+	    elseif (name == "iron-ore") then
+		result = ""
+	    elseif (name == "copper-ore") then
+		result = ""
+	    elseif (name == "coal") then
+		result = ""
+	    elseif (name == "uranium") then
+		result = ""
+	    end
+	end
+    end
+    return result
+end
+
 addTechnology({
 	name = "alien-goo-filtering",
 	effects = {
@@ -71,7 +96,7 @@ addTechnology({
 			results = {
 			    {type="fluid", name=dirtyAlienGooName, amount=50},
 			    {type="fluid", name=alienGooName, amount=50},
-			    {type="item", name="stone", amount=1}
+			    {type="item", name=nameTranslator("stone"), amount=1}
 			}
 		})
 	    },
@@ -86,7 +111,7 @@ addTechnology({
 			results = {
 			    {type="fluid", name=dirtyAlienGooBlueName, amount=50},
 			    {type="fluid", name=alienGooBlueName, amount=50},
-			    {type="item", name="iron-ore", amount=1}
+			    {type="item", name="copper-ore", amount=1}
 			}
 		})
 	    },
@@ -146,7 +171,7 @@ addTechnology({
 			results = {
 			    {type="fluid", name=dirtyAlienGooName, amount=50},
 			    {type="fluid", name=alienGooName, amount=50},
-			    {type="item", name="stone", amount=1}
+			    {type="item", name="iron-ore", amount=1}
 			}
 		})
 	    },

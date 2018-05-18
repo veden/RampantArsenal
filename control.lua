@@ -22,6 +22,19 @@ local world
 --     return true
 -- 
 
+
+local function onModSettingsChange(event)
+    
+    if event and (string.sub(event.setting, 1, 18) ~= "rampant-industries") then
+	return false
+    end
+
+    
+    
+    return true
+end
+
+
 local function onConfigChanged()
     if not world.version then
 	
@@ -43,20 +56,27 @@ end
 
 local function onDeath(event)
     local entity = event.entity
-    if (entity.type == "unit-spawner") and (entity.force.name == "enemy") and (entity.surface.index == 1) and (event.cause and event.cause.force.name == "player") then
-	entity.surface.create_entity({name="alien-goo-resource-alien-resource", amount=100, position=entity.position})
+    if (event.cause and event.cause.force.name == "player") and (entity.force.name == "enemy") then
+	if (entity.type == "unit-spawner") then
+	    entity.surface.create_entity({name="alien-goo-resource-alien-resource", amount=100, position=entity.position})
+	elseif (entity.type == "turret") then
+	    
+	end	
     end
 end
+
+
+-- hooks
 
 script.on_nth_tick(INTERVAL_LOGIC,
 		   function (event)
 --		       processWorld(world)
 end)
 
--- hooks
-
 script.on_init(onInit)
 script.on_load(onLoad)
+script.on_event(defines.events.on_runtime_mod_setting_changed, onModSettingsChange)
 script.on_configuration_changed(onConfigChanged)
 
 script.on_event(defines.events.on_entity_died, onDeath)
+-- script.on_event(defines.events.on_chunk_generated, onChunkGenerated)

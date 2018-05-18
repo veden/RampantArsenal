@@ -21,13 +21,13 @@ data.raw["assembling-machine"]["centrifuge"].fluid_boxes =
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 1,
+        base_level = 2,
         pipe_connections = {{ position = {-1, 2} }}
       },
       {
         production_type = "output",
         pipe_covers = pipecoverspictures(),
-        base_level = 1,
+        base_level = 2,
         pipe_connections = {{ position = {1, 2} }}
       }
     }
