@@ -1,15 +1,26 @@
 -- imports
 
-local worldProcessor = require("libs/WorldProcessor")
 local constants = require("libs/Constants")
+local mathUtils = require("libs/MathUtils")
 
 -- constants
 
-local INTERVAL_LOGIC = constants.INTERVAL_LOGIC
+local DEFAULT_SPOUT_SIZE = constants.DEFAULT_SPOUT_SIZE
+
+local RAW_GOO_TYPES = constants.RAW_GOO_TYPES
+local RAMPANT_PREFIX_TABLE = constants.RAMPANT_PREFIX_TABLE
+local DEFAULT_GOO_TYPE = constants.DEFAULT_GOO_TYPE
+
+local ENABLE_NORMAL_GOO = constants.ENABLE_NORMAL_GOO
+local ENABLE_ALL_GOO = constants.ENABLE_ALL_GOO
 
 -- imported functions
 
-local processWorld = worldProcessor.processWorld
+local gaussianRandomRange = mathUtils.gaussianRandomRange
+
+local strFind = string.sub
+local substr = string.find
+local mRandom = math.random
 
 -- local references
 
@@ -17,27 +28,26 @@ local world
 
 -- module code
 
--- local function onModSettingsChange(event)
-
---     return true
--- 
-
-
 local function onModSettingsChange(event)
     
-    if event and (string.sub(event.setting, 1, 18) ~= "rampant-industries") then
+    if event and (string.sub(event.setting, 1, 18) ~= "rampant-arsenal") then
 	return false
     end
 
-    
-    
+    world.spoutThreshold = settings.global["rampant-arsenal-spoutThreshold"].value
+    world.infiniteSpouts = settings.global["rampant-arsenal-infiniteSpouts"].value
+    world.spoutScaler = settings.global["rampant-arsenal-spoutScaler"].value
+    world.spoutDefaultValue = world.spoutScaler * DEFAULT_SPOUT_SIZE
+
+    world.bobsEnabled = (mods and mods["bobenemies"] ~= nil) or game.active_mods["bobenemies"]
+        
     return true
 end
 
 
 local function onConfigChanged()
     if not world.version then
-	
+
 	world.version = 1
     end
 end
@@ -46,8 +56,9 @@ local function onInit()
     global.world = {}
 
     world = global.world
-    
+
     onConfigChanged()
+    onModSettingsChange()
 end
 
 local function onLoad()
@@ -56,27 +67,46 @@ end
 
 local function onDeath(event)
     local entity = event.entity
-    if (event.cause and event.cause.force.name == "player") and (entity.force.name == "enemy") then
-	if (entity.type == "unit-spawner") then
-	    entity.surface.create_entity({name="alien-goo-resource-alien-resource", amount=100, position=entity.position})
-	elseif (entity.type == "turret") then
-	    
-	end	
+    if (event.cause and event.cause.force.name == "player") and (entity.force.name == "enemy") then	
+	if (mRandom() < world.spoutThreshold) then
+	    if (entity.type == "unit-spawner") then
+		local name = entity.name
+		local gooType
+		if ENABLE_ALL_GOO then
+		    if (substr(name, -7) == "rampant") then
+			local prefix = strFind(name,"-")
+			local gooTypes = RAMPANT_PREFIX_TABLE[prefix]
+			gooType = gooTypes[mRandom(#gooTypes)]
+		    else
+			gooType = RAW_GOO_TYPES[mRandom(#RAW_GOO_TYPES)]			
+		    end		    
+		elseif ENABLE_NORMAL_GOO then
+		    gooType = DEFAULT_GOO_TYPE
+		end
+		local position = entity.position
+		local x = position.x
+		local y = position.y
+		local potentialYield = (((x * x) + (y * y)) ^ 0.5) * world.spoutDefaultValue
+		
+		local yield = gaussianRandomRange(potentialYield, 0.15, potentialYield * 0.7, potentialYield * 1.3)
+		entity.surface.create_entity({name=gooType, amount=yield, position=entity.position})
+	    end
+	end
     end
 end
 
 
 -- hooks
 
-script.on_nth_tick(INTERVAL_LOGIC,
-		   function (event)
---		       processWorld(world)
-end)
+-- script.on_nth_tick(INTERVAL_LOGIC,
+-- 		   function (event)
+-- 		       --		       processWorld(world)
+-- end)
 
 script.on_init(onInit)
 script.on_load(onLoad)
 script.on_event(defines.events.on_runtime_mod_setting_changed, onModSettingsChange)
 script.on_configuration_changed(onConfigChanged)
 
+-- script.on_event(defines.events.on_resource_depleted, onResourceDepleted)
 script.on_event(defines.events.on_entity_died, onDeath)
--- script.on_event(defines.events.on_chunk_generated, onChunkGenerated)

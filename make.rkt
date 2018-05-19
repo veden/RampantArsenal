@@ -70,10 +70,17 @@
       (copyDirectory "locale" modFolder)
       (copyDirectory "graphics" modFolder)
       (copyDirectory "prototypes" modFolder)))
+
+  (define (runStart)
+   (copyFiles modFolder)
+    ;;(copyFiles zipModFolder)
+    ;;(makeZip modFolder)
+    (system*/exit-code "/data/games/factorio/bin/x64/factorio"))
+
   
   (define (run)
    (copyFiles modFolder)
     ;;(copyFiles zipModFolder)
     ;;(makeZip modFolder)
-    (system*/exit-code "/data/games/factorio/bin/x64/factorio"))
-  )
+    ;;(system*/exit-code "/data/games/factorio/bin/x64/factorio"))
+  ))

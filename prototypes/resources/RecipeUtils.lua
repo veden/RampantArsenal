@@ -1,7 +1,7 @@
 local recipeUtils = {}
 
 function recipeUtils.addRecipe(attributes)
-    local name = attributes.name .. "-recipe-alien-resource"
+    local name = attributes.name .. "-recipe-rampant-arsenal"
 
     data:extend({{
 		type = "recipe",

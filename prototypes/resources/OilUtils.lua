@@ -25,7 +25,7 @@ function oilUtils.addFluid(attributes)
 end
 
 function oilUtils.addOilResource(attributes, fluidName)
-    local name = attributes.name .. "-resource-alien-resource"
+    local name = attributes.name .. "-resource-rampant-arsenal"
     
     data:extend({{
 		type = "resource",

@@ -1,7 +1,7 @@
 local techUtils = {}
 
 function techUtils.addTechnology(attributes)
-    local name = attributes.name .. "-technology-alien-resource"
+    local name = attributes.name .. "-technology-rampant-arsenal"
 
     data:extend({{
 		type = "technology",
