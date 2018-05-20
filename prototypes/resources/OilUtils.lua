@@ -13,6 +13,10 @@ function oilUtils.addFluid(attributes)
 		flow_color = attributes.flowColor or {r=0.5, g=0.5, b=0.5},
 		max_temperature = attributes.maxTemp or 100,
 		icon = attributes.icon or "__base__/graphics/icons/fluid/crude-oil.png",
+		tint = attributes.tint,
+		-- icons = {
+		--     {icon = "__base__/graphics/icons/fluid/crude-oil.png", tint = attributes.tint},
+		-- },
 		icon_size = 32,
 		pressure_to_speed_ratio = 0.4,
 		flow_to_energy_ratio = 0.59,
@@ -30,7 +34,9 @@ function oilUtils.addOilResource(attributes, fluidName)
     data:extend({{
 		type = "resource",
 		name = name,
-		icon = attributes.icon or "__base__/graphics/icons/crude-oil.png",
+		icons = {
+		    {icon="__base__/graphics/icons/crude-oil.png"}		    
+		},
 		icon_size = 32,
 		flags = {"placeable-neutral"},
 		category = attributes.category or "basic-fluid",
@@ -70,7 +76,8 @@ function oilUtils.addOilResource(attributes, fluidName)
 				width = 75,
 				height = 61,
 				frame_count = 4,
-				variation_count = 1
+				variation_count = 1,
+				tint = attributes.tint
 			    }
 		    },
 		map_color = attributes.mapColor or {r=0.78, g=0.2, b=0.77},
@@ -78,6 +85,12 @@ function oilUtils.addOilResource(attributes, fluidName)
     }})
     
     return name
+end
+
+function oilUtils.addOilWell(attributes)
+    local fluid = oilUtils.addFluid(attributes)
+    oilUtils.addOilResource(attributes, fluid)
+    return fluid
 end
 
 return oilUtils

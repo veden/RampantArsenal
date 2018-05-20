@@ -18,8 +18,8 @@ local ENABLE_ALL_GOO = constants.ENABLE_ALL_GOO
 
 local gaussianRandomRange = mathUtils.gaussianRandomRange
 
-local strFind = string.sub
-local substr = string.find
+local strFind = string.find
+local substr = string.sub
 local mRandom = math.random
 
 -- local references
@@ -35,17 +35,18 @@ local function onModSettingsChange(event)
     end
 
     world.spoutThreshold = settings.global["rampant-arsenal-spoutThreshold"].value
-    world.infiniteSpouts = settings.global["rampant-arsenal-infiniteSpouts"].value
     world.spoutScaler = settings.global["rampant-arsenal-spoutScaler"].value
     world.spoutDefaultValue = world.spoutScaler * DEFAULT_SPOUT_SIZE
 
     world.bobsEnabled = (mods and mods["bobenemies"] ~= nil) or game.active_mods["bobenemies"]
+    -- world.bobsEnabled = (mods and mods["bobenemies"] ~= nil) or game.active_mods["bobenemies"]
         
     return true
 end
 
 
 local function onConfigChanged()
+    onModSettingsChange()
     if not world.version then
 
 	world.version = 1
@@ -74,9 +75,8 @@ local function onDeath(event)
 		local gooType
 		if ENABLE_ALL_GOO then
 		    if (substr(name, -7) == "rampant") then
-			local prefix = strFind(name,"-")
-			local gooTypes = RAMPANT_PREFIX_TABLE[prefix]
-			gooType = gooTypes[mRandom(#gooTypes)]
+			local prefix = (strFind(name,"-")) - 1
+			gooType = RAMPANT_PREFIX_TABLE[(substr(name,1,prefix))]			
 		    else
 			gooType = RAW_GOO_TYPES[mRandom(#RAW_GOO_TYPES)]			
 		    end		    
@@ -98,15 +98,9 @@ end
 
 -- hooks
 
--- script.on_nth_tick(INTERVAL_LOGIC,
--- 		   function (event)
--- 		       --		       processWorld(world)
--- end)
-
 script.on_init(onInit)
 script.on_load(onLoad)
 script.on_event(defines.events.on_runtime_mod_setting_changed, onModSettingsChange)
 script.on_configuration_changed(onConfigChanged)
 
--- script.on_event(defines.events.on_resource_depleted, onResourceDepleted)
 script.on_event(defines.events.on_entity_died, onDeath)

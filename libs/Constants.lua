@@ -82,19 +82,19 @@ constants.RAMPANT_SPAWNER_SPITTER_SPAWNER = "spawner-spitter-nest"
 -- constants.RAMPANT_SPAWNER_WORM = "spawner-worm"
 
 constants.RAMPANT_PREFIX_TABLE = {
-    ["spawner"] = {},
-    ["wasp"] = {},
-    ["laser"] = {},
-    ["fast"] = {},
-    ["troll"] = {},
-    ["inferno"] = {},
-    ["fire"] = {},
-    ["nuclear"] = {},
-    ["suicide"] = {},
-    ["electric"] = {},
-    ["physical"] = {},
-    ["acid"] = {},
-    ["neutral"] = {"dirty-alien-goo-resource-rampant-arsenal"}
+    ["spawner"] = "dirty-alien-goo-green-resource-rampant-arsenal",
+    ["wasp"] = "dirty-alien-goo-purple-resource-rampant-arsenal",
+    ["laser"] = "dirty-alien-goo-blue-resource-rampant-arsenal",
+    ["fast"] = "dirty-alien-goo-purple-resource-rampant-arsenal",
+    ["troll"] = "dirty-alien-goo-green-resource-rampant-arsenal",
+    ["inferno"] = "dirty-alien-goo-orange-resource-rampant-arsenal",
+    ["fire"] = "dirty-alien-goo-red-resource-rampant-arsenal",
+    ["nuclear"] = "dirty-alien-goo-yellow-resource-rampant-arsenal",
+    ["suicide"] = "dirty-alien-goo-yellow-resource-rampant-arsenal",
+    ["electric"] = "dirty-alien-goo-blue-resource-rampant-arsenal",
+    ["physical"] = "dirty-alien-goo-red-resource-rampant-arsenal",
+    ["acid"] = "dirty-alien-goo-resource-rampant-arsenal",
+    ["neutral"] = "dirty-alien-goo-resource-rampant-arsenal"
 }
 
 constants.DEFAULT_GOO_TYPE = "dirty-alien-goo-resource-rampant-arsenal"
@@ -106,7 +106,7 @@ constants.RAW_GOO_TYPES = {
     "dirty-alien-goo-green-resource-rampant-arsenal",
     "dirty-alien-goo-orange-resource-rampant-arsenal",
     "dirty-alien-goo-purple-resource-rampant-arsenal",
-    "dirty-alien-goo-yellow-resource-rampant-arsenal"       
+    "dirty-alien-goo-yellow-resource-rampant-arsenal"
 }
 
 local function checkStartupSetting(setting)

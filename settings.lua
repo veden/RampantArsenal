@@ -15,7 +15,7 @@ data:extend({
 	    type = "bool-setting",
 	    name = "rampant-arsenal-infiniteSpouts",
 	    description = "rampant-arsenal-infiniteSpouts",
-	    setting_type = 'runtime-global',
+	    setting_type = 'startup',
 	    default_value = true,
 	    order = "a[modifer]-a[resource]",
 	    per_user = false

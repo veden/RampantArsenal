@@ -19,7 +19,11 @@ function recipeUtils.addRecipe(attributes)
 			{type="item", name="solid-fuel", amount=1},
 			{type="fluid", name="petroleum-gas", amount=40}
 		    },
-		icon = attributes.icon or "__base__/graphics/icons/fluid/basic-oil-processing.png",
+		--icon = attributes.icon or {"__base__/graphics/icons/fluid/basic-oil-processing.png"}
+		icons = {
+		    {icon = "__base__/graphics/icons/fluid/basic-oil-processing.png"},
+		    {icon = "__RampantArsenal__/graphics/icons/dropLeft.png", tint = attributes.tint }
+		},
 		icon_size = 32,
 		subgroup = attributes.subgroup or "fluid-recipes",
 		order = attributes.order or "a[oil-processing]-a[basic-oil-processing]"
