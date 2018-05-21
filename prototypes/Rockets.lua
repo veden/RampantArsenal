@@ -65,7 +65,26 @@ function rockets.enable()
 	preparingAnimation = rocketSheetMk1()
     }
     local _, rocketTurretItem = makeAmmoTurret(entity,
-					       nil)
+					       {
+						   type = "projectile",
+						   ammo_category = "rocket",
+						   cooldown = 45,
+						   projectile_creation_distance = 1.39375,
+						   projectile_center = {0, -0.0875}, -- same as gun_turret_attack shift
+						   -- shell_particle =
+						   --     {
+						   -- 	   name = "shell-particle",
+						   -- 	   direction_deviation = 0.1,
+						   -- 	   speed = 0.1,
+						   -- 	   speed_deviation = 0.03,
+						   -- 	   center = {-0.0625, 0},
+						   -- 	   creation_distance = -1.925,
+						   -- 	   starting_frame_speed = 0.2,
+						   -- 	   starting_frame_speed_deviation = 0.1
+						   --     },
+						   range = 18,
+						   sound = make_heavy_gunshot_sounds(),
+    })
 
     local entity1 = {
 	name = "rapid-rocket",
@@ -77,27 +96,46 @@ function rockets.enable()
 	preparedAnimation = rocketSheetMk2(),
 	preparingAnimation = rocketSheetMk2()
     }
-    local _, rapidRocketTurretItem = makeAmmoTurret(entity1, nil)    
+    local _, rapidRocketTurretItem = makeAmmoTurret(entity1, {
+							type = "projectile",
+							ammo_category = "rocket",
+							cooldown = 45,
+							projectile_creation_distance = 1.39375,
+							projectile_center = {0, -0.0875}, -- same as gun_turret_attack shift
+							-- shell_particle =
+							--     {
+							-- 	   name = "shell-particle",
+							-- 	   direction_deviation = 0.1,
+							-- 	   speed = 0.1,
+							-- 	   speed_deviation = 0.03,
+							-- 	   center = {-0.0625, 0},
+							-- 	   creation_distance = -1.925,
+							-- 	   starting_frame_speed = 0.2,
+							-- 	   starting_frame_speed_deviation = 0.1
+							--     },
+							range = 18,
+							sound = make_heavy_gunshot_sounds(),
+    })
 
     local rocketTurretRecipe = makeRecipe({
-		name = "rocket-turret",
-		icon = "__RampantArsenal__/graphics/icons/rocketTurret.png",
-		enabled = true,
-		ingredients = {
-		    {"steel-plate", 1}
-		},
-		result = rocketTurretItem,
-	})
+	    name = "rocket-turret",
+	    icon = "__RampantArsenal__/graphics/icons/rocketTurret.png",
+	    enabled = true,
+	    ingredients = {
+		{"steel-plate", 1}
+	    },
+	    result = rocketTurretItem,
+    })
 
     local rapidRocketRecipe = makeRecipe({
-		name = "rapid-rocket",
-		icon = "__RampantArsenal__/graphics/icons/rapidRocketTurret.png",
-		enabled = true,
-		ingredients = {
-		    {"steel-plate", 1}
-		},
-		result = rapidRocketTurretItem,
-	})
+	    name = "rapid-rocket",
+	    icon = "__RampantArsenal__/graphics/icons/rapidRocketTurret.png",
+	    enabled = true,
+	    ingredients = {
+		{"steel-plate", 1}
+	    },
+	    result = rapidRocketTurretItem,
+    })
 
     
     local rocketTurretTech = makeTechnology({

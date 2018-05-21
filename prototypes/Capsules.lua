@@ -39,7 +39,26 @@ function capsules.enable()
 	preparedAnimation = CapsuleLauncherSheet(),
 	preparingAnimation = CapsuleLauncherSheet()
     }
-    local _, capsuleTurretItem = makeAmmoTurret(entity, nil)
+    local _, capsuleTurretItem = makeAmmoTurret(entity, {
+						   type = "projectile",
+						   ammo_category = "capsule",
+						   cooldown = 45,
+						   projectile_creation_distance = 1.39375,
+						   projectile_center = {0, -0.0875}, -- same as gun_turret_attack shift
+						   -- shell_particle =
+						   --     {
+						   -- 	   name = "shell-particle",
+						   -- 	   direction_deviation = 0.1,
+						   -- 	   speed = 0.1,
+						   -- 	   speed_deviation = 0.03,
+						   -- 	   center = {-0.0625, 0},
+						   -- 	   creation_distance = -1.925,
+						   -- 	   starting_frame_speed = 0.2,
+						   -- 	   starting_frame_speed_deviation = 0.1
+						   --     },
+						   range = 18,
+						   sound = make_heavy_gunshot_sounds(),
+    })
 
     local capsuleTurretRecipe = makeRecipe({
 	    name = "capsule-turret",

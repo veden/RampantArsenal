@@ -4,6 +4,7 @@ local turretUtils = require("utils/TurretUtils")
 local recipeUtils = require("utils/RecipeUtils")
 local technologyUtils = require("utils/TechnologyUtils")
 
+local makeFluidTurret = turretUtils.makeFluidTurret
 local makeAmmoTurret = turretUtils.makeAmmoTurret
 local makeRecipe = recipeUtils.makeRecipe
 local makeTechnology = technologyUtils.makeTechnology
@@ -125,7 +126,27 @@ function cannons.enable()
 	preparedAnimation = cannonMkISheet(),
 	preparingAnimation = cannonMkISheet()
     }
-    local _,cannonTurretItem = makeAmmoTurret(entity, nil)
+    local _,cannonTurretItem = makeAmmoTurret(entity,
+					      {
+						  type = "projectile",
+						  ammo_category = "cannon-shell",
+						  cooldown = 45,
+						  projectile_creation_distance = 1.39375,
+						  projectile_center = {0, -0.0875}, -- same as gun_turret_attack shift
+						  -- shell_particle =
+						  --     {
+						  -- 	   name = "shell-particle",
+						  -- 	   direction_deviation = 0.1,
+						  -- 	   speed = 0.1,
+						  -- 	   speed_deviation = 0.03,
+						  -- 	   center = {-0.0625, 0},
+						  -- 	   creation_distance = -1.925,
+						  -- 	   starting_frame_speed = 0.2,
+						  -- 	   starting_frame_speed_deviation = 0.1
+						  --     },
+						  range = 18,
+						  sound = make_heavy_gunshot_sounds(),
+    })
 
     local entity1 = {
 	name = "rapid-cannon",
@@ -137,23 +158,85 @@ function cannons.enable()
 	preparedAnimation = cannonMkIISheet(),
 	foldingAnimation = cannonMkIIPlace(8, 4, 8, true)
     }
-    local _,rapidCannonTurretItem = makeAmmoTurret(entity1, nil)
+    local _,rapidCannonTurretItem = makeAmmoTurret(entity1, {
+						       type = "projectile",
+						       ammo_category = "cannon-shell",
+						       cooldown = 45,
+						       projectile_creation_distance = 1.39375,
+						       projectile_center = {0, -0.0875}, -- same as gun_turret_attack shift
+						       -- shell_particle =
+						       --     {
+						       -- 	   name = "shell-particle",
+						       -- 	   direction_deviation = 0.1,
+						       -- 	   speed = 0.1,
+						       -- 	   speed_deviation = 0.03,
+						       -- 	   center = {-0.0625, 0},
+						       -- 	   creation_distance = -1.925,
+						       -- 	   starting_frame_speed = 0.2,
+						       -- 	   starting_frame_speed_deviation = 0.1
+						       --     },
+						       range = 18,
+						       sound = make_heavy_gunshot_sounds(),
+    })
 
     
     local entity2 = {
-	name = "suppression-cannon",
-	icon = "__RampantArsenal__/graphics/icons/suppressionCannonTurret.png",
-	miningTime = 1,
-	health = 400,
-	collisionBox = {{-1.75, -1.75 }, {1.75, 1.75}},
-	selectionBox = {{-2, -2 }, {2, 2}},
-	foldedAnimation = largeCannonSheet(),
-	preparingAnimation = largeCannonSheet(),
-	preparedAnimation = largeCannonSheet(),
-	foldingAnimation = largeCannonSheet()
+    	name = "suppression-cannon",
+    	icon = "__RampantArsenal__/graphics/icons/suppressionCannonTurret.png",
+    	miningTime = 1,
+    	health = 400,
+    	-- collisionBox = {{-1.75, -1.75}, {1.75, 1.75}},
+    	-- selectionBox = {{-2, -2 }, {2, 2}},
+    	foldedAnimation = largeCannonSheet(),
+    	preparingAnimation = largeCannonSheet(),
+    	preparedAnimation = largeCannonSheet(),
+    	foldingAnimation = largeCannonSheet()
     }
-    local _,suppressionCannonTurretItem = makeAmmoTurret(entity2, nil)
+    local a,suppressionCannonTurretItem = makeFluidTurret(entity2 --,
+							  -- {
+    -- 							      type = "projectile",
+    -- 							      ammo_category = "cannon-shell",
+    -- 							      cooldown = 45,
+    -- 							      projectile_creation_distance = 1.39375,
+    -- 							      projectile_center = {0, -0.0875}, -- same as gun_turret_attack shift
+    -- 							      -- shell_particle =
+    -- 							      --     {
+    -- 							      -- 	   name = "shell-particle",
+    -- 							      -- 	   direction_deviation = 0.1,
+    -- 							      -- 	   speed = 0.1,
+    -- 							      -- 	   speed_deviation = 0.03,
+    -- 							      -- 	   center = {-0.0625, 0},
+    -- 							      -- 	   creation_distance = -1.925,
+    -- 							      -- 	   starting_frame_speed = 0.2,
+    -- 							      -- 	   starting_frame_speed_deviation = 0.1
+    -- 							      --     },
+    -- 							      range = 18,
+    -- 							      ammo_type =
+    -- 								  {
+    -- 								      type = "projectile",
+    -- 								      category = "cannon-shell",
+								      
+    -- 								      action =
+    -- 									  {
+    -- 									      {
+    -- 										  type = "direct",
+    -- 										  action_delivery =
+    -- 										      {
+    -- 											  {
+    -- 											      type = "projectile",
+    -- 											      projectile = "laser",
+    -- 											      starting_speed = 0.35
+    -- 											  }
+    -- 										      }
+    -- 									      }
+    -- 									  }
+    -- 								  },
+    -- 							      sound = make_heavy_gunshot_sounds(),
+    -- }
+    )
 
+    print(serpent.dump(data.raw["fluid-turret"][a]))
+    
     local entity3 = {
 	name = "shotgun-turret",
 	icon = "__RampantArsenal__/graphics/icons/shotgunTurret.png",
@@ -164,48 +247,67 @@ function cannons.enable()
 	preparedAnimation = shotgunTurretSheet(),
 	foldingAnimation = shotgunTurretSheet()
     }
-    local _,shotgunTurretItem = makeAmmoTurret(entity3, nil)
+    local _,shotgunTurretItem = makeAmmoTurret(entity3, {
+						   type = "projectile",
+						   ammo_category = "shotgun-shell",
+						   cooldown = 45,
+						   projectile_creation_distance = 1.39375,
+						   projectile_center = {0, -0.0875}, -- same as gun_turret_attack shift
+						   -- shell_particle =
+						   --     {
+						   -- 	   name = "shell-particle",
+						   -- 	   direction_deviation = 0.1,
+						   -- 	   speed = 0.1,
+						   -- 	   speed_deviation = 0.03,
+						   -- 	   center = {-0.0625, 0},
+						   -- 	   creation_distance = -1.925,
+						   -- 	   starting_frame_speed = 0.2,
+						   -- 	   starting_frame_speed_deviation = 0.1
+						   --     },
+						   range = 18,
+						   sound = make_heavy_gunshot_sounds(),
+    })
 
     local cannonRecipe = makeRecipe({
-		name = "cannon",
-		icon = "__RampantArsenal__/graphics/icons/cannonTurret.png",
-		enabled = true,
-		ingredients = {
-		    {"steel-plate", 1}
-		},
-		result = cannonTurretItem,
+	    name = "cannon",
+	    icon = "__RampantArsenal__/graphics/icons/cannonTurret.png",
+	    enabled = true,
+	    ingredients = {
+		{"steel-plate", 1}
+	    },
+	    result = cannonTurretItem,
     })
 
     local rapidCannonRecipe = makeRecipe({
-		name = "rapid-cannon",
-		icon = "__RampantArsenal__/graphics/icons/rapidCannonTurret.png",
-		enabled = true,
-		ingredients = {
-		    {"steel-plate", 1}
-		},
-		result = rapidCannonTurretItem,
+	    name = "rapid-cannon",
+	    icon = "__RampantArsenal__/graphics/icons/rapidCannonTurret.png",
+	    enabled = true,
+	    ingredients = {
+		{"steel-plate", 1}
+	    },
+	    result = rapidCannonTurretItem,
     })
 
     local suppresionCannonRecipe = makeRecipe({
-		name = "suppression-cannon",	
-		icon = "__RampantArsenal__/graphics/icons/suppressionCannonTurret.png",
-		enabled = true,
-		ingredients = {
-		    {"steel-plate", 1}
-		},
-		result = suppressionCannonTurretItem,
+    	    name = "suppression-cannon",	
+    	    icon = "__RampantArsenal__/graphics/icons/suppressionCannonTurret.png",
+    	    enabled = true,
+    	    ingredients = {
+    		{"steel-plate", 1}
+    	    },
+    	    result = suppressionCannonTurretItem,
     })
 
     local shotgunTurretRecipe = makeRecipe({
-		name = "shotgun-turret",	
-		icon = "__RampantArsenal__/graphics/icons/shotgunTurret.png",
-		enabled = true,
-		ingredients = {
-		    {"steel-plate", 1}
-		},
-		result = shotgunTurretItem,
+	    name = "shotgun-turret",	
+	    icon = "__RampantArsenal__/graphics/icons/shotgunTurret.png",
+	    enabled = true,
+	    ingredients = {
+		{"steel-plate", 1}
+	    },
+	    result = shotgunTurretItem,
 
-	})
+    })
     
     local cannonTech = makeTechnology({
 	    name = "cannon-turret-1",
@@ -260,23 +362,23 @@ function cannons.enable()
     })
 
     makeTechnology({
-	    name = "cannon-turret-3",
-	    prerequisites = {"military-4", "advanced-electronics-2", rapidCannonTech},
-	    effects = {
-		{
-		    type = "unlock-recipe",
-		    recipe = suppresionCannonRecipe,
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
-	    },
-	    count = 2000,
-	    time = 30
+    	    name = "cannon-turret-3",
+    	    prerequisites = {"military-4", "advanced-electronics-2", rapidCannonTech},
+    	    effects = {
+    		{
+    		    type = "unlock-recipe",
+    		    recipe = suppresionCannonRecipe,
+    		}
+    	    },
+    	    ingredients = {
+    		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+    		{"science-pack-3", 1},
+    		{"military-science-pack", 1},
+    		{"high-tech-science-pack", 1}
+    	    },
+    	    count = 2000,
+    	    time = 30
     })
 end
 

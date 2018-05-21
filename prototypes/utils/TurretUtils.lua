@@ -1,5 +1,80 @@
 local turretUtils = {}
 
+require "util"
+
+
+
+local function foreach(table_, fun_)
+    for k, tab in pairs(table_) do fun_(tab) end
+    return table_
+end
+
+
+local indicator_pictures =
+    {
+	north = {
+	    filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-north.png",
+	    line_length = 2,
+	    width = 5,
+	    height = 9,
+	    frame_count = 2,
+	    axially_symmetrical = false,
+	    direction_count = 1,
+	    shift = {0.234375, 0.640625},
+	},
+	east = {
+	    filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-east.png",
+	    line_length = 2,
+	    width = 10,
+	    height = 6,
+	    frame_count = 2,
+	    axially_symmetrical = false,
+	    direction_count = 1,
+	    shift = {-1.03125, -0.15625},
+	},
+	south = {
+	    filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-south.png",
+	    line_length = 2,
+	    width = 5,
+	    height = 8,
+	    frame_count = 2,
+	    axially_symmetrical = false,
+	    direction_count = 1,
+	    shift = {-0.234375, -1.375},
+	},
+	west = {
+	    filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-west.png",
+	    line_length = 2,
+	    width = 10,
+	    height = 6,
+	    frame_count = 2,
+	    axially_symmetrical = false,
+	    direction_count = 1,
+	    shift = {1.03125, -0.46875},
+	},
+    }
+
+local function set_shift(shift, tab)
+    tab.shift = shift
+    if tab.hr_version then
+	tab.hr_version.shift = shift
+    end
+    return tab
+end
+
+
+local function flamethrower_turret_pipepictures()
+    local pipe_sprites = pipepictures()
+
+    return {
+	north = set_shift({0, 1}, util.table.deepcopy(pipe_sprites.straight_vertical)),
+	south = set_shift({0, -1}, util.table.deepcopy(pipe_sprites.straight_vertical)),
+	east = set_shift({-1, 0}, util.table.deepcopy(pipe_sprites.straight_horizontal)),
+	west = set_shift({1, 0}, util.table.deepcopy(pipe_sprites.straight_horizontal))
+    }
+end
+
+
 function turretUtils.makeAmmoTurret(attributes, attack)
     local name = attributes.name .. "-ammo-turret-rampant-arsenal"
     local itemName = attributes.name .. "-item-rampant-arsenal"
@@ -67,6 +142,168 @@ function turretUtils.makeAmmoTurret(attributes, attack)
 			sound = make_heavy_gunshot_sounds(),
 		    },
 
+		call_for_help_radius = 40
+	    }
+    })
+
+    return name, itemName
+end
+
+function turretUtils.makeFluidTurret(attributes, attack)
+    local name = attributes.name .. "-fluid-turret-rampant-arsenal"
+    local itemName = attributes.name .. "-item-rampant-arsenal"
+
+    data:extend({
+	    {
+		type = "item",
+		name = itemName,
+		icon = attributes.icon or "__base__/graphics/icons/gun-turret.png",
+		icon_size = 32,
+		flags = attributes.itemFlags or {"goes-to-quickbar"},
+		subgroup = attributes.subgroup or "defensive-structure",
+		order = attributes.order or "b[turret]-a[gun-turret]",
+		place_result = name,
+		stack_size = attributes.stackSize or 50
+	    },
+	    {
+		type = "fluid-turret",
+		name = name,
+		icon = attributes.icon or "__base__/graphics/icons/flamethrower-turret.png",
+		icon_size = 32,
+		flags = {"placeable-player", "player-creation"},
+		minable = {mining_time = attributes.time or 0.5, result = itemName},
+		max_health = attributes.health or 1400,
+		corpse = "medium-remnants",
+		collision_box = {{-0.29, -0.79}, {0.29, 0.79}},
+		selection_box = {{-0.5, -1}, {0.5, 1}},
+		-- collision_box = {{-0.7, -1.2 }, {0.7, 1.2}},
+		-- selection_box =  {{-1, -1.5 }, {1, 1.5}},
+		rotation_speed = attributes.rotationSpeed or 0.015,
+		preparing_speed = attributes.preparingSpeed or 0.08,
+		folding_speed = attributes.foldingSpeed or 0.08,
+		attacking_speed = attributes.attackingSpeed or 1,
+		ending_attack_speed = attributes.attackingEndSpeed or 0.2,
+		dying_explosion = "medium-explosion",
+		inventory_size = 1,
+		automated_ammo_count = 10,
+		attacking_animation_fade_out = 10,
+		turret_base_has_direction = true,
+
+		resistances =
+		    {
+			{
+			    type = "fire",
+			    percent = 100,
+			},
+		    },
+
+		fluid_box = attributes.fluidBox or
+		    {
+			pipe_picture = flamethrower_turret_pipepictures(),
+			pipe_covers = pipecoverspictures(),
+			base_area = 1,
+			pipe_connections = {
+			    { position = {-0, -0} },
+			    -- { position = {2, 1} },
+			    -- { position = {1, 2} },
+			    -- { position = {-2, -1} },
+			}
+		    },
+		fluid_buffer_size = attributes.fluidBuffer or 100,
+		fluid_buffer_input_flow = attributes.fluidBufferFlow or 250 / 60 / 5, -- 5s to fill the buffer
+		activation_buffer_ratio = attributes.fluidBufferRation or 0.25,
+
+		folded_animation = attributes.foldedAnimation,
+
+		preparing_animation = attributes.preparingAnimation,
+		prepared_animation = attributes.preparedAnimation,
+		attacking_animation = attributes.attackingAnimation,
+		ending_attack_animation = attributes.attackingAnimation,
+
+		-- base_picture = {
+		--     north = attributes.preparingAnimation,
+		--     east = attributes.preparingAnimation,
+		--     south = attributes.preparingAnimation,
+		--     west = attributes.preparingAnimation,
+		-- },
+		
+		folding_animation = attributes.foldingAnimation,
+
+		not_enough_fuel_indicator_picture = indicator_pictures,
+		enough_fuel_indicator_picture = foreach(util.table.deepcopy(indicator_pictures), function (tab) tab.x = tab.width end),
+		indicator_light = { intensity = 0.8, size = 0.9 },
+		
+		vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+
+		prepare_range = attributes.prepareRange or 35,
+		shoot_in_prepare_state = false,
+		attack_parameters = attack or 
+		    {
+			type = "stream",
+			ammo_category = "flamethrower",
+			cooldown = 4,
+			range = 30,
+			min_range = 6,
+
+			turn_range = 1.0/3.0,
+			fire_penalty = 15,
+
+			fluids = {
+			    {type = "crude-oil"},
+			    {type = "heavy-oil", damage_modifier = 1.05},
+			    {type = "light-oil", damage_modifier = 1.1}
+			},
+			fluid_consumption = 0.2,
+
+			gun_center_shift = {
+			    north = {0, -0.65},
+			    east = {0, 0},
+			    south = {0, 0},
+			    west = {0, 0}
+			},
+			gun_barrel_length = 0.4,
+
+			ammo_type =
+			    {
+				category = "flamethrower",
+				action =
+				    {
+					type = "direct",
+					action_delivery =
+					    {
+						type = "stream",
+						stream = "flamethrower-fire-stream",
+						duration = 160,
+						source_offset = {0.15, -0.5},
+					    }
+				    }
+			    },
+
+			cyclic_sound =
+			    {
+				begin_sound =
+				    {
+					{
+					    filename = "__base__/sound/fight/flamethrower-start.ogg",
+					    volume = 0.7
+					}
+				    },
+				middle_sound =
+				    {
+					{
+					    filename = "__base__/sound/fight/flamethrower-mid.ogg",
+					    volume = 0.7
+					}
+				    },
+				end_sound =
+				    {
+					{
+					    filename = "__base__/sound/fight/flamethrower-end.ogg",
+					    volume = 0.7
+					}
+				    }
+			    }
+		    }, -- {0,  0.625}
 		call_for_help_radius = 40
 	    }
     })
