@@ -1,9 +1,9 @@
 local turrets = {}
 
-local capsules = require("buildings/Capsules")
-local cannons = require("buildings/Cannons")
-local rockets = require("buildings/Rockets")
-local lasers = require("buildings/Lasers")
+local capsules = require("Capsules")
+local cannons = require("Cannons")
+local rockets = require("Rockets")
+local lasers = require("Lasers")
 
 local enableRockets = rockets.enable
 local enableLasers = lasers.enable
@@ -16,5 +16,6 @@ function turrets.addTurrets()
     enableLasers()
     enableCannons()
 end
+
 
 return turrets
