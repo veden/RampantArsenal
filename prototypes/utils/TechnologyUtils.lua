@@ -1,5 +1,12 @@
 local technologyUtils = {}
 
+function technologyUtils.addEffectToTech(tech, recipe)
+    local t = data.raw["technology"][tech]
+    if t then
+	t.effects[#t.effects+1] = recipe
+    end
+end
+
 function technologyUtils.makeTechnology(attributes)
     local name = attributes.name .. "-technology-rampant-arsenal"
     data:extend({

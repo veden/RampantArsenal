@@ -10,6 +10,6 @@ local addAlienResource = aliens.addAlienResource
 
 -- moduld code
 
-addAlienResource()
+-- addAlienResource()
 addTurrets()
 

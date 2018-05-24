@@ -130,21 +130,23 @@ function cannons.enable()
 					      {
 						  type = "projectile",
 						  ammo_category = "cannon-shell",
-						  cooldown = 45,
+						  cooldown = 150,
+						  damage_modifier = 2,
 						  projectile_creation_distance = 1.39375,
+						  turn_range = 0.40,
 						  projectile_center = {0, -0.0875}, -- same as gun_turret_attack shift
-						  -- shell_particle =
-						  --     {
-						  -- 	   name = "shell-particle",
-						  -- 	   direction_deviation = 0.1,
-						  -- 	   speed = 0.1,
-						  -- 	   speed_deviation = 0.03,
-						  -- 	   center = {-0.0625, 0},
-						  -- 	   creation_distance = -1.925,
-						  -- 	   starting_frame_speed = 0.2,
-						  -- 	   starting_frame_speed_deviation = 0.1
-						  --     },
-						  range = 18,
+						  shell_particle =
+						      {
+						  	   name = "shell-particle",
+						  	   direction_deviation = 0.1,
+						  	   speed = 0.01,
+						  	   speed_deviation = 0.03,
+						  	   center = {-0.0625, 0},
+						  	   creation_distance = -1.925,
+						  	   starting_frame_speed = 0.2,
+						  	   starting_frame_speed_deviation = 0.1
+						      },
+						  range = 30,
 						  sound = make_heavy_gunshot_sounds(),
     })
 
@@ -161,7 +163,8 @@ function cannons.enable()
     local _,rapidCannonTurretItem = makeAmmoTurret(entity1, {
 						       type = "projectile",
 						       ammo_category = "cannon-shell",
-						       cooldown = 45,
+						       cooldown = 30,
+						       turn_range = 0.40,
 						       projectile_creation_distance = 1.39375,
 						       projectile_center = {0, -0.0875}, -- same as gun_turret_attack shift
 						       -- shell_particle =
@@ -175,7 +178,7 @@ function cannons.enable()
 						       -- 	   starting_frame_speed = 0.2,
 						       -- 	   starting_frame_speed_deviation = 0.1
 						       --     },
-						       range = 18,
+						       range = 30,
 						       sound = make_heavy_gunshot_sounds(),
     })
 
@@ -185,15 +188,21 @@ function cannons.enable()
     	icon = "__RampantArsenal__/graphics/icons/suppressionCannonTurret.png",
     	miningTime = 1,
     	health = 400,
-    	-- collisionBox = {{-1.75, -1.75}, {1.75, 1.75}},
-    	-- selectionBox = {{-2, -2 }, {2, 2}},
+    	collisionBox = {{-1.7, -2.2 }, {1.7, 2.2}},
+    	selectionBox = {{-2, -2.5 }, {2, 2.5}},
+	pipeConnections = {
+	    { position = {-2.5, 2.0} },
+	    { position = {2.5, 2.0} }
+	},
     	foldedAnimation = largeCannonSheet(),
     	preparingAnimation = largeCannonSheet(),
     	preparedAnimation = largeCannonSheet(),
     	foldingAnimation = largeCannonSheet()
     }
-    local a,suppressionCannonTurretItem = makeFluidTurret(entity2 --,
-							  -- {
+    local a,suppressionCannonTurretItem = makeFluidTurret(entity2     )
+
+    --,
+    -- {
     -- 							      type = "projectile",
     -- 							      ammo_category = "cannon-shell",
     -- 							      cooldown = 45,
@@ -215,7 +224,7 @@ function cannons.enable()
     -- 								  {
     -- 								      type = "projectile",
     -- 								      category = "cannon-shell",
-								      
+    
     -- 								      action =
     -- 									  {
     -- 									      {
@@ -233,9 +242,7 @@ function cannons.enable()
     -- 								  },
     -- 							      sound = make_heavy_gunshot_sounds(),
     -- }
-    )
 
-    print(serpent.dump(data.raw["fluid-turret"][a]))
     
     local entity3 = {
 	name = "shotgun-turret",
@@ -251,6 +258,7 @@ function cannons.enable()
 						   type = "projectile",
 						   ammo_category = "shotgun-shell",
 						   cooldown = 45,
+						   damage_modifier = 1.5,
 						   projectile_creation_distance = 1.39375,
 						   projectile_center = {0, -0.0875}, -- same as gun_turret_attack shift
 						   -- shell_particle =
@@ -363,7 +371,7 @@ function cannons.enable()
 
     makeTechnology({
     	    name = "cannon-turret-3",
-    	    prerequisites = {"military-4", "advanced-electronics-2", rapidCannonTech},
+    	    prerequisites = {"flamethrower-damage-2", "military-4", "advanced-electronics-2"},
     	    effects = {
     		{
     		    type = "unlock-recipe",

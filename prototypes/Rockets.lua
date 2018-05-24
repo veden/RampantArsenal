@@ -68,7 +68,7 @@ function rockets.enable()
 					       {
 						   type = "projectile",
 						   ammo_category = "rocket",
-						   cooldown = 45,
+						   cooldown = 150,
 						   projectile_creation_distance = 1.39375,
 						   projectile_center = {0, -0.0875}, -- same as gun_turret_attack shift
 						   -- shell_particle =
@@ -82,7 +82,7 @@ function rockets.enable()
 						   -- 	   starting_frame_speed = 0.2,
 						   -- 	   starting_frame_speed_deviation = 0.1
 						   --     },
-						   range = 18,
+						   range = 45,
 						   sound = make_heavy_gunshot_sounds(),
     })
 
@@ -99,7 +99,7 @@ function rockets.enable()
     local _, rapidRocketTurretItem = makeAmmoTurret(entity1, {
 							type = "projectile",
 							ammo_category = "rocket",
-							cooldown = 45,
+							cooldown = 50,
 							projectile_creation_distance = 1.39375,
 							projectile_center = {0, -0.0875}, -- same as gun_turret_attack shift
 							-- shell_particle =
@@ -113,7 +113,7 @@ function rockets.enable()
 							-- 	   starting_frame_speed = 0.2,
 							-- 	   starting_frame_speed_deviation = 0.1
 							--     },
-							range = 18,
+							range = 35,
 							sound = make_heavy_gunshot_sounds(),
     })
 

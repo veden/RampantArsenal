@@ -20,7 +20,7 @@ local indicator_pictures =
 	    frame_count = 2,
 	    axially_symmetrical = false,
 	    direction_count = 1,
-	    shift = {0.234375, 0.640625},
+	    shift = {0.5, 1},
 	},
 	east = {
 	    filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-east.png",
@@ -30,7 +30,7 @@ local indicator_pictures =
 	    frame_count = 2,
 	    axially_symmetrical = false,
 	    direction_count = 1,
-	    shift = {-1.03125, -0.15625},
+	    shift = {0.5, 1},
 	},
 	south = {
 	    filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-south.png",
@@ -40,7 +40,7 @@ local indicator_pictures =
 	    frame_count = 2,
 	    axially_symmetrical = false,
 	    direction_count = 1,
-	    shift = {-0.234375, -1.375},
+	    shift = {0.5, 1},
 	},
 	west = {
 	    filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-west.png",
@@ -50,7 +50,7 @@ local indicator_pictures =
 	    frame_count = 2,
 	    axially_symmetrical = false,
 	    direction_count = 1,
-	    shift = {1.03125, -0.46875},
+	    shift = {0.5, 1},
 	},
     }
 
@@ -166,6 +166,108 @@ function turretUtils.makeFluidTurret(attributes, attack)
 		stack_size = attributes.stackSize or 50
 	    },
 	    {
+		type = "stream",
+		name = "flamethrower-fire-stream2",
+		flags = {"not-on-map"},
+		stream_light = {intensity = 1, size = 4},
+		ground_light = {intensity = 0.8, size = 4},
+
+		smoke_sources =
+		    {
+			{
+			    name = "soft-fire-smoke",
+			    frequency = 0.05, --0.25,
+			    position = {0.0, 0}, -- -0.8},
+			    starting_frame_deviation = 60
+			}
+		    },
+		particle_buffer_size = 10,
+		particle_spawn_interval = 2,
+		particle_spawn_timeout = 8,
+		particle_vertical_acceleration = 0.005 * 0.60,
+		particle_horizontal_speed = 0.2* 0.75 * 5,
+		particle_horizontal_speed_deviation = 0.005 * 0.70,
+		particle_start_alpha = 0.5,
+		particle_end_alpha = 1,
+		particle_start_scale = 0.2,
+		particle_loop_frame_count = 3,
+		particle_fade_out_threshold = 0.9,
+		particle_loop_exit_threshold = 0.25,
+		action =
+		    {
+			{
+			    type = "direct",
+			    action_delivery =
+				{
+				    type = "instant",
+				    target_effects =
+					{
+					    {
+						type = "create-fire",
+						entity_name = "fire-flame"
+					    }
+					}
+				}
+			},
+			{
+			    type = "area",
+			    radius = 2.5,
+			    action_delivery =
+				{
+				    type = "instant",
+				    target_effects =
+					{
+					    {
+						type = "create-sticker",
+						sticker = "fire-sticker"
+					    },
+					    {
+						type = "damage",
+						damage = { amount = 3, type = "fire" },
+						apply_damage_to_trees = false
+					    }
+					}
+				}
+			}
+		    },
+
+		spine_animation =
+		    {
+			filename = "__base__/graphics/entity/flamethrower-fire-stream/flamethrower-fire-stream-spine.png",
+			blend_mode = "additive",
+			--tint = {r=1, g=1, b=1, a=0.5},
+			line_length = 4,
+			width = 32,
+			height = 18,
+			frame_count = 32,
+			axially_symmetrical = false,
+			direction_count = 1,
+			animation_speed = 2,
+			shift = {0, 0},
+		    },
+
+		shadow =
+		    {
+			filename = "__base__/graphics/entity/acid-projectile-purple/acid-projectile-purple-shadow.png",
+			line_length = 5,
+			width = 28,
+			height = 16,
+			frame_count = 33,
+			priority = "high",
+			shift = {-0.09, 0.395}
+		    },
+
+		particle =
+		    {
+			filename = "__base__/graphics/entity/flamethrower-fire-stream/flamethrower-explosion.png",
+			priority = "extra-high",
+			width = 64,
+			height = 64,
+			frame_count = 32,
+			line_length = 8
+		    },
+	    },
+	    {
 		type = "fluid-turret",
 		name = name,
 		icon = attributes.icon or "__base__/graphics/icons/flamethrower-turret.png",
@@ -174,10 +276,8 @@ function turretUtils.makeFluidTurret(attributes, attack)
 		minable = {mining_time = attributes.time or 0.5, result = itemName},
 		max_health = attributes.health or 1400,
 		corpse = "medium-remnants",
-		collision_box = {{-0.29, -0.79}, {0.29, 0.79}},
-		selection_box = {{-0.5, -1}, {0.5, 1}},
-		-- collision_box = {{-0.7, -1.2 }, {0.7, 1.2}},
-		-- selection_box =  {{-1, -1.5 }, {1, 1.5}},
+		collision_box = attributes.collisionBox or {{-1.7, -2.2 }, {1.7, 2.2}},
+		selection_box = attributes.selectionBox or {{-2, -2.5 }, {2, 2.5}},
 		rotation_speed = attributes.rotationSpeed or 0.015,
 		preparing_speed = attributes.preparingSpeed or 0.08,
 		folding_speed = attributes.foldingSpeed or 0.08,
@@ -197,17 +297,17 @@ function turretUtils.makeFluidTurret(attributes, attack)
 			},
 		    },
 
-		fluid_box = attributes.fluidBox or
+		fluid_box = 
 		    {
 			pipe_picture = flamethrower_turret_pipepictures(),
+			render_layer = "lower-object",
+			secondary_draw_order = 0,
 			pipe_covers = pipecoverspictures(),
 			base_area = 1,
-			pipe_connections = {
-			    { position = {-0, -0} },
-			    -- { position = {2, 1} },
-			    -- { position = {1, 2} },
-			    -- { position = {-2, -1} },
-			}
+			pipe_connections = attributes.pipeConnections or {
+			    { position = {-2.5, 2.0} },
+			    { position = {2.5, 2.0} }
+									 }
 		    },
 		fluid_buffer_size = attributes.fluidBuffer or 100,
 		fluid_buffer_input_flow = attributes.fluidBufferFlow or 250 / 60 / 5, -- 5s to fill the buffer
@@ -217,15 +317,6 @@ function turretUtils.makeFluidTurret(attributes, attack)
 
 		preparing_animation = attributes.preparingAnimation,
 		prepared_animation = attributes.preparedAnimation,
-		attacking_animation = attributes.attackingAnimation,
-		ending_attack_animation = attributes.attackingAnimation,
-
-		-- base_picture = {
-		--     north = attributes.preparingAnimation,
-		--     east = attributes.preparingAnimation,
-		--     south = attributes.preparingAnimation,
-		--     west = attributes.preparingAnimation,
-		-- },
 		
 		folding_animation = attributes.foldingAnimation,
 
@@ -235,18 +326,18 @@ function turretUtils.makeFluidTurret(attributes, attack)
 		
 		vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
 
-		prepare_range = attributes.prepareRange or 35,
+		prepare_range = attributes.prepareRange or 55,
 		shoot_in_prepare_state = false,
 		attack_parameters = attack or 
 		    {
 			type = "stream",
 			ammo_category = "flamethrower",
 			cooldown = 4,
-			range = 30,
+			range = 45,
 			min_range = 6,
 
 			turn_range = 1.0/3.0,
-			fire_penalty = 15,
+			fire_penalty = 30,
 
 			fluids = {
 			    {type = "crude-oil"},
@@ -268,12 +359,15 @@ function turretUtils.makeFluidTurret(attributes, attack)
 				category = "flamethrower",
 				action =
 				    {
-					type = "direct",
+					type = "line",
+					range = 45,
+					force = "enemy",
+					width = 20,
 					action_delivery =
 					    {
 						type = "stream",
-						stream = "flamethrower-fire-stream",
-						duration = 160,
+						stream = "flamethrower-fire-stream2",
+						duration = 10,
 						source_offset = {0.15, -0.5},
 					    }
 				    }
