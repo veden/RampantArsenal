@@ -122,8 +122,9 @@ function rockets.enable()
 
     
     local rocketTurretTech = makeTechnology({
-	    name = "rocket-turret",
+	    name = "rocket-turret-1",
 	    prerequisites = {"turrets", "military-2", "rocketry"},
+	    icon = "__RampantArsenal__/graphics/technology/rocket-turrets.png",
 	    effects = {
 		{
 		    type = "unlock-recipe",
@@ -140,8 +141,9 @@ function rockets.enable()
     })
 
     makeTechnology({
-	    name = "rapid-rocket-turret",
+	    name = "rocket-turret-2",
 	    prerequisites = {"rocket-speed-1", "explosive-rocketry", "advanced-electronics-2", "military-3", rocketTurretTech, "engine"},
+	    icon = "__RampantArsenal__/graphics/technology/rocket-turrets.png",
 	    effects = {
 		{
 		    type = "unlock-recipe",
@@ -161,6 +163,7 @@ function rockets.enable()
     local t1 = makeTechnology({
 	    name = "rocket-turret-damage-1",
 	    prerequisites = {rocketTurretTech},
+	    icon = "__RampantArsenal__/graphics/technology/rocket-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -183,6 +186,7 @@ function rockets.enable()
     local t2 = makeTechnology({
 	    name = "rocket-turret-damage-2",
 	    prerequisites = {t1},
+	    icon = "__RampantArsenal__/graphics/technology/rocket-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -205,6 +209,7 @@ function rockets.enable()
     local t3 = makeTechnology({
 	    name = "rocket-turret-damage-3",
 	    prerequisites = {t2},
+	    icon = "__RampantArsenal__/graphics/technology/rocket-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -232,6 +237,7 @@ function rockets.enable()
     local t4 = makeTechnology({
 	    name = "rocket-turret-damage-4",
 	    prerequisites = {t3},
+	    icon = "__RampantArsenal__/graphics/technology/rocket-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -261,6 +267,7 @@ function rockets.enable()
     local t5 = makeTechnology({
 	    name = "rocket-turret-damage-5",
 	    prerequisites = {t4},
+	    icon = "__RampantArsenal__/graphics/technology/rocket-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -289,6 +296,7 @@ function rockets.enable()
     local t6 = makeTechnology({
 	    name = "rocket-turret-damage-6",
 	    prerequisites = {t5},
+	    icon = "__RampantArsenal__/graphics/technology/rocket-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -317,6 +325,7 @@ function rockets.enable()
     makeTechnology({
 	    name = "rocket-turret-damage-7",
 	    prerequisites = {t6},
+	    icon = "__RampantArsenal__/graphics/technology/rocket-turret-damage.png",
 	    upgrade = true,
 	    maxLevel = "infinite",
 	    effects = {

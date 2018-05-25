@@ -1,5 +1,0 @@
-local tech = {}
-
-
-
-return tech

@@ -4,7 +4,7 @@
     "version" : "0.16.0",
     "title" : "Rampant Arsenal",
     "author" : "Veden",
-    "homepage" : "",
-    "description" : "",
-    "dependencies" : ["base >= 0.16.43"]
+    "homepage" : "https://forums.factorio.com/viewtopic.php?f=190&t=60626",
+    "description" : "Adds a variety of turrets to wage war.",
+    "dependencies" : ["base >= 0.16.36"]
 }

@@ -103,4 +103,4 @@ script.on_load(onLoad)
 script.on_event(defines.events.on_runtime_mod_setting_changed, onModSettingsChange)
 script.on_configuration_changed(onConfigChanged)
 
-script.on_event(defines.events.on_entity_died, onDeath)
+--script.on_event(defines.events.on_entity_died, onDeath)

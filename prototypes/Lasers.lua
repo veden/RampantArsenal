@@ -245,6 +245,7 @@ function lasers.enable()
     local lightningTurretTech = makeTechnology({
 	    name = "lightning",
 	    prerequisites = {"laser-turrets", "military-3"},
+	    icon = "__RampantArsenal__/graphics/technology/lightning-turrets.png",
 	    effects = {
 		{
 		    type = "unlock-recipe",
@@ -263,7 +264,8 @@ function lasers.enable()
     
     makeTechnology({
 	    name = "advanced-laser-turret",
-	    prerequisites = {"laser-turret-damage-2", "advanced-electronics-2", "military-4", lightningTurretTech},
+	    icon = "__base__/graphics/technology/laser-turrets.png",
+	    prerequisites = {"laser-turret-damage-2", "advanced-electronics-2", "military-4", "electric-engine"},
 	    effects = {
 		{
 		    type = "unlock-recipe",

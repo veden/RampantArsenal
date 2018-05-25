@@ -377,6 +377,7 @@ function cannons.enable()
     local cannonTech = makeTechnology({
 	    name = "cannon-turret-1",
 	    prerequisites = {"turrets","tanks","concrete","steel-processing"},
+	    icon = "__RampantArsenal__/graphics/technology/cannon-turrets.png",
 	    effects = {
 		{
 		    type = "unlock-recipe",
@@ -396,6 +397,7 @@ function cannons.enable()
     local rapidCannonTech = makeTechnology({
 	    name = "cannon-turret-2",
 	    prerequisites = {"explosives", "cannon-shell-speed-1", cannonTech},
+	    icon = "__RampantArsenal__/graphics/technology/cannon-turrets.png",
 	    effects = {
 		{
 		    type = "unlock-recipe",
@@ -415,6 +417,7 @@ function cannons.enable()
     makeTechnology({
 	    name = "shotgun",
 	    prerequisites = {"turrets","steel-processing"},
+	    icon = "__RampantArsenal__/graphics/technology/shotgun-turrets.png",
 	    effects = {
 		{
 		    type = "unlock-recipe",
@@ -428,7 +431,8 @@ function cannons.enable()
 
     makeTechnology({
     	    name = "flamethrower",
-    	    prerequisites = {"flamethrower-damage-2", "military-4", "advanced-electronics-2"},
+    	    prerequisites = {"flamethrower-damage-2", "military-4", "advanced-electronics-2", "concrete"},
+	    icon = "__base__/graphics/technology/flamethrower.png",
     	    effects = {
     		{
     		    type = "unlock-recipe",
@@ -450,6 +454,7 @@ function cannons.enable()
     local r1 = makeTechnology({
 	    name = "shotgun-turret-damage-1",
 	    prerequisites = {cannonTech},
+	    icon = "__RampantArsenal__/graphics/technology/shotgun-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -469,6 +474,7 @@ function cannons.enable()
     local r2 = makeTechnology({
 	    name = "shotgun-turret-damage-2",
 	    prerequisites = {r1},
+	    icon = "__RampantArsenal__/graphics/technology/shotgun-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -489,6 +495,7 @@ function cannons.enable()
     local r3 = makeTechnology({
 	    name = "shotgun-turret-damage-3",
 	    prerequisites = {r2},
+	    icon = "__RampantArsenal__/graphics/technology/shotgun-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -510,6 +517,7 @@ function cannons.enable()
     local r4 = makeTechnology({
 	    name = "shotgun-turret-damage-4",
 	    prerequisites = {r3},
+	    icon = "__RampantArsenal__/graphics/technology/shotgun-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -532,6 +540,7 @@ function cannons.enable()
     local r5 = makeTechnology({
 	    name = "shotgun-turret-damage-5",
 	    prerequisites = {r4},
+	    icon = "__RampantArsenal__/graphics/technology/shotgun-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -554,6 +563,7 @@ function cannons.enable()
     local r6 = makeTechnology({
 	    name = "shotgun-turret-damage-6",
 	    prerequisites = {r5},
+	    icon = "__RampantArsenal__/graphics/technology/shotgun-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -577,6 +587,7 @@ function cannons.enable()
     makeTechnology({
 	    name = "shotgun-turret-damage-7",
 	    prerequisites = {r6},
+	    icon = "__RampantArsenal__/graphics/technology/shotgun-turret-damage.png",
 	    upgrade = true,
 	    maxLevel = "infinite",
 	    effects = {
@@ -603,6 +614,7 @@ function cannons.enable()
     local t1 = makeTechnology({
 	    name = "cannon-turret-damage-1",
 	    prerequisites = {cannonTech},
+	    icon = "__RampantArsenal__/graphics/technology/cannon-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -625,6 +637,7 @@ function cannons.enable()
     local t2 = makeTechnology({
 	    name = "cannon-turret-damage-2",
 	    prerequisites = {t1},
+	    icon = "__RampantArsenal__/graphics/technology/cannon-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -647,6 +660,7 @@ function cannons.enable()
     local t3 = makeTechnology({
 	    name = "cannon-turret-damage-3",
 	    prerequisites = {t2},
+	    icon = "__RampantArsenal__/graphics/technology/cannon-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -674,6 +688,7 @@ function cannons.enable()
     local t4 = makeTechnology({
 	    name = "cannon-turret-damage-4",
 	    prerequisites = {t3},
+	    icon = "__RampantArsenal__/graphics/technology/cannon-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -703,6 +718,7 @@ function cannons.enable()
     local t5 = makeTechnology({
 	    name = "cannon-turret-damage-5",
 	    prerequisites = {t4},
+	    icon = "__RampantArsenal__/graphics/technology/cannon-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -731,6 +747,7 @@ function cannons.enable()
     local t6 = makeTechnology({
 	    name = "cannon-turret-damage-6",
 	    prerequisites = {t5},
+	    icon = "__RampantArsenal__/graphics/technology/cannon-turret-damage.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -759,6 +776,7 @@ function cannons.enable()
     makeTechnology({
 	    name = "cannon-turret-damage-7",
 	    prerequisites = {t6},
+	    icon = "__RampantArsenal__/graphics/technology/cannon-turret-damage.png",
 	    upgrade = true,
 	    maxLevel = "infinite",
 	    effects = {

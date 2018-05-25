@@ -577,6 +577,7 @@ function capsules.enable()
     local capsuleTurretTech = makeTechnology({
 	    name = "capsule-turret",
 	    prerequisites = {"turrets", "military-3", "explosives"},
+	    icon = "__RampantArsenal__/graphics/technology/capsule-turrets.png",
 	    effects = {
 		{
 		    type = "unlock-recipe",
@@ -608,6 +609,7 @@ function capsules.enable()
     local t1 = makeTechnology({
 	    name = "capsule-turret-speed-1",
 	    prerequisites = {capsuleTurretTech},
+	    icon = "__RampantArsenal__/graphics/technology/capsule-turret-speed.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -627,8 +629,9 @@ function capsules.enable()
     })
 
     local t2 = makeTechnology({
-	    name = "capsule-turret-speed-2",
+	    name = "capsule-turret-speed-2",	    
 	    prerequisites = {t1},
+	    icon = "__RampantArsenal__/graphics/technology/capsule-turret-speed.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -650,6 +653,7 @@ function capsules.enable()
     local t3 = makeTechnology({
 	    name = "capsule-turret-speed-3",
 	    prerequisites = {t2},
+	    icon = "__RampantArsenal__/graphics/technology/capsule-turret-speed.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -671,6 +675,7 @@ function capsules.enable()
     local t4 = makeTechnology({
 	    name = "capsule-turret-speed-4",
 	    prerequisites = {t3},
+	    icon = "__RampantArsenal__/graphics/technology/capsule-turret-speed.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -694,6 +699,7 @@ function capsules.enable()
     local t5 = makeTechnology({
 	    name = "capsule-turret-speed-5",
 	    prerequisites = {t4},
+	    icon = "__RampantArsenal__/graphics/technology/capsule-turret-speed.png",
 	    upgrade = true,
 	    effects = {
 		{
@@ -716,6 +722,7 @@ function capsules.enable()
     makeTechnology({
 	    name = "capsule-turret-speed-6",
 	    prerequisites = {t5},
+	    icon = "__RampantArsenal__/graphics/technology/capsule-turret-speed.png",
 	    upgrade = true,
 	    effects = {
 		{
