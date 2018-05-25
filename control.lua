@@ -34,11 +34,11 @@ local function onModSettingsChange(event)
 	return false
     end
 
-    world.spoutThreshold = settings.global["rampant-arsenal-spoutThreshold"].value
-    world.spoutScaler = settings.global["rampant-arsenal-spoutScaler"].value
-    world.spoutDefaultValue = world.spoutScaler * DEFAULT_SPOUT_SIZE
+    -- world.spoutThreshold = settings.global["rampant-arsenal-spoutThreshold"].value
+    -- world.spoutScaler = settings.global["rampant-arsenal-spoutScaler"].value
+    -- world.spoutDefaultValue = world.spoutScaler * DEFAULT_SPOUT_SIZE
 
-    world.bobsEnabled = (mods and mods["bobenemies"] ~= nil) or game.active_mods["bobenemies"]
+    -- world.bobsEnabled = (mods and mods["bobenemies"] ~= nil) or game.active_mods["bobenemies"]
     -- world.bobsEnabled = (mods and mods["bobenemies"] ~= nil) or game.active_mods["bobenemies"]
         
     return true
@@ -50,6 +50,9 @@ local function onConfigChanged()
     if not world.version then
 
 	world.version = 1
+    elseif (world.version < 2) then
+		
+	world.version = 2
     end
 end
 

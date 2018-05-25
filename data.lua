@@ -8,7 +8,7 @@ local turrets = require("prototypes/Turrets")
 local addTurrets = turrets.addTurrets
 local addAlienResource = aliens.addAlienResource
 
--- moduld code
+-- module code
 
 -- addAlienResource()
 addTurrets()

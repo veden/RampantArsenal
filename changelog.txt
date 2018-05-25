@@ -1,11 +1,11 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.16.1
-Date: 15. 2. 2018
-  Improvements:
-    - Switched to nth tick handler
+Date: 25. 5. 2018
+  Bugfixes:
+    - Fixed missing setting error
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.16.0
-Date: 13. 12. 2017
+Date: 25. 5. 2018
   Changes:
-    - Updated info.json
+    - Initial Release
