@@ -8,7 +8,7 @@ function technologyUtils.addEffectToTech(tech, recipe)
 end
 
 function technologyUtils.makeTechnology(attributes)
-    local name = attributes.name .. "-technology-rampant-arsenal"
+    local name = "rampant-arsenal-technology-" .. attributes.name
     data:extend({
 	    {
 		type = "technology",
@@ -25,17 +25,18 @@ function technologyUtils.makeTechnology(attributes)
 		    },
 		unit = {
 		    count = attributes.count,
+		    count_formula = attributes.countForumla, --"2^(L-7)*1000"
 		    ingredients = attributes.ingredients or {{"science-pack-1", 1}},
 		    time = attributes.time
 		},
 		upgrade = attributes.upgrade,
+		max_level = attributes.maxLevel,
 		order = attributes.order or "a-j-a"
 	    }	    
     })
 
     return name
 end
-
 
 return technologyUtils 
 

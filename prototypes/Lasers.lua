@@ -70,9 +70,17 @@ function lasers.enable()
 	name = "advanced-laser",
 	icon = "__RampantArsenal__/graphics/icons/advancedLaserTurret.png",
 	miningTime = 1,
-	health = 400,
+	health = 3000,
 	collisionBox = {{-1.75, -1.75 }, {1.75, 1.75}},
 	selectionBox = {{-2, -2 }, {2, 2}},
+	hasBaseDirection = true,
+	energySource = {
+	    type = "electric",
+	    buffer_capacity = "51MJ",
+	    input_flow_limit = "500MW",
+	    drain = "75kW",
+	    usage_priority = "primary-input"
+	},
 	foldedAnimation = advancedLaserSheet(),
 	foldingAnimation = advancedLaserSheet(),
 	preparedAnimation = advancedLaserSheet(),
@@ -81,20 +89,22 @@ function lasers.enable()
     local _, advancedElectricTurretItem = makeElectricTurret(entity, {
 								 type = "projectile",
 								 ammo_category = "electric",
-								 cooldown = 20,
+								 cooldown = 120,
 								 projectile_center = {-0.09375, -0.2},
-								 turn_range = 1.0/3.0,
-								 projectile_creation_distance = 1.4,
-								 range = 24,
-								 damage_modifier = 4,
+								 turn_range = 0.35,
+								 projectile_creation_distance = 10,
+								 range = 40,
+								 min_range = 7,
+								 damage_modifier = 4,								 
 								 ammo_type =
 								     {
 									 type = "projectile",
 									 category = "laser-turret",
-									 
+									 direction_deviation = 0.1,
+									 range_deviation = 0.1,
 									 clamp_position = true,
 									 target_type = "position",
-									 energy_consumption = "800kJ",
+									 energy_consumption = "50MJ",
 									 action =
 									     {
 										 {
@@ -106,6 +116,7 @@ function lasers.enable()
 												 projectile = makeProjectile({
 													 name = entity.name,
 													 acceleration = 1,
+													 piercingDamage = 1200,
 													 action = {
 													     type = "area",
 													     radius = 5,
@@ -160,10 +171,17 @@ function lasers.enable()
     })
 
     local entity1 = {
-	name = "lightning-turret",
+	name = "lightning",
 	icon = "__RampantArsenal__/graphics/icons/lightningTurret.png",
 	miningTime = 1,
-	health = 400,
+	health = 1200,
+	energySource = {
+	    type = "electric",
+	    buffer_capacity = "25MJ",
+	    input_flow_limit = "150MW",
+	    drain = "50kW",
+	    usage_priority = "primary-input"
+	},
 	collisionBox = {{-0.35, -0.85}, {0.35, 0.85}},
 	selectionBox = {{-0.5, -1}, {0.5, 1}},
 	foldedAnimation = lightningTowerSheet(),
@@ -173,23 +191,26 @@ function lasers.enable()
     }
     local _, lightningTowerTurretItem = makeElectricTurret(entity1, {
 							       type = "beam",
-							       ammo_category = "combat-robot-beam",
+							       ammo_category = "electric",
 							       cooldown = 20,
 							       range = 22,
+							       damage_modifier = 1.8,
+							       projectile_creation_distance = 1,
 							       ammo_type =
 								   {
-								       category = "combat-robot-beam",
+								       category = "laser-turret",
+								       energy_consumption = "5MJ",
 								       action =
 									   {
 									       type = "line",
-									       range = 20,
+									       range = 22,
 									       width =  10,
 									       force = "enemy",
 									       action_delivery =
 										   {
 										       type = "beam",
 										       beam =  "electric-beam",
-										       duration =  20
+										       duration = 20
 										   }
 									   }
 								   }
@@ -198,25 +219,31 @@ function lasers.enable()
     local advanceLaserRecipe = makeRecipe({
 	    name = "advanced-laser",
 	    icon = "__RampantArsenal__/graphics/icons/advancedLaserTurret.png",
-	    enabled = true,
+	    enabled = false,
 	    ingredients = {
-		{"steel-plate", 1}
+		{"steel-plate", 30},
+		{"electric-engine-unit", 20},
+		{"advanced-circuit", 30},
+		{"battery", 20}
 	    },
 	    result = advancedElectricTurretItem,
     })
 
     local lightningTurretRecipe = makeRecipe({
-	    name = "lightning-turret",
+	    name = "lightning",
 	    icon = "__RampantArsenal__/graphics/icons/lightningTurret.png",
-	    enabled = true,
+	    enabled = false,
 	    ingredients = {
-		{"steel-plate", 1}
+		{"steel-plate", 15},
+		{"iron-gear-wheel", 10},
+		{"advanced-circuit", 10},
+		{"battery", 15}
 	    },
 	    result = lightningTowerTurretItem,
     })
 
     local lightningTurretTech = makeTechnology({
-	    name = "lightning-turret",
+	    name = "lightning",
 	    prerequisites = {"laser-turrets", "military-3"},
 	    effects = {
 		{

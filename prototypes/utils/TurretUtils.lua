@@ -104,7 +104,6 @@ function turretUtils.makeAmmoTurret(attributes, attack)
 		selection_box = attributes.selectionBox or {{-1, -1 }, {1, 1}},
 		rotation_speed = attributes.rotationSpeed or 0.007,
 		preparing_speed = attributes.preparingSpeed or 0.08,
-		turret_base_has_direction = attributes.lockedDirection,
 		folding_speed = attributes.foldingSpeed or 0.08,
 		dying_explosion = "medium-explosion",
 		inventory_size = attributes.inventorySize or 1,
@@ -117,6 +116,9 @@ function turretUtils.makeAmmoTurret(attributes, attack)
 		preparing_animation = attributes.preparingAnimation,
 		prepared_animation = attributes.preparedAnimation,
 		folding_animation = attributes.foldingAnimation,
+		energy_source = attributes.energySource,
+		attacking_animation = attributes.attackingAnimation,
+		turret_base_has_direction = attributes.hasBaseDirection,
 		
 		vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
 
@@ -142,7 +144,8 @@ function turretUtils.makeAmmoTurret(attributes, attack)
 			sound = make_heavy_gunshot_sounds(),
 		    },
 
-		call_for_help_radius = 40
+		call_for_help_radius = 40,
+		order = attributes.order		
 	    }
     })
 
@@ -164,116 +167,14 @@ function turretUtils.makeFluidTurret(attributes, attack)
 		order = attributes.order or "b[turret]-a[gun-turret]",
 		place_result = name,
 		stack_size = attributes.stackSize or 50
-	    },
-	    {
-		type = "stream",
-		name = "flamethrower-fire-stream2",
-		flags = {"not-on-map"},
-		stream_light = {intensity = 1, size = 4},
-		ground_light = {intensity = 0.8, size = 4},
-
-		smoke_sources =
-		    {
-			{
-			    name = "soft-fire-smoke",
-			    frequency = 0.05, --0.25,
-			    position = {0.0, 0}, -- -0.8},
-			    starting_frame_deviation = 60
-			}
-		    },
-		particle_buffer_size = 10,
-		particle_spawn_interval = 2,
-		particle_spawn_timeout = 8,
-		particle_vertical_acceleration = 0.005 * 0.60,
-		particle_horizontal_speed = 0.2* 0.75 * 5,
-		particle_horizontal_speed_deviation = 0.005 * 0.70,
-		particle_start_alpha = 0.5,
-		particle_end_alpha = 1,
-		particle_start_scale = 0.2,
-		particle_loop_frame_count = 3,
-		particle_fade_out_threshold = 0.9,
-		particle_loop_exit_threshold = 0.25,
-		action =
-		    {
-			{
-			    type = "direct",
-			    action_delivery =
-				{
-				    type = "instant",
-				    target_effects =
-					{
-					    {
-						type = "create-fire",
-						entity_name = "fire-flame"
-					    }
-					}
-				}
-			},
-			{
-			    type = "area",
-			    radius = 2.5,
-			    action_delivery =
-				{
-				    type = "instant",
-				    target_effects =
-					{
-					    {
-						type = "create-sticker",
-						sticker = "fire-sticker"
-					    },
-					    {
-						type = "damage",
-						damage = { amount = 3, type = "fire" },
-						apply_damage_to_trees = false
-					    }
-					}
-				}
-			}
-		    },
-
-		spine_animation =
-		    {
-			filename = "__base__/graphics/entity/flamethrower-fire-stream/flamethrower-fire-stream-spine.png",
-			blend_mode = "additive",
-			--tint = {r=1, g=1, b=1, a=0.5},
-			line_length = 4,
-			width = 32,
-			height = 18,
-			frame_count = 32,
-			axially_symmetrical = false,
-			direction_count = 1,
-			animation_speed = 2,
-			shift = {0, 0},
-		    },
-
-		shadow =
-		    {
-			filename = "__base__/graphics/entity/acid-projectile-purple/acid-projectile-purple-shadow.png",
-			line_length = 5,
-			width = 28,
-			height = 16,
-			frame_count = 33,
-			priority = "high",
-			shift = {-0.09, 0.395}
-		    },
-
-		particle =
-		    {
-			filename = "__base__/graphics/entity/flamethrower-fire-stream/flamethrower-explosion.png",
-			priority = "extra-high",
-			width = 64,
-			height = 64,
-			frame_count = 32,
-			line_length = 8
-		    },
-	    },
+	    },	  
 	    {
 		type = "fluid-turret",
 		name = name,
 		icon = attributes.icon or "__base__/graphics/icons/flamethrower-turret.png",
 		icon_size = 32,
 		flags = {"placeable-player", "player-creation"},
-		minable = {mining_time = attributes.time or 0.5, result = itemName},
+		minable = {mining_time = attributes.miningTime or 0.5, result = itemName},
 		max_health = attributes.health or 1400,
 		corpse = "medium-remnants",
 		collision_box = attributes.collisionBox or {{-1.7, -2.2 }, {1.7, 2.2}},
@@ -398,7 +299,8 @@ function turretUtils.makeFluidTurret(attributes, attack)
 				    }
 			    }
 		    }, -- {0,  0.625}
-		call_for_help_radius = 40
+		call_for_help_radius = 40,
+		order = attributes.order
 	    }
     })
 
@@ -427,7 +329,7 @@ function turretUtils.makeElectricTurret(attributes, attack)
 		icon = attributes.icon or "__base__/graphics/icons/laser-turret.png",
 		icon_size = 32,
 		flags = attributes.flags or { "placeable-player", "placeable-enemy", "player-creation"},
-		minable = { mining_time = 0.5, result = itemName },
+		minable = { mining_time = attributes.miningTime or 0.5, result = itemName },
 		max_health = attributes.health or 1000,
 		corpse = "medium-remnants",
 		collision_box = attributes.collisionBox or {{ -0.7, -0.7}, {0.7, 0.7}},
@@ -435,7 +337,7 @@ function turretUtils.makeElectricTurret(attributes, attack)
 		rotation_speed = attributes.rotationSpeed or 0.01,
 		preparing_speed = attributes.preparingSpeed or 0.05,
 		dying_explosion = "medium-explosion",
-		turret_base_has_direction = attributes.lockedDirection,
+		turret_base_has_direction = attributes.hasBaseDirection,
 		folding_speed = attributes.foldingSpeed or 0.05,
 		energy_source = attributes.energySource or 
 		    {
@@ -483,7 +385,8 @@ function turretUtils.makeElectricTurret(attributes, attack)
 			    },
 			sound = make_laser_sounds()
 		    },
-		call_for_help_radius = 40
+		call_for_help_radius = 40,
+		order = attributes.order
 	    }
     })
 

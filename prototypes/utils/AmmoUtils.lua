@@ -30,7 +30,7 @@ function ammoUtils.makeAmmo(attributes)
 		    },
 		magazine_size = attributes.magSize or 100,
 		subgroup = "ammo",
-		order = attributes.order or "e[flamethrower]",
+		order = attributes.order or "f[capsule]",
 		stack_size = attributes.stackSize or 100
 	    }
     })
