@@ -50,9 +50,9 @@ local function onConfigChanged()
     if not world.version then
 
 	world.version = 1
-    elseif (world.version < 2) then
+    elseif (world.version < 3) then
 		
-	world.version = 2
+	world.version = 3
     end
 end
 
