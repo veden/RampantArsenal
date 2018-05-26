@@ -1,4 +1,20 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.16.2
+Date: 25. 5. 2018
+  Improvements:
+    - Added landmine damage technology
+    - Added artillery damage technology
+    - Added artillery shell damage technology
+  Tweaks:
+    - Shotgun turret tech now requires military-1
+    - Increased lightning tower damage from base 20 to 180
+    - Increased advanced laser power requirement from 80MW to 700MW
+    - Increased advanced laser cooldown from 120 to 240
+    - Increased advanced laser drain from 75kW to 150kW
+  Bugfixes:
+    - Fixed prerequisites for shotgun damage from cannon to shotgun turret
+
+---------------------------------------------------------------------------------------------------
 Version: 0.16.1
 Date: 25. 5. 2018
   Bugfixes:

@@ -414,9 +414,9 @@ function cannons.enable()
 	    time = 30
     })
 
-    makeTechnology({
+    local shotgunTurretTech = makeTechnology({
 	    name = "shotgun",
-	    prerequisites = {"turrets","steel-processing"},
+	    prerequisites = {"turrets","steel-processing","military"},
 	    icon = "__RampantArsenal__/graphics/technology/shotgun-turrets.png",
 	    effects = {
 		{
@@ -453,7 +453,7 @@ function cannons.enable()
 
     local r1 = makeTechnology({
 	    name = "shotgun-turret-damage-1",
-	    prerequisites = {cannonTech},
+	    prerequisites = {shotgunTurretTech},
 	    icon = "__RampantArsenal__/graphics/technology/shotgun-turret-damage.png",
 	    upgrade = true,
 	    effects = {
@@ -803,6 +803,65 @@ function cannons.enable()
 	    time = 60,
 	    order = "e-z-f"
     })
+
+    makeTechnology({
+	    name = "artillery-shell-damage-1",
+	    prerequisites = {"artillery"},
+	    icon = "__RampantArsenal__/graphics/technology/artillery-shell-damage.png",
+	    upgrade = true,
+	    maxLevel = "infinite",
+	    effects = {
+		{
+		    type = "ammo-damage",
+		    ammo_category = "artillery-shell",
+		    modifier = 0.4
+		}
+	    },
+	    ingredients = {
+		{"science-pack-1", 1},
+		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1},
+		{"space-science-pack", 1}
+	    },
+	    countForumla = "2^(L)*1000",
+	    time = 60,
+	    order = "e-z-f"
+    })   
+
+    makeTechnology({
+	    name = "artillery-turret-damage-1",
+	    prerequisites = {"artillery"},
+	    icon = "__RampantArsenal__/graphics/technology/artillery-damage.png",
+	    upgrade = true,
+	    maxLevel = "infinite",
+	    effects = {
+		{
+		    type = "turret-attack",
+		    turret_id = "artillery-wagon",
+		    modifier = 0.4
+		},
+		{
+		    type = "turret-attack",
+		    turret_id = "artillery-turret",
+		    modifier = 0.4
+		}
+	    },
+	    ingredients = {
+		{"science-pack-1", 1},
+		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1},
+		{"space-science-pack", 1}
+	    },
+	    countForumla = "2^(L)*1000",
+	    time = 60,
+	    order = "e-z-f"
+    })
+
+
     
     addEffectToTech("flamethrower-damage-1",
 		    {

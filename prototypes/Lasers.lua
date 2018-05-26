@@ -76,9 +76,9 @@ function lasers.enable()
 	hasBaseDirection = true,
 	energySource = {
 	    type = "electric",
-	    buffer_capacity = "51MJ",
-	    input_flow_limit = "500MW",
-	    drain = "75kW",
+	    buffer_capacity = "439MJ",
+	    input_flow_limit = "1000MW",
+	    drain = "150kW",
 	    usage_priority = "primary-input"
 	},
 	foldedAnimation = advancedLaserSheet(),
@@ -104,7 +104,7 @@ function lasers.enable()
 									 range_deviation = 0.1,
 									 clamp_position = true,
 									 target_type = "position",
-									 energy_consumption = "50MJ",
+									 energy_consumption = "438MJ",
 									 action =
 									     {
 										 {
@@ -194,7 +194,7 @@ function lasers.enable()
 							       ammo_category = "electric",
 							       cooldown = 20,
 							       range = 22,
-							       damage_modifier = 1.8,
+							       damage_modifier = 18,
 							       projectile_creation_distance = 1,
 							       ammo_type =
 								   {
