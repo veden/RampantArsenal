@@ -26,7 +26,15 @@ Capsule Turret - Shoots poison, slowdown, grenade, cluster grenades, landmines, 
 Advanced Flamethrower - Shoots flame at many biters at the same time.
 Rocket Turret - Shoots homing rocket projectiles.
 Rapid Rocket Turret - Rapidly Shoots homing rocket projectiles.
-Infinite Damage Technologies - Each new turret class either has custom damage or speed technology or uses an existing technology
+
+Technology
+Cannon Turret Damage
+Shotgun Turret Damage
+Artillery Turret Damage
+Artillery Shell Damage
+Rocket Turret Damage
+Landmine Damage
+
 
 # Version History
 

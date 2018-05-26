@@ -207,18 +207,18 @@ local function enableTechnologies()
 	    }
     })
 
-    addTechnology({
-	    name = "rocket-turrets",
-	    effects = {
+    -- addTechnology({
+    -- 	    name = "rocket-turrets",
+    -- 	    effects = {
 		
-		makeFilterIRecipe("alien-goo-filtering-purple",
-				  "chemistry",
-				  dirtyAlienGooPurpleName,
-				  alienGooPurpleName,
-				  "iron-ore",
-				  COLOR_DIRTY_PURPLE_GOO)
-	    }
-    })
+    -- 		makeFilterIRecipe("alien-goo-filtering-purple",
+    -- 				  "chemistry",
+    -- 				  dirtyAlienGooPurpleName,
+    -- 				  alienGooPurpleName,
+    -- 				  "iron-ore",
+    -- 				  COLOR_DIRTY_PURPLE_GOO)
+    -- 	    }
+    -- })
 
 
     -- addTechnology({
