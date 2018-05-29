@@ -1,0 +1,83 @@
+local stickers = {}
+
+local stickerUtils = require("utils/StickerUtils")
+
+local makeSticker = stickerUtils.makeSticker
+
+function stickers.enable()
+
+    makeSticker(
+	{
+	    name = "small-toxic",
+	    duration = 60,
+	    spreadRadius = 5,
+	    tint = {r=0,g=0.3,b=0.5,a=0.8},
+	    movementModifier = 1,
+	    damagePerTick = { type = "poison", amount = 3 }
+	}
+    )
+    
+    makeSticker(
+	{
+	    name = "small-fire",
+	    duration = 60,
+	    spreadRadius = 5,
+	    tint = {r=0,g=0.3,b=0.5,a=0.8},
+	    movementModifier = 1,
+	    damagePerTick = { type = "fire", amount = 3 }
+	}
+    )
+
+
+    makeSticker(
+	{
+	    name = "toxic",
+	    duration = 240,
+	    spreadRadius = 5,
+	    tint = {r=0,g=0.3,b=0.5,a=0.8},
+	    movementModifier = 1,
+	    damagePerTick = { type = "poison", amount = 5 }
+	}
+    )
+    
+    makeSticker(
+	{
+	    name = "paralysis",
+	    duration = 50,
+	    spreadRadius = 0,
+	    tint = {r=0,g=0,b=0.8,a=0.8},
+	    movementModifier = 0
+	}
+    )
+    
+    makeSticker(
+	{
+	    name = "big-paralysis",
+	    duration = 50,
+	    spreadRadius = 0,
+	    tint = {r=0,g=0,b=0.8,a=0.8},
+	    movementModifier = 0
+	}
+    )
+    
+    makeSticker(
+	{
+	    name = "big-toxic",
+	    duration = 240,
+	    spreadRadius = 5,
+	    tint = {r=0,g=0.3,b=0.5,a=0.8},
+	    movementModifier = 1,
+	    damagePerTick = { type = "poison", amount = 8 }
+	}
+    )
+
+    makeSticker({
+	    name = "speed-boost",
+	    duration = 60 * 60 * 1,
+	    movementModifier = 1.4,
+	    spreadRadius = 0
+    })
+
+end
+
+return stickers

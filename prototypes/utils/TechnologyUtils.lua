@@ -1,9 +1,20 @@
 local technologyUtils = {}
 
 function technologyUtils.addEffectToTech(tech, recipe)
-    local t = data.raw["technology"][tech]
+    local t = data.raw["technology"]["rampant-arsenal-technology-"..tech]    
+    if not t then
+	t = data.raw["technology"][tech]
+    end
     if t then
-	t.effects[#t.effects+1] = recipe
+	if (recipe.type == nil) then
+	    for _,v in pairs(recipe) do
+		t.effects[#t.effects+1] = v
+	    end
+	else
+	    t.effects[#t.effects+1] = recipe
+	end
+    else
+	error("lookup bad tech - ".. tech)
     end
 end
 
@@ -15,7 +26,7 @@ function technologyUtils.makeTechnology(attributes)
 		name = name,
 		icon_size = 128,
 		icon = attributes.icon or "__base__/graphics/technology/turrets.png",
-		prerequisites = attributes.prerequisites or {"laser-turrets"},
+		prerequisites = attributes.prerequisites or {},
 		effects = attributes.effects or 
 		    {
 			{

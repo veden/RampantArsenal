@@ -12,7 +12,12 @@ function recipeUtils.makeRecipe(attributes)
 	    ingredients = util.table.deepcopy(attributes.ingredients)
 	}
 	for _,v in pairs(attributes.expensive.ingredients) do
-	    v[2] = v[2] * 2
+	    if (v.amount ~= nil) then
+		v.amount = v.amount * 2
+	    else
+		v[2] = v[2] * 2
+	    end
+
 	end
     end
     data:extend({
@@ -21,6 +26,7 @@ function recipeUtils.makeRecipe(attributes)
 		name = name,
 		icon = attributes.icon,
 		icon_size = 32,
+		category = attributes.category,
 		normal = {
 		    enabled = attributes.enabled,
 		    energy_required = attributes.time or 8,		

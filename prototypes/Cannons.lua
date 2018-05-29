@@ -4,7 +4,11 @@ local turretUtils = require("utils/TurretUtils")
 local recipeUtils = require("utils/RecipeUtils")
 local technologyUtils = require("utils/TechnologyUtils")
 local streamUtils = require("utils/StreamUtils")
+local projectileUtils = require("utils/ProjectileUtils")
+local ammoUtils = require("utils/AmmoUtils")
 
+local makeCannonProjectile = projectileUtils.makeCannonProjectile
+local makeAmmo = ammoUtils.makeAmmo
 local makeStream = streamUtils.makeStream
 local makeFluidTurret = turretUtils.makeFluidTurret
 local makeAmmoTurret = turretUtils.makeAmmoTurret
@@ -117,7 +121,7 @@ end
 
 
 function cannons.enable()
-    local entity = {
+    local cannonAttributes = {
 	name = "cannon",
 	icon = "__RampantArsenal__/graphics/icons/cannonTurret.png",
 	miningTime = 1,
@@ -130,7 +134,7 @@ function cannons.enable()
 	preparedAnimation = cannonMkISheet(),
 	preparingAnimation = cannonMkISheet()
     }
-    local cannonTurret,cannonTurretItem = makeAmmoTurret(entity,
+    local cannonTurret,cannonTurretItem = makeAmmoTurret(cannonAttributes,
 							 {
 							     type = "projectile",
 							     ammo_category = "cannon-shell",
@@ -144,7 +148,7 @@ function cannons.enable()
 							     sound = make_heavy_gunshot_sounds(),
     })
 
-    local entity1 = {
+    local rapidCannonAttributes = {
 	name = "rapid-cannon",
 	icon = "__RampantArsenal__/graphics/icons/rapidCannonTurret.png",
 	miningTime = 1,
@@ -156,7 +160,7 @@ function cannons.enable()
 	hasBaseDirection = true,
 	foldingAnimation = cannonMkIIPlace(8, 4, 8, true)
     }
-    local rapidCannonTurret,rapidCannonTurretItem = makeAmmoTurret(entity1, {
+    local rapidCannonTurret,rapidCannonTurretItem = makeAmmoTurret(rapidCannonAttributes, {
 								       type = "projectile",
 								       ammo_category = "cannon-shell",
 								       cooldown = 30,
@@ -168,7 +172,7 @@ function cannons.enable()
 								       sound = make_heavy_gunshot_sounds(),
     })
     
-    local entity2 = {
+    local advFlamethrowerAttributes = {
     	name = "suppression-cannon",
     	icon = "__RampantArsenal__/graphics/icons/suppressionCannonTurret.png",
     	miningTime = 1,
@@ -184,7 +188,7 @@ function cannons.enable()
     	preparedAnimation = largeCannonSheet(),
     	foldingAnimation = largeCannonSheet()
     }
-    local suppressionCannonTurret,suppressionCannonTurretItem = makeFluidTurret(entity2,
+    local suppressionCannonTurret,suppressionCannonTurretItem = makeFluidTurret(advFlamethrowerAttributes,
 										{
 										    type = "stream",
 										    ammo_category = "flamethrower",
@@ -223,7 +227,7 @@ function cannons.enable()
 													{
 													    type = "stream",
 													    stream = makeStream({
-														    name = entity2.name,
+														    name = advFlamethrowerAttributes.name,
 														    bufferSize = 10,
 														    spawnInterval = 2,
 														    particleHoizontalSpeed = 2.6,
@@ -296,7 +300,7 @@ function cannons.enable()
 											}
     })
     
-    local entity3 = {
+    local shotgunAttributes = {
 	name = "shotgun",
 	icon = "__RampantArsenal__/graphics/icons/shotgunTurret.png",
 	miningTime = 1,
@@ -307,7 +311,7 @@ function cannons.enable()
 	preparedAnimation = shotgunTurretSheet(),
 	foldingAnimation = shotgunTurretSheet()
     }
-    local shotgunTurret,shotgunTurretItem = makeAmmoTurret(entity3, {
+    local shotgunTurret,shotgunTurretItem = makeAmmoTurret(shotgunAttributes, {
 							       type = "projectile",
 							       ammo_category = "shotgun-shell",
 							       cooldown = 45,
@@ -373,495 +377,178 @@ function cannons.enable()
 	    result = shotgunTurretItem,
 
     })
+
+    addEffectToTech("cannon-turret-1",
+		    {
+			type = "unlock-recipe",
+			recipe = cannonRecipe,
+    })
+
+    addEffectToTech("cannon-turret-2",
+		    {
+			type = "unlock-recipe",
+			recipe = rapidCannonRecipe,
+    })
+
+    addEffectToTech("shotgun",
+		    {
+			type = "unlock-recipe",
+			recipe = shotgunTurretRecipe,
+    })
+
+    addEffectToTech("flamethrower",
+		    {
+			type = "unlock-recipe",
+			recipe = suppresionCannonRecipe,
+    })
+
+    addEffectToTech("shotgun-turret-damage-1",
+		    {
+			type = "turret-attack",
+			turret_id = shotgunTurret,
+			modifier = 0.1
+    })
+
+    addEffectToTech("shotgun-turret-damage-2",
+		    {
+			type = "turret-attack",
+			turret_id = shotgunTurret,
+			modifier = 0.1
+    })
+
+    addEffectToTech("shotgun-turret-damage-3",
+		    {
+			type = "turret-attack",
+			turret_id = shotgunTurret,
+			modifier = 0.2
+    })
+
+    addEffectToTech("shotgun-turret-damage-4",
+		    {
+			type = "turret-attack",
+			turret_id = shotgunTurret,
+			modifier = 0.3
+    })
     
-    local cannonTech = makeTechnology({
-	    name = "cannon-turret-1",
-	    prerequisites = {"turrets","tanks","concrete","steel-processing"},
-	    icon = "__RampantArsenal__/graphics/technology/cannon-turrets.png",
-	    effects = {
-		{
-		    type = "unlock-recipe",
-		    recipe = cannonRecipe,
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1}		
-	    },
-	    count = 75,
-	    time = 30
+    addEffectToTech("shotgun-turret-damage-5",
+		    {
+			type = "turret-attack",
+			turret_id = shotgunTurret,
+			modifier = 0.3
     })
 
-    local rapidCannonTech = makeTechnology({
-	    name = "cannon-turret-2",
-	    prerequisites = {"explosives", "cannon-shell-speed-1", cannonTech},
-	    icon = "__RampantArsenal__/graphics/technology/cannon-turrets.png",
-	    effects = {
-		{
-		    type = "unlock-recipe",
-		    recipe = rapidCannonRecipe,
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1}		
-	    },
-	    count = 120,
-	    time = 30
+    addEffectToTech("shotgun-turret-damage-6",
+		    {
+			type = "turret-attack",
+			turret_id = shotgunTurret,
+			modifier = 0.4
     })
 
-    local shotgunTurretTech = makeTechnology({
-	    name = "shotgun",
-	    prerequisites = {"turrets","steel-processing","military"},
-	    icon = "__RampantArsenal__/graphics/technology/shotgun-turrets.png",
-	    effects = {
-		{
-		    type = "unlock-recipe",
-		    recipe = shotgunTurretRecipe,
-		}
-	    },
-	    ingredients = {{"science-pack-1", 1}},
-	    count = 20,
-	    time = 10
+    addEffectToTech("shotgun-turret-damage-7",
+		    {
+			type = "turret-attack",
+			turret_id = shotgunTurret,
+			modifier = 0.2
     })
 
-    makeTechnology({
-    	    name = "flamethrower",
-    	    prerequisites = {"flamethrower-damage-2", "military-4", "advanced-electronics-2", "concrete"},
-	    icon = "__base__/graphics/technology/flamethrower.png",
-    	    effects = {
-    		{
-    		    type = "unlock-recipe",
-    		    recipe = suppresionCannonRecipe,
-    		}
-    	    },
-    	    ingredients = {
-    		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
-    		{"military-science-pack", 1},
-    		{"high-tech-science-pack", 1}
-    	    },
-    	    count = 2000,
-    	    time = 30
+   
+    addEffectToTech("cannon-turret-damage-1",
+		    {
+			{
+			    type = "turret-attack",
+			    turret_id = rapidCannonTurret,
+			    modifier = 0.1
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = cannonTurret,
+			    modifier = 0.1
+			}
     })
 
-
-    local r1 = makeTechnology({
-	    name = "shotgun-turret-damage-1",
-	    prerequisites = {shotgunTurretTech},
-	    icon = "__RampantArsenal__/graphics/technology/shotgun-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = shotgunTurret,
-		    modifier = 0.1
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1}
-	    },
-	    count = 50,
-	    time = 30,
-	    order = "e-z-a"
+    addEffectToTech("cannon-turret-damage-2",
+		    {
+			{
+			    type = "turret-attack",
+			    turret_id = rapidCannonTurret,
+			    modifier = 0.1
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = cannonTurret,
+			    modifier = 0.1
+			}
     })
 
-    local r2 = makeTechnology({
-	    name = "shotgun-turret-damage-2",
-	    prerequisites = {r1},
-	    icon = "__RampantArsenal__/graphics/technology/shotgun-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = shotgunTurret,
-		    modifier = 0.1
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1}
-	    },
-	    count = 100,
-	    time = 45,
-	    order = "e-z-b"
+    addEffectToTech("cannon-turret-damage-3",
+		    {
+			{
+			    type = "turret-attack",
+			    turret_id = rapidCannonTurret,
+			    modifier = 0.2
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = cannonTurret,
+			    modifier = 0.2
+			}
     })
 
-    local r3 = makeTechnology({
-	    name = "shotgun-turret-damage-3",
-	    prerequisites = {r2},
-	    icon = "__RampantArsenal__/graphics/technology/shotgun-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = shotgunTurret,
-		    modifier = 0.2
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"military-science-pack", 1}
-	    },
-	    count = 300,
-	    time = 50,
-	    order = "e-z-c"
+    addEffectToTech("cannon-turret-damage-4",
+		    {
+			{
+			    type = "turret-attack",
+			    turret_id = rapidCannonTurret,
+			    modifier = 0.3
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = cannonTurret,
+			    modifier = 0.3
+			}
     })
-
-    local r4 = makeTechnology({
-	    name = "shotgun-turret-damage-4",
-	    prerequisites = {r3},
-	    icon = "__RampantArsenal__/graphics/technology/shotgun-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = shotgunTurret,
-		    modifier = 0.2
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"military-science-pack", 1}
-	    },
-	    count = 300,
-	    time = 60,
-	    order = "e-z-d"
-    })
-
-
-    local r5 = makeTechnology({
-	    name = "shotgun-turret-damage-5",
-	    prerequisites = {r4},
-	    icon = "__RampantArsenal__/graphics/technology/shotgun-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = shotgunTurret,
-		    modifier = 0.2
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1}
-	    },
-	    count = 1000,
-	    time = 60,
-	    order = "e-z-e"
-    })
-
-    local r6 = makeTechnology({
-	    name = "shotgun-turret-damage-6",
-	    prerequisites = {r5},
-	    icon = "__RampantArsenal__/graphics/technology/shotgun-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = shotgunTurret,
-		    modifier = 0.4
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
-	    },
-	    count = 3000,
-	    time = 60,
-	    order = "e-z-f"
-    })
-
-    makeTechnology({
-	    name = "shotgun-turret-damage-7",
-	    prerequisites = {r6},
-	    icon = "__RampantArsenal__/graphics/technology/shotgun-turret-damage.png",
-	    upgrade = true,
-	    maxLevel = "infinite",
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = shotgunTurret,
-		    modifier = 0.4
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1},
-		{"space-science-pack", 1}
-	    },
-	    countForumla = "2^(L-7)*1000",
-	    time = 60,
-	    order = "e-z-f"
-    })
-
     
-    local t1 = makeTechnology({
-	    name = "cannon-turret-damage-1",
-	    prerequisites = {cannonTech},
-	    icon = "__RampantArsenal__/graphics/technology/cannon-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = cannonTurret,
-		    modifier = 0.1
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1}
-	    },
-	    count = 100,
-	    time = 30,
-	    order = "e-z-a"
+    addEffectToTech("cannon-turret-damage-5",
+		    {
+			{
+			    type = "turret-attack",
+			    turret_id = rapidCannonTurret,
+			    modifier = 0.3
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = cannonTurret,
+			    modifier = 0.3
+			}
     })
 
-    local t2 = makeTechnology({
-	    name = "cannon-turret-damage-2",
-	    prerequisites = {t1},
-	    icon = "__RampantArsenal__/graphics/technology/cannon-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = cannonTurret,
-		    modifier = 0.1
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1}
-	    },
-	    count = 150,
-	    time = 45,
-	    order = "e-z-b"
+    addEffectToTech("cannon-turret-damage-6",
+		    {
+			{
+			    type = "turret-attack",
+			    turret_id = rapidCannonTurret,
+			    modifier = 0.4
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = cannonTurret,
+			    modifier = 0.4
+			}
     })
 
-    local t3 = makeTechnology({
-	    name = "cannon-turret-damage-3",
-	    prerequisites = {t2},
-	    icon = "__RampantArsenal__/graphics/technology/cannon-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = cannonTurret,
-		    modifier = 0.2
-		},
-		{
-		    type = "turret-attack",
-		    turret_id = rapidCannonTurret,
-		    modifier = 0.2
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1}
-	    },
-	    count = 300,
-	    time = 50,
-	    order = "e-z-c"
+    addEffectToTech("cannon-turret-damage-7",
+		    {
+			{
+			    type = "turret-attack",
+			    turret_id = rapidCannonTurret,
+			    modifier = 0.2
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = cannonTurret,
+			    modifier = 0.2
+			}
     })
-
-    local t4 = makeTechnology({
-	    name = "cannon-turret-damage-4",
-	    prerequisites = {t3},
-	    icon = "__RampantArsenal__/graphics/technology/cannon-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = cannonTurret,
-		    modifier = 0.3
-		},
-		{
-		    type = "turret-attack",
-		    turret_id = rapidCannonTurret,
-		    modifier = 0.3
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
-	    },
-	    count = 300,
-	    time = 60,
-	    order = "e-z-d"
-    })
-
-
-    local t5 = makeTechnology({
-	    name = "cannon-turret-damage-5",
-	    prerequisites = {t4},
-	    icon = "__RampantArsenal__/graphics/technology/cannon-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = cannonTurret,
-		    modifier = 0.3
-		},
-		{
-		    type = "turret-attack",
-		    turret_id = rapidCannonTurret,
-		    modifier = 0.3
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
-	    },
-	    count = 1000,
-	    time = 60,
-	    order = "e-z-e"
-    })
-
-    local t6 = makeTechnology({
-	    name = "cannon-turret-damage-6",
-	    prerequisites = {t5},
-	    icon = "__RampantArsenal__/graphics/technology/cannon-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = cannonTurret,
-		    modifier = 0.4
-		},		
-		{
-		    type = "turret-attack",
-		    turret_id = rapidCannonTurret,
-		    modifier = 0.4
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
-	    },
-	    count = 3000,
-	    time = 60,
-	    order = "e-z-f"
-    })
-
-    makeTechnology({
-	    name = "cannon-turret-damage-7",
-	    prerequisites = {t6},
-	    icon = "__RampantArsenal__/graphics/technology/cannon-turret-damage.png",
-	    upgrade = true,
-	    maxLevel = "infinite",
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = cannonTurret,
-		    modifier = 0.4
-		},
-		{
-		    type = "turret-attack",
-		    turret_id = rapidCannonTurret,
-		    modifier = 0.4
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1},
-		{"space-science-pack", 1}
-	    },
-	    countForumla = "2^(L-7)*1000",
-	    time = 60,
-	    order = "e-z-f"
-    })
-
-    makeTechnology({
-	    name = "artillery-shell-damage-1",
-	    prerequisites = {"artillery"},
-	    icon = "__RampantArsenal__/graphics/technology/artillery-shell-damage.png",
-	    upgrade = true,
-	    maxLevel = "infinite",
-	    effects = {
-		{
-		    type = "ammo-damage",
-		    ammo_category = "artillery-shell",
-		    modifier = 0.4
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1},
-		{"space-science-pack", 1}
-	    },
-	    countForumla = "2^(L)*1000",
-	    time = 60,
-	    order = "e-z-f"
-    })   
-
-    makeTechnology({
-	    name = "artillery-turret-damage-1",
-	    prerequisites = {"artillery"},
-	    icon = "__RampantArsenal__/graphics/technology/artillery-damage.png",
-	    upgrade = true,
-	    maxLevel = "infinite",
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = "artillery-wagon",
-		    modifier = 0.4
-		},
-		{
-		    type = "turret-attack",
-		    turret_id = "artillery-turret",
-		    modifier = 0.4
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1},
-		{"space-science-pack", 1}
-	    },
-	    countForumla = "2^(L)*1000",
-	    time = 60,
-	    order = "e-z-f"
-    })
-
-
     
     addEffectToTech("flamethrower-damage-1",
 		    {
@@ -910,6 +597,361 @@ function cannons.enable()
 			type = "turret-attack",
 			turret_id = suppressionCannonTurret,
 			modifier = 0.2
+    })
+    
+    local incendiaryCannonShellAmmo = makeAmmo({
+    	    name = "incendiary-cannon-shell",
+    	    icon = "__RampantArsenal__/graphics/icons/incendiary-cannon-shell.png",
+	    order = "d[cannon-shell]-c[incendiary]",
+    	    ammoType = {
+    		category = "cannon-shell",
+    		target_type = "direction",
+    		clamp_position = true,
+    		action =
+    		    {
+    			{
+    			    type = "direct",
+    			    action_delivery =
+    				{
+    				    type = "instant",
+    				    source_effects =
+    					{
+    					    {
+    						type = "create-explosion",
+    						entity_name = "explosion-gunshot"
+    					    }
+    					}
+    				}
+    			},
+    			{
+    			    type = "direct",
+    			    action_delivery =
+    				{
+    				    type = "projectile",
+				    starting_speed = 1,				    
+    				    projectile = makeCannonProjectile({
+					    name = "incendiary-cannon",
+					    piercingDamage = 100,
+					    animation = {
+						filename = "__base__/graphics/entity/bullet/bullet.png",
+						frame_count = 1,
+						width = 3,
+						height = 50,
+						priority = "high"
+					    },
+					    action =
+						{
+						    type = "direct",
+						    action_delivery =
+							{
+							    type = "instant",
+							    target_effects =
+								{
+								    {
+									type = "damage",
+									damage = {amount = 50 , type = "physical"}
+								    },
+								    {
+									type = "damage",
+									damage = {amount = 280 , type = "fire"}
+								    },
+								    {
+									type = "damage",
+									damage = {amount = 50 , type = "explosion"}
+								    },
+								    {
+									type = "create-entity",
+									entity_name = "explosion"
+								    },
+								    {
+									type = "create-sticker",
+									sticker = "fire-sticker"
+								    },
+								    {
+									type = "create-fire",
+									entity_name = "fire-flame",
+									initial_ground_flame_count = 2
+								    }
+								}
+							}
+						},
+					    final_action =
+						{
+						    type = "direct",
+						    action_delivery =
+							{
+							    type = "instant",
+							    target_effects =
+								{
+								    {
+									type = "create-entity",
+									entity_name = "small-scorchmark",
+									check_buildability = true
+								    }
+								}
+							}
+						}
+				    })
+    				}
+    			}
+    		    }
+    	    }
+    })
+
+    local incendiaryCannonShellRecipe = makeRecipe({
+	    name = "incendiary-cannon-shell",
+	    icon = "__RampantArsenal__/graphics/icons/incendiary-cannon-shell.png",
+	    enabled = false,
+	    category = "crafting-with-fluid",
+	    ingredients = {
+		{"explosive-cannon-shell", 1},
+		{"steel-plate", 1},
+		{type="fluid", name="light-oil", amount=15}
+	    },
+	    result = incendiaryCannonShellAmmo,
+    })
+
+    addEffectToTech("incendiary-cannon-shells",
+		    {
+			type = "unlock-recipe",
+			recipe = incendiaryCannonShellRecipe,
+    })
+
+
+    local heCannonShellAmmo = makeAmmo({
+    	    name = "he-cannon-shell",
+    	    icon = "__RampantArsenal__/graphics/icons/he-cannon-shell.png",
+	    order = "d[cannon-shell]-c[he]",
+    	    ammoType = {
+    		category = "cannon-shell",
+    		target_type = "direction",
+    		clamp_position = true,
+    		action =
+    		    {
+    			{
+    			    type = "direct",
+    			    action_delivery =
+    				{
+    				    type = "instant",
+    				    source_effects =
+    					{
+    					    {
+    						type = "create-explosion",
+    						entity_name = "explosion-gunshot"
+    					    }
+    					}
+    				}
+    			},
+    			{
+    			    type = "direct",
+    			    action_delivery =
+    				{
+    				    type = "projectile",
+				    starting_speed = 1,				    
+    				    projectile = makeCannonProjectile({
+					    name = "he-cannon",
+					    piercingDamage = 100,
+					    animation = {
+						filename = "__base__/graphics/entity/bullet/bullet.png",
+						frame_count = 1,
+						width = 3,
+						height = 50,
+						priority = "high"
+					    },
+					    action =
+						{
+						    type = "direct",
+						    action_delivery =
+							{
+							    type = "instant",
+							    target_effects =
+								{
+								    {
+									type = "damage",
+									damage = {amount = 50 , type = "physical"}
+								    },
+								    {
+									type = "damage",
+									damage = {amount = 280 , type = "fire"}
+								    },
+								    {
+									type = "damage",
+									damage = {amount = 50 , type = "explosion"}
+								    },
+								    {
+									type = "create-entity",
+									entity_name = "explosion"
+								    },
+								    {
+									type = "create-sticker",
+									sticker = "fire-sticker"
+								    },
+								    {
+									type = "create-fire",
+									entity_name = "fire-flame",
+									initial_ground_flame_count = 2
+								    }
+								}
+							}
+						},
+					    final_action =
+						{
+						    type = "direct",
+						    action_delivery =
+							{
+							    type = "instant",
+							    target_effects =
+								{
+								    {
+									type = "create-entity",
+									entity_name = "small-scorchmark",
+									check_buildability = true
+								    }
+								}
+							}
+						}
+				    })
+    				}
+    			}
+    		    }
+    	    }
+    })
+    
+    local heCannonShellRecipe = makeRecipe({
+	    name = "he-cannon-shell",
+	    icon = "__RampantArsenal__/graphics/icons/he-cannon-shell.png",
+	    enabled = false,
+	    category = "crafting-with-fluid",
+	    ingredients = {
+		{"explosive-cannon-shell", 1},
+		{"steel-plate", 1},
+		{type="fluid", name="light-oil", amount=15}
+	    },
+	    result = heCannonShellAmmo,
+    })
+
+    addEffectToTech("he-cannon-shells",
+		    {
+			type = "unlock-recipe",
+			recipe = heCannonShellRecipe,
+    })
+
+    local bioCannonShellAmmo = makeAmmo({
+    	    name = "bio-cannon-shell",
+    	    icon = "__RampantArsenal__/graphics/icons/bio-cannon-shell.png",
+	    order = "d[cannon-shell]-c[fbio]",
+    	    ammoType = {
+    		category = "cannon-shell",
+    		target_type = "direction",
+    		clamp_position = true,
+    		action =
+    		    {
+    			{
+    			    type = "direct",
+    			    action_delivery =
+    				{
+    				    type = "instant",
+    				    source_effects =
+    					{
+    					    {
+    						type = "create-explosion",
+    						entity_name = "explosion-gunshot"
+    					    }
+    					}
+    				}
+    			},
+    			{
+    			    type = "direct",
+    			    action_delivery =
+    				{
+    				    type = "projectile",
+				    starting_speed = 1,				    
+    				    projectile = makeCannonProjectile({
+					    name = "bio-cannon",
+					    piercingDamage = 100,
+					    animation = {
+						filename = "__base__/graphics/entity/bullet/bullet.png",
+						frame_count = 1,
+						width = 3,
+						height = 50,
+						priority = "high"
+					    },
+					    action =
+						{
+						    type = "direct",
+						    action_delivery =
+							{
+							    type = "instant",
+							    target_effects =
+								{
+								    {
+									type = "damage",
+									damage = {amount = 50 , type = "physical"}
+								    },
+								    {
+									type = "damage",
+									damage = {amount = 280 , type = "fire"}
+								    },
+								    {
+									type = "damage",
+									damage = {amount = 50 , type = "explosion"}
+								    },
+								    {
+									type = "create-entity",
+									entity_name = "explosion"
+								    },
+								    {
+									type = "create-sticker",
+									sticker = "fire-sticker"
+								    },
+								    {
+									type = "create-fire",
+									entity_name = "fire-flame",
+									initial_ground_flame_count = 2
+								    }
+								}
+							}
+						},
+					    final_action =
+						{
+						    type = "direct",
+						    action_delivery =
+							{
+							    type = "instant",
+							    target_effects =
+								{
+								    {
+									type = "create-entity",
+									entity_name = "small-scorchmark",
+									check_buildability = true
+								    }
+								}
+							}
+						}
+				    })
+    				}
+    			}
+    		    }
+    	    }
+    })
+    
+    local bioCannonShellRecipe = makeRecipe({
+	    name = "bio-cannon-shell",
+	    icon = "__RampantArsenal__/graphics/icons/bio-cannon-shell.png",
+	    enabled = false,
+	    category = "crafting-with-fluid",
+	    ingredients = {
+		{"explosive-cannon-shell", 1},
+		{"steel-plate", 1},
+		{type="fluid", name="light-oil", amount=15}
+	    },
+	    result = bioCannonShellAmmo,
+    })
+
+    addEffectToTech("bio-cannon-shells",
+		    {
+			type = "unlock-recipe",
+			recipe = bioCannonShellRecipe,
     })
 end
 

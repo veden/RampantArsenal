@@ -5,8 +5,8 @@ local recipeUtils = require("utils/RecipeUtils")
 local technologyUtils = require("utils/TechnologyUtils")
 local projectileUtils = require("utils/ProjectileUtils")
 
-local makeProjectile = projectileUtils.makeProjectile
-local makeTechnology = technologyUtils.makeTechnology
+local makeLaserProjectile = projectileUtils.makeLaserProjectile
+local addEffectToTech = technologyUtils.addEffectToTech
 local makeRecipe = recipeUtils.makeRecipe
 local makeElectricTurret = turretUtils.makeElectricTurret
 
@@ -113,10 +113,11 @@ function lasers.enable()
 											 {
 											     {
 												 type = "projectile",
-												 projectile = makeProjectile({
+												 projectile = makeLaserProjectile({
 													 name = entity.name,
 													 acceleration = 1,
 													 piercingDamage = 1200,
+													 tint = {r=0.8, g=0.0, b=0.0,a=0.9},
 													 action = {
 													     type = "area",
 													     radius = 5,
@@ -242,46 +243,18 @@ function lasers.enable()
 	    result = lightningTowerTurretItem,
     })
 
-    local lightningTurretTech = makeTechnology({
-	    name = "lightning",
-	    prerequisites = {"laser-turrets", "military-3"},
-	    icon = "__RampantArsenal__/graphics/technology/lightning-turrets.png",
-	    effects = {
-		{
-		    type = "unlock-recipe",
-		    recipe = lightningTurretRecipe
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1}
-	    },
-	    count = 200,
-	    time = 30
-    })
     
-    makeTechnology({
-	    name = "advanced-laser-turret",
-	    icon = "__base__/graphics/technology/laser-turrets.png",
-	    prerequisites = {"laser-turret-damage-2", "advanced-electronics-2", "military-4", "electric-engine"},
-	    effects = {
-		{
-		    type = "unlock-recipe",
-		    recipe = advanceLaserRecipe
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
-	    },
-	    count = 2000,
-	    time = 30
+    addEffectToTech("lightning",
+		    {
+			type = "unlock-recipe",
+			recipe = lightningTurretRecipe
     })
+
+    addEffectToTech("advanced-laser-turret",
+		    {
+			type = "unlock-recipe",
+			recipe = advanceLaserRecipe
+    })  	
 end
 
 return lasers

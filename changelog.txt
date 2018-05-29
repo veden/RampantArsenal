@@ -1,11 +1,17 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.16.2
-Date: 25. 5. 2018
-  Improvements:
+Version: 0.16.3
+Date: 26. 5. 2018
+  Features:
     - Added mortar for mobile capsule launching
+    - Added launcher capsule damage into grenade damage technology
+    - Added capsule launcher damage technology
+  Improvements:
+    - reworked grenade and cluster grenade laucher ammo
   Tweaks:
+    - Increased shotgun turret range from 18 to 20
     - Increased capsule turret range from 30 to 32
-    - 
+    - Increased capsule turret damage modifier from 100% to 300%
+    - Increased capsule turret cooldown from 150 to 350
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.16.2

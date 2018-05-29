@@ -3,8 +3,12 @@ local rockets = {}
 local turretUtils = require("utils/TurretUtils")
 local recipeUtils = require("utils/RecipeUtils")
 local technologyUtils = require("utils/TechnologyUtils")
+local projectileUtils = require("utils/ProjectileUtils")
+local ammoUtils = require("utils/AmmoUtils")
 
-local makeTechnology = technologyUtils.makeTechnology
+local makeAmmo = ammoUtils.makeAmmo
+local addEffectToTech = technologyUtils.addEffectToTech
+local makeRocketProjectile = projectileUtils.makeRocketProjectile
 local makeRecipe = recipeUtils.makeRecipe
 local makeAmmoTurret = turretUtils.makeAmmoTurret
 
@@ -120,237 +124,398 @@ function rockets.enable()
 	    result = rapidRocketTurretItem,
     })
 
-    
-    local rocketTurretTech = makeTechnology({
-	    name = "rocket-turret-1",
-	    prerequisites = {"turrets", "military-2", "rocketry"},
-	    icon = "__RampantArsenal__/graphics/technology/rocket-turrets.png",
-	    effects = {
-		{
-		    type = "unlock-recipe",
-		    recipe = rocketTurretRecipe,
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"military-science-pack", 1}
-	    },
-	    count = 200,
-	    time = 30
-    })
-
-    makeTechnology({
-	    name = "rocket-turret-2",
-	    prerequisites = {"rocket-speed-1", "explosive-rocketry", "advanced-electronics-2", "military-3", rocketTurretTech, "engine"},
-	    icon = "__RampantArsenal__/graphics/technology/rocket-turrets.png",
-	    effects = {
-		{
-		    type = "unlock-recipe",
-		    recipe = rapidRocketRecipe,
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1}		
-	    },
-	    count = 300,
-	    time = 30
+    addEffectToTech("rocket-turret-1",
+		    {
+			type = "unlock-recipe",
+			recipe = rocketTurretRecipe,
     })
     
-    local t1 = makeTechnology({
-	    name = "rocket-turret-damage-1",
-	    prerequisites = {rocketTurretTech},
-	    icon = "__RampantArsenal__/graphics/technology/rocket-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = rocketTurret,
-		    modifier = 0.1
-		}
-	    },
+
+    addEffectToTech("rocket-turret-2",
+		    {
+			type = "unlock-recipe",
+			recipe = rapidRocketRecipe,
+    })
+    
+
+    local incendiaryRocketAmmo = makeAmmo({
+    	    name = "incendiary-rocket",
+    	    icon = "__RampantArsenal__/graphics/icons/incendiary-rocket.png",
+	    order = "d[rocket-launcher]-b[incendiary]",
+    	    ammoType = {
+    		category = "rocket",
+    		target_type = "position",
+    		clamp_position = true,
+    		action =
+    		    {
+    			{
+    			    type = "direct",
+    			    action_delivery =
+    				{
+    				    type = "instant",
+    				    source_effects =
+    					{
+    					    {
+    						type = "create-explosion",
+    						entity_name = "explosion-gunshot"
+    					    }
+    					}
+    				}
+    			},
+    			{
+    			    type = "direct",
+    			    action_delivery =
+    				{
+    				    type = "projectile",
+				    starting_speed = 1,				    
+    				    projectile = makeRocketProjectile({
+					    name = "incendiary",
+					    action =
+						{
+						    type = "direct",
+						    action_delivery =
+							{
+							    type = "instant",
+							    target_effects =
+								{
+								    {
+									type = "damage",
+									damage = {amount = 50 , type = "physical"}
+								    },
+								    {
+									type = "damage",
+									damage = {amount = 280 , type = "fire"}
+								    },
+								    {
+									type = "damage",
+									damage = {amount = 50 , type = "explosion"}
+								    },
+								    {
+									type = "create-entity",
+									entity_name = "explosion"
+								    },
+								    {
+									type = "create-sticker",
+									sticker = "fire-sticker"
+								    },
+								    {
+									type = "create-fire",
+									entity_name = "fire-flame",
+									initial_ground_flame_count = 2
+								    }
+								}
+							}
+						}
+				    })
+    				}
+    			}
+    		    }
+    	    }
+    })
+    
+    local incendiaryRocketRecipe = makeRecipe({
+	    name = "incendiary-rocket",
+	    icon = "__RampantArsenal__/graphics/icons/incendiary-rocket.png",
+	    enabled = false,
+	    category = "crafting-with-fluid",
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1}
+		{"explosive-rocket", 1},
+		{"steel-plate", 1},
+		{type="fluid", name="light-oil", amount=15}
 	    },
-	    count = 100,
-	    time = 30,
-	    order = "e-z-a"
+	    result = incendiaryRocketAmmo,
     })
 
-    local t2 = makeTechnology({
-	    name = "rocket-turret-damage-2",
-	    prerequisites = {t1},
-	    icon = "__RampantArsenal__/graphics/technology/rocket-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = rocketTurret,
-		    modifier = 0.1
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1}
-	    },
-	    count = 150,
-	    time = 45,
-	    order = "e-z-b"
+    addEffectToTech("incendiary-rockets",
+		    {
+			type = "unlock-recipe",
+			recipe = incendiaryRocketRecipe,
     })
 
-    local t3 = makeTechnology({
-	    name = "rocket-turret-damage-3",
-	    prerequisites = {t2},
-	    icon = "__RampantArsenal__/graphics/technology/rocket-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = rocketTurret,
-		    modifier = 0.2
-		},
-		{
-		    type = "turret-attack",
-		    turret_id = rapidRocketTurret,
-		    modifier = 0.2
-		}
-	    },
+    local heRocketAmmo = makeAmmo({
+    	    name = "he-rocket",
+    	    icon = "__RampantArsenal__/graphics/icons/he-rocket.png",
+	    order = "d[rocket-launcher]-b[he]",
+    	    ammoType = {
+    		category = "rocket",
+    		target_type = "position",
+    		clamp_position = true,
+    		action =
+    		    {
+    			{
+    			    type = "direct",
+    			    action_delivery =
+    				{
+    				    type = "instant",
+    				    source_effects =
+    					{
+    					    {
+    						type = "create-explosion",
+    						entity_name = "explosion-gunshot"
+    					    }
+    					}
+    				}
+    			},
+    			{
+    			    type = "direct",
+    			    action_delivery =
+    				{
+    				    type = "projectile",
+				    starting_speed = 1,				    
+    				    projectile = makeRocketProjectile({
+					    name = "he",
+					    action =
+						{
+						    type = "direct",
+						    action_delivery =
+							{
+							    type = "instant",
+							    target_effects =
+								{
+								    {
+									type = "damage",
+									damage = {amount = 50 , type = "physical"}
+								    },
+								    {
+									type = "damage",
+									damage = {amount = 280 , type = "fire"}
+								    },
+								    {
+									type = "damage",
+									damage = {amount = 50 , type = "explosion"}
+								    },
+								    {
+									type = "create-entity",
+									entity_name = "explosion"
+								    },
+								    {
+									type = "create-sticker",
+									sticker = "fire-sticker"
+								    },
+								    {
+									type = "create-fire",
+									entity_name = "fire-flame",
+									initial_ground_flame_count = 2
+								    }
+								}
+							}
+						}
+				    })
+    				}
+    			}
+    		    }
+    	    }
+    })
+    
+    local heRocketRecipe = makeRecipe({
+	    name = "he-rocket",
+	    icon = "__RampantArsenal__/graphics/icons/he-rocket.png",
+	    enabled = false,
+	    category = "crafting-with-fluid",
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1}
+		{"explosive-rocket", 1},
+		{"steel-plate", 1},
+		{type="fluid", name="light-oil", amount=15}
 	    },
-	    count = 300,
-	    time = 50,
-	    order = "e-z-c"
+	    result = heRocketAmmo,
     })
 
-    local t4 = makeTechnology({
-	    name = "rocket-turret-damage-4",
-	    prerequisites = {t3},
-	    icon = "__RampantArsenal__/graphics/technology/rocket-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = rocketTurret,
-		    modifier = 0.3
-		},
-		{
-		    type = "turret-attack",
-		    turret_id = rapidRocketTurret,
-		    modifier = 0.3
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
-	    },
-	    count = 300,
-	    time = 60,
-	    order = "e-z-d"
+    addEffectToTech("he-rockets",
+		    {
+			type = "unlock-recipe",
+			recipe = heRocketRecipe,
     })
 
-
-    local t5 = makeTechnology({
-	    name = "rocket-turret-damage-5",
-	    prerequisites = {t4},
-	    icon = "__RampantArsenal__/graphics/technology/rocket-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = rocketTurret,
-		    modifier = 0.3
-		},
-		{
-		    type = "turret-attack",
-		    turret_id = rapidRocketTurret,
-		    modifier = 0.3
-		}
-	    },
+    local bioRocketAmmo = makeAmmo({
+    	    name = "bio-rocket",
+    	    icon = "__RampantArsenal__/graphics/icons/bio-rocket.png",
+	    order = "d[rocket-launcher]-b[fbio]",
+    	    ammoType = {
+    		category = "rocket",
+    		target_type = "position",
+    		clamp_position = true,
+    		action =
+    		    {
+    			{
+    			    type = "direct",
+    			    action_delivery =
+    				{
+    				    type = "instant",
+    				    source_effects =
+    					{
+    					    {
+    						type = "create-explosion",
+    						entity_name = "explosion-gunshot"
+    					    }
+    					}
+    				}
+    			},
+    			{
+    			    type = "direct",
+    			    action_delivery =
+    				{
+    				    type = "projectile",
+				    starting_speed = 1,				    
+    				    projectile = makeRocketProjectile({
+					    name = "bio",
+					    action =
+						{
+						    type = "direct",
+						    action_delivery =
+							{
+							    type = "instant",
+							    target_effects =
+								{
+								    {
+									type = "damage",
+									damage = {amount = 50 , type = "physical"}
+								    },
+								    {
+									type = "damage",
+									damage = {amount = 280 , type = "fire"}
+								    },
+								    {
+									type = "damage",
+									damage = {amount = 50 , type = "explosion"}
+								    },
+								    {
+									type = "create-entity",
+									entity_name = "explosion"
+								    },
+								    {
+									type = "create-sticker",
+									sticker = "fire-sticker"
+								    },
+								    {
+									type = "create-fire",
+									entity_name = "fire-flame",
+									initial_ground_flame_count = 2
+								    }
+								}
+							}
+						}
+				    })
+    				}
+    			}
+    		    }
+    	    }
+    })
+    
+    local bioRocketRecipe = makeRecipe({
+	    name = "bio-rocket",
+	    icon = "__RampantArsenal__/graphics/icons/bio-rocket.png",
+	    enabled = false,
+	    category = "crafting-with-fluid",
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"explosive-rocket", 1},
+		{"steel-plate", 1},
+		{type="fluid", name="light-oil", amount=15}
 	    },
-	    count = 1000,
-	    time = 60,
-	    order = "e-z-e"
+	    result = bioRocketAmmo,
     })
 
-    local t6 = makeTechnology({
-	    name = "rocket-turret-damage-6",
-	    prerequisites = {t5},
-	    icon = "__RampantArsenal__/graphics/technology/rocket-turret-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = rocketTurret,
-		    modifier = 0.4
-		},		
-		{
-		    type = "turret-attack",
-		    turret_id = rapidRocketTurret,
-		    modifier = 0.4
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
-	    },
-	    count = 3000,
-	    time = 60,
-	    order = "e-z-f"
+    addEffectToTech("bio-rockets",
+		    {
+			type = "unlock-recipe",
+			recipe = bioRocketRecipe,
+    })
+        
+    addEffectToTech("rocket-turret-damage-1",
+		    {
+			{
+			    type = "turret-attack",
+			    turret_id = rapidRocketTurret,
+			    modifier = 0.1
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = rocketTurret,
+			    modifier = 0.1
+			}
     })
 
-    makeTechnology({
-	    name = "rocket-turret-damage-7",
-	    prerequisites = {t6},
-	    icon = "__RampantArsenal__/graphics/technology/rocket-turret-damage.png",
-	    upgrade = true,
-	    maxLevel = "infinite",
-	    effects = {
-		{
-		    type = "turret-attack",
-		    turret_id = rocketTurret,
-		    modifier = 0.4
-		},
-		{
-		    type = "turret-attack",
-		    turret_id = rapidRocketTurret,
-		    modifier = 0.4
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1},
-		{"space-science-pack", 1}
-	    },
-	    countForumla = "2^(L-7)*1000",
-	    time = 60,
-	    order = "e-z-f"
+    addEffectToTech("rocket-turret-damage-2",
+		    {
+			{
+			    type = "turret-attack",
+			    turret_id = rapidRocketTurret,
+			    modifier = 0.1
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = rocketTurret,
+			    modifier = 0.1
+			}
+    })
+
+    addEffectToTech("rocket-turret-damage-3",
+		    {
+			{
+			    type = "turret-attack",
+			    turret_id = rapidRocketTurret,
+			    modifier = 0.2
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = rocketTurret,
+			    modifier = 0.2
+			}
+    })
+
+    addEffectToTech("rocket-turret-damage-4",
+		    {
+			{
+			    type = "turret-attack",
+			    turret_id = rapidRocketTurret,
+			    modifier = 0.3
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = rocketTurret,
+			    modifier = 0.3
+			}
+    })
+    
+    addEffectToTech("rocket-turret-damage-5",
+		    {
+			{
+			    type = "turret-attack",
+			    turret_id = rapidRocketTurret,
+			    modifier = 0.3
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = rocketTurret,
+			    modifier = 0.3
+			}
+    })
+
+    addEffectToTech("rocket-turret-damage-6",
+		    {
+			{
+			    type = "turret-attack",
+			    turret_id = rapidRocketTurret,
+			    modifier = 0.4
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = rocketTurret,
+			    modifier = 0.4
+			}
+    })
+
+    addEffectToTech("rocket-turret-damage-7",
+		    {
+			{
+			    type = "turret-attack",
+			    turret_id = rapidRocketTurret,
+			    modifier = 0.2
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = rocketTurret,
+			    modifier = 0.2
+			}
     })
 end
 
