@@ -37,15 +37,15 @@ function turrets.addTurrets()
 
     enableTechnologies()
     enableStickers()
+    enableFire()
     enableClouds()
+    enableLasers()
     enableLandmines()
     enableGrenades()
     enableRockets()
-    enableLasers()
     enableCannons()
-    enableGuns()    
+    enableGuns()
     enableArtillery()
-    enableFire()
     enableCapsulesLauncher()
 end
 

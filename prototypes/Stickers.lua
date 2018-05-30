@@ -9,13 +9,25 @@ function stickers.enable()
     makeSticker(
 	{
 	    name = "small-toxic",
-	    duration = 60,
+	    duration = 120,
+	    spreadRadius = 5,
+	    tint = {r=0,g=0.3,b=0.5,a=0.8},
+	    movementModifier = 1,	    
+	    damagePerTick = { type = "poison", amount = 5 }
+	}
+    )
+
+    makeSticker(
+	{
+	    name = "bullet-toxic",
+	    duration = 80,
 	    spreadRadius = 5,
 	    tint = {r=0,g=0.3,b=0.5,a=0.8},
 	    movementModifier = 1,
-	    damagePerTick = { type = "poison", amount = 3 }
+	    damagePerTick = { type = "poison", amount = 2 }
 	}
     )
+
     
     makeSticker(
 	{
@@ -24,7 +36,7 @@ function stickers.enable()
 	    spreadRadius = 5,
 	    tint = {r=0,g=0.3,b=0.5,a=0.8},
 	    movementModifier = 1,
-	    damagePerTick = { type = "fire", amount = 3 }
+	    damagePerTick = { type = "fire", amount = 4 }
 	}
     )
 

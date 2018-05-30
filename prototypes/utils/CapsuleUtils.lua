@@ -1,7 +1,7 @@
 local capsuleUtils = {}
 
 function capsuleUtils.makeCapsule(attributes, attack)
-    local name = attributes.name .. "-capsule-rampant-arsenel"
+    local name = attributes.name .. "-capsule-rampant-arsenal"
 
     data:extend({
 	    {

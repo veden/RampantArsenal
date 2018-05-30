@@ -5,16 +5,10 @@ local recipeUtils = require("utils/RecipeUtils")
 local technologyUtils = require("utils/TechnologyUtils")
 local ammoUtils = require("utils/AmmoUtils")
 local streamUtils = require("utils/StreamUtils")
-local stickerUtils = require("utils/StickerUtils")
-local cloudUtils = require("utils/CloudUtils")
 
-
-local makeSticker = stickerUtils.makeSticker
-local makeCloud = cloudUtils.makeCloud
 local addEffectToTech = technologyUtils.addEffectToTech
 local makeStream = streamUtils.makeStream
 local makeAmmo = ammoUtils.makeAmmo
-local makeTechnology = technologyUtils.makeTechnology
 local makeRecipe = recipeUtils.makeRecipe
 local makeAmmoTurret = turretUtils.makeAmmoTurret
 
@@ -83,7 +77,7 @@ function capsules.enable()
 					particleTint = particleGrey,
 					actions = {
 					    type = "area",
-					    radius = 9,
+					    radius = 12,
 					    force = "enemy",
 					    action_delivery =
 						{
@@ -258,7 +252,7 @@ function capsules.enable()
 							{
 							    type = "create-entity",
 							    show_in_tooltip = true,
-							    entity_name = "poison-cloud"
+							    entity_name = "big-poison-cloud-rampant-arsenal"
 							}
 						}
 					}

@@ -562,7 +562,7 @@ function technologies.enable()
     })
 
     makeTechnology({
-    	    name = "flamethrower",
+    	    name = "flamethrower-2",
     	    prerequisites = {"flamethrower-damage-2", "military-4", "advanced-electronics-2", "concrete"},
 	    icon = "__base__/graphics/technology/flamethrower.png",
     	    effects = {},
@@ -801,7 +801,7 @@ function technologies.enable()
     })
 
     makeTechnology({
-	    name = "advanced-laser-turret",
+	    name = "advanced-laser-turret-2",
 	    icon = "__base__/graphics/technology/laser-turrets.png",
 	    prerequisites = {"laser-turret-damage-2", "advanced-electronics-2", "military-4", "electric-engine"},
 	    effects = {},
@@ -1408,6 +1408,22 @@ function technologies.enable()
 	    countForumla = "2^(L-7)*1000",
 	    time = 60,
 	    order = "e-z-f"
+    })
+
+    
+    makeTechnology({
+	    name = "turrets-2",
+	    icon="__RampantArsenal__/graphics/technology/turrets-2.png",
+	    prerequisites = {"rampant-arsenal-technology-bio-weapons"},
+	    effects = {},
+	    count = 75,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+    		{"science-pack-3", 1},
+    		{"military-science-pack", 1}
+	    },
+	    time = 30	    
     })
 
 end

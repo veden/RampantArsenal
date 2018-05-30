@@ -13,7 +13,6 @@ local makeStream = streamUtils.makeStream
 local makeFluidTurret = turretUtils.makeFluidTurret
 local makeAmmoTurret = turretUtils.makeAmmoTurret
 local makeRecipe = recipeUtils.makeRecipe
-local makeTechnology = technologyUtils.makeTechnology
 local addEffectToTech = technologyUtils.addEffectToTech
 
 local function cannonMkISheet()
@@ -396,7 +395,7 @@ function cannons.enable()
 			recipe = shotgunTurretRecipe,
     })
 
-    addEffectToTech("flamethrower",
+    addEffectToTech("flamethrower-2",
 		    {
 			type = "unlock-recipe",
 			recipe = suppresionCannonRecipe,
@@ -451,7 +450,7 @@ function cannons.enable()
 			modifier = 0.2
     })
 
-   
+    
     addEffectToTech("cannon-turret-damage-1",
 		    {
 			{
@@ -603,6 +602,8 @@ function cannons.enable()
     	    name = "incendiary-cannon-shell",
     	    icon = "__RampantArsenal__/graphics/icons/incendiary-cannon-shell.png",
 	    order = "d[cannon-shell]-c[incendiary]",
+	    magSize = 1,
+	    stackSize = 200,
     	    ammoType = {
     		category = "cannon-shell",
     		target_type = "direction",
@@ -649,33 +650,33 @@ function cannons.enable()
 								{
 								    {
 									type = "damage",
-									damage = {amount = 50 , type = "physical"}
+									damage = {amount = 100 , type = "physical"}
 								    },
 								    {
 									type = "damage",
-									damage = {amount = 280 , type = "fire"}
+									damage = {amount = 600 , type = "fire"}
 								    },
 								    {
 									type = "damage",
-									damage = {amount = 50 , type = "explosion"}
+									damage = {amount = 100 , type = "explosion"}
 								    },
 								    {
 									type = "create-entity",
-									entity_name = "explosion"
+									entity_name = "big-explosion"
 								    },
 								    {
 									type = "create-sticker",
-									sticker = "fire-sticker"
+									sticker = "small-fire-sticker-rampant-arsenal"
 								    },
 								    {
 									type = "create-fire",
 									entity_name = "fire-flame",
-									initial_ground_flame_count = 2
+									initial_ground_flame_count = 4
 								    }
 								}
 							}
 						},
-					    final_action =
+					    finalAction =
 						{
 						    type = "direct",
 						    action_delivery =
@@ -683,6 +684,34 @@ function cannons.enable()
 							    type = "instant",
 							    target_effects =
 								{
+								    {
+									type = "create-entity",
+									entity_name = "big-explosion"
+								    },
+								    {
+									type = "nested-result",
+									action =
+									    {
+										type = "area",
+										radius = 4,
+										action_delivery =
+										    {
+											type = "instant",
+											target_effects =
+											    {
+												{
+												    type = "create-fire",
+												    entity_name = "fire-flame",
+												    initial_ground_flame_count = 4
+												},
+												{
+												    type = "create-sticker",
+												    sticker = "small-fire-sticker-rampant-arsenal"
+												}
+											    }
+										    }
+									    }
+								    },
 								    {
 									type = "create-entity",
 									entity_name = "small-scorchmark",
@@ -722,6 +751,8 @@ function cannons.enable()
     	    name = "he-cannon-shell",
     	    icon = "__RampantArsenal__/graphics/icons/he-cannon-shell.png",
 	    order = "d[cannon-shell]-c[he]",
+	    magSize = 1,	    
+	    stackSize = 200,
     	    ammoType = {
     		category = "cannon-shell",
     		target_type = "direction",
@@ -747,7 +778,11 @@ function cannons.enable()
     			    action_delivery =
     				{
     				    type = "projectile",
-				    starting_speed = 1,				    
+				    starting_speed = 1,
+				    max_range = 30,
+				    direction_deviation = 0.1,
+				    range_deviation = 0.1,
+				    min_range = 5,
     				    projectile = makeCannonProjectile({
 					    name = "he-cannon",
 					    piercingDamage = 100,
@@ -768,33 +803,16 @@ function cannons.enable()
 								{
 								    {
 									type = "damage",
-									damage = {amount = 50 , type = "physical"}
-								    },
-								    {
-									type = "damage",
-									damage = {amount = 280 , type = "fire"}
-								    },
-								    {
-									type = "damage",
-									damage = {amount = 50 , type = "explosion"}
+									damage = {amount = 200 , type = "physical"}
 								    },
 								    {
 									type = "create-entity",
-									entity_name = "explosion"
-								    },
-								    {
-									type = "create-sticker",
-									sticker = "fire-sticker"
-								    },
-								    {
-									type = "create-fire",
-									entity_name = "fire-flame",
-									initial_ground_flame_count = 2
+									entity_name = "big-explosion"
 								    }
 								}
 							}
 						},
-					    final_action =
+					    finalAction =
 						{
 						    type = "direct",
 						    action_delivery =
@@ -802,6 +820,33 @@ function cannons.enable()
 							    type = "instant",
 							    target_effects =
 								{
+								    {
+									type = "create-entity",
+									entity_name = "big-explosion"
+								    },
+								    {
+									type = "nested-result",
+									action =
+									    {
+										type = "area",
+										radius = 9,
+										action_delivery =
+										    {
+											type = "instant",
+											target_effects =
+											    {
+												{
+												    type = "damage",
+												    damage = {amount = 800, type = "explosion"}
+												},
+												{
+												    type = "create-entity",
+												    entity_name = "big-explosion"
+												}
+											    }
+										    }
+									    }
+								    },
 								    {
 									type = "create-entity",
 									entity_name = "small-scorchmark",
@@ -840,6 +885,8 @@ function cannons.enable()
     	    name = "bio-cannon-shell",
     	    icon = "__RampantArsenal__/graphics/icons/bio-cannon-shell.png",
 	    order = "d[cannon-shell]-c[fbio]",
+	    magSize = 1,
+	    stackSize = 200,
     	    ammoType = {
     		category = "cannon-shell",
     		target_type = "direction",
@@ -886,33 +933,24 @@ function cannons.enable()
 								{
 								    {
 									type = "damage",
-									damage = {amount = 50 , type = "physical"}
+									damage = {amount = 100 , type = "physical"}
 								    },
 								    {
 									type = "damage",
-									damage = {amount = 280 , type = "fire"}
+									damage = {amount = 600 , type = "poison"}
 								    },
 								    {
 									type = "damage",
-									damage = {amount = 50 , type = "explosion"}
+									damage = {amount = 100 , type = "explosion"}
 								    },
 								    {
 									type = "create-entity",
-									entity_name = "explosion"
-								    },
-								    {
-									type = "create-sticker",
-									sticker = "fire-sticker"
-								    },
-								    {
-									type = "create-fire",
-									entity_name = "fire-flame",
-									initial_ground_flame_count = 2
+									entity_name = "big-explosion"
 								    }
 								}
 							}
 						},
-					    final_action =
+					    finalAction =
 						{
 						    type = "direct",
 						    action_delivery =
@@ -920,6 +958,29 @@ function cannons.enable()
 							    type = "instant",
 							    target_effects =
 								{
+								    {
+									type = "create-entity",
+									entity_name = "big-explosion"
+								    },
+								    {
+									type = "nested-result",
+									action =
+									    {
+										type = "area",
+										radius = 7.5,
+										action_delivery =
+										    {
+											type = "instant",
+											target_effects =
+											    {											
+												{
+												    type = "create-sticker",
+												    sticker = "small-toxic-sticker-rampant-arsenal"
+												}
+											    }
+										    }
+									    }
+								    },
 								    {
 									type = "create-entity",
 									entity_name = "small-scorchmark",
@@ -953,6 +1014,18 @@ function cannons.enable()
 			type = "unlock-recipe",
 			recipe = bioCannonShellRecipe,
     })
+
+    local targetEffects = data.raw["projectile"]["uranium-cannon-projectile"].action.action_delivery.target_effects
+    targetEffects[1].damage.amount = targetEffects[1].damage.amount * 2
+    targetEffects[2].damage.amount = targetEffects[2].damage.amount * 2
+
+    targetEffects = data.raw["projectile"]["explosive-uranium-cannon-projectile"].action.action_delivery.target_effects
+    targetEffects[1].damage.amount = targetEffects[1].damage.amount * 2
+
+    local action = data.raw["projectile"]["explosive-uranium-cannon-projectile"].final_action.action_delivery.target_effects[2].action
+    action.radius = action.radius * 2
+    targetEffects = action.action_delivery.target_effects
+    targetEffects[1].damage.amount = targetEffects[1].damage.amount * 2
 end
 
 

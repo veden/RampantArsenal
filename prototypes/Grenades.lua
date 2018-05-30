@@ -68,7 +68,7 @@ function grenades.enable()
 						    },
 						    {
 							type = "area",
-							radius = 6.5,
+							radius = 8,
 							action_delivery =
 							    {
 								type = "instant",
@@ -76,11 +76,20 @@ function grenades.enable()
 								    {
 									{
 									    type = "damage",
-									    damage = {amount = 35, type = "explosion"}
+									    damage = {amount = 50, type = "explosion"}
 									},
 									{
-									    type = "create-entity",
-									    entity_name = "explosion"
+									    type = "damage",
+									    damage = {amount = 150, type = "fire"}
+									},
+									{
+									    type = "create-fire",
+									    entity_name = "fire-flame",
+									    initial_ground_flame_count = 3
+									},
+									{
+									    type = "create-sticker",
+									    sticker = "small-fire-sticker-rampant-arsenal"
 									}
 								    }
 							    }
@@ -164,7 +173,7 @@ function grenades.enable()
 						    },
 						    {
 							type = "area",
-							radius = 6.5,
+							radius = 10,
 							action_delivery =
 							    {
 								type = "instant",
@@ -172,11 +181,15 @@ function grenades.enable()
 								    {
 									{
 									    type = "damage",
-									    damage = {amount = 35, type = "explosion"}
+									    damage = {amount = 550, type = "explosion"}
+									},
+									{
+									    type = "push-back",
+									    distance = 1
 									},
 									{
 									    type = "create-entity",
-									    entity_name = "explosion"
+									    entity_name = "big-explosion"
 									}
 								    }
 							    }
@@ -207,7 +220,6 @@ function grenades.enable()
 			type = "unlock-recipe",
 			recipe = heGrenadeRecipe,
     })
-
     
     local bioGrenade = makeCapsule(
 	{
@@ -260,7 +272,7 @@ function grenades.enable()
 						    },
 						    {
 							type = "area",
-							radius = 6.5,
+							radius = 8,
 							action_delivery =
 							    {
 								type = "instant",
@@ -268,11 +280,15 @@ function grenades.enable()
 								    {
 									{
 									    type = "damage",
-									    damage = {amount = 35, type = "explosion"}
+									    damage = {amount = 50, type = "explosion"}
 									},
 									{
-									    type = "create-entity",
-									    entity_name = "explosion"
+									    type = "damage",
+									    damage = {amount = 175, type = "poison"}
+									},
+									{
+									    type = "create-sticker",
+									    sticker = "small-toxic-sticker-rampant-arsenal"
 									}
 								    }
 							    }
@@ -303,7 +319,7 @@ function grenades.enable()
 			type = "unlock-recipe",
 			recipe = bioGrenadeRecipe,
     })
-        
+    
     local toxicCloud = makeCloud(
 	{
 	    name = "toxic",
@@ -349,7 +365,7 @@ function grenades.enable()
 
     local toxicCapsule = makeCapsule(
 	{
-	    name = "toxic-capsule",
+	    name = "toxic",
 	    icon = "__RampantArsenal__/graphics/icons/toxic-capsule.png",
 	    order = "b[poison-capsule]-a[toxic]"
 	},
@@ -740,7 +756,51 @@ function grenades.enable()
 			type = "unlock-recipe",
 			recipe = speedCapsuleRecipe,
     })
-    
+
+    data.raw["projectile"]["cluster-grenade"].action[2].action_delivery.projectile = makeGrenadeProjectile(
+	{
+	    name = "cluster"
+	},
+	{
+	    {
+		type = "direct",
+		action_delivery =
+		    {
+			type = "instant",
+			target_effects =
+			    {
+				{
+				    type = "create-entity",
+				    entity_name = "medium-explosion"
+				},
+				{
+				    type = "create-entity",
+				    entity_name = "small-scorchmark",
+				    check_buildability = true
+				}
+			    }
+		    }
+	    },
+	    {
+		type = "area",
+		radius = 7,
+		action_delivery =
+		    {
+			type = "instant",
+			target_effects =
+			    {
+				{
+				    type = "damage",
+				    damage = {amount = 50, type = "physical"}
+				},
+				{
+				    type = "damage",
+				    damage = {amount = 175, type = "explosion"}
+				}
+			    }
+		    }
+	    }
+    })
 end
 
 return grenades

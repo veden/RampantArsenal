@@ -97,18 +97,12 @@ function landmines.enable()
 			    entity_name = "big-explosion"
 			},
 			{
-			    type = "create-fire",
-			    entity_name = "fire-flame",
-			    initial_ground_flame_count = 8,
-			    check_buildability = true
-			},
-			{
 			    type = "damage",
 			    damage = { amount = 500, type = "explosion"}
 			},
 			{
 			    type = "damage",
-			    damage = { amount = 500, type = "fire"}
+			    damage = { amount = 750, type = "fire"}
 			},
 			{
 			    type = "nested-result",
@@ -126,12 +120,18 @@ function landmines.enable()
 						    {
 							{
 							    type = "create-sticker",
-							    sticker = "fire-sticker"
+							    sticker = "small-fire-sticker-rampant-arsenal"
 							},
 							{
 							    type = "damage",
-							    damage = { amount = 300, type = "fire" },
+							    damage = { amount = 500, type = "fire" },
 							    apply_damage_to_trees = false
+							},
+							{
+							    type = "create-fire",
+							    entity_name = "fire-flame",
+							    initial_ground_flame_count = 7,
+							    check_buildability = true
 							}
 						    }
 					    }
@@ -180,62 +180,39 @@ function landmines.enable()
 			    entity_name = "big-explosion"
 			},
 			{
-			    type = "create-entity",
-			    entity_name = "poison-cloud"
-			},
-			{
 			    type = "damage",
 			    damage = { amount = 500, type = "explosion"}
 			},
 			{
 			    type = "damage",
-			    damage = { amount = 500, type = "poison"}
-			}-- ,
-			-- {
-			--     type = "nested-result",
-			--     affects_target = true,
-			--     action =
-			-- 	{
-			-- 	    {
-			-- 		type = "area",
-			-- 		radius = 6,
-			-- 		action_delivery =
-			-- 		    {
-			-- 			type = "instant",
-			-- 			target_effects =
-			-- 			    {
-			-- 				{
-			-- 				    type = "create-sticker",
-			-- 				    sticker = "fire-sticker"
-			-- 				},
-			-- 				{
-			-- 				    type = "damage",
-			-- 				    damage = { amount = 300, type = "fire" },
-			-- 				    apply_damage_to_trees = false
-			-- 				}
-			-- 			    }
-			-- 		    }
-			-- 	    },
-			-- 	    {
-			-- 		type = "cluster",
-			-- 		cluster_count = 15,
-			-- 		distance = 4,
-			-- 		distance_deviation = 3,
-			-- 		action_delivery =
-			-- 		    {
-			-- 			type = "instant",
-			-- 			target_effects =
-			-- 			    {			
-			-- 				{
-			-- 				    type = "create-fire",
-			-- 				    entity_name = "fire-flame",
-			-- 				    initial_ground_flame_count = 7,
-			-- 				    check_buildability = true
-			-- 				}
-			-- 			    }
-			-- 		    }
-			-- 	}}
-			-- }
+			    damage = { amount = 750, type = "poison"}
+			},
+			{
+			    type = "nested-result",
+			    affects_target = true,
+			    action =
+				{
+				    {
+					type = "area",
+					radius = 8,
+					action_delivery =
+					    {
+						type = "instant",
+						target_effects =
+						    {
+							{
+							    type = "create-sticker",
+							    sticker = "small-toxic-sticker-rampant-arsenal"
+							},							
+							{
+							    type = "damage",
+							    damage = { amount = 450, type = "poison" }
+							}
+						    }
+					    }
+				    }
+				}
+			}
 		    }
 		}
 	}
@@ -257,65 +234,38 @@ function landmines.enable()
 		    source_effects = {			
 			{
 			    type = "create-entity",
-			    entity_name = "big-explosion"
-			},
-			{
-			    type = "create-entity",
-			    entity_name = "poison-cloud"
+			    entity_name = "big-artillery-explosion"
 			},
 			{
 			    type = "damage",
-			    damage = { amount = 500, type = "explosion"}
+			    damage = { amount = 1250, type = "explosion"}
 			},
 			{
-			    type = "damage",
-			    damage = { amount = 500, type = "poison"}
-			}-- ,
-			-- {
-			--     type = "nested-result",
-			--     affects_target = true,
-			--     action =
-			-- 	{
-			-- 	    {
-			-- 		type = "area",
-			-- 		radius = 6,
-			-- 		action_delivery =
-			-- 		    {
-			-- 			type = "instant",
-			-- 			target_effects =
-			-- 			    {
-			-- 				{
-			-- 				    type = "create-sticker",
-			-- 				    sticker = "fire-sticker"
-			-- 				},
-			-- 				{
-			-- 				    type = "damage",
-			-- 				    damage = { amount = 300, type = "fire" },
-			-- 				    apply_damage_to_trees = false
-			-- 				}
-			-- 			    }
-			-- 		    }
-			-- 	    },
-			-- 	    {
-			-- 		type = "cluster",
-			-- 		cluster_count = 15,
-			-- 		distance = 4,
-			-- 		distance_deviation = 3,
-			-- 		action_delivery =
-			-- 		    {
-			-- 			type = "instant",
-			-- 			target_effects =
-			-- 			    {			
-			-- 				{
-			-- 				    type = "create-fire",
-			-- 				    entity_name = "fire-flame",
-			-- 				    initial_ground_flame_count = 7,
-			-- 				    check_buildability = true
-			-- 				}
-			-- 			    }
-			-- 		    }
-			-- 	}}
-			-- }
+			    type = "nested-result",
+			    affects_target = true,
+			    action =
+				{
+				    {
+					type = "area",
+					radius = 10,
+					action_delivery =
+					    {
+						type = "instant",
+						target_effects =
+						    {
+							{
+							    type = "push-back",
+							    distance = 1.5
+							},
+							{
+							    type = "damage",
+							    damage = { amount = 700, type = "explosion" }
+							}
+						    }
+					    }
+				    }
+				}
+			}
 		    }
 		}
 	}

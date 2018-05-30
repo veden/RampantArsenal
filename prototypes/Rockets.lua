@@ -142,10 +142,10 @@ function rockets.enable()
     	    name = "incendiary-rocket",
     	    icon = "__RampantArsenal__/graphics/icons/incendiary-rocket.png",
 	    order = "d[rocket-launcher]-b[incendiary]",
+	    magSize = 1,
+	    stackSize = 200,
     	    ammoType = {
     		category = "rocket",
-    		target_type = "position",
-    		clamp_position = true,
     		action =
     		    {
     			{
@@ -167,7 +167,7 @@ function rockets.enable()
     			    action_delivery =
     				{
     				    type = "projectile",
-				    starting_speed = 1,				    
+				    starting_speed = 0.1,				    
     				    projectile = makeRocketProjectile({
 					    name = "incendiary",
 					    action =
@@ -179,29 +179,43 @@ function rockets.enable()
 							    target_effects =
 								{
 								    {
-									type = "damage",
-									damage = {amount = 50 , type = "physical"}
-								    },
-								    {
-									type = "damage",
-									damage = {amount = 280 , type = "fire"}
-								    },
-								    {
-									type = "damage",
-									damage = {amount = 50 , type = "explosion"}
+									type = "nested-result",
+									affects_target = true,
+									action =
+									    {
+										type = "area",
+										radius = 10,
+										action_delivery =
+										    {
+											type = "instant",
+											target_effects =
+											    {
+												{
+												    type = "create-fire",
+												    entity_name = "fire-flame",
+												    initial_ground_flame_count = 2
+												},
+												{
+												    type = "create-sticker",
+												    sticker = "small-fire-sticker-rampant-arsenal"
+												},
+												{
+												    type = "damage",
+												    damage = {amount = 400 , type = "fire"},
+												    apply_damage_to_trees = false
+												},
+												{
+												    type = "damage",
+												    damage = {amount = 50 , type = "explosion"},
+												    apply_damage_to_trees = false
+												}
+											    }
+										    }
+									    }
 								    },
 								    {
 									type = "create-entity",
 									entity_name = "explosion"
-								    },
-								    {
-									type = "create-sticker",
-									sticker = "fire-sticker"
-								    },
-								    {
-									type = "create-fire",
-									entity_name = "fire-flame",
-									initial_ground_flame_count = 2
 								    }
 								}
 							}
@@ -236,10 +250,10 @@ function rockets.enable()
     	    name = "he-rocket",
     	    icon = "__RampantArsenal__/graphics/icons/he-rocket.png",
 	    order = "d[rocket-launcher]-b[he]",
+	    magSize = 1,
+	    stackSize = 200,
     	    ammoType = {
     		category = "rocket",
-    		target_type = "position",
-    		clamp_position = true,
     		action =
     		    {
     			{
@@ -261,7 +275,7 @@ function rockets.enable()
     			    action_delivery =
     				{
     				    type = "projectile",
-				    starting_speed = 1,				    
+				    starting_speed = 0.1,				    
     				    projectile = makeRocketProjectile({
 					    name = "he",
 					    action =
@@ -273,30 +287,33 @@ function rockets.enable()
 							    target_effects =
 								{
 								    {
-									type = "damage",
-									damage = {amount = 50 , type = "physical"}
-								    },
-								    {
-									type = "damage",
-									damage = {amount = 280 , type = "fire"}
-								    },
-								    {
-									type = "damage",
-									damage = {amount = 50 , type = "explosion"}
+									type = "nested-result",
+									affects_target = true,
+									action =
+									    {
+										type = "area",
+										radius = 12,
+										action_delivery =
+										    {
+											type = "instant",
+											target_effects =
+											    {
+												{
+												    type = "push-back",
+												    distance = 1
+												},
+												{
+												    type = "damage",
+												    damage = {amount = 650 , type = "explosion"}
+												}
+											    }
+										    }
+									    }
 								    },
 								    {
 									type = "create-entity",
-									entity_name = "explosion"
-								    },
-								    {
-									type = "create-sticker",
-									sticker = "fire-sticker"
-								    },
-								    {
-									type = "create-fire",
-									entity_name = "fire-flame",
-									initial_ground_flame_count = 2
-								    }
+									entity_name = "big-explosion"
+								    }								    
 								}
 							}
 						}
@@ -330,10 +347,10 @@ function rockets.enable()
     	    name = "bio-rocket",
     	    icon = "__RampantArsenal__/graphics/icons/bio-rocket.png",
 	    order = "d[rocket-launcher]-b[fbio]",
+	    magSize = 1,
+	    stackSize = 200,
     	    ammoType = {
     		category = "rocket",
-    		target_type = "position",
-    		clamp_position = true,
     		action =
     		    {
     			{
@@ -355,7 +372,7 @@ function rockets.enable()
     			    action_delivery =
     				{
     				    type = "projectile",
-				    starting_speed = 1,				    
+				    starting_speed = 0.1,				    
     				    projectile = makeRocketProjectile({
 					    name = "bio",
 					    action =
@@ -367,29 +384,36 @@ function rockets.enable()
 							    target_effects =
 								{
 								    {
-									type = "damage",
-									damage = {amount = 50 , type = "physical"}
-								    },
-								    {
-									type = "damage",
-									damage = {amount = 280 , type = "fire"}
-								    },
-								    {
-									type = "damage",
-									damage = {amount = 50 , type = "explosion"}
+									type = "nested-result",
+									affects_target = true,
+									action =
+									    {
+										type = "area",
+										radius = 11,
+										action_delivery =
+										    {
+											type = "instant",
+											target_effects =
+											    {
+												{
+												    type = "create-sticker",
+												    sticker = "small-toxic-sticker-rampant-arsenal"
+												},
+												{
+												    type = "damage",
+												    damage = {amount = 400 , type = "poison"}
+												},
+												{
+												    type = "damage",
+												    damage = {amount = 50 , type = "explosion"}
+												}
+											    }
+										    }
+									    }
 								    },
 								    {
 									type = "create-entity",
-									entity_name = "explosion"
-								    },
-								    {
-									type = "create-sticker",
-									sticker = "fire-sticker"
-								    },
-								    {
-									type = "create-fire",
-									entity_name = "fire-flame",
-									initial_ground_flame_count = 2
+									entity_name = "big-explosion"
 								    }
 								}
 							}
@@ -419,7 +443,7 @@ function rockets.enable()
 			type = "unlock-recipe",
 			recipe = bioRocketRecipe,
     })
-        
+    
     addEffectToTech("rocket-turret-damage-1",
 		    {
 			{

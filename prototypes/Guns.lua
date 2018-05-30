@@ -19,6 +19,51 @@ local addEffectToTech = technologyUtils.addEffectToTech
 
 local makeGun = gunUtils.makeGun
 
+
+local function gunTurretMkIISheet()
+    return
+	{
+	    layers =
+		{
+		    {
+			filename = "__RampantArsenal__/graphics/entities/gluegun_anim.png",
+			priority = "high",
+			width = 80,
+			height = 72,
+			line_length = 16,
+			scale=1.5,
+			axially_symmetrical = false,
+			direction_count = 64,
+			frame_count = 1,
+			shift = {0, -0.5},
+		    }
+		}
+	}    
+end
+
+
+local function gunTurretMkIIPlace()
+    return
+	{
+	    layers =
+		{
+		    {
+			filename = "__RampantArsenal__/graphics/entities/gluegun_fold.png",
+			priority = "medium",
+			width = 80,
+			height = 72,
+			scale=1.5,
+			-- line_length = 8,
+			axially_symmetrical = false,
+			direction_count = 4,
+			frame_count = 1,
+			shift = {0, -0.5},
+		    }
+		}
+	}    
+end
+
+
 function guns.enable()
     
     local mortar = makeGun(
@@ -73,11 +118,12 @@ function guns.enable()
 	    sound = make_heavy_gunshot_sounds()
     })
 
-
     local uraniumShotgunShellAmmo = makeAmmo({
     	    name = "uranium-shotgun",
     	    icon = "__RampantArsenal__/graphics/icons/uranium-shotgun-shell.png",
 	    order = "b[shotgun]-d[uranium]",
+	    magSize = 10,
+	    stackSize = 200,
     	    ammoType = {
     		category = "shotgun-shell",
     		target_type = "direction",
@@ -138,6 +184,8 @@ function guns.enable()
     	    name = "incendiary-shotgun",
     	    icon = "__RampantArsenal__/graphics/icons/incendiary-shotgun-shell.png",
 	    order = "b[shotgun]-c[incendiary]",
+	    magSize = 10,
+	    stackSize = 200,
     	    ammoType = {
     		category = "shotgun-shell",
     		target_type = "direction",
@@ -214,6 +262,8 @@ function guns.enable()
 	    name = "incendiary-magazine",
 	    icon = "__RampantArsenal__/graphics/icons/incendiary-rounds-magazine.png",
 	    order = "a[basic-clips]-c[incendiary-rounds-magazine]",
+	    magSize = 10,
+	    stackSize = 200,
 	    ammoType = {
 		category = "bullet",
 		action =
@@ -256,6 +306,8 @@ function guns.enable()
     	    name = "he-shotgun",
     	    icon = "__RampantArsenal__/graphics/icons/he-shotgun-shell.png",
 	    order = "b[shotgun]-c[he]",
+	    magSize = 10,
+	    stackSize = 200,
     	    ammoType = {
     		category = "shotgun-shell",
     		target_type = "direction",
@@ -284,6 +336,7 @@ function guns.enable()
     				    type = "projectile",
     				    projectile = makeShotgunProjectile({
 					    name = "he",
+					    directionOnly = true,
 					    animation = {
 						filename = "__base__/graphics/entity/piercing-bullet/piercing-bullet.png",
 						frame_count = 1,
@@ -292,29 +345,35 @@ function guns.enable()
 						priority = "high"
 					    },
 					    action = {
-						type = "direct",
+						type = "area",
+						radius = 1.5,
 						action_delivery =
 						    {
 							type = "instant",
-							target_effects ={
+							source_effects =
 							    {
-								type = "damage",
-								damage = {amount = 2, type = "physical"}
+								type = "create-explosion",
+								entity_name = "explosion-gunshot"
 							    },
+							target_effects =
 							    {
-								type = "damage",
-								damage = {amount = 6, type = "fire"}
-							    },
-							    {
-								type = "create-sticker",
-								sticker = "fire-sticker"
-							    },
-							    {
-								type = "create-fire",
-								entity_name = "fire-flame",
-								initial_ground_flame_count = 1
+								{
+								    type = "create-explosion",
+								    entity_name = "explosion"
+								},
+								{
+								    type = "damage",
+								    damage = {amount = 4, type = "physical"}
+								},
+								{
+								    type = "damage",
+								    damage = {amount = 10, type = "explosion"}
+								},
+								{
+								    type = "push-back",
+								    distance = 0.5
+								}
 							    }
-							}
 						    }
 					    }
 				    }),
@@ -332,11 +391,14 @@ function guns.enable()
 	    name = "he-magazine",
 	    icon = "__RampantArsenal__/graphics/icons/he-rounds-magazine.png",
 	    order = "a[basic-clips]-c[he-rounds-magazine]",
+	    magSize = 10,
+	    stackSize = 200,
 	    ammoType = {
 		category = "bullet",
 		action =
 		    {
-			type = "direct",
+			type = "area",
+			radius = 1.5,
 			action_delivery =
 			    {
 				type = "instant",
@@ -348,21 +410,20 @@ function guns.enable()
 				target_effects =
 				    {
 					{
-					    type = "create-fire",
-					    entity_name = "fire-flame",
-					    initial_ground_flame_count = 1
-					},
-					{
-					    type = "create-sticker",
-					    sticker = "fire-sticker"
-					},					
-					{
-					    type = "damage",
-					    damage = { amount = 4, type = "physical"}
+					    type = "create-explosion",
+					    entity_name = "explosion"
 					},
 					{
 					    type = "damage",
-					    damage = { amount = 12, type = "fire"}
+					    damage = {amount = 4, type = "physical"}
+					},
+					{
+					    type = "damage",
+					    damage = {amount = 12, type = "explosion"}
+					},
+					{
+					    type = "push-back",
+					    distance = 0.5
 					}
 				    }
 			    }
@@ -374,6 +435,8 @@ function guns.enable()
     	    name = "bio-shotgun",
     	    icon = "__RampantArsenal__/graphics/icons/bio-shotgun-shell.png",
 	    order = "b[shotgun]-c[bio]",
+	    magSize = 10,
+	    stackSize = 200,
     	    ammoType = {
     		category = "shotgun-shell",
     		target_type = "direction",
@@ -402,6 +465,7 @@ function guns.enable()
     				    type = "projectile",
     				    projectile = makeShotgunProjectile({
 					    name = "bio",
+					    directionOnly = true,
 					    animation = {
 						filename = "__base__/graphics/entity/piercing-bullet/piercing-bullet.png",
 						frame_count = 1,
@@ -424,9 +488,8 @@ function guns.enable()
 								damage = {amount = 6, type = "poison"}
 							    },
 							    {
-								type = "create-entity",
-								show_in_tooltip = true,
-								entity_name = "poison-cloud"
+								type = "create-sticker",
+								sticker = "bullet-toxic-sticker-rampant-arsenal"
 							    }
 							}
 						    }
@@ -446,6 +509,8 @@ function guns.enable()
 	    name = "bio-magazine",
 	    icon = "__RampantArsenal__/graphics/icons/bio-rounds-magazine.png",
 	    order = "a[basic-clips]-c[bio-rounds-magazine]",
+	    magSize = 10,
+	    stackSize = 200,
 	    ammoType = {
 		category = "bullet",
 		action =
@@ -462,9 +527,8 @@ function guns.enable()
 				target_effects =
 				    {
 					{
-					    type = "create-entity",
-					    show_in_tooltip = true,
-					    entity_name = "poison-cloud"
+					    type = "create-sticker",
+					    sticker = "bullet-toxic-sticker-rampant-arsenal"
 					},
 					{
 					    type = "damage",
@@ -479,8 +543,6 @@ function guns.enable()
 		    }
 	    }
     })
-
-
     
     local mortarRecipe = makeRecipe({
 	    name = "mortar",
@@ -520,7 +582,6 @@ function guns.enable()
 	    },
 	    result = incendiaryMagazineAmmo
     })
-
     
     local incendiaryShotgunShellRecipe = makeRecipe({
 	    name = "incendiary-shotgun-shell",
@@ -655,7 +716,100 @@ function guns.enable()
 			type = "unlock-recipe",
 			recipe = bioShotgunShellRecipe
     })
-   
+
+    local gunTurretAttributes = {
+	name = "gun",
+	icon = "__RampantArsenal__/graphics/icons/gluegun-icon.png",
+	miningTime = 1,
+	health = 800,
+	collisionBox = {{-1.2, -1.2 }, {1.2, 1.2}},
+	selectionBox = {{-1.4, -1.4 }, {1.4, 1.4}},
+	hasBaseDirection = true,
+	foldedAnimation = gunTurretMkIISheet(),
+	foldingAnimation = gunTurretMkIISheet(),
+	preparedAnimation = gunTurretMkIISheet(),
+	preparingAnimation = gunTurretMkIISheet()
+    }
+    local gunTurret,gunTurretItem = makeAmmoTurret(gunTurretAttributes,
+							 {
+							     type = "projectile",
+							     ammo_category = "bullet",
+							     cooldown = 3.3,
+							     projectile_creation_distance = 2,
+							     damage_modifier = 2,
+							     projectile_center = {0, 0},
+							     range = 21,
+							     sound = make_heavy_gunshot_sounds(),
+    })
+    
+    local gunTurretRecipe = makeRecipe({
+	    name = "gun-turret",
+	    icon = "__RampantArsenal__/graphics/icons/gluegun-icon.png",
+	    enabled = false,
+	    category = "crafting-with-fluid",
+	    ingredients = {
+		{"piercing-shotgun-shell", 1},
+		{"uranium-238", 1},
+		{"steel-plate", 1}		
+	    },
+	    result = gunTurretItem
+    })
+
+    addEffectToTech("turrets-2",
+		    {
+			type = "unlock-recipe",
+			recipe = gunTurretRecipe
+    })
+
+    addEffectToTech("gun-turret-damage-1",
+		    {
+			type = "turret-attack",
+			turret_id = gunTurret,
+			modifier = 0.1
+    })
+
+    addEffectToTech("gun-turret-damage-2",
+		    {
+			type = "turret-attack",
+			turret_id = gunTurret,
+			modifier = 0.1
+    })
+
+    addEffectToTech("gun-turret-damage-3",
+		    {
+			type = "turret-attack",
+			turret_id = gunTurret,
+			modifier = 0.2
+    })
+
+    addEffectToTech("gun-turret-damage-4",
+		    {
+			type = "turret-attack",
+			turret_id = gunTurret,
+			modifier = 0.2
+    })
+
+    addEffectToTech("gun-turret-damage-5",
+		    {
+			type = "turret-attack",
+			turret_id = gunTurret,
+			modifier = 0.2
+    })
+
+    addEffectToTech("gun-turret-damage-6",
+		    {
+			type = "turret-attack",
+			turret_id = gunTurret,
+			modifier = 0.4
+    })
+
+    addEffectToTech("gun-turret-damage-7",
+			{
+			type = "turret-attack",
+			turret_id = gunTurret,
+			modifier = 0.7
+    })
+
 end
 
 return guns

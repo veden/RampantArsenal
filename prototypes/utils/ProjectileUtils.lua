@@ -325,7 +325,7 @@ function projectileUtils.makeRocketProjectile(attributes)
 		name = name,
 		flags = {"not-on-map"},
 		collision_box = attributes.collisionBox,
-		acceleration = attributes.acceleration or 0,
+		acceleration = attributes.acceleration or 0.005,
 		direction_only = attributes.directionOnly,
 		piercing_damage = attributes.piercingDamage,
 		action = attributes.action or 

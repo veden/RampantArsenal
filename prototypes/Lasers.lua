@@ -250,7 +250,7 @@ function lasers.enable()
 			recipe = lightningTurretRecipe
     })
 
-    addEffectToTech("advanced-laser-turret",
+    addEffectToTech("advanced-laser-turret-2",
 		    {
 			type = "unlock-recipe",
 			recipe = advanceLaserRecipe

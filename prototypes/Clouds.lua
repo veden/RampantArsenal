@@ -51,6 +51,44 @@ function clouds.enable()
 
     makeCloud(
 	{
+	    name = "big-poison",
+	    duration = 240,
+	    inDuration = 45,
+	    outDuration = 30,
+	    movementModifier = 0,
+	    spreadRadius = 2,
+	    tint = {r=0,g=0.8,b=0,a=0.8},
+	    scale = 3
+	},
+	{
+	    type = "direct",
+	    action_delivery =
+		{
+		    type = "instant",
+		    target_effects =
+			{
+			    type = "nested-result",
+			    action =
+				{
+				    type = "area",
+				    radius = 13,
+				    entity_flags = {"breaths-air"},
+				    action_delivery =
+					{
+					    type = "instant",
+					    target_effects =
+						{
+						    type = "damage",
+						    damage = { amount = 32, type = "poison"}
+						}
+					}
+				}
+			}
+		}
+    })
+
+    makeCloud(
+	{
 	    name = "big-repair",
 	    duration = 240,
 	    inDuration = 45,
