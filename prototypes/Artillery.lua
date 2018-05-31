@@ -5,7 +5,6 @@ local technologyUtils = require("utils/TechnologyUtils")
 local projectileUtils = require("utils/ProjectileUtils")
 local ammoUtils = require("utils/AmmoUtils")
 
-local makeBombWave = projectileUtils.makeBombWave
 local makeAmmo = ammoUtils.makeAmmo
 local addEffectToTech = technologyUtils.addEffectToTech
 local makeArtilleryShell = projectileUtils.makeArtilleryShell
@@ -53,8 +52,12 @@ function artillery.enable()
 							    speed_deviation = 0.2
 							},
 							{
+							    type = "show-explosion-on-chart",
+							    scale = 8/32,
+							},
+							{
 							    type = "create-entity",
-							    entity_name = "explosion"
+							    entity_name = "big-artillery-explosion"
 							},
 							{
 							    type = "damage",
@@ -66,63 +69,9 @@ function artillery.enable()
 							    check_buildability = true
 							},
 							{
-							    type = "nested-result",
-							    action =
-								{
-								    type = "area",
-								    target_entities = false,
-								    repeat_count = 750,
-								    radius = 15,
-								    action_delivery =
-									{
-									    type = "projectile",
-									    projectile = makeBombWave(
-										{
-										    name="incendiary-artillery"
-										},
-										{
-										    {
-											type = "direct",
-											action_delivery =
-											    {
-												type = "instant",
-												target_effects =
-												    {
-													{
-													    type = "create-entity",
-													    entity_name = "explosion"
-													},
-													{
-													    type = "create-fire",
-													    entity_name = "fire-flame",
-													    initial_ground_flame_count = 4
-													}
-												    }
-											    }
-										    },
-										    {
-											type = "area",
-											radius = 3,
-											action_delivery =
-											    {
-												type = "instant",
-												target_effects =
-												    {
-													{
-													    type = "create-sticker",
-													    sticker = "small-fire-sticker-rampant-arsenal"
-													},
-													{
-													    type = "damage",
-													    damage = {amount = 400, type = "explosion"}
-													}
-												    }
-											    }
-										    }
-									    }),
-									    starting_speed = 0.5
-									}
-								}
+							    type = "create-entity",
+							    entity_name = "massive-fire-cloud-rampant-arsenal",
+							    show_in_tooltip = true
 							}
 						    }
 					    }
@@ -173,9 +122,66 @@ function artillery.enable()
 			action_delivery =
 			    {
 				type = "artillery",
-				projectile = makeArtilleryShell({
+				projectile = makeArtilleryShell(
+				    {
 					name = "he"
-				}),
+				    },
+				    {
+					type = "direct",
+					action_delivery =
+					    {
+						type = "instant",
+						target_effects =
+						    {
+							{
+							    type = "nested-result",
+							    action =
+								{
+								    type = "area",
+								    radius = 25.0,
+								    action_delivery =
+									{
+									    type = "instant",
+									    target_effects =
+										{
+										    {
+											type = "damage",
+											damage = {amount = 250 , type = "physical"}
+										    },
+										    {
+											type = "damage",
+											damage = {amount = 1000 , type = "explosion"}
+										    },
+										    {
+											type = "create-entity",
+											entity_name = "big-artillery-explosion"
+										    }
+										}
+									}
+								}
+							},
+							{
+							    type = "create-trivial-smoke",
+							    smoke_name = "artillery-smoke",
+							    initial_height = 0,
+							    speed_from_center = 0.05,
+							    speed_from_center_deviation = 0.005,
+							    offset_deviation = {{-4, -4}, {4, 4}},
+							    max_radius = 3.5,
+							    repeat_count = 4 * 4 * 15
+							},
+							{
+							    type = "create-entity",
+							    entity_name = "big-artillery-explosion"
+							},
+							{
+							    type = "show-explosion-on-chart",
+							    scale = 8/32,
+							}
+						    }
+					    }
+				    }
+				),
 				starting_speed = 1,
 				direction_deviation = 0,
 				range_deviation = 0,
@@ -183,7 +189,7 @@ function artillery.enable()
 				    {
 					type = "create-explosion",
 					entity_name = "artillery-cannon-muzzle-flash"
-				    },
+				    }				
 			    }
 		    },
 	    }	    
@@ -220,8 +226,49 @@ function artillery.enable()
 			action_delivery =
 			    {
 				type = "artillery",
-				projectile = makeArtilleryShell({
+				projectile = makeArtilleryShell(
+				    {
 					name = "bio"
+				    },
+				    {
+					type = "direct",
+					action_delivery =
+					    {
+						type = "instant",
+						target_effects =
+						    {
+							{
+							    repeat_count = 100,
+							    type = "create-trivial-smoke",
+							    smoke_name = "nuclear-smoke",
+							    offset_deviation = {{-1, -1}, {1, 1}},
+							    slow_down_factor = 1,
+							    starting_frame = 3,
+							    starting_frame_deviation = 5,
+							    starting_frame_speed = 0,
+							    starting_frame_speed_deviation = 5,
+							    speed_from_center = 0.5,
+							    speed_deviation = 0.2
+							},
+							{
+							    type = "show-explosion-on-chart",
+							    scale = 8/32,
+							},
+							{
+							    type = "create-entity",
+							    entity_name = "big-artillery-explosion"
+							},
+							{
+							    type = "damage",
+							    damage = {amount = 400, type = "poison"}
+							},
+							{
+							    type = "create-entity",
+							    entity_name = "big-toxic-cloud-rampant-arsenal",
+							    show_in_tooltip = true
+							}
+						    }
+					    }
 				}),
 				starting_speed = 1,
 				direction_deviation = 0,

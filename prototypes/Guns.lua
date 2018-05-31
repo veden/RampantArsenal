@@ -790,9 +790,9 @@ function guns.enable()
 	    enabled = false,
 	    category = "crafting-with-fluid",
 	    ingredients = {
-		{"piercing-shotgun-shell", 1},
-		{"uranium-238", 1},
-		{"steel-plate", 1}		
+		{"gun-turret", 1},
+		{"advanced-circuit", 5},
+		{"steel-plate", 15}		
 	    },
 	    result = gunTurretItem
     })

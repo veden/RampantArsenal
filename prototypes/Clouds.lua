@@ -51,6 +51,55 @@ function clouds.enable()
 
     makeCloud(
 	{
+	    name = "massive-fire",
+	    duration = 300,
+	    inDuration = 45,
+	    outDuration = 30,
+	    movementModifier = 0,
+	    spreadRadius = 2,
+	    tint = {r=0.5,g=0.3,b=0,a=0.8},
+	    scale = 6
+	},
+	{
+	    type = "direct",
+	    action_delivery =
+		{
+		    type = "instant",
+		    target_effects =
+			{
+			    type = "nested-result",
+			    action =
+				{
+				    type = "area",
+				    radius = 18,
+				    action_delivery =
+					{
+					    type = "instant",
+					    target_effects =
+						{
+						    {
+							type = "damage",
+							damage = { amount = 110, type = "fire" },
+							apply_damage_to_trees = false
+						    },
+						    {
+							type = "create-sticker",
+							sticker = "small-fire-sticker-rampant-arsenal"
+						    },
+						    {
+							type = "create-fire",
+							entity_name = "fire-flame",
+							initial_ground_flame_count = 4
+						    }						    
+						}
+					}
+				}
+			}
+		}
+    })
+    
+    makeCloud(
+	{
 	    name = "big-poison",
 	    duration = 240,
 	    inDuration = 45,
