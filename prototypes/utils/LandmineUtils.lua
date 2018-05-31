@@ -110,7 +110,7 @@ function landmineUtils.makeLandmine(attributes, attack)
     })
 
 
-    return name, itemName
+    return name
 end
 
 return landmineUtils

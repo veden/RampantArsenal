@@ -27,6 +27,7 @@ function recipeUtils.makeRecipe(attributes)
 		icon = attributes.icon,
 		icon_size = 32,
 		category = attributes.category,
+		subgroup = attributes.subgroup,
 		normal = {
 		    enabled = attributes.enabled,
 		    energy_required = attributes.time or 8,		

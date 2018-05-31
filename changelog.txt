@@ -5,13 +5,36 @@ Date: 26. 5. 2018
     - Added mortar for mobile capsule launching
     - Added launcher capsule damage into grenade damage technology
     - Added capsule launcher damage technology
+    - Added Health Capsule for healing
+    - Added Repair Capsule for AoE repair
+    - Added Speed Boost Capsule for faster earlier game movement
+    - Added Minigun with a slight damage bump and range over submachinegun
+    - Added Napalm liquid for flamethrower turret upgraded liquid
+    - Added Launcher Capsules for all new capsules
+    - Added High Explosives landmines, grenades, bullets, rockets, shotgun shells, cannon shells, and artillery shells
+    - Added Incendiary landmines, grenades, bullets, rockets, shotgun shells, cannon shells, and artillery shells
+    - Added Bio landmines, grenades, bullets, rockets, shotgun shells, cannon shells, and artillery shells
+    - Added Nuclear landmines, and artillery shells
+    - Added Upgraded gun turret for extending the life of bullet turrets
+    - Added Medic Turret for healing around the turret when enemies are present
+    - Added High Explosives technology branch
+    - Added Incendiary technology branch
+    - Added Bio technology branch
+    - Added Upgraded Rocket launcher with a slight damage bump and range
   Improvements:
     - reworked grenade and cluster grenade laucher ammo
+    - organized new turrets in gui
   Tweaks:
+    - Increased Cluster Grenades total damage from 245 to 1575
+    - Doubled uranium cannon shells damage
+    - Increased explosive uranium cannon shell area from 4.5 to 8.5
+    - Increased advanced flamethrower turret fluid consumption from 9/s to 12/s
     - Increased shotgun turret range from 18 to 20
     - Increased capsule turret range from 30 to 32
     - Increased capsule turret damage modifier from 100% to 300%
     - Increased capsule turret cooldown from 150 to 350
+    - Moved Slowdown and poison capsule from Military-3 to Military-2
+    - Moved Piercing shotgun shells from Military-4 to Military-3
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.16.2

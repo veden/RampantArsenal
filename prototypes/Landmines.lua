@@ -165,7 +165,7 @@ function landmines.enable()
 	{
 	    name = "bio",
 	    icon = "__RampantArsenal__/graphics/icons/bio-landmine.png",
-	    tint = {r=0.13,g=0.09,b=0.011,a=1},
+	    tint = {r=0.5,g=0,b=0.5,a=1},
 	    triggerRadius = 2.5,
 	    order="f[land-mine]-c[bio]"
 	},
@@ -222,7 +222,7 @@ function landmines.enable()
 	{
 	    name = "he",
 	    icon = "__RampantArsenal__/graphics/icons/he-landmine.png",
-	    tint = {r=0.13,g=0.09,b=0.011,a=1},
+	    tint = {r=0,g=0,b=0.8,a=1},
 	    triggerRadius = 2.5,
 	    order="f[land-mine]-c[bio]"
 	},
@@ -290,7 +290,7 @@ function landmines.enable()
 	    ingredients = {
 		{"land-mine", 1},
 		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{type="fluid", name="light-oil", amount=40}
 	    },
 	    result = incendiaryLandmine
     })
@@ -304,7 +304,7 @@ function landmines.enable()
 	    ingredients = {
 		{"land-mine", 1},
 		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"explosives", 5}
 	    },
 	    result = heLandmine
     })
@@ -318,11 +318,10 @@ function landmines.enable()
 	    ingredients = {
 		{"land-mine", 1},
 		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"poison-capsule", 2}
 	    },
 	    result = bioLandmine
     })
-
     
     addEffectToTech("uranium-ammo",
 		    {

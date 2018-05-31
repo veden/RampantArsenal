@@ -235,7 +235,7 @@ function rockets.enable()
 	    ingredients = {
 		{"explosive-rocket", 1},
 		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{type="fluid", name="light-oil", amount=40}
 	    },
 	    result = incendiaryRocketAmmo,
     })
@@ -328,11 +328,11 @@ function rockets.enable()
 	    name = "he-rocket",
 	    icon = "__RampantArsenal__/graphics/icons/he-rocket.png",
 	    enabled = false,
-	    category = "crafting-with-fluid",
+	    category = "crafting",
 	    ingredients = {
 		{"explosive-rocket", 1},
 		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"explosives", 6}
 	    },
 	    result = heRocketAmmo,
     })
@@ -433,7 +433,7 @@ function rockets.enable()
 	    ingredients = {
 		{"explosive-rocket", 1},
 		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"poison-capsule", 2}
 	    },
 	    result = bioRocketAmmo,
     })

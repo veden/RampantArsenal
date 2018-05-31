@@ -11,7 +11,7 @@ function stickers.enable()
 	    name = "small-toxic",
 	    duration = 120,
 	    spreadRadius = 5,
-	    tint = {r=0,g=0.3,b=0.5,a=0.8},
+	    tint = {r=0.5,g=0,b=0.5,a=0.8},
 	    movementModifier = 1,	    
 	    damagePerTick = { type = "poison", amount = 5 }
 	}
@@ -22,7 +22,7 @@ function stickers.enable()
 	    name = "bullet-toxic",
 	    duration = 80,
 	    spreadRadius = 5,
-	    tint = {r=0,g=0.3,b=0.5,a=0.8},
+	    tint = {r=0.5,g=0,b=0.5,a=0.8},
 	    movementModifier = 1,
 	    damagePerTick = { type = "poison", amount = 2 }
 	}
@@ -34,7 +34,6 @@ function stickers.enable()
 	    name = "small-fire",
 	    duration = 60,
 	    spreadRadius = 5,
-	    tint = {r=0,g=0.3,b=0.5,a=0.8},
 	    movementModifier = 1,
 	    damagePerTick = { type = "fire", amount = 4 }
 	}
@@ -46,7 +45,7 @@ function stickers.enable()
 	    name = "toxic",
 	    duration = 240,
 	    spreadRadius = 5,
-	    tint = {r=0,g=0.3,b=0.5,a=0.8},
+	    tint = {r=0.5,g=0,b=0.5,a=0.8},
 	    movementModifier = 1,
 	    damagePerTick = { type = "poison", amount = 5 }
 	}
@@ -77,7 +76,7 @@ function stickers.enable()
 	    name = "big-toxic",
 	    duration = 240,
 	    spreadRadius = 5,
-	    tint = {r=0,g=0.3,b=0.5,a=0.8},
+	    tint = {r=0.5,g=0,b=0.5,a=0.8},
 	    movementModifier = 1,
 	    damagePerTick = { type = "poison", amount = 8 }
 	}
@@ -87,6 +86,7 @@ function stickers.enable()
 	    name = "speed-boost",
 	    duration = 60 * 60 * 1,
 	    movementModifier = 1.4,
+	    tint = {r=0,g=0.6,b=0.6,a=0.8},
 	    spreadRadius = 0
     })
 

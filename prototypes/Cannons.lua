@@ -201,7 +201,8 @@ function cannons.enable()
 										    fluids = {
 											{type = "crude-oil"},
 											{type = "heavy-oil", damage_modifier = 1.05},
-											{type = "light-oil", damage_modifier = 1.1}
+											{type = "light-oil", damage_modifier = 1.1},
+											{type = "napalm-fluid-rampant-arsenal", damage_modifier = 1.5}
 										    },
 										    fluid_consumption = 0.6,
 
@@ -629,9 +630,13 @@ function cannons.enable()
     			    action_delivery =
     				{
     				    type = "projectile",
-				    starting_speed = 1,				    
+				    starting_speed = 1,
+				    max_range = 30,
+				    direction_deviation = 0.1,
+				    range_deviation = 0.1,
+				    min_range = 5,
     				    projectile = makeCannonProjectile({
-					    name = "incendiary-cannon",
+					    name = "incendiary",
 					    piercingDamage = 100,
 					    animation = {
 						filename = "__base__/graphics/entity/bullet/bullet.png",
@@ -734,8 +739,8 @@ function cannons.enable()
 	    category = "crafting-with-fluid",
 	    ingredients = {
 		{"explosive-cannon-shell", 1},
-		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"iron-plate", 1},
+		{type="fluid", name="light-oil", amount=40}
 	    },
 	    result = incendiaryCannonShellAmmo,
     })
@@ -778,13 +783,14 @@ function cannons.enable()
     			    action_delivery =
     				{
     				    type = "projectile",
-				    starting_speed = 1,
 				    max_range = 30,
 				    direction_deviation = 0.1,
 				    range_deviation = 0.1,
 				    min_range = 5,
+
+				    starting_speed = 1,
     				    projectile = makeCannonProjectile({
-					    name = "he-cannon",
+					    name = "he",
 					    piercingDamage = 100,
 					    animation = {
 						filename = "__base__/graphics/entity/bullet/bullet.png",
@@ -866,11 +872,11 @@ function cannons.enable()
 	    name = "he-cannon-shell",
 	    icon = "__RampantArsenal__/graphics/icons/he-cannon-shell.png",
 	    enabled = false,
-	    category = "crafting-with-fluid",
+	    category = "crafting",
 	    ingredients = {
 		{"explosive-cannon-shell", 1},
-		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"iron-plate", 1},
+		{"explosives", 6}
 	    },
 	    result = heCannonShellAmmo,
     })
@@ -912,9 +918,14 @@ function cannons.enable()
     			    action_delivery =
     				{
     				    type = "projectile",
-				    starting_speed = 1,				    
+				    starting_speed = 1,
+				    max_range = 30,
+				    direction_deviation = 0.1,
+				    range_deviation = 0.1,
+				    min_range = 5,
+
     				    projectile = makeCannonProjectile({
-					    name = "bio-cannon",
+					    name = "bio",
 					    piercingDamage = 100,
 					    animation = {
 						filename = "__base__/graphics/entity/bullet/bullet.png",
@@ -1003,8 +1014,8 @@ function cannons.enable()
 	    category = "crafting-with-fluid",
 	    ingredients = {
 		{"explosive-cannon-shell", 1},
-		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"iron-plate", 1},
+		{"poison-capsule", 2}
 	    },
 	    result = bioCannonShellAmmo,
     })

@@ -6,7 +6,7 @@ local makeTechnology = technologyUtils.makeTechnology
 
 function technologies.enable()
 
-    makeTechnology({
+    local incendiary = makeTechnology({
 	    name="incendiary",
 	    icon="__RampantArsenal__/graphics/technology/incendiary.png",
 	    prerequisites = {"flamethrower"},
@@ -22,6 +22,22 @@ function technologies.enable()
     })
 
     makeTechnology({
+	    name="incendiary-napalm",
+	    icon="__RampantArsenal__/graphics/technology/incendiary-napalm.png",
+	    prerequisites = {incendiary, "sulfur-processing"},
+	    effects = {},
+	    count = 75,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+    		{"science-pack-3", 1},
+    		{"military-science-pack", 1}
+	    },
+	    time = 30
+    })
+
+
+    local he = makeTechnology({
 	    name="high-explosives",
 	    icon="__RampantArsenal__/graphics/technology/he-ordnance.png",
 	    prerequisites = {"explosives"},
@@ -36,7 +52,7 @@ function technologies.enable()
 	    time = 30
     })
 
-    makeTechnology({
+    local bioweapons = makeTechnology({
 	    name="bio-weapons",
 	    icon="__RampantArsenal__/graphics/technology/biowarfare.png",
 	    prerequisites = {"military-3"},
@@ -55,7 +71,7 @@ function technologies.enable()
     makeTechnology({
 	    name="incendiary-grenades",
 	    icon="__RampantArsenal__/graphics/technology/incendiary-grenades.png",
-	    prerequisites = {"turrets", "military-3", "explosives"},
+	    prerequisites = {"explosives", "military-3", incendiary},
 	    effects = {},
 	    ingredients = {
 		{"science-pack-1", 1},
@@ -70,7 +86,7 @@ function technologies.enable()
     makeTechnology({
 	    name="incendiary-landmine",
 	    icon="__RampantArsenal__/graphics/technology/incendiary-landmines.png",
-	    prerequisites = {"turrets", "military-3", "explosives"},
+	    prerequisites = {"land-mine", incendiary},
 	    effects = {},
 	    ingredients = {
 		{"science-pack-1", 1},
@@ -85,7 +101,7 @@ function technologies.enable()
     makeTechnology({
 	    name="bio-landmine",
 	    icon="__RampantArsenal__/graphics/technology/bio-landmines.png",
-	    prerequisites = {"turrets", "military-3", "explosives"},
+	    prerequisites = {"land-mine", bioweapons},
 	    effects = {},
 	    ingredients = {
 		{"science-pack-1", 1},
@@ -100,7 +116,7 @@ function technologies.enable()
     makeTechnology({
 	    name="he-landmine",
 	    icon="__RampantArsenal__/graphics/technology/he-landmines.png",
-	    prerequisites = {"turrets", "military-3", "explosives"},
+	    prerequisites = {"land-mine", he},
 	    effects = {},
 	    ingredients = {
 		{"science-pack-1", 1},
@@ -116,7 +132,7 @@ function technologies.enable()
     makeTechnology({
 	    name="incendiary-cannon-shells",
 	    icon="__RampantArsenal__/graphics/technology/incendiary-cannon-shells.png",
-	    prerequisites = {"turrets", "military-3", "explosives"},
+	    prerequisites = {"military-3", "tanks", incendiary},
 	    effects = {},
 	    ingredients = {
 		{"science-pack-1", 1},
@@ -131,7 +147,7 @@ function technologies.enable()
     makeTechnology({
 	    name="bio-cannon-shells",
 	    icon="__RampantArsenal__/graphics/technology/bio-cannon-shells.png",
-	    prerequisites = {"turrets", "military-3", "explosives"},
+	    prerequisites = {"military-3", "tanks", bioweapons},
 	    effects = {},
 	    ingredients = {
 		{"science-pack-1", 1},
@@ -146,7 +162,7 @@ function technologies.enable()
     makeTechnology({
 	    name="he-cannon-shells",
 	    icon="__RampantArsenal__/graphics/technology/he-cannon-shells.png",
-	    prerequisites = {"turrets", "military-3", "explosives"},
+	    prerequisites = {"military-3", "tanks", he},
 	    effects = {},
 	    ingredients = {
 		{"science-pack-1", 1},
@@ -161,52 +177,55 @@ function technologies.enable()
     makeTechnology({
 	    name="incendiary-artillery-shells",
 	    icon="__RampantArsenal__/graphics/technology/incendiary-artillery-shells.png",
-	    prerequisites = {"turrets", "military-3", "explosives"},
+	    prerequisites = {"turrets", "artillery", incendiary},
 	    effects = {},
 	    ingredients = {
 		{"science-pack-1", 1},
 		{"science-pack-2", 1},
 		{"science-pack-3", 1},
-		{"military-science-pack", 1}
+		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1}
 	    },
-	    count = 100,
+	    count = 2000,
 	    time = 30
     })
 
     makeTechnology({
 	    name="bio-artillery-shells",
 	    icon="__RampantArsenal__/graphics/technology/bio-artillery-shells.png",
-	    prerequisites = {"turrets", "military-3", "explosives"},
+	    prerequisites = {"turrets", "artillery", bioweapons},
 	    effects = {},
 	    ingredients = {
 		{"science-pack-1", 1},
 		{"science-pack-2", 1},
 		{"science-pack-3", 1},
-		{"military-science-pack", 1}
+		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1}
 	    },
-	    count = 100,
+	    count = 2000,
 	    time = 30
     })
 
     makeTechnology({
 	    name="he-artillery-shells",
 	    icon="__RampantArsenal__/graphics/technology/he-artillery-shells.png",
-	    prerequisites = {"turrets", "military-3", "explosives"},
+	    prerequisites = {"artillery", "explosives", he},
 	    effects = {},
 	    ingredients = {
 		{"science-pack-1", 1},
 		{"science-pack-2", 1},
 		{"science-pack-3", 1},
-		{"military-science-pack", 1}
+		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1}
 	    },
-	    count = 100,
+	    count = 2000,
 	    time = 30
     })
     
     makeTechnology({
 	    name="he-grenades",
 	    icon="__RampantArsenal__/graphics/technology/he-grenades.png",
-	    prerequisites = {"turrets", "military-3", "explosives"},
+	    prerequisites = {he},
 	    effects = {},
 	    ingredients = {
 		{"science-pack-1", 1},
@@ -221,7 +240,7 @@ function technologies.enable()
     makeTechnology({
 	    name="bio-grenades",
 	    icon="__RampantArsenal__/graphics/technology/bio-grenades.png",
-	    prerequisites = {"turrets", "military-3", "explosives"},
+	    prerequisites = {bioweapons},
 	    effects = {},
 	    ingredients = {
 		{"science-pack-1", 1},
@@ -236,7 +255,7 @@ function technologies.enable()
     makeTechnology({
 	    name="bio-capsules",
 	    icon="__RampantArsenal__/graphics/technology/bio-capsules.png",
-	    prerequisites = {"turrets", "military-3", "explosives"},
+	    prerequisites = {"military-4", "explosives", bioweapons},
 	    effects = {},
 	    ingredients = {
 		{"science-pack-1", 1},
@@ -912,7 +931,7 @@ function technologies.enable()
     makeTechnology({
 	    name = "incendiary-bullets",
 	    icon="__RampantArsenal__/graphics/technology/incendiary-bullets.png",
-	    prerequisites = {"rampant-arsenal-technology-incendiary"},
+	    prerequisites = {incendiary},
 	    effects = {},
 	    count = 75,
 	    ingredients = {
@@ -927,7 +946,7 @@ function technologies.enable()
     makeTechnology({
 	    name = "incendiary-shotgun-shells",
 	    icon="__RampantArsenal__/graphics/technology/incendiary-shotgun-shells.png",
-	    prerequisites = {"rampant-arsenal-technology-incendiary"},
+	    prerequisites = {incendiary},
 	    effects = {},
 	    count = 75,
 	    ingredients = {
@@ -944,7 +963,7 @@ function technologies.enable()
     makeTechnology({
 	    name = "incendiary-rockets",
 	    icon="__RampantArsenal__/graphics/technology/incendiary-rockets.png",
-	    prerequisites = {"rampant-arsenal-technology-incendiary"},
+	    prerequisites = {incendiary, "explosive-rocketry"},
 	    effects = {},
 	    count = 75,
 	    ingredients = {
@@ -959,7 +978,7 @@ function technologies.enable()
     makeTechnology({
 	    name = "he-bullets",
 	    icon="__RampantArsenal__/graphics/technology/he-bullets.png",
-	    prerequisites = {"rampant-arsenal-technology-high-explosives"},
+	    prerequisites = {he},
 	    effects = {},
 	    count = 75,
 	    ingredients = {
@@ -974,7 +993,7 @@ function technologies.enable()
     makeTechnology({
 	    name = "he-shotgun-shells",
 	    icon="__RampantArsenal__/graphics/technology/he-shotgun-shells.png",
-	    prerequisites = {"rampant-arsenal-technology-high-explosives"},
+	    prerequisites = {he},
 	    effects = {},
 	    count = 75,
 	    ingredients = {
@@ -990,7 +1009,7 @@ function technologies.enable()
     makeTechnology({
 	    name = "he-rockets",
 	    icon="__RampantArsenal__/graphics/technology/he-rockets.png",
-	    prerequisites = {"rampant-arsenal-technology-high-explosives"},
+	    prerequisites = {he, "explosive-rocketry"},
 	    effects = {},
 	    count = 75,
 	    ingredients = {
@@ -1005,13 +1024,12 @@ function technologies.enable()
     makeTechnology({
 	    name = "boosters",
 	    icon="__RampantArsenal__/graphics/technology/boosters.png",
-	    prerequisites = {"rampant-arsenal-technology-bio-weapons"},
+	    prerequisites = {"military-2"},
 	    effects = {},
-	    count = 75,
+	    count = 35,
 	    ingredients = {
 		{"science-pack-1", 1},
     		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30	    
@@ -1020,7 +1038,7 @@ function technologies.enable()
     makeTechnology({
 	    name = "paralysis",
 	    icon="__RampantArsenal__/graphics/technology/paralysis.png",
-	    prerequisites = {"rampant-arsenal-technology-bio-weapons"},
+	    prerequisites = {bioweapons, "military-4"},
 	    effects = {},
 	    count = 75,
 	    ingredients = {
@@ -1035,7 +1053,7 @@ function technologies.enable()
     makeTechnology({
 	    name = "regeneration",
 	    icon="__RampantArsenal__/graphics/technology/regeneration.png",
-	    prerequisites = {"rampant-arsenal-technology-bio-weapons"},
+	    prerequisites = {"military-3"},
 	    effects = {},
 	    count = 75,
 	    ingredients = {
@@ -1050,7 +1068,7 @@ function technologies.enable()
     makeTechnology({
 	    name = "bio-bullets",
 	    icon="__RampantArsenal__/graphics/technology/bio-bullets.png",
-	    prerequisites = {"rampant-arsenal-technology-bio-weapons"},
+	    prerequisites = {bioweapons},
 	    effects = {},
 	    count = 75,
 	    ingredients = {
@@ -1065,7 +1083,7 @@ function technologies.enable()
     makeTechnology({
 	    name = "bio-shotgun-shells",
 	    icon="__RampantArsenal__/graphics/technology/bio-shotgun-shells.png",
-	    prerequisites = {"rampant-arsenal-technology-bio-weapons"},
+	    prerequisites = {bioweapons},
 	    effects = {},
 	    count = 75,
 	    ingredients = {
@@ -1080,8 +1098,8 @@ function technologies.enable()
     makeTechnology({
 	    name = "bio-rockets",
 	    icon="__RampantArsenal__/graphics/technology/bio-rockets.png",
-	    prerequisites = {"rampant-arsenal-technology-bio-weapons"},
-	    effects = {},
+	    prerequisites = {bioweapons, "explosive-rocketry"},
+	    effects = {},	    
 	    count = 75,
 	    ingredients = {
 		{"science-pack-1", 1},
@@ -1414,7 +1432,7 @@ function technologies.enable()
     makeTechnology({
 	    name = "turrets-2",
 	    icon="__RampantArsenal__/graphics/technology/turrets-2.png",
-	    prerequisites = {"rampant-arsenal-technology-bio-weapons"},
+	    prerequisites = {"turrets", "military-3", "gun-turret-damage-4", "bullet-speed-4"},
 	    effects = {},
 	    count = 75,
 	    ingredients = {

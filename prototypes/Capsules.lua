@@ -418,7 +418,7 @@ function capsules.enable()
 				type = "stream",
 				stream = makeStream({
 					name = "landmine-capsule",
-					bufferSize = 5,
+					bufferSize = 1,
 					spineAnimationTint = capsuleGrey,
 					particleTint = particleGrey,
 					spawnInterval = 2,
@@ -479,7 +479,7 @@ function capsules.enable()
 				type = "stream",
 				stream = makeStream({
 					name = "incendiary-landmine-capsule",
-					bufferSize = 5,
+					bufferSize = 1,
 					spineAnimationTint = capsuleGrey,
 					particleTint = particleGrey,
 					spawnInterval = 2,
@@ -512,7 +512,8 @@ function capsules.enable()
 								}
 							    }
 						    }
-					}}
+					    }
+					}
 				}),
 				max_length = 9,
 				duration = 160,
@@ -540,7 +541,7 @@ function capsules.enable()
 				type = "stream",
 				stream = makeStream({
 					name = "he-landmine-capsule",
-					bufferSize = 5,
+					bufferSize = 1,
 					spineAnimationTint = capsuleGrey,
 					particleTint = particleGrey,
 					spawnInterval = 2,
@@ -554,8 +555,27 @@ function capsules.enable()
 							    type = "create-entity",
 							    entity_name = "he-landmine-rampant-arsenal"
 							}
-						    }						
-					}}
+						    }
+					    },
+					    {
+						type = "cluster",
+						cluster_count = 3,
+						distance = 4,
+						distance_deviation = 3,
+						action_delivery =
+						    {
+							type = "instant",
+							target_effects =
+							    {
+								{
+								    type = "create-entity",
+								    show_in_tooltip = true,
+								    entity_name = "he-landmine-rampant-arsenal"
+								}
+							    }
+						    }
+					    }
+					}
 				}),
 				max_length = 9,
 				duration = 160,
@@ -583,7 +603,7 @@ function capsules.enable()
 				type = "stream",
 				stream = makeStream({
 					name = "bio-landmine-capsule",
-					bufferSize = 5,
+					bufferSize = 1,
 					spineAnimationTint = capsuleGrey,
 					particleTint = particleGrey,
 					spawnInterval = 2,
@@ -598,7 +618,26 @@ function capsules.enable()
 							    entity_name = "bio-landmine-rampant-arsenal"
 							}
 						    }						
-					}}
+					    },
+					    {
+						type = "cluster",
+						cluster_count = 3,
+						distance = 4,
+						distance_deviation = 3,
+						action_delivery =
+						    {
+							type = "instant",
+							target_effects =
+							    {
+								{
+								    type = "create-entity",
+								    show_in_tooltip = true,
+								    entity_name = "bio-landmine-rampant-arsenal"
+								}
+							    }
+						    }
+					    }
+					}
 				}),
 				max_length = 9,
 				duration = 160,
@@ -626,7 +665,7 @@ function capsules.enable()
 				type = "stream",
 				stream = makeStream({
 					name = "nuclear-landmine-capsule",
-					bufferSize = 5,
+					bufferSize = 1,
 					spineAnimationTint = capsuleGrey,
 					particleTint = particleGrey,
 					spawnInterval = 2,
@@ -1067,7 +1106,7 @@ function capsules.enable()
 	    enabled = false,
 	    ingredients = {
 		{"iron-plate", 2},
-		{"poison-capsule", 1},
+		{"toxic-capsule-rampant-arsenal", 1},
 		{"explosives", 1}
 	    },
 	    result = toxicCapsules
@@ -1079,7 +1118,7 @@ function capsules.enable()
 	    enabled = false,
 	    ingredients = {
 		{"iron-plate", 2},
-		{"poison-capsule", 1},
+		{"paralysis-capsule-rampant-arsenal", 1},
 		{"explosives", 1}
 	    },
 	    result = paralysisCapsules
@@ -1091,7 +1130,7 @@ function capsules.enable()
 	    enabled = false,
 	    ingredients = {
 		{"iron-plate", 2},
-		{"poison-capsule", 1},
+		{"paralysis-capsule-rampant-arsenal", 1},
 		{"explosives", 1}
 	    },
 	    result = repairCapsules
@@ -1213,7 +1252,7 @@ function capsules.enable()
 	    enabled = false,
 	    ingredients = {
 		{"iron-plate", 2},
-		{"grenade", 1},
+		{"bio-grenade-capsule-rampant-arsenal", 1},
 		{"explosives", 1}
 	    },
 	    result = bioGrenadeCapsules
@@ -1225,7 +1264,7 @@ function capsules.enable()
 	    enabled = false,
 	    ingredients = {
 		{"iron-plate", 2},
-		{"grenade", 1},
+		{"he-grenade-capsule-rampant-arsenal", 1},
 		{"explosives", 1}
 	    },
 	    result = heGrenadeCapsules
@@ -1237,7 +1276,7 @@ function capsules.enable()
 	    enabled = false,
 	    ingredients = {
 		{"iron-plate", 2},
-		{"grenade", 1},
+		{"incendiary-grenade-capsule-rampant-arsenal", 1},
 		{"explosives", 1}
 	    },
 	    result = incendiaryGrenadeCapsules
@@ -1457,52 +1496,52 @@ function capsules.enable()
     })
 
     addEffectToTech("capsule-turret-damage-1",
-    {
-		    type = "turret-attack",
-		    turret_id = capsuleTurret,
-		    modifier = 0.1
+		    {
+			type = "turret-attack",
+			turret_id = capsuleTurret,
+			modifier = 0.1
     })
 
     addEffectToTech("capsule-turret-damage-2",
-    {
-		    type = "turret-attack",
-		    turret_id = capsuleTurret,
-		    modifier = 0.1
+		    {
+			type = "turret-attack",
+			turret_id = capsuleTurret,
+			modifier = 0.1
     })
 
     addEffectToTech("capsule-turret-damage-3",
-    {
-		    type = "turret-attack",
-		    turret_id = capsuleTurret,
-		    modifier = 0.2
+		    {
+			type = "turret-attack",
+			turret_id = capsuleTurret,
+			modifier = 0.2
     })
 
     addEffectToTech("capsule-turret-damage-4",
-    {
-		    type = "turret-attack",
-		    turret_id = capsuleTurret,
-		    modifier = 0.3
+		    {
+			type = "turret-attack",
+			turret_id = capsuleTurret,
+			modifier = 0.3
     })
     
     addEffectToTech("capsule-turret-damage-5",
-    {
-		    type = "turret-attack",
-		    turret_id = capsuleTurret,
-		    modifier = 0.3
+		    {
+			type = "turret-attack",
+			turret_id = capsuleTurret,
+			modifier = 0.3
     })
 
     addEffectToTech("capsule-turret-damage-6",
-    {
-		    type = "turret-attack",
-		    turret_id = capsuleTurret,
-		    modifier = 0.4
+		    {
+			type = "turret-attack",
+			turret_id = capsuleTurret,
+			modifier = 0.4
     })
 
     addEffectToTech("capsule-turret-damage-7",
-    {
-		    type = "turret-attack",
-		    turret_id = capsuleTurret,
-		    modifier = 0.2
+		    {
+			type = "turret-attack",
+			turret_id = capsuleTurret,
+			modifier = 0.2
     })
 
     addEffectToTech("grenade-damage-1",

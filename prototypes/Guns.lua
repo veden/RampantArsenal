@@ -5,16 +5,13 @@ local turretUtils = require("utils/TurretUtils")
 local ammoUtils = require("utils/AmmoUtils")
 local recipeUtils = require("utils/RecipeUtils")
 local technologyUtils = require("utils/TechnologyUtils")
-local streamUtils = require("utils/StreamUtils")
 local projectileUtils = require("utils/ProjectileUtils")
 
-local makeStream = streamUtils.makeStream
-local makeFluidTurret = turretUtils.makeFluidTurret
 local makeAmmoTurret = turretUtils.makeAmmoTurret
 local makeRecipe = recipeUtils.makeRecipe
 local makeAmmo = ammoUtils.makeAmmo
 local makeShotgunProjectile = projectileUtils.makeShotgunProjectile
-local makeTechnology = technologyUtils.makeTechnology
+local removeEffect = technologyUtils.removeEffect
 local addEffectToTech = technologyUtils.addEffectToTech
 
 local makeGun = gunUtils.makeGun
@@ -87,6 +84,34 @@ function guns.enable()
 	    gun_barrel_length = 1,
 	    range = 30,
 	    sound = make_heavy_gunshot_sounds()
+    })
+
+    local rocketLauncher = makeGun(
+	{
+	    name = "rocket-launcher",
+	    icon = "__RampantArsenal__/graphics/icons/mortar.png",
+	    order = "d[rocket-launcher]-b"
+	},
+	{
+	    type = "stream",
+	    ammo_category = "capsule-launcher",
+	    cooldown = 50,
+	    movement_slow_down_factor = 0.8,
+	    damage_modifier = 1.5,
+	    gun_center_shift = {
+		north = {0, 0},
+		east = {0, 0},
+		south = {0, 0},
+		west = {0, 0}
+	    },
+	    gun_barrel_length = 1,
+	    range = 27,
+	    sound = {
+		{
+		    filename = "__base__/sound/fight/rocket-launcher.ogg",
+		    volume = 0.7
+		}
+	    }
     })
 
     local minigun = makeGun(
@@ -214,6 +239,7 @@ function guns.enable()
     				    type = "projectile",
     				    projectile = makeShotgunProjectile({
 					    name = "incendiary",
+					    tint = {r=0.5,g=0.3,b=0,a=0.8},
 					    animation = {
 						filename = "__base__/graphics/entity/piercing-bullet/piercing-bullet.png",
 						frame_count = 1,
@@ -337,6 +363,7 @@ function guns.enable()
     				    projectile = makeShotgunProjectile({
 					    name = "he",
 					    directionOnly = true,
+					    tint = {r=0,g=0,b=0.8,a=0.8},
 					    animation = {
 						filename = "__base__/graphics/entity/piercing-bullet/piercing-bullet.png",
 						frame_count = 1,
@@ -466,6 +493,7 @@ function guns.enable()
     				    projectile = makeShotgunProjectile({
 					    name = "bio",
 					    directionOnly = true,
+					    tint = {r=0.5,g=0,b=0.5,a=0.8},
 					    animation = {
 						filename = "__base__/graphics/entity/piercing-bullet/piercing-bullet.png",
 						frame_count = 1,
@@ -570,6 +598,20 @@ function guns.enable()
 	    result = minigun
     })
 
+    local rocketLauncherRecipe = makeRecipe({
+	    name = "rocket-launcher",
+	    icon = "__RampantArsenal__/graphics/icons/upgraded-rocket-launcher.png",
+	    enabled = false,
+	    ingredients = {
+		{"steel-plate", 10},
+		{"iron-gear-wheel", 5},
+		{"rocket-launcher", 1},
+		{"electronic-circuit", 5}
+	    },
+	    result = rocketLauncher
+    })
+
+
     local incendiaryMagazineRecipe = makeRecipe({
 	    name = "incendiary-magazine",
 	    icon = "__RampantArsenal__/graphics/icons/incendiary-rounds-magazine.png",
@@ -577,8 +619,8 @@ function guns.enable()
 	    category = "crafting-with-fluid",
 	    ingredients = {
 		{"piercing-rounds-magazine", 1},
-		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"copper-plate", 2},
+		{type="fluid", name="light-oil", amount=20}
 	    },
 	    result = incendiaryMagazineAmmo
     })
@@ -591,7 +633,7 @@ function guns.enable()
 	    ingredients = {
 		{"piercing-shotgun-shell", 1},
 		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{type="fluid", name="light-oil", amount=20}
 	    },
 	    result = incendiaryShotgunShellAmmo
     })
@@ -600,11 +642,11 @@ function guns.enable()
 	    name = "he-magazine",
 	    icon = "__RampantArsenal__/graphics/icons/he-rounds-magazine.png",
 	    enabled = false,
-	    category = "crafting-with-fluid",
+	    category = "crafting",
 	    ingredients = {
 		{"piercing-rounds-magazine", 1},
-		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"copper-plate", 2},
+		{"explosives", 2}
 	    },
 	    result = heMagazineAmmo
     })
@@ -614,11 +656,11 @@ function guns.enable()
 	    name = "he-shotgun-shell",
 	    icon = "__RampantArsenal__/graphics/icons/he-shotgun-shell.png",
 	    enabled = false,
-	    category = "crafting-with-fluid",
+	    category = "crafting",
 	    ingredients = {
 		{"piercing-shotgun-shell", 1},
-		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"steel-plate", 2},
+		{"explosives", 2}
 	    },
 	    result = heShotgunShellAmmo
     })
@@ -627,11 +669,11 @@ function guns.enable()
 	    name = "bio-magazine",
 	    icon = "__RampantArsenal__/graphics/icons/bio-rounds-magazine.png",
 	    enabled = false,
-	    category = "crafting-with-fluid",
+	    category = "crafting",
 	    ingredients = {
 		{"piercing-rounds-magazine", 1},
-		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"copper-plate", 2},
+		{"poison-capsule", 1}
 	    },
 	    result = bioMagazineAmmo
     })
@@ -641,11 +683,11 @@ function guns.enable()
 	    name = "bio-shotgun-shell",
 	    icon = "__RampantArsenal__/graphics/icons/bio-shotgun-shell.png",
 	    enabled = false,
-	    category = "crafting-with-fluid",
+	    category = "crafting",
 	    ingredients = {
 		{"piercing-shotgun-shell", 1},
 		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"poison-capsule", 1}
 	    },
 	    result = bioShotgunShellAmmo
     })
@@ -654,7 +696,7 @@ function guns.enable()
 	    name = "uranium-shotgun-shell",
 	    icon = "__RampantArsenal__/graphics/icons/uranium-shotgun-shell.png",
 	    enabled = false,
-	    category = "crafting-with-fluid",
+	    category = "crafting",
 	    ingredients = {
 		{"piercing-shotgun-shell", 1},
 		{"uranium-238", 1},
@@ -721,7 +763,7 @@ function guns.enable()
 	name = "gun",
 	icon = "__RampantArsenal__/graphics/icons/gluegun-icon.png",
 	miningTime = 1,
-	health = 800,
+	health = 1400,
 	collisionBox = {{-1.2, -1.2 }, {1.2, 1.2}},
 	selectionBox = {{-1.4, -1.4 }, {1.4, 1.4}},
 	hasBaseDirection = true,
@@ -731,15 +773,15 @@ function guns.enable()
 	preparingAnimation = gunTurretMkIISheet()
     }
     local gunTurret,gunTurretItem = makeAmmoTurret(gunTurretAttributes,
-							 {
-							     type = "projectile",
-							     ammo_category = "bullet",
-							     cooldown = 3.3,
-							     projectile_creation_distance = 2,
-							     damage_modifier = 2,
-							     projectile_center = {0, 0},
-							     range = 21,
-							     sound = make_heavy_gunshot_sounds(),
+						   {
+						       type = "projectile",
+						       ammo_category = "bullet",
+						       cooldown = 3.3,
+						       projectile_creation_distance = 2,
+						       damage_modifier = 2,
+						       projectile_center = {0, 0},
+						       range = 21,
+						       sound = make_heavy_gunshot_sounds(),
     })
     
     local gunTurretRecipe = makeRecipe({
@@ -804,12 +846,41 @@ function guns.enable()
     })
 
     addEffectToTech("gun-turret-damage-7",
-			{
+		    {
 			type = "turret-attack",
 			turret_id = gunTurret,
 			modifier = 0.7
     })
 
+    
+    removeEffect("military-3", "unlock-recipe", "poison-capsule")
+    removeEffect("military-3", "unlock-recipe", "slowdown-capsule")
+
+    addEffectToTech("military-2",
+		    {
+			{
+			    type = "unlock-recipe",
+			    recipe = "poison-capsule"
+			},
+			{
+			    type = "unlock-recipe",
+			    recipe = "slowdown-capsule"
+			}
+    })
+
+    removeEffect("military-4", "unlock-recipe", "piercing-shotgun-shell")
+
+    addEffectToTech("military-3",
+		    {
+			type = "unlock-recipe",
+			recipe = "piercing-shotgun-shell"
+    })
+
+    addEffectToTech("military-4",
+		    {
+			type = "unlock-recipe",
+			recipe = rocketLauncherRecipe
+    })
 end
 
 return guns

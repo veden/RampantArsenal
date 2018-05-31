@@ -71,7 +71,8 @@ function streamUtils.makeStream(attributes)
 			tint = attributes.particleTint,
 			height = 64,
 			frame_count = 32,
-			line_length = 8
+			line_length = 8,
+			scale = attributes.particleSize
 		    }
 	    }
 	}

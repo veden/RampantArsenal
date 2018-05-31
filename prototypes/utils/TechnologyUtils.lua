@@ -18,6 +18,23 @@ function technologyUtils.addEffectToTech(tech, recipe)
     end
 end
 
+function technologyUtils.removeEffect(tech, field, name)
+    local t = data.raw["technology"]["rampant-arsenal-technology-"..tech]    
+    if not t then
+	t = data.raw["technology"][tech]
+    end
+
+    local results = {}
+    for _,v in pairs(t.effects) do
+	if (v.type == field) then
+	    if (field == "unlock-recipe") and (v.recipe ~= name) then
+		results[#results+1] = v
+	    end
+	end
+    end
+    t.effects = results
+end
+
 function technologyUtils.makeTechnology(attributes)
     local name = "rampant-arsenal-technology-" .. attributes.name
     data:extend({

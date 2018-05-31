@@ -44,7 +44,8 @@ function grenades.enable()
 					    type = "projectile",
 					    projectile = makeGrenadeProjectile(
 						{
-						    name = "incendiary"
+						    name = "incendiary",
+						    tint = {r=0.5,g=0.3,b=0,a=0.8}
 						},
 						{
 						    {
@@ -108,9 +109,9 @@ function grenades.enable()
 	    enabled = false,
 	    category = "crafting-with-fluid",
 	    ingredients = {
-		{"explosive-cannon-shell", 1},
-		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"grenade", 1},
+		{"copper-plate", 1},
+		{type="fluid", name="light-oil", amount=40}
 	    },
 	    result = incendiaryGrenade,
     })
@@ -149,7 +150,8 @@ function grenades.enable()
 					    type = "projectile",
 					    projectile = makeGrenadeProjectile(
 						{
-						    name = "he"
+						    name = "he",
+						    tint = {r=0,g=0,b=0.8,a=0.8}
 						},
 						{
 						    {
@@ -206,11 +208,11 @@ function grenades.enable()
 	    name = "he-grenade",
 	    icon = "__RampantArsenal__/graphics/icons/he-grenade.png",
 	    enabled = false,
-	    category = "crafting-with-fluid",
+	    category = "crafting",
 	    ingredients = {
-		{"explosive-cannon-shell", 1},
-		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"grenade", 1},
+		{"copper-plate", 1},
+		{"explosives", 4}
 	    },
 	    result = heGrenade,
     })
@@ -248,7 +250,8 @@ function grenades.enable()
 					    type = "projectile",
 					    projectile = makeGrenadeProjectile(
 						{
-						    name = "bio"
+						    name = "bio",
+						    tint = {r=0.5,g=0,b=0.5,a=0.8}
 						},
 						{
 						    {
@@ -305,11 +308,11 @@ function grenades.enable()
 	    name = "bio-grenade",
 	    icon = "__RampantArsenal__/graphics/icons/bio-grenade.png",
 	    enabled = false,
-	    category = "crafting-with-fluid",
+	    category = "crafting",
 	    ingredients = {
-		{"explosive-cannon-shell", 1},
-		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"grenade", 1},
+		{"copper-plate", 1},
+		{"poison-capsule", 1}
 	    },
 	    result = bioGrenade,
     })
@@ -320,49 +323,6 @@ function grenades.enable()
 			recipe = bioGrenadeRecipe,
     })
     
-    local toxicCloud = makeCloud(
-	{
-	    name = "toxic",
-	    duration = 240,
-	    inDuration = 45,
-	    outDuration = 30,
-	    movementModifier = 0,
-	    spreadRadius = 2,
-	    tint = {r=0,g=0.3,b=0.5,a=0.8},
-	    scale = 2.5
-	},
-	{
-	    type = "direct",
-	    action_delivery =
-		{
-		    type = "instant",
-		    target_effects =
-			{
-			    type = "nested-result",
-			    action =
-				{
-				    type = "area",
-				    radius = 10,
-				    action_delivery =
-					{
-					    type = "instant",
-					    target_effects =
-						{
-						    {
-							type = "damage",
-							damage = { amount = 80, type = "poison" }
-						    },
-						    {
-							type = "create-sticker",
-							sticker = "toxic-sticker-rampant-arsenal"
-						    }
-						}
-					}
-				}
-			}
-		}
-    })
-
     local toxicCapsule = makeCapsule(
 	{
 	    name = "toxic",
@@ -390,7 +350,8 @@ function grenades.enable()
 					    type = "projectile",
 					    projectile = makeCapsuleProjectile(
 						{
-						    name = "toxic"
+						    name = "toxic",
+						    tint = {r=0.5,g=0,b=0.5,a=0.8}
 						},
 						{
 						    type = "direct",
@@ -401,7 +362,7 @@ function grenades.enable()
 								{
 								    type = "create-entity",
 								    show_in_tooltip = true,
-								    entity_name = toxicCloud
+								    entity_name = "toxic-cloud-rampant-arsenal"
 								}
 							}
 						}
@@ -417,11 +378,11 @@ function grenades.enable()
 	    name = "toxic-capsule",
 	    icon = "__RampantArsenal__/graphics/icons/toxic-capsule.png",
 	    enabled = false,
-	    category = "crafting-with-fluid",
+	    category = "crafting",
 	    ingredients = {
-		{"explosive-cannon-shell", 1},
-		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"poison-capsule", 3},
+		{"iron-plate", 3},
+		{"plastic-bar", 3}
 	    },
 	    result = toxicCapsule,
     })
@@ -431,45 +392,6 @@ function grenades.enable()
 			type = "unlock-recipe",
 			recipe = toxicCapsuleRecipe,
     })
-
-    local repairCloud = makeCloud(
-	{
-	    name = "repair",
-	    duration = 240,
-	    inDuration = 45,
-	    outDuration = 30,
-	    movementModifier = 0,
-	    spreadRadius = 2,
-	    tint = {r=0.5,g=0.3,b=0,a=0.8},
-	    scale = 2.5
-	},
-	{
-	    type = "direct",
-	    action_delivery =
-		{
-		    type = "instant",
-		    target_effects =
-			{
-			    type = "nested-result",
-			    action =
-				{
-				    type = "area",
-				    radius = 10,
-				    entity_flags = {"player-creation"},
-				    action_delivery =
-					{
-					    type = "instant",
-					    target_effects =
-						{
-						    type = "damage",
-						    damage = { amount = -80, type = "healing" }
-						}
-					}
-				}
-			}
-		}
-    })
-
     
     local repairCapsule = makeCapsule(
 	{
@@ -498,7 +420,8 @@ function grenades.enable()
 					    type = "projectile",
 					    projectile = makeCapsuleProjectile(
 						{
-						    name = "repair"
+						    name = "repair",
+						    tint = {r=0.5,g=0.3,b=0,a=0.8},
 						},
 						{
 						    type = "direct",
@@ -509,7 +432,7 @@ function grenades.enable()
 								{
 								    type = "create-entity",
 								    show_in_tooltip = true,
-								    entity_name = repairCloud
+								    entity_name = "repair-cloud-rampant-arsenal"
 								}
 							}
 						}
@@ -525,11 +448,11 @@ function grenades.enable()
 	    name = "repair-capsule",
 	    icon = "__RampantArsenal__/graphics/icons/repair-capsule.png",
 	    enabled = false,
-	    category = "crafting-with-fluid",
+	    category = "crafting",
 	    ingredients = {
-		{"explosive-cannon-shell", 1},
+		{"repair-pack", 2},
 		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"plastic-bar", 1}
 	    },
 	    result = repairCapsule,
     })
@@ -538,46 +461,7 @@ function grenades.enable()
 		    {
 			type = "unlock-recipe",
 			recipe = repairCapsuleRecipe,
-    })
-
-    
-    local paralysisCloud = makeCloud(
-	{
-	    name = "paralysis",
-	    duration = 180,
-	    inDuration = 45,
-	    outDuration = 30,
-	    movementModifier = 0,
-	    spreadRadius = 2,
-	    tint = {r=0,g=0,b=0.8,a=0.8},
-	    scale = 1.5
-	},
-	{
-	    type = "direct",
-	    action_delivery =
-		{
-		    type = "instant",
-		    target_effects =
-			{
-			    type = "nested-result",
-			    action =
-				{
-				    type = "area",
-				    radius = 6.5,
-				    entity_flags = {"breaths-air"},
-				    action_delivery =
-					{
-					    type = "instant",
-					    target_effects =
-						{
-						    type = "create-sticker",
-						    sticker = "paralysis-sticker-rampant-arsenal"
-						}
-					}
-				}
-			}
-		}
-    })
+    })    
     
     local paralysisCapsule = makeCapsule(
 	{
@@ -606,7 +490,8 @@ function grenades.enable()
 					    type = "projectile",
 					    projectile = makeCapsuleProjectile(
 						{
-						    name = "paralysis"
+						    name = "paralysis",
+						    tint = {r=0,g=0,b=0.8,a=0.8}
 						},
 						{
 						    type = "direct",
@@ -617,7 +502,7 @@ function grenades.enable()
 								{
 								    type = "create-entity",
 								    show_in_tooltip = true,
-								    entity_name = paralysisCloud
+								    entity_name = "paralysis-cloud-rampant-arsenal"
 								}
 							}
 						}
@@ -633,11 +518,11 @@ function grenades.enable()
 	    name = "paralysis-capsule",
 	    icon = "__RampantArsenal__/graphics/icons/paralysis-capsule.png",
 	    enabled = false,
-	    category = "crafting-with-fluid",
+	    category = "crafting",
 	    ingredients = {
-		{"explosive-cannon-shell", 1},
-		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"slowdown-capsule", 3},
+		{"iron-plate", 3},
+		{"plastic-bar", 3}
 	    },
 	    result = paralysisCapsule,
     })
@@ -689,9 +574,9 @@ function grenades.enable()
 	    enabled = false,
 	    category = "crafting-with-fluid",
 	    ingredients = {
-		{"explosive-cannon-shell", 1},
-		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"stone", 5},
+		{"coal", 2},
+		{"wood", 1}		
 	    },
 	    result = healingCapsule,
     })
@@ -744,9 +629,8 @@ function grenades.enable()
 	    enabled = false,
 	    category = "crafting-with-fluid",
 	    ingredients = {
-		{"explosive-cannon-shell", 1},
-		{"steel-plate", 1},
-		{type="fluid", name="light-oil", amount=15}
+		{"steel-plate", 2},
+		{"electronic-circuit", 2}
 	    },
 	    result = speedCapsule,
     })

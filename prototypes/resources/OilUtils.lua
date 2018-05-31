@@ -2,7 +2,7 @@ local oilUtils = {}
 
 function oilUtils.addFluid(attributes)
 
-    local name = attributes.name
+    local name = attributes.name .. "-fluid-rampant-arsenal"
     
     data:extend({{
 		type = "fluid",
@@ -13,7 +13,6 @@ function oilUtils.addFluid(attributes)
 		flow_color = attributes.flowColor or {r=0.5, g=0.5, b=0.5},
 		max_temperature = attributes.maxTemp or 100,
 		icon = attributes.icon or "__base__/graphics/icons/fluid/crude-oil.png",
-		tint = attributes.tint,
 		-- icons = {
 		--     {icon = "__base__/graphics/icons/fluid/crude-oil.png", tint = attributes.tint},
 		-- },

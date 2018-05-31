@@ -39,6 +39,7 @@ function projectileUtils.makeShotgunProjectile(attributes)
 			filename = "__base__/graphics/entity/piercing-bullet/piercing-bullet.png",
 			frame_count = 1,
 			width = 3,
+			tint = attributes.tint,
 			height = 50,
 			priority = "high"
 		    },
@@ -299,6 +300,7 @@ function projectileUtils.makeGrenadeProjectile(attributes, attack)
 			filename = "__base__/graphics/entity/grenade/grenade.png",
 			frame_count = 1,
 			width = 24,
+			tint = attributes.tint,
 			height = 24,
 			priority = "high"
 		    },
@@ -517,6 +519,67 @@ function projectileUtils.makeArtilleryShell(attributes, attack, finalAttack)
 			priority = "high"
 		    },
 		height_from_ground = 280 / 64
+	    }
+    })
+    
+    return name
+end
+
+function projectileUtils.makeBombWave(attributes, attack)
+    local name = attributes.name .. "-bomb-wave-rampant-arsenal"
+
+    data:extend({
+	    {
+		type = "projectile",
+		name = name,
+		flags = {"not-on-map"},
+		acceleration = 0,
+		action = attack or
+		    {
+			{
+			    type = "direct",
+			    action_delivery =
+				{
+				    type = "instant",
+				    target_effects =
+					{
+					    {
+						type = "create-entity",
+						entity_name = "explosion"
+					    }
+					}
+				}
+			},
+			{
+			    type = "area",
+			    radius = 3,
+			    action_delivery =
+				{
+				    type = "instant",
+				    target_effects =
+					{
+					    type = "damage",
+					    damage = {amount = 400, type = "explosion"}
+					}
+				}
+			}
+		    },
+		animation =
+		    {
+			filename = "__core__/graphics/empty.png",
+			frame_count = 1,
+			width = 1,
+			height = 1,
+			priority = "high"
+		    },
+		shadow =
+		    {
+			filename = "__core__/graphics/empty.png",
+			frame_count = 1,
+			width = 1,
+			height = 1,
+			priority = "high"
+		    }
 	    }
     })
     
