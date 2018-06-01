@@ -204,7 +204,7 @@ function cannons.enable()
 											{type = "light-oil", damage_modifier = 1.1},
 											{type = "napalm-fluid-rampant-arsenal", damage_modifier = 1.5}
 										    },
-										    fluid_consumption = 0.6,
+										    fluid_consumption = 0.8,
 
 										    gun_center_shift = {
 											north = {0, -0.65},

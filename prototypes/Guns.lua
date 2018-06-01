@@ -89,12 +89,12 @@ function guns.enable()
     local rocketLauncher = makeGun(
 	{
 	    name = "rocket-launcher",
-	    icon = "__RampantArsenal__/graphics/icons/mortar.png",
+	    icon = "__RampantArsenal__/graphics/icons/upgraded-rocket-launcher.png",
 	    order = "d[rocket-launcher]-b"
 	},
 	{
 	    type = "stream",
-	    ammo_category = "capsule-launcher",
+	    ammo_category = "rocket",
 	    cooldown = 50,
 	    movement_slow_down_factor = 0.8,
 	    damage_modifier = 1.5,

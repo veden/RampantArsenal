@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.16.4
+Date: 31. 5. 2018
+  Bugfixes:
+    - Upgraded Rocket Launcher icon and ammo type fix
+    - Actually updated advanced flamethrower turret fluid consumption to 12/s
+    
+---------------------------------------------------------------------------------------------------
 Version: 0.16.3
 Date: 26. 5. 2018
   Features:
