@@ -5,6 +5,6 @@
     "title" : "Rampant Arsenal",
     "author" : "Veden",
     "homepage" : "https://forums.factorio.com/viewtopic.php?f=190&t=60626",
-    "description" : "Adds a variety of turrets to wage war.",
+    "description" : "Adds a variety of turrets to wage war. Adds Additional Ammo Types, Landmines, Equipment, Capsules, Infinite Technologies.",
     "dependencies" : ["base >= 0.16.36"]
 }

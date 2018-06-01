@@ -176,6 +176,44 @@ function clouds.enable()
 
     makeCloud(
 	{
+	    name = "massive-repair",
+	    duration = 240,
+	    inDuration = 45,
+	    outDuration = 30,
+	    movementModifier = 0,
+	    spreadRadius = 2,
+	    tint = {r=0.5,g=0.3,b=0,a=0.8},
+	    scale = 5
+	},
+	{
+	    type = "direct",
+	    action_delivery =
+		{
+		    type = "instant",
+		    target_effects =
+			{
+			    type = "nested-result",
+			    action =
+				{
+				    type = "area",
+				    radius = 20,
+				    entity_flags = {"player-creation"},
+				    action_delivery =
+					{
+					    type = "instant",
+					    target_effects =
+						{
+						    type = "damage",
+						    damage = { amount = -100, type = "healing" }
+						}
+					}
+				}
+			}
+		}
+    })
+
+    makeCloud(
+	{
 	    name = "big-paralysis",
 	    duration = 180,
 	    inDuration = 45,

@@ -788,7 +788,7 @@ function guns.enable()
 	    name = "gun-turret",
 	    icon = "__RampantArsenal__/graphics/icons/gluegun-icon.png",
 	    enabled = false,
-	    category = "crafting-with-fluid",
+	    category = "crafting",
 	    ingredients = {
 		{"gun-turret", 1},
 		{"advanced-circuit", 5},

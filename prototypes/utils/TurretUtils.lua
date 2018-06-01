@@ -97,7 +97,7 @@ function turretUtils.makeAmmoTurret(attributes, attack)
 		icon = attributes.icon or "__base__/graphics/icons/gun-turret.png",
 		icon_size = 32,
 		flags = attributes.flags or {"placeable-player", "player-creation"},
-		healing_per_tick = 0.04,
+		-- healing_per_tick = 0.04,
 		minable = {mining_time = attributes.miningTime or 0.5, result = itemName},
 		max_health = attributes.health or 400,
 		corpse = "medium-remnants",

@@ -1130,7 +1130,7 @@ function capsules.enable()
 	    enabled = false,
 	    ingredients = {
 		{"iron-plate", 2},
-		{"paralysis-capsule-rampant-arsenal", 1},
+		{"repair-capsule-rampant-arsenal", 1},
 		{"explosives", 1}
 	    },
 	    result = repairCapsules
@@ -1444,55 +1444,6 @@ function capsules.enable()
 			    type = "unlock-recipe",
 			    recipe = poisonCapsuleRecipe,
 			}
-    })
-
-    addEffectToTech("capsule-turret-speed-1",
-		    {
-			type = "gun-speed",
-			ammo_category = "capsule-launcher",
-			modifier = 0.1
-    })
-
-    addEffectToTech("capsule-turret-speed-2",
-		    {
-			type = "gun-speed",
-			ammo_category = "capsule-launcher",
-			modifier = 0.1
-    })
-
-    addEffectToTech("capsule-turret-speed-3",
-		    {
-			type = "gun-speed",
-			ammo_category = "capsule-launcher",
-			modifier = 0.2
-    })
-
-    addEffectToTech("capsule-turret-speed-4",
-		    {
-			type = "gun-speed",
-			ammo_category = "capsule-launcher",
-			modifier = 0.4
-    })
-
-    addEffectToTech("capsule-turret-speed-4",
-		    {
-			type = "gun-speed",
-			ammo_category = "capsule-launcher",
-			modifier = 0.4
-    })
-
-    addEffectToTech("capsule-turret-speed-5",
-		    {
-			type = "gun-speed",
-			ammo_category = "capsule-launcher",
-			modifier = 0.4
-    })
-
-    addEffectToTech("capsule-turret-speed-6",
-		    {
-			type = "gun-speed",
-			ammo_category = "capsule-launcher",
-			modifier = 0.4
     })
 
     addEffectToTech("capsule-turret-damage-1",

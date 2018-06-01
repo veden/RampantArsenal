@@ -21,7 +21,7 @@ function technologies.enable()
 	    time = 30
     })
 
-    makeTechnology({
+    local napalm = makeTechnology({
 	    name="incendiary-napalm",
 	    icon="__RampantArsenal__/graphics/technology/incendiary-napalm.png",
 	    prerequisites = {incendiary, "sulfur-processing"},
@@ -67,6 +67,20 @@ function technologies.enable()
 	    time = 30
     })
 
+    local bioCapsules = makeTechnology({
+	    name="bio-capsules",
+	    icon="__RampantArsenal__/graphics/technology/bio-capsules.png",
+	    prerequisites = {"military-4", "explosives", bioweapons},
+	    effects = {},
+	    ingredients = {
+		{"science-pack-1", 1},
+		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+		{"military-science-pack", 1}
+	    },
+	    count = 100,
+	    time = 30
+    })
     
     makeTechnology({
 	    name="incendiary-grenades",
@@ -177,7 +191,7 @@ function technologies.enable()
     makeTechnology({
 	    name="incendiary-artillery-shells",
 	    icon="__RampantArsenal__/graphics/technology/incendiary-artillery-shells.png",
-	    prerequisites = {"turrets", "artillery", incendiary},
+	    prerequisites = {"artillery", napalm},
 	    effects = {},
 	    ingredients = {
 		{"science-pack-1", 1},
@@ -193,7 +207,7 @@ function technologies.enable()
     makeTechnology({
 	    name="bio-artillery-shells",
 	    icon="__RampantArsenal__/graphics/technology/bio-artillery-shells.png",
-	    prerequisites = {"turrets", "artillery", bioweapons},
+	    prerequisites = {bioCapsules, "artillery"},
 	    effects = {},
 	    ingredients = {
 		{"science-pack-1", 1},
@@ -206,23 +220,8 @@ function technologies.enable()
 	    time = 30
     })
 
-    makeTechnology({
-	    name="he-artillery-shells",
-	    icon="__RampantArsenal__/graphics/technology/he-artillery-shells.png",
-	    prerequisites = {"artillery", "explosives", he},
-	    effects = {},
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
-	    },
-	    count = 2000,
-	    time = 30
-    })
     
-    makeTechnology({
+    local heGrenades = makeTechnology({
 	    name="he-grenades",
 	    icon="__RampantArsenal__/graphics/technology/he-grenades.png",
 	    prerequisites = {he},
@@ -236,26 +235,27 @@ function technologies.enable()
 	    count = 100,
 	    time = 30
     })
-
+    
     makeTechnology({
-	    name="bio-grenades",
-	    icon="__RampantArsenal__/graphics/technology/bio-grenades.png",
-	    prerequisites = {bioweapons},
+	    name="he-artillery-shells",
+	    icon="__RampantArsenal__/graphics/technology/he-artillery-shells.png",
+	    prerequisites = {"artillery", heGrenades},
 	    effects = {},
 	    ingredients = {
 		{"science-pack-1", 1},
 		{"science-pack-2", 1},
 		{"science-pack-3", 1},
-		{"military-science-pack", 1}
+		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1}
 	    },
-	    count = 100,
+	    count = 2000,
 	    time = 30
     })
 
     makeTechnology({
-	    name="bio-capsules",
-	    icon="__RampantArsenal__/graphics/technology/bio-capsules.png",
-	    prerequisites = {"military-4", "explosives", bioweapons},
+	    name="bio-grenades",
+	    icon="__RampantArsenal__/graphics/technology/bio-grenades.png",
+	    prerequisites = {bioweapons},
 	    effects = {},
 	    ingredients = {
 		{"science-pack-1", 1},
@@ -1050,16 +1050,29 @@ function technologies.enable()
 	    time = 30	    
     })
 
-    makeTechnology({
+    local regeneration = makeTechnology({
 	    name = "regeneration",
 	    icon="__RampantArsenal__/graphics/technology/regeneration.png",
-	    prerequisites = {"military-3"},
+	    prerequisites = {"military-2", "advanced-electronics", "plastics"},
 	    effects = {},
-	    count = 75,
+	    count = 200,
 	    ingredients = {
 		{"science-pack-1", 1},
     		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+    		{"military-science-pack", 1}
+	    },
+	    time = 30	    
+    })
+
+    makeTechnology({
+	    name = "regeneration-turrets",
+	    icon="__RampantArsenal__/graphics/technology/medic-turrets.png",
+	    prerequisites = {regeneration, "engine"},
+	    effects = {},
+	    count = 200,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30	    

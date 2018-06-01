@@ -18,12 +18,12 @@ Date: 26. 5. 2018
     - Added Upgraded gun turret for extending the life of bullet turrets
     - Added Medic Turret for healing around the turret when enemies are present
     - Added High Explosives technology branch
+    - Added Regeneration technology branch
     - Added Incendiary technology branch
     - Added Bio technology branch
     - Added Upgraded Rocket launcher with a slight damage bump and range
   Improvements:
     - reworked grenade and cluster grenade laucher ammo
-    - organized new turrets in gui
   Tweaks:
     - Increased Cluster Grenades total damage from 245 to 1575
     - Doubled uranium cannon shells damage
