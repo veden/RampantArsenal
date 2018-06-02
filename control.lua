@@ -40,7 +40,7 @@ local function onModSettingsChange(event)
 
     -- world.bobsEnabled = (mods and mods["bobenemies"] ~= nil) or game.active_mods["bobenemies"]
     -- world.bobsEnabled = (mods and mods["bobenemies"] ~= nil) or game.active_mods["bobenemies"]
-        
+    
     return true
 end
 
@@ -50,9 +50,13 @@ local function onConfigChanged()
     if not world.version then
 
 	world.version = 1
-    elseif (world.version < 4) then
-		
-	world.version = 4
+    end
+    if (world.version < 5) then
+
+	world.nextTick = 0
+	world.count = 0
+	
+	world.version = 5
     end
 end
 
@@ -62,7 +66,6 @@ local function onInit()
     world = global.world
 
     onConfigChanged()
-    onModSettingsChange()
 end
 
 local function onLoad()
@@ -98,6 +101,22 @@ local function onDeath(event)
     end
 end
 
+local function onTriggerEntityCreated(event)
+    local entity = event.entity
+    if entity and entity.valid and (event.entity.name == "small-repair-cloud-rampant-arsenal") then
+	local tick = event.tick
+	
+	world.count = world.count + 1
+	if (world.count >= 5) then	   
+	    entity.destroy()	    
+	end
+	
+	if (tick >= world.nextTick) then
+	    world.count = 0
+	    world.nextTick = tick + 80
+	end
+    end
+end
 
 -- hooks
 
@@ -105,5 +124,7 @@ script.on_init(onInit)
 script.on_load(onLoad)
 script.on_event(defines.events.on_runtime_mod_setting_changed, onModSettingsChange)
 script.on_configuration_changed(onConfigChanged)
+
+script.on_event(defines.events.on_trigger_created_entity, onTriggerEntityCreated)
 
 --script.on_event(defines.events.on_entity_died, onDeath)

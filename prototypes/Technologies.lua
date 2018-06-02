@@ -1065,6 +1065,21 @@ function technologies.enable()
     })
 
     makeTechnology({
+	    name = "regeneration-walls",
+	    icon="__RampantArsenal__/graphics/technology/mending-walls.png",
+	    prerequisites = {regeneration, "stone-walls", "military-3"},
+	    effects = {},
+	    count = 200,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+    		{"military-science-pack", 1}
+	    },
+	    time = 30	    
+    })
+    
+    makeTechnology({
 	    name = "regeneration-turrets",
 	    icon="__RampantArsenal__/graphics/technology/medic-turrets.png",
 	    prerequisites = {regeneration, "engine"},

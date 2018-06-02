@@ -1,10 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.16.5
+Date: 1. 6. 2018
+  Features:
+    - Added tier 0 turret for before first turret research
+    - Added Reactive Healing Walls and gates that when they take damage emit a repair cloud for themselves and immediate neighbors
+
+---------------------------------------------------------------------------------------------------
 Version: 0.16.4
 Date: 31. 5. 2018
   Bugfixes:
     - Upgraded Rocket Launcher icon and ammo type fix
     - Actually updated advanced flamethrower turret fluid consumption to 12/s
-    
+
 ---------------------------------------------------------------------------------------------------
 Version: 0.16.3
 Date: 26. 5. 2018

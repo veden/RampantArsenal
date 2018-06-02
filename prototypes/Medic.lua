@@ -49,6 +49,7 @@ function medic.enable()
 	icon = "__RampantArsenal__/graphics/icons/zone-expander.png",
 	miningTime = 1,
 	health = 1000,
+	order = "b[turret]-a[zzzzmedic-turret]",
 	collisionBox = {{-1, -1 }, {1, 1}},
 	selectionBox = {{-1.2, -1.2 }, {1, 1}},
 	hasBaseDirection = true,

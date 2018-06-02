@@ -1303,7 +1303,7 @@ function capsules.enable()
 	foldingAnimation = CapsuleLauncherSheet(),
 	preparedAnimation = CapsuleLauncherSheet(),
 	preparingAnimation = CapsuleLauncherSheet(),
-	order = "c[launcher]"
+	order = "b[turret]-d[acapsule-turret]"
     }
     local capsuleTurret, capsuleTurretItem = makeAmmoTurret(entity, {
 								type = "stream",

@@ -39,22 +39,22 @@ local function gunTurretMkIISheet()
 end
 
 
-local function gunTurretMkIIPlace()
+local function rifleTurretSheet()
     return
 	{
 	    layers =
 		{
 		    {
-			filename = "__RampantArsenal__/graphics/entities/gluegun_fold.png",
-			priority = "medium",
-			width = 80,
-			height = 72,
-			scale=1.5,
-			-- line_length = 8,
+			filename = "__RampantArsenal__/graphics/entities/rifle-turret.png",
+			priority = "high",
+			width = 34,
+			height = 49,
+			line_length = 8,
+			scale=1,
 			axially_symmetrical = false,
-			direction_count = 4,
+			direction_count = 64,
 			frame_count = 1,
-			shift = {0, -0.5},
+			shift = {0, -0.25},
 		    }
 		}
 	}    
@@ -762,11 +762,11 @@ function guns.enable()
     local gunTurretAttributes = {
 	name = "gun",
 	icon = "__RampantArsenal__/graphics/icons/gluegun-icon.png",
+	order = "b[turret]-a[sgun-turret]",
 	miningTime = 1,
 	health = 1400,
 	collisionBox = {{-1.2, -1.2 }, {1.2, 1.2}},
 	selectionBox = {{-1.4, -1.4 }, {1.4, 1.4}},
-	hasBaseDirection = true,
 	foldedAnimation = gunTurretMkIISheet(),
 	foldingAnimation = gunTurretMkIISheet(),
 	preparedAnimation = gunTurretMkIISheet(),
@@ -797,6 +797,45 @@ function guns.enable()
 	    result = gunTurretItem
     })
 
+    local rifleTurretAttributes = {
+	name = "rifle",
+	icon = "__RampantArsenal__/graphics/icons/rifle-turret.png",
+	miningTime = 1,
+	health = 200,
+	order = "b[turret]-a[aun-turret]",
+	collisionBox = {{-0.4, -0.4 }, {0.4, 0.4}},
+	selectionBox = {{-0.5, -0.5 }, {0.5, 0.5}},
+	foldedAnimation = rifleTurretSheet(),
+	foldingAnimation = rifleTurretSheet(),
+	preparedAnimation = rifleTurretSheet(),
+	preparingAnimation = rifleTurretSheet()
+    }
+    local rifleTurret,rifleTurretItem = makeAmmoTurret(rifleTurretAttributes,
+						       {
+							   type = "projectile",
+							   ammo_category = "bullet",
+							   cooldown = 16,
+							   projectile_creation_distance = 1,
+							   damage_modifier = 1.2,
+							   projectile_center = {0, 0.2},
+							   range = 16,
+							   sound = make_heavy_gunshot_sounds(),
+    })
+    
+    makeRecipe({
+	    name = "rifle-turret",
+	    icon = "__RampantArsenal__/graphics/icons/rifle-turret.png",
+	    enabled = true,
+	    category = "crafting",
+	    ingredients = {
+		{"copper-plate", 10},
+		{"raw-wood", 5},
+		{"iron-plate", 15}
+	    },
+	    result = rifleTurretItem
+    })
+
+
     addEffectToTech("turrets-2",
 		    {
 			type = "unlock-recipe",
@@ -805,52 +844,95 @@ function guns.enable()
 
     addEffectToTech("gun-turret-damage-1",
 		    {
-			type = "turret-attack",
-			turret_id = gunTurret,
-			modifier = 0.1
-    })
+			{
+			    type = "turret-attack",
+			    turret_id = rifleTurret,
+			    modifier = 0.1
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = gunTurret,
+			    modifier = 0.1
+    }})
 
     addEffectToTech("gun-turret-damage-2",
 		    {
-			type = "turret-attack",
-			turret_id = gunTurret,
-			modifier = 0.1
-    })
+			{
+			    type = "turret-attack",
+			    turret_id = rifleTurret,
+			    modifier = 0.1
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = gunTurret,
+			    modifier = 0.1
+    }})
 
     addEffectToTech("gun-turret-damage-3",
 		    {
-			type = "turret-attack",
-			turret_id = gunTurret,
-			modifier = 0.2
-    })
+			{
+			    type = "turret-attack",
+			    turret_id = rifleTurret,
+			    modifier = 0.2
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = gunTurret,
+			    modifier = 0.2
+    }})
 
     addEffectToTech("gun-turret-damage-4",
 		    {
-			type = "turret-attack",
-			turret_id = gunTurret,
-			modifier = 0.2
-    })
+			{
+			    type = "turret-attack",
+			    turret_id = rifleTurret,
+			    modifier = 0.2
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = gunTurret,
+			    modifier = 0.2
+    }})
 
     addEffectToTech("gun-turret-damage-5",
 		    {
-			type = "turret-attack",
-			turret_id = gunTurret,
-			modifier = 0.2
-    })
+			{
+			    type = "turret-attack",
+			    turret_id = rifleTurret,
+			    modifier = 0.2
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = gunTurret,
+			    modifier = 0.2
+    }})
 
     addEffectToTech("gun-turret-damage-6",
 		    {
-			type = "turret-attack",
-			turret_id = gunTurret,
-			modifier = 0.4
+			{
+			    type = "turret-attack",
+			    turret_id = rifleTurret,
+			    modifier = 0.4
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = gunTurret,
+			    modifier = 0.4
+			}
     })
 
     addEffectToTech("gun-turret-damage-7",
 		    {
-			type = "turret-attack",
-			turret_id = gunTurret,
-			modifier = 0.7
-    })
+			{
+			    type = "turret-attack",
+			    turret_id = rifleTurret,
+			    modifier = 0.7
+			},
+			{
+			    type = "turret-attack",
+			    turret_id = gunTurret,
+			    modifier = 0.7
+    }})
 
     
     removeEffect("military-3", "unlock-recipe", "poison-capsule")

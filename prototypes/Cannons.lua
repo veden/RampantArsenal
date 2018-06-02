@@ -127,6 +127,7 @@ function cannons.enable()
 	health = 3500,
 	collisionBox = {{-1.2, -1.2 }, {1.2, 1.2}},
 	selectionBox = {{-1.4, -1.4 }, {1.4, 1.4}},
+	order = "b[turret]-a[zzcannon-turret]",
 	hasBaseDirection = true,
 	foldedAnimation = cannonMkISheet(),
 	foldingAnimation = cannonMkISheet(),
@@ -152,6 +153,7 @@ function cannons.enable()
 	icon = "__RampantArsenal__/graphics/icons/rapidCannonTurret.png",
 	miningTime = 1,
 	health = 3000,
+	order = "b[turret]-a[zzrapid-cannon-turret]",
 	foldedAnimation = cannonMkIIPlace(),
 	preparingAnimation = cannonMkIIPlace(8, 4, 8),
 	preparedAnimation = cannonMkIISheet(),
@@ -178,6 +180,7 @@ function cannons.enable()
     	health = 4000,
     	collisionBox = {{-1.7, -2.2 }, {1.7, 2.2}},
     	selectionBox = {{-2, -2.5 }, {2, 2.5}},
+	order = "b[turret]-c[zflamethrower-turret]",
 	pipeConnections = {
 	    { position = {-2.5, 2.0} },
 	    { position = {2.5, 2.0} }
@@ -306,6 +309,7 @@ function cannons.enable()
 	miningTime = 1,
 	health = 3000,
 	hasBaseDirection = true,
+	order = "b[turret]-a[shotgun-turret]",
 	foldedAnimation = shotgunTurretSheet(),
 	preparingAnimation = shotgunTurretSheet(),
 	preparedAnimation = shotgunTurretSheet(),

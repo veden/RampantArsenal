@@ -74,6 +74,7 @@ function lasers.enable()
 	collisionBox = {{-1.75, -1.75 }, {1.75, 1.75}},
 	selectionBox = {{-2, -2 }, {2, 2}},
 	hasBaseDirection = true,
+	order = "b[turret]-b[zzlaser-turret]",
 	energySource = {
 	    type = "electric",
 	    buffer_capacity = "439MJ",
@@ -183,6 +184,7 @@ function lasers.enable()
 	    drain = "50kW",
 	    usage_priority = "primary-input"
 	},
+	order = "b[turret]-b[zlaser-turret]",
 	collisionBox = {{-0.35, -0.85}, {0.35, 0.85}},
 	selectionBox = {{-0.5, -1}, {0.5, 1}},
 	foldedAnimation = lightningTowerSheet(),

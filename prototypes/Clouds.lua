@@ -370,6 +370,45 @@ function clouds.enable()
 		}
     })
 
+    local smallRepairCloud = makeCloud(
+	{
+	    name = "small-repair",
+	    duration = 500,
+	    inDuration = 10,
+	    outDuration = 10,
+	    movementModifier = 0,
+	    cooldown = 50,
+	    spreadRadius = 2,
+	    tint = {r=0.5,g=0.3,b=0,a=0.1},
+	    scale = 1
+	},
+	{
+	    type = "direct",
+	    action_delivery =
+		{
+		    type = "instant",
+		    target_effects =
+			{
+			    type = "nested-result",
+			    action =
+				{
+				    type = "area",
+				    radius = 4,
+				    entity_flags = {"player-creation"},
+				    action_delivery =
+					{
+					    type = "instant",
+					    target_effects =
+						{
+						    type = "damage",
+						    damage = { amount = -80, type = "healing" }
+						}
+					}
+				}
+			}
+		}
+    })
+
 end
 
 return clouds
