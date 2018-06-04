@@ -251,6 +251,7 @@ function medic.enable()
 			modifier = 0.2
     })
 
+    
 end
 
 return medic

@@ -27,6 +27,8 @@ Rocket Turret - Shoots homing rocket projectiles.
 Rapid Rocket Turret - Rapidly Shoots homing rocket projectiles.
 Medic Turret - For healing the area surrounding the turret
 Gun Turret MkII - For when gun turrets need more damage, range, and rate of fire
+Rifle turret - For a tier 0 turret for before you have completed any research
+Reactive Mending Walls & Gates - When they take damage they emit a repair cloud around themselves
 
 High Explosives: landmines, grenades, bullets, rockets, shotgun shells, cannon shells, and artillery shells
 Incendiary: landmines, grenades, bullets, rockets, shotgun shells, cannon shells, and artillery shells

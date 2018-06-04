@@ -217,6 +217,9 @@ function artillery.enable()
     	    name = "bio-artillery",
     	    icon = "__RampantArsenal__/graphics/icons/bio-artillery-shell.png",
 	    order = "d[explosive-cannon-shell]-d[bio]",
+	    magSize = 1,
+	    stackSize = 1,
+
     	    ammoType = {
 		category = "artillery-shell",
 		target_type = "position",
