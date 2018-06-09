@@ -14,7 +14,9 @@ local technologies = require("Technologies")
 local clouds = require("Clouds")
 local medic = require("Medic")
 local wall = require("Walls")
+local vehicle = require("Vehicles")
 
+local enableVehicles = vehicle.enable
 local enableWalls = wall.enable
 local enableStickers = stickers.enable
 local enableFire = fire.enable
@@ -53,6 +55,7 @@ function turrets.addTurrets()
     enableArtillery()
     enableMedic()
     enableCapsulesLauncher()
+    enableVehicles()
 end
 
 
