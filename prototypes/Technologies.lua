@@ -1462,7 +1462,7 @@ function technologies.enable()
 	    icon="__RampantArsenal__/graphics/technology/turrets-2.png",
 	    prerequisites = {"turrets", "military-3", "gun-turret-damage-4", "bullet-speed-4"},
 	    effects = {},
-	    count = 75,
+	    count = 250,
 	    ingredients = {
 		{"science-pack-1", 1},
     		{"science-pack-2", 1},
@@ -1472,6 +1472,103 @@ function technologies.enable()
 	    time = 30	    
     })
 
+        
+    makeTechnology({
+	    name = "nuclear-railway",
+	    icon="__RampantArsenal__/graphics/technology/nuclear-railway.png",
+	    prerequisites = {"nuclear-power", "railway", "advanced-electronics-2"},
+	    effects = {},
+	    count = 350,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+    		{"science-pack-3", 1},
+    		{"high-tech-science-pack", 1}
+	    },
+	    time = 30	    
+    })
+
+    local tanks2 = makeTechnology({
+	    name = "tanks-2",
+	    icon="__base__/graphics/technology/tanks.png",
+	    prerequisites = {"tanks", "advanced-electronics-2", "military-4"},
+	    effects = {},
+	    count = 300,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+    		{"science-pack-3", 1},
+    		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1}
+	    },
+	    time = 30	    
+    })
+
+    makeTechnology({
+	    name = "nuclear-tanks",
+	    icon="__RampantArsenal__/graphics/technology/nuclear-tanks.png",
+	    prerequisites = {"nuclear-power", tanks2},
+	    effects = {},
+	    count = 1000,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+    		{"science-pack-3", 1},
+    		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1},
+		{"production-science-pack", 1}
+	    },
+	    time = 30	    
+    })
+
+
+    local cars2 = makeTechnology({
+	    name = "cars-2",
+	    icon="__base__/graphics/technology/automobilism.png",
+	    prerequisites = {"automobilism", "military-3", "advanced-electronics-2"},
+	    effects = {},
+	    count = 300,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+    		{"science-pack-3", 1},
+    		{"military-science-pack", 1}
+	    },
+	    time = 30	    
+    })
+
+    
+    makeTechnology({
+	    name = "nuclear-cars",
+	    icon="__RampantArsenal__/graphics/technology/nuclear-cars.png",
+	    prerequisites = {"nuclear-power", "military-4", cars2},
+	    effects = {},
+	    count = 750,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+    		{"science-pack-3", 1},
+    		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1}
+	    },
+	    time = 30	    
+    })
+    
+    makeTechnology({
+	    name = "oil-burner",
+	    icon="__RampantArsenal__/graphics/technology/oil-burner.png",
+	    prerequisites = {"flammables", "electric-energy-distribution-1"},
+	    effects = {},
+	    count = 120,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+	    },
+	    time = 30	    
+    })
+
+
+    
 end
 
 return technologies

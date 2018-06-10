@@ -1,6 +1,26 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.16.7
+Date: 9. 6. 2018
+  Features:
+    - Added a stronger tank and a nuclear option that uses uranium fuel cells both have equipment grids
+    - Added a stronger car and a nuclear option that uses uranium fuel cells both have equipment grids
+    - Added a nuclear train that uses uranium fuel cells that has an equipment grid
+    - Added Oil burner for generating electricity from oils
+    - All Equipment grids share equipment, mobility based equipment is disabled when appropriate
+  Tweaks:
+    - Increased Gun Turrets 2 from 75 science to 250 science
+    - Added (Fuel value, emission multipler) to: Light oil (0.75MJ, 2), Crude Oil (1.15MJ, 4), Heavy Oil (0.5MJ, 3), Petroleum-gas (1.75MJ, 1.5), Napalm (1.25MJ, 4.5)
+    - Added stats to uranium fuel cell (150% acceleration, 110% top speed, 3 emissions multipler)
+    - Added emission multiplier to solid fuel 0.75, rocket-fuel 1.5, coal 2, nuclear-fuel 4
+    - Added 8x8 equipment grid to car, cargo-wagon, fluid-wagon
+    - Added 10x10 equipment grid to tank
+    - Added 12x12 equipment grid to locomotive
+    - Added 16x16 equipment grid to artillery-wagon
+    - Increased nuclear fuel stack size from 1 to 10
+
+---------------------------------------------------------------------------------------------------
 Version: 0.16.6
-Date: 1. 3. 2018
+Date: 3. 6. 2018
   Bugfixes:
     - Fixed bio artillery shell having having 100 ammo per item
     - Fixed landmine stack count    

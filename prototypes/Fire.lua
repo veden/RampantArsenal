@@ -19,8 +19,8 @@ function fire.enable()
 	    icon = "__RampantArsenal__/graphics/icons/napalm.png",
 	    baseColor = { r = 0.57, g = 0.37, b = 0, a = 0.9 },
 	    flowColor = { r = 0.57, g = 0.37, b = 0, a = 0.9 },
-	    emissionsMultiplier = 4,
-	    fuelValue = "2.5MJ",
+	    emissionsMultiplier = 4.5,
+	    fuelValue = "1.25MJ",
 	    order = "e[napalm]"
     })
     

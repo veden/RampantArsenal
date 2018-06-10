@@ -1,5 +1,11 @@
 local vehicleUtils = {}
 
+function vehicleUtils.addEquipmentGrid(eType, eName, equipmentGrid)
+    if data.raw[eType] and data.raw[eType][eName] then
+	data.raw[eType][eName].equipment_grid = equipmentGrid
+    end
+end
+
 function vehicleUtils.makeTank(attributes)
     local name = attributes.name .. "-tank-vehicle-rampant-arsenal"    
 
@@ -25,6 +31,7 @@ function vehicleUtils.makeTank(attributes)
 		mined_sound = {filename = "__core__/sound/deconstruct-medium.ogg"},
 		max_health = attributes.health or 2000,
 		equipment_grid = attributes.equipmentGrid,
+		healing_per_tick = attributes.healing,
 		corpse = attributes.corpse or "medium-remnants",
 		dying_explosion = attributes.dyingExplosion or "medium-explosion",
 		alert_icon_shift = util.by_pixel(-4, -13),
@@ -462,7 +469,7 @@ function vehicleUtils.makeTank(attributes)
 		tank_driving = true,
 		weight = 60000,
 		inventory_size = 120,
-		guns = { "tank-cannon", "tank-machine-gun", "tank-flamethrower" }
+		guns = attributes.weapons or { "tank-cannon", "tank-machine-gun", "tank-flamethrower" }
 	    }
     })
 
@@ -861,7 +868,7 @@ function vehicleUtils.makeCar(attributes)
 		close_sound = { filename = "__base__/sound/car-door-close.ogg", volume = 0.7 },
 		rotation_speed = 0.015,
 		weight = attributes.weight or 700,
-		guns = { "vehicle-machine-gun" },
+		guns = attributes.weapons or { "vehicle-machine-gun" },
 		inventory_size = attributes.inventorySize or 80
 	    }
     })
