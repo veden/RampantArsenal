@@ -16,7 +16,9 @@ local medic = require("Medic")
 local wall = require("Walls")
 local vehicle = require("Vehicles")
 local power = require("Power")
+local equipment = require("Equipment")
 
+local enableEquipment = equipment.enable
 local enablePower = power.enable
 local enableVehicles = vehicle.enable
 local enableWalls = wall.enable
@@ -36,10 +38,14 @@ local enableMedic = medic.enable
 
 function turrets.addTurrets()
 
-    data:extend({
+    data:extend({	    
 	    {
 		type = "equipment-category",
 		name = "immobile"
+	    },
+	    {
+		type = "equipment-category",
+		name = "noInventory"
 	    }
     })
     
@@ -66,6 +72,7 @@ function turrets.addTurrets()
     enablePower()
     enableCapsulesLauncher()
     enableVehicles()
+    enableEquipment()
 end
 
 

@@ -53,7 +53,7 @@ function itemUtils.modifyItem(attributes)
     
     if data.raw[attributes.eType] and data.raw[attributes.eType][attributes.eName] then
 	if attributes.stackSize then
-	    data.raw[attributes.eType][attributes.eName].stackSize = attributes.stackSize
+	    data.raw[attributes.eType][attributes.eName].stack_size = attributes.stackSize
 	end	
     end
 end

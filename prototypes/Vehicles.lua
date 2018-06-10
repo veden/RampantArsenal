@@ -719,7 +719,8 @@ function vehicles.enable()
     local nuclearTrainGrid = makeGrid({
 	    name = "nuclear-train",
 	    width = 16,
-	    height = 16
+	    height = 16,
+	    categories = {"noInventory"}
     })
     
     local nuclearTrain = makeTrain({
@@ -830,7 +831,8 @@ function vehicles.enable()
 		     makeGrid({
 			     name = "locomotive",
 			     width = 12,
-			     height = 12
+			     height = 12,
+			     categories = {"noInventory"}
     }))
     
     addEquipmentGrid("artillery-wagon",
@@ -839,7 +841,7 @@ function vehicles.enable()
 			     name = "artillery-wagon",
 			     width = 16,
 			     height = 16,
-			     categories = {"immobile"}
+			     categories = {"noInventory"}
     }))
     
     addEquipmentGrid("cargo-wagon",
@@ -857,7 +859,7 @@ function vehicles.enable()
 			     name = "fluid-wagon",
 			     width = 8,
 			     height = 8,
-			     categories = {"immobile"}
+			     categories = {"noInventory"}
     }))
     
     addEquipmentGrid("car",
@@ -952,6 +954,13 @@ function vehicles.enable()
     addCategory("generator-equipment", "immobile")
     addCategory("active-defense-equipment", "immobile")
     addCategory("roboport-equipment", "immobile")
+
+    addCategory("night-vision-equipment", "noInventory")
+    addCategory("energy-shield-equipment", "noInventory")
+    addCategory("battery-equipment", "noInventory")
+    addCategory("solar-panel-equipment", "noInventory")
+    addCategory("generator-equipment", "noInventory")
+    addCategory("active-defense-equipment", "noInventory")
 end
 
 return vehicles

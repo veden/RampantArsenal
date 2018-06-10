@@ -1567,8 +1567,23 @@ function technologies.enable()
 	    time = 30	    
     })
 
-
-    
+        
+    makeTechnology({
+	    name = "power-armor-mk3",
+	    icon="__RampantArsenal__/graphics/technology/power-armor-mk3.png",
+	    prerequisites = {"power-armor-2", "nuclear-power"},
+	    effects = {},
+	    count = 600,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+    		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1},
+		{"production-science-pack", 1}
+	    },
+	    time = 30	    
+    })
 end
 
 return technologies

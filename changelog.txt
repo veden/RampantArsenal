@@ -7,6 +7,7 @@ Date: 9. 6. 2018
     - Added a nuclear train that uses uranium fuel cells that has an equipment grid
     - Added Oil burner for generating electricity from oils
     - All Equipment grids share equipment, mobility based equipment is disabled when appropriate
+    - Added Belt Immunity Equipment
   Tweaks:
     - Increased Gun Turrets 2 from 75 science to 250 science
     - Added (Fuel value, emission multipler) to: Light oil (0.75MJ, 2), Crude Oil (1.15MJ, 4), Heavy Oil (0.5MJ, 3), Petroleum-gas (1.75MJ, 1.5), Napalm (1.25MJ, 4.5)
@@ -17,6 +18,7 @@ Date: 9. 6. 2018
     - Added 12x12 equipment grid to locomotive
     - Added 16x16 equipment grid to artillery-wagon
     - Increased nuclear fuel stack size from 1 to 10
+    - Changed ammo category of personal laser and discharge defense so they get laser damage and speed bonuses
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.16.6
