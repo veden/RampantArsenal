@@ -1,5 +1,18 @@
 local wallUtils = {}
 
+function wallUtils.addResistance(eType, name, resistance)
+    if data.raw[eType][name] then
+	for i=1,#data.raw[eType][name].resistances do
+	    if (resistance.type == data.raw[eType][name].resistances[i].type) then
+		data.raw[eType][name].resistances[i] = resistance
+		return
+	    end
+	end
+	data.raw[eType][name].resistances[#data.raw[eType][name].resistances+1] = resistance
+    end
+end
+
+
 function wallUtils.makeWall(attributes, attack)
     local name = attributes.name .. "-wall-rampant-arsenal"
     local itemName = attributes.name .. "-wall-rampant-arsenal"
@@ -12,7 +25,7 @@ function wallUtils.makeWall(attributes, attack)
 		icon_size = 32,
 		flags = attributes.itemFlags or {"goes-to-quickbar"},
 		subgroup = attributes.subgroup or "defensive-structure",
-		order = attributes.order or "b[turret]-a[gun-turret]",
+		order = attributes.order or "a[stone-wall]-a[stone-wall]",
 		place_result = name,
 		stack_size = attributes.stackSize or 200
 	    },

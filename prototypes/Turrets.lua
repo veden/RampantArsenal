@@ -71,8 +71,8 @@ function turrets.addTurrets()
     enableMedic()
     enablePower()
     enableCapsulesLauncher()
-    enableVehicles()
     enableEquipment()
+    enableVehicles()
 end
 
 

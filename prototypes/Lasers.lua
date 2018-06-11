@@ -226,8 +226,8 @@ function lasers.enable()
 	    ingredients = {
 		{"steel-plate", 30},
 		{"electric-engine-unit", 20},
-		{"advanced-circuit", 30},
-		{"battery", 20}
+		{"processing-unit", 30},
+		{"accumulator", 15}
 	    },
 	    result = advancedElectricTurretItem,
     })

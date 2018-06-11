@@ -1566,7 +1566,6 @@ function technologies.enable()
 	    },
 	    time = 30	    
     })
-
         
     makeTechnology({
 	    name = "power-armor-mk3",
@@ -1581,6 +1580,72 @@ function technologies.enable()
     		{"military-science-pack", 1},
 		{"high-tech-science-pack", 1},
 		{"production-science-pack", 1}
+	    },
+	    time = 30	    
+    })
+
+            
+    makeTechnology({
+	    name = "generator-equipment-2",
+	    icon="__base__/graphics/technology/fusion-reactor-equipment.png",
+	    prerequisites = {"fusion-reactor-equipment", "productivity-module-3"},
+	    effects = {},
+	    count = 600,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+    		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1},
+		{"production-science-pack", 1}
+	    },
+	    time = 30	    
+    })
+
+            
+    makeTechnology({
+	    name = "shield-equipment-2",
+	    icon="__base__/graphics/technology/energy-shield-mk2-equipment.png",
+	    prerequisites = {"energy-shield-mk2-equipment", "speed-module-3"},
+	    effects = {},
+	    count = 400,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+    		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1}
+	    },
+	    time = 30	    
+    })
+    
+    makeTechnology({
+	    name = "battery-equipment-2",
+	    icon="__base__/graphics/technology/battery-mk2-equipment.png",
+	    prerequisites = {"battery-mk2-equipment", "effectivity-module-3"},
+	    effects = {},
+	    count = 400,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+    		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1}
+	    },
+	    time = 30	    
+    })
+                    
+    makeTechnology({
+	    name = "stone-walls-2",
+	    icon="__base__/graphics/technology/stone-walls.png",
+	    prerequisites = {"military-3", "concrete", "stone-walls"},
+	    effects = {},
+	    count = 400,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+    		{"military-science-pack", 1}
 	    },
 	    time = 30	    
     })
