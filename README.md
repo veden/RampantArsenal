@@ -29,6 +29,12 @@ Medic Turret - For healing the area surrounding the turret
 Gun Turret MkII - For when gun turrets need more damage, range, and rate of fire
 Rifle turret - For a tier 0 turret for before you have completed any research
 Reactive Mending Walls & Gates - When they take damage they emit a repair cloud around themselves
+Reinforced concrete walls and gates
+Power Armor Mk 3
+nuclear train
+stronger car and a nuclear
+stronger tank and a nuclear
+Oil burner for generating electricity
 
 High Explosives: landmines, grenades, bullets, rockets, shotgun shells, cannon shells, and artillery shells
 Incendiary: landmines, grenades, bullets, rockets, shotgun shells, cannon shells, and artillery shells
@@ -41,8 +47,13 @@ Health Capsule - Restore Health of the user
 Speed Booster Capsule - for early game speed boosts
 Upgraded Rocket Launcher - Increased damage, range, and rate of fire
 
+Belt Immunity Equipment
+Personal equipment tier 3 generator, battery, shield
+Personal defense cannon, shotgun, lightning, bullets, and slowing equipment
+
 Napalm - for an upgraded liquid to be used in fluid turrets
 
+Adds Infinite Technology for the characters health
 Adds Infinite Technology associated with each turret type and ammo type
 
 ### Four Technology Branches
