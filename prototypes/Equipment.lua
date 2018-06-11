@@ -5,11 +5,14 @@ local technologyUtils = require("utils/TechnologyUtils")
 local armorUtils = require("utils/ArmorUtils")
 local gridUtils = require("utils/GridUtils")
 local equipmentUtils = require("utils/EquipmentUtils")
+local projectileUtils = require("utils/ProjectileUtils")
 
+local makeBombWave = projectileUtils.makeBombWave
 local makeGrid = gridUtils.makeGrid
 local changeAmmoCategory = equipmentUtils.changeAmmoCategory
 local makeShield = equipmentUtils.makeShield
 local makeBattery = equipmentUtils.makeBattery
+local makePassiveDefense = equipmentUtils.makePassiveDefense
 local makeActiveDefense = equipmentUtils.makeActiveDefense
 local makeGenerator = equipmentUtils.makeGenerator
 local addEffectToTech = technologyUtils.addEffectToTech
@@ -280,6 +283,356 @@ function Equipment.enable()
     		       "discharge-defense-equipment",
     		       "laser-turret")
 
+    local passiveShotgun = makePassiveDefense({
+    	    name = "shotgun",
+	    icon = "__RampantArsenal__/graphics/icons/personal-shotgun-defense-equipment.png",
+	    picture = "__RampantArsenal__/graphics/equipment/personal-shotgun-defense-equipment.png",
+	    order = "d[active-defense]-a[personal-laser-defense-equipmentz]",
+	    shape = {
+		width = 3,
+		height = 3,
+		type = "full"
+	    }
+    })
+
+    local passiveCannon = makePassiveDefense({
+    	    name = "cannon",
+	    icon = "__RampantArsenal__/graphics/icons/personal-cannon-defense-equipment.png",
+	    picture = "__RampantArsenal__/graphics/equipment/personal-cannon-defense-equipment.png",
+	    order = "d[active-defense]-a[personal-laser-defense-equipmentzz]",
+	    shape = {
+		width = 4,
+		height = 4,
+		type = "full"
+	    }
+    })
+
+    local passiveLightning = makePassiveDefense({
+    	    name = "lightning",
+	    icon = "__RampantArsenal__/graphics/icons/personal-lightning-defense-equipment.png",
+	    picture = "__RampantArsenal__/graphics/equipment/personal-lightning-defense-equipment.png",
+	    order = "d[active-defense]-a[personal-laser-defense-equipmentzzz]",
+	    shape = {
+		width = 3,
+		height = 4,
+		type = "full"
+	    }
+    })
+
+    local passiveBullets = makePassiveDefense({
+    	    name = "bullets",
+	    icon = "__RampantArsenal__/graphics/icons/personal-bullet-defense-equipment.png",
+	    picture = "__RampantArsenal__/graphics/equipment/personal-bullet-defense-equipment.png",
+	    order = "d[active-defense]-a[personal-laser-defense-equipmentzzzz]",
+	    shape = {
+		width = 2,
+		height = 2,
+		type = "full"
+	    }
+    })
+
+    local passiveSlow = makePassiveDefense({
+    	    name = "slow",
+	    icon = "__RampantArsenal__/graphics/icons/personal-slow-defense-equipment.png",
+	    picture = "__RampantArsenal__/graphics/equipment/personal-slow-defense-equipment.png",
+	    order = "d[active-defense]-a[personal-laser-defense-equipmentzzzzz]",
+	    shape = {
+		width = 4,
+		height = 4,
+		type = "full"
+	    }
+    })
+    
+    -- local activeRepair,activeRepairRemote = makeActiveDefense(
+    -- 	{
+    -- 	    name = "repair",
+    -- 	    icon = "__RampantArsenal__/graphics/icons/repair-defense-equipment.png",
+    -- 	    remoteIcon = "__RampantArsenal__/graphics/equipment/repair-defense-equipment-ability.png",
+    -- 	    picture = "__RampantArsenal__/graphics/equipment/repair-defense-equipment.png",
+    -- 	    order = "d[active-defense]-b[discharge-defense-equipmentz]",
+    -- 	    energySource = {
+    -- 		type = "electric",
+    -- 		usage_priority = "secondary-input",
+    -- 		buffer_capacity = "32MJ"
+    -- 	    },
+    -- 	    shape = {
+    -- 		width = 5,
+    -- 		height = 5,
+    -- 		type = "full"
+    -- 	    }
+    -- 	},
+    -- 	{
+    -- 	    type = "projectile",
+    -- 	    ammo_category = "biological",
+    -- 	    cooldown = 500,
+    -- 	    range = 30,
+    -- 	    projectile_center = {0, 0},
+    -- 	    projectile_creation_distance = 0.6,
+    -- 	    sound =
+    -- 		{
+    -- 		    filename = "__base__/sound/fight/pulse.ogg",
+    -- 		    volume = 0.7
+    -- 		},
+    -- 	    ammo_type =
+    -- 		{		
+    -- 		    category = "turret-capsule",
+    -- 		    target_type = "position",
+    -- 		    clamp_position = true,
+
+    -- 		    action =
+    -- 			{
+    -- 			    type = "direct",
+    -- 			    action_delivery =
+    -- 				{
+    -- 				    type = "projectile",
+    -- 				    max_range = 0,
+    -- 				    starting_speed = 1,
+    -- 				    projectile = makeBombWave(
+    -- 					{
+    -- 					    name = "repair"
+    -- 					},
+    -- 					{
+    -- 					    type = "direct",
+    -- 					    action_delivery =
+    -- 						{
+    -- 						    type = "instant",
+    -- 						    target_effects =
+    -- 							{
+    -- 							    {
+    -- 								type = "create-entity",
+    -- 								entity_name = "massive-repair-cloud-rampant-arsenal",
+    -- 								show_in_tooltip = true
+    -- 							    }
+    -- 							}
+    -- 						}
+    -- 				    })
+    -- 				}
+    -- 			}
+    -- 		}
+    -- 	    -- {
+    -- 	    --     type = "projectile",
+    -- 	    --     category = "biological",
+    -- 	    --     target_type = "position",
+    -- 	    --     clamp_position = true,
+    -- 	    --     energy_consumption = "31MJ",
+    -- 	    --     speed = 1,
+    -- 	    --     action =
+    -- 	    -- 	-- {
+    -- 	    -- 	--     type = "area",
+    -- 	    -- 	--     target_entities = false,
+    -- 	    -- 	--     repeat_count = 2000,
+    -- 	    -- 	--     radius = 35,
+    -- 	    -- 	--     action_delivery =
+    -- 	    -- 	-- 	{
+    -- 	    -- 	-- 	    type = "projectile",
+    -- 	    -- 	-- 	    projectile = "atomic-bomb-wave",
+    -- 	    -- 	-- 	    starting_speed = 0.5
+    -- 	    -- 	-- 	}
+    -- 	    -- 	-- }
+    -- 	    --     {
+    -- 	    --         type = "direct",
+    -- 	    --         action_delivery =
+    -- 	    --     	{
+    -- 	    --     	    type = "instant",
+    -- 	    --     	    source_effects =
+    -- 	    --     		{
+    -- 	    --     		    type = "create-entity",
+    -- 	    --     		    show_in_tooltip = true,
+    -- 	    --     		    entity_name = "massive-repair-cloud-rampant-arsenal"
+    -- 	    --     		}
+    -- 	    --     	}
+    -- 	    --     }
+    -- 	    -- }
+    -- })
+
+    -- local activeHealth,activeHealthRemote = makeActiveDefense(
+    -- 	{
+    -- 	    name = "healing",
+    -- 	    icon = "__RampantArsenal__/graphics/icons/healing-defense-equipment.png",
+    -- 	    remoteIcon = "__RampantArsenal__/graphics/equipment/healing-defense-equipment-ability.png",
+    -- 	    picture = "__RampantArsenal__/graphics/equipment/healing-defense-equipment.png",
+    -- 	    order = "d[active-defense]-b[discharge-defense-equipmentzz]",
+    -- 	    energySource = {
+    -- 		type = "electric",
+    -- 		usage_priority = "secondary-input",
+    -- 		buffer_capacity = "21MJ"
+    -- 	    },
+    -- 	    shape = {
+    -- 		width = 4,
+    -- 		height = 4,
+    -- 		type = "full"
+    -- 	    }
+    -- 	},
+    -- 	{
+    -- 	    type = "projectile",
+    -- 	    ammo_category = "biological",
+    -- 	    cooldown = 500,
+    -- 	    projectile_center = {0, 0},
+    -- 	    projectile_creation_distance = 0.6,
+    -- 	    range = 10,
+    -- 	    sound =
+    -- 		{
+    -- 		    filename = "__base__/sound/fight/pulse.ogg",
+    -- 		    volume = 0.7
+    -- 		},
+    -- 	    ammo_type =
+    -- 		{
+    -- 		    type = "projectile",
+    -- 		    category = "biological",
+    -- 		    energy_consumption = "20MJ",
+    -- 		    speed = 1,
+    -- 		    action =
+    -- 			{
+    -- 			    type = "direct",
+    -- 			    action_delivery =
+    -- 				{
+    -- 				    type = "instant",
+    -- 				    target_effects =
+    -- 					{
+    -- 					    type = "create-entity",
+    -- 					    show_in_tooltip = true,
+    -- 					    entity_name = "healing-cloud-rampant-arsenal"
+    -- 					}
+    -- 				}
+    -- 			}
+    -- 		}
+    -- })
+
+    
+    local passiveShotgunRecipe = makeRecipe(
+	{
+    	    name = "passive-shotgun-equipment",
+    	    icon = "__RampantArsenal__/graphics/icons/personal-shotgun-defense-equipment.png",
+    	    enabled = false,
+    	    ingredients = {
+    		{"fusion-reactor-equipment", 5},
+		{"productivity-module-3", 20}
+    	    },
+    	    result = passiveShotgun
+    })
+
+    local passiveCannonRecipe = makeRecipe({
+    	    name = "passive-cannon-equipment",
+    	    icon = "__RampantArsenal__/graphics/icons/personal-cannon-defense-equipment.png",
+    	    enabled = false,
+    	    ingredients = {
+    		{"fusion-reactor-equipment", 5},
+		{"productivity-module-3", 20}
+    	    },
+    	    result = passiveCannon
+    })
+    
+    local passiveLightningRecipe = makeRecipe({
+    	    name = "passive-lightning-equipment",
+    	    icon = "__RampantArsenal__/graphics/icons/personal-lightning-defense-equipment.png",
+    	    enabled = false,
+    	    ingredients = {
+    		{"fusion-reactor-equipment", 5},
+		{"productivity-module-3", 20}
+    	    },
+    	    result = passiveLightning
+    })
+    
+    local passiveBulletRecipe = makeRecipe({
+    	    name = "passive-bullet-equipment",
+    	    icon = "__RampantArsenal__/graphics/icons/personal-bullet-defense-equipment.png",
+    	    enabled = false,
+    	    ingredients = {
+    		{"fusion-reactor-equipment", 5},
+		{"productivity-module-3", 20}
+    	    },
+    	    result = passiveBullets
+    })
+
+    local passiveSlowRecipe = makeRecipe({
+    	    name = "passive-slow-equipment",
+    	    icon = "__RampantArsenal__/graphics/icons/personal-slow-defense-equipment.png",
+    	    enabled = false,
+    	    ingredients = {
+    		{"fusion-reactor-equipment", 5},
+		{"productivity-module-3", 20}
+    	    },
+    	    result = passiveSlow
+    })
+
+    
+    -- local activeHealingRecipe = makeRecipe({
+    -- 	    name = "active-healing-equipment",
+    -- 	    icon = "__RampantArsenal__/graphics/icons/healing-defense-equipment.png",
+    -- 	    enabled = false,
+    -- 	    ingredients = {
+    -- 		{"fusion-reactor-equipment", 5},
+    -- 		{"productivity-module-3", 20}
+    -- 	    },
+    -- 	    result = activeHealth
+    -- })
+
+    
+    -- local activeRepairRecipe = makeRecipe({
+    -- 	    name = "active-repair-equipment",
+    -- 	    icon = "__RampantArsenal__/graphics/icons/repair-defense-equipment.png",
+    -- 	    enabled = false,
+    -- 	    ingredients = {
+    -- 		{"fusion-reactor-equipment", 5},
+    -- 		{"productivity-module-3", 20}
+    -- 	    },
+    -- 	    result = activeRepair
+    -- })
+
+    
+    addEffectToTech("rampant-arsenal-technology-generator-equipment-2",
+    		    {
+    			type = "unlock-recipe",
+    			recipe = passiveShotgunRecipe
+    })
+
+    -- addEffectToTech("rampant-arsenal-technology-generator-equipment-2",
+    -- 		    {
+    -- 			type = "unlock-recipe",
+    -- 			recipe = activeHealthRemote
+    -- })
+
+    -- addEffectToTech("rampant-arsenal-technology-generator-equipment-2",
+    -- 		    {
+    -- 			type = "unlock-recipe",
+    -- 			recipe = activeRepairRemote
+    -- })
+
+    addEffectToTech("rampant-arsenal-technology-generator-equipment-2",
+    		    {
+    			type = "unlock-recipe",
+    			recipe = passiveCannonRecipe
+    })   
+
+    addEffectToTech("rampant-arsenal-technology-generator-equipment-2",
+    		    {
+    			type = "unlock-recipe",
+    			recipe = passiveLightningRecipe
+    })   
+
+    addEffectToTech("rampant-arsenal-technology-generator-equipment-2",
+    		    {
+    			type = "unlock-recipe",
+    			recipe = passiveSlowRecipe
+    })   
+
+    addEffectToTech("rampant-arsenal-technology-generator-equipment-2",
+    		    {
+    			type = "unlock-recipe",
+    			recipe = passiveBulletRecipe
+    })   
+    
+    -- addEffectToTech("rampant-arsenal-technology-generator-equipment-2",
+    -- 		    {
+    -- 			type = "unlock-recipe",
+    -- 			recipe = activeHealingRecipe
+    -- })   
+    
+    -- addEffectToTech("rampant-arsenal-technology-generator-equipment-2",
+    -- 		    {
+    -- 			type = "unlock-recipe",
+    -- 			recipe = activeRepairRecipe
+    -- })   
     
 end
 

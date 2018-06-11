@@ -370,6 +370,45 @@ function clouds.enable()
 		}
     })
 
+    local healingCloud = makeCloud(
+	{
+	    name = "healing",
+	    duration = 180,
+	    inDuration = 45,
+	    outDuration = 30,
+	    movementModifier = 0,
+	    spreadRadius = 2,
+	    tint = {r=0.8,g=0,b=0,a=0.8},
+	    scale = 2
+	},
+	{
+	    type = "direct",
+	    action_delivery =
+		{
+		    type = "instant",
+		    target_effects =
+			{
+			    type = "nested-result",
+			    action =
+				{
+				    type = "area",
+				    radius = 12,
+				    force = "ally",
+				    entity_flags = {"breaths-air"},
+				    action_delivery =
+					{
+					    type = "instant",
+					    target_effects =
+						{
+						    type = "damage",
+						    damage = { amount = -80, type = "healing" }
+						}
+					}
+				}
+			}
+		}
+    })
+    
     local smallRepairCloud = makeCloud(
 	{
 	    name = "small-repair",

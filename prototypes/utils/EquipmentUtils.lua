@@ -162,6 +162,7 @@ end
 
 function equipmentUtils.makeActiveDefense(attributes, attack)
     local name = attributes.name .. "-active-defense-rampant-arsenal"
+    local nameRemote = attributes.name .. "-active-defense-remote-rampant-arsenal"
 
     data:extend({
 	    {
@@ -176,9 +177,31 @@ function equipmentUtils.makeActiveDefense(attributes, attack)
 		stack_size = 20
 	    },
 	    {
+		type = "capsule",
+		name = nameRemote,
+		icon = attributes.remoteIcon or "__base__/graphics/equipment/discharge-defense-equipment-ability.png",
+		icon_size = 32,
+		flags = {"goes-to-quickbar"},
+		capsule_action =
+		    {
+			type = "equipment-remote",
+			equipment = name
+		    },
+		subgroup = "capsule",
+		order = "z",
+		stack_size = 1
+	    },
+	    {
+		type = "recipe",
+		name = nameRemote,
+		enabled = false,
+		ingredients = {{"electronic-circuit", 1}},
+		result = nameRemote
+	    },
+	    {
 		type = "active-defense-equipment",
 		name = name,
-		ability_icon =
+		ability_icon = 
 		    {
 			filename = attributes.abilityPicture or "__base__/graphics/equipment/discharge-defense-equipment-ability.png",
 			width = 32,
@@ -261,12 +284,91 @@ function equipmentUtils.makeActiveDefense(attributes, attack)
 			    }
 		    },
 
-		automatic = attributes.automatic,
+		automatic = false,
+		categories = {"armor"}
+	    }
+    })
+    
+    return name, nameRemote
+end
+
+function equipmentUtils.makePassiveDefense(attributes, attack)
+    local name = attributes.name .. "-passive-defense-rampant-arsenal"
+
+    data:extend({
+	    {
+		type = "item",
+		name = name,
+		icon = attributes.icon or "__base__/graphics/icons/personal-laser-defense-equipment.png",
+		icon_size = 32,
+		placed_as_equipment_result = name,
+		flags = {"goes-to-main-inventory"},
+		subgroup = "equipment",
+		order = attributes.order or "d[active-defense]-a[personal-laser-defense-equipment]",
+		stack_size = 20
+	    },
+	    {
+		type = "active-defense-equipment",
+		name = name,
+		sprite =
+		    {
+			filename = attributes.picture or "__base__/graphics/equipment/personal-laser-defense-equipment.png",
+			width = 64,
+			height = 64,
+			priority = "medium"
+		    },
+		shape = attributes.shape or 
+		    {
+			width = 2,
+			height = 2,
+			type = "full"
+		    },
+		energy_source = attributes.energySource or
+		    {
+			type = "electric",
+			usage_priority = "secondary-input",
+			buffer_capacity = "220kJ"
+		    },
+		attack_parameters = attack or
+		    {
+			type = "projectile",
+			ammo_category = "electric",
+			cooldown = 20,
+			damage_modifier = 15,
+			projectile_center = {0, 0},
+			projectile_creation_distance = 0.6,
+			range = 15,
+			sound = make_laser_sounds(),
+			ammo_type =
+			    {
+				type = "projectile",
+				category = "electric",
+				energy_consumption = "200kJ",
+				projectile = "laser",
+				speed = 1,
+				action =
+				    {
+					{
+					    type = "direct",
+					    action_delivery =
+						{
+						    {
+							type = "projectile",
+							projectile = "laser",
+							starting_speed = 0.28
+						    }
+						}
+					}
+				    }
+			    }
+		    },
+		automatic = true,
 		categories = {"armor"}
 	    }
     })
     
     return name
 end
+
 
 return equipmentUtils

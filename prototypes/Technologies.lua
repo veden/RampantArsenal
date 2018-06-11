@@ -1649,6 +1649,161 @@ function technologies.enable()
 	    },
 	    time = 30	    
     })
+
+    local characterHealthBonus1 = makeTechnology({
+	    name = "character-health-1",
+	    prerequisites = {regeneration},
+	    icon = "__RampantArsenal__/graphics/technology/character-bonus-health.png",
+	    upgrade = true,
+	    effects = {
+		{
+		    type = "character-health-bonus",
+		    modifier = 100
+		}
+	    },
+	    ingredients = {
+		{"science-pack-1", 1},
+		{"science-pack-2", 1},
+		{"military-science-pack", 1}
+	    },
+	    count = 50,
+	    time = 30,
+	    order = "e-z-a"
+    })
+
+    local characterHealthBonus2 = makeTechnology({
+	    name = "character-health-2",
+	    prerequisites = {characterHealthBonus1},
+	    icon = "__RampantArsenal__/graphics/technology/character-bonus-health.png",
+	    upgrade = true,
+	    effects = {
+		{
+		    type = "character-health-bonus",
+		    modifier = 100
+		}
+	    },
+	    ingredients = {
+		{"science-pack-1", 1},
+		{"science-pack-2", 1},
+		{"military-science-pack", 1}
+	    },
+	    count = 100,
+	    time = 45,
+	    order = "e-z-b"
+    })
+
+    local characterHealthBonus3 = makeTechnology({
+	    name = "character-health-3",
+	    prerequisites = {characterHealthBonus2},
+	    icon = "__RampantArsenal__/graphics/technology/character-bonus-health.png",
+	    upgrade = true,
+	    effects = {
+		{
+		    type = "character-health-bonus",
+		    modifier = 100
+		}
+	    },
+	    ingredients = {
+		{"science-pack-1", 1},
+		{"science-pack-2", 1},
+		{"military-science-pack", 1}
+	    },
+	    count = 300,
+	    time = 50,
+	    order = "e-z-c"
+    })
+
+    local characterHealthBonus4 = makeTechnology({
+	    name = "character-health-4",
+	    prerequisites = {characterHealthBonus3},
+	    icon = "__RampantArsenal__/graphics/technology/character-bonus-health.png",
+	    upgrade = true,
+	    effects = {
+		{
+		    type = "character-health-bonus",
+		    modifier = 100
+		}
+	    },
+	    ingredients = {
+		{"science-pack-1", 1},
+		{"science-pack-2", 1},
+		{"military-science-pack", 1}
+	    },
+	    count = 300,
+	    time = 60,
+	    order = "e-z-d"
+    })
+
+
+    local characterHealthBonus5 = makeTechnology({
+	    name = "character-health-5",
+	    prerequisites = {characterHealthBonus4},
+	    icon = "__RampantArsenal__/graphics/technology/character-bonus-health.png",
+	    upgrade = true,
+	    effects = {
+		{
+		    type = "character-health-bonus",
+		    modifier = 100
+		}
+	    },
+	    ingredients = {
+		{"science-pack-1", 1},
+		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+		{"military-science-pack", 1}
+	    },
+	    count = 1000,
+	    time = 60,
+	    order = "e-z-e"
+    })
+
+    local characterHealthBonus6 = makeTechnology({
+	    name = "character-health-6",
+	    prerequisites = {characterHealthBonus5},
+	    icon = "__RampantArsenal__/graphics/technology/character-bonus-health.png",
+	    upgrade = true,
+	    effects = {
+		{
+		    type = "character-health-bonus",
+		    modifier = 100
+		}
+	    },
+	    ingredients = {
+		{"science-pack-1", 1},
+		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1}
+	    },
+	    count = 3000,
+	    time = 60,
+	    order = "e-z-f"
+    })
+
+    makeTechnology({
+	    name = "character-health-7",
+	    prerequisites = {characterHealthBonus6},
+	    icon = "__RampantArsenal__/graphics/technology/character-bonus-health.png",
+	    upgrade = true,
+	    maxLevel = "infinite",
+	    effects = {
+		{
+		    type = "character-health-bonus",
+		    modifier = 100
+		}
+	    },
+	    ingredients = {
+		{"science-pack-1", 1},
+		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1},
+		{"space-science-pack", 1}
+	    },
+	    countForumla = "2^(L-7)*1000",
+	    time = 60,
+	    order = "e-z-f"
+    })
 end
 
 return technologies

@@ -11,7 +11,9 @@ Date: 9. 6. 2018
     - Added Power Armor Mk 3
     - Added Reinforced concrete walls and gates
     - Added tier 3 generator, battery, shield
-  Tweaks:
+    - Added Personal Cannon, shotgun, lightning, bullets, repair, healing, and slowing equipment
+    - Added infinite tech for increasing player health
+  Tweaks
     - Increased Gun Turrets 2 from 75 science to 250 science
     - Added (Fuel value, emission multipler) to: Light oil (0.75MJ, 2), Crude Oil (1.15MJ, 4), Heavy Oil (0.5MJ, 3), Petroleum-gas (1.75MJ, 1.5), Napalm (1.25MJ, 4.5)
     - Added stats to uranium fuel cell (150% acceleration, 110% top speed, 3 emissions multipler)

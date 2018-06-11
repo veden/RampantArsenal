@@ -5,8 +5,8 @@ local technologyUtils = require("utils/TechnologyUtils")
 local projectileUtils = require("utils/ProjectileUtils")
 local ammoUtils = require("utils/AmmoUtils")
 local turretUtils = require("utils/TurretUtils")
-local makeAmmoTurret = turretUtils.makeAmmoTurret
 
+local makeAmmoTurret = turretUtils.makeAmmoTurret
 local makeBombWave = projectileUtils.makeBombWave
 local makeAmmo = ammoUtils.makeAmmo
 local addEffectToTech = technologyUtils.addEffectToTech
