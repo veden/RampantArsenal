@@ -60,6 +60,17 @@ function stickers.enable()
 	    movementModifier = 0
 	}
     )
+
+    makeSticker(
+	{
+	    name = "slow",
+	    duration = 50,
+	    spreadRadius = 0,
+	    tint = {r=0,g=0.8,b=0.8,a=0.8},
+	    movementModifier = 0.6
+	}
+    )
+
     
     makeSticker(
 	{

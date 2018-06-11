@@ -11,7 +11,7 @@ Date: 9. 6. 2018
     - Added Power Armor Mk 3
     - Added Reinforced concrete walls and gates
     - Added tier 3 generator, battery, shield
-    - Added Personal Cannon, shotgun, lightning, bullets, repair, healing, and slowing equipment
+    - Added Personal defense cannon, shotgun, lightning, bullets, and slowing equipment
     - Added infinite tech for increasing player health
   Tweaks
     - Increased Gun Turrets 2 from 75 science to 250 science
@@ -31,7 +31,7 @@ Date: 9. 6. 2018
     - Changed mending gate recipe to mending wall and advanced circuits from gate and repair-capsule
     - Decreased wall and gate laser resistance from 70 percent to 30
     - Fixed mending wall and gate build order in GUI
-    
+    - Increased equipment solar panel equipment from 10kW to 30kW
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.16.6

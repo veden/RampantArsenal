@@ -913,7 +913,7 @@ function technologies.enable()
     	    order = "e-z-f"
     })
 
-    makeTechnology({
+    local lightningTurretTech = makeTechnology({
 	    name = "lightning",
 	    prerequisites = {"laser-turrets", "military-3"},
 	    icon = "__RampantArsenal__/graphics/technology/lightning-turrets.png",
@@ -1457,7 +1457,7 @@ function technologies.enable()
     })
 
     
-    makeTechnology({
+    local turrets2 = makeTechnology({
 	    name = "turrets-2",
 	    icon="__RampantArsenal__/graphics/technology/turrets-2.png",
 	    prerequisites = {"turrets", "military-3", "gun-turret-damage-4", "bullet-speed-4"},
@@ -1472,7 +1472,7 @@ function technologies.enable()
 	    time = 30	    
     })
 
-        
+    
     makeTechnology({
 	    name = "nuclear-railway",
 	    icon="__RampantArsenal__/graphics/technology/nuclear-railway.png",
@@ -1566,7 +1566,7 @@ function technologies.enable()
 	    },
 	    time = 30	    
     })
-        
+    
     makeTechnology({
 	    name = "power-armor-mk3",
 	    icon="__RampantArsenal__/graphics/technology/power-armor-mk3.png",
@@ -1584,7 +1584,7 @@ function technologies.enable()
 	    time = 30	    
     })
 
-            
+    
     makeTechnology({
 	    name = "generator-equipment-2",
 	    icon="__base__/graphics/technology/fusion-reactor-equipment.png",
@@ -1602,7 +1602,7 @@ function technologies.enable()
 	    time = 30	    
     })
 
-            
+    
     makeTechnology({
 	    name = "shield-equipment-2",
 	    icon="__base__/graphics/technology/energy-shield-mk2-equipment.png",
@@ -1634,7 +1634,7 @@ function technologies.enable()
 	    },
 	    time = 30	    
     })
-                    
+    
     makeTechnology({
 	    name = "stone-walls-2",
 	    icon="__base__/graphics/technology/stone-walls.png",
@@ -1804,6 +1804,89 @@ function technologies.enable()
 	    time = 60,
 	    order = "e-z-f"
     })
+
+    
+    makeTechnology({
+	    name = "personal-shotgun-defense",
+	    icon="__RampantArsenal__/graphics/technology/personal-shotgun-defense-equipment.png",
+	    prerequisites = {"personal-laser-defense-equipment", "advanced-electronics-2", "effectivity-module-2", shotgunTurretTech, "shotgun-shell-damage-5"},
+	    effects = {},
+	    count = 400,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+    		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1}
+	    },
+	    time = 30	    
+    })
+
+
+    makeTechnology({
+	    name = "personal-cannon-defense",
+	    icon="__RampantArsenal__/graphics/technology/personal-cannon-defense-equipment.png",
+	    prerequisites = {"personal-laser-defense-equipment", "military-4", "advanced-electronics-2", cannonTech, "productivity-module-2", "cannon-shell-damage-3"},
+	    effects = {},
+	    count = 400,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+    		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1}
+	    },
+	    time = 30	    
+    })
+
+    makeTechnology({
+	    name = "personal-lightning-defense",
+	    icon="__RampantArsenal__/graphics/technology/personal-lightning-defense-equipment.png",
+	    prerequisites = {"personal-laser-defense-equipment", "military-4", "advanced-electronics-2", lightningTurretTech, "speed-module-2", "laser-turret-damage-4"},
+	    effects = {},
+	    count = 400,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+    		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1}
+	    },
+	    time = 30	    
+    })
+
+    makeTechnology({
+	    name = "personal-bullets-defense",
+	    icon="__RampantArsenal__/graphics/technology/personal-bullets-defense-equipment.png",
+	    prerequisites = {"personal-laser-defense-equipment", "military-4", "advanced-electronics-2", turrets2},
+	    effects = {},
+	    count = 400,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+    		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1}
+	    },
+	    time = 30	    
+    })
+
+    makeTechnology({
+	    name = "personal-slow-defense",
+	    icon="__RampantArsenal__/graphics/technology/personal-slow-defense-equipment.png",
+	    prerequisites = {"personal-laser-defense-equipment", "military-4", capsuleTurretTech, "advanced-electronics-2"},
+	    effects = {},
+	    count = 400,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+    		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1}
+	    },
+	    time = 30	    
+    })
+
 end
 
 return technologies
