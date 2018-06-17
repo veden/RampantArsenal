@@ -240,7 +240,7 @@ function Equipment.enable()
     	    result = batteryMk3
     })
 
-    addEffectToTech("rampant-arsenal-technology-battery-equipment-2",
+    addEffectToTech("rampant-arsenal-technology-battery-equipment-3",
     		    {
     			type = "unlock-recipe",
     			recipe = batteryMk3Recipe

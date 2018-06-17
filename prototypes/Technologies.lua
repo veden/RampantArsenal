@@ -1620,7 +1620,7 @@ function technologies.enable()
     })
     
     makeTechnology({
-	    name = "battery-equipment-2",
+	    name = "battery-equipment-3",
 	    icon="__base__/graphics/technology/battery-mk2-equipment.png",
 	    prerequisites = {"battery-mk2-equipment", "effectivity-module-3"},
 	    effects = {},
