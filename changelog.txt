@@ -3,6 +3,7 @@ Version: 0.16.8
 Date: 17. 6. 2018
   Bugfixes:
     - Fixed Battery equipment 2 to 3 for technology naming
+    - Changed expensive recipes versions from 2 to 1.5 to rounded down of normal recipe cost
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.16.7

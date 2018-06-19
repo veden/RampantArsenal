@@ -1,5 +1,11 @@
 local recipeUtils = {}
 
+
+local function roundToFloor(number, multiple)
+    return math.floor(number / multiple) * multiple
+end
+
+
 function recipeUtils.makeRecipe(attributes)
     local name = attributes.name .. "-recipe-rampant-arsenal"
     if not attributes.expensive then
@@ -13,9 +19,9 @@ function recipeUtils.makeRecipe(attributes)
 	}
 	for _,v in pairs(attributes.expensive.ingredients) do
 	    if (v.amount ~= nil) then
-		v.amount = v.amount * 2
+		v.amount = roundToFloor(v.amount * 1.5, 1)
 	    else
-		v[2] = v[2] * 2
+		v[2] = roundToFloor(v[2] * 1.5, 1)
 	    end
 
 	end
