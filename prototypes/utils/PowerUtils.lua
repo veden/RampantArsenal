@@ -52,7 +52,7 @@ function powerUtils.makeOilBurner(attributes)
 			pipe_connections =
 			    {
 				{ type = "input-output", position = {0, attributes.scale * 6} },
-				{ type = "input-output", position = {0, attributes.scale * 6} }
+				{ type = "input-output", position = {0, -(attributes.scale * 6)} }
 			    },
 			production_type = "input-output"
 		    },
