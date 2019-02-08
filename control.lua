@@ -29,7 +29,7 @@ local world
 -- module code
 
 local function onModSettingsChange(event)
-    
+
     if event and (string.sub(event.setting, 1, 18) ~= "rampant-arsenal") then
 	return false
     end
@@ -40,7 +40,7 @@ local function onModSettingsChange(event)
 
     -- world.bobsEnabled = (mods and mods["bobenemies"] ~= nil) or game.active_mods["bobenemies"]
     -- world.bobsEnabled = (mods and mods["bobenemies"] ~= nil) or game.active_mods["bobenemies"]
-    
+
     return true
 end
 
@@ -55,8 +55,22 @@ local function onConfigChanged()
 
 	world.nextTick = 0
 	world.count = 0
-	
+
 	world.version = 5
+    end
+    if (world.version < 6) then
+
+        world.areaTop = {}
+        world.areaBottom = {}
+        world.area = {
+            world.areaTop,
+            world.areaBottom
+        }
+
+        world.mineChecks = 0
+        world.mineCheckNextTick = 0
+
+	world.version = 6
     end
 end
 
@@ -74,7 +88,7 @@ end
 
 local function onDeath(event)
     local entity = event.entity
-    if (event.cause and event.cause.force.name == "player") and (entity.force.name == "enemy") then	
+    if (event.cause and event.cause.force.name == "player") and (entity.force.name == "enemy") then
 	if (mRandom() < world.spoutThreshold) then
 	    if (entity.type == "unit-spawner") then
 		local name = entity.name
@@ -82,10 +96,10 @@ local function onDeath(event)
 		if ENABLE_ALL_GOO then
 		    if (substr(name, -7) == "rampant") then
 			local prefix = (strFind(name,"-")) - 1
-			gooType = RAMPANT_PREFIX_TABLE[(substr(name,1,prefix))]			
+			gooType = RAMPANT_PREFIX_TABLE[(substr(name,1,prefix))]
 		    else
-			gooType = RAW_GOO_TYPES[mRandom(#RAW_GOO_TYPES)]			
-		    end		    
+			gooType = RAW_GOO_TYPES[mRandom(#RAW_GOO_TYPES)]
+		    end
 		elseif ENABLE_NORMAL_GOO then
 		    gooType = DEFAULT_GOO_TYPE
 		end
@@ -93,7 +107,7 @@ local function onDeath(event)
 		local x = position.x
 		local y = position.y
 		local potentialYield = (((x * x) + (y * y)) ^ 0.5) * world.spoutDefaultValue
-		
+
 		local yield = gaussianRandomRange(potentialYield, 0.15, potentialYield * 0.7, potentialYield * 1.3)
 		entity.surface.create_entity({name=gooType, amount=yield, position=entity.position})
 	    end
@@ -103,18 +117,47 @@ end
 
 local function onTriggerEntityCreated(event)
     local entity = event.entity
-    if entity and entity.valid and (event.entity.name == "small-repair-cloud-rampant-arsenal") then
-	local tick = event.tick
-	
-	world.count = world.count + 1
-	if (world.count >= 5) then	   
-	    entity.destroy()	    
-	end
-	
-	if (tick >= world.nextTick) then
-	    world.count = 0
-	    world.nextTick = tick + 80
-	end
+    if entity and entity.valid then
+        local tick = event.tick
+        if (event.entity.name == "small-repair-cloud-rampant-arsenal") then
+            world.count = world.count + 1
+            if (world.count >= 5) then
+                entity.destroy()
+            end
+
+            if (tick >= world.nextTick) then
+                world.count = 0
+                world.nextTick = tick + 80
+            end
+        elseif (event.entity.name == "rampant-clean-ghost-mine") then
+            if (tick >= world.mineCheckNextTick) then
+                world.mineCheckNextTick = tick + 60
+                world.mineChecks = 0
+            end
+
+            if (world.mineChecks > 2) then
+                entity.die()
+                return
+            else
+                world.mineChecks = world.mineChecks + 1
+            end
+
+            local surface = entity.surface
+            world.areaTop.x = entity.position.x - 5
+            world.areaTop.y = entity.position.y - 5
+            world.areaBottom.x = entity.position.x + 5
+            world.areaBottom.y = entity.position.y + 5
+            local entities = surface.find_entities_filtered({
+                    ghost_type = "land-mine",
+                    area = world.area
+            })
+            for i=1,#entities do
+                if (entities[i].valid) then
+                    entities[i].destroy()
+                end
+            end
+            entity.destroy()
+        end
     end
 end
 

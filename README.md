@@ -2,7 +2,7 @@
 
 Adds a variety of turrets to wage war. Adds Additional Ammo Types, Landmines, Equipment, Capsules, Infinite Technologies.
 
-# Credits 
+# Credits
 
 YuokiTani - for turret sprite sheets
 
@@ -32,8 +32,8 @@ Reactive Mending Walls & Gates - When they take damage they emit a repair cloud 
 Reinforced concrete walls and gates
 Power Armor Mk 3
 nuclear train
-stronger car and a nuclear
-stronger tank and a nuclear
+stronger car and a nuclear version
+stronger tank and a nuclear version
 Oil burner for generating electricity
 
 High Explosives: landmines, grenades, bullets, rockets, shotgun shells, cannon shells, and artillery shells
@@ -68,5 +68,5 @@ Regeneration for weapons that provide healing, speed boosts, or mend themselves 
 
 # Version History
 
-0.16.0 -  
-- Initial Release  
+0.16.0 -
+- Initial Release

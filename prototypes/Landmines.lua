@@ -78,7 +78,7 @@ function landmines.enable()
 	    name = "incendiary",
 	    icon = "__RampantArsenal__/graphics/icons/incendiary-landmine.png",
 	    tint = {r=0.8,g=0,b=0,a=1},
-	    triggerRadius = 2.5,
+	    triggerRadius = 3.5,
 	    stackSize = 100,
 	    resistances = {
 		{
@@ -93,7 +93,7 @@ function landmines.enable()
 	    action_delivery =
 		{
 		    type = "instant",
-		    source_effects = {			
+		    source_effects = {
 			{
 			    type = "create-entity",
 			    entity_name = "big-explosion"
@@ -147,7 +147,7 @@ function landmines.enable()
 					    {
 						type = "instant",
 						target_effects =
-						    {			
+						    {
 							{
 							    type = "create-fire",
 							    entity_name = "fire-flame",
@@ -168,16 +168,16 @@ function landmines.enable()
 	    name = "bio",
 	    icon = "__RampantArsenal__/graphics/icons/bio-landmine.png",
 	    tint = {r=0.5,g=0,b=0.5,a=1},
-	    triggerRadius = 2.5,
-	    	    stackSize = 100,
+	    triggerRadius = 5.5,
+            stackSize = 100,
 	    order="f[land-mine]-c[bio]"
 	},
 	{
-	    type = "direct",	    
+	    type = "direct",
 	    action_delivery =
 		{
 		    type = "instant",
-		    source_effects = {			
+		    source_effects = {
 			{
 			    type = "create-entity",
 			    entity_name = "big-explosion"
@@ -206,7 +206,7 @@ function landmines.enable()
 							{
 							    type = "create-sticker",
 							    sticker = "small-toxic-sticker-rampant-arsenal"
-							},							
+							},
 							{
 							    type = "damage",
 							    damage = { amount = 450, type = "poison" }
@@ -226,8 +226,8 @@ function landmines.enable()
 	    name = "he",
 	    icon = "__RampantArsenal__/graphics/icons/he-landmine.png",
 	    tint = {r=0,g=0,b=0.8,a=1},
-	    triggerRadius = 2.5,
-	    	    stackSize = 100,
+	    triggerRadius = 7.5,
+            stackSize = 100,
 	    order="f[land-mine]-c[bio]"
 	},
 	{
@@ -235,7 +235,7 @@ function landmines.enable()
 	    action_delivery =
 		{
 		    type = "instant",
-		    source_effects = {			
+		    source_effects = {
 			{
 			    type = "create-entity",
 			    entity_name = "big-artillery-explosion"
@@ -274,7 +274,7 @@ function landmines.enable()
 		}
 	}
     )
-    
+
     local nuclearLandmineRecipe = makeRecipe({
 	    name = "nuclear-landmine",
 	    icon = "__RampantArsenal__/graphics/icons/nuclear-landmine.png",
@@ -282,7 +282,7 @@ function landmines.enable()
 	    ingredients = {
 		{"land-mine", 1},
 		{"atomic-bomb", 1}
-	    },	 
+	    },
 	    result = nuclearLandmine
     })
 
@@ -313,7 +313,7 @@ function landmines.enable()
 	    result = heLandmine
     })
 
-    
+
     local bioLandmineRecipe = makeRecipe({
 	    name = "bio-landmine",
 	    icon = "__RampantArsenal__/graphics/icons/bio-landmine.png",
@@ -326,7 +326,7 @@ function landmines.enable()
 	    },
 	    result = bioLandmine
     })
-    
+
     addEffectToTech("uranium-ammo",
 		    {
 			type = "unlock-recipe",

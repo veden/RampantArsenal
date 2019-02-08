@@ -2,7 +2,7 @@ local landmineUtils = {}
 
 function landmineUtils.makeLandmine(attributes, attack)
     local name = attributes.name .. "-landmine-rampant-arsenal"
-    
+
     data:extend({
 	    {
 		type = "item",

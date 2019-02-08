@@ -33,7 +33,8 @@ function Equipment.enable()
 	    equipmentGrid = makeGrid({
 		    name = "power-armor-mk3",
 		    width = 12,
-		    height = 12
+		    height = 12,
+                    categories = {"armor", "adv-generator"}
 	    }),
 	    resistances = {
 		{
@@ -103,7 +104,7 @@ function Equipment.enable()
 		      decrease = 5,
 		      percent = 20
     })
-    
+
     addResistance("power-armor", {
 		      type = "electric",
 		      decrease = 5,
@@ -133,7 +134,7 @@ function Equipment.enable()
 		      decrease = 5,
 		      percent = 10
     })
-    
+
 
     local beltImmunityRecipe = makeRecipe({
     	    name = "belt-immunity",
@@ -161,7 +162,7 @@ function Equipment.enable()
     	    result = powerArmor
     })
 
-    
+
     addEffectToTech("rampant-arsenal-technology-power-armor-mk3",
     		    {
     			type = "unlock-recipe",
@@ -192,7 +193,7 @@ function Equipment.enable()
 		type = "full"
 	    }
     })
-    
+
     local shieldMk3Recipe = makeRecipe({
     	    name = "shield-mk3-equipment",
     	    icon = "__RampantArsenal__/graphics/icons/energy-shield-mk3-equipment.png",
@@ -200,7 +201,7 @@ function Equipment.enable()
     	    ingredients = {
     		{"energy-shield-mk2-equipment", 10},
     		{"speed-module-3", 20}
-    	    },	    
+    	    },
     	    result = shieldMk3
     })
 
@@ -228,7 +229,7 @@ function Equipment.enable()
 		type = "full"
 	    }
     })
-    
+
     local batteryMk3Recipe = makeRecipe({
     	    name = "battery-mk3-equipment",
     	    icon = "__RampantArsenal__/graphics/icons/battery-mk3-equipment.png",
@@ -246,7 +247,7 @@ function Equipment.enable()
     			recipe = batteryMk3Recipe
     })
 
-    
+
     local generatorMk3 = makeGenerator({
 	    name = "mk3",
 	    icon = "__RampantArsenal__/graphics/icons/generator-mk3-equipment.png",
@@ -259,7 +260,21 @@ function Equipment.enable()
 		type = "full"
 	    }
     })
-    
+
+    local generatorNuclear = makeGenerator({
+	    name = "nuclear",
+	    icon = "__RampantArsenal__/graphics/icons/generator-nuclear-equipment.png",
+	    picture = "__RampantArsenal__/graphics/equipment/generator-nuclear-equipment.png",
+	    order = "a[energy-source]-b[zzfusion-reactor]",
+	    power = "13000kW",
+	    shape = {
+		width = 6,
+		height = 6,
+		type = "full"
+	    },
+            categories = {"adv-generator"}
+    })
+
     local generatorMk3Recipe = makeRecipe({
     	    name = "generator-mk3-equipment",
     	    icon = "__RampantArsenal__/graphics/icons/generator-mk3-equipment.png",
@@ -271,12 +286,30 @@ function Equipment.enable()
     	    result = generatorMk3
     })
 
+    local generatorNuclearRecipe = makeRecipe({
+    	    name = "generator-nuclear-equipment",
+    	    icon = "__RampantArsenal__/graphics/icons/generator-nuclear-equipment.png",
+    	    enabled = false,
+    	    ingredients = {
+    		{"heat-exchanger", 5},
+		{generatorMk3, 1},
+                {"accumulator", 10}
+    	    },
+    	    result = generatorNuclear
+    })
+
     addEffectToTech("rampant-arsenal-technology-generator-equipment-2",
     		    {
     			type = "unlock-recipe",
     			recipe = generatorMk3Recipe
-    })   
-    
+    })
+
+    addEffectToTech("rampant-arsenal-technology-generator-equipment-3",
+    		    {
+    			type = "unlock-recipe",
+    			recipe = generatorNuclearRecipe
+    })
+
     changeAmmoCategory("active-defense-equipment",
     		       "personal-laser-defense-equipment",
     		       "laser-turret")
@@ -528,7 +561,7 @@ function Equipment.enable()
 		type = "electric",
 		usage_priority = "secondary-input",
 		buffer_capacity = "3MJ"
-	    }	    
+	    }
 	},
 	{
 	    type = "beam",
@@ -572,7 +605,7 @@ function Equipment.enable()
 		type = "electric",
 		usage_priority = "secondary-input",
 		buffer_capacity = "2.2MJ"
-	    }	    	    
+	    }
 	},
 	{
 	    type = "projectile",
@@ -668,7 +701,7 @@ function Equipment.enable()
 	    },
 	    sound = make_heavy_gunshot_sounds(),
     })
-    
+
     local passiveShotgunRecipe = makeRecipe(
 	{
     	    name = "passive-shotgun-equipment",
@@ -693,7 +726,7 @@ function Equipment.enable()
     	    },
     	    result = passiveCannon
     })
-    
+
     local passiveLightningRecipe = makeRecipe({
     	    name = "passive-lightning-equipment",
     	    icon = "__RampantArsenal__/graphics/icons/personal-lightning-defense-equipment.png",
@@ -705,7 +738,7 @@ function Equipment.enable()
     	    },
     	    result = passiveLightning
     })
-    
+
     local passiveBulletRecipe = makeRecipe({
     	    name = "passive-bullet-equipment",
     	    icon = "__RampantArsenal__/graphics/icons/personal-bullet-defense-equipment.png",
@@ -730,7 +763,7 @@ function Equipment.enable()
     	    result = passiveSlow
     })
 
-    
+
     addEffectToTech("rampant-arsenal-technology-personal-shotgun-defense",
     		    {
     			type = "unlock-recipe",
@@ -741,25 +774,25 @@ function Equipment.enable()
     		    {
     			type = "unlock-recipe",
     			recipe = passiveCannonRecipe
-    })   
+    })
 
     addEffectToTech("rampant-arsenal-technology-personal-lightning-defense",
     		    {
     			type = "unlock-recipe",
     			recipe = passiveLightningRecipe
-    })   
+    })
 
     addEffectToTech("rampant-arsenal-technology-personal-slow-defense",
     		    {
     			type = "unlock-recipe",
     			recipe = passiveSlowRecipe
-    })   
+    })
 
     addEffectToTech("rampant-arsenal-technology-personal-bullets-defense",
     		    {
     			type = "unlock-recipe",
     			recipe = passiveBulletRecipe
-    })   
+    })
 
     data.raw["solar-panel-equipment"]["solar-panel-equipment"].power = "30kW"
 end

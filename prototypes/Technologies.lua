@@ -81,7 +81,7 @@ function technologies.enable()
 	    count = 100,
 	    time = 30
     })
-    
+
     makeTechnology({
 	    name="incendiary-grenades",
 	    icon="__RampantArsenal__/graphics/technology/incendiary-grenades.png",
@@ -96,7 +96,7 @@ function technologies.enable()
 	    count = 100,
 	    time = 30
     })
-    
+
     makeTechnology({
 	    name="incendiary-landmine",
 	    icon="__RampantArsenal__/graphics/technology/incendiary-landmines.png",
@@ -142,7 +142,7 @@ function technologies.enable()
 	    time = 30
     })
 
-    
+
     makeTechnology({
 	    name="incendiary-cannon-shells",
 	    icon="__RampantArsenal__/graphics/technology/incendiary-cannon-shells.png",
@@ -220,7 +220,7 @@ function technologies.enable()
 	    time = 30
     })
 
-    
+
     local heGrenades = makeTechnology({
 	    name="he-grenades",
 	    icon="__RampantArsenal__/graphics/technology/he-grenades.png",
@@ -235,7 +235,7 @@ function technologies.enable()
 	    count = 100,
 	    time = 30
     })
-    
+
     makeTechnology({
 	    name="he-artillery-shells",
 	    icon="__RampantArsenal__/graphics/technology/he-artillery-shells.png",
@@ -266,7 +266,7 @@ function technologies.enable()
 	    count = 100,
 	    time = 30
     })
-    
+
     local capsuleTurretTech = makeTechnology({
 	    name = "capsule-turret",
 	    prerequisites = {"turrets", "military-3", "explosives"},
@@ -305,7 +305,7 @@ function technologies.enable()
     })
 
     local capsuleTurretSpeed2 = makeTechnology({
-	    name = "capsule-turret-speed-2",	    
+	    name = "capsule-turret-speed-2",
 	    prerequisites = {capsuleTurretSpeed1},
 	    icon = "__RampantArsenal__/graphics/technology/capsule-turret-speed.png",
 	    upgrade = true,
@@ -435,7 +435,7 @@ function technologies.enable()
     })
 
     local capsuleTurretDamage2 = makeTechnology({
-	    name = "capsule-turret-damage-2",	    
+	    name = "capsule-turret-damage-2",
 	    prerequisites = {capsuleTurretDamage1},
 	    icon = "__RampantArsenal__/graphics/technology/capsule-turret-damage.png",
 	    upgrade = true,
@@ -549,7 +549,7 @@ function technologies.enable()
 		{"science-pack-1", 1},
 		{"science-pack-2", 1},
 		{"science-pack-3", 1},
-		{"military-science-pack", 1}		
+		{"military-science-pack", 1}
 	    },
 	    count = 75,
 	    time = 30
@@ -564,7 +564,7 @@ function technologies.enable()
 		{"science-pack-1", 1},
 		{"science-pack-2", 1},
 		{"science-pack-3", 1},
-		{"military-science-pack", 1}		
+		{"military-science-pack", 1}
 	    },
 	    count = 120,
 	    time = 30
@@ -834,7 +834,7 @@ function technologies.enable()
 	    count = 2000,
 	    time = 30
     })
-    
+
     makeTechnology({
 	    name = "cannon-turret-damage-7",
 	    prerequisites = {cannonTurretDamage6},
@@ -855,7 +855,7 @@ function technologies.enable()
 	    order = "e-z-f"
     })
 
-    
+
     makeTechnology({
 	    name = "artillery-shell-damage-1",
 	    prerequisites = {"artillery"},
@@ -880,7 +880,7 @@ function technologies.enable()
 	    countForumla = "2^(L)*1000",
 	    time = 60,
 	    order = "e-z-f"
-    })   
+    })
 
     makeTechnology({
     	    name = "artillery-turret-damage-1",
@@ -940,7 +940,7 @@ function technologies.enable()
     		{"science-pack-3", 1},
     		{"military-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
     makeTechnology({
@@ -955,11 +955,11 @@ function technologies.enable()
     		{"science-pack-3", 1},
     		{"military-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
 
-    
+
     makeTechnology({
 	    name = "incendiary-rockets",
 	    icon="__RampantArsenal__/graphics/technology/incendiary-rockets.png",
@@ -972,9 +972,9 @@ function technologies.enable()
     		{"science-pack-3", 1},
     		{"military-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
-    
+
     makeTechnology({
 	    name = "he-bullets",
 	    icon="__RampantArsenal__/graphics/technology/he-bullets.png",
@@ -987,7 +987,7 @@ function technologies.enable()
     		{"science-pack-3", 1},
     		{"military-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
     makeTechnology({
@@ -1002,7 +1002,7 @@ function technologies.enable()
     		{"science-pack-3", 1},
     		{"military-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
 
@@ -1018,7 +1018,7 @@ function technologies.enable()
     		{"science-pack-3", 1},
     		{"military-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
     makeTechnology({
@@ -1032,7 +1032,7 @@ function technologies.enable()
     		{"science-pack-2", 1},
     		{"military-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
     makeTechnology({
@@ -1047,7 +1047,7 @@ function technologies.enable()
     		{"science-pack-3", 1},
     		{"military-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
     local regeneration = makeTechnology({
@@ -1061,7 +1061,7 @@ function technologies.enable()
     		{"science-pack-2", 1},
     		{"military-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
     makeTechnology({
@@ -1076,9 +1076,9 @@ function technologies.enable()
 		{"science-pack-3", 1},
     		{"military-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
-    
+
     makeTechnology({
 	    name = "regeneration-turrets",
 	    icon="__RampantArsenal__/graphics/technology/medic-turrets.png",
@@ -1090,9 +1090,9 @@ function technologies.enable()
     		{"science-pack-2", 1},
     		{"military-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
-    
+
     makeTechnology({
 	    name = "bio-bullets",
 	    icon="__RampantArsenal__/graphics/technology/bio-bullets.png",
@@ -1105,7 +1105,7 @@ function technologies.enable()
     		{"science-pack-3", 1},
     		{"military-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
     makeTechnology({
@@ -1120,14 +1120,14 @@ function technologies.enable()
     		{"science-pack-3", 1},
     		{"military-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
     makeTechnology({
 	    name = "bio-rockets",
 	    icon="__RampantArsenal__/graphics/technology/bio-rockets.png",
 	    prerequisites = {bioweapons, "explosive-rocketry"},
-	    effects = {},	    
+	    effects = {},
 	    count = 75,
 	    ingredients = {
 		{"science-pack-1", 1},
@@ -1135,9 +1135,9 @@ function technologies.enable()
     		{"science-pack-3", 1},
     		{"military-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
-    
+
     local rocketTurretTech = makeTechnology({
 	    name = "rocket-turret-1",
 	    prerequisites = {"turrets", "military-2", "rocketry"},
@@ -1151,7 +1151,7 @@ function technologies.enable()
 	    count = 200,
 	    time = 30
     })
-    
+
     makeTechnology({
 	    name = "rocket-turret-2",
 	    prerequisites = {"rocket-speed-1", "explosive-rocketry", "advanced-electronics-2", "military-3", rocketTurretTech, "engine"},
@@ -1161,7 +1161,7 @@ function technologies.enable()
 		{"science-pack-1", 1},
 		{"science-pack-2", 1},
 		{"science-pack-3", 1},
-		{"military-science-pack", 1}		
+		{"military-science-pack", 1}
 	    },
 	    count = 300,
 	    time = 30
@@ -1456,7 +1456,7 @@ function technologies.enable()
 	    order = "e-z-f"
     })
 
-    
+
     local turrets2 = makeTechnology({
 	    name = "turrets-2",
 	    icon="__RampantArsenal__/graphics/technology/turrets-2.png",
@@ -1469,10 +1469,10 @@ function technologies.enable()
     		{"science-pack-3", 1},
     		{"military-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
-    
+
     makeTechnology({
 	    name = "nuclear-railway",
 	    icon="__RampantArsenal__/graphics/technology/nuclear-railway.png",
@@ -1485,7 +1485,7 @@ function technologies.enable()
     		{"science-pack-3", 1},
     		{"high-tech-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
     local tanks2 = makeTechnology({
@@ -1501,7 +1501,7 @@ function technologies.enable()
     		{"military-science-pack", 1},
 		{"high-tech-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
     makeTechnology({
@@ -1518,7 +1518,7 @@ function technologies.enable()
 		{"high-tech-science-pack", 1},
 		{"production-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
 
@@ -1534,10 +1534,10 @@ function technologies.enable()
     		{"science-pack-3", 1},
     		{"military-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
-    
+
     makeTechnology({
 	    name = "nuclear-cars",
 	    icon="__RampantArsenal__/graphics/technology/nuclear-cars.png",
@@ -1551,9 +1551,9 @@ function technologies.enable()
     		{"military-science-pack", 1},
 		{"high-tech-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
-    
+
     makeTechnology({
 	    name = "oil-burner",
 	    icon="__RampantArsenal__/graphics/technology/oil-burner.png",
@@ -1564,9 +1564,9 @@ function technologies.enable()
 		{"science-pack-1", 1},
     		{"science-pack-2", 1},
 	    },
-	    time = 30	    
+	    time = 30
     })
-    
+
     makeTechnology({
 	    name = "power-armor-mk3",
 	    icon="__RampantArsenal__/graphics/technology/power-armor-mk3.png",
@@ -1581,11 +1581,11 @@ function technologies.enable()
 		{"high-tech-science-pack", 1},
 		{"production-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
-    
-    makeTechnology({
+
+    local genMk2 = makeTechnology({
 	    name = "generator-equipment-2",
 	    icon="__base__/graphics/technology/fusion-reactor-equipment.png",
 	    prerequisites = {"fusion-reactor-equipment", "productivity-module-3"},
@@ -1599,10 +1599,26 @@ function technologies.enable()
 		{"high-tech-science-pack", 1},
 		{"production-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
-    
+    makeTechnology({
+	    name = "generator-equipment-3",
+	    icon="__base__/graphics/technology/fusion-reactor-equipment.png",
+	    prerequisites = {genMk2, "nuclear-power"},
+	    effects = {},
+	    count = 800,
+	    ingredients = {
+		{"science-pack-1", 1},
+    		{"science-pack-2", 1},
+		{"science-pack-3", 1},
+    		{"military-science-pack", 1},
+		{"high-tech-science-pack", 1},
+		{"production-science-pack", 1}
+	    },
+	    time = 30
+    })
+
     makeTechnology({
 	    name = "shield-equipment-2",
 	    icon="__base__/graphics/technology/energy-shield-mk2-equipment.png",
@@ -1616,9 +1632,9 @@ function technologies.enable()
     		{"military-science-pack", 1},
 		{"high-tech-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
-    
+
     makeTechnology({
 	    name = "battery-equipment-3",
 	    icon="__base__/graphics/technology/battery-mk2-equipment.png",
@@ -1632,9 +1648,9 @@ function technologies.enable()
     		{"military-science-pack", 1},
 		{"high-tech-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
-    
+
     makeTechnology({
 	    name = "stone-walls-2",
 	    icon="__base__/graphics/technology/stone-walls.png",
@@ -1647,7 +1663,7 @@ function technologies.enable()
 		{"science-pack-3", 1},
     		{"military-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
     local characterHealthBonus1 = makeTechnology({
@@ -1805,7 +1821,7 @@ function technologies.enable()
 	    order = "e-z-f"
     })
 
-    
+
     makeTechnology({
 	    name = "personal-shotgun-defense",
 	    icon="__RampantArsenal__/graphics/technology/personal-shotgun-defense-equipment.png",
@@ -1819,7 +1835,7 @@ function technologies.enable()
     		{"military-science-pack", 1},
 		{"high-tech-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
 
@@ -1836,7 +1852,7 @@ function technologies.enable()
     		{"military-science-pack", 1},
 		{"high-tech-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
     makeTechnology({
@@ -1852,7 +1868,7 @@ function technologies.enable()
     		{"military-science-pack", 1},
 		{"high-tech-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
     makeTechnology({
@@ -1868,7 +1884,7 @@ function technologies.enable()
     		{"military-science-pack", 1},
 		{"high-tech-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
     makeTechnology({
@@ -1884,7 +1900,7 @@ function technologies.enable()
     		{"military-science-pack", 1},
 		{"high-tech-science-pack", 1}
 	    },
-	    time = 30	    
+	    time = 30
     })
 
 end

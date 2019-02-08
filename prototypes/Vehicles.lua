@@ -144,18 +144,41 @@ function vehicles.enable()
 	    sound = make_heavy_gunshot_sounds()
     })
 
-    local advTankGrid = makeGrid({
-	    name = "advanced-tank",
-	    width = 15,
-	    height = 15
-    })
+    local advTankGrid
 
-    local nuclearTankGrid = makeGrid({
-	    name = "nuclear-tank",
-	    width = 18,
-	    height = 18
-    })
-    
+    if (mods.bobvehicleequipment) then
+        advTankGrid = makeGrid({
+                name = "advanced-tank",
+                width = 15,
+                height = 15,
+                categories = {"armor", "vehicle"}
+        })
+    else
+        advTankGrid = makeGrid({
+                name = "advanced-tank",
+                width = 15,
+                height = 15
+        })
+    end
+
+    local nuclearTankGrid
+
+    if (mods.bobvehicleequipment) then
+        nuclearTankGrid = makeGrid({
+                name = "nuclear-tank",
+                width = 18,
+                height = 18,
+                categories = {"armor", "vehicle", "adv-generator"}
+        })
+    else
+        nuclearTankGrid = makeGrid({
+                name = "nuclear-tank",
+                width = 18,
+                height = 18,
+                categories = {"armor", "adv-generator"}
+        })
+    end
+
     local advTank = makeTank({
 	    name = "advanced",
 	    scale = 0.8,
@@ -346,7 +369,7 @@ function vehicles.enable()
 	    sound = make_heavy_gunshot_sounds()
     })
 
-    
+
     local nuclearTankRocket = makeGun(
 	{
 	    name = "nuclear-tank-rocket",
@@ -375,7 +398,7 @@ function vehicles.enable()
 		}
 	    }
     })
-    
+
     local nuclearTank = makeTank({
 	    name = "nuclear",
 	    scale = 1,
@@ -445,17 +468,41 @@ function vehicles.enable()
 	    }
     })
 
-    local advCarGrid = makeGrid({
-	    name = "advanced-car",
-	    width = 10,
-	    height = 10
-    })
 
-    local nuclearCarGrid = makeGrid({
-	    name = "nuclear-car",
-	    width = 13,
-	    height = 13
-    })
+    local advCarGrid
+
+    if (mods.bobvehicleequipment) then
+        advCarGrid = makeGrid({
+                name = "advanced-car",
+                width = 10,
+                height = 10,
+                categories = {"armor", "vehicle"}
+        })
+    else
+        advCarGrid = makeGrid({
+                name = "advanced-car",
+                width = 10,
+                height = 10
+        })
+    end
+
+    local nuclearCarGrid
+
+    if (mods.bobvehicleequipment) then
+        nuclearCarGrid = makeGrid({
+                name = "nuclear-car",
+                width = 13,
+                height = 13,
+                categories = {"armor", "vehicle", "adv-generator"}
+        })
+    else
+        nuclearCarGrid = makeGrid({
+                name = "nuclear-car",
+                width = 13,
+                height = 13,
+                categories = {"armor", "adv-generator"}
+        })
+    end
 
     local advancedCarMachineGun = makeGun(
 	{
@@ -510,7 +557,7 @@ function vehicles.enable()
 		    }
 		}
     })
-    
+
     local advCar = makeCar({
 	    name = "advanced",
 	    scale = 0.6,
@@ -627,7 +674,7 @@ function vehicles.enable()
 		    }
 		}
     })
-    
+
     local nuclearCarLauncher = makeGun(
 	{
 	    name = "nuclear-car-launcher",
@@ -651,7 +698,7 @@ function vehicles.enable()
 	    range = 30,
 	    sound = make_heavy_gunshot_sounds()
     })
-    
+
     local nuclearCar = makeCar({
 	    name = "nuclear",
 	    scale = 0.7,
@@ -716,13 +763,26 @@ function vehicles.enable()
 	    }
     })
 
-    local nuclearTrainGrid = makeGrid({
-	    name = "nuclear-train",
-	    width = 16,
-	    height = 16,
-	    categories = {"noInventory"}
-    })
-    
+
+
+    local nuclearTrainGrid
+
+    if (mods.bobvehicleequipment) then
+        nuclearTrainGrid = makeGrid({
+                name = "nuclear-train",
+                width = 16,
+                height = 16,
+                categories = {"noInventory", "train", "locomotive", "vehicle", "movement", "adv-generator"}
+        })
+    else
+        nuclearTrainGrid = makeGrid({
+                name = "nuclear-train",
+                width = 16,
+                height = 16,
+                categories = {"noInventory", "movement", "adv-generator"}
+        })
+    end
+
     local nuclearTrain = makeTrain({
 	    name = "nuclear",
 	    scale = 0.5,
@@ -754,8 +814,8 @@ function vehicles.enable()
 			}
 		    }
 	    }
-    })    
-    
+    })
+
     local advTankRecipe = makeRecipe({
 	    name = "advanced-tank",
 	    icon = "__RampantArsenal__/graphics/icons/advanced-tank.png",
@@ -783,7 +843,7 @@ function vehicles.enable()
 	    },
 	    result = nuclearTank,
     })
-    
+
     local advCarRecipe = makeRecipe({
 	    name = "advanced-car",
 	    icon = "__RampantArsenal__/graphics/icons/advanced-car.png",
@@ -797,7 +857,7 @@ function vehicles.enable()
 	    },
 	    result = advCar,
     })
-    
+
     local nuclearCarRecipe = makeRecipe({
 	    name = "nuclear-car",
 	    icon = "__RampantArsenal__/graphics/icons/nuclear-car.png",
@@ -811,7 +871,7 @@ function vehicles.enable()
 	    },
 	    result = nuclearCar,
     })
-    
+
     local nuclearTrainRecipe = makeRecipe({
 	    name = "nuclear-train",
 	    icon = "__RampantArsenal__/graphics/icons/nuclear-locomotive.png",
@@ -825,16 +885,16 @@ function vehicles.enable()
 	    },
 	    result = nuclearTrain,
     })
-    
+
     addEquipmentGrid("locomotive",
 		     "locomotive",
 		     makeGrid({
 			     name = "locomotive",
 			     width = 12,
 			     height = 12,
-			     categories = {"noInventory"}
+			     categories = {"noInventory", "movement"}
     }))
-    
+
     addEquipmentGrid("artillery-wagon",
 		     "artillery-wagon",
 		     makeGrid({
@@ -843,7 +903,7 @@ function vehicles.enable()
 			     height = 16,
 			     categories = {"noInventory"}
     }))
-    
+
     addEquipmentGrid("cargo-wagon",
 		     "cargo-wagon",
 		     makeGrid({
@@ -861,7 +921,7 @@ function vehicles.enable()
 			     height = 8,
 			     categories = {"noInventory"}
     }))
-    
+
     addEquipmentGrid("car",
 		     "car",
 		     makeGrid({
@@ -883,26 +943,26 @@ function vehicles.enable()
 			type = "unlock-recipe",
 			recipe = advTankRecipe
     })
-    
+
     addEffectToTech("rampant-arsenal-technology-nuclear-tanks",
 		    {
 			type = "unlock-recipe",
 			recipe = nuclearTankRecipe
     })
 
-    
+
     addEffectToTech("rampant-arsenal-technology-cars-2",
 		    {
 			type = "unlock-recipe",
 			recipe = advCarRecipe
     })
-    
+
     addEffectToTech("rampant-arsenal-technology-nuclear-cars",
 		    {
 			type = "unlock-recipe",
 			recipe = nuclearCarRecipe
     })
-    
+
     addEffectToTech("rampant-arsenal-technology-nuclear-railway",
 		    {
 			type = "unlock-recipe",
@@ -922,7 +982,7 @@ function vehicles.enable()
 	    eName = "solid-fuel",
 	    fuelEmissionsMultipler = 0.75
     })
-    
+
     addFuelToItem({
 	    eType = "item",
 	    eName = "rocket-fuel",
@@ -934,7 +994,7 @@ function vehicles.enable()
 	    eName = "coal",
 	    fuelEmissionsMultipler = 2
     })
-    
+
     addFuelToItem({
 	    eType = "item",
 	    eName = "nuclear-fuel",
@@ -961,6 +1021,8 @@ function vehicles.enable()
     addCategory("solar-panel-equipment", "noInventory")
     addCategory("generator-equipment", "noInventory")
     addCategory("active-defense-equipment", "noInventory")
+
+    addCategory("movement-bonus-equipment", "movement")
 end
 
 return vehicles

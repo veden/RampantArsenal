@@ -38,7 +38,7 @@ local enableMedic = medic.enable
 
 function turrets.addTurrets()
 
-    data:extend({	    
+    data:extend({
 	    {
 		type = "equipment-category",
 		name = "immobile"
@@ -46,18 +46,26 @@ function turrets.addTurrets()
 	    {
 		type = "equipment-category",
 		name = "noInventory"
+	    },
+            {
+		type = "equipment-category",
+		name = "movement"
+	    },
+            {
+		type = "equipment-category",
+		name = "adv-generator"
 	    }
     })
-    
+
     data:extend({
 	    {
 		type = "damage-type",
 		name = "healing"
 	    }
-    })    
+    })
 
     data.raw["player"]["player"].damage_hit_tint = {r = 0, g = 0.2, b = 0, a = 0}
-    
+
     enableTechnologies()
     enableStickers()
     enableFire()

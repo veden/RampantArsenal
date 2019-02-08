@@ -32,7 +32,7 @@ local function CapsuleLauncherSheet()
 			shift = {0, -1.4},
 		    }
 		}
-	}    
+	}
 end
 
 
@@ -50,17 +50,38 @@ function capsules.enable()
 	    {
 		type = "ammo-category",
 		name = "capsule-launcher",
-	    }	    
+	    },
+            {
+                type = "simple-entity-with-force",
+                name = "rampant-clean-ghost-mine",
+                render_layer = "object",
+                icon = "__base__/graphics/icons/steel-chest.png",
+                icon_size = 32,
+                flags = {"placeable-neutral", "player-creation"},
+                order = "s-e-w-f",
+                minable = {mining_time = 1, result = "simple-entity-with-force"},
+                max_health = 100,
+                corpse = "small-remnants",
+                -- collision_box = {{-0.35, -0.35}, {0.35, 0.35}},
+                -- selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+                picture =
+                    {
+                        filename = "__core__/graphics/empty.png",
+                        priority = "extra-high",
+                        width = 1,
+                        height = 1
+                    }
+            }
     })
 
-    local slowCapsules = makeAmmo({		    
+    local slowCapsules = makeAmmo({
 	    name = "slowdown-capsule",
 	    icon = "__RampantArsenal__/graphics/icons/slowdown-capsule-ammo.png",
 	    magSize = 1,
 	    subgroup = "launcher-capsule",
 	    order = "h[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -94,16 +115,16 @@ function capsules.enable()
 				duration = 160
 			    }
 		    }
-    }})        
-    
-    local paralysisCapsules = makeAmmo({		    
+    }})
+
+    local paralysisCapsules = makeAmmo({
 	    name = "paralysis-capsule",
 	    icon = "__RampantArsenal__/graphics/icons/paralysis-capsule-ammo.png",
 	    magSize = 1,
 	    subgroup = "launcher-capsule",
 	    order = "i[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -125,7 +146,7 @@ function capsules.enable()
 						    type = "instant",
 						    target_effects =
 							{
-							    type = "create-entity",							    
+							    type = "create-entity",
 							    entity_name = "big-paralysis-cloud-rampant-arsenal"
 							}
 						}
@@ -136,15 +157,15 @@ function capsules.enable()
 			    }
 		    }
     }})
-    
-    local repairCapsules = makeAmmo({		    
+
+    local repairCapsules = makeAmmo({
 	    name = "repair-capsule",
 	    icon = "__RampantArsenal__/graphics/icons/repair-capsule-ammo.png",
 	    magSize = 1,
 	    subgroup = "launcher-capsule",
 	    order = "j[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -178,16 +199,16 @@ function capsules.enable()
 			    }
 		    }
     }})
-    
-    
-    local toxicCapsules = makeAmmo({		    
+
+
+    local toxicCapsules = makeAmmo({
 	    name = "toxic-capsule",
 	    icon = "__RampantArsenal__/graphics/icons/toxic-capsule-ammo.png",
 	    magSize = 1,
 	    subgroup = "launcher-capsule",
 	    order = "g[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -222,14 +243,14 @@ function capsules.enable()
 		    }
     }})
 
-    local poisonCapsules = makeAmmo({		    
+    local poisonCapsules = makeAmmo({
 	    name = "poison-capsule",
 	    icon = "__RampantArsenal__/graphics/icons/poison-capsule-ammo.png",
 	    magSize = 1,
 	    subgroup = "launcher-capsule",
 	    order = "f[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -263,14 +284,14 @@ function capsules.enable()
 		    }
     }})
 
-    local distractorCapsules = makeAmmo({		    
+    local distractorCapsules = makeAmmo({
 	    name = "distractor-capsule",
 	    icon = "__RampantArsenal__/graphics/icons/distractor-capsule-ammo.png",
 	    magSize = 1,
 	    subgroup = "launcher-capsule",
 	    order = "l[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -308,14 +329,14 @@ function capsules.enable()
 		    }
     }})
 
-    local defenderCapsules = makeAmmo({		    
+    local defenderCapsules = makeAmmo({
 	    name = "defender-capsule",
 	    icon = "__RampantArsenal__/graphics/icons/defender-capsule-ammo.png",
 	    magSize = 1,
 	    subgroup = "launcher-capsule",
 	    order = "k[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -352,7 +373,7 @@ function capsules.enable()
 			    }
 		    }
     }})
-    
+
     local destroyerCapsules = makeAmmo({
 	    name = "destroyer-capsule",
 	    icon = "__RampantArsenal__/graphics/icons/destroyer-capsule-ammo.png",
@@ -360,7 +381,7 @@ function capsules.enable()
 	    subgroup = "launcher-capsule",
 	    order = "m[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -405,7 +426,7 @@ function capsules.enable()
 	    subgroup = "launcher-capsule",
 	    order = "n[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -432,7 +453,7 @@ function capsules.enable()
 							    type = "create-entity",
 							    entity_name = "land-mine"
 							}
-						    }						
+						    }
 					    },
 					    {
 						type = "cluster",
@@ -448,6 +469,11 @@ function capsules.enable()
 								    type = "create-entity",
 								    show_in_tooltip = true,
 								    entity_name = "land-mine"
+								},
+                                                                {
+								    type = "create-entity",
+								    trigger_created_entity = true,
+								    entity_name = "rampant-clean-ghost-mine"
 								}
 							    }
 						    }
@@ -466,7 +492,7 @@ function capsules.enable()
 	    subgroup = "launcher-capsule",
 	    order = "w[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -490,14 +516,21 @@ function capsules.enable()
 						    {
 							type = "instant",
 							target_effects = {
-							    type = "create-entity",
-							    entity_name = "incendiary-landmine-rampant-arsenal"
-							}
-						    }						
+                                                            {
+                                                                type = "create-entity",
+                                                                entity_name = "incendiary-landmine-rampant-arsenal"
+                                                            },
+                                                            {
+                                                                type = "create-entity",
+                                                                trigger_created_entity = true,
+                                                                entity_name = "rampant-clean-ghost-mine"
+                                                            }
+                                                        }
+						    }
 					    },
 					    {
 						type = "cluster",
-						cluster_count = 3,
+						cluster_count = 2,
 						distance = 4,
 						distance_deviation = 3,
 						action_delivery =
@@ -528,7 +561,7 @@ function capsules.enable()
 	    subgroup = "launcher-capsule",
 	    order = "p[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -552,29 +585,36 @@ function capsules.enable()
 						    {
 							type = "instant",
 							target_effects = {
-							    type = "create-entity",
-							    entity_name = "he-landmine-rampant-arsenal"
-							}
+                                                            {
+                                                                type = "create-entity",
+                                                                entity_name = "he-landmine-rampant-arsenal"
+                                                            },
+                                                            {
+                                                                type = "create-entity",
+                                                                trigger_created_entity = true,
+                                                                entity_name = "rampant-clean-ghost-mine"
+                                                            }
+                                                        }
 						    }
-					    },
-					    {
-						type = "cluster",
-						cluster_count = 3,
-						distance = 4,
-						distance_deviation = 3,
-						action_delivery =
-						    {
-							type = "instant",
-							target_effects =
-							    {
-								{
-								    type = "create-entity",
-								    show_in_tooltip = true,
-								    entity_name = "he-landmine-rampant-arsenal"
-								}
-							    }
-						    }
-					    }
+					    }-- ,
+					    -- {
+					    --     type = "cluster",
+					    --     cluster_count = 3,
+					    --     distance = 4,
+					    --     distance_deviation = 3,
+					    --     action_delivery =
+					    --         {
+					    --     	type = "instant",
+					    --     	target_effects =
+					    --     	    {
+					    --     		{
+					    --     		    type = "create-entity",
+					    --     		    show_in_tooltip = true,
+					    --     		    entity_name = "he-landmine-rampant-arsenal"
+					    --     		}
+					    --     	    }
+					    --         }
+					    -- }
 					}
 				}),
 				max_length = 9,
@@ -582,7 +622,7 @@ function capsules.enable()
 			    }
 		    }
     }})
-    
+
     local bioLandmineCapsules = makeAmmo({
 	    name = "bio-landmine-capsule",
 	    icon = "__RampantArsenal__/graphics/icons/bio-landmine-capsule-ammo.png",
@@ -590,7 +630,7 @@ function capsules.enable()
 	    subgroup = "launcher-capsule",
 	    order = "o[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -614,29 +654,36 @@ function capsules.enable()
 						    {
 							type = "instant",
 							target_effects = {
-							    type = "create-entity",
-							    entity_name = "bio-landmine-rampant-arsenal"
-							}
-						    }						
-					    },
-					    {
-						type = "cluster",
-						cluster_count = 3,
-						distance = 4,
-						distance_deviation = 3,
-						action_delivery =
-						    {
-							type = "instant",
-							target_effects =
-							    {
-								{
-								    type = "create-entity",
-								    show_in_tooltip = true,
-								    entity_name = "bio-landmine-rampant-arsenal"
-								}
-							    }
+                                                            {
+                                                                type = "create-entity",
+                                                                entity_name = "bio-landmine-rampant-arsenal"
+                                                            },
+                                                            {
+                                                                type = "create-entity",
+                                                                trigger_created_entity = true,
+                                                                entity_name = "rampant-clean-ghost-mine"
+                                                            }
+                                                        }
 						    }
-					    }
+					    }-- ,
+					    -- {
+					    --     type = "cluster",
+					    --     cluster_count = 3,
+					    --     distance = 4,
+					    --     distance_deviation = 3,
+					    --     action_delivery =
+					    --         {
+					    --     	type = "instant",
+					    --     	target_effects =
+					    --     	    {
+					    --     		{
+					    --     		    type = "create-entity",
+					    --     		    show_in_tooltip = true,
+					    --     		    entity_name = "bio-landmine-rampant-arsenal"
+					    --     		}
+					    --     	    }
+					    --         }
+					    -- }
 					}
 				}),
 				max_length = 9,
@@ -652,7 +699,7 @@ function capsules.enable()
 	    subgroup = "launcher-capsule",
 	    order = "x[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -676,10 +723,17 @@ function capsules.enable()
 						    {
 							type = "instant",
 							target_effects = {
-							    type = "create-entity",
-							    entity_name = "nuclear-landmine-rampant-arsenal"
-							}
-						    }						
+                                                            {
+                                                                type = "create-entity",
+                                                                entity_name = "nuclear-landmine-rampant-arsenal"
+                                                            },
+                                                            {
+                                                                type = "create-entity",
+                                                                trigger_created_entity = true,
+                                                                entity_name = "rampant-clean-ghost-mine"
+                                                            }
+                                                        }
+						    }
 					}}
 				}),
 				max_length = 9,
@@ -687,7 +741,7 @@ function capsules.enable()
 			    }
 		    }
     }})
-    
+
     local grenadeCapsules = makeAmmo({
 	    name = "grenade-capsule",
 	    icon = "__RampantArsenal__/graphics/icons/grenade-capsule-ammo.png",
@@ -695,7 +749,7 @@ function capsules.enable()
 	    subgroup = "launcher-capsule",
 	    order = "a[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -758,7 +812,7 @@ function capsules.enable()
 			    }
 		    }
     }})
-    
+
     local bioGrenadeCapsules = makeAmmo({
 	    name = "bio-grenade-capsule",
 	    icon = "__RampantArsenal__/graphics/icons/bio-grenade-capsule-ammo.png",
@@ -766,7 +820,7 @@ function capsules.enable()
 	    subgroup = "launcher-capsule",
 	    order = "b[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -837,7 +891,7 @@ function capsules.enable()
 			    }
 		    }
     }})
-    
+
     local heGrenadeCapsules = makeAmmo({
 	    name = "he-grenade-capsule",
 	    icon = "__RampantArsenal__/graphics/icons/he-grenade-capsule-ammo.png",
@@ -845,7 +899,7 @@ function capsules.enable()
 	    subgroup = "launcher-capsule",
 	    order = "c[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -912,7 +966,7 @@ function capsules.enable()
 			    }
 		    }
     }})
-    
+
     local incendiaryGrenadeCapsules = makeAmmo({
 	    name = "incendiary-grenade-capsule",
 	    icon = "__RampantArsenal__/graphics/icons/incendiary-grenade-capsule-ammo.png",
@@ -920,7 +974,7 @@ function capsules.enable()
 	    subgroup = "launcher-capsule",
 	    order = "d[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -991,7 +1045,7 @@ function capsules.enable()
 			    }
 		    }
     }})
-    
+
     local clusterGrenadeCapsules = makeAmmo({
 	    name = "cluster-grenade-capsule",
 	    icon = "__RampantArsenal__/graphics/icons/cluster-grenade-capsule-ammo.png",
@@ -999,7 +1053,7 @@ function capsules.enable()
 	    subgroup = "launcher-capsule",
 	    order = "e[capsule]",
 	    stackSize = 200,
-	    ammoType = {		
+	    ammoType = {
 		category = "capsule-launcher",
 		target_type = "position",
 		clamp_position = true,
@@ -1074,7 +1128,7 @@ function capsules.enable()
 			    }
 		    }
     }})
-    
+
     local slowCapsuleRecipe = makeRecipe({
 	    name = "slow-capsule-ammo",
 	    icon = "__RampantArsenal__/graphics/icons/slowdown-capsule-ammo.png",
@@ -1099,7 +1153,7 @@ function capsules.enable()
 	    result = poisonCapsules
     })
 
-    
+
     local toxicCapsuleRecipe = makeRecipe({
 	    name = "toxic-capsule-ammo",
 	    icon = "__RampantArsenal__/graphics/icons/toxic-capsule-ammo.png",
@@ -1111,7 +1165,7 @@ function capsules.enable()
 	    },
 	    result = toxicCapsules
     })
-    
+
     local paralysisCapsuleRecipe = makeRecipe({
 	    name = "paralysis-capsule-ammo",
 	    icon = "__RampantArsenal__/graphics/icons/paralysis-capsule-ammo.png",
@@ -1160,7 +1214,7 @@ function capsules.enable()
 	    },
 	    result = defenderCapsules
     })
-    
+
     local destroyerCapsuleRecipe = makeRecipe({
 	    name = "destroyer-capsule-ammo",
 	    icon = "__RampantArsenal__/graphics/icons/destroyer-capsule-ammo.png",
@@ -1209,7 +1263,7 @@ function capsules.enable()
 	    result = heLandmineCapsules
     })
 
-    
+
     local bioLandmineCapsuleRecipe = makeRecipe({
 	    name = "bio-landmine-capsule-ammo",
 	    icon = "__RampantArsenal__/graphics/icons/bio-landmine-capsule-ammo.png",
@@ -1233,7 +1287,7 @@ function capsules.enable()
 	    },
 	    result = nuclearLandmineCapsules
     })
-    
+
     local grenadeCapsuleRecipe = makeRecipe({
 	    name = "grenade-capsule-ammo",
 	    icon = "__RampantArsenal__/graphics/icons/grenade-capsule-ammo.png",
@@ -1281,7 +1335,7 @@ function capsules.enable()
 	    },
 	    result = incendiaryGrenadeCapsules
     })
-    
+
     local clusterGrenadeCapsuleRecipe = makeRecipe({
 	    name = "cluster-grenade-capsule-ammo",
 	    icon = "__RampantArsenal__/graphics/icons/cluster-grenade-capsule-ammo.png",
@@ -1293,7 +1347,7 @@ function capsules.enable()
 	    },
 	    result = clusterGrenadeCapsules
     })
-    
+
     local entity = {
 	name = "capsule",
 	icon = "__RampantArsenal__/graphics/icons/capsuleTurret.png",
@@ -1381,7 +1435,7 @@ function capsules.enable()
 			type = "unlock-recipe",
 			recipe = clusterGrenadeCapsuleRecipe,
     })
-    
+
     addEffectToTech("uranium-ammo",
 		    {
 			type = "unlock-recipe",
@@ -1417,7 +1471,7 @@ function capsules.enable()
 			type = "unlock-recipe",
 			recipe = paralysisCapsuleRecipe,
     })
-    
+
     addEffectToTech("he-grenades",
 		    {
 			type = "unlock-recipe",
@@ -1429,7 +1483,7 @@ function capsules.enable()
 			type = "unlock-recipe",
 			recipe = incendiaryGrenadeCapsuleRecipe,
     })
-    
+
     addEffectToTech("capsule-turret",
 		    {
 			{
@@ -1473,7 +1527,7 @@ function capsules.enable()
 			turret_id = capsuleTurret,
 			modifier = 0.3
     })
-    
+
     addEffectToTech("capsule-turret-damage-5",
 		    {
 			type = "turret-attack",

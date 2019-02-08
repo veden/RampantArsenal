@@ -1,10 +1,10 @@
 {
     "name" : "RampantArsenal",
     "factorio_version" : "0.16",
-    "version" : "0.16.9",
+    "version" : "0.16.10",
     "title" : "Rampant Arsenal",
     "author" : "Veden",
     "homepage" : "https://forums.factorio.com/viewtopic.php?f=190&t=60626",
     "description" : "Adds a variety of turrets to wage war. Adds Additional Ammo Types, Landmines, Equipment, Capsules, walls, power, vehicles, Infinite Technologies",
-    "dependencies" : ["base >= 0.16.36"]
+    "dependencies" : ["base >= 0.16.36", "? bobvehicleequipment >= 0.16.2"]
 }

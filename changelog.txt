@@ -1,4 +1,20 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.16.10
+Date: 2. 7. 2019
+  Improvements:
+    - Added support for bobs vehicle equipment in Rampant Arsenal vehicles
+    - Added Portable nuclear generator for use in Power Armor Mk3 and nuclear vehicles
+    - Added movement equipment to locomotive and nuclear locomotive.
+    - Added a small script to help clean up landmine ghosts when the capsule launcher shoots into an area with landmine ghosts
+  Tweaks:
+    - Increased incendiary land mine trigger range from 2.5 to 3.5
+    - Increased he land mine trigger range from 2.5 to 7.5
+    - Increased bio land mine trigger range from 2.5 to 5.5
+    - Reduced he land mine capsule to only deploy a single landmine
+    - Reduced bio land mine capsule to only deploy a single landmine
+    - Reduced incendiary land mine to deploy 3 instead of 4 landmine
+
+---------------------------------------------------------------------------------------------------
 Version: 0.16.9
 Date: 4. 11. 2018
   Bugfixes:
@@ -51,7 +67,7 @@ Version: 0.16.6
 Date: 3. 6. 2018
   Bugfixes:
     - Fixed bio artillery shell having having 100 ammo per item
-    - Fixed landmine stack count    
+    - Fixed landmine stack count
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.16.5

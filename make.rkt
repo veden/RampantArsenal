@@ -1,19 +1,19 @@
 
 (module BuildScript racket
   (provide run)
-  
+
   (require file/zip)
   (require json)
-  
+
   (define modFolder "/data/games/factorio/mods/")
   (define zipModFolder "/data/games/factorio/mods/")
   (define configuration (call-with-input-file "info.json"
                           (lambda (port)
                             (string->jsexpr (port->string port)))))
   (define packageName (string-append (string-replace (hash-ref configuration 'name) " " "_")
-                                     "_" 
+                                     "_"
                                      (hash-ref configuration 'version)))
-  
+
   (define (makeZip folder)
     (let ((packagePath (string->path (string-append folder
                                                     packageName
@@ -21,7 +21,7 @@
       (when (file-exists? packagePath)
         (delete-file packagePath)))
     (zip (string-append folder
-                        packageName 
+                        packageName
                         ".zip")
          #:path-prefix packageName
          (string->path "info.json")
@@ -37,21 +37,21 @@
          (string->path "locale")
          (string->path "graphics")
          (string->path "prototypes")))
-  
+
   (define (copyFile fileName modFolder)
     (copy-file (string->path fileName)
                (string->path (string-append modFolder
                                             packageName
                                             "/"
                                             fileName))))
-  
+
   (define (copyDirectory directoryName modFolder)
     (copy-directory/files (string->path directoryName)
                           (string->path (string-append modFolder
                                                        packageName
                                                        "/"
                                                        directoryName))))
-  
+
   (define (copyFiles modFolder)
     (let ((packagePath (string->path (string-append modFolder
                                                     packageName))))
@@ -73,12 +73,12 @@
       (copyDirectory "prototypes" modFolder)))
 
   (define (runStart)
-;;    (copyFiles modFolder)
+   ;; (copyFiles modFolder)
     ;;(copyFiles zipModFolder)
     (makeZip modFolder)
     (system*/exit-code "/data/games/factorio/bin/x64/factorio"))
 
-  
+
   (define (run)
     (copyFiles modFolder)
     ;;(copyFiles zipModFolder)

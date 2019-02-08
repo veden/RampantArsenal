@@ -48,7 +48,7 @@ function equipmentUtils.makeShield(attributes)
 			type = "full"
 		    },
 		max_shield_value = attributes.maxShield or 500,
-		energy_source = attributes.energySource or 
+		energy_source = attributes.energySource or
 		    {
 			type = "electric",
 			buffer_capacity = "360kJ",
@@ -57,10 +57,10 @@ function equipmentUtils.makeShield(attributes)
 		    },
 		energy_per_shield = attributes.energyPerShield or "150kJ",
 		categories = {"armor"}
-	    }	    
+	    }
     })
 
-    
+
     return name
 end
 
@@ -107,9 +107,9 @@ function equipmentUtils.makeBattery(attributes)
 			usage_priority = "terciary"
 		    },
 		categories = {"armor"}
-	    }	    
+	    }
     })
-    
+
     return name
 end
 
@@ -151,10 +151,10 @@ function equipmentUtils.makeGenerator(attributes)
 			usage_priority = "primary-output"
 		    },
 		power = attributes.power or "750kW",
-		categories = {"armor"}
-	    }	    
+		categories = attributes.categories or {"armor"}
+	    }
     })
-    
+
     return name
 end
 
@@ -201,7 +201,7 @@ function equipmentUtils.makeActiveDefense(attributes, attack)
 	    {
 		type = "active-defense-equipment",
 		name = name,
-		ability_icon = 
+		ability_icon =
 		    {
 			filename = attributes.abilityPicture or "__base__/graphics/equipment/discharge-defense-equipment-ability.png",
 			width = 32,
@@ -215,7 +215,7 @@ function equipmentUtils.makeActiveDefense(attributes, attack)
 			height = 64,
 			priority = "medium"
 		    },
-		shape = attributes.shape or 
+		shape = attributes.shape or
 		    {
 			width = 2,
 			height = 2,
@@ -288,7 +288,7 @@ function equipmentUtils.makeActiveDefense(attributes, attack)
 		categories = {"armor"}
 	    }
     })
-    
+
     return name, nameRemote
 end
 
@@ -317,7 +317,7 @@ function equipmentUtils.makePassiveDefense(attributes, attack)
 			height = 64,
 			priority = "medium"
 		    },
-		shape = attributes.shape or 
+		shape = attributes.shape or
 		    {
 			width = 2,
 			height = 2,
@@ -366,7 +366,7 @@ function equipmentUtils.makePassiveDefense(attributes, attack)
 		categories = {"armor"}
 	    }
     })
-    
+
     return name
 end
 
