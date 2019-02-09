@@ -7,7 +7,7 @@ function vehicleUtils.addEquipmentGrid(eType, eName, equipmentGrid)
 end
 
 function vehicleUtils.makeTank(attributes)
-    local name = attributes.name .. "-tank-vehicle-rampant-arsenal"    
+    local name = attributes.name .. "-tank-vehicle-rampant-arsenal"
 
     data:extend({
 	    {
@@ -350,7 +350,7 @@ function vehicleUtils.makeTank(attributes)
 				    tint = attributes.tint,
 				    shift = util.by_pixel(-5, -34.5),
 				    animation_speed = 8,
-				    scale = attributes.scale * 2,
+				    scale = attributes.scale * 2.2,
 				    hr_version =
 					{
 					    filename = "__base__/graphics/entity/tank/hr-tank-turret.png",
@@ -360,7 +360,7 @@ function vehicleUtils.makeTank(attributes)
 					    height = 132,
 					    tint = attributes.tint,
 					    frame_count = 1,
-					    scale = attributes.scale * 1,
+					    scale = attributes.scale * 1.2,
 					    direction_count = 64,
 					    shift = util.by_pixel(-4.75, -34.5),
 					    animation_speed = 8
@@ -375,7 +375,7 @@ function vehicleUtils.makeTank(attributes)
 				    frame_count = 1,
 				    apply_runtime_tint = true,
 				    direction_count = 64,
-				    scale = attributes.scale * 2,
+				    scale = attributes.scale * 2.2,
 				    shift = util.by_pixel(-5, -35.5),
 				    hr_version =
 					{
@@ -385,7 +385,7 @@ function vehicleUtils.makeTank(attributes)
 					    width = 72,
 					    height = 66,
 					    frame_count = 1,
-					    scale = attributes.scale * 1,
+					    scale = attributes.scale * 1.2,
 					    apply_runtime_tint = true,
 					    direction_count = 64,
 					    tint = attributes.tint,
@@ -401,7 +401,7 @@ function vehicleUtils.makeTank(attributes)
 				    frame_count = 1,
 				    draw_as_shadow = true,
 				    direction_count = 64,
-				    scale = attributes.scale * 2,
+				    scale = attributes.scale * 2.2,
 				    shift = util.by_pixel(51.5, 6.5),
 				    hr_version =
 					{
@@ -411,7 +411,7 @@ function vehicleUtils.makeTank(attributes)
 					    width = 193,
 					    height = 134,
 					    frame_count = 1,
-					    scale = attributes.scale * 1,
+					    scale = attributes.scale * 1.2,
 					    draw_as_shadow = true,
 					    direction_count = 64,
 					    shift = util.by_pixel(51.25, 6.5)
@@ -524,7 +524,7 @@ function vehicleUtils.makeCar(attributes)
 		effectivity = attributes.effectivity or 0.5,
 		braking_power = attributes.brakingPower or "200kW",
 
-		burner = attributes.energySource or 
+		burner = attributes.energySource or
 		    {
 			fuel_category = "chemical",
 			effectivity = 0.6,
@@ -1099,7 +1099,7 @@ function vehicleUtils.makeTrain(attributes)
 					    flags = { "mask" },
 					    slice = 4,
 					    width = 472,
-					    height = 456,					    
+					    height = 456,
 					    direction_count = 256,
 					    allow_low_quality_rotation = true,
 					    filenames =

@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.16.11
+Date: 2. 8. 2019
+  Bugfixes:
+    - Fixed advanced tank and nuclear tank collision box so that you can get out of the tank regardless of orientation
+    - Fixed gun barrel length advanced tank, nuclear tank, advanced car, nuclear car
+
+---------------------------------------------------------------------------------------------------
 Version: 0.16.10
 Date: 2. 7. 2019
   Improvements:

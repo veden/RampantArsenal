@@ -47,7 +47,7 @@ function vehicles.enable()
 		    starting_frame_speed_deviation = 0.1
 		},
 	    projectile_center = {-0.15625, -0.07812},
-	    projectile_creation_distance = 2,
+	    projectile_creation_distance = 3,
 	    range = 22,
 	    sound = make_heavy_gunshot_sounds()
     })
@@ -65,7 +65,7 @@ function vehicles.enable()
 	    cooldown = 90,
 	    damage_modifier = 1.5,
 	    movement_slow_down_factor = 0,
-	    projectile_creation_distance = 2,
+	    projectile_creation_distance = 3,
 	    projectile_center = {-0.15625, -0.07812},
 	    range = 27,
 	    sound =
@@ -89,7 +89,7 @@ function vehicles.enable()
 	    ammo_category = "flamethrower",
 	    cooldown = 1,
 	    projectile_creation_distance = 1,
-	    gun_barrel_length = 1.4,
+	    gun_barrel_length = 2.75,
 	    damage_modifier = 1.5,
 	    gun_center_shift = { -0.17, -1.15 },
 	    range = 12,
@@ -139,7 +139,7 @@ function vehicles.enable()
 		south = {0, 0},
 		west = {0, 0}
 	    },
-	    gun_barrel_length = 1,
+	    gun_barrel_length = 3,
 	    range = 31,
 	    sound = make_heavy_gunshot_sounds()
     })
@@ -188,7 +188,7 @@ function vehicles.enable()
 	    consumption = "2.0MW",
 	    weight = 30000,
 	    inventorySize = 100,
-	    collisionBox = {{-1.7, -2.7}, {1.4, 2}},
+	    collisionBox = {{-1.5, -2.5}, {1.2, 1.8}},
 	    selectionBox = {{-1.7, -2.7}, {1.4, 2}},
 	    drawingBox = {{-3.4, -3.4}, {3.4, 2.8}},
 	    brakingPower = "1MW",
@@ -272,7 +272,7 @@ function vehicles.enable()
 		    starting_frame_speed_deviation = 0.1
 		},
 	    projectile_center = {-0.15625, -0.07812},
-	    projectile_creation_distance = 2.5,
+	    projectile_creation_distance = 4,
 	    range = 24,
 	    sound = make_heavy_gunshot_sounds()
     })
@@ -290,7 +290,7 @@ function vehicles.enable()
 	    cooldown = 90,
 	    damage_modifier = 2,
 	    movement_slow_down_factor = 0,
-	    projectile_creation_distance = 2,
+	    projectile_creation_distance = 4,
 	    projectile_center = {-0.15625, -0.07812},
 	    range = 30,
 	    sound =
@@ -314,7 +314,7 @@ function vehicles.enable()
 	    ammo_category = "flamethrower",
 	    cooldown = 1,
 	    projectile_creation_distance = 1,
-	    gun_barrel_length = 1.4,
+	    gun_barrel_length = 3.5,
 	    damage_modifier = 2,
 	    gun_center_shift = { -0.17, -1.15 },
 	    range = 15,
@@ -364,7 +364,7 @@ function vehicles.enable()
 		south = {0, 0},
 		west = {0, 0}
 	    },
-	    gun_barrel_length = 2,
+	    gun_barrel_length = 4,
 	    range = 32,
 	    sound = make_heavy_gunshot_sounds()
     })
@@ -389,7 +389,7 @@ function vehicles.enable()
 		south = {0, 0},
 		west = {0, 0}
 	    },
-	    gun_barrel_length = 2.5,
+	    gun_barrel_length = 4.5,
 	    range = 30,
 	    sound = {
 		{
@@ -404,7 +404,7 @@ function vehicles.enable()
 	    scale = 1,
 	    order = "b[personal-transport]-b[zbtank]",
 	    icon = "__RampantArsenal__/graphics/icons/nuclear-tank.png",
-	    collisionBox = {{-1.9, -3.2}, {1.7, 2.4}},
+	    collisionBox = {{-1.5, -2.8}, {1.3, 2}},
 	    selectionBox = {{-1.9, -3.2}, {1.7, 2.4}},
 	    drawingBox = {{-3.6, -3.6}, {3.4, 2.8}},
 	    equipmentGrid = nuclearTankGrid,
@@ -516,6 +516,7 @@ function vehicles.enable()
 	    ammo_category = "bullet",
 	    cooldown = 2.7,
 	    movement_slow_down_factor = 0.7,
+            gun_barrel_length = 0.75,
 	    damage_modifier = 2,
 	    shell_particle =
 		{
@@ -529,7 +530,7 @@ function vehicles.enable()
 		    starting_frame_speed_deviation = 0.1
 		},
 	    projectile_center = {-0.15625, -0.07812},
-	    projectile_creation_distance = 2,
+	    projectile_creation_distance = 0.75,
 	    range = 21,
 	    sound = make_heavy_gunshot_sounds()
     })
@@ -547,7 +548,8 @@ function vehicles.enable()
 	    cooldown = 30,
 	    movement_slow_down_factor = 0.5,
 	    damage_modifier = 2,
-	    projectile_creation_distance = 1.5,
+	    projectile_creation_distance = 0.75,
+            gun_barrel_length = 0.75,
 	    range = 20,
 	    sound =
 		{
@@ -646,7 +648,8 @@ function vehicles.enable()
 		    starting_frame_speed_deviation = 0.1
 		},
 	    projectile_center = {-0.15625, -0.07812},
-	    projectile_creation_distance = 2,
+	    projectile_creation_distance = 0.75,
+            gun_barrel_length = 0.75,
 	    range = 22,
 	    sound = make_heavy_gunshot_sounds()
     })
@@ -664,7 +667,8 @@ function vehicles.enable()
 	    cooldown = 25,
 	    movement_slow_down_factor = 0.5,
 	    damage_modifier = 2.5,
-	    projectile_creation_distance = 1.5,
+	    projectile_creation_distance = 0.75,
+            gun_barrel_length = 0.75,
 	    range = 20,
 	    sound =
 		{
@@ -694,7 +698,7 @@ function vehicles.enable()
 		south = {0, 0},
 		west = {0, 0}
 	    },
-	    gun_barrel_length = 1.5,
+	    gun_barrel_length = 1,
 	    range = 30,
 	    sound = make_heavy_gunshot_sounds()
     })
