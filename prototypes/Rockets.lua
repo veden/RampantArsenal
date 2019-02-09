@@ -30,7 +30,7 @@ local function rocketSheetMk1()
 		    }
 		}
 	}
-    
+
 end
 
 local function rocketSheetMk2()
@@ -51,7 +51,7 @@ local function rocketSheetMk2()
 		    }
 		}
 	}
-    
+
 end
 
 function rockets.enable()
@@ -67,7 +67,9 @@ function rockets.enable()
 	foldedAnimation = rocketSheetMk1(),
 	foldingAnimation = rocketSheetMk1(),
 	preparedAnimation = rocketSheetMk1(),
-	preparingAnimation = rocketSheetMk1()
+	preparingAnimation = rocketSheetMk1(),
+        hasBaseDirection = true,
+        rotationSpeed = 0.002
     }
     local rocketTurret, rocketTurretItem = makeAmmoTurret(entity,
 							  {
@@ -76,7 +78,9 @@ function rockets.enable()
 							      cooldown = 150,
 							      projectile_creation_distance = 1.39375,
 							      projectile_center = {0, -0.0875},
-							      range = 45,
+                                                              min_range = 15,
+                                                              turn_range = 0.30,
+							      range = 50,
 							      sound = make_heavy_gunshot_sounds(),
     })
 
@@ -89,7 +93,9 @@ function rockets.enable()
 	foldedAnimation = rocketSheetMk2(),
 	foldingAnimation = rocketSheetMk2(),
 	preparedAnimation = rocketSheetMk2(),
-	preparingAnimation = rocketSheetMk2()
+	preparingAnimation = rocketSheetMk2(),
+        hasBaseDirection = true,
+        rotationSpeed = 0.005
     }
     local rapidRocketTurret, rapidRocketTurretItem = makeAmmoTurret(entity1, {
 									type = "projectile",
@@ -97,7 +103,9 @@ function rockets.enable()
 									cooldown = 50,
 									projectile_creation_distance = 1.39375,
 									projectile_center = {0, -0.0875},
-									range = 35,
+                                                                        min_range = 15,
+                                                                        turn_range = 0.30,
+									range = 40,
 									sound = make_heavy_gunshot_sounds(),
     })
 
@@ -131,14 +139,14 @@ function rockets.enable()
 			type = "unlock-recipe",
 			recipe = rocketTurretRecipe,
     })
-    
+
 
     addEffectToTech("rocket-turret-2",
 		    {
 			type = "unlock-recipe",
 			recipe = rapidRocketRecipe,
     })
-    
+
 
     local incendiaryRocketAmmo = makeAmmo({
     	    name = "incendiary-rocket",
@@ -169,7 +177,7 @@ function rockets.enable()
     			    action_delivery =
     				{
     				    type = "projectile",
-				    starting_speed = 0.1,				    
+				    starting_speed = 0.1,
     				    projectile = makeRocketProjectile({
 					    name = "incendiary",
 					    action =
@@ -228,7 +236,7 @@ function rockets.enable()
     		    }
     	    }
     })
-    
+
     local incendiaryRocketRecipe = makeRecipe({
 	    name = "incendiary-rocket",
 	    icon = "__RampantArsenal__/graphics/icons/incendiary-rocket.png",
@@ -277,7 +285,7 @@ function rockets.enable()
     			    action_delivery =
     				{
     				    type = "projectile",
-				    starting_speed = 0.1,				    
+				    starting_speed = 0.1,
     				    projectile = makeRocketProjectile({
 					    name = "he",
 					    action =
@@ -315,7 +323,7 @@ function rockets.enable()
 								    {
 									type = "create-entity",
 									entity_name = "big-explosion"
-								    }								    
+								    }
 								}
 							}
 						}
@@ -325,7 +333,7 @@ function rockets.enable()
     		    }
     	    }
     })
-    
+
     local heRocketRecipe = makeRecipe({
 	    name = "he-rocket",
 	    icon = "__RampantArsenal__/graphics/icons/he-rocket.png",
@@ -374,7 +382,7 @@ function rockets.enable()
     			    action_delivery =
     				{
     				    type = "projectile",
-				    starting_speed = 0.1,				    
+				    starting_speed = 0.1,
     				    projectile = makeRocketProjectile({
 					    name = "bio",
 					    action =
@@ -426,7 +434,7 @@ function rockets.enable()
     		    }
     	    }
     })
-    
+
     local bioRocketRecipe = makeRecipe({
 	    name = "bio-rocket",
 	    icon = "__RampantArsenal__/graphics/icons/bio-rocket.png",
@@ -445,7 +453,7 @@ function rockets.enable()
 			type = "unlock-recipe",
 			recipe = bioRocketRecipe,
     })
-    
+
     addEffectToTech("rocket-turret-damage-1",
 		    {
 			{
@@ -501,7 +509,7 @@ function rockets.enable()
 			    modifier = 0.3
 			}
     })
-    
+
     addEffectToTech("rocket-turret-damage-5",
 		    {
 			{

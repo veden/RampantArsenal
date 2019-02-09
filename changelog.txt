@@ -1,6 +1,33 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.16.11
 Date: 2. 8. 2019
+  Tweaks:
+    - Decreased rotation speed on advanced laser turret from 0.015 to 0.002
+    - Decreased rotation speed on advanced flamethrower turret from 0.015 to 0.002
+    - Decreased rotation speed on lightning turret from 0.015 to 0.010
+    - Decreased rotation speed on cannon from 0.007 to 0.005
+    - Decreased rotation speed on rapid cannon from 0.007 to 0.006
+    - Decreased rotation speed on capsule launcher from 0.007 to 0.004
+    - Decreased rotation speed on rocket turret from 0.007 to 0.002
+    - Decreased rotation speed on rapid rocket turret from 0.007 to 0.005
+    - Increased advanced flamethrower consumption from 0.8 to 2.2
+    - Decreased advanced flamethrower attack channel width from 20 to 10
+    - Increased range of capsule launcher from 32 to 38
+    - Increased range of rocket turret from 45 to 50
+    - Increased range of rapid rocket turret from 35 to 40
+    - Increased min range from 6 to 15 for advanced flamethrower
+    - Added min range to rapid rocket launcher of 15
+    - Added min range to capsule launcher of 15
+    - Added min range to rocket launcher of 15
+    - Locked area of fire to 108 degrees for rocket launcher
+    - Locked area of fire to 108 degrees for capsule launcher
+    - Locked area of fire to 108 degrees for rapid rocket launcher
+  Bugfixes:
+    - Fixed advanced flamethrower projectiles arc
+
+---------------------------------------------------------------------------------------------------
+Version: 0.16.11
+Date: 2. 8. 2019
   Bugfixes:
     - Fixed advanced tank and nuclear tank collision box so that you can get out of the tank regardless of orientation
     - Fixed gun barrel length advanced tank, nuclear tank, advanced car, nuclear car

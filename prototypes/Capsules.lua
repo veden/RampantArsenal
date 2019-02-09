@@ -1357,7 +1357,9 @@ function capsules.enable()
 	foldingAnimation = CapsuleLauncherSheet(),
 	preparedAnimation = CapsuleLauncherSheet(),
 	preparingAnimation = CapsuleLauncherSheet(),
-	order = "b[turret]-d[acapsule-turret]"
+	order = "b[turret]-d[acapsule-turret]",
+        hasBaseDirection = true,
+        rotationSpeed = 0.004
     }
     local capsuleTurret, capsuleTurretItem = makeAmmoTurret(entity, {
 								type = "stream",
@@ -1371,7 +1373,9 @@ function capsules.enable()
 								    west = {0, -4}
 								},
 								gun_barrel_length = 4,
-								range = 32,
+                                                                min_range = 15,
+                                                                turn_range = 0.30,
+								range = 38,
 								sound = make_heavy_gunshot_sounds()
     })
 

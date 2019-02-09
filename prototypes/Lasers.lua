@@ -39,7 +39,7 @@ local function advancedLaserSheet()
 			shift = {0.5, -1.6},
 		    }
 		}
-	}    
+	}
 end
 
 
@@ -61,7 +61,7 @@ local function lightningTowerSheet()
 		    }
 		}
 	}
-    
+
 end
 
 
@@ -85,7 +85,8 @@ function lasers.enable()
 	foldedAnimation = advancedLaserSheet(),
 	foldingAnimation = advancedLaserSheet(),
 	preparedAnimation = advancedLaserSheet(),
-	preparingAnimation = advancedLaserSheet()
+	preparingAnimation = advancedLaserSheet(),
+        rotationSpeed = 0.002
     }
     local _, advancedElectricTurretItem = makeElectricTurret(entity, {
 								 type = "projectile",
@@ -96,7 +97,7 @@ function lasers.enable()
 								 projectile_creation_distance = 10,
 								 range = 40,
 								 min_range = 7,
-								 damage_modifier = 4,								 
+								 damage_modifier = 4,
 								 ammo_type =
 								     {
 									 type = "projectile",
@@ -190,7 +191,8 @@ function lasers.enable()
 	foldedAnimation = lightningTowerSheet(),
 	foldingAnimation = lightningTowerSheet(),
 	preparedAnimation = lightningTowerSheet(),
-	preparingAnimation = lightningTowerSheet()
+	preparingAnimation = lightningTowerSheet(),
+        rotationSpeed = 0.010
     }
     local _, lightningTowerTurretItem = makeElectricTurret(entity1, {
 							       type = "beam",
@@ -245,7 +247,7 @@ function lasers.enable()
 	    result = lightningTowerTurretItem,
     })
 
-    
+
     addEffectToTech("lightning",
 		    {
 			type = "unlock-recipe",
@@ -256,7 +258,7 @@ function lasers.enable()
 		    {
 			type = "unlock-recipe",
 			recipe = advanceLaserRecipe
-    })  	
+    })
 end
 
 return lasers

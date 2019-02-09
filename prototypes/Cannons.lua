@@ -32,7 +32,7 @@ local function cannonMkISheet()
 			shift = {0.3, -0.6},
 		    }
 		}
-	}    
+	}
 end
 
 
@@ -53,7 +53,7 @@ local function shotgunTurretSheet()
 			shift = {0.3, -0.5},
 		    }
 		}
-	}    
+	}
 end
 
 local function cannonMkIISheet()
@@ -73,7 +73,7 @@ local function cannonMkIISheet()
 			shift = {0.37, -0.7},
 		    }
 		}
-	}    
+	}
 end
 
 local function cannonMkIIPlace(lineLength, directionCount, frameCount, backward)
@@ -94,7 +94,7 @@ local function cannonMkIIPlace(lineLength, directionCount, frameCount, backward)
 			shift = {0.37, -0.7},
 		    }
 		}
-	}    
+	}
 end
 
 
@@ -132,7 +132,8 @@ function cannons.enable()
 	foldedAnimation = cannonMkISheet(),
 	foldingAnimation = cannonMkISheet(),
 	preparedAnimation = cannonMkISheet(),
-	preparingAnimation = cannonMkISheet()
+	preparingAnimation = cannonMkISheet(),
+        rotationSpeed = 0.05
     }
     local cannonTurret,cannonTurretItem = makeAmmoTurret(cannonAttributes,
 							 {
@@ -159,7 +160,8 @@ function cannons.enable()
 	preparedAnimation = cannonMkIISheet(),
 	attackingAnimation = cannonMkIISheet(),
 	hasBaseDirection = true,
-	foldingAnimation = cannonMkIIPlace(8, 4, 8, true)
+	foldingAnimation = cannonMkIIPlace(8, 4, 8, true),
+        rotationSpeed = 0.06
     }
     local rapidCannonTurret,rapidCannonTurretItem = makeAmmoTurret(rapidCannonAttributes, {
 								       type = "projectile",
@@ -172,7 +174,7 @@ function cannons.enable()
 								       range = 30,
 								       sound = make_heavy_gunshot_sounds(),
     })
-    
+
     local advFlamethrowerAttributes = {
     	name = "suppression-cannon",
     	icon = "__RampantArsenal__/graphics/icons/suppressionCannonTurret.png",
@@ -188,7 +190,8 @@ function cannons.enable()
     	foldedAnimation = largeCannonSheet(),
     	preparingAnimation = largeCannonSheet(),
     	preparedAnimation = largeCannonSheet(),
-    	foldingAnimation = largeCannonSheet()
+    	foldingAnimation = largeCannonSheet(),
+        rotationSpeed = 0.002
     }
     local suppressionCannonTurret,suppressionCannonTurretItem = makeFluidTurret(advFlamethrowerAttributes,
 										{
@@ -196,7 +199,7 @@ function cannons.enable()
 										    ammo_category = "flamethrower",
 										    cooldown = 4,
 										    range = 45,
-										    min_range = 6,
+										    min_range = 15,
 
 										    turn_range = 0.4,
 										    fire_penalty = 30,
@@ -207,15 +210,15 @@ function cannons.enable()
 											{type = "light-oil", damage_modifier = 1.1},
 											{type = "napalm-fluid-rampant-arsenal", damage_modifier = 1.5}
 										    },
-										    fluid_consumption = 0.8,
+										    fluid_consumption = 2.2,
 
 										    gun_center_shift = {
-											north = {0, -0.65},
-											east = {0, 0},
-											south = {0, 0},
-											west = {0, 0}
+											north = {0, -1.8},
+											east = {0, -1.8},
+											south = {0, -3},
+											west = {0, -1.8}
 										    },
-										    gun_barrel_length = 0.4,
+										    gun_barrel_length = 3.5,
 
 										    ammo_type =
 											{
@@ -225,15 +228,16 @@ function cannons.enable()
 												    type = "line",
 												    range = 45,
 												    force = "enemy",
-												    width = 20,
+												    width = 10,
 												    action_delivery =
 													{
 													    type = "stream",
 													    stream = makeStream({
 														    name = advFlamethrowerAttributes.name,
 														    bufferSize = 10,
-														    spawnInterval = 2,
-														    particleHoizontalSpeed = 2.6,
+														    spawnInterval = 1,
+                                                                                                                    particleTimeout = 8,
+														    particleHoizontalSpeed = 0.4,
 														    actions = {
 															{
 															    type = "direct",
@@ -302,7 +306,7 @@ function cannons.enable()
 												}
 											}
     })
-    
+
     local shotgunAttributes = {
 	name = "shotgun",
 	icon = "__RampantArsenal__/graphics/icons/shotgunTurret.png",
@@ -356,7 +360,7 @@ function cannons.enable()
     })
 
     local suppresionCannonRecipe = makeRecipe({
-    	    name = "suppression-cannon",	
+    	    name = "suppression-cannon",
     	    icon = "__RampantArsenal__/graphics/icons/suppressionCannonTurret.png",
     	    enabled = false,
 	    time = 40,
@@ -370,7 +374,7 @@ function cannons.enable()
     })
 
     local shotgunTurretRecipe = makeRecipe({
-	    name = "shotgun",	
+	    name = "shotgun",
 	    icon = "__RampantArsenal__/graphics/icons/shotgunTurret.png",
 	    enabled = false,
 	    ingredients = {
@@ -433,7 +437,7 @@ function cannons.enable()
 			turret_id = shotgunTurret,
 			modifier = 0.3
     })
-    
+
     addEffectToTech("shotgun-turret-damage-5",
 		    {
 			type = "turret-attack",
@@ -455,7 +459,7 @@ function cannons.enable()
 			modifier = 0.2
     })
 
-    
+
     addEffectToTech("cannon-turret-damage-1",
 		    {
 			{
@@ -511,7 +515,7 @@ function cannons.enable()
 			    modifier = 0.3
 			}
     })
-    
+
     addEffectToTech("cannon-turret-damage-5",
 		    {
 			{
@@ -553,7 +557,7 @@ function cannons.enable()
 			    modifier = 0.2
 			}
     })
-    
+
     addEffectToTech("flamethrower-damage-1",
 		    {
 			type = "turret-attack",
@@ -602,7 +606,7 @@ function cannons.enable()
 			turret_id = suppressionCannonTurret,
 			modifier = 0.2
     })
-    
+
     local incendiaryCannonShellAmmo = makeAmmo({
     	    name = "incendiary-cannon-shell",
     	    icon = "__RampantArsenal__/graphics/icons/incendiary-cannon-shell.png",
@@ -760,7 +764,7 @@ function cannons.enable()
     	    name = "he-cannon-shell",
     	    icon = "__RampantArsenal__/graphics/icons/he-cannon-shell.png",
 	    order = "d[cannon-shell]-c[he]",
-	    magSize = 1,	    
+	    magSize = 1,
 	    stackSize = 200,
     	    ammoType = {
     		category = "cannon-shell",
@@ -871,7 +875,7 @@ function cannons.enable()
     		    }
     	    }
     })
-    
+
     local heCannonShellRecipe = makeRecipe({
 	    name = "he-cannon-shell",
 	    icon = "__RampantArsenal__/graphics/icons/he-cannon-shell.png",
@@ -987,7 +991,7 @@ function cannons.enable()
 										    {
 											type = "instant",
 											target_effects =
-											    {											
+											    {
 												{
 												    type = "create-sticker",
 												    sticker = "small-toxic-sticker-rampant-arsenal"
@@ -1010,7 +1014,7 @@ function cannons.enable()
     		    }
     	    }
     })
-    
+
     local bioCannonShellRecipe = makeRecipe({
 	    name = "bio-cannon-shell",
 	    icon = "__RampantArsenal__/graphics/icons/bio-cannon-shell.png",
