@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.16.11
 Date: 2. 8. 2019
+  Improvements:
+    - Removed restriction on reactive mending wall and gate cloud limit, replaced with 15% of happening on damage
   Tweaks:
     - Decreased rotation speed on advanced laser turret from 0.015 to 0.002
     - Decreased rotation speed on advanced flamethrower turret from 0.015 to 0.002
@@ -22,8 +24,19 @@ Date: 2. 8. 2019
     - Locked area of fire to 108 degrees for rocket launcher
     - Locked area of fire to 108 degrees for capsule launcher
     - Locked area of fire to 108 degrees for rapid rocket launcher
+    - Cut the cost of reinforced walls by %50
+    - Increased reinforced walls and gates physical resistance from 3 to 6 decrease
+    - Increased reinforced walls and gates impact resistance from 70 to 80%
+    - Increased reinforced walls and gates explosion resistance from 50 to 60%
+    - Increased reinforced walls and gates explosion resistance from 10 to 20 decrease
+    - Increased reinforced walls and gates electric resistance from 50 to 60%
+    - Increased reinforced walls and gates poison resistance from 50 to 60%
+    - Increased mend wall proc interval from 50 to 175
+    - Increased mend wall duration from 500 to 3000
+    - Decreased mend wall heal amount per interval from -80 to -7
   Bugfixes:
     - Fixed advanced flamethrower projectiles arc
+    - Fixed walls not having acid resistance (basic 15%, mend 30%, reinforced 70%)
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.16.11

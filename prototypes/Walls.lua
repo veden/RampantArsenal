@@ -38,6 +38,10 @@ function walls.enable()
 		    decrease = 10,
 		    percent = 30
 		},
+                {
+		    type = "acid",
+		    percent = 30
+		},
 		{
 		    type = "fire",
 		    percent = 100
@@ -63,7 +67,7 @@ function walls.enable()
 		action_delivery =
 		    {
 			type = "instant",
-			
+
 			source_effects =
 			    {
 				{
@@ -76,13 +80,13 @@ function walls.enable()
 	    }
 	}
     )
-    
+
     local mendingGate,mendingGateItem = makeGate(
 	{
 	    name = "mending",
 	    icon = "__RampantArsenal__/graphics/icons/mending-gate.png",
 	    health = 1000,
-	    healing = 1,	    
+	    healing = 1,
 	    tint = {r=0,g=0.8,b=0,a=0.8},
 	    order = "a[wall]-b[gatez]",
 	    resistances = {
@@ -101,6 +105,10 @@ function walls.enable()
 		    decrease = 10,
 		    percent = 30
 		},
+                {
+		    type = "acid",
+		    percent = 30
+		},
 		{
 		    type = "fire",
 		    percent = 100
@@ -126,7 +134,7 @@ function walls.enable()
 		action_delivery =
 		    {
 			type = "instant",
-			
+
 			source_effects =
 			    {
 				{
@@ -176,7 +184,7 @@ function walls.enable()
 			    recipe = mendingWallRecipe
 			}
     })
-    
+
     local reinforcedWall,reinforcedWallItem = makeWall(
 	{
 	    name = "reinforced",
@@ -187,18 +195,22 @@ function walls.enable()
 	    resistances = {
 		{
 		    type = "physical",
-		    decrease = 3,
+		    decrease = 6,
 		    percent = 40
 		},
 		{
 		    type = "impact",
 		    decrease = 45,
-		    percent = 70
+		    percent = 80
 		},
 		{
 		    type = "explosion",
-		    decrease = 10,
-		    percent = 50
+		    decrease = 20,
+		    percent = 60
+		},
+                {
+		    type = "acid",
+		    percent = 70
 		},
 		{
 		    type = "fire",
@@ -210,38 +222,42 @@ function walls.enable()
 		},
 		{
 		    type = "electric",
-		    percent = 50
+		    percent = 60
 		},
 		{
 		    type = "poison",
-		    percent = 50
+		    percent = 60
 		}
 	    }
 	}
     )
-    
+
     local reinforcedGate,reinforcedGateItem = makeGate(
 	{
 	    name = "reinforced",
 	    icon = "__RampantArsenal__/graphics/icons/reinforced-gate.png",
-	    health = 1500,	    
+	    health = 1500,
 	    tint = {r=0,g=0,b=0.8,a=0.8},
 	    order = "a[wall]-b[gatezz]",
 	    resistances = {
 		{
 		    type = "physical",
-		    decrease = 3,
+		    decrease = 6,
 		    percent = 40
 		},
 		{
 		    type = "impact",
 		    decrease = 45,
-		    percent = 70
+		    percent = 80
 		},
 		{
 		    type = "explosion",
-		    decrease = 10,
-		    percent = 50
+		    decrease = 20,
+		    percent = 60
+		},
+                {
+		    type = "acid",
+		    percent = 70
 		},
 		{
 		    type = "fire",
@@ -253,23 +269,23 @@ function walls.enable()
 		},
 		{
 		    type = "electric",
-		    percent = 50
+		    percent = 60
 		},
 		{
 		    type = "poison",
-		    percent = 50
+		    percent = 60
 		}
 	    }
 	}
     )
-    
+
     local reinforcedWallRecipe = makeRecipe({
 	    name = "reinforced-wall",
 	    icon = "__RampantArsenal__/graphics/icons/reinforced-wall.png",
 	    enabled = false,
 	    category = "crafting",
 	    ingredients = {
-		{"refined-concrete", 10}
+		{"refined-concrete", 5}
 	    },
 	    result = reinforcedWallItem
     })
@@ -286,7 +302,7 @@ function walls.enable()
 	    },
 	    result = reinforcedGateItem
     })
-    
+
     addEffectToTech("stone-walls-2",
 		    {
 			{
@@ -306,7 +322,7 @@ function walls.enable()
 		      percent = 30
     })
 
-    
+
     addResistance("wall",
 		  "stone-wall",
 		  {
@@ -314,14 +330,20 @@ function walls.enable()
 		      percent = 20
     })
 
-    
+    addResistance("wall",
+		  "stone-wall",
+		  {
+		      type = "acid",
+		      percent = 15
+    })
+
     addResistance("wall",
 		  "stone-wall",
 		  {
 		      type = "poison",
 		      percent = 20
     })
-    
+
     addResistance("gate",
 		  "gate",
 		  {
@@ -332,10 +354,17 @@ function walls.enable()
     addResistance("gate",
 		  "gate",
 		  {
+		      type = "acid",
+		      percent = 15
+    })
+
+    addResistance("gate",
+		  "gate",
+		  {
 		      type = "electric",
 		      percent = 20
     })
-    
+
     addResistance("gate",
 		  "gate",
 		  {

@@ -90,14 +90,14 @@ function clouds.enable()
 							type = "create-fire",
 							entity_name = "fire-flame",
 							initial_ground_flame_count = 4
-						    }						    
+						    }
 						}
 					}
 				}
 			}
 		}
     })
-    
+
     makeCloud(
 	{
 	    name = "big-poison",
@@ -408,17 +408,17 @@ function clouds.enable()
 			}
 		}
     })
-    
+
     local smallRepairCloud = makeCloud(
 	{
 	    name = "small-repair",
-	    duration = 500,
-	    inDuration = 10,
-	    outDuration = 10,
+	    duration = 3000,
+	    inDuration = 1500,
+	    outDuration = 1500,
 	    movementModifier = 0,
-	    cooldown = 50,
+	    cooldown = 175,
 	    spreadRadius = 2,
-	    tint = {r=0.5,g=0.3,b=0,a=0.1},
+	    tint = {r=0.3,g=0.1,b=0,a=0.01},
 	    scale = 1
 	},
 	{
@@ -440,7 +440,7 @@ function clouds.enable()
 					    target_effects =
 						{
 						    type = "damage",
-						    damage = { amount = -80, type = "healing" }
+						    damage = { amount = -7, type = "healing" }
 						}
 					}
 				}

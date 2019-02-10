@@ -40,7 +40,7 @@ function wallUtils.makeWall(attributes, attack)
 		minable = {mining_time = 0.5, result = name},
 		fast_replaceable_group = "wall",
 		max_health = attributes.health or 350,
-		healing_per_tick = attributes.healing or 0.04,
+		healing_per_tick = attributes.healing,
 		repair_speed_modifier = attributes.repairSpeed or 2,
 		corpse = "wall-remnants",
 		repair_sound = { filename = "__base__/sound/manual-repair-simple.ogg" },
@@ -436,7 +436,7 @@ function wallUtils.makeWall(attributes, attack)
 		default_output_signal = data.is_demo and {type = "virtual", name = "signal-green"} or {type = "virtual", name = "signal-G"}
 	    }
     })
-    
+
     return name, itemName
 end
 
@@ -821,7 +821,7 @@ function wallUtils.makeGate(attributes, attack)
 		    }
 	    }
     })
-    
+
     return name, itemName
 end
 

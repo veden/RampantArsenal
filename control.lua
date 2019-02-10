@@ -51,13 +51,10 @@ local function onConfigChanged()
 
 	world.version = 1
     end
-    if (world.version < 5) then
+    -- if (world.version < 5) then
 
-	world.nextTick = 0
-	world.count = 0
-
-	world.version = 5
-    end
+    --     world.version = 5
+    -- end
     if (world.version < 6) then
 
         world.areaTop = {}
@@ -71,6 +68,13 @@ local function onConfigChanged()
         world.mineCheckNextTick = 0
 
 	world.version = 6
+    end
+    if (world.version < 7) then
+
+	world.nextTick = nil
+	world.count = nil
+
+	world.version = 7
     end
 end
 
@@ -120,14 +124,8 @@ local function onTriggerEntityCreated(event)
     if entity and entity.valid then
         local tick = event.tick
         if (event.entity.name == "small-repair-cloud-rampant-arsenal") then
-            world.count = world.count + 1
-            if (world.count >= 5) then
+            if (mRandom() < 0.75) then
                 entity.destroy()
-            end
-
-            if (tick >= world.nextTick) then
-                world.count = 0
-                world.nextTick = tick + 80
             end
         elseif (event.entity.name == "rampant-clean-ghost-mine") then
             if (tick >= world.mineCheckNextTick) then
@@ -136,7 +134,7 @@ local function onTriggerEntityCreated(event)
             end
 
             if (world.mineChecks > 2) then
-                entity.die()
+                entity.destroy()
                 return
             else
                 world.mineChecks = world.mineChecks + 1
@@ -169,5 +167,3 @@ script.on_event(defines.events.on_runtime_mod_setting_changed, onModSettingsChan
 script.on_configuration_changed(onConfigChanged)
 
 script.on_event(defines.events.on_trigger_created_entity, onTriggerEntityCreated)
-
---script.on_event(defines.events.on_entity_died, onDeath)
