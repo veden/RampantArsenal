@@ -2,7 +2,7 @@
 Version: 0.16.12
 Date: 2. 8. 2019
   Improvements:
-    - Removed restriction on reactive mending wall and gate cloud limit, replaced with 15% of happening on damage
+    - Removed restriction on reactive mending wall and gate cloud limit, replaced with 25% of happening on damage
   Tweaks:
     - Decreased rotation speed on advanced laser turret from 0.015 to 0.002
     - Decreased rotation speed on advanced flamethrower turret from 0.015 to 0.002
