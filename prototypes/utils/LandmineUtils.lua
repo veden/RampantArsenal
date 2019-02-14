@@ -132,7 +132,8 @@ function landmineUtils.makeLandmine(attributes, attack)
 			"placeable-enemy",
 			"player-creation",
 			"placeable-off-grid",
-			"not-on-map"
+			"not-on-map",
+                        "hide-from-bonus-gui"
 		    },
 		minable = {mining_time = 1, result = name},
 		mined_sound = { filename = "__core__/sound/deconstruct-small.ogg" },
