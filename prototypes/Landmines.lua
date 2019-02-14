@@ -327,6 +327,22 @@ function landmines.enable()
 	    result = bioLandmine
     })
 
+    local landmine = table.deepcopy(data.raw["land-mine"]["land-mine"])
+    -- local landmineRecipe = table.deepcopy(data.raw["recipe"]["land-mine"])
+    local landmineItem = table.deepcopy(data.raw["item"]["land-mine"])
+
+    landmineItem.hidden = true
+    landmineItem.name = "landmine-ghostless-rampant-arsenal"
+    landmineItem.place_result = "landmine-ghostless-rampant-arsenal"
+
+    landmine.name = "landmine-ghostless-rampant-arsenal"
+    landmine.create_ghost_on_death = false
+
+    data:extend({
+            landmine,
+            landmineItem
+    })
+
     addEffectToTech("uranium-ammo",
 		    {
 			type = "unlock-recipe",

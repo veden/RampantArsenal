@@ -451,7 +451,7 @@ function capsules.enable()
 							type = "instant",
 							target_effects = {
 							    type = "create-entity",
-							    entity_name = "land-mine"
+							    entity_name = "landmine-ghostless-rampant-arsenal"
 							}
 						    }
 					    },
@@ -468,12 +468,7 @@ function capsules.enable()
 								{
 								    type = "create-entity",
 								    show_in_tooltip = true,
-								    entity_name = "land-mine"
-								},
-                                                                {
-								    type = "create-entity",
-								    trigger_created_entity = true,
-								    entity_name = "rampant-clean-ghost-mine"
+								    entity_name = "landmine-ghostless-rampant-arsenal"
 								}
 							    }
 						    }
@@ -518,12 +513,7 @@ function capsules.enable()
 							target_effects = {
                                                             {
                                                                 type = "create-entity",
-                                                                entity_name = "incendiary-landmine-rampant-arsenal"
-                                                            },
-                                                            {
-                                                                type = "create-entity",
-                                                                trigger_created_entity = true,
-                                                                entity_name = "rampant-clean-ghost-mine"
+                                                                entity_name = "incendiary-landmine-ghostless-rampant-arsenal"
                                                             }
                                                         }
 						    }
@@ -541,7 +531,7 @@ function capsules.enable()
 								{
 								    type = "create-entity",
 								    show_in_tooltip = true,
-								    entity_name = "incendiary-landmine-rampant-arsenal"
+								    entity_name = "incendiary-landmine-ghostless-rampant-arsenal"
 								}
 							    }
 						    }
@@ -587,34 +577,11 @@ function capsules.enable()
 							target_effects = {
                                                             {
                                                                 type = "create-entity",
-                                                                entity_name = "he-landmine-rampant-arsenal"
-                                                            },
-                                                            {
-                                                                type = "create-entity",
-                                                                trigger_created_entity = true,
-                                                                entity_name = "rampant-clean-ghost-mine"
+                                                                entity_name = "he-landmine-ghostless-rampant-arsenal"
                                                             }
                                                         }
 						    }
-					    }-- ,
-					    -- {
-					    --     type = "cluster",
-					    --     cluster_count = 3,
-					    --     distance = 4,
-					    --     distance_deviation = 3,
-					    --     action_delivery =
-					    --         {
-					    --     	type = "instant",
-					    --     	target_effects =
-					    --     	    {
-					    --     		{
-					    --     		    type = "create-entity",
-					    --     		    show_in_tooltip = true,
-					    --     		    entity_name = "he-landmine-rampant-arsenal"
-					    --     		}
-					    --     	    }
-					    --         }
-					    -- }
+					    }
 					}
 				}),
 				max_length = 9,
@@ -656,34 +623,11 @@ function capsules.enable()
 							target_effects = {
                                                             {
                                                                 type = "create-entity",
-                                                                entity_name = "bio-landmine-rampant-arsenal"
-                                                            },
-                                                            {
-                                                                type = "create-entity",
-                                                                trigger_created_entity = true,
-                                                                entity_name = "rampant-clean-ghost-mine"
+                                                                entity_name = "bio-landmine-ghostless-rampant-arsenal"
                                                             }
                                                         }
 						    }
-					    }-- ,
-					    -- {
-					    --     type = "cluster",
-					    --     cluster_count = 3,
-					    --     distance = 4,
-					    --     distance_deviation = 3,
-					    --     action_delivery =
-					    --         {
-					    --     	type = "instant",
-					    --     	target_effects =
-					    --     	    {
-					    --     		{
-					    --     		    type = "create-entity",
-					    --     		    show_in_tooltip = true,
-					    --     		    entity_name = "bio-landmine-rampant-arsenal"
-					    --     		}
-					    --     	    }
-					    --         }
-					    -- }
+					    }
 					}
 				}),
 				max_length = 9,
@@ -725,12 +669,7 @@ function capsules.enable()
 							target_effects = {
                                                             {
                                                                 type = "create-entity",
-                                                                entity_name = "nuclear-landmine-rampant-arsenal"
-                                                            },
-                                                            {
-                                                                type = "create-entity",
-                                                                trigger_created_entity = true,
-                                                                entity_name = "rampant-clean-ghost-mine"
+                                                                entity_name = "nuclear-landmine-ghostless-rampant-arsenal"
                                                             }
                                                         }
 						    }

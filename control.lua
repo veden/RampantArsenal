@@ -122,39 +122,10 @@ end
 local function onTriggerEntityCreated(event)
     local entity = event.entity
     if entity and entity.valid then
-        local tick = event.tick
         if (event.entity.name == "small-repair-cloud-rampant-arsenal") then
             if (mRandom() < 0.75) then
                 entity.destroy()
             end
-        elseif (event.entity.name == "rampant-clean-ghost-mine") then
-            if (tick >= world.mineCheckNextTick) then
-                world.mineCheckNextTick = tick + 60
-                world.mineChecks = 0
-            end
-
-            if (world.mineChecks > 2) then
-                entity.destroy()
-                return
-            else
-                world.mineChecks = world.mineChecks + 1
-            end
-
-            local surface = entity.surface
-            world.areaTop.x = entity.position.x - 5
-            world.areaTop.y = entity.position.y - 5
-            world.areaBottom.x = entity.position.x + 5
-            world.areaBottom.y = entity.position.y + 5
-            local entities = surface.find_entities_filtered({
-                    ghost_type = "land-mine",
-                    area = world.area
-            })
-            for i=1,#entities do
-                if (entities[i].valid) then
-                    entities[i].destroy()
-                end
-            end
-            entity.destroy()
         end
     end
 end
