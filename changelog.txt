@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.16.15
+Date: 2. 18. 2019
+  Bugfixes:
+    - Fixed Toxic capsule affecting non-breathing things
+    - Fixed handheld flamethrower arc with naplam
+
+---------------------------------------------------------------------------------------------------
 Version: 0.16.14
 Date: 2. 13. 2019
   Improvements:

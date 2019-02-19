@@ -23,7 +23,7 @@ function fire.enable()
 	    fuelValue = "1.25MJ",
 	    order = "e[napalm]"
     })
-    
+
     local napalmAmmo = makeAmmo({
     	    name = "napalm",
     	    icon = "__RampantArsenal__/graphics/icons/napalm-ammo.png",
@@ -46,7 +46,7 @@ function fire.enable()
 					    bufferSize = 65,
 					    spawnInterval = 2,
 					    particleTimeout = 2,
-					    particleVerticalAcceleration = 0.03,
+					    particleVerticalAcceleration = 0.005,
 					    particleHoizontalSpeed = 0.25,
 					    actions = {
 						{
@@ -144,7 +144,7 @@ function fire.enable()
 		}
 	    }
     })
-    
+
     local napalmAmmoRecipe = makeRecipe({
 	    name = "napalm-ammo",
 	    icon = "__RampantArsenal__/graphics/icons/napalm-ammo.png",

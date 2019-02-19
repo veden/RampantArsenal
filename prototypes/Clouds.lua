@@ -29,6 +29,7 @@ function clouds.enable()
 				{
 				    type = "area",
 				    radius = 12,
+                                    entity_flags = {"breaths-air"},
 				    action_delivery =
 					{
 					    type = "instant",
