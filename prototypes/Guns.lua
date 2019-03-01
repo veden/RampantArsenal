@@ -829,7 +829,7 @@ function guns.enable()
 	    category = "crafting",
 	    ingredients = {
 		{"copper-plate", 10},
-		{"raw-wood", 5},
+		{"wood", 5},
 		{"iron-plate", 15}
 	    },
 	    result = rifleTurretItem
@@ -849,6 +849,11 @@ function guns.enable()
 			    turret_id = rifleTurret,
 			    modifier = 0.1
 			},
+                        {
+			    type = "turret-attack",
+			    turret_id = "gun-turret",
+			    modifier = 0.1
+			},
 			{
 			    type = "turret-attack",
 			    turret_id = gunTurret,
@@ -860,6 +865,11 @@ function guns.enable()
 			{
 			    type = "turret-attack",
 			    turret_id = rifleTurret,
+			    modifier = 0.1
+			},
+                        {
+			    type = "turret-attack",
+			    turret_id = "gun-turret",
 			    modifier = 0.1
 			},
 			{
@@ -875,6 +885,11 @@ function guns.enable()
 			    turret_id = rifleTurret,
 			    modifier = 0.2
 			},
+                        {
+			    type = "turret-attack",
+			    turret_id = "gun-turret",
+			    modifier = 0.2
+			},
 			{
 			    type = "turret-attack",
 			    turret_id = gunTurret,
@@ -886,6 +901,11 @@ function guns.enable()
 			{
 			    type = "turret-attack",
 			    turret_id = rifleTurret,
+			    modifier = 0.2
+			},
+                        {
+			    type = "turret-attack",
+			    turret_id = "gun-turret",
 			    modifier = 0.2
 			},
 			{
@@ -901,6 +921,11 @@ function guns.enable()
 			    turret_id = rifleTurret,
 			    modifier = 0.2
 			},
+                        {
+			    type = "turret-attack",
+			    turret_id = "gun-turret",
+			    modifier = 0.2
+			},
 			{
 			    type = "turret-attack",
 			    turret_id = gunTurret,
@@ -912,6 +937,11 @@ function guns.enable()
 			{
 			    type = "turret-attack",
 			    turret_id = rifleTurret,
+			    modifier = 0.4
+			},
+                        {
+			    type = "turret-attack",
+			    turret_id = "gun-turret",
 			    modifier = 0.4
 			},
 			{
@@ -926,6 +956,11 @@ function guns.enable()
 			{
 			    type = "turret-attack",
 			    turret_id = rifleTurret,
+			    modifier = 0.7
+			},
+                        {
+			    type = "turret-attack",
+			    turret_id = "gun-turret",
 			    modifier = 0.7
 			},
 			{
@@ -951,6 +986,13 @@ function guns.enable()
     })
 
     removeEffect("military-4", "unlock-recipe", "piercing-shotgun-shell")
+    removeEffect("physical-projectile-damage-1", "turret-attack", "gun-turret")
+    removeEffect("physical-projectile-damage-2", "turret-attack", "gun-turret")
+    removeEffect("physical-projectile-damage-3", "turret-attack", "gun-turret")
+    removeEffect("physical-projectile-damage-4", "turret-attack", "gun-turret")
+    removeEffect("physical-projectile-damage-5", "turret-attack", "gun-turret")
+    removeEffect("physical-projectile-damage-6", "turret-attack", "gun-turret")
+    removeEffect("physical-projectile-damage-7", "turret-attack", "gun-turret")
 
     addEffectToTech("military-3",
 		    {

@@ -29,7 +29,11 @@ function technologyUtils.removeEffect(tech, field, name)
 	if (v.type == field) then
 	    if (field == "unlock-recipe") and (v.recipe ~= name) then
 		results[#results+1] = v
+            elseif (field == "turret-attack") and (v.turret_id ~= name) then
+		results[#results+1] = v
 	    end
+        else
+            results[#results+1] = v
 	end
     end
     t.effects = results
@@ -54,7 +58,7 @@ function technologyUtils.makeTechnology(attributes)
 		unit = {
 		    count = attributes.count,
 		    count_formula = attributes.countForumla, --"2^(L-7)*1000"
-		    ingredients = attributes.ingredients or {{"science-pack-1", 1}},
+		    ingredients = attributes.ingredients or {{"automation-science-pack", 1}},
 		    time = attributes.time
 		},
 		upgrade = attributes.upgrade,

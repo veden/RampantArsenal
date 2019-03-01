@@ -15,7 +15,7 @@ function vehicleUtils.makeTank(attributes)
 		name = name,
 		icon = attributes.icon or "__base__/graphics/icons/tank.png",
 		icon_size = 32,
-		flags = {"goes-to-quickbar"},
+		flags = {},
 		subgroup = "transport",
 		order = attributes.order or "b[personal-transport]-b[tank]",
 		place_result = name,
@@ -485,7 +485,7 @@ function vehicleUtils.makeCar(attributes)
 		name = name,
 		icon = attributes.icon or "__base__/graphics/icons/car.png",
 		icon_size = 32,
-		flags = {"goes-to-quickbar"},
+		flags = {},
 		subgroup = "transport",
 		order = attributes.order or "b[personal-transport]-a[car]",
 		place_result = name,
@@ -517,7 +517,11 @@ function vehicleUtils.makeCar(attributes)
 			    type = "impact",
 			    percent = 30,
 			    decrease = 50
-			}
+			},
+                        {
+                            type = "acid",
+                            percent = 20
+                        }
 		    },
 		collision_box = attributes.collisionBox or {{-0.7, -1}, {0.7, 1}},
 		selection_box = attributes.selectionBox or {{-0.7, -1}, {0.7, 1}},
@@ -526,21 +530,21 @@ function vehicleUtils.makeCar(attributes)
 
 		burner = attributes.energySource or
 		    {
-			fuel_category = "chemical",
-			effectivity = 0.6,
-			fuel_inventory_size = 1,
-			smoke =
-			    {
-				{
-				    name = "car-smoke",
-				    deviation = {0.25, 0.25},
-				    frequency = 200,
-				    position = {0, 1.5},
-				    starting_frame = 0,
-				    starting_frame_deviation = 60
-				}
-			    }
-		    },
+                        fuel_category = "chemical",
+                        effectivity = 1,
+                        fuel_inventory_size = 1,
+                        smoke =
+                            {
+                                {
+                                    name = "car-smoke",
+                                    deviation = {0.25, 0.25},
+                                    frequency = 200,
+                                    position = {0, 1.5},
+                                    starting_frame = 0,
+                                    starting_frame_deviation = 60
+                                }
+                            }
+                    },
 		consumption = attributes.consumption or "150kW",
 		friction = attributes.friction or 2e-3,
 		light =
@@ -617,7 +621,7 @@ function vehicleUtils.makeCar(attributes)
 				    hr_version =
 					{
 					    priority = "low",
-					    width = 202,
+					    width = 201,
 					    height = 172,
 					    frame_count = 2,
 					    scale = attributes.scale * 1,
@@ -886,7 +890,7 @@ function vehicleUtils.makeTrain(attributes)
 		name = name,
 		icon = attributes.icon or "__base__/graphics/icons/diesel-locomotive.png",
 		icon_size = 32,
-		flags = {"goes-to-quickbar"},
+		flags = {},
 		subgroup = "transport",
 		order = attributes.order or "a[train-system]-f[diesel-locomotive]",
 		place_result = name,

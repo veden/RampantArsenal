@@ -6,6 +6,748 @@ local makeTechnology = technologyUtils.makeTechnology
 
 function technologies.enable()
 
+
+    -- data:extend({
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "rocket-damage-1",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "ammo-damage",
+    --         --                 ammo_category = "rocket",
+    --         --                 modifier = 0.2
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"rocketry"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 100,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1}
+    --         --                 },
+    --         --             time = 30
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-j-a"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "rocket-damage-2",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "ammo-damage",
+    --         --                 ammo_category = "rocket",
+    --         --                 modifier = 0.2
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"rocket-damage-1"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 200,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1}
+    --         --                 },
+    --         --             time = 30
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-j-b"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "rocket-damage-3",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "ammo-damage",
+    --         --                 ammo_category = "rocket",
+    --         --                 modifier = 0.3
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"rocket-damage-2"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 200,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-j-c"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "rocket-damage-4",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "ammo-damage",
+    --         --                 ammo_category = "rocket",
+    --         --                 modifier = 0.3
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"rocket-damage-3"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 200,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-j-d"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "rocket-damage-5",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "ammo-damage",
+    --         --                 ammo_category = "rocket",
+    --         --                 modifier = 0.3
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"rocket-damage-4"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 300,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-j-e"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "rocket-damage-6",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "ammo-damage",
+    --         --                 ammo_category = "rocket",
+    --         --                 modifier = 0.5
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"rocket-damage-5"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 300,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1},
+    --         --                     {"utility-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-j-f"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "rocket-damage-7",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "ammo-damage",
+    --         --                 ammo_category = "rocket",
+    --         --                 modifier = 0.5
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"rocket-damage-6"},
+    --         --     unit =
+    --         --         {
+    --         --             count_formula = "2^(L-7)*1000",
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1},
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"utility-science-pack", 1},
+    --         --                     {"space-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     max_level = "infinite",
+    --         --     upgrade = true,
+    --         --     order = "e-j-f"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "rocket-speed-1",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "gun-speed",
+    --         --                 ammo_category = "rocket",
+    --         --                 modifier = 0.3
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"rocketry"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 100,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1}
+    --         --                 },
+    --         --             time = 30
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-j-g"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "rocket-speed-2",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "gun-speed",
+    --         --                 ammo_category = "rocket",
+    --         --                 modifier = 0.3
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"rocket-speed-1"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 200,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1}
+    --         --                 },
+    --         --             time = 30
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-j-h"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "rocket-speed-3",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "gun-speed",
+    --         --                 ammo_category = "rocket",
+    --         --                 modifier = 0.4
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"rocket-speed-2"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 200,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-j-i"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "rocket-speed-4",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "gun-speed",
+    --         --                 ammo_category = "rocket",
+    --         --                 modifier = 0.4
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"rocket-speed-3"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 300,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-j-k"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "rocket-speed-5",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "gun-speed",
+    --         --                 ammo_category = "rocket",
+    --         --                 modifier = 0.4
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"rocket-speed-4"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 300,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-j-l"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "rocket-speed-6",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "gun-speed",
+    --         --                 ammo_category = "rocket",
+    --         --                 modifier = 0.6
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"rocket-speed-5"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 300,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1},
+    --         --                     {"utility-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-j-m"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "rocket-speed-7",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "gun-speed",
+    --         --                 ammo_category = "rocket",
+    --         --                 modifier = 1
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"rocket-speed-6"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 500,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1},
+    --         --                     {"utility-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-j-n"
+    --         -- },
+            
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "cannon-shell-damage-1",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "ammo-damage",
+    --         --                 ammo_category = "cannon-shell",
+    --         --                 modifier = 0.2
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"tanks"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 100,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-k-a"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "cannon-shell-damage-2",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "ammo-damage",
+    --         --                 ammo_category = "cannon-shell",
+    --         --                 modifier = 0.2
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"cannon-shell-damage-1"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 150,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-k-b"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "cannon-shell-damage-3",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "ammo-damage",
+    --         --                 ammo_category = "cannon-shell",
+    --         --                 modifier = 0.3
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"cannon-shell-damage-2"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 300,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-k-c"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "cannon-shell-damage-4",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "ammo-damage",
+    --         --                 ammo_category = "cannon-shell",
+    --         --                 modifier = 0.5
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"cannon-shell-damage-3"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 300,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1},
+    --         --                     {"utility-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-k-d"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "cannon-shell-damage-5",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "ammo-damage",
+    --         --                 ammo_category = "cannon-shell",
+    --         --                 modifier = 1
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"cannon-shell-damage-4"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 1000,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1},
+    --         --                     {"utility-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-k-d"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "cannon-shell-damage-6",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "ammo-damage",
+    --         --                 ammo_category = "cannon-shell",
+    --         --                 modifier = 1
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"cannon-shell-damage-5"},
+    --         --     unit =
+    --         --         {
+    --         --             count_formula = "2^(L-5)*1000",
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1},
+    --         --                     {"utility-science-pack", 1},
+    --         --                     {"space-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     max_level = "infinite",
+    --         --     upgrade = true,
+    --         --     order = "e-k-d"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "cannon-shell-speed-1",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-speed.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "gun-speed",
+    --         --                 ammo_category = "cannon-shell",
+    --         --                 modifier = 0.2
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"tanks"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 100,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-k-g"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "cannon-shell-speed-2",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-speed.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "gun-speed",
+    --         --                 ammo_category = "cannon-shell",
+    --         --                 modifier = 0.2
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"cannon-shell-speed-1"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 150,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-k-h"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "cannon-shell-speed-3",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-speed.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "gun-speed",
+    --         --                 ammo_category = "cannon-shell",
+    --         --                 modifier = 0.3
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"cannon-shell-speed-2"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 300,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-k-i"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "cannon-shell-speed-4",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-speed.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "gun-speed",
+    --         --                 ammo_category = "cannon-shell",
+    --         --                 modifier = 0.6
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"cannon-shell-speed-3"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 400,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1},
+    --         --                     {"utility-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-k-j"
+    --         -- },
+    --         -- {
+    --         --     type = "technology",
+    --         --     name = "cannon-shell-speed-5",
+    --         --     icon_size = 128,
+    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-speed.png",
+    --         --     effects =
+    --         --         {
+    --         --             {
+    --         --                 type = "gun-speed",
+    --         --                 ammo_category = "cannon-shell",
+    --         --                 modifier = 1
+    --         --             }
+    --         --         },
+    --         --     prerequisites = {"cannon-shell-speed-4"},
+    --         --     unit =
+    --         --         {
+    --         --             count = 1000,
+    --         --             ingredients =
+    --         --                 {
+    --         --                     {"military-science-pack", 1},
+    --         --                     {"automation-science-pack", 1},
+    --         --                     {"logistic-science-pack", 1},
+    --         --                     {"chemical-science-pack", 1},
+    --         --                     {"utility-science-pack", 1}
+    --         --                 },
+    --         --             time = 60
+    --         --         },
+    --         --     upgrade = true,
+    --         --     order = "e-k-k"
+    --         -- }
+    -- })
+
+
+
+    
     local incendiary = makeTechnology({
 	    name="incendiary",
 	    icon="__RampantArsenal__/graphics/technology/incendiary.png",
@@ -13,9 +755,9 @@ function technologies.enable()
 	    effects = {},
 	    count = 75,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -28,9 +770,9 @@ function technologies.enable()
 	    effects = {},
 	    count = 75,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -44,9 +786,9 @@ function technologies.enable()
 	    effects = {},
 	    count = 75,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -59,9 +801,9 @@ function technologies.enable()
 	    effects = {},
 	    count = 75,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -73,9 +815,9 @@ function technologies.enable()
 	    prerequisites = {"military-4", "explosives", bioweapons},
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 100,
@@ -88,9 +830,9 @@ function technologies.enable()
 	    prerequisites = {"explosives", "military-3", incendiary},
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 100,
@@ -103,9 +845,9 @@ function technologies.enable()
 	    prerequisites = {"land-mine", incendiary},
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 100,
@@ -118,9 +860,9 @@ function technologies.enable()
 	    prerequisites = {"land-mine", bioweapons},
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 100,
@@ -133,9 +875,9 @@ function technologies.enable()
 	    prerequisites = {"land-mine", he},
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 100,
@@ -149,9 +891,9 @@ function technologies.enable()
 	    prerequisites = {"military-3", "tanks", incendiary},
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 100,
@@ -164,9 +906,9 @@ function technologies.enable()
 	    prerequisites = {"military-3", "tanks", bioweapons},
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 100,
@@ -179,9 +921,9 @@ function technologies.enable()
 	    prerequisites = {"military-3", "tanks", he},
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 100,
@@ -194,11 +936,11 @@ function technologies.enable()
 	    prerequisites = {"artillery", napalm},
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 2000,
 	    time = 30
@@ -210,11 +952,11 @@ function technologies.enable()
 	    prerequisites = {bioCapsules, "artillery"},
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 2000,
 	    time = 30
@@ -227,9 +969,9 @@ function technologies.enable()
 	    prerequisites = {he},
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 100,
@@ -242,11 +984,11 @@ function technologies.enable()
 	    prerequisites = {"artillery", heGrenades},
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 2000,
 	    time = 30
@@ -258,9 +1000,9 @@ function technologies.enable()
 	    prerequisites = {bioweapons},
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 100,
@@ -273,9 +1015,9 @@ function technologies.enable()
 	    icon = "__RampantArsenal__/graphics/technology/capsule-turrets.png",
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 100,
@@ -295,9 +1037,9 @@ function technologies.enable()
 		}
 	    },
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 100,
@@ -317,9 +1059,9 @@ function technologies.enable()
 		}
 	    },
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 150,
@@ -339,9 +1081,9 @@ function technologies.enable()
 		}
 	    },
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 300,
@@ -361,11 +1103,11 @@ function technologies.enable()
 		}
 	    },
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 300,
 	    time = 60
@@ -385,11 +1127,11 @@ function technologies.enable()
 		}
 	    },
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 1000,
 	    time = 60
@@ -408,11 +1150,11 @@ function technologies.enable()
 		}
 	    },
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 3000,
 	    time = 60
@@ -425,9 +1167,9 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 100,
@@ -441,9 +1183,9 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 150,
@@ -457,9 +1199,9 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 300,
@@ -473,11 +1215,11 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 300,
 	    time = 60
@@ -491,11 +1233,11 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 1000,
 	    time = 60
@@ -508,11 +1250,11 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 3000,
 	    time = 60
@@ -527,11 +1269,11 @@ function technologies.enable()
 	    maxLevel = "infinite",
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1},
+		{"utility-science-pack", 1},
 		{"space-science-pack", 1}
 	    },
 	    countForumla = "2^(L-7)*1000",
@@ -546,9 +1288,9 @@ function technologies.enable()
 	    icon = "__RampantArsenal__/graphics/technology/cannon-turrets.png",
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 75,
@@ -557,13 +1299,13 @@ function technologies.enable()
 
     makeTechnology({
 	    name = "cannon-turret-2",
-	    prerequisites = {"explosives", "cannon-shell-speed-1", cannonTech},
+	    prerequisites = {"explosives", "weapon-shooting-speed-5", cannonTech},
 	    icon = "__RampantArsenal__/graphics/technology/cannon-turrets.png",
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 120,
@@ -575,22 +1317,22 @@ function technologies.enable()
 	    prerequisites = {"turrets","steel-processing","military"},
 	    icon = "__RampantArsenal__/graphics/technology/shotgun-turrets.png",
 	    effects = {},
-	    ingredients = {{"science-pack-1", 1}},
+	    ingredients = {{"automation-science-pack", 1}},
 	    count = 20,
 	    time = 10
     })
 
     makeTechnology({
     	    name = "flamethrower-2",
-    	    prerequisites = {"flamethrower-damage-2", "military-4", "advanced-electronics-2", "concrete"},
+    	    prerequisites = {"refined-flammables-2", "military-4", "advanced-electronics-2", "concrete"},
 	    icon = "__base__/graphics/technology/flamethrower.png",
     	    effects = {},
     	    ingredients = {
-    		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+    		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1},
-    		{"high-tech-science-pack", 1}
+    		{"utility-science-pack", 1}
     	    },
     	    count = 2000,
     	    time = 30
@@ -603,7 +1345,7 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1}
+		{"automation-science-pack", 1}
 	    },
 	    count = 50,
 	    time = 30,
@@ -617,8 +1359,8 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1}
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1}
 	    },
 	    count = 100,
 	    time = 45,
@@ -632,8 +1374,8 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 300,
@@ -648,8 +1390,8 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 300,
@@ -665,9 +1407,9 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 1000,
@@ -682,11 +1424,11 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 3000,
 	    time = 60,
@@ -701,11 +1443,11 @@ function technologies.enable()
 	    maxLevel = "infinite",
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1},
+		{"utility-science-pack", 1},
 		{"space-science-pack", 1}
 	    },
 	    countForumla = "2^(L-7)*1000",
@@ -713,6 +1455,123 @@ function technologies.enable()
 	    order = "e-z-f"
     })
 
+    local gunTurretDamage1 = makeTechnology({
+	    name = "gun-turret-damage-1",
+	    prerequisites = {"turrets"},
+	    icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+	    upgrade = true,
+	    effects = {},
+	    ingredients = {
+		{"automation-science-pack", 1}
+	    },
+	    count = 50,
+	    time = 30,
+	    order = "e-z-a"
+    })
+
+    local gunTurretDamage2 = makeTechnology({
+	    name = "gun-turret-damage-2",
+	    prerequisites = {gunTurretDamage1},
+	    icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+	    upgrade = true,
+	    effects = {},
+	    ingredients = {
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1}
+	    },
+	    count = 100,
+	    time = 45,
+	    order = "e-z-b"
+    })
+
+    local gunTurretDamage3 = makeTechnology({
+	    name = "gun-turret-damage-3",
+	    prerequisites = {gunTurretDamage2},
+	    icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+	    upgrade = true,
+	    effects = {},
+	    ingredients = {
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"military-science-pack", 1}
+	    },
+	    count = 300,
+	    time = 50,
+	    order = "e-z-c"
+    })
+
+    local gunTurretDamage4 = makeTechnology({
+	    name = "gun-turret-damage-4",
+	    prerequisites = {gunTurretDamage3},
+	    icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+	    upgrade = true,
+	    effects = {},
+	    ingredients = {
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"military-science-pack", 1}
+	    },
+	    count = 300,
+	    time = 60,
+	    order = "e-z-d"
+    })
+
+
+    local gunTurretDamage5 = makeTechnology({
+	    name = "gun-turret-damage-5",
+	    prerequisites = {gunTurretDamage4},
+	    icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+	    upgrade = true,
+	    effects = {},
+	    ingredients = {
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
+		{"military-science-pack", 1}
+	    },
+	    count = 1000,
+	    time = 60,
+	    order = "e-z-e"
+    })
+
+    local gunTurretDamage6 = makeTechnology({
+	    name = "gun-turret-damage-6",
+	    prerequisites = {gunTurretDamage5},
+	    icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+	    upgrade = true,
+	    effects = {},
+	    ingredients = {
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
+		{"military-science-pack", 1},
+		{"utility-science-pack", 1}
+	    },
+	    count = 3000,
+	    time = 60,
+	    order = "e-z-f"
+    })
+
+    makeTechnology({
+	    name = "gun-turret-damage-7",
+	    prerequisites = {gunTurretDamage6},
+	    icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+	    upgrade = true,
+	    maxLevel = "infinite",
+	    effects = {},
+	    ingredients = {
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
+		{"military-science-pack", 1},
+		{"utility-science-pack", 1},
+		{"space-science-pack", 1}
+	    },
+	    countForumla = "2^(L-7)*1000",
+	    time = 60,
+	    order = "e-z-f"
+    })
+    
     local cannonTurretDamage1 = makeTechnology({
 	    name = "cannon-turret-damage-1",
 	    prerequisites = {cannonTech},
@@ -720,9 +1579,9 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 100,
@@ -737,9 +1596,9 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 150,
@@ -754,9 +1613,9 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 300,
@@ -771,11 +1630,11 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 300,
 	    time = 60,
@@ -790,11 +1649,11 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 1000,
 	    time = 60,
@@ -808,11 +1667,11 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 3000,
 	    time = 60,
@@ -822,14 +1681,14 @@ function technologies.enable()
     makeTechnology({
 	    name = "advanced-laser-turret-2",
 	    icon = "__base__/graphics/technology/laser-turrets.png",
-	    prerequisites = {"laser-turret-damage-2", "advanced-electronics-2", "military-4", "electric-engine"},
+	    prerequisites = {"energy-weapons-damage-2", "advanced-electronics-2", "military-4", "electric-engine"},
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 2000,
 	    time = 30
@@ -843,11 +1702,11 @@ function technologies.enable()
 	    maxLevel = "infinite",
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1},
+		{"utility-science-pack", 1},
 		{"space-science-pack", 1}
 	    },
 	    countForumla = "2^(L-7)*1000",
@@ -870,11 +1729,11 @@ function technologies.enable()
 		}
 	    },
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1},
+		{"utility-science-pack", 1},
 		{"space-science-pack", 1}
 	    },
 	    countForumla = "2^(L)*1000",
@@ -901,11 +1760,11 @@ function technologies.enable()
     		}
     	    },
     	    ingredients = {
-    		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+    		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1},
-    		{"high-tech-science-pack", 1},
+    		{"utility-science-pack", 1},
     		{"space-science-pack", 1}
     	    },
     	    countForumla = "2^(L)*1000",
@@ -919,9 +1778,9 @@ function technologies.enable()
 	    icon = "__RampantArsenal__/graphics/technology/lightning-turrets.png",
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 200,
@@ -935,9 +1794,9 @@ function technologies.enable()
 	    effects = {},
 	    count = 75,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -950,9 +1809,9 @@ function technologies.enable()
 	    effects = {},
 	    count = 75,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -967,9 +1826,9 @@ function technologies.enable()
 	    effects = {},
 	    count = 75,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -982,9 +1841,9 @@ function technologies.enable()
 	    effects = {},
 	    count = 75,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -997,9 +1856,9 @@ function technologies.enable()
 	    effects = {},
 	    count = 75,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -1013,9 +1872,9 @@ function technologies.enable()
 	    effects = {},
 	    count = 75,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -1028,8 +1887,8 @@ function technologies.enable()
 	    effects = {},
 	    count = 35,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -1042,9 +1901,9 @@ function technologies.enable()
 	    effects = {},
 	    count = 75,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -1057,8 +1916,8 @@ function technologies.enable()
 	    effects = {},
 	    count = 200,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -1071,9 +1930,9 @@ function technologies.enable()
 	    effects = {},
 	    count = 200,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -1086,8 +1945,8 @@ function technologies.enable()
 	    effects = {},
 	    count = 200,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -1100,9 +1959,9 @@ function technologies.enable()
 	    effects = {},
 	    count = 75,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -1115,9 +1974,9 @@ function technologies.enable()
 	    effects = {},
 	    count = 75,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -1130,9 +1989,9 @@ function technologies.enable()
 	    effects = {},
 	    count = 75,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -1144,8 +2003,8 @@ function technologies.enable()
 	    icon = "__RampantArsenal__/graphics/technology/rocket-turrets.png",
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 200,
@@ -1154,13 +2013,13 @@ function technologies.enable()
 
     makeTechnology({
 	    name = "rocket-turret-2",
-	    prerequisites = {"rocket-speed-1", "explosive-rocketry", "advanced-electronics-2", "military-3", rocketTurretTech, "engine"},
+	    prerequisites = {"weapon-shooting-speed-4", "explosive-rocketry", "advanced-electronics-2", "military-3", rocketTurretTech, "engine"},
 	    icon = "__RampantArsenal__/graphics/technology/rocket-turrets.png",
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 300,
@@ -1174,9 +2033,9 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 100,
@@ -1191,9 +2050,9 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 150,
@@ -1208,9 +2067,9 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 300,
@@ -1225,11 +2084,11 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 300,
 	    time = 60,
@@ -1244,11 +2103,11 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 1000,
 	    time = 60,
@@ -1262,11 +2121,11 @@ function technologies.enable()
 	    upgrade = true,
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 3000,
 	    time = 60,
@@ -1281,11 +2140,11 @@ function technologies.enable()
 	    maxLevel = "infinite",
 	    effects = {},
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1},
+		{"utility-science-pack", 1},
 		{"space-science-pack", 1}
 	    },
 	    countForumla = "2^(L-7)*1000",
@@ -1294,179 +2153,179 @@ function technologies.enable()
     })
 
 
-    local landmineDamage1 = makeTechnology({
-	    name = "landmine-damage-1",
-	    prerequisites = {"land-mine"},
-	    icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "ammo-damage",
-		    ammo_category = "landmine",
-		    modifier = 0.1
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"military-science-pack", 1}
-	    },
-	    count = 50,
-	    time = 30,
-	    order = "e-z-a"
-    })
+    -- local landmineDamage1 = makeTechnology({
+    --         name = "landmine-damage-1",
+    --         prerequisites = {"land-mine"},
+    --         icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
+    --         upgrade = true,
+    --         effects = {
+    --     	{
+    --     	    type = "ammo-damage",
+    --     	    ammo_category = "landmine",
+    --     	    modifier = 0.1
+    --     	}
+    --         },
+    --         ingredients = {
+    --     	{"automation-science-pack", 1},
+    --     	{"logistic-science-pack", 1},
+    --     	{"military-science-pack", 1}
+    --         },
+    --         count = 50,
+    --         time = 30,
+    --         order = "e-z-a"
+    -- })
 
-    local landmineDamage2 = makeTechnology({
-	    name = "landmine-damage-2",
-	    prerequisites = {landmineDamage1},
-	    icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "ammo-damage",
-		    ammo_category = "landmine",
-		    modifier = 0.1
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"military-science-pack", 1}
-	    },
-	    count = 100,
-	    time = 45,
-	    order = "e-z-b"
-    })
+    -- local landmineDamage2 = makeTechnology({
+    --         name = "landmine-damage-2",
+    --         prerequisites = {landmineDamage1},
+    --         icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
+    --         upgrade = true,
+    --         effects = {
+    --     	{
+    --     	    type = "ammo-damage",
+    --     	    ammo_category = "landmine",
+    --     	    modifier = 0.1
+    --     	}
+    --         },
+    --         ingredients = {
+    --     	{"automation-science-pack", 1},
+    --     	{"logistic-science-pack", 1},
+    --     	{"military-science-pack", 1}
+    --         },
+    --         count = 100,
+    --         time = 45,
+    --         order = "e-z-b"
+    -- })
 
-    local landmineDamage3 = makeTechnology({
-	    name = "landmine-damage-3",
-	    prerequisites = {landmineDamage2},
-	    icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "ammo-damage",
-		    ammo_category = "landmine",
-		    modifier = 0.2
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"military-science-pack", 1}
-	    },
-	    count = 300,
-	    time = 50,
-	    order = "e-z-c"
-    })
+    -- local landmineDamage3 = makeTechnology({
+    --         name = "landmine-damage-3",
+    --         prerequisites = {landmineDamage2},
+    --         icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
+    --         upgrade = true,
+    --         effects = {
+    --     	{
+    --     	    type = "ammo-damage",
+    --     	    ammo_category = "landmine",
+    --     	    modifier = 0.2
+    --     	}
+    --         },
+    --         ingredients = {
+    --     	{"automation-science-pack", 1},
+    --     	{"logistic-science-pack", 1},
+    --     	{"military-science-pack", 1}
+    --         },
+    --         count = 300,
+    --         time = 50,
+    --         order = "e-z-c"
+    -- })
 
-    local landmineDamage4 = makeTechnology({
-	    name = "landmine-damage-4",
-	    prerequisites = {landmineDamage3},
-	    icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "ammo-damage",
-		    ammo_category = "landmine",
-		    modifier = 0.2
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"military-science-pack", 1}
-	    },
-	    count = 300,
-	    time = 60,
-	    order = "e-z-d"
-    })
+    -- local landmineDamage4 = makeTechnology({
+    --         name = "landmine-damage-4",
+    --         prerequisites = {landmineDamage3},
+    --         icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
+    --         upgrade = true,
+    --         effects = {
+    --     	{
+    --     	    type = "ammo-damage",
+    --     	    ammo_category = "landmine",
+    --     	    modifier = 0.2
+    --     	}
+    --         },
+    --         ingredients = {
+    --     	{"automation-science-pack", 1},
+    --     	{"logistic-science-pack", 1},
+    --     	{"military-science-pack", 1}
+    --         },
+    --         count = 300,
+    --         time = 60,
+    --         order = "e-z-d"
+    -- })
 
 
-    local landmineDamage5 = makeTechnology({
-	    name = "landmine-damage-5",
-	    prerequisites = {landmineDamage4},
-	    icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "ammo-damage",
-		    ammo_category = "landmine",
-		    modifier = 0.2
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1}
-	    },
-	    count = 1000,
-	    time = 60,
-	    order = "e-z-e"
-    })
+    -- local landmineDamage5 = makeTechnology({
+    --         name = "landmine-damage-5",
+    --         prerequisites = {landmineDamage4},
+    --         icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
+    --         upgrade = true,
+    --         effects = {
+    --     	{
+    --     	    type = "ammo-damage",
+    --     	    ammo_category = "landmine",
+    --     	    modifier = 0.2
+    --     	}
+    --         },
+    --         ingredients = {
+    --     	{"automation-science-pack", 1},
+    --     	{"logistic-science-pack", 1},
+    --     	{"chemical-science-pack", 1},
+    --     	{"military-science-pack", 1}
+    --         },
+    --         count = 1000,
+    --         time = 60,
+    --         order = "e-z-e"
+    -- })
 
-    local landmineDamage6 = makeTechnology({
-	    name = "landmine-damage-6",
-	    prerequisites = {landmineDamage5},
-	    icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
-	    upgrade = true,
-	    effects = {
-		{
-		    type = "ammo-damage",
-		    ammo_category = "landmine",
-		    modifier = 0.4
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
-	    },
-	    count = 3000,
-	    time = 60,
-	    order = "e-z-f"
-    })
+    -- local landmineDamage6 = makeTechnology({
+    --         name = "landmine-damage-6",
+    --         prerequisites = {landmineDamage5},
+    --         icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
+    --         upgrade = true,
+    --         effects = {
+    --     	{
+    --     	    type = "ammo-damage",
+    --     	    ammo_category = "landmine",
+    --     	    modifier = 0.4
+    --     	}
+    --         },
+    --         ingredients = {
+    --     	{"automation-science-pack", 1},
+    --     	{"logistic-science-pack", 1},
+    --     	{"chemical-science-pack", 1},
+    --     	{"military-science-pack", 1},
+    --     	{"utility-science-pack", 1}
+    --         },
+    --         count = 3000,
+    --         time = 60,
+    --         order = "e-z-f"
+    -- })
 
-    makeTechnology({
-	    name = "landmine-damage-7",
-	    prerequisites = {landmineDamage6},
-	    icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
-	    upgrade = true,
-	    maxLevel = "infinite",
-	    effects = {
-		{
-		    type = "ammo-damage",
-		    ammo_category = "landmine",
-		    modifier = 0.4
-		}
-	    },
-	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
-		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1},
-		{"space-science-pack", 1}
-	    },
-	    countForumla = "2^(L-7)*1000",
-	    time = 60,
-	    order = "e-z-f"
-    })
+    -- makeTechnology({
+    --         name = "landmine-damage-7",
+    --         prerequisites = {landmineDamage6},
+    --         icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
+    --         upgrade = true,
+    --         maxLevel = "infinite",
+    --         effects = {
+    --     	{
+    --     	    type = "ammo-damage",
+    --     	    ammo_category = "landmine",
+    --     	    modifier = 0.4
+    --     	}
+    --         },
+    --         ingredients = {
+    --     	{"automation-science-pack", 1},
+    --     	{"logistic-science-pack", 1},
+    --     	{"chemical-science-pack", 1},
+    --     	{"military-science-pack", 1},
+    --     	{"utility-science-pack", 1},
+    --     	{"space-science-pack", 1}
+    --         },
+    --         countForumla = "2^(L-7)*1000",
+    --         time = 60,
+    --         order = "e-z-f"
+    -- })
 
 
     local turrets2 = makeTechnology({
 	    name = "turrets-2",
 	    icon="__RampantArsenal__/graphics/technology/turrets-2.png",
-	    prerequisites = {"turrets", "military-3", "gun-turret-damage-4", "bullet-speed-4"},
+	    prerequisites = {"turrets", "military-3", "physical-projectile-damage-4", "weapon-shooting-speed-4"},
 	    effects = {},
 	    count = 250,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -1480,10 +2339,10 @@ function technologies.enable()
 	    effects = {},
 	    count = 350,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
-    		{"high-tech-science-pack", 1}
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
+    		{"utility-science-pack", 1}
 	    },
 	    time = 30
     })
@@ -1495,11 +2354,11 @@ function technologies.enable()
 	    effects = {},
 	    count = 300,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    time = 30
     })
@@ -1511,11 +2370,11 @@ function technologies.enable()
 	    effects = {},
 	    count = 1000,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1},
+		{"utility-science-pack", 1},
 		{"production-science-pack", 1}
 	    },
 	    time = 30
@@ -1529,9 +2388,9 @@ function technologies.enable()
 	    effects = {},
 	    count = 300,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -1545,11 +2404,11 @@ function technologies.enable()
 	    effects = {},
 	    count = 750,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-    		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+    		{"chemical-science-pack", 1},
     		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    time = 30
     })
@@ -1561,8 +2420,8 @@ function technologies.enable()
 	    effects = {},
 	    count = 120,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
 	    },
 	    time = 30
     })
@@ -1574,11 +2433,11 @@ function technologies.enable()
 	    effects = {},
 	    count = 600,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
     		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1},
+		{"utility-science-pack", 1},
 		{"production-science-pack", 1}
 	    },
 	    time = 30
@@ -1592,11 +2451,11 @@ function technologies.enable()
 	    effects = {},
 	    count = 600,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
     		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1},
+		{"utility-science-pack", 1},
 		{"production-science-pack", 1}
 	    },
 	    time = 30
@@ -1609,11 +2468,11 @@ function technologies.enable()
 	    effects = {},
 	    count = 800,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
     		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1},
+		{"utility-science-pack", 1},
 		{"production-science-pack", 1}
 	    },
 	    time = 30
@@ -1626,11 +2485,11 @@ function technologies.enable()
 	    effects = {},
 	    count = 400,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
     		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    time = 30
     })
@@ -1642,11 +2501,11 @@ function technologies.enable()
 	    effects = {},
 	    count = 400,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
     		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    time = 30
     })
@@ -1658,9 +2517,9 @@ function technologies.enable()
 	    effects = {},
 	    count = 400,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
     		{"military-science-pack", 1}
 	    },
 	    time = 30
@@ -1678,8 +2537,8 @@ function technologies.enable()
 		}
 	    },
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 50,
@@ -1699,8 +2558,8 @@ function technologies.enable()
 		}
 	    },
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 100,
@@ -1720,8 +2579,8 @@ function technologies.enable()
 		}
 	    },
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 300,
@@ -1741,8 +2600,8 @@ function technologies.enable()
 		}
 	    },
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 300,
@@ -1763,9 +2622,9 @@ function technologies.enable()
 		}
 	    },
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
 	    count = 1000,
@@ -1785,11 +2644,11 @@ function technologies.enable()
 		}
 	    },
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    count = 3000,
 	    time = 60,
@@ -1809,11 +2668,11 @@ function technologies.enable()
 		}
 	    },
 	    ingredients = {
-		{"science-pack-1", 1},
-		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
 		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1},
+		{"utility-science-pack", 1},
 		{"space-science-pack", 1}
 	    },
 	    countForumla = "2^(L-7)*1000",
@@ -1825,15 +2684,15 @@ function technologies.enable()
     makeTechnology({
 	    name = "personal-shotgun-defense",
 	    icon="__RampantArsenal__/graphics/technology/personal-shotgun-defense-equipment.png",
-	    prerequisites = {"personal-laser-defense-equipment", "advanced-electronics-2", "effectivity-module-2", shotgunTurretTech, "shotgun-shell-damage-5"},
+	    prerequisites = {"personal-laser-defense-equipment", "advanced-electronics-2", "effectivity-module-2", shotgunTurretTech, "physical-projectile-damage-5"},
 	    effects = {},
 	    count = 400,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
     		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    time = 30
     })
@@ -1842,15 +2701,15 @@ function technologies.enable()
     makeTechnology({
 	    name = "personal-cannon-defense",
 	    icon="__RampantArsenal__/graphics/technology/personal-cannon-defense-equipment.png",
-	    prerequisites = {"personal-laser-defense-equipment", "military-4", "advanced-electronics-2", cannonTech, "productivity-module-2", "cannon-shell-damage-3"},
+	    prerequisites = {"personal-laser-defense-equipment", "military-4", "advanced-electronics-2", cannonTech, "productivity-module-2", "physical-projectile-damage-6"},
 	    effects = {},
 	    count = 400,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
     		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    time = 30
     })
@@ -1858,15 +2717,15 @@ function technologies.enable()
     makeTechnology({
 	    name = "personal-lightning-defense",
 	    icon="__RampantArsenal__/graphics/technology/personal-lightning-defense-equipment.png",
-	    prerequisites = {"personal-laser-defense-equipment", "military-4", "advanced-electronics-2", lightningTurretTech, "speed-module-2", "laser-turret-damage-4"},
+	    prerequisites = {"personal-laser-defense-equipment", "military-4", "advanced-electronics-2", lightningTurretTech, "speed-module-2", "energy-weapons-damage-4"},
 	    effects = {},
 	    count = 400,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
     		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    time = 30
     })
@@ -1878,11 +2737,11 @@ function technologies.enable()
 	    effects = {},
 	    count = 400,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
     		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    time = 30
     })
@@ -1894,14 +2753,14 @@ function technologies.enable()
 	    effects = {},
 	    count = 400,
 	    ingredients = {
-		{"science-pack-1", 1},
-    		{"science-pack-2", 1},
-		{"science-pack-3", 1},
+		{"automation-science-pack", 1},
+    		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
     		{"military-science-pack", 1},
-		{"high-tech-science-pack", 1}
+		{"utility-science-pack", 1}
 	    },
 	    time = 30
-    })
+    })   
 
 end
 

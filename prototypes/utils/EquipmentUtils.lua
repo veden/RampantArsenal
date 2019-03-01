@@ -25,7 +25,7 @@ function equipmentUtils.makeShield(attributes)
 		icon = attributes.icon or "__base__/graphics/icons/energy-shield-equipment.png",
 		icon_size = 32,
 		placed_as_equipment_result = name,
-		flags = {"goes-to-main-inventory"},
+		flags = {},
 		subgroup = "equipment",
 		order = attributes.order or "b[shield]-a[energy-shield-equipment]",
 		stack_size = 50,
@@ -76,7 +76,7 @@ function equipmentUtils.makeBattery(attributes)
 		icon = attributes.icon or "__base__/graphics/icons/battery-mk2-equipment.png",
 		icon_size = 32,
 		placed_as_equipment_result = name,
-		flags = {"goes-to-main-inventory"},
+		flags = {},
 		subgroup = "equipment",
 		order = attributes.order or "c[battery]-b[battery-equipment-mk2]",
 		stack_size = 50,
@@ -104,7 +104,7 @@ function equipmentUtils.makeBattery(attributes)
 			buffer_capacity = "100MJ",
 			input_flow_limit = "1GW",
 			output_flow_limit = "1GW",
-			usage_priority = "terciary"
+			usage_priority = "tertiary"
 		    },
 		categories = {"armor"}
 	    }
@@ -124,7 +124,7 @@ function equipmentUtils.makeGenerator(attributes)
 		icon = attributes.icon or "__base__/graphics/icons/fusion-reactor-equipment.png",
 		icon_size = 32,
 		placed_as_equipment_result = name,
-		flags = {"goes-to-main-inventory"},
+		flags = {},
 		subgroup = "equipment",
 		order = attributes.order or "a[energy-source]-b[fusion-reactor]",
 		stack_size = 20
@@ -171,7 +171,7 @@ function equipmentUtils.makeActiveDefense(attributes, attack)
 		icon = attributes.icon or "__base__/graphics/icons/personal-laser-defense-equipment.png",
 		icon_size = 32,
 		placed_as_equipment_result = name,
-		flags = {"goes-to-main-inventory"},
+		flags = {},
 		subgroup = "equipment",
 		order = attributes.order or "d[active-defense]-a[personal-laser-defense-equipment]",
 		stack_size = 20
@@ -181,7 +181,7 @@ function equipmentUtils.makeActiveDefense(attributes, attack)
 		name = nameRemote,
 		icon = attributes.remoteIcon or "__base__/graphics/equipment/discharge-defense-equipment-ability.png",
 		icon_size = 32,
-		flags = {"goes-to-quickbar"},
+		flags = {},
 		capsule_action =
 		    {
 			type = "equipment-remote",
@@ -302,7 +302,7 @@ function equipmentUtils.makePassiveDefense(attributes, attack)
 		icon = attributes.icon or "__base__/graphics/icons/personal-laser-defense-equipment.png",
 		icon_size = 32,
 		placed_as_equipment_result = name,
-		flags = {"goes-to-main-inventory"},
+		flags = {},
 		subgroup = "equipment",
 		order = attributes.order or "d[active-defense]-a[personal-laser-defense-equipment]",
 		stack_size = 20

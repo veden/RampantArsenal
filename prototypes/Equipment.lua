@@ -136,18 +136,18 @@ function Equipment.enable()
     })
 
 
-    local beltImmunityRecipe = makeRecipe({
-    	    name = "belt-immunity",
-    	    icon = "__base__/graphics/equipment/belt-immunity-equipment.png",
-    	    enabled = false,
-    	    ingredients = {
-    		{"steel-plate", 5},
-    		{"electric-engine-unit", 5},
-    		{"advanced-circuit", 15},
-    		{"battery", 5}
-    	    },
-    	    result = "belt-immunity-equipment"
-    })
+    -- local beltImmunityRecipe = makeRecipe({
+    -- 	    name = "belt-immunity",
+    -- 	    icon = "__base__/graphics/equipment/belt-immunity-equipment.png",
+    -- 	    enabled = false,
+    -- 	    ingredients = {
+    -- 		{"steel-plate", 5},
+    -- 		{"electric-engine-unit", 5},
+    -- 		{"advanced-circuit", 15},
+    -- 		{"battery", 5}
+    -- 	    },
+    -- 	    result = "belt-immunity-equipment"
+    -- })
 
     local powerArmorRecipe = makeRecipe({
     	    name = "power-armor-mk3",
@@ -169,11 +169,11 @@ function Equipment.enable()
     			recipe = powerArmorRecipe
     })
 
-    addEffectToTech("modular-armor",
-    		    {
-    			type = "unlock-recipe",
-    			recipe = beltImmunityRecipe
-    })
+    -- addEffectToTech("modular-armor",
+    -- 		    {
+    -- 			type = "unlock-recipe",
+    -- 			recipe = beltImmunityRecipe
+    -- })
 
     local shieldMk3 = makeShield({
 	    name = "mk3",
@@ -221,7 +221,7 @@ function Equipment.enable()
 		buffer_capacity = "750MJ",
 		input_flow_limit = "1.25GW",
 		output_flow_limit = "1.25GW",
-		usage_priority = "terciary"
+		usage_priority = "tertiary"
 	    },
 	    shape = {
 		width = 3,

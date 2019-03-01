@@ -558,49 +558,49 @@ function cannons.enable()
 			}
     })
 
-    addEffectToTech("flamethrower-damage-1",
+    addEffectToTech("refined-flammables-1",
 		    {
 			type = "turret-attack",
 			turret_id = suppressionCannonTurret,
 			modifier = 0.2
     })
 
-    addEffectToTech("flamethrower-damage-2",
+    addEffectToTech("refined-flammables-2",
 		    {
 			type = "turret-attack",
 			turret_id = suppressionCannonTurret,
 			modifier = 0.2
     })
 
-    addEffectToTech("flamethrower-damage-3",
+    addEffectToTech("refined-flammables-3",
 		    {
 			type = "turret-attack",
 			turret_id = suppressionCannonTurret,
 			modifier = 0.3
     })
 
-    addEffectToTech("flamethrower-damage-4",
+    addEffectToTech("refined-flammables-4",
 		    {
 			type = "turret-attack",
 			turret_id = suppressionCannonTurret,
 			modifier = 0.3
     })
 
-    addEffectToTech("flamethrower-damage-5",
+    addEffectToTech("refined-flammables-5",
 		    {
 			type = "turret-attack",
 			turret_id = suppressionCannonTurret,
 			modifier = 0.4
     })
 
-    addEffectToTech("flamethrower-damage-6",
+    addEffectToTech("refined-flammables-6",
 		    {
 			type = "turret-attack",
 			turret_id = suppressionCannonTurret,
 			modifier = 0.2
     })
 
-    addEffectToTech("flamethrower-damage-7",
+    addEffectToTech("refined-flammables-7",
 		    {
 			type = "turret-attack",
 			turret_id = suppressionCannonTurret,

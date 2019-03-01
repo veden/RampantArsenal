@@ -337,7 +337,7 @@ function landmines.enable()
 
     landmine.name = "landmine-ghostless-rampant-arsenal"
     landmine.create_ghost_on_death = false
-    landmine.flags[#landmine.flags+1] = "hide-from-bonus-gui"
+    landmine.flags[#landmine.flags+1] = "hidden"
 
     data:extend({
             landmine,

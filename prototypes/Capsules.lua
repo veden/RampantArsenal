@@ -1492,49 +1492,49 @@ function capsules.enable()
 			modifier = 0.2
     })
 
-    addEffectToTech("grenade-damage-1",
+    addEffectToTech("stronger-explosives-1",
 		    {
 			type = "ammo-damage",
 			ammo_category = "capsule-launcher",
 			modifier = 0.2
     })
 
-    addEffectToTech("grenade-damage-2",
+    addEffectToTech("stronger-explosives-2",
 		    {
 			type = "ammo-damage",
 			ammo_category = "capsule-launcher",
 			modifier = 0.2
     })
 
-    addEffectToTech("grenade-damage-3",
+    addEffectToTech("stronger-explosives-3",
 		    {
 			type = "ammo-damage",
 			ammo_category = "capsule-launcher",
 			modifier = 0.3
     })
 
-    addEffectToTech("grenade-damage-4",
+    addEffectToTech("stronger-explosives-4",
 		    {
 			type = "ammo-damage",
 			ammo_category = "capsule-launcher",
 			modifier = 0.3
     })
 
-    addEffectToTech("grenade-damage-5",
+    addEffectToTech("stronger-explosives-5",
 		    {
 			type = "ammo-damage",
 			ammo_category = "capsule-launcher",
 			modifier = 0.4
     })
 
-    addEffectToTech("grenade-damage-6",
+    addEffectToTech("stronger-explosives-6",
 		    {
 			type = "ammo-damage",
 			ammo_category = "capsule-launcher",
 			modifier = 0.2
     })
 
-    addEffectToTech("grenade-damage-7",
+    addEffectToTech("stronger-explosives-7",
 		    {
 			type = "ammo-damage",
 			ammo_category = "capsule-launcher",

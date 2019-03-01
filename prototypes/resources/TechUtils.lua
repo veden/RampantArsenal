@@ -31,7 +31,7 @@ function techUtils.addTechnology(attributes)
 		unit = attributes.unit or 
 		    {
 			count = 100,
-			ingredients = {{"science-pack-1", 1}, {"science-pack-2", 1}},
+			ingredients = {{"automation-science-pack", 1}, {"logistic-science-pack", 1}},
 			time = 30
 		    },
 		order = attributes.order or "d-a"

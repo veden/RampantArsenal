@@ -21,7 +21,7 @@ function armorUtils.makeArmor(attributes)
 		name = name,
 		icon = attributes.icon or "__base__/graphics/icons/power-armor-mk2.png",
 		icon_size = 32,
-		flags = {"goes-to-main-inventory"},
+		flags = {},
 		resistances = attributes.resistances or
 		    {
 			{

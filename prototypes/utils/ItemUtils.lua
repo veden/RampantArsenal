@@ -8,7 +8,7 @@ function itemUtils.makeItem(attributes, item)
 		name = name,
 		icon = attributes.icon or "__base__/graphics/icons/gun-turret.png",
 		icon_size = 32,
-		flags = attributes.flags or {"goes-to-quickbar"},
+		flags = attributes.flags or {},
 		subgroup = attributes.subgroup or "defensive-structure",
 		order = attributes.order or "b[turret]-a[gun-turret]",
 		fuel_category = attributes.fuelCategory, -- "chemical",

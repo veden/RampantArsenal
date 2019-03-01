@@ -9,7 +9,7 @@ function capsuleUtils.makeCapsule(attributes, attack)
 		name = name,
 		icon = attributes.icon or "__base__/graphics/icons/grenade.png",
 		icon_size = 32,
-		flags = {"goes-to-quickbar"},
+		flags = {},
 		capsule_action = attack or
 		    {
 			type = "throw",

@@ -9,7 +9,7 @@ function powerUtils.makeOilBurner(attributes)
 		name = name,
 		icon = attributes.icon or "__base__/graphics/icons/steam-turbine.png",
 		icon_size = 32,
-		flags = {"goes-to-quickbar"},
+		flags = {},
 		subgroup = attributes.subgroup or "energy",
 		order = attributes.order or "b[steam-power]-c[steam-turbine]",
 		place_result = name,

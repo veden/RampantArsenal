@@ -9,7 +9,7 @@ function ammoUtils.makeAmmo(attributes)
 		name = name,
 		icon = attributes.icon or "__base__/graphics/icons/flamethrower-ammo.png",
 		icon_size = 32,
-		flags = {"goes-to-main-inventory"},
+		flags = {},
 		ammo_type = attributes.ammoType or
 		    {		
 			category = "capsuleLauncher",

@@ -1,4 +1,22 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.0
+Date: 2. 27. 2019
+  Tweaks:
+    - Removed belt immunity equipment for vanilla
+    - Changed rocket-damage research into stronger-explosive research
+    - Changed bullet-damage research into physical damage research
+    - Changed flamethrower-damage research into refined-flammables research
+    - Changed science pack 1 into automation science pack
+    - Changed science pack 2 into logistic science pack
+    - Changed science pack 3 into chemical science pack
+    - Changed high-tech pack into utility science pack
+    - Removed landmine infinite damage technology for vanilla
+    - Added car acid resistance 20%
+    - Moved Physical Projectile gun turret damage into separate research
+    - Readded turret specific damage researches
+    - Added thumbnail
+
+---------------------------------------------------------------------------------------------------
 Version: 0.16.15
 Date: 2. 18. 2019
   Bugfixes:

@@ -12,46 +12,98 @@ end
 
 local indicator_pictures =
     {
-	north = {
-	    filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-north.png",
-	    line_length = 2,
-	    width = 5,
-	    height = 9,
-	    frame_count = 2,
-	    axially_symmetrical = false,
-	    direction_count = 1,
-	    shift = {0.5, 1},
-	},
-	east = {
-	    filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-east.png",
-	    line_length = 2,
-	    width = 10,
-	    height = 6,
-	    frame_count = 2,
-	    axially_symmetrical = false,
-	    direction_count = 1,
-	    shift = {0.5, 1},
-	},
-	south = {
-	    filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-south.png",
-	    line_length = 2,
-	    width = 5,
-	    height = 8,
-	    frame_count = 2,
-	    axially_symmetrical = false,
-	    direction_count = 1,
-	    shift = {0.5, 1},
-	},
-	west = {
-	    filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-west.png",
-	    line_length = 2,
-	    width = 10,
-	    height = 6,
-	    frame_count = 2,
-	    axially_symmetrical = false,
-	    direction_count = 1,
-	    shift = {0.5, 1},
-	},
+        north =
+            {
+                filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-north.png",
+                line_length = 2,
+                width = 4,
+                height = 10,
+                frame_count = 2,
+                axially_symmetrical = false,
+                direction_count = 1,
+                shift = util.by_pixel(8, 20),
+                hr_version =
+                    {
+                        filename = "__base__/graphics/entity/flamethrower-turret/hr-flamethrower-turret-led-indicator-north.png",
+                        line_length = 2,
+                        width = 10,
+                        height = 18,
+                        frame_count = 2,
+                        axially_symmetrical = false,
+                        direction_count = 1,
+                        shift = util.by_pixel(7, 20),
+                        scale = 0.5
+                    }
+            },
+        east =
+            {
+                filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-east.png",
+                line_length = 2,
+                width = 12,
+                height = 6,
+                frame_count = 2,
+                axially_symmetrical = false,
+                direction_count = 1,
+                shift = util.by_pixel(-34, -6),
+                hr_version =
+                    {
+                        filename = "__base__/graphics/entity/flamethrower-turret/hr-flamethrower-turret-led-indicator-east.png",
+                        line_length = 2,
+                        width = 18,
+                        height = 8,
+                        frame_count = 2,
+                        axially_symmetrical = false,
+                        direction_count = 1,
+                        shift = util.by_pixel(-33, -5),
+                        scale = 0.5
+                    }
+            },
+        south =
+            {
+                filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-south.png",
+                line_length = 2,
+                width = 4,
+                height = 12,
+                frame_count = 2,
+                axially_symmetrical = false,
+                direction_count = 1,
+                shift = util.by_pixel(-8, -46),
+                hr_version =
+                    {
+                        filename = "__base__/graphics/entity/flamethrower-turret/hr-flamethrower-turret-led-indicator-south.png",
+                        line_length = 2,
+                        width = 8,
+                        height = 18,
+                        frame_count = 2,
+                        axially_symmetrical = false,
+                        direction_count = 1,
+                        shift = util.by_pixel(-8, -45),
+                        scale = 0.5
+                    }
+            },
+        west =
+            {
+                filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-west.png",
+                line_length = 2,
+                width = 10,
+                height = 10,
+                frame_count = 2,
+                axially_symmetrical = false,
+                direction_count = 1,
+                shift = util.by_pixel(32, -22),
+                hr_version =
+                    {
+                        filename = "__base__/graphics/entity/flamethrower-turret/hr-flamethrower-turret-led-indicator-west.png",
+                        line_length = 2,
+                        width = 20,
+                        height = 10,
+                        frame_count = 2,
+                        axially_symmetrical = false,
+                        direction_count = 1,
+                        shift = util.by_pixel(32, -20),
+                        scale = 0.5
+                    }
+            }
     }
 
 local function set_shift(shift, tab)
@@ -85,7 +137,7 @@ function turretUtils.makeAmmoTurret(attributes, attack)
 		name = itemName,
 		icon = attributes.icon or "__base__/graphics/icons/gun-turret.png",
 		icon_size = 32,
-		flags = attributes.itemFlags or {"goes-to-quickbar"},
+		flags = attributes.itemFlags or {},
 		subgroup = attributes.subgroup or "defensive-structure",
 		order = attributes.order or "b[turret]-a[gun-turret]",
 		place_result = name,
@@ -163,7 +215,7 @@ function turretUtils.makeFluidTurret(attributes, attack)
 		name = itemName,
 		icon = attributes.icon or "__base__/graphics/icons/gun-turret.png",
 		icon_size = 32,
-		flags = attributes.itemFlags or {"goes-to-quickbar"},
+		flags = attributes.itemFlags or {},
 		subgroup = attributes.subgroup or "defensive-structure",
 		order = attributes.order or "b[turret]-a[gun-turret]",
 		place_result = name,
@@ -318,7 +370,7 @@ function turretUtils.makeElectricTurret(attributes, attack)
 		name = itemName,
 		icon = attributes.icon or "__base__/graphics/icons/gun-turret.png",
 		icon_size = 32,
-		flags = attributes.itemFlags or {"goes-to-quickbar"},
+		flags = attributes.itemFlags or {},
 		subgroup = attributes.subgroup or "defensive-structure",
 		order = attributes.order or "b[turret]-a[gun-turret]",
 		place_result = name,
