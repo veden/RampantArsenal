@@ -94,10 +94,10 @@ function lasers.enable()
 								 cooldown = 120,
 								 projectile_center = {-0.09375, -0.2},
 								 turn_range = 0.35,
-								 projectile_creation_distance = 10,
-								 range = 40,
-								 min_range = 7,
-								 damage_modifier = 4,
+								 projectile_creation_distance = 13,
+								 range = 42,
+								 min_range = 13,
+								 damage_modifier = 7,
 								 ammo_type =
 								     {
 									 type = "projectile",
@@ -118,7 +118,7 @@ function lasers.enable()
 												 projectile = makeLaserProjectile({
 													 name = entity.name,
 													 acceleration = 1,
-													 piercingDamage = 1200,
+													 piercingDamage = 2000,
 													 tint = {r=0.8, g=0.0, b=0.0,a=0.9},
 													 action = {
 													     type = "area",
