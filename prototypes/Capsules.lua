@@ -727,7 +727,7 @@ function capsules.enable()
 					    },
 					    {
 						type = "area",
-						radius = 7.5,
+						radius = 9,
 						action_delivery =
 						    {
 							type = "instant",
@@ -798,7 +798,7 @@ function capsules.enable()
 					    },
 					    {
 						type = "area",
-						radius = 8.5,
+						radius = 11,
 						action_delivery =
 						    {
 							type = "instant",
@@ -817,8 +817,9 @@ function capsules.enable()
 								    entity_name = "explosion"
 								},
 								{
-								    type = "create-sticker",
-								    sticker = "small-toxic-sticker-rampant-arsenal"
+								    type = "create-entity",
+								    entity_name = "toxic-cloud-rampant-arsenal",
+                                                                    show_in_tooltip = true
 								}
 							    }
 						    }
@@ -877,7 +878,7 @@ function capsules.enable()
 					    },
 					    {
 						type = "area",
-						radius = 9.5,
+						radius = 14,
 						action_delivery =
 						    {
 							type = "instant",
@@ -885,11 +886,11 @@ function capsules.enable()
 							    {
 								{
 								    type = "damage",
-								    damage = {amount = 500, type = "explosion"}
+								    damage = {amount = 675, type = "explosion"}
 								},
 								{
 								    type = "damage",
-								    damage = {amount = 100, type = "physical"}
+								    damage = {amount = 150, type = "physical"}
 								},
 								{
 								    type = "create-entity",
@@ -946,13 +947,18 @@ function capsules.enable()
 								    type = "create-entity",
 								    entity_name = "small-scorchmark",
 								    check_buildability = true
-								}
+								},
+                                                                {
+                                                                    type = "create-fire",
+                                                                    entity_name = "fire-flame",
+                                                                    initial_ground_flame_count = 4
+                                                                }
 							    }
 						    }
 					    },
 					    {
 						type = "area",
-						radius = 7.5,
+						radius = 11,
 						action_delivery =
 						    {
 							type = "instant",
@@ -973,7 +979,12 @@ function capsules.enable()
 								{
 								    type = "create-sticker",
 								    sticker = "small-fire-sticker-rampant-arsenal"
-								}
+								},
+                                                                {
+                                                                    type = "create-fire",
+                                                                    entity_name = "fire-flame",
+                                                                    initial_ground_flame_count = 4
+                                                                }
 							    }
 						    }
 					    }
@@ -1030,34 +1041,16 @@ function capsules.enable()
 					    },
 					    {
 						type = "cluster",
-						cluster_count = 7,
-						distance = 4,
+						cluster_count = 9,
+						distance = 7,
 						distance_deviation = 3,
 						action_delivery =
 						    {
 							type = "instant",
 							target_effects = {
-							    type = "nested-result",
-							    actions = {
-								type = "area",
-								radius = 7.5,
-								action_delivery =
-								    {
-									type = "instant",
-									target_effects =
-									    {
-										{
-										    type = "damage",
-										    damage = {amount = 300, type = "explosion"}
-										},
-										{
-										    type = "create-entity",
-										    entity_name = "explosion"
-										}
-									    }
-								    }
-							    }
-							}
+                                                            type = "create-entity",
+                                                            entity_name = "cluster-grenade"
+                                                        }
 						    }
 					    }
 					}
@@ -1184,7 +1177,7 @@ function capsules.enable()
 	    enabled = false,
 	    ingredients = {
 		{"iron-plate", 2},
-		{"incendiary-landmine-rampant-arsenal", 4},
+		{"incendiary-landmine-rampant-arsenal", 1},
 		{"explosives", 1}
 	    },
 	    result = incendiaryLandmineCapsules
@@ -1196,7 +1189,7 @@ function capsules.enable()
 	    enabled = false,
 	    ingredients = {
 		{"iron-plate", 2},
-		{"he-landmine-rampant-arsenal", 4},
+		{"he-landmine-rampant-arsenal", 1},
 		{"explosives", 1}
 	    },
 	    result = heLandmineCapsules
@@ -1209,7 +1202,7 @@ function capsules.enable()
 	    enabled = false,
 	    ingredients = {
 		{"iron-plate", 2},
-		{"bio-landmine-rampant-arsenal", 4},
+		{"bio-landmine-rampant-arsenal", 1},
 		{"explosives", 1}
 	    },
 	    result = bioLandmineCapsules
@@ -1314,7 +1307,7 @@ function capsules.enable()
 								gun_barrel_length = 4,
                                                                 min_range = 15,
                                                                 turn_range = 0.30,
-								range = 38,
+								range = 47,
 								sound = make_heavy_gunshot_sounds()
     })
 

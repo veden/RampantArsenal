@@ -667,7 +667,7 @@ function cannons.enable()
 								    },
 								    {
 									type = "damage",
-									damage = {amount = 600 , type = "fire"}
+									damage = {amount = 1000 , type = "fire"}
 								    },
 								    {
 									type = "damage",
@@ -843,7 +843,7 @@ function cannons.enable()
 									action =
 									    {
 										type = "area",
-										radius = 9,
+										radius = 13,
 										action_delivery =
 										    {
 											type = "instant",
@@ -851,7 +851,7 @@ function cannons.enable()
 											    {
 												{
 												    type = "damage",
-												    damage = {amount = 800, type = "explosion"}
+												    damage = {amount = 1500, type = "explosion"}
 												},
 												{
 												    type = "create-entity",
@@ -956,7 +956,7 @@ function cannons.enable()
 								    },
 								    {
 									type = "damage",
-									damage = {amount = 600 , type = "poison"}
+									damage = {amount = 1000 , type = "poison"}
 								    },
 								    {
 									type = "damage",
@@ -993,8 +993,9 @@ function cannons.enable()
 											target_effects =
 											    {
 												{
-												    type = "create-sticker",
-												    sticker = "small-toxic-sticker-rampant-arsenal"
+												    type = "create-entity",
+												    entity_name = "toxic-cloud-rampant-arsenal",
+                                                                                                    show_in_tooltip = true
 												}
 											    }
 										    }
@@ -1035,16 +1036,16 @@ function cannons.enable()
     })
 
     local targetEffects = data.raw["projectile"]["uranium-cannon-projectile"].action.action_delivery.target_effects
-    targetEffects[1].damage.amount = targetEffects[1].damage.amount * 2
-    targetEffects[2].damage.amount = targetEffects[2].damage.amount * 2
+    targetEffects[1].damage.amount = targetEffects[1].damage.amount * 3
+    targetEffects[2].damage.amount = targetEffects[2].damage.amount * 3
 
     targetEffects = data.raw["projectile"]["explosive-uranium-cannon-projectile"].action.action_delivery.target_effects
-    targetEffects[1].damage.amount = targetEffects[1].damage.amount * 2
+    targetEffects[1].damage.amount = targetEffects[1].damage.amount * 3
 
     local action = data.raw["projectile"]["explosive-uranium-cannon-projectile"].final_action.action_delivery.target_effects[2].action
     action.radius = action.radius * 2
     targetEffects = action.action_delivery.target_effects
-    targetEffects[1].damage.amount = targetEffects[1].damage.amount * 2
+    targetEffects[1].damage.amount = targetEffects[1].damage.amount * 3
 end
 
 

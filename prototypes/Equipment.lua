@@ -693,7 +693,7 @@ function Equipment.enable()
 					},
 					{
 					    type = "create-sticker",
-					    sticker = "slow-sticker-rampant-arsenal"
+					    sticker = "bullet-slow-sticker-rampant-arsenal"
 					}
 				    }
 			    }

@@ -12,8 +12,8 @@ function stickers.enable()
 	    duration = 120,
 	    spreadRadius = 5,
 	    tint = {r=0.5,g=0,b=0.5,a=0.8},
-	    movementModifier = 1,	    
-	    damagePerTick = { type = "poison", amount = 5 }
+	    movementModifier = 0.95,	    
+	    damagePerTick = { type = "poison", amount = 15 }
 	}
     )
 
@@ -23,8 +23,8 @@ function stickers.enable()
 	    duration = 80,
 	    spreadRadius = 5,
 	    tint = {r=0.5,g=0,b=0.5,a=0.8},
-	    movementModifier = 1,
-	    damagePerTick = { type = "poison", amount = 2 }
+	    movementModifier = 0.95,
+	    damagePerTick = { type = "poison", amount = 5 }
 	}
     )
 
@@ -32,7 +32,7 @@ function stickers.enable()
     makeSticker(
 	{
 	    name = "small-fire",
-	    duration = 60,
+	    duration = 120,
 	    spreadRadius = 5,
 	    movementModifier = 1,
 	    damagePerTick = { type = "fire", amount = 4 }
@@ -46,15 +46,15 @@ function stickers.enable()
 	    duration = 240,
 	    spreadRadius = 5,
 	    tint = {r=0.5,g=0,b=0.5,a=0.8},
-	    movementModifier = 1,
-	    damagePerTick = { type = "poison", amount = 5 }
+	    movementModifier = 0.92,
+	    damagePerTick = { type = "poison", amount = 17 }
 	}
     )
     
     makeSticker(
 	{
 	    name = "paralysis",
-	    duration = 50,
+	    duration = 60,
 	    spreadRadius = 0,
 	    tint = {r=0,g=0,b=0.8,a=0.8},
 	    movementModifier = 0
@@ -63,14 +63,23 @@ function stickers.enable()
 
     makeSticker(
 	{
-	    name = "slow",
-	    duration = 50,
+	    name = "bullet-slow",
+	    duration = 180,
 	    spreadRadius = 0,
 	    tint = {r=0,g=0.8,b=0.8,a=0.8},
-	    movementModifier = 0.6
+	    movementModifier = 0.85
 	}
     )
 
+    makeSticker(
+        {
+	    name = "lite-slow",
+	    duration = 180,
+	    spreadRadius = 0,
+	    tint = {r=0,g=0.8,b=0.8,a=0.8},
+	    movementModifier = 0.7
+	}
+    )
     
     makeSticker(
 	{
@@ -85,11 +94,11 @@ function stickers.enable()
     makeSticker(
 	{
 	    name = "big-toxic",
-	    duration = 240,
+	    duration = 360,
 	    spreadRadius = 5,
 	    tint = {r=0.5,g=0,b=0.5,a=0.8},
-	    movementModifier = 1,
-	    damagePerTick = { type = "poison", amount = 8 }
+	    movementModifier = 0.87,
+	    damagePerTick = { type = "poison", amount = 20 }
 	}
     )
 

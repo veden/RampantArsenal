@@ -82,7 +82,7 @@ function guns.enable()
 		west = {0, 0}
 	    },
 	    gun_barrel_length = 1,
-	    range = 30,
+	    range = 45,
 	    sound = make_heavy_gunshot_sounds()
     })
 
@@ -105,7 +105,7 @@ function guns.enable()
 		west = {0, 0}
 	    },
 	    gun_barrel_length = 1,
-	    range = 27,
+	    range = 40,
 	    sound = {
 		{
 		    filename = "__base__/sound/fight/rocket-launcher.ogg",
@@ -178,7 +178,7 @@ function guns.enable()
     				    projectile = makeShotgunProjectile({
 					    name = "uranium",
 					    tint = {r=0,g=0.4,b=0,a=0.7},
-					    piercingDamage = 50,
+					    piercingDamage = 250,
 					    directionOnly = true,
 					    action = {
 						type = "direct",
@@ -188,7 +188,7 @@ function guns.enable()
 							target_effects ={
 							    {
 								type = "damage",
-								damage = {amount = 20, type = "physical"}
+								damage = {amount = 38, type = "physical"}
 							    }
 							}
 						    }
@@ -259,7 +259,7 @@ function guns.enable()
 							    },
 							    {
 								type = "damage",
-								damage = {amount = 6, type = "fire"}
+								damage = {amount = 14, type = "fire"}
 							    },
 							    {
 								type = "create-sticker",
@@ -320,7 +320,7 @@ function guns.enable()
 					},
 					{
 					    type = "damage",
-					    damage = { amount = 12, type = "fire"}
+					    damage = { amount = 18, type = "fire"}
 					}
 				    }
 			    }
@@ -394,11 +394,12 @@ function guns.enable()
 								},
 								{
 								    type = "damage",
-								    damage = {amount = 10, type = "explosion"}
+								    damage = {amount = 18, type = "explosion"}
 								},
 								{
 								    type = "push-back",
-								    distance = 0.5
+								    distance = 0.5,
+                                                                    show_in_tooltip = true
 								}
 							    }
 						    }
@@ -446,11 +447,12 @@ function guns.enable()
 					},
 					{
 					    type = "damage",
-					    damage = {amount = 12, type = "explosion"}
+					    damage = {amount = 18, type = "explosion"}
 					},
 					{
 					    type = "push-back",
-					    distance = 0.5
+					    distance = 0.5,
+                                            show_in_tooltip = true
 					}
 				    }
 			    }
@@ -513,11 +515,12 @@ function guns.enable()
 							    },
 							    {
 								type = "damage",
-								damage = {amount = 6, type = "poison"}
+								damage = {amount = 14, type = "poison"}
 							    },
 							    {
 								type = "create-sticker",
-								sticker = "bullet-toxic-sticker-rampant-arsenal"
+								sticker = "bullet-toxic-sticker-rampant-arsenal",
+                                                                show_in_tooltip = true
 							    }
 							}
 						    }
@@ -556,7 +559,8 @@ function guns.enable()
 				    {
 					{
 					    type = "create-sticker",
-					    sticker = "bullet-toxic-sticker-rampant-arsenal"
+					    sticker = "bullet-toxic-sticker-rampant-arsenal",
+                                            show_in_tooltip = true
 					},
 					{
 					    type = "damage",
@@ -564,7 +568,7 @@ function guns.enable()
 					},
 					{
 					    type = "damage",
-					    damage = { amount = 12, type = "poison"}
+					    damage = { amount = 18, type = "poison"}
 					}
 				    }
 			    }
@@ -704,6 +708,35 @@ function guns.enable()
 	    },
 	    result = uraniumShotgunShellAmmo
     })
+
+    local uraniumBullets = data.raw["ammo"]["uranium-rounds-magazine"]
+    uraniumBullets.ammo_type = {
+        category = "bullet",
+        action =
+            {
+                type = "direct",
+                action_delivery =
+                    {
+                        type = "instant",
+                        source_effects =
+                            {
+                                type = "create-explosion",
+                                entity_name = "explosion-gunshot"
+                            },
+                        target_effects =
+                            {
+                                {
+                                    type = "create-entity",
+                                    entity_name = "explosion-hit"
+                                },
+                                {
+                                    type = "damage",
+                                    damage = { amount = 32, type = "physical"}
+                                }
+                            }
+                    }
+            }
+    }
     
     addEffectToTech("explosives",
 		    {

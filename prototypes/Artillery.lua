@@ -146,11 +146,11 @@ function artillery.enable()
 										{
 										    {
 											type = "damage",
-											damage = {amount = 250 , type = "physical"}
+											damage = {amount = 500 , type = "physical"}
 										    },
 										    {
 											type = "damage",
-											damage = {amount = 1000 , type = "explosion"}
+											damage = {amount = 2750 , type = "explosion"}
 										    },
 										    {
 											type = "create-entity",

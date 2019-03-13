@@ -204,8 +204,9 @@ function landmines.enable()
 						target_effects =
 						    {
 							{
-							    type = "create-sticker",
-							    sticker = "small-toxic-sticker-rampant-arsenal"
+							    type = "create-entity",
+							    entity_name = "toxic-cloud-rampant-arsenal",
+                                                            show_in_tooltip = true
 							},
 							{
 							    type = "damage",
@@ -242,7 +243,7 @@ function landmines.enable()
 			},
 			{
 			    type = "damage",
-			    damage = { amount = 1250, type = "explosion"}
+			    damage = { amount = 4500, type = "explosion"}
 			},
 			{
 			    type = "nested-result",
@@ -251,7 +252,7 @@ function landmines.enable()
 				{
 				    {
 					type = "area",
-					radius = 10,
+					radius = 13,
 					action_delivery =
 					    {
 						type = "instant",
@@ -259,11 +260,11 @@ function landmines.enable()
 						    {
 							{
 							    type = "push-back",
-							    distance = 1.5
+							    distance = 2.5
 							},
 							{
 							    type = "damage",
-							    damage = { amount = 700, type = "explosion" }
+							    damage = { amount = 2250, type = "explosion" }
 							}
 						    }
 					    }
@@ -308,7 +309,7 @@ function landmines.enable()
 	    ingredients = {
 		{"land-mine", 1},
 		{"steel-plate", 1},
-		{"explosives", 5}
+		{"explosives", 4}
 	    },
 	    result = heLandmine
     })
@@ -327,7 +328,52 @@ function landmines.enable()
 	    result = bioLandmine
     })
 
-    local landmine = table.deepcopy(data.raw["land-mine"]["land-mine"])
+    local landmine = data.raw["land-mine"]["land-mine"]
+    
+    landmine.action = {
+        type = "direct",
+        action_delivery =
+            {
+                type = "instant",
+                source_effects =
+                    {
+                        {
+                            type = "nested-result",
+                            affects_target = true,
+                            action =
+                                {
+                                    type = "area",
+                                    radius = 6,
+                                    force = "enemy",
+                                    action_delivery =
+                                        {
+                                            type = "instant",
+                                            target_effects =
+                                                {
+                                                    {
+                                                        type = "damage",
+                                                        damage = { amount = 250, type = "explosion"}
+                                                    },
+                                                    {
+                                                        type = "create-sticker",
+                                                        sticker = "lite-slow-sticker-rampant-arsenal"
+                                                    }
+                                                }
+                                        }
+                                }
+                        },
+                        {
+                            type = "create-entity",
+                            entity_name = "explosion"
+                        },
+                        {
+                            type = "damage",
+                            damage = { amount = 1000, type = "explosion"}
+                        }
+                    }
+            }
+    }
+    landmine = table.deepcopy(data.raw["land-mine"]["land-mine"])
     -- local landmineRecipe = table.deepcopy(data.raw["recipe"]["land-mine"])
     local landmineItem = table.deepcopy(data.raw["item"]["land-mine"])
 

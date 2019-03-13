@@ -59,7 +59,7 @@ function fire.enable()
 								    {
 									type = "create-fire",
 									entity_name = "fire-flame",
-									initial_ground_flame_count = 4,
+									initial_ground_flame_count = 6,
 								    }
 								}
 							}
@@ -79,7 +79,7 @@ function fire.enable()
 								    {
 									type = "create-fire",
 									entity_name = "fire-flame",
-									initial_ground_flame_count = 4,
+									initial_ground_flame_count = 6,
 								    },
 								    {
 									type = "damage",

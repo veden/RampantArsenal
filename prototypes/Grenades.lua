@@ -63,6 +63,11 @@ function grenades.enable()
 									    type = "create-entity",
 									    entity_name = "small-scorchmark",
 									    check_buildability = true
+									},
+                                                                        {
+									    type = "create-fire",
+									    entity_name = "fire-flame",
+									    initial_ground_flame_count = 4
 									}
 								    }
 							    }
@@ -86,7 +91,7 @@ function grenades.enable()
 									{
 									    type = "create-fire",
 									    entity_name = "fire-flame",
-									    initial_ground_flame_count = 3
+									    initial_ground_flame_count = 4
 									},
 									{
 									    type = "create-sticker",
@@ -269,6 +274,11 @@ function grenades.enable()
 									    type = "create-entity",
 									    entity_name = "small-scorchmark",
 									    check_buildability = true
+									},
+                                                                        {
+									    type = "create-entity",
+									    entity_name = "toxic-cloud-rampant-arsenal",
+                                                                            show_in_tooltip = true
 									}
 								    }
 							    }
@@ -288,11 +298,7 @@ function grenades.enable()
 									{
 									    type = "damage",
 									    damage = {amount = 175, type = "poison"}
-									},
-									{
-									    type = "create-sticker",
-									    sticker = "small-toxic-sticker-rampant-arsenal"
-									}
+									}									
 								    }
 							    }
 						    }

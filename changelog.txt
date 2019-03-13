@@ -1,4 +1,67 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.3
+Date: 3. 12. 2019
+  Tweaks:
+    - Increased HE artillery shell damage by 2000
+    - Increased Incendiary cannon shell damage by 400
+    - Increased AOE of HE cannon shell by 4
+    - Increased HE cannon shell damage by 700
+    - Increased Bio cannon shell damage by 400
+    - Changed Bio cannon shell from sticker to cloud + sticker
+    - Increased damage of uranium cannon shell and explosive uranium cannon shell from 2x to 3x
+    - Increased advanced laser range from 40 to 42
+    - Increased AOE of grenade launcher ammo by 1.5
+    - Increased AOE of bio grenade launcher ammo by 2.5
+    - Changed Bio grenade launcher ammo from sticker to cloud + sticker
+    - Increased AOE of HE grenade launcher ammo by 4.5
+    - Increased HE grenade launcher ammo damage by 225
+    - Added flames to Incendiary grenade launcher ammo
+    - Increased AOE of Incendiary grenade launcher ammo by 3.5
+    - Increased Cluster grenade launcher ammo cluster count by 2
+    - Decreased recipe cost for landmine launcher ammo from 4 mines to 1 on incendiary, HE, and bio
+    - Increased Capsule Grenade launcher range from 38 to 47
+    - Increased Big toxic cloud duration by 160
+    - Increased Big toxic cloud damage from 110 to 400
+    - Increased artillery fire cloud duration by 100
+    - Increased toxic cloud duration by 120
+    - Added breaths air for toxic cloud affect
+    - Increased toxic cloud damage from 80 to 300
+    - Added flames to incendiary grenade
+    - Added toxic cloud to bio grenade
+    - Increased mortar range from 30 to 45
+    - Increased rocket launcher mkII range from 27 to 40
+    - Increased Uranium Shotgun ammo piercing damage from 50 to 250
+    - Increased Uranium Shotgun ammo damage from 20 to 38
+    - Increased Incendiary Shotgun ammo damage by 8
+    - Increased Incendiary magazine ammo damage by 6
+    - Increased HE Shotgun ammo damage by 8
+    - Increased HE magazine ammo damage by 6
+    - Increased Bio Shotgun ammo damage by 8
+    - Increased Bio magazine ammo damage by 6
+    - Increased Uranium magazine ammo damage from 24 to 32
+    - Added toxic cloud to bio landmine
+    - Increased HE landmine direct damage by 3250 and area damage by 1550
+    - Increased AOE of HE landmine by 3
+    - Increased Pushback of HE landmine by 1
+    - Decreased HE landmine recipe from 5 explosive to 4
+    - Nerfed landmine stun ability now only slows by 30% for 3 seconds
+    - Increased Incendiary rocket ammo damage by 200
+    - Increased AOE of HE rocket by 4
+    - Increased HE rocket ammo damage by 400
+    - Added toxic cloud to bio rocket ammo
+    - Increased Bio rocket ammo damage by 200
+    - Increased small toxic sticker damage by 10 and add a movement slowdown 5%
+    - Increased bullet toxic sticker damage by 3 and add a movement slowdown 5%
+    - Increased toxic sticker damage by 12 and add a movement slowdown 8%
+    - Increased big toxic sticker damage by 12 and add a movement slowdown 13% and 240 to 360 duration
+    - Increased paralysis sticker duration from 50 to 60
+    - Increased duration of small fire from 60 to 120
+    - Removed armor durability
+  Bugfixes:
+    - Fixed cluster grenade launcher ammo not doing anything
+    - Fixed wall coloring
+
+---------------------------------------------------------------------------------------------------
 Version: 0.17.2
 Date: 3. 09. 2019
   Tweaks:

@@ -1,6 +1,6 @@
 
 (module BuildScript racket
-  (provide run)
+  (provide all-defined-out)
 
   (require file/zip)
   (require json)
@@ -74,16 +74,15 @@
       (copyDirectory "graphics" modFolder)
       (copyDirectory "prototypes" modFolder)))
 
+
+  (define (copy)
+    (copyFiles modFolder))
+
+  (define (zipIt)
+    (makeZip modFolder))
+
   (define (runStart)
-   ;; (copyFiles modFolder)
+    ;; (copyFiles modFolder)
     ;;(copyFiles zipModFolder)
     (makeZip modFolder)
-    (system*/exit-code "/data/games/factorio/bin/x64/factorio"))
-
-
-  (define (run)
-    (copyFiles modFolder)
-    ;;(copyFiles zipModFolder)
-    ;;(makeZip modFolder)
-    ;;(system*/exit-code "/data/games/factorio/bin/x64/factorio"))
-  ))
+    (system*/exit-code "/data/games/factorio/bin/x64/factorio")))

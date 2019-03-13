@@ -203,7 +203,7 @@ function rockets.enable()
 												{
 												    type = "create-fire",
 												    entity_name = "fire-flame",
-												    initial_ground_flame_count = 2
+												    initial_ground_flame_count = 4
 												},
 												{
 												    type = "create-sticker",
@@ -211,7 +211,7 @@ function rockets.enable()
 												},
 												{
 												    type = "damage",
-												    damage = {amount = 400 , type = "fire"},
+												    damage = {amount = 600 , type = "fire"},
 												    apply_damage_to_trees = false
 												},
 												{
@@ -302,7 +302,7 @@ function rockets.enable()
 									action =
 									    {
 										type = "area",
-										radius = 12,
+										radius = 16,
 										action_delivery =
 										    {
 											type = "instant",
@@ -314,7 +314,7 @@ function rockets.enable()
 												},
 												{
 												    type = "damage",
-												    damage = {amount = 650 , type = "explosion"}
+												    damage = {amount = 1050 , type = "explosion"}
 												}
 											    }
 										    }
@@ -406,12 +406,13 @@ function rockets.enable()
 											target_effects =
 											    {
 												{
-												    type = "create-sticker",
-												    sticker = "small-toxic-sticker-rampant-arsenal"
+												    type = "create-entity",
+												    entity_name = "toxic-cloud-rampant-arsenal",
+                                                                                                    show_in_tooltip = true
 												},
 												{
 												    type = "damage",
-												    damage = {amount = 400 , type = "poison"}
+												    damage = {amount = 600 , type = "poison"}
 												},
 												{
 												    type = "damage",

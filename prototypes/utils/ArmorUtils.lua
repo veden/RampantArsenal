@@ -45,7 +45,7 @@ function armorUtils.makeArmor(attributes)
 			    percent = 70
 			}
 		    },
-		durability = attributes.durability or 20000,
+		durability = attributes.durability,
 		subgroup = "armor",
 		order = attributes.order or "e[power-armor-mk2]",
 		stack_size = 1,

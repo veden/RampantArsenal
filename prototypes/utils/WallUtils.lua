@@ -122,6 +122,7 @@ function wallUtils.makeWall(attributes, attack)
                                             height = 46,
                                             variation_count = 2,
                                             line_length = 2,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(0, -6),
                                             hr_version =
                                                 {
@@ -131,6 +132,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     height = 86,
                                                     variation_count = 2,
                                                     line_length = 2,
+                                                    tint = attributes.tint,
                                                     shift = util.by_pixel(0, -5),
                                                     scale = 0.5
                                                 }
@@ -141,6 +143,7 @@ function wallUtils.makeWall(attributes, attack)
                                             width = 50,
                                             height = 32,
                                             repeat_count = 2,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(10, 16),
                                             draw_as_shadow = true,
                                             hr_version =
@@ -149,6 +152,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     priority = "extra-high",
                                                     width = 98,
                                                     height = 60,
+                                                    tint = attributes.tint,
                                                     repeat_count = 2,
                                                     shift = util.by_pixel(10, 17),
                                                     draw_as_shadow = true,
@@ -168,6 +172,7 @@ function wallUtils.makeWall(attributes, attack)
                                             height = 68,
                                             variation_count = 5,
                                             line_length = 5,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(0, 8),
                                             hr_version =
                                                 {
@@ -177,6 +182,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     height = 134,
                                                     variation_count = 5,
                                                     line_length = 5,
+                                                    tint = attributes.tint,
                                                     shift = util.by_pixel(0, 8),
                                                     scale = 0.5
                                                 }
@@ -187,6 +193,7 @@ function wallUtils.makeWall(attributes, attack)
                                             width = 50,
                                             height = 58,
                                             repeat_count = 5,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(10, 28),
                                             draw_as_shadow = true,
                                             hr_version =
@@ -196,6 +203,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     width = 98,
                                                     height = 110,
                                                     repeat_count = 5,
+                                                    tint = attributes.tint,
                                                     shift = util.by_pixel(10, 29),
                                                     draw_as_shadow = true,
                                                     scale = 0.5
@@ -213,6 +221,7 @@ function wallUtils.makeWall(attributes, attack)
                                             width = 32,
                                             height = 50,
                                             variation_count = 6,
+                                            tint = attributes.tint,
                                             line_length = 6,
                                             shift = util.by_pixel(0, -4),
                                             hr_version =
@@ -222,6 +231,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     width = 64,
                                                     height = 92,
                                                     variation_count = 6,
+                                                    tint = attributes.tint,
                                                     line_length = 6,
                                                     shift = util.by_pixel(0, -2),
                                                     scale = 0.5
@@ -232,6 +242,7 @@ function wallUtils.makeWall(attributes, attack)
                                             priority = "extra-high",
                                             width = 62,
                                             height = 36,
+                                            tint = attributes.tint,
                                             repeat_count = 6,
                                             shift = util.by_pixel(14, 14),
                                             draw_as_shadow = true,
@@ -241,6 +252,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     priority = "extra-high",
                                                     width = 124,
                                                     height = 68,
+                                                    tint = attributes.tint,
                                                     repeat_count = 6,
                                                     shift = util.by_pixel(14, 15),
                                                     draw_as_shadow = true,
@@ -259,6 +271,7 @@ function wallUtils.makeWall(attributes, attack)
                                             width = 32,
                                             height = 64,
                                             variation_count = 2,
+                                            tint = attributes.tint,
                                             line_length = 2,
                                             shift = util.by_pixel(0, 6),
                                             hr_version =
@@ -268,6 +281,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     width = 64,
                                                     height = 128,
                                                     variation_count = 2,
+                                                    tint = attributes.tint,
                                                     line_length = 2,
                                                     shift = util.by_pixel(0, 7),
                                                     scale = 0.5
@@ -279,6 +293,7 @@ function wallUtils.makeWall(attributes, attack)
                                             width = 62,
                                             height = 60,
                                             repeat_count = 2,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(14, 28),
                                             draw_as_shadow = true,
                                             hr_version =
@@ -287,6 +302,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     priority = "extra-high",
                                                     width = 124,
                                                     height = 120,
+                                                    tint = attributes.tint,
                                                     repeat_count = 2,
                                                     shift = util.by_pixel(17, 28),
                                                     draw_as_shadow = true,
@@ -305,6 +321,7 @@ function wallUtils.makeWall(attributes, attack)
                                             width = 32,
                                             height = 68,
                                             variation_count = 2,
+                                            tint = attributes.tint,
                                             line_length = 2,
                                             shift = util.by_pixel(0, 6),
                                             hr_version =
@@ -314,6 +331,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     width = 64,
                                                     height = 134,
                                                     variation_count = 2,
+                                                    tint = attributes.tint,
                                                     line_length = 2,
                                                     shift = util.by_pixel(0, 7),
                                                     scale = 0.5
@@ -325,6 +343,7 @@ function wallUtils.makeWall(attributes, attack)
                                             width = 54,
                                             height = 60,
                                             repeat_count = 2,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(8, 28),
                                             draw_as_shadow = true,
                                             hr_version =
@@ -334,6 +353,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     width = 102,
                                                     height = 120,
                                                     repeat_count = 2,
+                                                    tint = attributes.tint,
                                                     shift = util.by_pixel(9, 28),
                                                     draw_as_shadow = true,
                                                     scale = 0.5
@@ -351,6 +371,7 @@ function wallUtils.makeWall(attributes, attack)
                                             width = 32,
                                             height = 68,
                                             variation_count = 4,
+                                            tint = attributes.tint,
                                             line_length = 4,
                                             shift = util.by_pixel(0, 6),
                                             hr_version =
@@ -360,6 +381,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     width = 64,
                                                     height = 134,
                                                     variation_count = 4,
+                                                    tint = attributes.tint,
                                                     line_length = 4,
                                                     shift = util.by_pixel(0, 7),
                                                     scale = 0.5
@@ -371,6 +393,7 @@ function wallUtils.makeWall(attributes, attack)
                                             width = 62,
                                             height = 60,
                                             repeat_count = 4,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(14, 28),
                                             draw_as_shadow = true,
                                             hr_version =
@@ -379,6 +402,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     priority = "extra-high",
                                                     width = 124,
                                                     height = 120,
+                                                    tint = attributes.tint,
                                                     repeat_count = 4,
                                                     shift = util.by_pixel(14, 28),
                                                     draw_as_shadow = true,
@@ -397,6 +421,7 @@ function wallUtils.makeWall(attributes, attack)
                                             width = 32,
                                             height = 48,
                                             variation_count = 2,
+                                            tint = attributes.tint,
                                             line_length = 2,
                                             shift = util.by_pixel(0, -4),
                                             hr_version =
@@ -406,6 +431,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     width = 64,
                                                     height = 92,
                                                     variation_count = 2,
+                                                    tint = attributes.tint,
                                                     line_length = 2,
                                                     shift = util.by_pixel(0, -3),
                                                     scale = 0.5
@@ -416,6 +442,7 @@ function wallUtils.makeWall(attributes, attack)
                                             priority = "extra-high",
                                             width = 62,
                                             height = 36,
+                                            tint = attributes.tint,
                                             repeat_count = 2,
                                             shift = util.by_pixel(14, 14),
                                             draw_as_shadow = true,
@@ -425,6 +452,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     priority = "extra-high",
                                                     width = 124,
                                                     height = 68,
+                                                    tint = attributes.tint,
                                                     repeat_count = 2,
                                                     shift = util.by_pixel(17, 15),
                                                     draw_as_shadow = true,
@@ -443,6 +471,7 @@ function wallUtils.makeWall(attributes, attack)
                                             width = 32,
                                             height = 48,
                                             variation_count = 2,
+                                            tint = attributes.tint,
                                             line_length = 2,
                                             shift = util.by_pixel(0, -4),
                                             hr_version =
@@ -453,6 +482,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     height = 92,
                                                     variation_count = 2,
                                                     line_length = 2,
+                                                    tint = attributes.tint,
                                                     shift = util.by_pixel(0, -3),
                                                     scale = 0.5
                                                 }
@@ -462,6 +492,7 @@ function wallUtils.makeWall(attributes, attack)
                                             priority = "extra-high",
                                             width = 54,
                                             height = 36,
+                                            tint = attributes.tint,
                                             repeat_count = 2,
                                             shift = util.by_pixel(8, 14),
                                             draw_as_shadow = true,
@@ -472,6 +503,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     width = 102,
                                                     height = 68,
                                                     repeat_count = 2,
+                                                    tint = attributes.tint,
                                                     shift = util.by_pixel(9, 15),
                                                     draw_as_shadow = true,
                                                     scale = 0.5
@@ -486,6 +518,7 @@ function wallUtils.makeWall(attributes, attack)
                                 width = 24,
                                 height = 30,
                                 variation_count = 8,
+                                tint = attributes.tint,
                                 line_length = 8,
                                 shift = util.by_pixel(0, -2),
                                 hr_version =
@@ -495,6 +528,7 @@ function wallUtils.makeWall(attributes, attack)
                                         width = 48,
                                         height = 56,
                                         variation_count = 8,
+                                        tint = attributes.tint,
                                         line_length = 8,
                                         shift = util.by_pixel(0, -1),
                                         scale = 0.5
@@ -509,6 +543,7 @@ function wallUtils.makeWall(attributes, attack)
                                             priority = "extra-high",
                                             width = 58,
                                             height = 64,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(0, -2),
                                             hr_version =
                                                 {
@@ -516,6 +551,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     priority = "extra-high",
                                                     width = 116,
                                                     height = 128,
+                                                    tint = attributes.tint,
                                                     shift = util.by_pixel(0, -2),
                                                     scale = 0.5
                                                 }
@@ -525,6 +561,7 @@ function wallUtils.makeWall(attributes, attack)
                                             priority = "extra-high",
                                             width = 74,
                                             height = 52,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(8, 14),
                                             draw_as_shadow = true,
                                             hr_version =
@@ -533,6 +570,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     priority = "extra-high",
                                                     width = 144,
                                                     height = 100,
+                                                    tint = attributes.tint,
                                                     shift = util.by_pixel(9, 15),
                                                     draw_as_shadow = true,
                                                     scale = 0.5
@@ -549,6 +587,7 @@ function wallUtils.makeWall(attributes, attack)
                                             priority = "extra-high",
                                             width = 42,
                                             height = 56,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(0, -8),
                                             hr_version =
                                                 {
@@ -556,6 +595,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     priority = "extra-high",
                                                     width = 82,
                                                     height = 108,
+                                                    tint = attributes.tint,
                                                     shift = util.by_pixel(0, -7),
                                                     scale = 0.5
                                                 }
@@ -565,6 +605,7 @@ function wallUtils.makeWall(attributes, attack)
                                             priority = "extra-high",
                                             width = 66,
                                             height = 40,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(14, 18),
                                             draw_as_shadow = true,
                                             hr_version =
@@ -573,6 +614,7 @@ function wallUtils.makeWall(attributes, attack)
                                                     priority = "extra-high",
                                                     width = 130,
                                                     height = 78,
+                                                    tint = attributes.tint,
                                                     shift = util.by_pixel(14, 18),
                                                     draw_as_shadow = true,
                                                     scale = 0.5
@@ -762,6 +804,7 @@ function wallUtils.makeGate(attributes, attack)
                                     width = 38,
                                     height = 62,
                                     frame_count = 16,
+                                    tint = attributes.tint,
                                     shift = util.by_pixel(0, -14),
                                     hr_version =
                                         {
@@ -770,6 +813,7 @@ function wallUtils.makeGate(attributes, attack)
                                             width = 78,
                                             height = 120,
                                             frame_count = 16,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(-1, -13),
                                             scale = 0.5
                                         }
@@ -780,6 +824,7 @@ function wallUtils.makeGate(attributes, attack)
                                     width = 40,
                                     height = 54,
                                     frame_count = 16,
+                                    tint = attributes.tint,
                                     shift = util.by_pixel(10, 8),
                                     draw_as_shadow = true,
                                     hr_version =
@@ -789,6 +834,7 @@ function wallUtils.makeGate(attributes, attack)
                                             width = 82,
                                             height = 104,
                                             frame_count = 16,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(9, 9),
                                             draw_as_shadow = true,
                                             scale = 0.5
@@ -806,6 +852,7 @@ function wallUtils.makeGate(attributes, attack)
                                     width = 34,
                                     height = 48,
                                     frame_count = 16,
+                                    tint = attributes.tint,
                                     shift = util.by_pixel(0, -4),
                                     hr_version =
                                         {
@@ -814,6 +861,7 @@ function wallUtils.makeGate(attributes, attack)
                                             width = 66,
                                             height = 90,
                                             frame_count = 16,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(0, -3),
                                             scale = 0.5
                                         }
@@ -825,6 +873,7 @@ function wallUtils.makeGate(attributes, attack)
                                     height = 30,
                                     frame_count = 16,
                                     shift = util.by_pixel(12, 10),
+                                    tint = attributes.tint,
                                     draw_as_shadow = true,
                                     hr_version =
                                         {
@@ -833,6 +882,7 @@ function wallUtils.makeGate(attributes, attack)
                                             width = 122,
                                             height = 60,
                                             frame_count = 16,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(12, 10),
                                             draw_as_shadow = true,
                                             scale = 0.5
@@ -850,6 +900,7 @@ function wallUtils.makeGate(attributes, attack)
                                     width = 34,
                                     height = 40,
                                     frame_count = 16,
+                                    tint = attributes.tint,
                                     shift = util.by_pixel(0, -8),
                                     hr_version =
                                         {
@@ -858,6 +909,7 @@ function wallUtils.makeGate(attributes, attack)
                                             width = 66,
                                             height = 74,
                                             frame_count = 16,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(0, -7),
                                             scale = 0.5
                                         }
@@ -867,6 +919,7 @@ function wallUtils.makeGate(attributes, attack)
                                     line_length = 8,
                                     width = 62,
                                     height = 30,
+                                    tint = attributes.tint,
                                     frame_count = 16,
                                     shift = util.by_pixel(12, 10),
                                     draw_as_shadow = true,
@@ -876,6 +929,7 @@ function wallUtils.makeGate(attributes, attack)
                                             line_length = 8,
                                             width = 122,
                                             height = 60,
+                                            tint = attributes.tint,
                                             frame_count = 16,
                                             shift = util.by_pixel(12, 10),
                                             draw_as_shadow = true,
@@ -893,6 +947,7 @@ function wallUtils.makeGate(attributes, attack)
                                     line_length = 8,
                                     width = 34,
                                     height = 40,
+                                    tint = attributes.tint,
                                     frame_count = 16,
                                     shift = util.by_pixel(0, -8),
                                     hr_version =
@@ -901,6 +956,7 @@ function wallUtils.makeGate(attributes, attack)
                                             line_length = 8,
                                             width = 66,
                                             height = 74,
+                                            tint = attributes.tint,
                                             frame_count = 16,
                                             shift = util.by_pixel(0, -7),
                                             scale = 0.5
@@ -911,6 +967,7 @@ function wallUtils.makeGate(attributes, attack)
                                     line_length = 8,
                                     width = 62,
                                     height = 30,
+                                    tint = attributes.tint,
                                     frame_count = 16,
                                     shift = util.by_pixel(12, 10),
                                     draw_as_shadow = true,
@@ -920,6 +977,7 @@ function wallUtils.makeGate(attributes, attack)
                                             line_length = 8,
                                             width = 122,
                                             height = 58,
+                                            tint = attributes.tint,
                                             frame_count = 16,
                                             shift = util.by_pixel(12, 11),
                                             draw_as_shadow = true,
@@ -937,6 +995,7 @@ function wallUtils.makeGate(attributes, attack)
                                     line_length = 8,
                                     width = 22,
                                     height = 62,
+                                    tint = attributes.tint,
                                     frame_count = 16,
                                     shift = util.by_pixel(0, -14),
                                     hr_version =
@@ -945,6 +1004,7 @@ function wallUtils.makeGate(attributes, attack)
                                             line_length = 8,
                                             width = 42,
                                             height = 118,
+                                            tint = attributes.tint,
                                             frame_count = 16,
                                             shift = util.by_pixel(0, -13),
                                             scale = 0.5
@@ -955,6 +1015,7 @@ function wallUtils.makeGate(attributes, attack)
                                     line_length = 8,
                                     width = 44,
                                     height = 54,
+                                    tint = attributes.tint,
                                     frame_count = 16,
                                     shift = util.by_pixel(8, 8),
                                     draw_as_shadow = true,
@@ -964,6 +1025,7 @@ function wallUtils.makeGate(attributes, attack)
                                             line_length = 8,
                                             width = 82,
                                             height = 104,
+                                            tint = attributes.tint,
                                             frame_count = 16,
                                             shift = util.by_pixel(9, 9),
                                             draw_as_shadow = true,
@@ -982,6 +1044,7 @@ function wallUtils.makeGate(attributes, attack)
                                     width = 22,
                                     height = 62,
                                     frame_count = 16,
+                                    tint = attributes.tint,
                                     shift = util.by_pixel(0, -14),
                                     hr_version =
                                         {
@@ -990,6 +1053,7 @@ function wallUtils.makeGate(attributes, attack)
                                             width = 42,
                                             height = 118,
                                             frame_count = 16,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(0, -13),
                                             scale = 0.5
                                         }
@@ -1000,6 +1064,7 @@ function wallUtils.makeGate(attributes, attack)
                                     width = 44,
                                     height = 54,
                                     frame_count = 16,
+                                    tint = attributes.tint,
                                     shift = util.by_pixel(8, 8),
                                     draw_as_shadow = true,
                                     hr_version =
@@ -1009,6 +1074,7 @@ function wallUtils.makeGate(attributes, attack)
                                             width = 82,
                                             height = 104,
                                             frame_count = 16,
+                                            tint = attributes.tint,
                                             shift = util.by_pixel(9, 9),
                                             draw_as_shadow = true,
                                             scale = 0.5
@@ -1023,6 +1089,7 @@ function wallUtils.makeGate(attributes, attack)
                         width = 68,
                         height = 66,
                         frame_count = 16,
+                        tint = attributes.tint,
                         shift = util.by_pixel(0, 0),
                         hr_version =
                             {
@@ -1030,6 +1097,7 @@ function wallUtils.makeGate(attributes, attack)
                                 line_length = 8,
                                 width = 138,
                                 height = 130,
+                                tint = attributes.tint,
                                 frame_count = 16,
                                 shift = util.by_pixel(-1, 0),
                                 scale = 0.5
@@ -1041,6 +1109,7 @@ function wallUtils.makeGate(attributes, attack)
                         line_length = 8,
                         width = 66,
                         height = 54,
+                        tint = attributes.tint,
                         frame_count = 16,
                         shift = util.by_pixel(0, 2),
                         hr_version =
@@ -1049,6 +1118,7 @@ function wallUtils.makeGate(attributes, attack)
                                 line_length = 8,
                                 width = 130,
                                 height = 104,
+                                tint = attributes.tint,
                                 frame_count = 16,
                                 shift = util.by_pixel(0, 3),
                                 scale = 0.5
@@ -1063,6 +1133,7 @@ function wallUtils.makeGate(attributes, attack)
                                     line_length = 8,
                                     width = 34,
                                     height = 48,
+                                    tint = attributes.tint,
                                     frame_count = 16,
                                     shift = util.by_pixel(0, 12),
                                     hr_version =
@@ -1071,6 +1142,7 @@ function wallUtils.makeGate(attributes, attack)
                                             line_length = 8,
                                             width = 70,
                                             height = 94,
+                                            tint = attributes.tint,
                                             frame_count = 16,
                                             shift = util.by_pixel(-1, 13),
                                             scale = 0.5
@@ -1082,6 +1154,7 @@ function wallUtils.makeGate(attributes, attack)
                                     width = 44,
                                     height = 38,
                                     frame_count = 16,
+                                    tint = attributes.tint,
                                     shift = util.by_pixel(8, 32),
                                     draw_as_shadow = true,
                                     hr_version =
@@ -1089,6 +1162,7 @@ function wallUtils.makeGate(attributes, attack)
                                             filename = "__base__/graphics/entity/gate/hr-gate-wall-patch-shadow.png",
                                             line_length = 8,
                                             width = 82,
+                                            tint = attributes.tint,
                                             height = 72,
                                             frame_count = 16,
                                             shift = util.by_pixel(9, 33),

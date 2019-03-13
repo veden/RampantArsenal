@@ -9,7 +9,7 @@ function clouds.enable()
     makeCloud(
 	{
 	    name = "big-toxic",
-	    duration = 240,
+	    duration = 400,
 	    inDuration = 45,
 	    outDuration = 30,
 	    movementModifier = 0,
@@ -37,7 +37,7 @@ function clouds.enable()
 						{
 						    {
 							type = "damage",
-							damage = { amount = 110, type = "poison" }
+							damage = { amount = 400, type = "poison" }
 						    },
 						    {
 							type = "create-sticker",
@@ -53,7 +53,7 @@ function clouds.enable()
     makeCloud(
 	{
 	    name = "massive-fire",
-	    duration = 300,
+	    duration = 400,
 	    inDuration = 45,
 	    outDuration = 30,
 	    movementModifier = 0,
@@ -255,7 +255,7 @@ function clouds.enable()
     local toxicCloud = makeCloud(
 	{
 	    name = "toxic",
-	    duration = 240,
+	    duration = 360,
 	    inDuration = 45,
 	    outDuration = 30,
 	    movementModifier = 0,
@@ -275,6 +275,7 @@ function clouds.enable()
 				{
 				    type = "area",
 				    radius = 10,
+                                    entity_flags = {"breaths-air"},
 				    action_delivery =
 					{
 					    type = "instant",
@@ -282,7 +283,7 @@ function clouds.enable()
 						{
 						    {
 							type = "damage",
-							damage = { amount = 80, type = "poison" }
+							damage = { amount = 300, type = "poison" }
 						    },
 						    {
 							type = "create-sticker",
