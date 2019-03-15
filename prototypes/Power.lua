@@ -20,7 +20,7 @@ function power.enable()
 	    fluidPerTick = 1,
 	    effectivity = 0.60,
 	    maxTemp = 25,
-	    emissions = 0.04,
+	    emissions = 0.00004,
 	    scale = 0.5,
 	    tint = { r = 0.7, g = 0.4, b = 0, a = 1 }
     })

@@ -60,7 +60,7 @@ function powerUtils.makeOilBurner(attributes)
 		    {
 			type = "electric",
 			usage_priority = "secondary-output",
-			emissions = attributes.emissions
+			emissions_per_second_per_watt = attributes.emissions
 		    },
 		horizontal_animation =
 		    {
