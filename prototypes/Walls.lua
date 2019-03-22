@@ -20,7 +20,7 @@ function walls.enable()
 	    icon = "__RampantArsenal__/graphics/icons/mending-wall.png",
 	    health = 1000,
 	    healing = 1,
-	    tint = {r=0.5,g=0.9,b=0.5,a=1},
+	    tint = {r=0.5,g=0.60,b=0.5,a=1},
 	    order = "a[stone-wall]-a[zmending-wall]",
 	    resistances = {
 		{
@@ -87,7 +87,7 @@ function walls.enable()
 	    icon = "__RampantArsenal__/graphics/icons/mending-gate.png",
 	    health = 1000,
 	    healing = 1,
-	    tint = {r=0.5,g=0.9,b=0.5,a=1},
+	    tint = {r=0.5,g=0.60,b=0.5,a=1},
 	    order = "a[wall]-b[gatez]",
 	    resistances = {
 		{
@@ -190,7 +190,7 @@ function walls.enable()
 	    name = "reinforced",
 	    icon = "__RampantArsenal__/graphics/icons/reinforced-wall.png",
 	    health = 1500,
-	    tint = {r=0.5,g=0.5,b=0.9,a=1},
+	    tint = {r=0.5,g=0.5,b=0.60,a=1},
 	    order = "a[stone-wall]-a[zreinforced-wall]",
 	    resistances = {
 		{

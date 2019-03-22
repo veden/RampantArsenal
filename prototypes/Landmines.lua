@@ -14,7 +14,7 @@ function landmines.enable()
 	{
 	    name = "nuclear",
 	    icon = "__RampantArsenal__/graphics/icons/nuclear-landmine.png",
-	    tint = {r=0,g=0.8,b=0,a=1},
+	    tint = {r=0.70,g=0.9,b=0.70,a=1},
 	    triggerRadius = 10,
 	    stackSize = 100,
 	    order="f[land-mine]-c[nuclear]"
@@ -77,7 +77,7 @@ function landmines.enable()
 	{
 	    name = "incendiary",
 	    icon = "__RampantArsenal__/graphics/icons/incendiary-landmine.png",
-	    tint = {r=0.8,g=0,b=0,a=1},
+	    tint = {r=0.9,g=0.70,b=0.70,a=1},
 	    triggerRadius = 3.5,
 	    stackSize = 100,
 	    resistances = {
@@ -167,7 +167,7 @@ function landmines.enable()
 	{
 	    name = "bio",
 	    icon = "__RampantArsenal__/graphics/icons/bio-landmine.png",
-	    tint = {r=0.5,g=0,b=0.5,a=1},
+	    tint = {r=0.9,g=0.60,b=0.9,a=1},
 	    triggerRadius = 5.5,
             stackSize = 100,
 	    order="f[land-mine]-c[bio]"
@@ -226,7 +226,7 @@ function landmines.enable()
 	{
 	    name = "he",
 	    icon = "__RampantArsenal__/graphics/icons/he-landmine.png",
-	    tint = {r=0,g=0,b=0.8,a=1},
+	    tint = {r=0.70,g=0.70,b=0.9,a=1},
 	    triggerRadius = 7.5,
             stackSize = 100,
 	    order="f[land-mine]-c[bio]"

@@ -195,7 +195,7 @@ function vehicles.enable()
 	    equipmentGrid = advTankGrid,
 	    immuneToTrees = true,
 	    weapons = { advancedTankMachineGun, advancedTankCannon, advancedTankFlamethrower, advancedTankLauncher},
-	    tint = { r = 0.45, g = 0, b = 0, a = 1 },
+	    tint = { r = 0.85, g = 0.75, b = 0.75, a = 1 },
 	    energySource = {
 		fuel_category = "chemical",
 		effectivity = 0.85,
@@ -415,7 +415,7 @@ function vehicles.enable()
 	    consumption = "3.0MW",
 	    weight = 40000,
 	    inventorySize = 180,
-	    tint = { r = 0, g = 0.45, b = 0, a = 1 },
+	    tint = { r = 0.75, g = 0.85, b = 0.75, a = 1 },
 	    energySource = {
 		fuel_category = "nuclear",
 		effectivity = 0.9,
@@ -594,7 +594,7 @@ function vehicles.enable()
 	    },
 	    collisionBox = {{-0.9, -1.2}, {0.9, 1.2}},
 	    selectionBox = {{-0.9, -1.2}, {0.9, 1.2}},
-	    tint = { r = 0.45, g = 0, b = 0, a = 1 },
+	    tint = { r = 0.85, g = 0.75, b = 0.75, a = 1 },
 	    resistances = {
 		{
 		    type = "fire",
@@ -720,7 +720,7 @@ function vehicles.enable()
 	    icon = "__RampantArsenal__/graphics/icons/nuclear-car.png",
 	    collisionBox = {{-1.1, -1.4}, {1.1, 1.4}},
 	    selectionBox = {{-1.1, -1.4}, {1.1, 1.4}},
-	    tint = { r = 0, g = 0.45, b = 0, a = 1 },
+	    tint = { r = 0.75, g = 0.85, b = 0.75, a = 1 },
 	    energySource = {
 		fuel_category = "nuclear",
 		effectivity = 1,
@@ -800,7 +800,7 @@ function vehicles.enable()
 	    maxReverse = 0.7,
 	    maxPower = "1MW",
 	    weight = 6000,
-	    tint = { r = 0, g = 0.45, b = 0, a = 1 },
+	    tint = { r = 0.70, g = 0.9, b = 0.70, a = 1 },
 	    energySource = {
 		fuel_category = "nuclear",
 		effectivity = 0.9,
