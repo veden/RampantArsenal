@@ -69,7 +69,37 @@ function rockets.enable()
 	preparedAnimation = rocketSheetMk1(),
 	preparingAnimation = rocketSheetMk1(),
         hasBaseDirection = true,
-        rotationSpeed = 0.002
+        rotationSpeed = 0.002,
+        resistances = {
+            {
+                type = "fire",
+                percent = 60
+            },
+            {
+                type = "explosion",
+                percent = 10
+            },
+            {
+                type = "physical",
+                percent = 10
+            },
+            {
+                type = "acid",
+                percent = 30
+            },
+            {
+                type = "electric",
+                percent = 60
+            },
+            {
+                type = "laser",
+                percent = 60
+            },
+            {
+                type = "poison",
+                percent = 30
+            }
+        }
     }
     local rocketTurret, rocketTurretItem = makeAmmoTurret(entity,
 							  {
@@ -95,7 +125,37 @@ function rockets.enable()
 	preparedAnimation = rocketSheetMk2(),
 	preparingAnimation = rocketSheetMk2(),
         hasBaseDirection = true,
-        rotationSpeed = 0.005
+        rotationSpeed = 0.005,
+        resistances = {
+            {
+                type = "fire",
+                percent = 60
+            },
+            {
+                type = "explosion",
+                percent = 10
+            },
+            {
+                type = "physical",
+                percent = 10
+            },
+            {
+                type = "acid",
+                percent = 30
+            },
+            {
+                type = "electric",
+                percent = 60
+            },
+            {
+                type = "laser",
+                percent = 60
+            },
+            {
+                type = "poison",
+                percent = 30
+            }
+        }
     }
     local rapidRocketTurret, rapidRocketTurretItem = makeAmmoTurret(entity1, {
 									type = "projectile",
@@ -194,7 +254,7 @@ function rockets.enable()
 									action =
 									    {
 										type = "area",
-										radius = 10,
+										radius = 8,
 										action_delivery =
 										    {
 											type = "instant",
@@ -302,7 +362,7 @@ function rockets.enable()
 									action =
 									    {
 										type = "area",
-										radius = 16,
+										radius = 10,
 										action_delivery =
 										    {
 											type = "instant",
@@ -315,7 +375,11 @@ function rockets.enable()
 												{
 												    type = "damage",
 												    damage = {amount = 1050 , type = "explosion"}
-												}
+												},
+                                                                                                {
+                                                                                                    type = "create-entity",
+                                                                                                    entity_name = "big-explosion"
+                                                                                                }
 											    }
 										    }
 									    }
@@ -399,17 +463,12 @@ function rockets.enable()
 									action =
 									    {
 										type = "area",
-										radius = 11,
+										radius = 7,
 										action_delivery =
 										    {
 											type = "instant",
 											target_effects =
-											    {
-												{
-												    type = "create-entity",
-												    entity_name = "toxic-cloud-rampant-arsenal",
-                                                                                                    show_in_tooltip = true
-												},
+											    {												
 												{
 												    type = "damage",
 												    damage = {amount = 600 , type = "poison"}
@@ -422,6 +481,11 @@ function rockets.enable()
 										    }
 									    }
 								    },
+                                                                    {
+                                                                        type = "create-entity",
+                                                                        entity_name = "toxic-cloud-rampant-arsenal",
+                                                                        show_in_tooltip = true
+                                                                    },
 								    {
 									type = "create-entity",
 									entity_name = "big-explosion"

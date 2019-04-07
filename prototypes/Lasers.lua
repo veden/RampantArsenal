@@ -86,7 +86,37 @@ function lasers.enable()
 	foldingAnimation = advancedLaserSheet(),
 	preparedAnimation = advancedLaserSheet(),
 	preparingAnimation = advancedLaserSheet(),
-        rotationSpeed = 0.002
+        rotationSpeed = 0.002,
+        resistances = {
+            {
+                type = "fire",
+                percent = 60
+            },
+            {
+                type = "explosion",
+                percent = 10
+            },
+            {
+                type = "physical",
+                percent = 10
+            },
+            {
+                type = "acid",
+                percent = 30
+            },
+            {
+                type = "electric",
+                percent = 30
+            },
+            {
+                type = "laser",
+                percent = 30
+            },
+            {
+                type = "poison",
+                percent = 30
+            }
+        }
     }
     local _, advancedElectricTurretItem = makeElectricTurret(entity, {
 								 type = "projectile",
@@ -192,7 +222,37 @@ function lasers.enable()
 	foldingAnimation = lightningTowerSheet(),
 	preparedAnimation = lightningTowerSheet(),
 	preparingAnimation = lightningTowerSheet(),
-        rotationSpeed = 0.010
+        rotationSpeed = 0.010,
+        resistances = {
+            {
+                type = "fire",
+                percent = 60
+            },
+            {
+                type = "explosion",
+                percent = 10
+            },
+            {
+                type = "physical",
+                percent = 10
+            },
+            {
+                type = "acid",
+                percent = 30
+            },
+            {
+                type = "electric",
+                percent = 30
+            },
+            {
+                type = "laser",
+                percent = 30
+            },
+            {
+                type = "poison",
+                percent = 30
+            }
+        }
     }
     local _, lightningTowerTurretItem = makeElectricTurret(entity1, {
 							       type = "beam",

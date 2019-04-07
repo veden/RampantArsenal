@@ -133,7 +133,37 @@ function cannons.enable()
 	foldingAnimation = cannonMkISheet(),
 	preparedAnimation = cannonMkISheet(),
 	preparingAnimation = cannonMkISheet(),
-        rotationSpeed = 0.05
+        rotationSpeed = 0.05,
+        resistances = {
+            {
+                type = "fire",
+                percent = 60
+            },
+            {
+                type = "explosion",
+                percent = 50
+            },
+            {
+                type = "physical",
+                percent = 50
+            },
+            {
+                type = "acid",
+                percent = 30
+            },
+            {
+                type = "electric",
+                percent = 60
+            },
+            {
+                type = "laser",
+                percent = 60
+            },
+            {
+                type = "poison",
+                percent = 30
+            }
+        }
     }
     local cannonTurret,cannonTurretItem = makeAmmoTurret(cannonAttributes,
 							 {
@@ -145,7 +175,7 @@ function cannons.enable()
 							     min_range = 7,
 							     turn_range = 0.40,
 							     projectile_center = {0, -0.0875},
-							     range = 30,
+							     range = 34,
 							     sound = make_heavy_gunshot_sounds(),
     })
 
@@ -161,7 +191,37 @@ function cannons.enable()
 	attackingAnimation = cannonMkIISheet(),
 	hasBaseDirection = true,
 	foldingAnimation = cannonMkIIPlace(8, 4, 8, true),
-        rotationSpeed = 0.06
+        rotationSpeed = 0.06,
+        resistances = {
+            {
+                type = "fire",
+                percent = 60
+            },
+            {
+                type = "explosion",
+                percent = 50
+            },
+            {
+                type = "physical",
+                percent = 50
+            },
+            {
+                type = "acid",
+                percent = 30
+            },
+            {
+                type = "electric",
+                percent = 60
+            },
+            {
+                type = "laser",
+                percent = 60
+            },
+            {
+                type = "poison",
+                percent = 30
+            }
+        }
     }
     local rapidCannonTurret,rapidCannonTurretItem = makeAmmoTurret(rapidCannonAttributes, {
 								       type = "projectile",
@@ -171,7 +231,7 @@ function cannons.enable()
 								       turn_range = 0.40,
 								       projectile_creation_distance = 9,
 								       projectile_center = {0, -0.0875},
-								       range = 30,
+								       range = 34,
 								       sound = make_heavy_gunshot_sounds(),
     })
 
@@ -191,7 +251,37 @@ function cannons.enable()
     	preparingAnimation = largeCannonSheet(),
     	preparedAnimation = largeCannonSheet(),
     	foldingAnimation = largeCannonSheet(),
-        rotationSpeed = 0.002
+        rotationSpeed = 0.002,
+        resistances = {
+            {
+                type = "fire",
+                percent = 80
+            },
+            {
+                type = "explosion",
+                percent = 60
+            },
+            {
+                type = "physical",
+                percent = 60
+            },
+            {
+                type = "acid",
+                percent = 60
+            },
+            {
+                type = "electric",
+                percent = 40
+            },
+            {
+                type = "laser",
+                percent = 40
+            },
+            {
+                type = "poison",
+                percent = 60
+            }
+        }
     }
     local suppressionCannonTurret,suppressionCannonTurretItem = makeFluidTurret(advFlamethrowerAttributes,
 										{
@@ -317,17 +407,48 @@ function cannons.enable()
 	foldedAnimation = shotgunTurretSheet(),
 	preparingAnimation = shotgunTurretSheet(),
 	preparedAnimation = shotgunTurretSheet(),
-	foldingAnimation = shotgunTurretSheet()
+	foldingAnimation = shotgunTurretSheet(),
+        resistances = {
+            {
+                type = "fire",
+                percent = 30
+            },
+            {
+                type = "explosion",
+                percent = 40
+            },
+            {
+                type = "physical",
+                percent = 40
+            },
+            {
+                type = "acid",
+                percent = 50
+            },
+            {
+                type = "electric",
+                percent = 30
+            },
+            {
+                type = "laser",
+                percent = 30
+            },
+            {
+                type = "poison",
+                percent = 50
+            }
+        }
     }
     local shotgunTurret,shotgunTurretItem = makeAmmoTurret(shotgunAttributes, {
 							       type = "projectile",
 							       ammo_category = "shotgun-shell",
 							       cooldown = 45,
+                                                               min_range = 7,
 							       damage_modifier = 2.0,
 							       turn_range = 0.4,
-							       projectile_creation_distance = 1.39375,
+							       projectile_creation_distance = 9,
 							       projectile_center = {0, -0.0875},
-							       range = 18,
+							       range = 22,
 							       sound = make_heavy_gunshot_sounds(),
     })
 
@@ -639,7 +760,7 @@ function cannons.enable()
     				{
     				    type = "projectile",
 				    starting_speed = 1,
-				    max_range = 30,
+				    max_range = 34,
 				    direction_deviation = 0.1,
 				    range_deviation = 0.1,
 				    min_range = 5,
@@ -667,7 +788,7 @@ function cannons.enable()
 								    },
 								    {
 									type = "damage",
-									damage = {amount = 1000 , type = "fire"}
+									damage = {amount = 800 , type = "fire"}
 								    },
 								    {
 									type = "damage",
@@ -791,7 +912,7 @@ function cannons.enable()
     			    action_delivery =
     				{
     				    type = "projectile",
-				    max_range = 30,
+				    max_range = 34,
 				    direction_deviation = 0.1,
 				    range_deviation = 0.1,
 				    min_range = 5,
@@ -817,7 +938,7 @@ function cannons.enable()
 								{
 								    {
 									type = "damage",
-									damage = {amount = 200 , type = "physical"}
+									damage = {amount = 800 , type = "physical"}
 								    },
 								    {
 									type = "create-entity",
@@ -843,7 +964,7 @@ function cannons.enable()
 									action =
 									    {
 										type = "area",
-										radius = 13,
+										radius = 7,
 										action_delivery =
 										    {
 											type = "instant",
@@ -851,7 +972,7 @@ function cannons.enable()
 											    {
 												{
 												    type = "damage",
-												    damage = {amount = 1500, type = "explosion"}
+												    damage = {amount = 1000, type = "explosion"}
 												},
 												{
 												    type = "create-entity",
@@ -927,7 +1048,7 @@ function cannons.enable()
     				{
     				    type = "projectile",
 				    starting_speed = 1,
-				    max_range = 30,
+				    max_range = 34,
 				    direction_deviation = 0.1,
 				    range_deviation = 0.1,
 				    min_range = 5,
@@ -956,7 +1077,7 @@ function cannons.enable()
 								    },
 								    {
 									type = "damage",
-									damage = {amount = 1000 , type = "poison"}
+									damage = {amount = 800 , type = "poison"}
 								    },
 								    {
 									type = "damage",
@@ -981,26 +1102,11 @@ function cannons.enable()
 									type = "create-entity",
 									entity_name = "big-explosion"
 								    },
-								    {
-									type = "nested-result",
-									action =
-									    {
-										type = "area",
-										radius = 7.5,
-										action_delivery =
-										    {
-											type = "instant",
-											target_effects =
-											    {
-												{
-												    type = "create-entity",
-												    entity_name = "toxic-cloud-rampant-arsenal",
-                                                                                                    show_in_tooltip = true
-												}
-											    }
-										    }
-									    }
-								    },
+                                                                    {
+                                                                        type = "create-entity",
+                                                                        entity_name = "toxic-cloud-rampant-arsenal",
+                                                                        show_in_tooltip = true
+                                                                    },
 								    {
 									type = "create-entity",
 									entity_name = "small-scorchmark",
@@ -1038,6 +1144,11 @@ function cannons.enable()
     local targetEffects = data.raw["projectile"]["uranium-cannon-projectile"].action.action_delivery.target_effects
     targetEffects[1].damage.amount = targetEffects[1].damage.amount * 3
     targetEffects[2].damage.amount = targetEffects[2].damage.amount * 3
+
+    data.raw["ammo"]["cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
+    data.raw["ammo"]["explosive-cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
+    data.raw["ammo"]["explosive-uranium-cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
+    data.raw["ammo"]["uranium-cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
 
     targetEffects = data.raw["projectile"]["explosive-uranium-cannon-projectile"].action.action_delivery.target_effects
     targetEffects[1].damage.amount = targetEffects[1].damage.amount * 3

@@ -1,4 +1,48 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.6
+Date: 4. 06. 2019
+  Tweaks:
+    - Added resistances to mk2 gun turret, rocket turrets, capsule turret, adv flamethrower, laser turrets, cannon, and shotgun turret
+    - Normalized all cannons and cannon projectiles to range 34
+    - Normalized all vehicle launchers to range 45
+    - Normalized all shotgun and shotgun projectiles to range 22 (except the first level shotgun ammo)
+    - Increased all combot robots base damage by x2
+    - Added laser resistance to tanks and cars
+    - Changed shotgun turret to use the same min range and projectile creation distance as the cannon turret    
+    - Removed cluster effect from incendiary landmine launcher
+    - Reduced grenade launcher AoE by 1
+    - Reduced HE grenade launcher AoE by 5
+    - Reduced HE shell AoE by 6
+    - Reduced HE grenade AoE by 3
+    - Reduced HE cannon shell AoE by 5
+    - Reduced HE rocket AoE by 6
+    - Reduced HE landmine AoE by 5    
+    - Reduced HE shell AoE damage by 500
+    - Increased HE shell point damage by 600
+    - Reduced Incendiary rocket AoE by 2
+    - Reduced Incendiary cannon shell damage by 200
+    - Reduced Bio cannon shell damage by 200
+    - Reduced Bio grenade launcher AoE by 3
+    - Reduced Bio rocket AoE by 4
+    - Reduced Bio and incendiary grenade AoE by 1
+    - Reduced Bio landmine AoE by 2
+    - Reduced Advanced car machine gun range by 1
+    - Increased Advanced car flamethrower range by 3
+    - Reduced Nuclear car machine gun range by 1    
+    - Reduced Advanced tank gun range by 2
+    - Reduced Advanced tank flamethrower range by 3
+    - Reduced Nuclear tank machine gun range by 3
+    - Increased Nuclear tank flamethrower range by 5
+    - Increased Nuclear tank rocket range by 10
+  Bugfixes:
+    - Added armored vehicle equipment to vehicles
+    - Fixed bio rocket creating a cloud for every unit that it hits
+    - Fixed bio capsule launcher creating a cloud for every unit that it hits
+    - Fixed bio landmine creating a cloud for every unit that it hits
+    - Fixed incendiary shotgun ammo in the shotgun turret being a beam
+    - Fixed bio, incendiary, he shotgun bullet colors
+
+---------------------------------------------------------------------------------------------------
 Version: 0.17.5
 Date: 3. 22. 2019
   Tweaks:

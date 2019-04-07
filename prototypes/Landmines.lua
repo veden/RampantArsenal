@@ -190,6 +190,11 @@ function landmines.enable()
 			    type = "damage",
 			    damage = { amount = 750, type = "poison"}
 			},
+                        {
+                            type = "create-entity",
+                            entity_name = "toxic-cloud-rampant-arsenal",
+                            show_in_tooltip = true
+                        },
 			{
 			    type = "nested-result",
 			    affects_target = true,
@@ -197,17 +202,12 @@ function landmines.enable()
 				{
 				    {
 					type = "area",
-					radius = 8,
+					radius = 6,
 					action_delivery =
 					    {
 						type = "instant",
 						target_effects =
-						    {
-							{
-							    type = "create-entity",
-							    entity_name = "toxic-cloud-rampant-arsenal",
-                                                            show_in_tooltip = true
-							},
+						    {							
 							{
 							    type = "damage",
 							    damage = { amount = 450, type = "poison" }
@@ -252,7 +252,7 @@ function landmines.enable()
 				{
 				    {
 					type = "area",
-					radius = 13,
+					radius = 8,
 					action_delivery =
 					    {
 						type = "instant",

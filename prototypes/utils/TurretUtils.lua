@@ -172,7 +172,9 @@ function turretUtils.makeAmmoTurret(attributes, attack)
 		energy_source = attributes.energySource,
 		attacking_animation = attributes.attackingAnimation,
 		turret_base_has_direction = attributes.hasBaseDirection,
-		
+
+                resistances = attributes.resistances,
+                
 		vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
 
 		attack_parameters = attack or
@@ -243,7 +245,7 @@ function turretUtils.makeFluidTurret(attributes, attack)
 		attacking_animation_fade_out = 10,
 		turret_base_has_direction = true,
 
-		resistances =
+		resistances = attributes.resistances or
 		    {
 			{
 			    type = "fire",
@@ -400,6 +402,8 @@ function turretUtils.makeElectricTurret(attributes, attack)
 			drain = "24kW",
 			usage_priority = "primary-input"
 		    },
+
+                resistances = attributes.resistances,
 		folded_animation = attributes.foldedAnimation,
 		preparing_animation = attributes.preparingAnimation,
 		prepared_animation = attributes.preparedAnimation,

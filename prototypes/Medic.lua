@@ -56,7 +56,37 @@ function medic.enable()
 	foldedAnimation = medicSheet(),
 	foldingAnimation = medicSheet(),
 	preparedAnimation = medicSheet(),
-	preparingAnimation = medicSheet()
+	preparingAnimation = medicSheet(),
+        resistances = {
+            {
+                type = "fire",
+                percent = 60
+            },
+            {
+                type = "explosion",
+                percent = 30
+            },
+            {
+                type = "physical",
+                percent = 30
+            },
+            {
+                type = "acid",
+                percent = 30
+            },
+            {
+                type = "electric",
+                percent = 60
+            },
+            {
+                type = "laser",
+                percent = 60
+            },
+            {
+                type = "poison",
+                percent = 30
+            }
+        }
     }
     local medicTurret,medicTurretItem = makeAmmoTurret(medicTurretAttributes,
 						       {

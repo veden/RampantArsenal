@@ -48,7 +48,7 @@ function vehicles.enable()
 		},
 	    projectile_center = {-0.15625, -0.07812},
 	    projectile_creation_distance = 3,
-	    range = 22,
+	    range = 20,
 	    sound = make_heavy_gunshot_sounds()
     })
 
@@ -67,7 +67,7 @@ function vehicles.enable()
 	    movement_slow_down_factor = 0,
 	    projectile_creation_distance = 3,
 	    projectile_center = {-0.15625, -0.07812},
-	    range = 27,
+	    range = 34,
 	    sound =
 		{
 		    {
@@ -92,7 +92,7 @@ function vehicles.enable()
 	    gun_barrel_length = 2.75,
 	    damage_modifier = 1.5,
 	    gun_center_shift = { -0.17, -1.15 },
-	    range = 12,
+	    range = 15,
 	    min_range = 3,
 	    cyclic_sound =
 		{
@@ -140,7 +140,7 @@ function vehicles.enable()
 		west = {0, 0}
 	    },
 	    gun_barrel_length = 3,
-	    range = 31,
+	    range = 45,
 	    sound = make_heavy_gunshot_sounds()
     })
 
@@ -151,7 +151,7 @@ function vehicles.enable()
                 name = "advanced-tank",
                 width = 15,
                 height = 15,
-                categories = {"armor", "vehicle"}
+                categories = {"armor", "armoured-vehicle", "vehicle"}
         })
     else
         advTankGrid = makeGrid({
@@ -168,7 +168,7 @@ function vehicles.enable()
                 name = "nuclear-tank",
                 width = 18,
                 height = 18,
-                categories = {"armor", "vehicle", "adv-generator"}
+                categories = {"armor", "armoured-vehicle", "vehicle", "adv-generator"}
         })
     else
         nuclearTankGrid = makeGrid({
@@ -218,6 +218,11 @@ function vehicles.enable()
 		    type = "fire",
 		    decrease = 20,
 		    percent = 60
+		},
+                {
+		    type = "laser",
+		    decrease = 10,
+		    percent = 50
 		},
 		{
 		    type = "electric",
@@ -273,7 +278,7 @@ function vehicles.enable()
 		},
 	    projectile_center = {-0.15625, -0.07812},
 	    projectile_creation_distance = 4,
-	    range = 24,
+	    range = 21,
 	    sound = make_heavy_gunshot_sounds()
     })
 
@@ -292,7 +297,7 @@ function vehicles.enable()
 	    movement_slow_down_factor = 0,
 	    projectile_creation_distance = 4,
 	    projectile_center = {-0.15625, -0.07812},
-	    range = 30,
+	    range = 34,
 	    sound =
 		{
 		    {
@@ -317,7 +322,7 @@ function vehicles.enable()
 	    gun_barrel_length = 3.5,
 	    damage_modifier = 2,
 	    gun_center_shift = { -0.17, -1.15 },
-	    range = 15,
+	    range = 20,
 	    min_range = 3,
 	    cyclic_sound =
 		{
@@ -365,7 +370,7 @@ function vehicles.enable()
 		west = {0, 0}
 	    },
 	    gun_barrel_length = 4,
-	    range = 32,
+	    range = 45,
 	    sound = make_heavy_gunshot_sounds()
     })
 
@@ -390,7 +395,7 @@ function vehicles.enable()
 		west = {0, 0}
 	    },
 	    gun_barrel_length = 4.5,
-	    range = 30,
+	    range = 40,
 	    sound = {
 		{
 		    filename = "__base__/sound/fight/rocket-launcher.ogg",
@@ -439,6 +444,11 @@ function vehicles.enable()
 		    type = "fire",
 		    decrease = 20,
 		    percent = 70
+		},
+                {
+		    type = "laser",
+		    decrease = 15,
+		    percent = 60
 		},
 		{
 		    type = "electric",
@@ -531,7 +541,7 @@ function vehicles.enable()
 		},
 	    projectile_center = {-0.15625, -0.07812},
 	    projectile_creation_distance = 0.75,
-	    range = 21,
+	    range = 20,
 	    sound = make_heavy_gunshot_sounds()
     })
 
@@ -550,7 +560,7 @@ function vehicles.enable()
 	    damage_modifier = 2,
 	    projectile_creation_distance = 0.75,
             gun_barrel_length = 0.75,
-	    range = 20,
+	    range = 22,
 	    sound =
 		{
 		    {
@@ -619,6 +629,11 @@ function vehicles.enable()
 		    type = "electric",
 		    percent = 40,
 		    decrease = 8
+		},
+                {
+		    type = "laser",
+		    percent = 40,
+		    decrease = 8
 		}
 	    }
     })
@@ -650,7 +665,7 @@ function vehicles.enable()
 	    projectile_center = {-0.15625, -0.07812},
 	    projectile_creation_distance = 0.75,
             gun_barrel_length = 0.75,
-	    range = 22,
+	    range = 21,
 	    sound = make_heavy_gunshot_sounds()
     })
 
@@ -669,7 +684,7 @@ function vehicles.enable()
 	    damage_modifier = 2.5,
 	    projectile_creation_distance = 0.75,
             gun_barrel_length = 0.75,
-	    range = 20,
+	    range = 22,
 	    sound =
 		{
 		    {
@@ -699,7 +714,7 @@ function vehicles.enable()
 		west = {0, 0}
 	    },
 	    gun_barrel_length = 1,
-	    range = 30,
+	    range = 45,
 	    sound = make_heavy_gunshot_sounds()
     })
 
@@ -763,6 +778,11 @@ function vehicles.enable()
 		    type = "electric",
 		    percent = 40,
 		    decrease = 16
+		},
+                {
+		    type = "laser",
+		    percent = 40,
+		    decrease = 8
 		}
 	    }
     })

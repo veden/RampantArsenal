@@ -147,6 +147,7 @@ function capsules.enable()
 						    target_effects =
 							{
 							    type = "create-entity",
+                                                            show_in_tooltip = true,
 							    entity_name = "big-paralysis-cloud-rampant-arsenal"
 							}
 						}
@@ -450,7 +451,7 @@ function capsules.enable()
 						    {
 							type = "instant",
 							target_effects = {
-							    type = "create-entity",
+							    type = "create-entity",                                                            
 							    entity_name = "landmine-ghostless-rampant-arsenal"
 							}
 						    }
@@ -513,29 +514,30 @@ function capsules.enable()
 							target_effects = {
                                                             {
                                                                 type = "create-entity",
+                                                                show_in_tooltip = true,                                                                
                                                                 entity_name = "incendiary-landmine-ghostless-rampant-arsenal"
                                                             }
                                                         }
 						    }
-					    },
-					    {
-						type = "cluster",
-						cluster_count = 2,
-						distance = 4,
-						distance_deviation = 3,
-						action_delivery =
-						    {
-							type = "instant",
-							target_effects =
-							    {
-								{
-								    type = "create-entity",
-								    show_in_tooltip = true,
-								    entity_name = "incendiary-landmine-ghostless-rampant-arsenal"
-								}
-							    }
-						    }
-					    }
+					    }-- ,
+					    -- {
+					    --     type = "cluster",
+					    --     cluster_count = 2,
+					    --     distance = 7,
+					    --     distance_deviation = 3,
+					    --     action_delivery =
+					    --         {
+					    --     	type = "instant",
+					    --     	target_effects =
+					    --     	    {
+					    --     		{
+					    --     		    type = "create-entity",
+					    --     		    show_in_tooltip = true,
+					    --     		    entity_name = "incendiary-landmine-ghostless-rampant-arsenal"
+					    --     		}
+					    --     	    }
+					    --         }
+					    -- }
 					}
 				}),
 				max_length = 9,
@@ -577,6 +579,7 @@ function capsules.enable()
 							target_effects = {
                                                             {
                                                                 type = "create-entity",
+                                                                show_in_tooltip = true,                                                                
                                                                 entity_name = "he-landmine-ghostless-rampant-arsenal"
                                                             }
                                                         }
@@ -623,6 +626,7 @@ function capsules.enable()
 							target_effects = {
                                                             {
                                                                 type = "create-entity",
+                                                                show_in_tooltip = true,                                                                
                                                                 entity_name = "bio-landmine-ghostless-rampant-arsenal"
                                                             }
                                                         }
@@ -669,6 +673,7 @@ function capsules.enable()
 							target_effects = {
                                                             {
                                                                 type = "create-entity",
+                                                                show_in_tooltip = true,
                                                                 entity_name = "nuclear-landmine-ghostless-rampant-arsenal"
                                                             }
                                                         }
@@ -727,7 +732,7 @@ function capsules.enable()
 					    },
 					    {
 						type = "area",
-						radius = 9,
+						radius = 8,
 						action_delivery =
 						    {
 							type = "instant",
@@ -792,13 +797,18 @@ function capsules.enable()
 								    type = "create-entity",
 								    entity_name = "small-scorchmark",
 								    check_buildability = true
+								},
+                                                                {
+								    type = "create-entity",
+								    entity_name = "toxic-cloud-rampant-arsenal",
+                                                                    show_in_tooltip = true
 								}
 							    }
 						    }
 					    },
 					    {
 						type = "area",
-						radius = 11,
+						radius = 8,
 						action_delivery =
 						    {
 							type = "instant",
@@ -815,12 +825,7 @@ function capsules.enable()
 								{
 								    type = "create-entity",
 								    entity_name = "explosion"
-								},
-								{
-								    type = "create-entity",
-								    entity_name = "toxic-cloud-rampant-arsenal",
-                                                                    show_in_tooltip = true
-								}
+								}								
 							    }
 						    }
 					    }
@@ -878,7 +883,7 @@ function capsules.enable()
 					    },
 					    {
 						type = "area",
-						radius = 14,
+						radius = 9,
 						action_delivery =
 						    {
 							type = "instant",
@@ -958,7 +963,7 @@ function capsules.enable()
 					    },
 					    {
 						type = "area",
-						radius = 11,
+						radius = 8,
 						action_delivery =
 						    {
 							type = "instant",
@@ -1291,7 +1296,37 @@ function capsules.enable()
 	preparingAnimation = CapsuleLauncherSheet(),
 	order = "b[turret]-d[acapsule-turret]",
         hasBaseDirection = true,
-        rotationSpeed = 0.004
+        rotationSpeed = 0.004,
+        resistances = {
+            {
+                type = "fire",
+                percent = 30
+            },
+            {
+                type = "explosion",
+                percent = 20
+            },
+            {
+                type = "physical",
+                percent = 20
+            },
+            {
+                type = "acid",
+                percent = 30
+            },
+            {
+                type = "electric",
+                percent = 20
+            },
+            {
+                type = "laser",
+                percent = 20
+            },
+            {
+                type = "poison",
+                percent = 30
+            }
+        }
     }
     local capsuleTurret, capsuleTurretItem = makeAmmoTurret(entity, {
 								type = "stream",
@@ -1534,7 +1569,10 @@ function capsules.enable()
 			modifier = 0.2
     })
 
-
+    data.raw["combat-robot"]["distractor"]["attack_parameters"]["damage_modifier"] = 2
+    data.raw["combat-robot"]["destroyer"]["attack_parameters"]["damage_modifier"] = 2
+    data.raw["combat-robot"]["defender"]["attack_parameters"]["damage_modifier"] = 2
+    
 end
 
 return capsules

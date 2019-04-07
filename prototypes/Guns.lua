@@ -177,7 +177,7 @@ function guns.enable()
     				    type = "projectile",
     				    projectile = makeShotgunProjectile({
 					    name = "uranium",
-					    tint = {r=0,g=0.4,b=0,a=0.7},
+					    tint = {r=0.4,g=0.8,b=0.4,a=0.7},
 					    piercingDamage = 250,
 					    directionOnly = true,
 					    action = {
@@ -197,7 +197,7 @@ function guns.enable()
     				    starting_speed = 1,
     				    direction_deviation = 0.3,
     				    range_deviation = 0.3,
-    				    max_range = 20
+    				    max_range = 22
     				}
     			}
     		    }
@@ -239,14 +239,8 @@ function guns.enable()
     				    type = "projectile",
     				    projectile = makeShotgunProjectile({
 					    name = "incendiary",
-					    tint = {r=0.5,g=0.3,b=0,a=0.8},
-					    animation = {
-						filename = "__base__/graphics/entity/piercing-bullet/piercing-bullet.png",
-						frame_count = 1,
-						width = 3,
-						height = 50,
-						priority = "high"
-					    },
+					    tint = {r=0.8,g=0.5,b=0,a=0.8},
+                                            directionOnly = true,					    
 					    action = {
 						type = "direct",
 						action_delivery =
@@ -277,7 +271,7 @@ function guns.enable()
     				    starting_speed = 1,
     				    direction_deviation = 0.3,
     				    range_deviation = 0.3,
-    				    max_range = 18
+    				    max_range = 22
     				}
     			}
     		    }
@@ -363,14 +357,7 @@ function guns.enable()
     				    projectile = makeShotgunProjectile({
 					    name = "he",
 					    directionOnly = true,
-					    tint = {r=0,g=0,b=0.8,a=0.8},
-					    animation = {
-						filename = "__base__/graphics/entity/piercing-bullet/piercing-bullet.png",
-						frame_count = 1,
-						width = 3,
-						height = 50,
-						priority = "high"
-					    },
+					    tint = {r=0,g=0,b=0.9,a=0.8},					    
 					    action = {
 						type = "area",
 						radius = 1.5,
@@ -408,7 +395,7 @@ function guns.enable()
     				    starting_speed = 1,
     				    direction_deviation = 0.3,
     				    range_deviation = 0.3,
-    				    max_range = 18
+    				    max_range = 22
     				}
     			}
     		    }
@@ -495,14 +482,7 @@ function guns.enable()
     				    projectile = makeShotgunProjectile({
 					    name = "bio",
 					    directionOnly = true,
-					    tint = {r=0.5,g=0,b=0.5,a=0.8},
-					    animation = {
-						filename = "__base__/graphics/entity/piercing-bullet/piercing-bullet.png",
-						frame_count = 1,
-						width = 3,
-						height = 50,
-						priority = "high"
-					    },
+					    tint = {r=0.4,g=0,b=0.8,a=0.8},
 					    action = {
 						type = "direct",
 						action_delivery =
@@ -529,7 +509,7 @@ function guns.enable()
     				    starting_speed = 1,
     				    direction_deviation = 0.3,
     				    range_deviation = 0.3,
-    				    max_range = 18
+    				    max_range = 22
     				}
     			}
     		    }
@@ -737,6 +717,14 @@ function guns.enable()
                     }
             }
     }
+
+    data.raw["ammo"]["shotgun-shell"]["ammo_type"]["action"][2]["action_delivery"]["max_range"] = 20
+
+    data.raw["ammo"]["piercing-shotgun-shell"]["ammo_type"]["action"][2]["action_delivery"]["max_range"] = 22
+
+    data.raw["gun"]["shotgun"]["attack_parameters"]["range"] = 22
+
+    data.raw["gun"]["combat-shotgun"]["attack_parameters"]["range"] = 22
     
     addEffectToTech("explosives",
 		    {
@@ -803,7 +791,37 @@ function guns.enable()
 	foldedAnimation = gunTurretMkIISheet(),
 	foldingAnimation = gunTurretMkIISheet(),
 	preparedAnimation = gunTurretMkIISheet(),
-	preparingAnimation = gunTurretMkIISheet()
+	preparingAnimation = gunTurretMkIISheet(),
+        resistances = {
+            {
+                type = "fire",
+                percent = 60
+            },
+            {
+                type = "explosion",
+                percent = 30
+            },
+            {
+                type = "physical",
+                percent = 30
+            },
+            {
+                type = "acid",
+                percent = 40
+            },
+            {
+                type = "electric",
+                percent = 30
+            },
+            {
+                type = "laser",
+                percent = 30
+            },
+            {
+                type = "poison",
+                percent = 40
+            }
+        }
     }
     local gunTurret,gunTurretItem = makeAmmoTurret(gunTurretAttributes,
 						   {
@@ -1001,7 +1019,6 @@ function guns.enable()
 			    turret_id = gunTurret,
 			    modifier = 0.7
     }})
-
     
     removeEffect("military-3", "unlock-recipe", "poison-capsule")
     removeEffect("military-3", "unlock-recipe", "slowdown-capsule")

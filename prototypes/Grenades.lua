@@ -74,7 +74,7 @@ function grenades.enable()
 						    },
 						    {
 							type = "area",
-							radius = 8,
+							radius = 7,
 							action_delivery =
 							    {
 								type = "instant",
@@ -180,7 +180,7 @@ function grenades.enable()
 						    },
 						    {
 							type = "area",
-							radius = 10,
+							radius = 7,
 							action_delivery =
 							    {
 								type = "instant",
@@ -285,7 +285,7 @@ function grenades.enable()
 						    },
 						    {
 							type = "area",
-							radius = 8,
+							radius = 7,
 							action_delivery =
 							    {
 								type = "instant",
