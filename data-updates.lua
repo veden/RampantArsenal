@@ -34,3 +34,15 @@ local constants = require("libs/Constants")
 -- 	}
 --     }
 
+if mods["Power Armor MK3"] then
+    local grids = data.raw["equipment-grid"]["larger-equipment-grid"].equipment_categories
+    grids[#grids+1] = "adv-generator"
+
+    grids = data.raw["equipment-grid"]["largest-equipment-grid"].equipment_categories
+    grids[#grids+1] = "adv-generator"
+end
+
+if mods["Power Armor MK4"] then
+    local grids = data.raw["equipment-grid"]["gigantic-equipment-grid"].equipment_categories
+    grids[#grids+1] = "adv-generator"
+end

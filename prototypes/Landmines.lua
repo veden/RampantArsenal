@@ -276,8 +276,8 @@ function landmines.enable()
 	}
     )
 
-    local nuclearLandmineRecipe = makeRecipe({
-	    name = "nuclear-landmine",
+    makeRecipe({
+	    name = nuclearLandmine,
 	    icon = "__RampantArsenal__/graphics/icons/nuclear-landmine.png",
 	    enabled = false,
 	    ingredients = {
@@ -287,8 +287,8 @@ function landmines.enable()
 	    result = nuclearLandmine
     })
 
-    local incendiaryLandmineRecipe = makeRecipe({
-	    name = "incendiary-landmine",
+    makeRecipe({
+	    name = incendiaryLandmine,
 	    icon = "__RampantArsenal__/graphics/icons/incendiary-landmine.png",
 	    enabled = false,
 	    category = "chemistry",
@@ -301,8 +301,8 @@ function landmines.enable()
     })
 
 
-    local heLandmineRecipe = makeRecipe({
-	    name = "he-landmine",
+    makeRecipe({
+	    name = heLandmine,
 	    icon = "__RampantArsenal__/graphics/icons/he-landmine.png",
 	    enabled = false,
 	    category = "chemistry",
@@ -315,8 +315,8 @@ function landmines.enable()
     })
 
 
-    local bioLandmineRecipe = makeRecipe({
-	    name = "bio-landmine",
+    makeRecipe({
+	    name = bioLandmine,
 	    icon = "__RampantArsenal__/graphics/icons/bio-landmine.png",
 	    enabled = false,
 	    category = "chemistry",
@@ -393,25 +393,25 @@ function landmines.enable()
     addEffectToTech("uranium-ammo",
 		    {
 			type = "unlock-recipe",
-			recipe = nuclearLandmineRecipe,
+			recipe = nuclearLandmine,
     })
 
     addEffectToTech("incendiary-landmine",
 		    {
 			type = "unlock-recipe",
-			recipe = incendiaryLandmineRecipe,
+			recipe = incendiaryLandmine,
     })
 
     addEffectToTech("he-landmine",
 		    {
 			type = "unlock-recipe",
-			recipe = heLandmineRecipe,
+			recipe = heLandmine,
     })
 
     addEffectToTech("bio-landmine",
 		    {
 			type = "unlock-recipe",
-			recipe = bioLandmineRecipe,
+			recipe = bioLandmine,
     })
 end
 

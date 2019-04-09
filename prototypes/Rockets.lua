@@ -169,8 +169,8 @@ function rockets.enable()
 									sound = make_heavy_gunshot_sounds(),
     })
 
-    local rocketTurretRecipe = makeRecipe({
-	    name = "rocket-turret",
+    makeRecipe({
+	    name = rocketTurretItem,
 	    icon = "__RampantArsenal__/graphics/icons/rocketTurret.png",
 	    enabled = false,
 	    ingredients = {
@@ -181,8 +181,8 @@ function rockets.enable()
 	    result = rocketTurretItem,
     })
 
-    local rapidRocketRecipe = makeRecipe({
-	    name = "rapid-rocket",
+    makeRecipe({
+	    name = rapidRocketTurretItem,
 	    icon = "__RampantArsenal__/graphics/icons/rapidRocketTurret.png",
 	    enabled = false,
 	    ingredients = {
@@ -197,14 +197,14 @@ function rockets.enable()
     addEffectToTech("rocket-turret-1",
 		    {
 			type = "unlock-recipe",
-			recipe = rocketTurretRecipe,
+			recipe = rocketTurretItem,
     })
 
 
     addEffectToTech("rocket-turret-2",
 		    {
 			type = "unlock-recipe",
-			recipe = rapidRocketRecipe,
+			recipe = rapidRocketTurretItem,
     })
 
 
@@ -297,8 +297,8 @@ function rockets.enable()
     	    }
     })
 
-    local incendiaryRocketRecipe = makeRecipe({
-	    name = "incendiary-rocket",
+    makeRecipe({
+	    name = incendiaryRocketAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/incendiary-rocket.png",
 	    enabled = false,
 	    category = "crafting-with-fluid",
@@ -313,7 +313,7 @@ function rockets.enable()
     addEffectToTech("incendiary-rockets",
 		    {
 			type = "unlock-recipe",
-			recipe = incendiaryRocketRecipe,
+			recipe = incendiaryRocketAmmo,
     })
 
     local heRocketAmmo = makeAmmo({
@@ -398,8 +398,8 @@ function rockets.enable()
     	    }
     })
 
-    local heRocketRecipe = makeRecipe({
-	    name = "he-rocket",
+    makeRecipe({
+	    name = heRocketAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/he-rocket.png",
 	    enabled = false,
 	    category = "crafting",
@@ -414,7 +414,7 @@ function rockets.enable()
     addEffectToTech("he-rockets",
 		    {
 			type = "unlock-recipe",
-			recipe = heRocketRecipe,
+			recipe = heRocketAmmo,
     })
 
     local bioRocketAmmo = makeAmmo({
@@ -500,8 +500,8 @@ function rockets.enable()
     	    }
     })
 
-    local bioRocketRecipe = makeRecipe({
-	    name = "bio-rocket",
+    makeRecipe({
+	    name = bioRocketAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/bio-rocket.png",
 	    enabled = false,
 	    category = "crafting-with-fluid",
@@ -516,7 +516,7 @@ function rockets.enable()
     addEffectToTech("bio-rockets",
 		    {
 			type = "unlock-recipe",
-			recipe = bioRocketRecipe,
+			recipe = bioRocketAmmo,
     })
 
     addEffectToTech("rocket-turret-damage-1",

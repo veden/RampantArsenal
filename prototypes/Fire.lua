@@ -145,8 +145,8 @@ function fire.enable()
 	    }
     })
 
-    local napalmAmmoRecipe = makeRecipe({
-	    name = "napalm-ammo",
+    makeRecipe({
+	    name = napalmAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/napalm-ammo.png",
 	    enabled = false,
 	    category = "crafting-with-fluid",
@@ -158,8 +158,8 @@ function fire.enable()
 	    result = napalmAmmo,
     })
 
-    local napalmRecipe = makeRecipe({
-	    name = "napalm",
+    makeRecipe({
+	    name = napalm,
 	    icon = "__RampantArsenal__/graphics/icons/napalm.png",
 	    enabled = false,
 	    category = "chemistry",
@@ -178,11 +178,11 @@ function fire.enable()
 		    {
 			{
 			    type = "unlock-recipe",
-			    recipe = napalmAmmoRecipe,
+			    recipe = napalmAmmo,
 			},
 			{
 			    type = "unlock-recipe",
-			    recipe = napalmRecipe,
+			    recipe = napalm,
 			}
     })
 

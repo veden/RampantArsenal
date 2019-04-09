@@ -281,8 +281,8 @@ function lasers.enable()
 								   }
     })
 
-    local advanceLaserRecipe = makeRecipe({
-	    name = "advanced-laser",
+    makeRecipe({
+	    name = advancedElectricTurretItem,
 	    icon = "__RampantArsenal__/graphics/icons/advancedLaserTurret.png",
 	    enabled = false,
 	    ingredients = {
@@ -294,8 +294,8 @@ function lasers.enable()
 	    result = advancedElectricTurretItem,
     })
 
-    local lightningTurretRecipe = makeRecipe({
-	    name = "lightning",
+    makeRecipe({
+	    name = lightningTowerTurretItem,
 	    icon = "__RampantArsenal__/graphics/icons/lightningTurret.png",
 	    enabled = false,
 	    ingredients = {
@@ -311,13 +311,13 @@ function lasers.enable()
     addEffectToTech("lightning",
 		    {
 			type = "unlock-recipe",
-			recipe = lightningTurretRecipe
+			recipe = lightningTowerTurretItem
     })
 
     addEffectToTech("advanced-laser-turret-2",
 		    {
 			type = "unlock-recipe",
-			recipe = advanceLaserRecipe
+			recipe = advancedElectricTurretItem
     })
 end
 

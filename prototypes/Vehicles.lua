@@ -840,8 +840,8 @@ function vehicles.enable()
 	    }
     })
 
-    local advTankRecipe = makeRecipe({
-	    name = "advanced-tank",
+    makeRecipe({
+	    name = advTank,
 	    icon = "__RampantArsenal__/graphics/icons/advanced-tank.png",
 	    enabled = false,
 	    category = "crafting",
@@ -854,8 +854,8 @@ function vehicles.enable()
 	    result = advTank,
     })
 
-    local nuclearTankRecipe = makeRecipe({
-	    name = "nuclear-tank",
+    makeRecipe({
+	    name = nuclearTank,
 	    icon = "__RampantArsenal__/graphics/icons/nuclear-tank.png",
 	    enabled = false,
 	    category = "crafting",
@@ -868,8 +868,8 @@ function vehicles.enable()
 	    result = nuclearTank,
     })
 
-    local advCarRecipe = makeRecipe({
-	    name = "advanced-car",
+    makeRecipe({
+	    name = advCar,
 	    icon = "__RampantArsenal__/graphics/icons/advanced-car.png",
 	    enabled = false,
 	    category = "crafting",
@@ -882,8 +882,8 @@ function vehicles.enable()
 	    result = advCar,
     })
 
-    local nuclearCarRecipe = makeRecipe({
-	    name = "nuclear-car",
+    makeRecipe({
+	    name = nuclearCar,
 	    icon = "__RampantArsenal__/graphics/icons/nuclear-car.png",
 	    enabled = false,
 	    category = "crafting",
@@ -896,8 +896,8 @@ function vehicles.enable()
 	    result = nuclearCar,
     })
 
-    local nuclearTrainRecipe = makeRecipe({
-	    name = "nuclear-train",
+    makeRecipe({
+	    name = nuclearTrain,
 	    icon = "__RampantArsenal__/graphics/icons/nuclear-locomotive.png",
 	    enabled = false,
 	    category = "crafting",
@@ -965,32 +965,32 @@ function vehicles.enable()
     addEffectToTech("rampant-arsenal-technology-tanks-2",
 		    {
 			type = "unlock-recipe",
-			recipe = advTankRecipe
+			recipe = advTank
     })
 
     addEffectToTech("rampant-arsenal-technology-nuclear-tanks",
 		    {
 			type = "unlock-recipe",
-			recipe = nuclearTankRecipe
+			recipe = nuclearTank
     })
 
 
     addEffectToTech("rampant-arsenal-technology-cars-2",
 		    {
 			type = "unlock-recipe",
-			recipe = advCarRecipe
+			recipe = advCar
     })
 
     addEffectToTech("rampant-arsenal-technology-nuclear-cars",
 		    {
 			type = "unlock-recipe",
-			recipe = nuclearCarRecipe
+			recipe = nuclearCar
     })
 
     addEffectToTech("rampant-arsenal-technology-nuclear-railway",
 		    {
 			type = "unlock-recipe",
-			recipe = nuclearTrainRecipe
+			recipe = nuclearTrain
     })
 
     addFuelToItem({

@@ -452,8 +452,8 @@ function cannons.enable()
 							       sound = make_heavy_gunshot_sounds(),
     })
 
-    local cannonRecipe = makeRecipe({
-	    name = "cannon",
+    makeRecipe({
+	    name = cannonTurretItem,
 	    icon = "__RampantArsenal__/graphics/icons/cannonTurret.png",
 	    enabled = false,
 	    time = 20,
@@ -466,8 +466,8 @@ function cannons.enable()
 	    result = cannonTurretItem,
     })
 
-    local rapidCannonRecipe = makeRecipe({
-	    name = "rapid-cannon",
+    makeRecipe({
+	    name = rapidCannonTurretItem,
 	    icon = "__RampantArsenal__/graphics/icons/rapidCannonTurret.png",
 	    enabled = false,
 	    time = 30,
@@ -480,8 +480,8 @@ function cannons.enable()
 	    result = rapidCannonTurretItem,
     })
 
-    local suppresionCannonRecipe = makeRecipe({
-    	    name = "suppression-cannon",
+    makeRecipe({
+    	    name = suppressionCannonTurretItem,
     	    icon = "__RampantArsenal__/graphics/icons/suppressionCannonTurret.png",
     	    enabled = false,
 	    time = 40,
@@ -494,8 +494,8 @@ function cannons.enable()
     	    result = suppressionCannonTurretItem,
     })
 
-    local shotgunTurretRecipe = makeRecipe({
-	    name = "shotgun",
+    makeRecipe({
+	    name = shotgunTurretItem,
 	    icon = "__RampantArsenal__/graphics/icons/shotgunTurret.png",
 	    enabled = false,
 	    ingredients = {
@@ -510,25 +510,25 @@ function cannons.enable()
     addEffectToTech("cannon-turret-1",
 		    {
 			type = "unlock-recipe",
-			recipe = cannonRecipe,
+			recipe = cannonTurretItem,
     })
 
     addEffectToTech("cannon-turret-2",
 		    {
 			type = "unlock-recipe",
-			recipe = rapidCannonRecipe,
+			recipe = rapidCannonTurretItem,
     })
 
     addEffectToTech("shotgun",
 		    {
 			type = "unlock-recipe",
-			recipe = shotgunTurretRecipe,
+			recipe = shotgunTurretItem,
     })
 
     addEffectToTech("flamethrower-2",
 		    {
 			type = "unlock-recipe",
-			recipe = suppresionCannonRecipe,
+			recipe = suppressionCannonTurretItem,
     })
 
     addEffectToTech("shotgun-turret-damage-1",
@@ -861,8 +861,8 @@ function cannons.enable()
     	    }
     })
 
-    local incendiaryCannonShellRecipe = makeRecipe({
-	    name = "incendiary-cannon-shell",
+    makeRecipe({
+	    name = incendiaryCannonShellAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/incendiary-cannon-shell.png",
 	    enabled = false,
 	    category = "crafting-with-fluid",
@@ -877,7 +877,7 @@ function cannons.enable()
     addEffectToTech("incendiary-cannon-shells",
 		    {
 			type = "unlock-recipe",
-			recipe = incendiaryCannonShellRecipe,
+			recipe = incendiaryCannonShellAmmo,
     })
 
 
@@ -997,8 +997,8 @@ function cannons.enable()
     	    }
     })
 
-    local heCannonShellRecipe = makeRecipe({
-	    name = "he-cannon-shell",
+    makeRecipe({
+	    name = heCannonShellAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/he-cannon-shell.png",
 	    enabled = false,
 	    category = "crafting",
@@ -1013,7 +1013,7 @@ function cannons.enable()
     addEffectToTech("he-cannon-shells",
 		    {
 			type = "unlock-recipe",
-			recipe = heCannonShellRecipe,
+			recipe = heCannonShellAmmo,
     })
 
     local bioCannonShellAmmo = makeAmmo({
@@ -1122,8 +1122,8 @@ function cannons.enable()
     	    }
     })
 
-    local bioCannonShellRecipe = makeRecipe({
-	    name = "bio-cannon-shell",
+    makeRecipe({
+	    name = bioCannonShellAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/bio-cannon-shell.png",
 	    enabled = false,
 	    category = "crafting-with-fluid",
@@ -1138,7 +1138,7 @@ function cannons.enable()
     addEffectToTech("bio-cannon-shells",
 		    {
 			type = "unlock-recipe",
-			recipe = bioCannonShellRecipe,
+			recipe = bioCannonShellAmmo,
     })
 
     local targetEffects = data.raw["projectile"]["uranium-cannon-projectile"].action.action_delivery.target_effects

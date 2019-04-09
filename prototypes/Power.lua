@@ -25,8 +25,8 @@ function power.enable()
 	    tint = { r = 0.7, g = 0.4, b = 0, a = 1 }
     })
         
-    local oilBurnerRecipe = makeRecipe({
-	    name = "oil-burner",
+    makeRecipe({
+	    name = oilBurner,
 	    icon = "__RampantArsenal__/graphics/icons/oil-burner.png",
 	    enabled = false,
 	    category = "crafting",
@@ -42,7 +42,7 @@ function power.enable()
     addEffectToTech("rampant-arsenal-technology-oil-burner",
 		    {
 			type = "unlock-recipe",
-			recipe = oilBurnerRecipe
+			recipe = oilBurner
     })
     
     addFuelToItem({

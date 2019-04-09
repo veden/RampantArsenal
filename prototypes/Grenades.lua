@@ -108,8 +108,8 @@ function grenades.enable()
 		}
     })
 
-    local incendiaryGrenadeRecipe = makeRecipe({
-	    name = "incendiary-grenade",
+    makeRecipe({
+	    name = incendiaryGrenade,
 	    icon = "__RampantArsenal__/graphics/icons/incendiary-grenade.png",
 	    enabled = false,
 	    category = "crafting-with-fluid",
@@ -124,7 +124,7 @@ function grenades.enable()
     addEffectToTech("incendiary-grenades",
 		    {
 			type = "unlock-recipe",
-			recipe = incendiaryGrenadeRecipe,
+			recipe = incendiaryGrenade,
     })
 
     
@@ -209,8 +209,8 @@ function grenades.enable()
 		}
     })
 
-    local heGrenadeRecipe = makeRecipe({
-	    name = "he-grenade",
+    makeRecipe({
+	    name = heGrenade,
 	    icon = "__RampantArsenal__/graphics/icons/he-grenade.png",
 	    enabled = false,
 	    category = "crafting",
@@ -225,7 +225,7 @@ function grenades.enable()
     addEffectToTech("he-grenades",
 		    {
 			type = "unlock-recipe",
-			recipe = heGrenadeRecipe,
+			recipe = heGrenade,
     })
     
     local bioGrenade = makeCapsule(
@@ -310,8 +310,8 @@ function grenades.enable()
 		}
     })
 
-    local bioGrenadeRecipe = makeRecipe({
-	    name = "bio-grenade",
+    makeRecipe({
+	    name = bioGrenade,
 	    icon = "__RampantArsenal__/graphics/icons/bio-grenade.png",
 	    enabled = false,
 	    category = "crafting",
@@ -326,7 +326,7 @@ function grenades.enable()
     addEffectToTech("bio-grenades",
 		    {
 			type = "unlock-recipe",
-			recipe = bioGrenadeRecipe,
+			recipe = bioGrenade,
     })
     
     local toxicCapsule = makeCapsule(
@@ -380,8 +380,8 @@ function grenades.enable()
 		}
     })
 
-    local toxicCapsuleRecipe = makeRecipe({
-	    name = "toxic-capsule",
+    makeRecipe({
+	    name = toxicCapsule,
 	    icon = "__RampantArsenal__/graphics/icons/toxic-capsule.png",
 	    enabled = false,
 	    category = "crafting",
@@ -396,7 +396,7 @@ function grenades.enable()
     addEffectToTech("bio-capsules",
 		    {
 			type = "unlock-recipe",
-			recipe = toxicCapsuleRecipe,
+			recipe = toxicCapsule,
     })
     
     local repairCapsule = makeCapsule(
@@ -450,8 +450,8 @@ function grenades.enable()
 		}
     })
 
-    local repairCapsuleRecipe = makeRecipe({
-	    name = "repair-capsule",
+    makeRecipe({
+	    name = repairCapsule,
 	    icon = "__RampantArsenal__/graphics/icons/repair-capsule.png",
 	    enabled = false,
 	    category = "crafting",
@@ -466,7 +466,7 @@ function grenades.enable()
     addEffectToTech("regeneration",
 		    {
 			type = "unlock-recipe",
-			recipe = repairCapsuleRecipe,
+			recipe = repairCapsule,
     })    
     
     local paralysisCapsule = makeCapsule(
@@ -520,8 +520,8 @@ function grenades.enable()
 		}
     })
 
-    local paralysisCapsuleRecipe = makeRecipe({
-	    name = "paralysis-capsule",
+    makeRecipe({
+	    name = paralysisCapsule,
 	    icon = "__RampantArsenal__/graphics/icons/paralysis-capsule.png",
 	    enabled = false,
 	    category = "crafting",
@@ -536,7 +536,7 @@ function grenades.enable()
     addEffectToTech("paralysis",
 		    {
 			type = "unlock-recipe",
-			recipe = paralysisCapsuleRecipe,
+			recipe = paralysisCapsule,
     })
     
     local healingCapsule = makeCapsule(
@@ -574,8 +574,8 @@ function grenades.enable()
 		}
     })
 
-    local healingCapsuleRecipe = makeRecipe({
-	    name = "healing-capsule",
+    makeRecipe({
+	    name = healingCapsule,
 	    icon = "__RampantArsenal__/graphics/icons/healing-capsule.png",
 	    enabled = false,
 	    category = "crafting-with-fluid",
@@ -590,7 +590,7 @@ function grenades.enable()
     addEffectToTech("boosters",
 		    {
 			type = "unlock-recipe",
-			recipe = healingCapsuleRecipe,
+			recipe = healingCapsule,
     })
 
     
@@ -629,8 +629,8 @@ function grenades.enable()
 		}
     })
 
-    local speedCapsuleRecipe = makeRecipe({
-	    name = "speed-capsule",
+    makeRecipe({
+	    name = speedCapsule,
 	    icon = "__RampantArsenal__/graphics/icons/speed-capsule.png",
 	    enabled = false,
 	    category = "crafting-with-fluid",
@@ -644,7 +644,7 @@ function grenades.enable()
     addEffectToTech("boosters",
 		    {
 			type = "unlock-recipe",
-			recipe = speedCapsuleRecipe,
+			recipe = speedCapsule,
     })
 
     data.raw["projectile"]["cluster-grenade"].action[2].action_delivery.projectile = makeGrenadeProjectile(

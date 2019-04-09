@@ -1066,8 +1066,8 @@ function capsules.enable()
 		    }
     }})
 
-    local slowCapsuleRecipe = makeRecipe({
-	    name = "slow-capsule-ammo",
+    makeRecipe({
+	    name = slowCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/slowdown-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1078,8 +1078,8 @@ function capsules.enable()
 	    result = slowCapsules
     })
 
-    local poisonCapsuleRecipe = makeRecipe({
-	    name = "poison-capsule-ammo",
+    makeRecipe({
+	    name = poisonCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/poison-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1091,8 +1091,8 @@ function capsules.enable()
     })
 
 
-    local toxicCapsuleRecipe = makeRecipe({
-	    name = "toxic-capsule-ammo",
+    makeRecipe({
+	    name = toxicCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/toxic-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1103,8 +1103,8 @@ function capsules.enable()
 	    result = toxicCapsules
     })
 
-    local paralysisCapsuleRecipe = makeRecipe({
-	    name = "paralysis-capsule-ammo",
+    makeRecipe({
+	    name = paralysisCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/paralysis-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1115,8 +1115,8 @@ function capsules.enable()
 	    result = paralysisCapsules
     })
 
-    local repairCapsuleRecipe = makeRecipe({
-	    name = "repair-capsule-ammo",
+    makeRecipe({
+	    name = repairCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/repair-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1128,8 +1128,8 @@ function capsules.enable()
     })
 
 
-    local distractorCapsuleRecipe = makeRecipe({
-	    name = "distractor-capsule-ammo",
+    makeRecipe({
+	    name = distractorCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/distractor-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1140,8 +1140,8 @@ function capsules.enable()
 	    result = distractorCapsules
     })
 
-    local defenderCapsuleRecipe = makeRecipe({
-	    name = "defender-capsule-ammo",
+    makeRecipe({
+	    name = defenderCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/defender-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1152,8 +1152,8 @@ function capsules.enable()
 	    result = defenderCapsules
     })
 
-    local destroyerCapsuleRecipe = makeRecipe({
-	    name = "destroyer-capsule-ammo",
+    makeRecipe({
+	    name = destroyerCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/destroyer-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1164,8 +1164,8 @@ function capsules.enable()
 	    result = destroyerCapsules
     })
 
-    local landmineCapsuleRecipe = makeRecipe({
-	    name = "landmine-capsule-ammo",
+    makeRecipe({
+	    name = landmineCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/landmine-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1176,8 +1176,8 @@ function capsules.enable()
 	    result = landmineCapsules
     })
 
-    local incendiaryLandmineCapsuleRecipe = makeRecipe({
-	    name = "incendiary-landmine-capsule-ammo",
+    makeRecipe({
+	    name = incendiaryLandmineCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/incendiary-landmine-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1188,8 +1188,8 @@ function capsules.enable()
 	    result = incendiaryLandmineCapsules
     })
 
-    local heLandmineCapsuleRecipe = makeRecipe({
-	    name = "he-landmine-capsule-ammo",
+    makeRecipe({
+	    name = heLandmineCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/he-landmine-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1201,8 +1201,8 @@ function capsules.enable()
     })
 
 
-    local bioLandmineCapsuleRecipe = makeRecipe({
-	    name = "bio-landmine-capsule-ammo",
+    makeRecipe({
+	    name = bioLandmineCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/bio-landmine-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1213,8 +1213,8 @@ function capsules.enable()
 	    result = bioLandmineCapsules
     })
 
-    local nuclearLandmineCapsuleRecipe = makeRecipe({
-	    name = "nuclear-landmine-capsule-ammo",
+    makeRecipe({
+	    name = nuclearLandmineCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/nuclear-landmine-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1225,8 +1225,8 @@ function capsules.enable()
 	    result = nuclearLandmineCapsules
     })
 
-    local grenadeCapsuleRecipe = makeRecipe({
-	    name = "grenade-capsule-ammo",
+    makeRecipe({
+	    name = grenadeCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/grenade-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1237,8 +1237,8 @@ function capsules.enable()
 	    result = grenadeCapsules
     })
 
-    local bioGrenadeCapsuleRecipe = makeRecipe({
-	    name = "bio-grenade-capsule-ammo",
+    makeRecipe({
+	    name = bioGrenadeCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/bio-grenade-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1249,8 +1249,8 @@ function capsules.enable()
 	    result = bioGrenadeCapsules
     })
 
-    local heGrenadeCapsuleRecipe = makeRecipe({
-	    name = "he-grenade-capsule-ammo",
+    makeRecipe({
+	    name = heGrenadeCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/he-grenade-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1261,8 +1261,8 @@ function capsules.enable()
 	    result = heGrenadeCapsules
     })
 
-    local incendiaryGrenadeCapsuleRecipe = makeRecipe({
-	    name = "incendiary-grenade-capsule-ammo",
+    makeRecipe({
+	    name = incendiaryGrenadeCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/incendiary-grenade-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1273,8 +1273,8 @@ function capsules.enable()
 	    result = incendiaryGrenadeCapsules
     })
 
-    local clusterGrenadeCapsuleRecipe = makeRecipe({
-	    name = "cluster-grenade-capsule-ammo",
+    makeRecipe({
+	    name = clusterGrenadeCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/cluster-grenade-capsule-ammo.png",
 	    enabled = false,
 	    ingredients = {
@@ -1346,8 +1346,8 @@ function capsules.enable()
 								sound = make_heavy_gunshot_sounds()
     })
 
-    local capsuleTurretRecipe = makeRecipe({
-	    name = "capsule-turret",
+    makeRecipe({
+	    name = capsuleTurretItem,
 	    icon = "__RampantArsenal__/graphics/icons/capsuleTurret.png",
 	    enabled = false,
 	    ingredients = {
@@ -1362,112 +1362,112 @@ function capsules.enable()
     addEffectToTech("combat-robotics",
 		    {
 			type = "unlock-recipe",
-			recipe = defenderCapsuleRecipe,
+			recipe = defenderCapsules,
     })
 
     addEffectToTech("combat-robotics-2",
 		    {
 			type = "unlock-recipe",
-			recipe = distractorCapsuleRecipe,
+			recipe = distractorCapsules,
     })
 
     addEffectToTech("combat-robotics-3",
 		    {
 			type = "unlock-recipe",
-			recipe = destroyerCapsuleRecipe,
+			recipe = destroyerCapsules,
     })
 
     addEffectToTech("land-mine",
 		    {
 			type = "unlock-recipe",
-			recipe = landmineCapsuleRecipe,
+			recipe = landmineCapsules,
     })
 
     addEffectToTech("incendiary-landmine",
 		    {
 			type = "unlock-recipe",
-			recipe = incendiaryLandmineCapsuleRecipe,
+			recipe = incendiaryLandmineCapsules,
     })
 
     addEffectToTech("he-landmine",
 		    {
 			type = "unlock-recipe",
-			recipe = heLandmineCapsuleRecipe,
+			recipe = heLandmineCapsules,
     })
 
     addEffectToTech("bio-landmine",
 		    {
 			type = "unlock-recipe",
-			recipe = bioLandmineCapsuleRecipe,
+			recipe = bioLandmineCapsules,
     })
 
     addEffectToTech("military-4",
 		    {
 			type = "unlock-recipe",
-			recipe = clusterGrenadeCapsuleRecipe,
+			recipe = clusterGrenadeCapsules,
     })
 
     addEffectToTech("uranium-ammo",
 		    {
 			type = "unlock-recipe",
-			recipe = nuclearLandmineCapsuleRecipe,
+			recipe = nuclearLandmineCapsules,
     })
 
     addEffectToTech("military-2",
 		    {
 			type = "unlock-recipe",
-			recipe = grenadeCapsuleRecipe,
+			recipe = grenadeCapsules,
     })
 
     addEffectToTech("bio-grenades",
 		    {
 			type = "unlock-recipe",
-			recipe = bioGrenadeCapsuleRecipe,
+			recipe = bioGrenadeCapsules,
     })
 
     addEffectToTech("regeneration",
 		    {
 			type = "unlock-recipe",
-			recipe = repairCapsuleRecipe,
+			recipe = repairCapsules,
     })
 
     addEffectToTech("bio-capsules",
 		    {
 			type = "unlock-recipe",
-			recipe = toxicCapsuleRecipe,
+			recipe = toxicCapsules,
     })
 
     addEffectToTech("paralysis",
 		    {
 			type = "unlock-recipe",
-			recipe = paralysisCapsuleRecipe,
+			recipe = paralysisCapsules,
     })
 
     addEffectToTech("he-grenades",
 		    {
 			type = "unlock-recipe",
-			recipe = heGrenadeCapsuleRecipe,
+			recipe = heGrenadeCapsules,
     })
 
     addEffectToTech("incendiary-grenades",
 		    {
 			type = "unlock-recipe",
-			recipe = incendiaryGrenadeCapsuleRecipe,
+			recipe = incendiaryGrenadeCapsules,
     })
 
     addEffectToTech("capsule-turret",
 		    {
 			{
 			    type = "unlock-recipe",
-			    recipe = capsuleTurretRecipe,
+			    recipe = capsuleTurretItem,
 			},
 			{
 			    type = "unlock-recipe",
-			    recipe = slowCapsuleRecipe,
+			    recipe = slowCapsules,
 			},
 			{
 			    type = "unlock-recipe",
-			    recipe = poisonCapsuleRecipe,
+			    recipe = poisonCapsules,
 			}
     })
 

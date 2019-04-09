@@ -10,10 +10,9 @@ function landmineUtils.makeLandmine(attributes, attack)
 		name = nameGhostless,
 		icon = attributes.icon or "__base__/graphics/icons/gun-turret.png",
 		icon_size = 32,
-		flags = attributes.itemFlags or {},
-		subgroup = attributes.subgroup or "gun",
+		flags = attributes.itemFlags or {"hidden"},
+		subgroup = attributes.subgroup or "enemies",
 		order = attributes.order or "b[turret]-a[gun-turret]",
-                hidden = true,
 		place_result = nameGhostless,
 		stack_size = attributes.stackSize or 50
 	    },
@@ -128,8 +127,6 @@ function landmineUtils.makeLandmine(attributes, attack)
 		icon_size = 32,
 		flags =
 		    {
-			"placeable-player",
-			"placeable-enemy",
 			"player-creation",
 			"placeable-off-grid",
 			"not-on-map",

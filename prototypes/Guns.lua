@@ -556,8 +556,8 @@ function guns.enable()
 	    }
     })
     
-    local mortarRecipe = makeRecipe({
-	    name = "mortar",
+    makeRecipe({
+	    name = mortar,
 	    icon = "__RampantArsenal__/graphics/icons/mortar.png",
 	    enabled = false,
 	    ingredients = {
@@ -569,8 +569,8 @@ function guns.enable()
 	    result = mortar
     })
 
-    local minigunRecipe = makeRecipe({
-	    name = "minigun",
+    makeRecipe({
+	    name = minigun,
 	    icon = "__RampantArsenal__/graphics/icons/minigun.png",
 	    enabled = false,
 	    ingredients = {
@@ -582,8 +582,8 @@ function guns.enable()
 	    result = minigun
     })
 
-    local rocketLauncherRecipe = makeRecipe({
-	    name = "rocket-launcher",
+    makeRecipe({
+	    name = rocketLauncher,
 	    icon = "__RampantArsenal__/graphics/icons/upgraded-rocket-launcher.png",
 	    enabled = false,
 	    ingredients = {
@@ -596,8 +596,8 @@ function guns.enable()
     })
 
 
-    local incendiaryMagazineRecipe = makeRecipe({
-	    name = "incendiary-magazine",
+    makeRecipe({
+	    name = incendiaryMagazineAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/incendiary-rounds-magazine.png",
 	    enabled = false,
 	    category = "crafting-with-fluid",
@@ -609,8 +609,8 @@ function guns.enable()
 	    result = incendiaryMagazineAmmo
     })
     
-    local incendiaryShotgunShellRecipe = makeRecipe({
-	    name = "incendiary-shotgun-shell",
+    makeRecipe({
+	    name = incendiaryShotgunShellAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/incendiary-shotgun-shell.png",
 	    enabled = false,
 	    category = "crafting-with-fluid",
@@ -622,8 +622,8 @@ function guns.enable()
 	    result = incendiaryShotgunShellAmmo
     })
 
-    local heMagazineRecipe = makeRecipe({
-	    name = "he-magazine",
+    makeRecipe({
+	    name = heMagazineAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/he-rounds-magazine.png",
 	    enabled = false,
 	    category = "crafting",
@@ -636,8 +636,8 @@ function guns.enable()
     })
 
     
-    local heShotgunShellRecipe = makeRecipe({
-	    name = "he-shotgun-shell",
+    makeRecipe({
+	    name = heShotgunShellAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/he-shotgun-shell.png",
 	    enabled = false,
 	    category = "crafting",
@@ -649,8 +649,8 @@ function guns.enable()
 	    result = heShotgunShellAmmo
     })
     
-    local bioMagazineRecipe = makeRecipe({
-	    name = "bio-magazine",
+    makeRecipe({
+	    name = bioMagazineAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/bio-rounds-magazine.png",
 	    enabled = false,
 	    category = "crafting",
@@ -663,8 +663,8 @@ function guns.enable()
     })
 
     
-    local bioShotgunShellRecipe = makeRecipe({
-	    name = "bio-shotgun-shell",
+    makeRecipe({
+	    name = bioShotgunShellAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/bio-shotgun-shell.png",
 	    enabled = false,
 	    category = "crafting",
@@ -676,8 +676,8 @@ function guns.enable()
 	    result = bioShotgunShellAmmo
     })
     
-    local uraniumShotgunShellRecipe = makeRecipe({
-	    name = "uranium-shotgun-shell",
+    makeRecipe({
+	    name = uraniumShotgunShellAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/uranium-shotgun-shell.png",
 	    enabled = false,
 	    category = "crafting",
@@ -729,55 +729,55 @@ function guns.enable()
     addEffectToTech("explosives",
 		    {
 			type = "unlock-recipe",
-			recipe = mortarRecipe
+			recipe = mortar
     })
 
     addEffectToTech("military-3",
 		    {
 			type = "unlock-recipe",
-			recipe = minigunRecipe
+			recipe = minigun
     })    
 
     addEffectToTech("uranium-ammo",
 		    {
 			type = "unlock-recipe",
-			recipe = uraniumShotgunShellRecipe
+			recipe = uraniumShotgunShellAmmo
     })
 
     addEffectToTech("incendiary-bullets",
 		    {
 			type = "unlock-recipe",
-			recipe = incendiaryMagazineRecipe
+			recipe = incendiaryMagazineAmmo
     })
 
     addEffectToTech("incendiary-shotgun-shells",
 		    {
 			type = "unlock-recipe",
-			recipe = incendiaryShotgunShellRecipe
+			recipe = incendiaryShotgunShellAmmo
     })
     
     addEffectToTech("he-bullets",
 		    {
 			type = "unlock-recipe",
-			recipe = heMagazineRecipe
+			recipe = heMagazineAmmo
     })
 
     addEffectToTech("he-shotgun-shells",
 		    {
 			type = "unlock-recipe",
-			recipe = heShotgunShellRecipe
+			recipe = heShotgunShellAmmo
     })
 
     addEffectToTech("bio-bullets",
 		    {
 			type = "unlock-recipe",
-			recipe = bioMagazineRecipe
+			recipe = bioMagazineAmmo
     })
 
     addEffectToTech("bio-shotgun-shells",
 		    {
 			type = "unlock-recipe",
-			recipe = bioShotgunShellRecipe
+			recipe = bioShotgunShellAmmo
     })
 
     local gunTurretAttributes = {
@@ -835,8 +835,8 @@ function guns.enable()
 						       sound = make_heavy_gunshot_sounds(),
     })
     
-    local gunTurretRecipe = makeRecipe({
-	    name = "gun-turret",
+    makeRecipe({
+	    name = gunTurretItem,
 	    icon = "__RampantArsenal__/graphics/icons/gluegun-icon.png",
 	    enabled = false,
 	    category = "crafting",
@@ -874,7 +874,7 @@ function guns.enable()
     })
     
     makeRecipe({
-	    name = "rifle-turret",
+	    name = rifleTurretItem,
 	    icon = "__RampantArsenal__/graphics/icons/rifle-turret.png",
 	    enabled = true,
 	    category = "crafting",
@@ -890,7 +890,7 @@ function guns.enable()
     addEffectToTech("turrets-2",
 		    {
 			type = "unlock-recipe",
-			recipe = gunTurretRecipe
+			recipe = gunTurretItem
     })
 
     addEffectToTech("gun-turret-damage-1",
@@ -1053,7 +1053,7 @@ function guns.enable()
     addEffectToTech("military-4",
 		    {
 			type = "unlock-recipe",
-			recipe = rocketLauncherRecipe
+			recipe = rocketLauncher
     })
 end
 

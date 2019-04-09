@@ -7,9 +7,7 @@ end
 
 
 function recipeUtils.makeRecipe(attributes)
-    local name = attributes.name .. "-recipe-rampant-arsenal"
     if not attributes.expensive then
-
 	attributes.expensive = {
 	    enabled = attributes.enabled,
 	    energy_required = (attributes.time or 8) * 2,
@@ -29,9 +27,10 @@ function recipeUtils.makeRecipe(attributes)
     data:extend({
 	    {
 		type = "recipe",
-		name = name,
+		name = attributes.name,
 		icon = attributes.icon,
 		icon_size = 32,
+                hidden = attributes.hidden,
 		category = attributes.category,
 		subgroup = attributes.subgroup,
 		normal = {
@@ -43,7 +42,7 @@ function recipeUtils.makeRecipe(attributes)
 			    {"copper-plate", 10},
 			    {"iron-plate", 20}
 			},
-		    result = attributes.result or "gun-turret",
+		    result = attributes.result,
 		    results = attributes.results
 		},
 		expensive = attributes.expensive

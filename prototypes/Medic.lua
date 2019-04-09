@@ -101,8 +101,8 @@ function medic.enable()
 							   sound = make_heavy_gunshot_sounds(),
     })
 
-    local medicTurretRecipe = makeRecipe({
-	    name = "medic-turret",
+    makeRecipe({
+	    name = medicTurretItem,
 	    icon = "__RampantArsenal__/graphics/icons/zone-expander.png",
 	    enabled = false,
 	    category = "crafting",
@@ -158,8 +158,8 @@ function medic.enable()
 		    }
     }})
 
-    local repairSelfAmmoRecipe = makeRecipe({
-	    name = "repair-self-ammo",
+    makeRecipe({
+	    name = repairCapsules,
 	    icon = "__RampantArsenal__/graphics/icons/medic-repair-pack.png",
 	    enabled = false,
 	    ingredients = {
@@ -173,13 +173,13 @@ function medic.enable()
     addEffectToTech("regeneration-turrets",
 		    {
 			type = "unlock-recipe",
-			recipe = medicTurretRecipe
+			recipe = medicTurretItem
     })
 
     addEffectToTech("regeneration-turrets",
 		    {
 			type = "unlock-recipe",
-			recipe = repairSelfAmmoRecipe
+			recipe = repairCapsules
     })
 
 

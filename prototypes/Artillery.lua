@@ -89,8 +89,8 @@ function artillery.enable()
 	    }	    
     })
     
-    local incendiaryArtilleryRecipe = makeRecipe({
-	    name = "incendiary-artillery-shell",
+    makeRecipe({
+	    name = incendiaryArtilleryShellAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/incendiary-artillery-shell.png",
 	    enabled = false,
 	    category = "crafting-with-fluid",
@@ -104,7 +104,7 @@ function artillery.enable()
     addEffectToTech("incendiary-artillery-shells",
 		    {
 			type = "unlock-recipe",
-			recipe = incendiaryArtilleryRecipe,
+			recipe = incendiaryArtilleryShellAmmo,
     })
     
     local heArtilleryShellAmmo = makeAmmo({
@@ -195,8 +195,8 @@ function artillery.enable()
 	    }	    
     })
     
-    local heArtilleryRecipe = makeRecipe({
-	    name = "he-artillery-shell",
+    makeRecipe({
+	    name = heArtilleryShellAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/he-artillery-shell.png",
 	    enabled = false,
 	    category = "crafting",
@@ -210,7 +210,7 @@ function artillery.enable()
     addEffectToTech("he-artillery-shells",
 		    {
 			type = "unlock-recipe",
-			recipe = heArtilleryRecipe,
+			recipe = heArtilleryShellAmmo,
     })
     
     local bioArtilleryShellAmmo = makeAmmo({
@@ -286,8 +286,8 @@ function artillery.enable()
 	    }	    
     })
     
-    local bioArtilleryRecipe = makeRecipe({
-	    name = "bio-artillery-shell",
+    makeRecipe({
+	    name = bioArtilleryShellAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/bio-artillery-shell.png",
 	    enabled = false,
 	    category = "crafting",
@@ -303,7 +303,7 @@ function artillery.enable()
     addEffectToTech("bio-artillery-shells",
 		    {
 			type = "unlock-recipe",
-			recipe = bioArtilleryRecipe,
+			recipe = bioArtilleryShellAmmo,
     })
 
     
@@ -391,8 +391,8 @@ function artillery.enable()
 	    }	    
     })
     
-    local nuclearArtilleryRecipe = makeRecipe({
-	    name = "nuclear-artillery-shell",
+    makeRecipe({
+	    name = nuclearArtilleryShellAmmo,
 	    icon = "__RampantArsenal__/graphics/icons/nuclear-artillery-shell.png",
 	    enabled = false,
 	    category = "crafting",
@@ -406,7 +406,7 @@ function artillery.enable()
     addEffectToTech("atomic-bomb",
 		    {
 			type = "unlock-recipe",
-			recipe = nuclearArtilleryRecipe,
+			recipe = nuclearArtilleryShellAmmo,
     })
 end
 

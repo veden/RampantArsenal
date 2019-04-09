@@ -148,8 +148,8 @@ function walls.enable()
 	}
     )
 
-    local mendingWallRecipe = makeRecipe({
-	    name = "mending-wall",
+    makeRecipe({
+	    name = mendingWallItem,
 	    icon = "__RampantArsenal__/graphics/icons/mending-wall.png",
 	    enabled = false,
 	    category = "crafting",
@@ -160,8 +160,8 @@ function walls.enable()
 	    result = mendingWallItem
     })
 
-    local mendingGateRecipe = makeRecipe({
-	    name = "mending-gate",
+    makeRecipe({
+	    name = mendingGateItem,
 	    icon = "__RampantArsenal__/graphics/icons/mending-gate.png",
 	    enabled = false,
 	    category = "crafting",
@@ -177,11 +177,11 @@ function walls.enable()
 		    {
 			{
 			    type = "unlock-recipe",
-			    recipe = mendingGateRecipe
+			    recipe = mendingGateItem
 			},
 			{
 			    type = "unlock-recipe",
-			    recipe = mendingWallRecipe
+			    recipe = mendingWallItem
 			}
     })
 
@@ -279,8 +279,8 @@ function walls.enable()
 	}
     )
 
-    local reinforcedWallRecipe = makeRecipe({
-	    name = "reinforced-wall",
+    makeRecipe({
+	    name = reinforcedWallItem,
 	    icon = "__RampantArsenal__/graphics/icons/reinforced-wall.png",
 	    enabled = false,
 	    category = "crafting",
@@ -290,8 +290,8 @@ function walls.enable()
 	    result = reinforcedWallItem
     })
 
-    local reinforcedGateRecipe = makeRecipe({
-	    name = "reinforced-gate",
+    makeRecipe({
+	    name = reinforcedGateItem,
 	    icon = "__RampantArsenal__/graphics/icons/reinforced-gate.png",
 	    enabled = false,
 	    category = "crafting",
@@ -307,11 +307,11 @@ function walls.enable()
 		    {
 			{
 			    type = "unlock-recipe",
-			    recipe = reinforcedGateRecipe
+			    recipe = reinforcedGateItem
 			},
 			{
 			    type = "unlock-recipe",
-			    recipe = reinforcedWallRecipe
+			    recipe = reinforcedWallItem
 			}
     })
 

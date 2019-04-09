@@ -149,8 +149,8 @@ function Equipment.enable()
     -- 	    result = "belt-immunity-equipment"
     -- })
 
-    local powerArmorRecipe = makeRecipe({
-    	    name = "power-armor-mk3",
+    makeRecipe({
+    	    name = powerArmor,
     	    icon = "__RampantArsenal__/graphics/icons/power-armor-mk3.png",
     	    enabled = false,
     	    ingredients = {
@@ -166,14 +166,8 @@ function Equipment.enable()
     addEffectToTech("rampant-arsenal-technology-power-armor-mk3",
     		    {
     			type = "unlock-recipe",
-    			recipe = powerArmorRecipe
+    			recipe = powerArmor
     })
-
-    -- addEffectToTech("modular-armor",
-    -- 		    {
-    -- 			type = "unlock-recipe",
-    -- 			recipe = beltImmunityRecipe
-    -- })
 
     local shieldMk3 = makeShield({
 	    name = "mk3",
@@ -194,8 +188,8 @@ function Equipment.enable()
 	    }
     })
 
-    local shieldMk3Recipe = makeRecipe({
-    	    name = "shield-mk3-equipment",
+    makeRecipe({
+    	    name = shieldMk3,
     	    icon = "__RampantArsenal__/graphics/icons/energy-shield-mk3-equipment.png",
     	    enabled = false,
     	    ingredients = {
@@ -208,7 +202,7 @@ function Equipment.enable()
     addEffectToTech("rampant-arsenal-technology-shield-equipment-2",
     		    {
     			type = "unlock-recipe",
-    			recipe = shieldMk3Recipe
+    			recipe = shieldMk3
     })
 
     local batteryMk3 = makeBattery({
@@ -230,8 +224,8 @@ function Equipment.enable()
 	    }
     })
 
-    local batteryMk3Recipe = makeRecipe({
-    	    name = "battery-mk3-equipment",
+    makeRecipe({
+    	    name = batteryMk3,
     	    icon = "__RampantArsenal__/graphics/icons/battery-mk3-equipment.png",
     	    enabled = false,
     	    ingredients = {
@@ -244,7 +238,7 @@ function Equipment.enable()
     addEffectToTech("rampant-arsenal-technology-battery-equipment-3",
     		    {
     			type = "unlock-recipe",
-    			recipe = batteryMk3Recipe
+    			recipe = batteryMk3
     })
 
 
@@ -275,8 +269,8 @@ function Equipment.enable()
             categories = {"adv-generator"}
     })
 
-    local generatorMk3Recipe = makeRecipe({
-    	    name = "generator-mk3-equipment",
+    makeRecipe({
+    	    name = generatorMk3,
     	    icon = "__RampantArsenal__/graphics/icons/generator-mk3-equipment.png",
     	    enabled = false,
     	    ingredients = {
@@ -286,8 +280,8 @@ function Equipment.enable()
     	    result = generatorMk3
     })
 
-    local generatorNuclearRecipe = makeRecipe({
-    	    name = "generator-nuclear-equipment",
+    makeRecipe({
+    	    name = generatorNuclear,
     	    icon = "__RampantArsenal__/graphics/icons/generator-nuclear-equipment.png",
     	    enabled = false,
     	    ingredients = {
@@ -301,13 +295,13 @@ function Equipment.enable()
     addEffectToTech("rampant-arsenal-technology-generator-equipment-2",
     		    {
     			type = "unlock-recipe",
-    			recipe = generatorMk3Recipe
+    			recipe = generatorMk3
     })
 
     addEffectToTech("rampant-arsenal-technology-generator-equipment-3",
     		    {
     			type = "unlock-recipe",
-    			recipe = generatorNuclearRecipe
+    			recipe = generatorNuclear
     })
 
     changeAmmoCategory("active-defense-equipment",
@@ -702,9 +696,9 @@ function Equipment.enable()
 	    sound = make_heavy_gunshot_sounds(),
     })
 
-    local passiveShotgunRecipe = makeRecipe(
+    makeRecipe(
 	{
-    	    name = "passive-shotgun-equipment",
+    	    name = passiveShotgun,
     	    icon = "__RampantArsenal__/graphics/icons/personal-shotgun-defense-equipment.png",
     	    enabled = false,
     	    ingredients = {
@@ -715,8 +709,8 @@ function Equipment.enable()
     	    result = passiveShotgun
     })
 
-    local passiveCannonRecipe = makeRecipe({
-    	    name = "passive-cannon-equipment",
+    makeRecipe({
+    	    name = passiveCannon,
     	    icon = "__RampantArsenal__/graphics/icons/personal-cannon-defense-equipment.png",
     	    enabled = false,
     	    ingredients = {
@@ -727,8 +721,8 @@ function Equipment.enable()
     	    result = passiveCannon
     })
 
-    local passiveLightningRecipe = makeRecipe({
-    	    name = "passive-lightning-equipment",
+    makeRecipe({
+    	    name = passiveLightning,
     	    icon = "__RampantArsenal__/graphics/icons/personal-lightning-defense-equipment.png",
     	    enabled = false,
     	    ingredients = {
@@ -739,8 +733,8 @@ function Equipment.enable()
     	    result = passiveLightning
     })
 
-    local passiveBulletRecipe = makeRecipe({
-    	    name = "passive-bullet-equipment",
+    makeRecipe({
+    	    name = passiveBullets,
     	    icon = "__RampantArsenal__/graphics/icons/personal-bullet-defense-equipment.png",
     	    enabled = false,
     	    ingredients = {
@@ -751,8 +745,8 @@ function Equipment.enable()
     	    result = passiveBullets
     })
 
-    local passiveSlowRecipe = makeRecipe({
-    	    name = "passive-slow-equipment",
+    makeRecipe({
+    	    name = passiveSlow,
     	    icon = "__RampantArsenal__/graphics/icons/personal-slow-defense-equipment.png",
     	    enabled = false,
     	    ingredients = {
@@ -767,31 +761,31 @@ function Equipment.enable()
     addEffectToTech("rampant-arsenal-technology-personal-shotgun-defense",
     		    {
     			type = "unlock-recipe",
-    			recipe = passiveShotgunRecipe
+    			recipe = passiveShotgun
     })
 
     addEffectToTech("rampant-arsenal-technology-personal-cannon-defense",
     		    {
     			type = "unlock-recipe",
-    			recipe = passiveCannonRecipe
+    			recipe = passiveCannon
     })
 
     addEffectToTech("rampant-arsenal-technology-personal-lightning-defense",
     		    {
     			type = "unlock-recipe",
-    			recipe = passiveLightningRecipe
+    			recipe = passiveLightning
     })
 
     addEffectToTech("rampant-arsenal-technology-personal-slow-defense",
     		    {
     			type = "unlock-recipe",
-    			recipe = passiveSlowRecipe
+    			recipe = passiveSlow
     })
 
     addEffectToTech("rampant-arsenal-technology-personal-bullets-defense",
     		    {
     			type = "unlock-recipe",
-    			recipe = passiveBulletRecipe
+    			recipe = passiveBullets
     })
 
     data.raw["solar-panel-equipment"]["solar-panel-equipment"].power = "30kW"
