@@ -26,10 +26,10 @@ function powerUtils.makeOilBurner(attributes)
 		corpse = "big-remnants",
 		dying_explosion = "medium-explosion",
 		alert_icon_shift = util.by_pixel(0, -12),
-		effectivity = attributes.effectivity or 0.8,
+		effectivity = attributes.effectivity or 1,
 		fluid_usage_per_tick = attributes.fluidPerTick or 0.25,
 		maximum_temperature = attributes.maxTemp or 500,
-		max_power_output = attributes.maxPower or "3.5MW",
+		max_power_output = attributes.maxPower or "7.5MW",
 		burns_fluid = attributes.burnFluid,
 		scale_fluid_usage = attributes.scaleFluidUsage,
 		
@@ -60,7 +60,7 @@ function powerUtils.makeOilBurner(attributes)
 		    {
 			type = "electric",
 			usage_priority = "secondary-output",
-			emissions_per_second_per_watt = attributes.emissions
+                        emissions_per_second_per_watt = attributes.emissions
 		    },
 		horizontal_animation =
 		    {
@@ -171,6 +171,7 @@ function powerUtils.makeOilBurner(attributes)
 			    frequency = 10 / 32,
 			    starting_vertical_speed = 0.08,
 			    slow_down_factor = 1,
+                            tint = {r=0.9,g=0.1,b=0.7,a=0.6},
 			    starting_frame_deviation = 60
 			}
 		    },
@@ -182,7 +183,7 @@ function powerUtils.makeOilBurner(attributes)
 				filename = "__base__/sound/steam-engine-90bpm.ogg",
 				volume = 0.6
 			    },
-			match_speed_to_activity = true
+                        match_speed_to_activity = true
 		    },
 		min_perceived_performance = 0.25,
 		performance_to_sound_speedup = 0.5

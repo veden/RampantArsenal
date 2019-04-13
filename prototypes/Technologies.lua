@@ -416,7 +416,7 @@ function technologies.enable()
     --         --     upgrade = true,
     --         --     order = "e-j-n"
     --         -- },
-            
+    
     --         -- {
     --         --     type = "technology",
     --         --     name = "cannon-shell-damage-1",
@@ -2414,16 +2414,16 @@ function technologies.enable()
     })
 
     makeTechnology({
-	    name = "oil-burner",
-	    icon="__RampantArsenal__/graphics/technology/oil-burner.png",
-	    prerequisites = {"flammables", "electric-energy-distribution-1"},
-	    effects = {},
-	    count = 120,
-	    ingredients = {
-		{"automation-science-pack", 1},
-    		{"logistic-science-pack", 1},
-	    },
-	    time = 30
+            name = "oil-burner",
+            icon="__RampantArsenal__/graphics/technology/oil-burner.png",
+            prerequisites = {"flammables", "electric-energy-distribution-1"},
+            effects = {},
+            count = 120,
+            ingredients = {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+            },
+            time = 30
     })
 
     makeTechnology({

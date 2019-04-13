@@ -18,13 +18,13 @@ function power.enable()
 	    burnFluid = true,
 	    scaleFluidUsage = true,
 	    fluidPerTick = 1,
-	    effectivity = 0.60,
+	    effectivity = 1,
 	    maxTemp = 25,
 	    emissions = 0.00004,
 	    scale = 0.5,
 	    tint = { r = 0.7, g = 0.4, b = 0, a = 1 }
     })
-        
+
     makeRecipe({
 	    name = oilBurner,
 	    icon = "__RampantArsenal__/graphics/icons/oil-burner.png",
@@ -48,30 +48,30 @@ function power.enable()
     addFuelToItem({
 	    eType = "fluid",
 	    eName = "light-oil",
-	    fuelValue = "0.75MJ",
-	    fuelEmissionsMultipler = 2
+	    fuelValue = "0.95MJ",
+	    fuelEmissionsMultipler = 1.5
     })
     
     addFuelToItem({
 	    eType = "fluid",
 	    eName = "crude-oil",
 	    
-	    fuelValue = "1.15MJ",
+	    fuelValue = "0.45MJ",
 	    fuelEmissionsMultipler = 4
     })
     
     addFuelToItem({
 	    eType = "fluid",
 	    eName = "heavy-oil",
-	    fuelValue = "0.5MJ",
+	    fuelValue = "0.57MJ",
 	    fuelEmissionsMultipler = 3
     })
 
     addFuelToItem({
 	    eType = "fluid",
 	    eName = "petroleum-gas",
-	    fuelValue = "1.75MJ",
-	    fuelEmissionsMultipler = 1.5
+	    fuelValue = "1.1MJ",
+	    fuelEmissionsMultipler = 2
     })
     
 end
