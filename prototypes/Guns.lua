@@ -1047,6 +1047,18 @@ function guns.enable()
         removeEffect("physical-projectile-damage-6", "turret-attack", "gun-turret")
         removeEffect("physical-projectile-damage-7", "turret-attack", "gun-turret")
     end
+
+    if (settings.startup["rampant-arsenal-useNonCollidingProjectilesShotgun"].value) then
+        data.raw["projectile"]["shotgun-pellet"].force_condition = "not-same"
+        data.raw["projectile"]["piercing-shotgun-pellet"].force_condition = "not-same"
+    end
+
+    if (settings.startup["rampant-arsenal-useNonCollidingProjectilesCannon"].value) then
+        data.raw["projectile"]["cannon-projectile"].force_condition = "not-same"
+        data.raw["projectile"]["uranium-cannon-projectile"].force_condition = "not-same"
+        data.raw["projectile"]["explosive-uranium-cannon-projectile"].force_condition = "not-same"
+        data.raw["projectile"]["explosive-cannon-projectile"].force_condition = "not-same"
+    end
     
     addEffectToTech("military-3",
 		    {

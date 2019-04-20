@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.11
+Date: 4. 20. 2019
+  Bugfixes:
+    - Fixed vanilla shotgun and cannon shells not being including in the colliding setting
+
+---------------------------------------------------------------------------------------------------
 Version: 0.17.10
 Date: 4. 14. 2019
   Improvements:
