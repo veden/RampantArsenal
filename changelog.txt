@@ -1,4 +1,32 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.10
+Date: 4. 14. 2019
+  Improvements:
+    - Added an advanced solar panel that is x16 the size of normal with 50% more output than x16 normal solar panels. Can be toggled off in mod settings.
+    - Added an advanced accumulator that is x9 the size of normal with 50% more output than x9 normal accumulators. Can be toggled off in mod settings.
+    - Added mod settings to allow shotgun, cannon, and advanced laser projectiles to not collide with player walls. (shotgun and cannon on by default)
+  Tweaks:
+    - Removed armor mk3 durability
+    - Fixed adv and nuclear car (2,3) and tank (3,4) emissions
+    - Increased shotgun turret research cost to 60 and time to 20
+    - Reduced incendiary rocket AOE radius to 6
+    - Reduced he rocket AOE radius to 8
+    - Reduced bio rocket AOE radius to 5
+    - Reduced advanced laser health to 2000
+    - Reduced slowdown capsule launcher ammo AOE to 10
+    - Reduced grenade capsule launcher ammo AOE to 6
+    - Reduced bio grenade capsule launcher ammo AOE to 5
+    - Reduced he grenade capsule launcher ammo AOE to 7
+    - Reduced incendiary grenade capsule launcher ammo AOE to 6
+    - Reduced cannon turret health to 2500
+    - Reduced cannon turret damage modifier to 1.5
+    - Reduced rapid cannon turret health to 2000
+    - Reduced advanced flamethrower turret health to 3000
+    - Reduced shotgun turret health to 1000
+    - Reduced he cannon shell AOE to 6
+    - Reduced explosive uranium cannon shell AOE to 7.44
+
+---------------------------------------------------------------------------------------------------
 Version: 0.17.9
 Date: 4. 14. 2019
   Bugfixes:

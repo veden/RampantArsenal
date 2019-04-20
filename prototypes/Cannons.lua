@@ -124,7 +124,7 @@ function cannons.enable()
 	name = "cannon",
 	icon = "__RampantArsenal__/graphics/icons/cannonTurret.png",
 	miningTime = 1,
-	health = 3500,
+	health = 2500,
 	collisionBox = {{-1.2, -1.2 }, {1.2, 1.2}},
 	selectionBox = {{-1.4, -1.4 }, {1.4, 1.4}},
 	order = "b[turret]-a[zzcannon-turret]",
@@ -170,9 +170,9 @@ function cannons.enable()
 							     type = "projectile",
 							     ammo_category = "cannon-shell",
 							     cooldown = 150,
-							     projectile_creation_distance = 9,
-							     damage_modifier = 2,
-							     min_range = 7,
+							     projectile_creation_distance = (settings.startup["rampant-arsenal-useNonCollidingProjectilesCannon"].value and 0) or 9,
+							     damage_modifier = 1.5,
+							     min_range = (settings.startup["rampant-arsenal-useNonCollidingProjectilesCannon"].value and 0) or 7,
 							     turn_range = 0.40,
 							     projectile_center = {0, -0.0875},
 							     range = 34,
@@ -183,7 +183,7 @@ function cannons.enable()
 	name = "rapid-cannon",
 	icon = "__RampantArsenal__/graphics/icons/rapidCannonTurret.png",
 	miningTime = 1,
-	health = 3000,
+	health = 2000,
 	order = "b[turret]-a[zzrapid-cannon-turret]",
 	foldedAnimation = cannonMkIIPlace(),
 	preparingAnimation = cannonMkIIPlace(8, 4, 8),
@@ -227,9 +227,9 @@ function cannons.enable()
 								       type = "projectile",
 								       ammo_category = "cannon-shell",
 								       cooldown = 30,
-								       min_range = 7,
+								       min_range = (settings.startup["rampant-arsenal-useNonCollidingProjectilesCannon"].value and 0) or 7,
 								       turn_range = 0.40,
-								       projectile_creation_distance = 9,
+								       projectile_creation_distance = (settings.startup["rampant-arsenal-useNonCollidingProjectilesCannon"].value and 0) or 9,
 								       projectile_center = {0, -0.0875},
 								       range = 34,
 								       sound = make_heavy_gunshot_sounds(),
@@ -239,7 +239,7 @@ function cannons.enable()
     	name = "suppression-cannon",
     	icon = "__RampantArsenal__/graphics/icons/suppressionCannonTurret.png",
     	miningTime = 1,
-    	health = 4000,
+    	health = 3000,
     	collisionBox = {{-1.7, -2.2 }, {1.7, 2.2}},
     	selectionBox = {{-2, -2.5 }, {2, 2.5}},
 	order = "b[turret]-c[zflamethrower-turret]",
@@ -401,7 +401,7 @@ function cannons.enable()
 	name = "shotgun",
 	icon = "__RampantArsenal__/graphics/icons/shotgunTurret.png",
 	miningTime = 1,
-	health = 3000,
+	health = 1000,
 	hasBaseDirection = true,
 	order = "b[turret]-a[shotgun-turret]",
 	foldedAnimation = shotgunTurretSheet(),
@@ -443,10 +443,10 @@ function cannons.enable()
 							       type = "projectile",
 							       ammo_category = "shotgun-shell",
 							       cooldown = 45,
-                                                               min_range = 7,
+                                                               min_range = (settings.startup["rampant-arsenal-useNonCollidingProjectilesShotgun"].value and 0) or 7,
 							       damage_modifier = 2.0,
 							       turn_range = 0.4,
-							       projectile_creation_distance = 9,
+							       projectile_creation_distance = (settings.startup["rampant-arsenal-useNonCollidingProjectilesShotgun"].value and 0) or 9,
 							       projectile_center = {0, -0.0875},
 							       range = 22,
 							       sound = make_heavy_gunshot_sounds(),
@@ -964,7 +964,7 @@ function cannons.enable()
 									action =
 									    {
 										type = "area",
-										radius = 7,
+										radius = 6,
 										action_delivery =
 										    {
 											type = "instant",
@@ -1154,7 +1154,7 @@ function cannons.enable()
     targetEffects[1].damage.amount = targetEffects[1].damage.amount * 3
 
     local action = data.raw["projectile"]["explosive-uranium-cannon-projectile"].final_action.action_delivery.target_effects[2].action
-    action.radius = action.radius * 2
+    action.radius = action.radius * 1.75
     targetEffects = action.action_delivery.target_effects
     targetEffects[1].damage.amount = targetEffects[1].damage.amount * 3
 end

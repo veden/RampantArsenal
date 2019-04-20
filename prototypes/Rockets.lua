@@ -254,7 +254,7 @@ function rockets.enable()
 									action =
 									    {
 										type = "area",
-										radius = 8,
+										radius = 6,
 										action_delivery =
 										    {
 											type = "instant",
@@ -362,7 +362,7 @@ function rockets.enable()
 									action =
 									    {
 										type = "area",
-										radius = 10,
+										radius = 8,
 										action_delivery =
 										    {
 											type = "instant",
@@ -463,7 +463,7 @@ function rockets.enable()
 									action =
 									    {
 										type = "area",
-										radius = 7,
+										radius = 5,
 										action_delivery =
 										    {
 											type = "instant",

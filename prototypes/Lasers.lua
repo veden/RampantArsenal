@@ -70,7 +70,7 @@ function lasers.enable()
 	name = "advanced-laser",
 	icon = "__RampantArsenal__/graphics/icons/advancedLaserTurret.png",
 	miningTime = 1,
-	health = 3000,
+	health = 2000,
 	collisionBox = {{-1.75, -1.75 }, {1.75, 1.75}},
 	selectionBox = {{-2, -2 }, {2, 2}},
 	hasBaseDirection = true,
@@ -124,9 +124,9 @@ function lasers.enable()
 								 cooldown = 120,
 								 projectile_center = {-0.09375, -0.2},
 								 turn_range = 0.35,
-								 projectile_creation_distance = 13,
+								 projectile_creation_distance = (settings.startup["rampant-arsenal-useNonCollidingProjectilesLaser"].value and 0) or 13,
 								 range = 42,
-								 min_range = 13,
+								 min_range = (settings.startup["rampant-arsenal-useNonCollidingProjectilesLaser"].value and 0) or 13,
 								 damage_modifier = 7,
 								 ammo_type =
 								     {

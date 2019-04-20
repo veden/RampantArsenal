@@ -98,7 +98,7 @@ function capsules.enable()
 					particleTint = particleGrey,
 					actions = {
 					    type = "area",
-					    radius = 12,
+					    radius = 10,
 					    force = "enemy",
 					    action_delivery =
 						{
@@ -732,7 +732,7 @@ function capsules.enable()
 					    },
 					    {
 						type = "area",
-						radius = 8,
+						radius = 6,
 						action_delivery =
 						    {
 							type = "instant",
@@ -808,7 +808,7 @@ function capsules.enable()
 					    },
 					    {
 						type = "area",
-						radius = 8,
+						radius = 5,
 						action_delivery =
 						    {
 							type = "instant",
@@ -883,7 +883,7 @@ function capsules.enable()
 					    },
 					    {
 						type = "area",
-						radius = 9,
+						radius = 7,
 						action_delivery =
 						    {
 							type = "instant",
@@ -963,7 +963,7 @@ function capsules.enable()
 					    },
 					    {
 						type = "area",
-						radius = 8,
+						radius = 6,
 						action_delivery =
 						    {
 							type = "instant",

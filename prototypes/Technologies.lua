@@ -1318,8 +1318,8 @@ function technologies.enable()
 	    icon = "__RampantArsenal__/graphics/technology/shotgun-turrets.png",
 	    effects = {},
 	    ingredients = {{"automation-science-pack", 1}},
-	    count = 20,
-	    time = 10
+	    count = 60,
+	    time = 20
     })
 
     makeTechnology({
@@ -1455,122 +1455,126 @@ function technologies.enable()
 	    order = "e-z-f"
     })
 
-    local gunTurretDamage1 = makeTechnology({
-	    name = "gun-turret-damage-1",
-	    prerequisites = {"turrets"},
-	    icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
-	    upgrade = true,
-	    effects = {},
-	    ingredients = {
-		{"automation-science-pack", 1}
-	    },
-	    count = 50,
-	    time = 30,
-	    order = "e-z-a"
-    })
+    if settings.startup["rampant-arsenal-enableGunTurretDamageResearch"].value then
 
-    local gunTurretDamage2 = makeTechnology({
-	    name = "gun-turret-damage-2",
-	    prerequisites = {gunTurretDamage1},
-	    icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
-	    upgrade = true,
-	    effects = {},
-	    ingredients = {
-		{"automation-science-pack", 1},
-		{"logistic-science-pack", 1}
-	    },
-	    count = 100,
-	    time = 45,
-	    order = "e-z-b"
-    })
+        local gunTurretDamage1 = makeTechnology({
+                name = "gun-turret-damage-1",
+                prerequisites = {"turrets"},
+                icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+                upgrade = true,
+                effects = {},
+                ingredients = {
+                    {"automation-science-pack", 1}
+                },
+                count = 50,
+                time = 30,
+                order = "e-z-a"
+        })
 
-    local gunTurretDamage3 = makeTechnology({
-	    name = "gun-turret-damage-3",
-	    prerequisites = {gunTurretDamage2},
-	    icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
-	    upgrade = true,
-	    effects = {},
-	    ingredients = {
-		{"automation-science-pack", 1},
-		{"logistic-science-pack", 1},
-		{"military-science-pack", 1}
-	    },
-	    count = 300,
-	    time = 50,
-	    order = "e-z-c"
-    })
+        local gunTurretDamage2 = makeTechnology({
+                name = "gun-turret-damage-2",
+                prerequisites = {gunTurretDamage1},
+                icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+                upgrade = true,
+                effects = {},
+                ingredients = {
+                    {"automation-science-pack", 1},
+                    {"logistic-science-pack", 1}
+                },
+                count = 100,
+                time = 45,
+                order = "e-z-b"
+        })
 
-    local gunTurretDamage4 = makeTechnology({
-	    name = "gun-turret-damage-4",
-	    prerequisites = {gunTurretDamage3},
-	    icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
-	    upgrade = true,
-	    effects = {},
-	    ingredients = {
-		{"automation-science-pack", 1},
-		{"logistic-science-pack", 1},
-		{"military-science-pack", 1}
-	    },
-	    count = 300,
-	    time = 60,
-	    order = "e-z-d"
-    })
+        local gunTurretDamage3 = makeTechnology({
+                name = "gun-turret-damage-3",
+                prerequisites = {gunTurretDamage2},
+                icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+                upgrade = true,
+                effects = {},
+                ingredients = {
+                    {"automation-science-pack", 1},
+                    {"logistic-science-pack", 1},
+                    {"military-science-pack", 1}
+                },
+                count = 300,
+                time = 50,
+                order = "e-z-c"
+        })
+
+        local gunTurretDamage4 = makeTechnology({
+                name = "gun-turret-damage-4",
+                prerequisites = {gunTurretDamage3},
+                icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+                upgrade = true,
+                effects = {},
+                ingredients = {
+                    {"automation-science-pack", 1},
+                    {"logistic-science-pack", 1},
+                    {"military-science-pack", 1}
+                },
+                count = 300,
+                time = 60,
+                order = "e-z-d"
+        })
 
 
-    local gunTurretDamage5 = makeTechnology({
-	    name = "gun-turret-damage-5",
-	    prerequisites = {gunTurretDamage4},
-	    icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
-	    upgrade = true,
-	    effects = {},
-	    ingredients = {
-		{"automation-science-pack", 1},
-		{"logistic-science-pack", 1},
-		{"chemical-science-pack", 1},
-		{"military-science-pack", 1}
-	    },
-	    count = 1000,
-	    time = 60,
-	    order = "e-z-e"
-    })
+        local gunTurretDamage5 = makeTechnology({
+                name = "gun-turret-damage-5",
+                prerequisites = {gunTurretDamage4},
+                icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+                upgrade = true,
+                effects = {},
+                ingredients = {
+                    {"automation-science-pack", 1},
+                    {"logistic-science-pack", 1},
+                    {"chemical-science-pack", 1},
+                    {"military-science-pack", 1}
+                },
+                count = 1000,
+                time = 60,
+                order = "e-z-e"
+        })
 
-    local gunTurretDamage6 = makeTechnology({
-	    name = "gun-turret-damage-6",
-	    prerequisites = {gunTurretDamage5},
-	    icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
-	    upgrade = true,
-	    effects = {},
-	    ingredients = {
-		{"automation-science-pack", 1},
-		{"logistic-science-pack", 1},
-		{"chemical-science-pack", 1},
-		{"military-science-pack", 1},
-		{"utility-science-pack", 1}
-	    },
-	    count = 3000,
-	    time = 60,
-	    order = "e-z-f"
-    })
+        local gunTurretDamage6 = makeTechnology({
+                name = "gun-turret-damage-6",
+                prerequisites = {gunTurretDamage5},
+                icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+                upgrade = true,
+                effects = {},
+                ingredients = {
+                    {"automation-science-pack", 1},
+                    {"logistic-science-pack", 1},
+                    {"chemical-science-pack", 1},
+                    {"military-science-pack", 1},
+                    {"utility-science-pack", 1}
+                },
+                count = 3000,
+                time = 60,
+                order = "e-z-f"
+        })
+        
+        makeTechnology({
+                name = "gun-turret-damage-7",
+                prerequisites = {gunTurretDamage6},
+                icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+                upgrade = true,
+                maxLevel = "infinite",
+                effects = {},
+                ingredients = {
+                    {"automation-science-pack", 1},
+                    {"logistic-science-pack", 1},
+                    {"chemical-science-pack", 1},
+                    {"military-science-pack", 1},
+                    {"utility-science-pack", 1},
+                    {"space-science-pack", 1}
+                },
+                countForumla = "2^(L-7)*1000",
+                time = 60,
+                order = "e-z-f"
+        })
 
-    makeTechnology({
-	    name = "gun-turret-damage-7",
-	    prerequisites = {gunTurretDamage6},
-	    icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
-	    upgrade = true,
-	    maxLevel = "infinite",
-	    effects = {},
-	    ingredients = {
-		{"automation-science-pack", 1},
-		{"logistic-science-pack", 1},
-		{"chemical-science-pack", 1},
-		{"military-science-pack", 1},
-		{"utility-science-pack", 1},
-		{"space-science-pack", 1}
-	    },
-	    countForumla = "2^(L-7)*1000",
-	    time = 60,
-	    order = "e-z-f"
-    })
+    end
     
     local cannonTurretDamage1 = makeTechnology({
 	    name = "cannon-turret-damage-1",
@@ -2413,18 +2417,20 @@ function technologies.enable()
 	    time = 30
     })
 
-    makeTechnology({
-            name = "oil-burner",
-            icon="__RampantArsenal__/graphics/technology/oil-burner.png",
-            prerequisites = {"flammables", "electric-energy-distribution-1"},
-            effects = {},
-            count = 120,
-            ingredients = {
-                {"automation-science-pack", 1},
-                {"logistic-science-pack", 1},
-            },
-            time = 30
-    })
+    if settings.startup["rampant-arsenal-enableOilBurner"].value then        
+        makeTechnology({
+                name = "oil-burner",
+                icon="__RampantArsenal__/graphics/technology/oil-burner.png",
+                prerequisites = {"flammables", "electric-energy-distribution-1"},
+                effects = {},
+                count = 120,
+                ingredients = {
+                    {"automation-science-pack", 1},
+                    {"logistic-science-pack", 1},
+                },
+                time = 30
+        })
+    end
 
     makeTechnology({
 	    name = "power-armor-mk3",

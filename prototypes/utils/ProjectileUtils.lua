@@ -10,6 +10,7 @@ function projectileUtils.makeShotgunProjectile(attributes)
 		collision_box = attributes.collisionBox or {{-0.3, -1.1}, {0.3, 1.1}},
 		acceleration = attributes.acceleration or 0,
 		direction_only = attributes.directionOnly,
+                force_condition = (settings.startup["rampant-arsenal-useNonCollidingProjectilesShotgun"].value and "not-same") or nil,
 		piercing_damage = attributes.piercingDamage,
 		action = attributes.action or 
 		    {
@@ -59,6 +60,7 @@ function projectileUtils.makeLaserProjectile(attributes)
 		flags = {"not-on-map"},
 		collision_box = attributes.collisionBox or {{-0.3, -1.1}, {0.3, 1.1}},
 		acceleration = attributes.acceleration or 0,
+                force_condition = (settings.startup["rampant-arsenal-useNonCollidingProjectilesLaser"].value and "not-same") or nil,
 		direction_only = attributes.directionOnly,
 		piercing_damage = attributes.piercingDamage or 300,
 		action = attributes.action or 
@@ -128,6 +130,7 @@ function projectileUtils.makeCannonProjectile(attributes)
 		collision_box = attributes.collisionBox or {{-0.3, -1.1}, {0.3, 1.1}},
 		acceleration = attributes.acceleration or 0,
 		direction_only = attributes.directionOnly,
+                force_condition = (settings.startup["rampant-arsenal-useNonCollidingProjectilesCannon"].value and "not-same") or nil,
 		piercing_damage = attributes.piercingDamage or 300,
 		action = attributes.action or 
 		    {

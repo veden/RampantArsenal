@@ -893,131 +893,133 @@ function guns.enable()
 			recipe = gunTurretItem
     })
 
-    addEffectToTech("gun-turret-damage-1",
-		    {
-			{
-			    type = "turret-attack",
-			    turret_id = rifleTurret,
-			    modifier = 0.1
-			},
-                        {
-			    type = "turret-attack",
-			    turret_id = "gun-turret",
-			    modifier = 0.1
-			},
-			{
-			    type = "turret-attack",
-			    turret_id = gunTurret,
-			    modifier = 0.1
+    local useGunTurretTech = settings.startup["rampant-arsenal-enableGunTurretDamageResearch"].value
+    
+    addEffectToTech((useGunTurretTech and "gun-turret-damage-1") or "physical-projectile-damage-1",
+        {
+            {
+                type = "turret-attack",
+                turret_id = rifleTurret,
+                modifier = 0.1
+            },
+            {
+                type = "turret-attack",
+                turret_id = "gun-turret",
+                modifier = 0.1
+            },
+            {
+                type = "turret-attack",
+                turret_id = gunTurret,
+                modifier = 0.1
     }})
 
-    addEffectToTech("gun-turret-damage-2",
-		    {
-			{
-			    type = "turret-attack",
-			    turret_id = rifleTurret,
-			    modifier = 0.1
-			},
-                        {
-			    type = "turret-attack",
-			    turret_id = "gun-turret",
-			    modifier = 0.1
-			},
-			{
-			    type = "turret-attack",
-			    turret_id = gunTurret,
-			    modifier = 0.1
+    addEffectToTech((useGunTurretTech and "gun-turret-damage-2") or "physical-projectile-damage-2",
+        {
+            {
+                type = "turret-attack",
+                turret_id = rifleTurret,
+                modifier = 0.1
+            },
+            {
+                type = "turret-attack",
+                turret_id = "gun-turret",
+                modifier = 0.1
+            },
+            {
+                type = "turret-attack",
+                turret_id = gunTurret,
+                modifier = 0.1
     }})
 
-    addEffectToTech("gun-turret-damage-3",
-		    {
-			{
-			    type = "turret-attack",
-			    turret_id = rifleTurret,
-			    modifier = 0.2
-			},
-                        {
-			    type = "turret-attack",
-			    turret_id = "gun-turret",
-			    modifier = 0.2
-			},
-			{
-			    type = "turret-attack",
-			    turret_id = gunTurret,
-			    modifier = 0.2
+    addEffectToTech((useGunTurretTech and "gun-turret-damage-3") or "physical-projectile-damage-3",
+        {
+            {
+                type = "turret-attack",
+                turret_id = rifleTurret,
+                modifier = 0.2
+            },
+            {
+                type = "turret-attack",
+                turret_id = "gun-turret",
+                modifier = 0.2
+            },
+            {
+                type = "turret-attack",
+                turret_id = gunTurret,
+                modifier = 0.2
     }})
 
-    addEffectToTech("gun-turret-damage-4",
-		    {
-			{
-			    type = "turret-attack",
-			    turret_id = rifleTurret,
-			    modifier = 0.2
-			},
-                        {
-			    type = "turret-attack",
-			    turret_id = "gun-turret",
-			    modifier = 0.2
-			},
-			{
-			    type = "turret-attack",
-			    turret_id = gunTurret,
-			    modifier = 0.2
+    addEffectToTech((useGunTurretTech and "gun-turret-damage-4") or "physical-projectile-damage-4",
+        {
+            {
+                type = "turret-attack",
+                turret_id = rifleTurret,
+                modifier = 0.2
+            },
+            {
+                type = "turret-attack",
+                turret_id = "gun-turret",
+                modifier = 0.2
+            },
+            {
+                type = "turret-attack",
+                turret_id = gunTurret,
+                modifier = 0.2
     }})
 
-    addEffectToTech("gun-turret-damage-5",
-		    {
-			{
-			    type = "turret-attack",
-			    turret_id = rifleTurret,
-			    modifier = 0.2
-			},
-                        {
-			    type = "turret-attack",
-			    turret_id = "gun-turret",
-			    modifier = 0.2
-			},
-			{
-			    type = "turret-attack",
-			    turret_id = gunTurret,
-			    modifier = 0.2
+    addEffectToTech((useGunTurretTech and "gun-turret-damage-5") or "physical-projectile-damage-5",
+        {
+            {
+                type = "turret-attack",
+                turret_id = rifleTurret,
+                modifier = 0.2
+            },
+            {
+                type = "turret-attack",
+                turret_id = "gun-turret",
+                modifier = 0.2
+            },
+            {
+                type = "turret-attack",
+                turret_id = gunTurret,
+                modifier = 0.2
     }})
 
-    addEffectToTech("gun-turret-damage-6",
-		    {
-			{
-			    type = "turret-attack",
-			    turret_id = rifleTurret,
-			    modifier = 0.4
-			},
-                        {
-			    type = "turret-attack",
-			    turret_id = "gun-turret",
-			    modifier = 0.4
-			},
-			{
-			    type = "turret-attack",
-			    turret_id = gunTurret,
-			    modifier = 0.4
-			}
+    addEffectToTech((useGunTurretTech and "gun-turret-damage-6") or "physical-projectile-damage-6",
+        {
+            {
+                type = "turret-attack",
+                turret_id = rifleTurret,
+                modifier = 0.4
+            },
+            {
+                type = "turret-attack",
+                turret_id = "gun-turret",
+                modifier = 0.4
+            },
+            {
+                type = "turret-attack",
+                turret_id = gunTurret,
+                modifier = 0.4
+            }
     })
 
-    addEffectToTech("gun-turret-damage-7",
-		    {
-			{
-			    type = "turret-attack",
-			    turret_id = rifleTurret,
-			    modifier = 0.7
-			},
-                        {
-			    type = "turret-attack",
-			    turret_id = "gun-turret",
-			    modifier = 0.7
-			},
-			{
-			    type = "turret-attack",
-			    turret_id = gunTurret,
-			    modifier = 0.7
+    addEffectToTech((useGunTurretTech and "gun-turret-damage-7") or "physical-projectile-damage-7",
+        {
+            {
+                type = "turret-attack",
+                turret_id = rifleTurret,
+                modifier = 0.7
+            },
+            {
+                type = "turret-attack",
+                turret_id = "gun-turret",
+                modifier = 0.7
+            },
+            {
+                type = "turret-attack",
+                turret_id = gunTurret,
+                modifier = 0.7
     }})
     
     removeEffect("military-3", "unlock-recipe", "poison-capsule")
@@ -1036,14 +1038,16 @@ function guns.enable()
     })
 
     removeEffect("military-4", "unlock-recipe", "piercing-shotgun-shell")
-    removeEffect("physical-projectile-damage-1", "turret-attack", "gun-turret")
-    removeEffect("physical-projectile-damage-2", "turret-attack", "gun-turret")
-    removeEffect("physical-projectile-damage-3", "turret-attack", "gun-turret")
-    removeEffect("physical-projectile-damage-4", "turret-attack", "gun-turret")
-    removeEffect("physical-projectile-damage-5", "turret-attack", "gun-turret")
-    removeEffect("physical-projectile-damage-6", "turret-attack", "gun-turret")
-    removeEffect("physical-projectile-damage-7", "turret-attack", "gun-turret")
-
+    if useGunTurretTech then
+        removeEffect("physical-projectile-damage-1", "turret-attack", "gun-turret")
+        removeEffect("physical-projectile-damage-2", "turret-attack", "gun-turret")
+        removeEffect("physical-projectile-damage-3", "turret-attack", "gun-turret")
+        removeEffect("physical-projectile-damage-4", "turret-attack", "gun-turret")
+        removeEffect("physical-projectile-damage-5", "turret-attack", "gun-turret")
+        removeEffect("physical-projectile-damage-6", "turret-attack", "gun-turret")
+        removeEffect("physical-projectile-damage-7", "turret-attack", "gun-turret")
+    end
+    
     addEffectToTech("military-3",
 		    {
 			type = "unlock-recipe",

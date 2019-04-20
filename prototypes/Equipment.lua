@@ -28,7 +28,6 @@ function Equipment.enable()
 	    name = "power-armor-mk3",
 	    inventoryBonus = 60,
 	    icon = "__RampantArsenal__/graphics/icons/power-armor-mk3.png",
-	    durability = 40000,
 	    order = "e[power-armor-mk3]",
 	    equipmentGrid = makeGrid({
 		    name = "power-armor-mk3",

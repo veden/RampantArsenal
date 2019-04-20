@@ -199,7 +199,7 @@ function vehicles.enable()
 	    energySource = {
 		fuel_category = "chemical",
 		effectivity = 0.85,
-		emissions_per_minute = 0.00002,
+		emissions_per_minute = 3,
 		fuel_inventory_size = 2,
 		smoke =
 		    {
@@ -424,7 +424,7 @@ function vehicles.enable()
 	    energySource = {
 		fuel_category = "nuclear",
 		effectivity = 0.9,
-		emissions_per_minute = 0.00002,
+		emissions_per_minute = 4,
 		fuel_inventory_size = 2,
 		burnt_inventory_size = 2,
 		smoke =
@@ -589,7 +589,7 @@ function vehicles.enable()
 		fuel_category = "chemical",
 		effectivity = 0.6,
 		fuel_inventory_size = 1,
-		emissions_per_minute = 0.00002,
+		emissions_per_minute = 2,
 		smoke =
 		    {
 			{
@@ -739,7 +739,7 @@ function vehicles.enable()
 	    energySource = {
 		fuel_category = "nuclear",
 		effectivity = 1,
-		emissions_per_minute = 0.00002,
+		emissions_per_minute = 3,
 		fuel_inventory_size = 1,
 		burnt_inventory_size = 1,
 		smoke =

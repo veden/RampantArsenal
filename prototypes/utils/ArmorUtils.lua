@@ -46,6 +46,7 @@ function armorUtils.makeArmor(attributes)
 			}
 		    },
 		durability = attributes.durability,
+                infinite = (not attributes.durability) or nil,
 		subgroup = "armor",
 		order = attributes.order or "e[power-armor-mk2]",
 		stack_size = 1,
