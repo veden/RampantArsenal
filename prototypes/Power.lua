@@ -82,6 +82,7 @@ function power.enable()
     if settings.startup["rampant-arsenal-enableAdvancedSolarPanel"].value then
         local solarPanel = table.deepcopy(data.raw["solar-panel"]["solar-panel"])
         solarPanel.name = "advanced-solar-panel-rampant-arsenal"
+        solarPanel.minable.result = "advanced-solar-panel-rampant-arsenal"
         solarPanel.collision_box[1][1] = solarPanel.collision_box[1][1] * 4
         solarPanel.collision_box[1][2] = solarPanel.collision_box[1][2] * 4
         solarPanel.collision_box[2][1] = solarPanel.collision_box[2][1] * 4
@@ -95,6 +96,8 @@ function power.enable()
         solarPanel.max_health = 1000
         
         solarPanel.production = "1.44MW"
+
+        solarPanel.next_upgrade = ""
 
         scalePicture(2, solarPanel.picture)
         -- scalePicture(2, solarPanel.overlay, true)
@@ -175,6 +178,8 @@ function power.enable()
         accumulator.collision_box[2][1] = accumulator.collision_box[2][1] * 3.4 
         accumulator.collision_box[2][2] = accumulator.collision_box[2][2] * 3 + 1.8
 
+        accumulator.minable.result = "advanced-accumulator-rampant-arsenal"
+        
         accumulator.selection_box[1][1] = accumulator.selection_box[1][1] * 3.4
         accumulator.selection_box[1][2] = accumulator.selection_box[1][2] * 3 + 1.8
         accumulator.selection_box[2][1] = accumulator.selection_box[2][1] * 3.4
@@ -189,6 +194,8 @@ function power.enable()
         scalePicture(1.8, accumulator.picture)
         scalePicture(1.8, accumulator.charge_animation)
 
+        accumulator.next_upgrade = ""
+        
         local picture = function (tint, repeat_count)
             return {
                 layers =

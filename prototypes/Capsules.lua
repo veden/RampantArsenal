@@ -1331,8 +1331,8 @@ function capsules.enable()
     local capsuleTurret, capsuleTurretItem = makeAmmoTurret(entity, {
 								type = "stream",
 								ammo_category = "capsule-launcher",
-								cooldown = 350,
-								damage_modifier = 3,
+								cooldown = 450,
+								damage_modifier = 1.5,
 								gun_center_shift = {
 								    north = {0, 0},
 								    east = {0, -4},

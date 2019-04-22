@@ -151,7 +151,7 @@ function vehicles.enable()
                 name = "advanced-tank",
                 width = 15,
                 height = 15,
-                categories = {"armor", "armoured-vehicle", "vehicle"}
+                categories = {"armor", "armoured-vehicle", "vehicle", "tank"}
         })
     else
         advTankGrid = makeGrid({
@@ -168,7 +168,7 @@ function vehicles.enable()
                 name = "nuclear-tank",
                 width = 18,
                 height = 18,
-                categories = {"armor", "armoured-vehicle", "vehicle", "adv-generator"}
+                categories = {"armor", "armoured-vehicle", "vehicle", "adv-generator", "tank"}
         })
     else
         nuclearTankGrid = makeGrid({
@@ -486,7 +486,7 @@ function vehicles.enable()
                 name = "advanced-car",
                 width = 10,
                 height = 10,
-                categories = {"armor", "vehicle"}
+                categories = {"armor", "vehicle", "car"}
         })
     else
         advCarGrid = makeGrid({
@@ -503,7 +503,7 @@ function vehicles.enable()
                 name = "nuclear-car",
                 width = 13,
                 height = 13,
-                categories = {"armor", "vehicle", "adv-generator"}
+                categories = {"armor", "vehicle", "adv-generator","car"}
         })
     else
         nuclearCarGrid = makeGrid({

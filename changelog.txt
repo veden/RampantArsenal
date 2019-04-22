@@ -1,4 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.12
+Date: 4. 21. 2019
+  Tweaks:
+    - Readded min range and project creation for advanced laser when non colliding mod settings is checked
+    - Set non colliding advanced laser projectile by default to checked
+    - Increased capsule launcher turret cooldown to 450
+    - Reduced capsule launcher turren damage modifier to 1.5
+  Bugfixes:
+    - Fixed skewed damage values due to migration, by invoking tech effect reset
+    - Fixed update_next on advanced accumulator and solar panel
+    - Fixed minable on advanced accumulator and solar panel
+    - Fixed adv and nuclear car and tank remaining bobs vehicle equipment integration
+    - Fixed advance accumulator research locale name    
+
+---------------------------------------------------------------------------------------------------
 Version: 0.17.11
 Date: 4. 20. 2019
   Bugfixes:

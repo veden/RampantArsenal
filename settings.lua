@@ -13,7 +13,7 @@ data:extend({
 	    type = "bool-setting",
 	    name = "rampant-arsenal-useNonCollidingProjectilesLaser",
 	    setting_type = 'startup',
-	    default_value = false,
+	    default_value = true,
 	    order = "a[projectile]-a[collide]",
 	    per_user = false
 	},

@@ -76,6 +76,13 @@ local function onConfigChanged()
 
 	world.version = 7
     end
+    if (world.version < 8) then
+
+        game.forces.player.reset_technology_effects()
+
+	world.version = 8
+    end
+
 end
 
 local function onInit()

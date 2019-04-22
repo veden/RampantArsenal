@@ -124,9 +124,9 @@ function lasers.enable()
 								 cooldown = 120,
 								 projectile_center = {-0.09375, -0.2},
 								 turn_range = 0.35,
-								 projectile_creation_distance = (settings.startup["rampant-arsenal-useNonCollidingProjectilesLaser"].value and 0) or 13,
+								 projectile_creation_distance = 13,
 								 range = 42,
-								 min_range = (settings.startup["rampant-arsenal-useNonCollidingProjectilesLaser"].value and 0) or 13,
+								 min_range = 13,
 								 damage_modifier = 7,
 								 ammo_type =
 								     {
