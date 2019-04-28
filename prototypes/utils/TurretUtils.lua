@@ -408,6 +408,7 @@ function turretUtils.makeElectricTurret(attributes, attack)
 		preparing_animation = attributes.preparingAnimation,
 		prepared_animation = attributes.preparedAnimation,
 		folding_animation = attributes.foldingAnimation,
+                base_picture = attributes.basePicture,
 		vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
 
 		attack_parameters = attack or

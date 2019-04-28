@@ -831,7 +831,7 @@ function guns.enable()
 						       projectile_creation_distance = 2,
 						       damage_modifier = 2,
 						       projectile_center = {0, 0},
-						       range = 21,
+						       range = 24,
 						       sound = make_heavy_gunshot_sounds(),
     })
     

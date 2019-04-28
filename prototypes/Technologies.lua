@@ -1683,22 +1683,6 @@ function technologies.enable()
     })
 
     makeTechnology({
-	    name = "advanced-laser-turret-2",
-	    icon = "__base__/graphics/technology/laser-turrets.png",
-	    prerequisites = {"energy-weapons-damage-2", "advanced-electronics-2", "military-4", "electric-engine"},
-	    effects = {},
-	    ingredients = {
-		{"automation-science-pack", 1},
-		{"logistic-science-pack", 1},
-		{"chemical-science-pack", 1},
-		{"military-science-pack", 1},
-		{"utility-science-pack", 1}
-	    },
-	    count = 2000,
-	    time = 30
-    })
-
-    makeTechnology({
 	    name = "cannon-turret-damage-7",
 	    prerequisites = {cannonTurretDamage6},
 	    icon = "__RampantArsenal__/graphics/technology/cannon-turret-damage.png",
@@ -1791,6 +1775,39 @@ function technologies.enable()
 	    time = 30
     })
 
+    
+    local laserTurret = makeTechnology({
+	    name = "advanced-laser-turret-2",
+	    prerequisites = {"laser-turrets", "energy-weapons-damage-1", "military-3"},
+	    icon = "__base__/graphics/technology/laser-turrets.png",
+	    effects = {},
+	    ingredients = {
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
+		{"military-science-pack", 1}
+	    },
+	    count = 600,
+	    time = 30
+    })
+
+
+    makeTechnology({
+	    name = "advanced-laser-turret-3",
+	    icon = "__base__/graphics/technology/laser-turrets.png",
+	    prerequisites = {"energy-weapons-damage-2", laserTurret, "advanced-electronics-2", "military-4", "electric-engine"},
+	    effects = {},
+	    ingredients = {
+		{"automation-science-pack", 1},
+		{"logistic-science-pack", 1},
+		{"chemical-science-pack", 1},
+		{"military-science-pack", 1},
+		{"utility-science-pack", 1}
+	    },
+	    count = 2000,
+	    time = 30
+    })
+    
     makeTechnology({
 	    name = "incendiary-bullets",
 	    icon="__RampantArsenal__/graphics/technology/incendiary-bullets.png",
