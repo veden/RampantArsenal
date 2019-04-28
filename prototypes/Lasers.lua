@@ -549,8 +549,8 @@ function lasers.enable()
     local _, lightningTowerTurretItem = makeElectricTurret(entity1, {
 							       type = "projectile",
 							       ammo_category = "electric",
-							       cooldown = 80,
-							       range = 23,
+							       cooldown = 120,
+							       range = 21,
                                                                turn_range = 0.45,
                                                                min_range = 8,
 							       projectile_creation_distance = 1,
