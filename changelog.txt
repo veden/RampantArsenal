@@ -9,12 +9,6 @@ Date: 4. 27. 2019
     - Increased gun turret mk2 range to 24
     - Added new advanced beam turret research
     - Added advanced beam turret research to prerequisite to advanced laser turret 3
-  Bugfixes:
-    - Fixed skewed damage values due to migration, by invoking tech effect reset
-    - Fixed update_next on advanced accumulator and solar panel
-    - Fixed minable on advanced accumulator and solar panel
-    - Fixed adv and nuclear car and tank remaining bobs vehicle equipment integration
-    - Fixed advance accumulator research locale name    
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.12
