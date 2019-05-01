@@ -9,6 +9,8 @@ Date: 4. 27. 2019
     - Increased gun turret mk2 range to 24
     - Added new advanced beam turret research
     - Added advanced beam turret research to prerequisite to advanced laser turret 3
+    - Changed rocket and lightning turret to be a square collision box
+    - Added bobs power armor 3, 4, 5 to allow nuclear generator equipment
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.12

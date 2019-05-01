@@ -62,7 +62,7 @@ function rockets.enable()
 	miningTime = 1,
 	health = 800,
 	order = "b[turret]-a[zzzracket-turret]",
-	collisionBox = {{-0.35, -0.85}, {0.35, 0.85}},
+	collisionBox = {{-0.75, -0.75}, {0.75, 0.75}},
 	selectionBox = {{-0.5, -1}, {0.5, 1}},
 	foldedAnimation = rocketSheetMk1(),
 	foldingAnimation = rocketSheetMk1(),

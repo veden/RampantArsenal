@@ -46,3 +46,20 @@ if mods["Power Armor MK4"] then
     local grids = data.raw["equipment-grid"]["gigantic-equipment-grid"].equipment_categories
     grids[#grids+1] = "adv-generator"
 end
+
+if mods["bobwarfare"] then
+    local grids = data.raw["equipment-grid"]["power-armor-equipment-grid-mk3"].equipment_categories
+    if grids then
+        grids[#grids+1] = "adv-generator"
+    end
+
+    grids = data.raw["equipment-grid"]["power-armor-equipment-grid-mk4"].equipment_categories
+    if grids then
+        grids[#grids+1] = "adv-generator"
+    end
+
+    grids = data.raw["equipment-grid"]["power-armor-equipment-grid-mk5"].equipment_categories
+    if grids then
+        grids[#grids+1] = "adv-generator"
+    end
+end

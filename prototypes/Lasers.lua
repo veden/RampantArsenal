@@ -508,7 +508,7 @@ function lasers.enable()
 	    usage_priority = "primary-input"
 	},
 	order = "b[turret]-b[zlaser-turret]",
-	collisionBox = {{-0.35, -0.85}, {0.35, 0.85}},
+	collisionBox = {{-0.75, -0.75}, {0.75, 0.75}},
 	selectionBox = {{-0.5, -1}, {0.5, 1}},
 	foldedAnimation = lightningTowerSheet(),
 	foldingAnimation = lightningTowerSheet(),
