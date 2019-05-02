@@ -48,6 +48,15 @@ data:extend({
 
         {
 	    type = "bool-setting",
+	    name = "rampant-arsenal-enableNuclearGeneratorEquipmentConsuming",
+	    setting_type = 'startup',
+	    default_value = true,
+	    order = "a[projectile]-a[collide]",
+	    per_user = false
+	},
+
+        {
+	    type = "bool-setting",
 	    name = "rampant-arsenal-enableAdvancedAccumulator",
 	    setting_type = 'startup',
 	    default_value = true,

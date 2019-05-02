@@ -29,7 +29,7 @@ function powerUtils.makeOilBurner(attributes)
 		effectivity = attributes.effectivity or 1,
 		fluid_usage_per_tick = attributes.fluidPerTick or 0.25,
 		maximum_temperature = attributes.maxTemp or 500,
-		max_power_output = attributes.maxPower or "7.5MW",
+		max_power_output = attributes.maxPower or "16MW",
 		burns_fluid = attributes.burnFluid,
 		scale_fluid_usage = attributes.scaleFluidUsage,
 		
@@ -51,8 +51,10 @@ function powerUtils.makeOilBurner(attributes)
 			pipe_covers = pipecoverspictures(),
 			pipe_connections =
 			    {
-				{ type = "input-output", position = {0, attributes.scale * 6} },
-				{ type = "input-output", position = {0, -(attributes.scale * 6)} }
+				{ type = "input-output", position = {0.5, attributes.scale * 5.5} },
+				{ type = "input-output", position = {0.5, -(attributes.scale * 5.5)} },
+                                { type = "input-output", position = {-0.5, attributes.scale * 5.5} },
+				{ type = "input-output", position = {-0.5, -(attributes.scale * 5.5)} }
 			    },
 			production_type = "input-output"
 		    },
@@ -60,7 +62,7 @@ function powerUtils.makeOilBurner(attributes)
 		    {
 			type = "electric",
 			usage_priority = "secondary-output",
-                        emissions_per_second_per_watt = attributes.emissions
+                        emissions_per_minute = attributes.emissions
 		    },
 		horizontal_animation =
 		    {
@@ -166,12 +168,13 @@ function powerUtils.makeOilBurner(attributes)
 		    {
 			{
 			    name = "turbine-smoke",
-			    north_position = {0.0, -1.0},
-			    east_position = {0.75, -0.75},
+			    north_position = {1.75, -2},
+			    east_position = {1.75, -2.2},
 			    frequency = 10 / 32,
 			    starting_vertical_speed = 0.08,
 			    slow_down_factor = 1,
-                            tint = {r=0.9,g=0.1,b=0.7,a=0.6},
+                            scale = 1,
+                            tint = {r=0,g=0,b=0,a=1},
 			    starting_frame_deviation = 60
 			}
 		    },

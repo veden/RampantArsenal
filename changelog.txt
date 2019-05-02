@@ -1,4 +1,20 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.14
+Date: 5. 2. 2019
+  Tweaks:
+    - Added mod setting to toggle if nuclear generator equipment consumes uranium cells
+    - Increased oil generator output to 16MW
+    - Doubled oil generator size
+    - Increased oil generator emissions per minute to 6
+    - Increased oil generator cost 2 chemical plants, 2 steel furnace, 40 electronic circuits, 30 copper plates
+    - Slightly lightened the oil generator color
+  Bugfixes:
+    - Fixed 0.17.35 changes
+    - Fixed emissions_per_minute
+    - Fixed Power armor research change
+    - Fixed player entity renamed    
+
+---------------------------------------------------------------------------------------------------
 Version: 0.17.13
 Date: 4. 27. 2019
   Improvements:

@@ -260,6 +260,27 @@ function Equipment.enable()
 	    picture = "__RampantArsenal__/graphics/equipment/generator-nuclear-equipment.png",
 	    order = "a[energy-source]-b[zzfusion-reactor]",
 	    power = "13000kW",
+            burner = (settings.startup["rampant-arsenal-enableNuclearGeneratorEquipmentConsuming"].value and {
+                type = "burner",
+                fuel_category = "nuclear",
+                effectivity = 1,
+                fuel_inventory_size = 2,
+                burnt_inventory_size = 2,
+                emissions_per_minute = 2,
+                smoke =
+                    {
+                        {
+                            name = "smoke",
+                            north_position = util.by_pixel(-38, -47.5),
+                            south_position = util.by_pixel(38.5, -32),
+                            east_position = util.by_pixel(20, -70),
+                            west_position = util.by_pixel(-19, -8.5),
+                            frequency = 15,
+                            starting_vertical_speed = 0.0,
+                            starting_frame_deviation = 60
+                        }
+                    }
+            }) or nil,
 	    shape = {
 		width = 6,
 		height = 6,

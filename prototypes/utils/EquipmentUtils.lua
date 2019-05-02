@@ -145,6 +145,7 @@ function equipmentUtils.makeGenerator(attributes)
 			height = 4,
 			type = "full"
 		    },
+                burner = attributes.burner,
 		energy_source = attributes.energySource or
 		    {
 			type = "electric",

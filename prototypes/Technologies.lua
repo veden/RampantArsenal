@@ -2452,7 +2452,7 @@ function technologies.enable()
     makeTechnology({
 	    name = "power-armor-mk3",
 	    icon="__RampantArsenal__/graphics/technology/power-armor-mk3.png",
-	    prerequisites = {"power-armor-2", "nuclear-power"},
+	    prerequisites = {"power-armor-mk2", "nuclear-power"},
 	    effects = {},
 	    count = 600,
 	    ingredients = {

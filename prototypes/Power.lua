@@ -23,9 +23,9 @@ function power.enable()
                 fluidPerTick = 1,
                 effectivity = 1,
                 maxTemp = 25,
-                emissions = 0.00004,
-                scale = 0.5,
-                tint = { r = 0.7, g = 0.4, b = 0, a = 1 }
+                emissions = 6,
+                scale = 1,
+                tint = { r = 0.7, g = 0.4, b = 0.3, a = 1 }
         })
 
         makeRecipe({
@@ -34,10 +34,10 @@ function power.enable()
                 enabled = false,
                 category = "crafting",
                 ingredients = {
-                    {"chemical-plant", 1},
-                    {"steel-furnace", 1},
-                    {"electronic-circuit", 30},
-                    {"copper-plate", 20}
+                    {"chemical-plant", 2},
+                    {"steel-furnace", 2},
+                    {"electronic-circuit", 40},
+                    {"copper-plate", 30}
                 },
                 result = oilBurner
         })

@@ -64,7 +64,7 @@ function turrets.addTurrets()
 	    }
     })
 
-    data.raw["player"]["player"].damage_hit_tint = {r = 0, g = 0.2, b = 0, a = 0}
+    data.raw["character"]["character"].damage_hit_tint = {r = 0, g = 0.2, b = 0, a = 0}
 
     enableTechnologies()
     enableStickers()
