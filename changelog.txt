@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.15
+Date: 5. 3. 2019
+  Tweaks:
+    - Added projectile lead targeting to shotgun, capsule launcher, cannon, rapid cannon, and advanced flamethrower turrets
+
+---------------------------------------------------------------------------------------------------
 Version: 0.17.14
 Date: 5. 2. 2019
   Tweaks:

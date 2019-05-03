@@ -1333,6 +1333,7 @@ function capsules.enable()
 								ammo_category = "capsule-launcher",
 								cooldown = 450,
 								damage_modifier = 1.5,
+                                                                lead_target_for_projectile_speed = 0.4,
 								gun_center_shift = {
 								    north = {0, 0},
 								    east = {0, -4},

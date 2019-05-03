@@ -105,7 +105,7 @@ function rockets.enable()
 							  {
 							      type = "projectile",
 							      ammo_category = "rocket",
-							      cooldown = 150,
+							      cooldown = 300,
 							      projectile_creation_distance = 1.39375,
 							      projectile_center = {0, -0.0875},
                                                               min_range = 15,
