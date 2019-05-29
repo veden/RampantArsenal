@@ -30,11 +30,32 @@ local function cannonMkISheet()
 			direction_count = 64,
 			frame_count = 1,
 			shift = {0.3, -0.6},
+                        scale = 1
 		    }
 		}
 	}
 end
 
+local function cannonMkIIISheet()
+    return
+	{
+	    layers =
+		{
+		    {
+			filename = "__RampantArsenal__/graphics/entities/cannon-mk1-sheet.png",
+			priority = "high",
+			width = 128,
+			height = 128,
+			line_length = 8,
+			axially_symmetrical = false,
+			direction_count = 64,
+			frame_count = 1,
+			shift = {0.3, -0.6},
+                        scale = 2
+		    }
+		}
+	}
+end
 
 local function shotgunTurretSheet()
     return
@@ -71,6 +92,7 @@ local function cannonMkIISheet()
 			direction_count = 64,
 			frame_count = 1,
 			shift = {0.37, -0.7},
+                        scale = 2
 		    }
 		}
 	}
@@ -92,6 +114,7 @@ local function cannonMkIIPlace(lineLength, directionCount, frameCount, backward)
 			frame_count = frameCount or 1,
 			run_mode = (backward and "backward") or "forward",
 			shift = {0.37, -0.7},
+                        scale = 2
 		    }
 		}
 	}
@@ -124,7 +147,7 @@ function cannons.enable()
 	name = "cannon",
 	icon = "__RampantArsenal__/graphics/icons/cannonTurret.png",
 	miningTime = 1,
-	health = 2500,
+	health = 2500,        
 	collisionBox = {{-1.2, -1.2 }, {1.2, 1.2}},
 	selectionBox = {{-1.4, -1.4 }, {1.4, 1.4}},
 	order = "b[turret]-a[zzcannon-turret]",
@@ -297,8 +320,8 @@ function cannons.enable()
 										    fire_penalty = 30,
 
 										    fluids = {
-											{type = "crude-oil"},
-											{type = "heavy-oil", damage_modifier = 1.05},
+											{type = "crude-oil", damage_modifier = 0.9},
+											{type = "heavy-oil", damage_modifier = 1.0},
 											{type = "light-oil", damage_modifier = 1.1},
 											{type = "napalm-fluid-rampant-arsenal", damage_modifier = 1.5}
 										    },
@@ -1139,6 +1162,9 @@ function cannons.enable()
 	    result = bioCannonShellAmmo,
     })
 
+    data.raw["fluid-turret"]["flamethrower-turret"].attack_parameters.fluids[1].damage_modifier = 0.8
+    data.raw["fluid-turret"]["flamethrower-turret"].attack_parameters.fluids[2].damage_modifier = 1.0    
+    
     addEffectToTech("bio-cannon-shells",
 		    {
 			type = "unlock-recipe",

@@ -6,6 +6,12 @@ function vehicleUtils.addEquipmentGrid(eType, eName, equipmentGrid)
     end
 end
 
+function vehicleUtils.addAutomaticRobotDeploy(eType, eName)
+    if data.raw[eType] and data.raw[eType][eName] then
+	data.raw[eType][eName].allow_robot_dispatch_in_automatic_mode = true
+    end
+end
+
 function vehicleUtils.makeTank(attributes)
     local name = attributes.name .. "-tank-vehicle-rampant-arsenal"
 

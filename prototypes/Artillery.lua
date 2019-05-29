@@ -365,6 +365,7 @@ function artillery.enable()
 								{
 								    type = "area",
 								    target_entities = false,
+                                                                    trigger_from_target = true,
 								    repeat_count = 2000,
 								    radius = 35,
 								    action_delivery =

@@ -14,6 +14,7 @@ local addFuelToItem = itemUtils.addFuelToItem
 local modifyItem = itemUtils.modifyItem
 local makeGrid = gridUtils.makeGrid
 local addEquipmentGrid = vehicleUtils.addEquipmentGrid
+local addAutomaticRobotDeploy = vehicleUtils.addAutomaticRobotDeploy
 local makeRecipe = recipeUtils.makeRecipe
 local addEffectToTech = technologyUtils.addEffectToTech
 local makeTank = vehicleUtils.makeTank
@@ -928,6 +929,8 @@ function vehicles.enable()
 			     categories = {"noInventory"}
     }))
 
+    addAutomaticRobotDeploy("cargo-wagon", "cargo-wagon")
+    
     addEquipmentGrid("cargo-wagon",
 		     "cargo-wagon",
 		     makeGrid({

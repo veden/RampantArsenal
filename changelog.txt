@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.16
+Date: 5. 28. 2019
+  Tweaks:
+    - Added entity flag for drones working in automatic mode on the cargo wagon for trains
+    - Decreased crude oil flamethrower damage modifier to 0.8
+    - Decreased heavy oil flamethrower damage modifier to 1.0
+  Bugfixes:
+    - Fixed broken nuclear artillery shells due to game engine update
+
+---------------------------------------------------------------------------------------------------
 Version: 0.17.15
 Date: 5. 3. 2019
   Tweaks:
