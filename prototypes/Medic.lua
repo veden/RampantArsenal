@@ -63,6 +63,10 @@ function medic.enable()
                 percent = 60
             },
             {
+                type = "impact",
+                percent = 30
+            },
+            {
                 type = "explosion",
                 percent = 30
             },

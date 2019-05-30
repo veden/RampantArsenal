@@ -66,12 +66,30 @@ data:extend({
 
         {
 	    type = "bool-setting",
-	    name = "rampant-arsenal-enableGunTurretDamageResearch",
+	    name = "rampant-arsenal-unhideVanillaDamageTechnologies",
 	    setting_type = 'startup',
-	    default_value = true,
+	    default_value = false,
 	    order = "a[projectile]-a[collide]",
 	    per_user = false
 	}
+        
+        -- {
+	--     type = "bool-setting",
+	--     name = "rampant-arsenal-enableGunTurretDamageResearch",
+	--     setting_type = 'startup',
+	--     default_value = true,
+	--     order = "a[projectile]-a[collide]",
+	--     per_user = false
+	-- },
+
+        -- {
+	--     type = "bool-setting",
+	--     name = "rampant-arsenal-enableDamageResearch",
+	--     setting_type = 'startup',
+	--     default_value = true,
+	--     order = "a[projectile]-a[collide]",
+	--     per_user = false
+	-- }
 
 
 	-- {

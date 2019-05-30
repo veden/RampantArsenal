@@ -76,11 +76,11 @@ local function onConfigChanged()
 
 	world.version = 7
     end
-    if (world.version < 9) then
+    if (world.version < 10) then
 
         game.forces.player.reset_technology_effects()
 
-	world.version = 9
+	world.version = 10
     end
 
 end

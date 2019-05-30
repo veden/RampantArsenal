@@ -29,33 +29,33 @@ local function cannonMkISheet()
 			axially_symmetrical = false,
 			direction_count = 64,
 			frame_count = 1,
-			shift = {0.3, -0.6},
-                        scale = 1
+			shift = {0.5, -0.6},
+                        scale = 1.5
 		    }
 		}
 	}
 end
 
-local function cannonMkIIISheet()
-    return
-	{
-	    layers =
-		{
-		    {
-			filename = "__RampantArsenal__/graphics/entities/cannon-mk1-sheet.png",
-			priority = "high",
-			width = 128,
-			height = 128,
-			line_length = 8,
-			axially_symmetrical = false,
-			direction_count = 64,
-			frame_count = 1,
-			shift = {0.3, -0.6},
-                        scale = 2
-		    }
-		}
-	}
-end
+-- local function cannonMkIIISheet()
+--     return
+-- 	{
+-- 	    layers =
+-- 		{
+-- 		    {
+-- 			filename = "__RampantArsenal__/graphics/entities/cannon-mk1-sheet.png",
+-- 			priority = "high",
+-- 			width = 128,
+-- 			height = 128,
+-- 			line_length = 8,
+-- 			axially_symmetrical = false,
+-- 			direction_count = 64,
+-- 			frame_count = 1,
+-- 			shift = {0.6, -1.2},
+--                         scale = 2
+-- 		    }
+-- 		}
+-- 	}
+-- end
 
 local function shotgunTurretSheet()
     return
@@ -72,6 +72,7 @@ local function shotgunTurretSheet()
 			direction_count = 64,
 			frame_count = 1,
 			shift = {0.3, -0.5},
+                        scale = 1
 		    }
 		}
 	}
@@ -91,8 +92,8 @@ local function cannonMkIISheet()
 			axially_symmetrical = false,
 			direction_count = 64,
 			frame_count = 1,
-			shift = {0.37, -0.7},
-                        scale = 2
+			shift = {0.7, -1.2},
+                        scale = 1.5
 		    }
 		}
 	}
@@ -113,8 +114,8 @@ local function cannonMkIIPlace(lineLength, directionCount, frameCount, backward)
 			direction_count = directionCount or 4,
 			frame_count = frameCount or 1,
 			run_mode = (backward and "backward") or "forward",
-			shift = {0.37, -0.7},
-                        scale = 2
+			shift = {0.7, -1.2},
+                        scale = 1.5
 		    }
 		}
 	}
@@ -148,15 +149,15 @@ function cannons.enable()
 	icon = "__RampantArsenal__/graphics/icons/cannonTurret.png",
 	miningTime = 1,
 	health = 2500,        
-	collisionBox = {{-1.2, -1.2 }, {1.2, 1.2}},
-	selectionBox = {{-1.4, -1.4 }, {1.4, 1.4}},
+	collisionBox = {{-1.8, -1.8 }, {1.8, 1.8}},
+	selectionBox = {{-2.1, -2.1 }, {2.1, 2.1}},
 	order = "b[turret]-a[zzcannon-turret]",
 	hasBaseDirection = true,
 	foldedAnimation = cannonMkISheet(),
 	foldingAnimation = cannonMkISheet(),
 	preparedAnimation = cannonMkISheet(),
 	preparingAnimation = cannonMkISheet(),
-        rotationSpeed = 0.05,
+        rotationSpeed = 0.03,
         resistances = {
             {
                 type = "fire",
@@ -165,6 +166,10 @@ function cannons.enable()
             {
                 type = "explosion",
                 percent = 50
+            },
+            {
+                type = "impact",
+                percent = 60
             },
             {
                 type = "physical",
@@ -193,22 +198,94 @@ function cannons.enable()
 							     type = "projectile",
 							     ammo_category = "cannon-shell",
 							     cooldown = 150,
-							     projectile_creation_distance = (settings.startup["rampant-arsenal-useNonCollidingProjectilesCannon"].value and 2) or 9,
+							     projectile_creation_distance = (settings.startup["rampant-arsenal-useNonCollidingProjectilesCannon"].value and 3) or 9,
                                                              lead_target_for_projectile_speed = 0.9,
 							     damage_modifier = 1.5,
 							     min_range = 12,
 							     turn_range = 0.40,
-							     projectile_center = {0, -0.0875},
+							     projectile_center = {0, -0.2},
 							     range = 34,
-							     sound = make_heavy_gunshot_sounds(),
+							     sound = {
+                                                                 {
+                                                                     filename = "__base__/sound/fight/tank-cannon.ogg",
+                                                                     volume = 1.0
+                                                                 }
+                                                             }
     })
 
+
+    -- local cannonIIAttributes = {
+    --     name = "advanced-cannon",
+    --     icon = "__RampantArsenal__/graphics/icons/cannonTurret.png",
+    --     miningTime = 1,
+    --     health = 3500,
+    --     collisionBox = {{-2.4, -2.4 }, {2.4, 2.4}},
+    --     selectionBox = {{-2.6, -2.6 }, {2.6, 2.6}},
+    --     order = "b[turret]-a[zzzcannon-turret]",
+    --     hasBaseDirection = true,
+    --     foldedAnimation = cannonMkIIISheet(),
+    --     foldingAnimation = cannonMkIIISheet(),
+    --     preparedAnimation = cannonMkIIISheet(),
+    --     preparingAnimation = cannonMkIIISheet(),
+    --     rotationSpeed = 0.02,
+    --     resistances = {
+    --         {
+    --             type = "fire",
+    --             percent = 70
+    --         },
+    --         {
+    --             type = "explosion",
+    --             percent = 60
+    --         },
+    --         {
+    --             type = "impact",
+    --             percent = 60
+    --         },
+    --         {
+    --             type = "physical",
+    --             percent = 60
+    --         },
+    --         {
+    --             type = "acid",
+    --             percent = 40
+    --         },
+    --         {
+    --             type = "electric",
+    --             percent = 70
+    --         },
+    --         {
+    --             type = "laser",
+    --             percent = 70
+    --         },
+    --         {
+    --             type = "poison",
+    --             percent = 40
+    --         }
+    --     }
+    -- }
+    -- local cannonIITurret,cannonIITurretItem = makeAmmoTurret(cannonIIAttributes,
+    --                                                          {
+    --                                                              type = "projectile",
+    --                                                              ammo_category = "cannon-shell",
+    --                                                              cooldown = 250,
+    --                                                              projectile_creation_distance = (settings.startup["rampant-arsenal-useNonCollidingProjectilesCannon"].value and 4) or 9,
+    --                                                              lead_target_for_projectile_speed = 0.9,
+    --                                                              damage_modifier = 3.5,
+    --                                                              min_range = 15,
+    --                                                              turn_range = 0.40,
+    --                                                              projectile_center = {0, -0.0875},
+    --                                                              range = 45,
+    --                                                              sound = make_heavy_gunshot_sounds(),
+    -- })
+    
     local rapidCannonAttributes = {
 	name = "rapid-cannon",
 	icon = "__RampantArsenal__/graphics/icons/rapidCannonTurret.png",
 	miningTime = 1,
 	health = 2000,
 	order = "b[turret]-a[zzrapid-cannon-turret]",
+        collisionBox = {{-1.4, -1.4 }, {1.4, 1.4}},
+	selectionBox = {{-1.7, -1.7 }, {1.7, 1.7}},
 	foldedAnimation = cannonMkIIPlace(),
 	preparingAnimation = cannonMkIIPlace(8, 4, 8),
 	preparedAnimation = cannonMkIISheet(),
@@ -220,6 +297,10 @@ function cannons.enable()
             {
                 type = "fire",
                 percent = 60
+            },
+            {
+                type = "impact",
+                percent = 50
             },
             {
                 type = "explosion",
@@ -257,7 +338,12 @@ function cannons.enable()
 								       projectile_creation_distance = (settings.startup["rampant-arsenal-useNonCollidingProjectilesCannon"].value and 2) or 9,
 								       projectile_center = {0, -0.0875},
 								       range = 34,
-								       sound = make_heavy_gunshot_sounds(),
+								       sound = {
+                                                                           {
+                                                                               filename = "__base__/sound/fight/tank-cannon.ogg",
+                                                                               volume = 1.0
+                                                                           }
+                                                                       },
     })
 
     local advFlamethrowerAttributes = {
@@ -285,6 +371,10 @@ function cannons.enable()
             {
                 type = "explosion",
                 percent = 60
+            },
+            {
+                type = "impact",
+                percent = 50
             },
             {
                 type = "physical",
@@ -444,6 +534,10 @@ function cannons.enable()
                 percent = 40
             },
             {
+                type = "impact",
+                percent = 50
+            },
+            {
                 type = "physical",
                 percent = 40
             },
@@ -493,6 +587,20 @@ function cannons.enable()
 	    result = cannonTurretItem,
     })
 
+    -- makeRecipe({
+    --         name = cannonIITurretItem,
+    --         icon = "__RampantArsenal__/graphics/icons/cannonTurret.png",
+    --         enabled = false,
+    --         time = 20,
+    --         ingredients = {
+    --     	{"steel-plate", 60},
+    --     	{cannonTurretItem, 5},
+    --     	{"iron-gear-wheel", 25},
+    --     	{"concrete", 30}
+    --         },
+    --         result = cannonIITurretItem,
+    -- })
+
     makeRecipe({
 	    name = rapidCannonTurretItem,
 	    icon = "__RampantArsenal__/graphics/icons/rapidCannonTurret.png",
@@ -539,6 +647,12 @@ function cannons.enable()
 			type = "unlock-recipe",
 			recipe = cannonTurretItem,
     })
+
+    -- addEffectToTech("cannon-turret-3",
+    --     	    {
+    --     		type = "unlock-recipe",
+    --     		recipe = cannonIITurretItem,
+    -- })
 
     addEffectToTech("cannon-turret-2",
 		    {

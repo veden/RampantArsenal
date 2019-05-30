@@ -798,6 +798,10 @@ function guns.enable()
                 percent = 60
             },
             {
+                type = "impact",
+                percent = 40
+            },
+            {
                 type = "explosion",
                 percent = 30
             },
@@ -892,10 +896,8 @@ function guns.enable()
 			type = "unlock-recipe",
 			recipe = gunTurretItem
     })
-
-    local useGunTurretTech = settings.startup["rampant-arsenal-enableGunTurretDamageResearch"].value
     
-    addEffectToTech((useGunTurretTech and "gun-turret-damage-1") or "physical-projectile-damage-1",
+    addEffectToTech("gun-turret-damage-1",
         {
             {
                 type = "turret-attack",
@@ -913,7 +915,7 @@ function guns.enable()
                 modifier = 0.1
     }})
 
-    addEffectToTech((useGunTurretTech and "gun-turret-damage-2") or "physical-projectile-damage-2",
+    addEffectToTech("gun-turret-damage-2",
         {
             {
                 type = "turret-attack",
@@ -931,7 +933,7 @@ function guns.enable()
                 modifier = 0.1
     }})
 
-    addEffectToTech((useGunTurretTech and "gun-turret-damage-3") or "physical-projectile-damage-3",
+    addEffectToTech("gun-turret-damage-3",
         {
             {
                 type = "turret-attack",
@@ -949,7 +951,7 @@ function guns.enable()
                 modifier = 0.2
     }})
 
-    addEffectToTech((useGunTurretTech and "gun-turret-damage-4") or "physical-projectile-damage-4",
+    addEffectToTech("gun-turret-damage-4",
         {
             {
                 type = "turret-attack",
@@ -967,7 +969,7 @@ function guns.enable()
                 modifier = 0.2
     }})
 
-    addEffectToTech((useGunTurretTech and "gun-turret-damage-5") or "physical-projectile-damage-5",
+    addEffectToTech("gun-turret-damage-5",
         {
             {
                 type = "turret-attack",
@@ -985,7 +987,7 @@ function guns.enable()
                 modifier = 0.2
     }})
 
-    addEffectToTech((useGunTurretTech and "gun-turret-damage-6") or "physical-projectile-damage-6",
+    addEffectToTech("gun-turret-damage-6",
         {
             {
                 type = "turret-attack",
@@ -1004,7 +1006,7 @@ function guns.enable()
             }
     })
 
-    addEffectToTech((useGunTurretTech and "gun-turret-damage-7") or "physical-projectile-damage-7",
+    addEffectToTech("gun-turret-damage-7",
         {
             {
                 type = "turret-attack",
@@ -1038,15 +1040,14 @@ function guns.enable()
     })
 
     removeEffect("military-4", "unlock-recipe", "piercing-shotgun-shell")
-    if useGunTurretTech then
-        removeEffect("physical-projectile-damage-1", "turret-attack", "gun-turret")
-        removeEffect("physical-projectile-damage-2", "turret-attack", "gun-turret")
-        removeEffect("physical-projectile-damage-3", "turret-attack", "gun-turret")
-        removeEffect("physical-projectile-damage-4", "turret-attack", "gun-turret")
-        removeEffect("physical-projectile-damage-5", "turret-attack", "gun-turret")
-        removeEffect("physical-projectile-damage-6", "turret-attack", "gun-turret")
-        removeEffect("physical-projectile-damage-7", "turret-attack", "gun-turret")
-    end
+
+        -- removeEffect("physical-projectile-damage-1", "turret-attack", "gun-turret")
+        -- removeEffect("physical-projectile-damage-2", "turret-attack", "gun-turret")
+        -- removeEffect("physical-projectile-damage-3", "turret-attack", "gun-turret")
+        -- removeEffect("physical-projectile-damage-4", "turret-attack", "gun-turret")
+        -- removeEffect("physical-projectile-damage-5", "turret-attack", "gun-turret")
+        -- removeEffect("physical-projectile-damage-6", "turret-attack", "gun-turret")
+        -- removeEffect("physical-projectile-damage-7", "turret-attack", "gun-turret")
 
     if (settings.startup["rampant-arsenal-useNonCollidingProjectilesShotgun"].value) then
         data.raw["projectile"]["shotgun-pellet"].force_condition = "not-same"

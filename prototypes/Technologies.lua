@@ -7,746 +7,1790 @@ local makeTechnology = technologyUtils.makeTechnology
 function technologies.enable()
 
 
-    -- data:extend({
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "rocket-damage-1",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "ammo-damage",
-    --         --                 ammo_category = "rocket",
-    --         --                 modifier = 0.2
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"rocketry"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 100,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1}
-    --         --                 },
-    --         --             time = 30
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-j-a"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "rocket-damage-2",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "ammo-damage",
-    --         --                 ammo_category = "rocket",
-    --         --                 modifier = 0.2
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"rocket-damage-1"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 200,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1}
-    --         --                 },
-    --         --             time = 30
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-j-b"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "rocket-damage-3",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "ammo-damage",
-    --         --                 ammo_category = "rocket",
-    --         --                 modifier = 0.3
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"rocket-damage-2"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 200,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-j-c"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "rocket-damage-4",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "ammo-damage",
-    --         --                 ammo_category = "rocket",
-    --         --                 modifier = 0.3
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"rocket-damage-3"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 200,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-j-d"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "rocket-damage-5",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "ammo-damage",
-    --         --                 ammo_category = "rocket",
-    --         --                 modifier = 0.3
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"rocket-damage-4"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 300,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-j-e"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "rocket-damage-6",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "ammo-damage",
-    --         --                 ammo_category = "rocket",
-    --         --                 modifier = 0.5
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"rocket-damage-5"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 300,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1},
-    --         --                     {"utility-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-j-f"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "rocket-damage-7",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "ammo-damage",
-    --         --                 ammo_category = "rocket",
-    --         --                 modifier = 0.5
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"rocket-damage-6"},
-    --         --     unit =
-    --         --         {
-    --         --             count_formula = "2^(L-7)*1000",
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1},
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"utility-science-pack", 1},
-    --         --                     {"space-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     max_level = "infinite",
-    --         --     upgrade = true,
-    --         --     order = "e-j-f"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "rocket-speed-1",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "gun-speed",
-    --         --                 ammo_category = "rocket",
-    --         --                 modifier = 0.3
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"rocketry"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 100,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1}
-    --         --                 },
-    --         --             time = 30
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-j-g"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "rocket-speed-2",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "gun-speed",
-    --         --                 ammo_category = "rocket",
-    --         --                 modifier = 0.3
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"rocket-speed-1"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 200,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1}
-    --         --                 },
-    --         --             time = 30
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-j-h"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "rocket-speed-3",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "gun-speed",
-    --         --                 ammo_category = "rocket",
-    --         --                 modifier = 0.4
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"rocket-speed-2"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 200,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-j-i"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "rocket-speed-4",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "gun-speed",
-    --         --                 ammo_category = "rocket",
-    --         --                 modifier = 0.4
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"rocket-speed-3"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 300,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-j-k"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "rocket-speed-5",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "gun-speed",
-    --         --                 ammo_category = "rocket",
-    --         --                 modifier = 0.4
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"rocket-speed-4"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 300,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-j-l"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "rocket-speed-6",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "gun-speed",
-    --         --                 ammo_category = "rocket",
-    --         --                 modifier = 0.6
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"rocket-speed-5"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 300,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1},
-    --         --                     {"utility-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-j-m"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "rocket-speed-7",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "gun-speed",
-    --         --                 ammo_category = "rocket",
-    --         --                 modifier = 1
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"rocket-speed-6"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 500,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1},
-    --         --                     {"utility-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-j-n"
-    --         -- },
-    
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "cannon-shell-damage-1",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "ammo-damage",
-    --         --                 ammo_category = "cannon-shell",
-    --         --                 modifier = 0.2
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"tanks"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 100,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-k-a"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "cannon-shell-damage-2",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "ammo-damage",
-    --         --                 ammo_category = "cannon-shell",
-    --         --                 modifier = 0.2
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"cannon-shell-damage-1"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 150,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-k-b"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "cannon-shell-damage-3",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "ammo-damage",
-    --         --                 ammo_category = "cannon-shell",
-    --         --                 modifier = 0.3
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"cannon-shell-damage-2"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 300,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-k-c"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "cannon-shell-damage-4",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "ammo-damage",
-    --         --                 ammo_category = "cannon-shell",
-    --         --                 modifier = 0.5
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"cannon-shell-damage-3"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 300,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1},
-    --         --                     {"utility-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-k-d"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "cannon-shell-damage-5",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "ammo-damage",
-    --         --                 ammo_category = "cannon-shell",
-    --         --                 modifier = 1
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"cannon-shell-damage-4"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 1000,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1},
-    --         --                     {"utility-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-k-d"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "cannon-shell-damage-6",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "ammo-damage",
-    --         --                 ammo_category = "cannon-shell",
-    --         --                 modifier = 1
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"cannon-shell-damage-5"},
-    --         --     unit =
-    --         --         {
-    --         --             count_formula = "2^(L-5)*1000",
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1},
-    --         --                     {"utility-science-pack", 1},
-    --         --                     {"space-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     max_level = "infinite",
-    --         --     upgrade = true,
-    --         --     order = "e-k-d"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "cannon-shell-speed-1",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-speed.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "gun-speed",
-    --         --                 ammo_category = "cannon-shell",
-    --         --                 modifier = 0.2
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"tanks"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 100,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-k-g"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "cannon-shell-speed-2",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-speed.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "gun-speed",
-    --         --                 ammo_category = "cannon-shell",
-    --         --                 modifier = 0.2
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"cannon-shell-speed-1"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 150,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-k-h"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "cannon-shell-speed-3",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-speed.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "gun-speed",
-    --         --                 ammo_category = "cannon-shell",
-    --         --                 modifier = 0.3
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"cannon-shell-speed-2"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 300,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-k-i"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "cannon-shell-speed-4",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-speed.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "gun-speed",
-    --         --                 ammo_category = "cannon-shell",
-    --         --                 modifier = 0.6
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"cannon-shell-speed-3"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 400,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1},
-    --         --                     {"utility-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-k-j"
-    --         -- },
-    --         -- {
-    --         --     type = "technology",
-    --         --     name = "cannon-shell-speed-5",
-    --         --     icon_size = 128,
-    --         --     icon = "__RampantArsenal__/graphics/technology/cannon-speed.png",
-    --         --     effects =
-    --         --         {
-    --         --             {
-    --         --                 type = "gun-speed",
-    --         --                 ammo_category = "cannon-shell",
-    --         --                 modifier = 1
-    --         --             }
-    --         --         },
-    --         --     prerequisites = {"cannon-shell-speed-4"},
-    --         --     unit =
-    --         --         {
-    --         --             count = 1000,
-    --         --             ingredients =
-    --         --                 {
-    --         --                     {"military-science-pack", 1},
-    --         --                     {"automation-science-pack", 1},
-    --         --                     {"logistic-science-pack", 1},
-    --         --                     {"chemical-science-pack", 1},
-    --         --                     {"utility-science-pack", 1}
-    --         --                 },
-    --         --             time = 60
-    --         --         },
-    --         --     upgrade = true,
-    --         --     order = "e-k-k"
-    --         -- }
-    -- })
+    data:extend({
+
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-energy-weapons-damage-1",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/energy-weapons-damage-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "laser-turret",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"laser-turrets", "military-science-pack"},
+                unit =
+                    {
+                        count = 200*1,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"military-science-pack", 1},
+                            },
+                        time = 30
+                    },
+                upgrade = true,
+                order = "e-j-a"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-energy-weapons-damage-2",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/energy-weapons-damage-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "laser-turret",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-energy-weapons-damage-1"},
+                unit =
+                    {
+                        count = 100*2,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"military-science-pack", 1}
+                            },
+                        time = 30
+                    },
+                upgrade = true,
+                order = "e-l-b"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-energy-weapons-damage-3",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/energy-weapons-damage-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "laser-turret",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-energy-weapons-damage-2"},
+                unit =
+                    {
+                        count = 100*3,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"military-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-l-c"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-energy-weapons-damage-4",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/energy-weapons-damage-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "laser-turret",
+                            modifier = 0.4
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-energy-weapons-damage-3"},
+                unit =
+                    {
+                        count = 100*4,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"military-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-l-d"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-energy-weapons-damage-5",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/energy-weapons-damage-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "laser-turret",
+                            modifier = 0.5
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-energy-weapons-damage-4"},
+                unit =
+                    {
+                        count = 100*5,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"military-science-pack", 1},
+                                {"utility-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-l-e"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-energy-weapons-damage-6",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/energy-weapons-damage-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "laser-turret",
+                            modifier = 0.7
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-energy-weapons-damage-5"},
+                unit =
+                    {
+                        count = 100*6,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"military-science-pack", 1},
+                                {"utility-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-l-f"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-energy-weapons-damage-7",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/energy-weapons-damage-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "laser-turret",
+                            modifier = 0.7
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-energy-weapons-damage-6", "space-science-pack"},
+                unit =
+                    {
+                        count_formula = "2^(L-7)*1000",
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"military-science-pack", 1},
+                                {"utility-science-pack", 1},
+                                {"space-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                max_level = "infinite",
+                upgrade = true,
+                order = "e-l-f"
+            },
+            
+            
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-energy-robots-damage-1",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/combat-robot-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "combat-robot-laser",
+                            modifier = 0.2
+                        },
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "combat-robot-beam",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"combat-robotics", "military-science-pack"},
+                unit =
+                    {
+                        count = 200*1,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"military-science-pack", 1}
+                            },
+                        time = 30
+                    },
+                upgrade = true,
+                order = "e-j-a"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-energy-robots-damage-2",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/combat-robot-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "combat-robot-laser",
+                            modifier = 0.2
+                        },
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "combat-robot-beam",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-energy-robots-damage-1"},
+                unit =
+                    {
+                        count = 100*2,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"military-science-pack", 1}
+                            },
+                        time = 30
+                    },
+                upgrade = true,
+                order = "e-l-b"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-energy-robots-damage-3",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/combat-robot-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "combat-robot-laser",
+                            modifier = 0.3
+                        },
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "combat-robot-beam",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-energy-robots-damage-2"},
+                unit =
+                    {
+                        count = 100*3,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"military-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-l-c"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-energy-robots-damage-4",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/combat-robot-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "combat-robot-laser",
+                            modifier = 0.4
+                        },
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "combat-robot-beam",
+                            modifier = 0.4
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-energy-robots-damage-3"},
+                unit =
+                    {
+                        count = 100*4,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"military-science-pack", 1},
+                                {"utility-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-l-d"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-energy-robots-damage-5",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/combat-robot-damage.png",
+                effects =
+                    {                       
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "combat-robot-laser",
+                            modifier = 0.4
+                        },
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "combat-robot-beam",
+                            modifier = 0.4
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-energy-robots-damage-4"},
+                unit =
+                    {
+                        count = 100*5,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"military-science-pack", 1},
+                                {"utility-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-l-e"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-energy-robots-damage-6",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/combat-robot-damage.png",
+                effects =
+                    {                       
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "combat-robot-laser",
+                            modifier = 0.5
+                        },
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "combat-robot-beam",
+                            modifier = 0.5
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-energy-robots-damage-5"},
+                unit =
+                    {
+                        count = 100*6,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"military-science-pack", 1},
+                                {"utility-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-l-f"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-energy-robots-damage-7",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/combat-robot-damage.png",
+                effects =
+                    {                        
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "combat-robot-laser",
+                            modifier = 0.5
+                        },
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "combat-robot-beam",
+                            modifier = 0.5
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-energy-robots-damage-6", "space-science-pack"},
+                unit =
+                    {
+                        count_formula = "2^(L-7)*1000",
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"military-science-pack", 1},
+                                {"utility-science-pack", 1},
+                                {"space-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                max_level = "infinite",
+                upgrade = true,
+                order = "e-l-f"
+            },
+            
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-stronger-explosives-1",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/stronger-explosives-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "grenade",
+                            modifier = 0.10
+                        }
+                    },
+                prerequisites = {"military-2"},
+                unit =
+                    {
+                        count = 200*1,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1}
+                            },
+                        time = 30
+                    },
+                upgrade = true,
+                order = "e-j-a"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-stronger-explosives-2",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/stronger-explosives-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "grenade",
+                            modifier = 0.10
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-stronger-explosives-1"},
+                unit =
+                    {
+                        count = 100*2,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"military-science-pack", 1}
+                            },
+                        time = 30
+                    },
+                upgrade = true,
+                order = "e-l-b"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-stronger-explosives-3",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/stronger-explosives-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "grenade",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-stronger-explosives-2"},
+                unit =
+                    {
+                        count = 100*3,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"military-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-l-c"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-stronger-explosives-4",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/stronger-explosives-1.png",
+                effects =
+                    {                       
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "grenade",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-stronger-explosives-3"},
+                unit =
+                    {
+                        count = 100*4,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"military-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-l-d"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-stronger-explosives-5",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/stronger-explosives-1.png",
+                effects =
+                    {                        
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "grenade",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-stronger-explosives-4"},
+                unit =
+                    {
+                        count = 100*5,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"military-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-l-e"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-stronger-explosives-6",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/stronger-explosives-1.png",
+                effects =
+                    {                        
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "grenade",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-stronger-explosives-5"},
+                unit =
+                    {
+                        count = 100*6,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"military-science-pack", 1},
+                                {"utility-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-l-f"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-stronger-explosives-7",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/stronger-explosives-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "grenade",
+                            modifier = 0.4
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-stronger-explosives-6", "space-science-pack"},
+                unit =
+                    {
+                        count_formula = "2^(L-7)*1000",
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"military-science-pack", 1},
+                                {"utility-science-pack", 1},
+                                {"space-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                max_level = "infinite",
+                upgrade = true,
+                order = "e-l-f"
+            },
+            
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-rocket-damage-1",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "rocket",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"rocketry"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1}
+                            },
+                        time = 30
+                    },
+                upgrade = true,
+                order = "e-j-a"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-rocket-damage-2",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "rocket",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-rocket-damage-1"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1}
+                            },
+                        time = 30
+                    },
+                upgrade = true,
+                order = "e-j-b"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-rocket-damage-3",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "rocket",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-rocket-damage-2"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-c"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-rocket-damage-4",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "rocket",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-rocket-damage-3"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-d"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-rocket-damage-5",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "rocket",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-rocket-damage-4"},
+                unit =
+                    {
+                        count = 300,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-e"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-rocket-damage-6",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "rocket",
+                            modifier = 0.5
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-rocket-damage-5"},
+                unit =
+                    {
+                        count = 300,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"utility-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-f"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-rocket-damage-7",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "rocket",
+                            modifier = 0.5
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-rocket-damage-6"},
+                unit =
+                    {
+                        count_formula = "2^(L-7)*1000",
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"military-science-pack", 1},
+                                {"utility-science-pack", 1},
+                                {"space-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                max_level = "infinite",
+                upgrade = true,
+                order = "e-j-f"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-rocket-speed-1",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "rocket",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rocketry"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1}
+                            },
+                        time = 30
+                    },
+                upgrade = true,
+                order = "e-j-g"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-rocket-speed-2",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "rocket",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-rocket-speed-1"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1}
+                            },
+                        time = 30
+                    },
+                upgrade = true,
+                order = "e-j-h"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-rocket-speed-3",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "rocket",
+                            modifier = 0.4
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-rocket-speed-2"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-i"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-rocket-speed-4",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "rocket",
+                            modifier = 0.4
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-rocket-speed-3"},
+                unit =
+                    {
+                        count = 300,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-k"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-rocket-speed-5",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "rocket",
+                            modifier = 0.4
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-rocket-speed-4"},
+                unit =
+                    {
+                        count = 300,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-l"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-rocket-speed-6",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "rocket",
+                            modifier = 0.6
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-rocket-speed-5"},
+                unit =
+                    {
+                        count = 300,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"utility-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-m"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-rocket-speed-7",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/rocket-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "rocket",
+                            modifier = 1
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-rocket-speed-6"},
+                unit =
+                    {
+                        count = 500,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"utility-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-n"
+            },
 
 
-
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-bullet-damage-1",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/physical-projectile-damage-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "bullet",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"turrets"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1}
+                            },
+                        time = 30
+                    },
+                upgrade = true,
+                order = "e-j-a"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-bullet-damage-2",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/physical-projectile-damage-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "bullet",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-bullet-damage-1"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1}
+                            },
+                        time = 30
+                    },
+                upgrade = true,
+                order = "e-j-b"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-bullet-damage-3",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/physical-projectile-damage-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "bullet",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-bullet-damage-2"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-c"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-bullet-damage-4",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/physical-projectile-damage-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "bullet",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-bullet-damage-3"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-d"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-bullet-damage-5",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/physical-projectile-damage-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "bullet",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-bullet-damage-4"},
+                unit =
+                    {
+                        count = 300,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-e"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-bullet-damage-6",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/physical-projectile-damage-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "bullet",
+                            modifier = 0.5
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-bullet-damage-5"},
+                unit =
+                    {
+                        count = 300,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-f"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-bullet-damage-7",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/physical-projectile-damage-1.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "bullet",
+                            modifier = 0.5
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-bullet-damage-6"},
+                unit =
+                    {
+                        count_formula = "2^(L-7)*1000",
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"military-science-pack", 1},
+                                {"utility-science-pack", 1},
+                                {"space-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                max_level = "infinite",
+                upgrade = true,
+                order = "e-j-f"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-bullet-speed-1",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/weapon-shooting-speed-1.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "bullet",
+                            modifier = 0.1
+                        }
+                    },
+                prerequisites = {"turrets"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1}
+                            },
+                        time = 30
+                    },
+                upgrade = true,
+                order = "e-j-g"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-bullet-speed-2",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/weapon-shooting-speed-1.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "bullet",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-bullet-speed-1"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1}
+                            },
+                        time = 30
+                    },
+                upgrade = true,
+                order = "e-j-h"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-bullet-speed-3",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/weapon-shooting-speed-1.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "bullet",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-bullet-speed-2"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-i"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-bullet-speed-4",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/weapon-shooting-speed-1.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "bullet",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-bullet-speed-3"},
+                unit =
+                    {
+                        count = 300,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-k"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-bullet-speed-5",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/weapon-shooting-speed-1.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "bullet",
+                            modifier = 0.4
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-bullet-speed-4"},
+                unit =
+                    {
+                        count = 500,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-l"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-bullet-speed-6",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/weapon-shooting-speed-1.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "bullet",
+                            modifier = 0.4
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-bullet-speed-5"},
+                unit =
+                    {
+                        count = 500,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-m"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-bullet-speed-7",
+                icon_size = 128,
+                icon = "__base__/graphics/technology/weapon-shooting-speed-1.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "bullet",
+                            modifier = 1
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-bullet-speed-6"},
+                unit =
+                    {
+                        count = 2000,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"utility-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-n"
+            },
+            
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-cannon-shell-damage-1",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "cannon-shell",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"tanks"},
+                unit =
+                    {
+                        count = 100,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-k-a"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-cannon-shell-damage-2",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "cannon-shell",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-cannon-shell-damage-1"},
+                unit =
+                    {
+                        count = 150,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-k-b"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-cannon-shell-damage-3",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "cannon-shell",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-cannon-shell-damage-2"},
+                unit =
+                    {
+                        count = 300,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-k-c"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-cannon-shell-damage-4",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "cannon-shell",
+                            modifier = 0.5
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-cannon-shell-damage-3"},
+                unit =
+                    {
+                        count = 300,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"utility-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-k-d"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-cannon-shell-damage-5",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "cannon-shell",
+                            modifier = 1
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-cannon-shell-damage-4"},
+                unit =
+                    {
+                        count = 1000,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"utility-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-k-d"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-cannon-shell-damage-6",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "cannon-shell",
+                            modifier = 1
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-cannon-shell-damage-5"},
+                unit =
+                    {
+                        count_formula = "2^(L-5)*1000",
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"utility-science-pack", 1},
+                                {"space-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                max_level = "infinite",
+                upgrade = true,
+                order = "e-k-d"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-cannon-shell-speed-1",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/cannon-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "cannon-shell",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"tanks"},
+                unit =
+                    {
+                        count = 100,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-k-g"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-cannon-shell-speed-2",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/cannon-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "cannon-shell",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-cannon-shell-speed-1"},
+                unit =
+                    {
+                        count = 150,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-k-h"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-cannon-shell-speed-3",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/cannon-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "cannon-shell",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-cannon-shell-speed-2"},
+                unit =
+                    {
+                        count = 300,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-k-i"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-cannon-shell-speed-4",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/cannon-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "cannon-shell",
+                            modifier = 0.6
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-cannon-shell-speed-3"},
+                unit =
+                    {
+                        count = 400,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"utility-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-k-j"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-cannon-shell-speed-5",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/cannon-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "cannon-shell",
+                            modifier = 1
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-cannon-shell-speed-4"},
+                unit =
+                    {
+                        count = 1000,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"utility-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-k-k"
+            }
+    })        
     
     local incendiary = makeTechnology({
 	    name="incendiary",
@@ -1312,6 +2356,22 @@ function technologies.enable()
 	    time = 30
     })
 
+    -- makeTechnology({
+    --         name = "cannon-turret-3",
+    --         prerequisites = {"explosives", cannonTech},
+    --         icon = "__RampantArsenal__/graphics/technology/cannon-turrets.png",
+    --         effects = {},
+    --         ingredients = {
+    --     	{"automation-science-pack", 1},
+    --     	{"logistic-science-pack", 1},
+    --     	{"chemical-science-pack", 1},
+    --     	{"military-science-pack", 1},
+    --             {"utility-science-pack", 1}
+    --         },
+    --         count = 2000,
+    --         time = 30
+    -- })
+
     local shotgunTurretTech = makeTechnology({
 	    name = "shotgun",
 	    prerequisites = {"turrets","steel-processing","military"},
@@ -1324,7 +2384,7 @@ function technologies.enable()
 
     makeTechnology({
     	    name = "flamethrower-2",
-    	    prerequisites = {"refined-flammables-2", "military-4", "advanced-electronics-2", "concrete"},
+    	    prerequisites = {"refined-flammables-4", "military-4", "advanced-electronics-2", "concrete"},
 	    icon = "__base__/graphics/technology/flamethrower.png",
     	    effects = {},
     	    ingredients = {
@@ -1347,7 +2407,7 @@ function technologies.enable()
 	    ingredients = {
 		{"automation-science-pack", 1}
 	    },
-	    count = 50,
+	    count = 150,
 	    time = 30,
 	    order = "e-z-a"
     })
@@ -1362,7 +2422,7 @@ function technologies.enable()
 		{"automation-science-pack", 1},
 		{"logistic-science-pack", 1}
 	    },
-	    count = 100,
+	    count = 150,
 	    time = 45,
 	    order = "e-z-b"
     })
@@ -1455,126 +2515,514 @@ function technologies.enable()
 	    order = "e-z-f"
     })
 
-    if settings.startup["rampant-arsenal-enableGunTurretDamageResearch"].value then
-
-        local gunTurretDamage1 = makeTechnology({
-                name = "gun-turret-damage-1",
-                prerequisites = {"turrets"},
-                icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+    data:extend({
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-shotgun-shell-damage-1",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/shotgun-shell-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "shotgun-shell",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {shotgunTurretTech},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1}
+                            },
+                        time = 30
+                    },
                 upgrade = true,
-                effects = {},
-                ingredients = {
-                    {"automation-science-pack", 1}
-                },
-                count = 50,
-                time = 30,
-                order = "e-z-a"
-        })
-
-        local gunTurretDamage2 = makeTechnology({
-                name = "gun-turret-damage-2",
-                prerequisites = {gunTurretDamage1},
-                icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+                order = "e-j-a"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-shotgun-shell-damage-2",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/shotgun-shell-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "shotgun-shell",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-shotgun-shell-damage-1"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1}
+                            },
+                        time = 30
+                    },
                 upgrade = true,
-                effects = {},
-                ingredients = {
-                    {"automation-science-pack", 1},
-                    {"logistic-science-pack", 1}
-                },
-                count = 100,
-                time = 45,
-                order = "e-z-b"
-        })
-
-        local gunTurretDamage3 = makeTechnology({
-                name = "gun-turret-damage-3",
-                prerequisites = {gunTurretDamage2},
-                icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+                order = "e-j-b"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-shotgun-shell-damage-3",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/shotgun-shell-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "shotgun-shell",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-shotgun-shell-damage-2"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1}
+                            },
+                        time = 60
+                    },
                 upgrade = true,
-                effects = {},
-                ingredients = {
-                    {"automation-science-pack", 1},
-                    {"logistic-science-pack", 1},
-                    {"military-science-pack", 1}
-                },
-                count = 300,
-                time = 50,
-                order = "e-z-c"
-        })
-
-        local gunTurretDamage4 = makeTechnology({
-                name = "gun-turret-damage-4",
-                prerequisites = {gunTurretDamage3},
-                icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+                order = "e-j-c"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-shotgun-shell-damage-4",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/shotgun-shell-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "shotgun-shell",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-shotgun-shell-damage-3"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1}
+                            },
+                        time = 60
+                    },
                 upgrade = true,
-                effects = {},
-                ingredients = {
-                    {"automation-science-pack", 1},
-                    {"logistic-science-pack", 1},
-                    {"military-science-pack", 1}
-                },
-                count = 300,
-                time = 60,
-                order = "e-z-d"
-        })
-
-
-        local gunTurretDamage5 = makeTechnology({
-                name = "gun-turret-damage-5",
-                prerequisites = {gunTurretDamage4},
-                icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+                order = "e-j-d"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-shotgun-shell-damage-5",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/shotgun-shell-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "shotgun-shell",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-shotgun-shell-damage-4"},
+                unit =
+                    {
+                        count = 300,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1}
+                            },
+                        time = 60
+                    },
                 upgrade = true,
-                effects = {},
-                ingredients = {
-                    {"automation-science-pack", 1},
-                    {"logistic-science-pack", 1},
-                    {"chemical-science-pack", 1},
-                    {"military-science-pack", 1}
-                },
-                count = 1000,
-                time = 60,
-                order = "e-z-e"
-        })
-
-        local gunTurretDamage6 = makeTechnology({
-                name = "gun-turret-damage-6",
-                prerequisites = {gunTurretDamage5},
-                icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+                order = "e-j-e"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-shotgun-shell-damage-6",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/shotgun-shell-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "shotgun-shell",
+                            modifier = 0.5
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-shotgun-shell-damage-5"},
+                unit =
+                    {
+                        count = 300,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
                 upgrade = true,
-                effects = {},
-                ingredients = {
-                    {"automation-science-pack", 1},
-                    {"logistic-science-pack", 1},
-                    {"chemical-science-pack", 1},
-                    {"military-science-pack", 1},
-                    {"utility-science-pack", 1}
-                },
-                count = 3000,
-                time = 60,
-                order = "e-z-f"
-        })
-        
-        makeTechnology({
-                name = "gun-turret-damage-7",
-                prerequisites = {gunTurretDamage6},
-                icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+                order = "e-j-f"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-shotgun-shell-damage-7",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/shotgun-shell-damage.png",
+                effects =
+                    {
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "shotgun-shell",
+                            modifier = 0.5
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-shotgun-shell-damage-6"},
+                unit =
+                    {
+                        count_formula = "2^(L-7)*1000",
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"military-science-pack", 1},
+                                {"utility-science-pack", 1},
+                                {"space-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                max_level = "infinite",
                 upgrade = true,
-                maxLevel = "infinite",
-                effects = {},
-                ingredients = {
-                    {"automation-science-pack", 1},
-                    {"logistic-science-pack", 1},
-                    {"chemical-science-pack", 1},
-                    {"military-science-pack", 1},
-                    {"utility-science-pack", 1},
-                    {"space-science-pack", 1}
-                },
-                countForumla = "2^(L-7)*1000",
-                time = 60,
-                order = "e-z-f"
-        })
+                order = "e-j-f"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-shotgun-shell-speed-1",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/shotgun-shell-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "shotgun-shell",
+                            modifier = 0.1
+                        }
+                    },
+                prerequisites = {shotgunTurretTech},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1}
+                            },
+                        time = 30
+                    },
+                upgrade = true,
+                order = "e-j-g"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-shotgun-shell-speed-2",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/shotgun-shell-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "shotgun-shell",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-shotgun-shell-speed-1"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1}
+                            },
+                        time = 30
+                    },
+                upgrade = true,
+                order = "e-j-h"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-shotgun-shell-speed-3",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/shotgun-shell-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "shotgun-shell",
+                            modifier = 0.2
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-shotgun-shell-speed-2"},
+                unit =
+                    {
+                        count = 200,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-i"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-shotgun-shell-speed-4",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/shotgun-shell-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "shotgun-shell",
+                            modifier = 0.3
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-shotgun-shell-speed-3"},
+                unit =
+                    {
+                        count = 300,
+                        ingredients =
+                            {
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-k"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-shotgun-shell-speed-5",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/shotgun-shell-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "shotgun-shell",
+                            modifier = 0.4
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-shotgun-shell-speed-4"},
+                unit =
+                    {
+                        count = 500,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-l"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-shotgun-shell-speed-6",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/shotgun-shell-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "shotgun-shell",
+                            modifier = 0.4
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-shotgun-shell-speed-5"},
+                unit =
+                    {
+                        count = 500,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-m"
+            },
+            {
+                type = "technology",
+                name = "rampant-arsenal-technology-shotgun-shell-speed-7",
+                icon_size = 128,
+                icon = "__RampantArsenal__/graphics/technology/shotgun-shell-speed.png",
+                effects =
+                    {
+                        {
+                            type = "gun-speed",
+                            ammo_category = "shotgun-shell",
+                            modifier = 1
+                        }
+                    },
+                prerequisites = {"rampant-arsenal-technology-shotgun-shell-speed-6"},
+                unit =
+                    {
+                        count = 2000,
+                        ingredients =
+                            {
+                                {"military-science-pack", 1},
+                                {"automation-science-pack", 1},
+                                {"logistic-science-pack", 1},
+                                {"chemical-science-pack", 1},
+                                {"utility-science-pack", 1}
+                            },
+                        time = 60
+                    },
+                upgrade = true,
+                order = "e-j-n"
+            }
+    })
+    
 
-    end
+    local gunTurretDamage1 = makeTechnology({
+            name = "gun-turret-damage-1",
+            prerequisites = {"turrets"},
+            icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+            upgrade = true,
+            effects = {},
+            ingredients = {
+                {"automation-science-pack", 1}
+            },
+            count = 150,
+            time = 30,
+            order = "e-z-a"
+    })
+
+    local gunTurretDamage2 = makeTechnology({
+            name = "gun-turret-damage-2",
+            prerequisites = {gunTurretDamage1},
+            icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+            upgrade = true,
+            effects = {},
+            ingredients = {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1}
+            },
+            count = 150,
+            time = 45,
+            order = "e-z-b"
+    })
+
+    local gunTurretDamage3 = makeTechnology({
+            name = "gun-turret-damage-3",
+            prerequisites = {gunTurretDamage2},
+            icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+            upgrade = true,
+            effects = {},
+            ingredients = {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"military-science-pack", 1}
+            },
+            count = 300,
+            time = 50,
+            order = "e-z-c"
+    })
+
+    local gunTurretDamage4 = makeTechnology({
+            name = "gun-turret-damage-4",
+            prerequisites = {gunTurretDamage3},
+            icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+            upgrade = true,
+            effects = {},
+            ingredients = {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"military-science-pack", 1}
+            },
+            count = 300,
+            time = 60,
+            order = "e-z-d"
+    })
+
+
+    local gunTurretDamage5 = makeTechnology({
+            name = "gun-turret-damage-5",
+            prerequisites = {gunTurretDamage4},
+            icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+            upgrade = true,
+            effects = {},
+            ingredients = {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"military-science-pack", 1}
+            },
+            count = 1000,
+            time = 60,
+            order = "e-z-e"
+    })
+
+    local gunTurretDamage6 = makeTechnology({
+            name = "gun-turret-damage-6",
+            prerequisites = {gunTurretDamage5},
+            icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+            upgrade = true,
+            effects = {},
+            ingredients = {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"military-science-pack", 1},
+                {"utility-science-pack", 1}
+            },
+            count = 3000,
+            time = 60,
+            order = "e-z-f"
+    })
+    
+    makeTechnology({
+            name = "gun-turret-damage-7",
+            prerequisites = {gunTurretDamage6},
+            icon = "__RampantArsenal__/graphics/technology/gun-turret-damage.png",
+            upgrade = true,
+            maxLevel = "infinite",
+            effects = {},
+            ingredients = {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"military-science-pack", 1},
+                {"utility-science-pack", 1},
+                {"space-science-pack", 1}
+            },
+            countForumla = "2^(L-7)*1000",
+            time = 60,
+            order = "e-z-f"
+    })
     
     local cannonTurretDamage1 = makeTechnology({
 	    name = "cannon-turret-damage-1",
@@ -1588,7 +3036,7 @@ function technologies.enable()
 		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
-	    count = 100,
+	    count = 150,
 	    time = 30,
 	    order = "e-z-a"
     })
@@ -1771,14 +3219,14 @@ function technologies.enable()
 		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
-	    count = 200,
+	    count = 400,
 	    time = 30
     })
 
     
     local laserTurret = makeTechnology({
 	    name = "advanced-laser-turret-2",
-	    prerequisites = {"laser-turrets", "energy-weapons-damage-1", "military-3"},
+	    prerequisites = {"laser-turrets", "rampant-arsenal-technology-energy-weapons-damage-1", "military-3"},
 	    icon = "__base__/graphics/technology/laser-turrets.png",
 	    effects = {},
 	    ingredients = {
@@ -1795,7 +3243,7 @@ function technologies.enable()
     makeTechnology({
 	    name = "advanced-laser-turret-3",
 	    icon = "__base__/graphics/technology/laser-turrets.png",
-	    prerequisites = {"energy-weapons-damage-2", laserTurret, "advanced-electronics-2", "military-4", "electric-engine"},
+	    prerequisites = {"rampant-arsenal-technology-energy-weapons-damage-4", laserTurret, "advanced-electronics-2", "military-4", "electric-engine"},
 	    effects = {},
 	    ingredients = {
 		{"automation-science-pack", 1},
@@ -2059,7 +3507,7 @@ function technologies.enable()
 		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
-	    count = 100,
+	    count = 150,
 	    time = 30,
 	    order = "e-z-a"
     })
@@ -2174,175 +3622,175 @@ function technologies.enable()
     })
 
 
-    -- local landmineDamage1 = makeTechnology({
-    --         name = "landmine-damage-1",
-    --         prerequisites = {"land-mine"},
-    --         icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
-    --         upgrade = true,
-    --         effects = {
-    --     	{
-    --     	    type = "ammo-damage",
-    --     	    ammo_category = "landmine",
-    --     	    modifier = 0.1
-    --     	}
-    --         },
-    --         ingredients = {
-    --     	{"automation-science-pack", 1},
-    --     	{"logistic-science-pack", 1},
-    --     	{"military-science-pack", 1}
-    --         },
-    --         count = 50,
-    --         time = 30,
-    --         order = "e-z-a"
-    -- })
+    local landmineDamage1 = makeTechnology({
+            name = "landmine-damage-1",
+            prerequisites = {"land-mine"},
+            icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
+            upgrade = true,
+            effects = {
+        	{
+        	    type = "ammo-damage",
+        	    ammo_category = "landmine",
+        	    modifier = 0.1
+        	}
+            },
+            ingredients = {
+        	{"automation-science-pack", 1},
+        	{"logistic-science-pack", 1},
+        	{"military-science-pack", 1}
+            },
+            count = 150,
+            time = 30,
+            order = "e-z-a"
+    })
 
-    -- local landmineDamage2 = makeTechnology({
-    --         name = "landmine-damage-2",
-    --         prerequisites = {landmineDamage1},
-    --         icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
-    --         upgrade = true,
-    --         effects = {
-    --     	{
-    --     	    type = "ammo-damage",
-    --     	    ammo_category = "landmine",
-    --     	    modifier = 0.1
-    --     	}
-    --         },
-    --         ingredients = {
-    --     	{"automation-science-pack", 1},
-    --     	{"logistic-science-pack", 1},
-    --     	{"military-science-pack", 1}
-    --         },
-    --         count = 100,
-    --         time = 45,
-    --         order = "e-z-b"
-    -- })
+    local landmineDamage2 = makeTechnology({
+            name = "landmine-damage-2",
+            prerequisites = {landmineDamage1},
+            icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
+            upgrade = true,
+            effects = {
+        	{
+        	    type = "ammo-damage",
+        	    ammo_category = "landmine",
+        	    modifier = 0.1
+        	}
+            },
+            ingredients = {
+        	{"automation-science-pack", 1},
+        	{"logistic-science-pack", 1},
+        	{"military-science-pack", 1}
+            },
+            count = 150,
+            time = 45,
+            order = "e-z-b"
+    })
 
-    -- local landmineDamage3 = makeTechnology({
-    --         name = "landmine-damage-3",
-    --         prerequisites = {landmineDamage2},
-    --         icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
-    --         upgrade = true,
-    --         effects = {
-    --     	{
-    --     	    type = "ammo-damage",
-    --     	    ammo_category = "landmine",
-    --     	    modifier = 0.2
-    --     	}
-    --         },
-    --         ingredients = {
-    --     	{"automation-science-pack", 1},
-    --     	{"logistic-science-pack", 1},
-    --     	{"military-science-pack", 1}
-    --         },
-    --         count = 300,
-    --         time = 50,
-    --         order = "e-z-c"
-    -- })
+    local landmineDamage3 = makeTechnology({
+            name = "landmine-damage-3",
+            prerequisites = {landmineDamage2},
+            icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
+            upgrade = true,
+            effects = {
+        	{
+        	    type = "ammo-damage",
+        	    ammo_category = "landmine",
+        	    modifier = 0.2
+        	}
+            },
+            ingredients = {
+        	{"automation-science-pack", 1},
+        	{"logistic-science-pack", 1},
+        	{"military-science-pack", 1}
+            },
+            count = 300,
+            time = 50,
+            order = "e-z-c"
+    })
 
-    -- local landmineDamage4 = makeTechnology({
-    --         name = "landmine-damage-4",
-    --         prerequisites = {landmineDamage3},
-    --         icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
-    --         upgrade = true,
-    --         effects = {
-    --     	{
-    --     	    type = "ammo-damage",
-    --     	    ammo_category = "landmine",
-    --     	    modifier = 0.2
-    --     	}
-    --         },
-    --         ingredients = {
-    --     	{"automation-science-pack", 1},
-    --     	{"logistic-science-pack", 1},
-    --     	{"military-science-pack", 1}
-    --         },
-    --         count = 300,
-    --         time = 60,
-    --         order = "e-z-d"
-    -- })
+    local landmineDamage4 = makeTechnology({
+            name = "landmine-damage-4",
+            prerequisites = {landmineDamage3},
+            icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
+            upgrade = true,
+            effects = {
+        	{
+        	    type = "ammo-damage",
+        	    ammo_category = "landmine",
+        	    modifier = 0.2
+        	}
+            },
+            ingredients = {
+        	{"automation-science-pack", 1},
+        	{"logistic-science-pack", 1},
+        	{"military-science-pack", 1}
+            },
+            count = 300,
+            time = 60,
+            order = "e-z-d"
+    })
 
 
-    -- local landmineDamage5 = makeTechnology({
-    --         name = "landmine-damage-5",
-    --         prerequisites = {landmineDamage4},
-    --         icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
-    --         upgrade = true,
-    --         effects = {
-    --     	{
-    --     	    type = "ammo-damage",
-    --     	    ammo_category = "landmine",
-    --     	    modifier = 0.2
-    --     	}
-    --         },
-    --         ingredients = {
-    --     	{"automation-science-pack", 1},
-    --     	{"logistic-science-pack", 1},
-    --     	{"chemical-science-pack", 1},
-    --     	{"military-science-pack", 1}
-    --         },
-    --         count = 1000,
-    --         time = 60,
-    --         order = "e-z-e"
-    -- })
+    local landmineDamage5 = makeTechnology({
+            name = "landmine-damage-5",
+            prerequisites = {landmineDamage4},
+            icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
+            upgrade = true,
+            effects = {
+        	{
+        	    type = "ammo-damage",
+        	    ammo_category = "landmine",
+        	    modifier = 0.2
+        	}
+            },
+            ingredients = {
+        	{"automation-science-pack", 1},
+        	{"logistic-science-pack", 1},
+        	{"chemical-science-pack", 1},
+        	{"military-science-pack", 1}
+            },
+            count = 1000,
+            time = 60,
+            order = "e-z-e"
+    })
 
-    -- local landmineDamage6 = makeTechnology({
-    --         name = "landmine-damage-6",
-    --         prerequisites = {landmineDamage5},
-    --         icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
-    --         upgrade = true,
-    --         effects = {
-    --     	{
-    --     	    type = "ammo-damage",
-    --     	    ammo_category = "landmine",
-    --     	    modifier = 0.4
-    --     	}
-    --         },
-    --         ingredients = {
-    --     	{"automation-science-pack", 1},
-    --     	{"logistic-science-pack", 1},
-    --     	{"chemical-science-pack", 1},
-    --     	{"military-science-pack", 1},
-    --     	{"utility-science-pack", 1}
-    --         },
-    --         count = 3000,
-    --         time = 60,
-    --         order = "e-z-f"
-    -- })
+    local landmineDamage6 = makeTechnology({
+            name = "landmine-damage-6",
+            prerequisites = {landmineDamage5},
+            icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
+            upgrade = true,
+            effects = {
+        	{
+        	    type = "ammo-damage",
+        	    ammo_category = "landmine",
+        	    modifier = 0.4
+        	}
+            },
+            ingredients = {
+        	{"automation-science-pack", 1},
+        	{"logistic-science-pack", 1},
+        	{"chemical-science-pack", 1},
+        	{"military-science-pack", 1},
+        	{"utility-science-pack", 1}
+            },
+            count = 3000,
+            time = 60,
+            order = "e-z-f"
+    })
 
-    -- makeTechnology({
-    --         name = "landmine-damage-7",
-    --         prerequisites = {landmineDamage6},
-    --         icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
-    --         upgrade = true,
-    --         maxLevel = "infinite",
-    --         effects = {
-    --     	{
-    --     	    type = "ammo-damage",
-    --     	    ammo_category = "landmine",
-    --     	    modifier = 0.4
-    --     	}
-    --         },
-    --         ingredients = {
-    --     	{"automation-science-pack", 1},
-    --     	{"logistic-science-pack", 1},
-    --     	{"chemical-science-pack", 1},
-    --     	{"military-science-pack", 1},
-    --     	{"utility-science-pack", 1},
-    --     	{"space-science-pack", 1}
-    --         },
-    --         countForumla = "2^(L-7)*1000",
-    --         time = 60,
-    --         order = "e-z-f"
-    -- })
+    makeTechnology({
+            name = "landmine-damage-7",
+            prerequisites = {landmineDamage6},
+            icon = "__RampantArsenal__/graphics/technology/landmine-damage.png",
+            upgrade = true,
+            maxLevel = "infinite",
+            effects = {
+        	{
+        	    type = "ammo-damage",
+        	    ammo_category = "landmine",
+        	    modifier = 0.4
+        	}
+            },
+            ingredients = {
+        	{"automation-science-pack", 1},
+        	{"logistic-science-pack", 1},
+        	{"chemical-science-pack", 1},
+        	{"military-science-pack", 1},
+        	{"utility-science-pack", 1},
+        	{"space-science-pack", 1}
+            },
+            countForumla = "2^(L-7)*1000",
+            time = 60,
+            order = "e-z-f"
+    })
 
 
     local turrets2 = makeTechnology({
 	    name = "turrets-2",
 	    icon="__RampantArsenal__/graphics/technology/turrets-2.png",
-	    prerequisites = {"turrets", "military-3", "physical-projectile-damage-4", "weapon-shooting-speed-4"},
+	    prerequisites = {"turrets", "military-3", "rampant-arsenal-technology-bullet-damage-4", "rampant-arsenal-technology-bullet-speed-4"},
 	    effects = {},
-	    count = 250,
+	    count = 500,
 	    ingredients = {
 		{"automation-science-pack", 1},
     		{"logistic-science-pack", 1},
@@ -2707,7 +4155,7 @@ function technologies.enable()
     makeTechnology({
 	    name = "personal-shotgun-defense",
 	    icon="__RampantArsenal__/graphics/technology/personal-shotgun-defense-equipment.png",
-	    prerequisites = {"personal-laser-defense-equipment", "advanced-electronics-2", "effectivity-module-2", shotgunTurretTech, "physical-projectile-damage-5"},
+	    prerequisites = {"personal-laser-defense-equipment", "advanced-electronics-2", "effectivity-module-2", shotgunTurretTech, "rampant-arsenal-technology-shotgun-shell-damage-5"},
 	    effects = {},
 	    count = 400,
 	    ingredients = {
@@ -2724,7 +4172,7 @@ function technologies.enable()
     makeTechnology({
 	    name = "personal-cannon-defense",
 	    icon="__RampantArsenal__/graphics/technology/personal-cannon-defense-equipment.png",
-	    prerequisites = {"personal-laser-defense-equipment", "military-4", "advanced-electronics-2", cannonTech, "productivity-module-2", "physical-projectile-damage-6"},
+	    prerequisites = {"personal-laser-defense-equipment", "military-4", "advanced-electronics-2", cannonTech, "productivity-module-2", "rampant-arsenal-technology-cannon-shell-damage-4"},
 	    effects = {},
 	    count = 400,
 	    ingredients = {
@@ -2740,7 +4188,7 @@ function technologies.enable()
     makeTechnology({
 	    name = "personal-lightning-defense",
 	    icon="__RampantArsenal__/graphics/technology/personal-lightning-defense-equipment.png",
-	    prerequisites = {"personal-laser-defense-equipment", "military-4", "advanced-electronics-2", lightningTurretTech, "speed-module-2", "energy-weapons-damage-4"},
+	    prerequisites = {"personal-laser-defense-equipment", "military-4", "advanced-electronics-2", lightningTurretTech, "speed-module-2", "rampant-arsenal-technology-energy-weapons-damage-3"},
 	    effects = {},
 	    count = 400,
 	    ingredients = {
@@ -2785,6 +4233,41 @@ function technologies.enable()
 	    time = 30
     })   
 
+
+    if not settings.startup["rampant-arsenal-unhideVanillaDamageTechnologies"].value then
+
+        data.raw["technology"]["physical-projectile-damage-1"].enabled = false
+        data.raw["technology"]["physical-projectile-damage-2"].enabled = false
+        data.raw["technology"]["physical-projectile-damage-3"].enabled = false
+        data.raw["technology"]["physical-projectile-damage-4"].enabled = false
+        data.raw["technology"]["physical-projectile-damage-5"].enabled = false
+        data.raw["technology"]["physical-projectile-damage-6"].enabled = false
+        data.raw["technology"]["physical-projectile-damage-7"].enabled = false
+
+        data.raw["technology"]["energy-weapons-damage-1"].enabled = false
+        data.raw["technology"]["energy-weapons-damage-2"].enabled = false
+        data.raw["technology"]["energy-weapons-damage-3"].enabled = false
+        data.raw["technology"]["energy-weapons-damage-4"].enabled = false
+        data.raw["technology"]["energy-weapons-damage-5"].enabled = false
+        data.raw["technology"]["energy-weapons-damage-6"].enabled = false
+        data.raw["technology"]["energy-weapons-damage-7"].enabled = false
+        
+        data.raw["technology"]["weapon-shooting-speed-1"].enabled = false
+        data.raw["technology"]["weapon-shooting-speed-2"].enabled = false
+        data.raw["technology"]["weapon-shooting-speed-3"].enabled = false
+        data.raw["technology"]["weapon-shooting-speed-4"].enabled = false
+        data.raw["technology"]["weapon-shooting-speed-5"].enabled = false
+        data.raw["technology"]["weapon-shooting-speed-6"].enabled = false
+
+        data.raw["technology"]["stronger-explosives-1"].enabled = false
+        data.raw["technology"]["stronger-explosives-2"].enabled = false
+        data.raw["technology"]["stronger-explosives-3"].enabled = false
+        data.raw["technology"]["stronger-explosives-4"].enabled = false
+        data.raw["technology"]["stronger-explosives-5"].enabled = false
+        data.raw["technology"]["stronger-explosives-6"].enabled = false
+        data.raw["technology"]["stronger-explosives-7"].enabled = false
+
+    end
 end
 
 return technologies

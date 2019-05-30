@@ -83,13 +83,13 @@ function wallUtils.makeWall(attributes, attack)
 			height = 64,
 			scale = 0.5
 		    },
-		resistances =
+		resistances = attributes.resistances or
 		    {
 			{
 			    type = "physical",
 			    decrease = 3,
 			    percent = 20
-			},
+			},                        
 			{
 			    type = "impact",
 			    decrease = 45,
@@ -768,7 +768,7 @@ function wallUtils.makeGate(attributes, attack)
 		activation_distance = 3,
 		timeout_to_close = 5,
                 fadeout_interval = 15,
-		resistances =
+		resistances = attributes.resistances or
 		    {
 			{
 			    type = "physical",

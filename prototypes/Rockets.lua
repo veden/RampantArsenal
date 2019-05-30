@@ -76,6 +76,10 @@ function rockets.enable()
                 percent = 60
             },
             {
+                type = "impact",
+                percent = 30
+            },
+            {
                 type = "explosion",
                 percent = 10
             },
@@ -130,6 +134,10 @@ function rockets.enable()
             {
                 type = "fire",
                 percent = 60
+            },
+            {
+                type = "impact",
+                percent = 30
             },
             {
                 type = "explosion",

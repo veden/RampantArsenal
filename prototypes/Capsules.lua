@@ -1303,6 +1303,10 @@ function capsules.enable()
                 percent = 30
             },
             {
+                type = "impact",
+                percent = 30
+            },
+            {
                 type = "explosion",
                 percent = 20
             },
@@ -1344,7 +1348,12 @@ function capsules.enable()
                                                                 min_range = 15,
                                                                 turn_range = 0.30,
 								range = 47,
-								sound = make_heavy_gunshot_sounds()
+								sound = {
+                                                                 {
+                                                                     filename = "__base__/sound/fight/tank-cannon.ogg",
+                                                                     volume = 1.0
+                                                                 }
+                                                             }
     })
 
     makeRecipe({
@@ -1560,14 +1569,14 @@ function capsules.enable()
 		    {
 			type = "ammo-damage",
 			ammo_category = "capsule-launcher",
-			modifier = 0.2
+			modifier = 0.4
     })
 
     addEffectToTech("stronger-explosives-7",
 		    {
 			type = "ammo-damage",
 			ammo_category = "capsule-launcher",
-			modifier = 0.2
+			modifier = 0.5
     })
 
     data.raw["combat-robot"]["distractor"]["attack_parameters"]["damage_modifier"] = 2

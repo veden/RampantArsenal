@@ -384,6 +384,10 @@ function lasers.enable()
                 percent = 60
             },
             {
+                type = "impact",
+                percent = 30
+            },
+            {
                 type = "explosion",
                 percent = 10
             },
@@ -519,6 +523,10 @@ function lasers.enable()
             {
                 type = "fire",
                 percent = 60
+            },
+            {
+                type = "impact",
+                percent = 30
             },
             {
                 type = "explosion",
@@ -708,6 +716,10 @@ function lasers.enable()
             {
                 type = "fire",
                 percent = 60
+            },
+            {
+                type = "impact",
+                percent = 30
             },
             {
                 type = "explosion",

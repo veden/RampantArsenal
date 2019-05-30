@@ -1,12 +1,24 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.16
 Date: 5. 28. 2019
+  Improvements:
+    - Returned to individual technologies for the different damage types
   Tweaks:
     - Added entity flag for drones working in automatic mode on the cargo wagon for trains
     - Decreased crude oil flamethrower damage modifier to 0.8
     - Decreased heavy oil flamethrower damage modifier to 1.0
+    - Increased cannon and rapid cannon turret size by 50%
+    - Added impact resistance to turrets
+    - Added tank sound to cannon, rapid cannon, and capsule turrets
+    - Added mod setting for re-enabling the vanilla damage bonuses
+    - Increased flamethrower-2 to need refined flammables 4
+    - Increased minimum science for damage increase technologies to be 150 science packs
+    - Doubled science cost for turrets 2 and lightning turrets
+    - Decreased personal cannon equipment requirement to cannon shell damage 4
+    - Decreased personal cannon equipment requirement to energy weapons damage 3
   Bugfixes:
     - Fixed broken nuclear artillery shells due to game engine update
+    - Fixed mending and reinforced walls and gates not correctly getting resistances
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.15
