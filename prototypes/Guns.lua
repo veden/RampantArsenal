@@ -956,17 +956,17 @@ function guns.enable()
             {
                 type = "turret-attack",
                 turret_id = rifleTurret,
-                modifier = 0.2
+                modifier = 0.3
             },
             {
                 type = "turret-attack",
                 turret_id = "gun-turret",
-                modifier = 0.2
+                modifier = 0.3
             },
             {
                 type = "turret-attack",
                 turret_id = gunTurret,
-                modifier = 0.2
+                modifier = 0.3
     }})
 
     addEffectToTech("gun-turret-damage-5",
@@ -974,17 +974,17 @@ function guns.enable()
             {
                 type = "turret-attack",
                 turret_id = rifleTurret,
-                modifier = 0.2
+                modifier = 0.4
             },
             {
                 type = "turret-attack",
                 turret_id = "gun-turret",
-                modifier = 0.2
+                modifier = 0.4
             },
             {
                 type = "turret-attack",
                 turret_id = gunTurret,
-                modifier = 0.2
+                modifier = 0.4
     }})
 
     addEffectToTech("gun-turret-damage-6",
@@ -1011,17 +1011,17 @@ function guns.enable()
             {
                 type = "turret-attack",
                 turret_id = rifleTurret,
-                modifier = 0.7
+                modifier = 0.8
             },
             {
                 type = "turret-attack",
                 turret_id = "gun-turret",
-                modifier = 0.7
+                modifier = 0.8
             },
             {
                 type = "turret-attack",
                 turret_id = gunTurret,
-                modifier = 0.7
+                modifier = 0.8
     }})
     
     removeEffect("military-3", "unlock-recipe", "poison-capsule")

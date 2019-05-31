@@ -676,21 +676,21 @@ function cannons.enable()
 		    {
 			type = "turret-attack",
 			turret_id = shotgunTurret,
-			modifier = 0.1
+			modifier = 0.2
     })
 
     addEffectToTech("shotgun-turret-damage-2",
 		    {
 			type = "turret-attack",
 			turret_id = shotgunTurret,
-			modifier = 0.1
+			modifier = 0.2
     })
 
     addEffectToTech("shotgun-turret-damage-3",
 		    {
 			type = "turret-attack",
 			turret_id = shotgunTurret,
-			modifier = 0.2
+			modifier = 0.3
     })
 
     addEffectToTech("shotgun-turret-damage-4",
@@ -704,21 +704,21 @@ function cannons.enable()
 		    {
 			type = "turret-attack",
 			turret_id = shotgunTurret,
-			modifier = 0.3
+			modifier = 0.4
     })
 
     addEffectToTech("shotgun-turret-damage-6",
 		    {
 			type = "turret-attack",
 			turret_id = shotgunTurret,
-			modifier = 0.4
+			modifier = 0.6
     })
 
     addEffectToTech("shotgun-turret-damage-7",
 		    {
 			type = "turret-attack",
 			turret_id = shotgunTurret,
-			modifier = 0.2
+			modifier = 0.8
     })
 
 
@@ -805,18 +805,17 @@ function cannons.enable()
 			    modifier = 0.4
 			}
     })
-
     addEffectToTech("cannon-turret-damage-7",
 		    {
 			{
 			    type = "turret-attack",
 			    turret_id = rapidCannonTurret,
-			    modifier = 0.2
+			    modifier = 0.5
 			},
 			{
 			    type = "turret-attack",
 			    turret_id = cannonTurret,
-			    modifier = 0.2
+			    modifier = 0.5
 			}
     })
 
@@ -859,14 +858,14 @@ function cannons.enable()
 		    {
 			type = "turret-attack",
 			turret_id = suppressionCannonTurret,
-			modifier = 0.2
+			modifier = 0.4
     })
 
     addEffectToTech("refined-flammables-7",
 		    {
 			type = "turret-attack",
 			turret_id = suppressionCannonTurret,
-			modifier = 0.2
+			modifier = 0.5
     })
 
     local incendiaryCannonShellAmmo = makeAmmo({
@@ -1113,7 +1112,7 @@ function cannons.enable()
 											    {
 												{
 												    type = "damage",
-												    damage = {amount = 1000, type = "explosion"}
+												    damage = {amount = 800, type = "explosion"}
 												},
 												{
 												    type = "create-entity",
@@ -1294,6 +1293,8 @@ function cannons.enable()
     data.raw["ammo"]["explosive-uranium-cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
     data.raw["ammo"]["uranium-cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
 
+    data.raw["technology"]["refined-flammables-7"].effects[2].modifier = 0.5
+    
     targetEffects = data.raw["projectile"]["explosive-uranium-cannon-projectile"].action.action_delivery.target_effects
     targetEffects[1].damage.amount = targetEffects[1].damage.amount * 3
 

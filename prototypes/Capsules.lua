@@ -1485,21 +1485,21 @@ function capsules.enable()
 		    {
 			type = "turret-attack",
 			turret_id = capsuleTurret,
-			modifier = 0.1
+			modifier = 0.2
     })
 
     addEffectToTech("capsule-turret-damage-2",
 		    {
 			type = "turret-attack",
 			turret_id = capsuleTurret,
-			modifier = 0.1
+			modifier = 0.2
     })
 
     addEffectToTech("capsule-turret-damage-3",
 		    {
 			type = "turret-attack",
 			turret_id = capsuleTurret,
-			modifier = 0.2
+			modifier = 0.3
     })
 
     addEffectToTech("capsule-turret-damage-4",
@@ -1513,7 +1513,7 @@ function capsules.enable()
 		    {
 			type = "turret-attack",
 			turret_id = capsuleTurret,
-			modifier = 0.3
+			modifier = 0.4
     })
 
     addEffectToTech("capsule-turret-damage-6",
@@ -1527,7 +1527,7 @@ function capsules.enable()
 		    {
 			type = "turret-attack",
 			turret_id = capsuleTurret,
-			modifier = 0.2
+			modifier = 0.6
     })
 
     addEffectToTech("stronger-explosives-1",

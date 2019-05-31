@@ -616,12 +616,12 @@ function rockets.enable()
 			{
 			    type = "turret-attack",
 			    turret_id = rapidRocketTurret,
-			    modifier = 0.2
+			    modifier = 0.5
 			},
 			{
 			    type = "turret-attack",
 			    turret_id = rocketTurret,
-			    modifier = 0.2
+			    modifier = 0.5
 			}
     })
 end

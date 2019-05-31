@@ -15,7 +15,15 @@ Date: 5. 28. 2019
     - Increased minimum science for damage increase technologies to be 150 science packs
     - Doubled science cost for turrets 2 and lightning turrets
     - Decreased personal cannon equipment requirement to cannon shell damage 4
-    - Decreased personal cannon equipment requirement to energy weapons damage 3
+    - Decreased personal lightning equipment requirement to energy weapons damage 3
+    - Decreased he cannon shell AOE damage to 800    
+    - Increased bonus damage for landmines by ~%10 per tech
+    - Increased bonus damage for capsule launcher ammo by ~%10 per tech
+    - Increased bonus damage for rockets final infinite tech to %50
+    - Increased bonus damage for cannon final infinite tech to %50
+    - Increased bonus damage for bullet based turrets final infinite tech to %80
+    - Increased bonus damage for shotgun shells and shotgun turret infinite tech by ~%10 for lvl 1,2,3,5,6,7
+    - Increased bonus damage for flamethrower turrets final infinite tech to %50
   Bugfixes:
     - Fixed broken nuclear artillery shells due to game engine update
     - Fixed mending and reinforced walls and gates not correctly getting resistances

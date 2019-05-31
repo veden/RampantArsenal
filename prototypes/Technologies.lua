@@ -1474,7 +1474,7 @@ function technologies.enable()
                         {
                             type = "ammo-damage",
                             ammo_category = "cannon-shell",
-                            modifier = 0.2
+                            modifier = 0.1
                         }
                     },
                 prerequisites = {"tanks"},
@@ -1532,7 +1532,7 @@ function technologies.enable()
                         {
                             type = "ammo-damage",
                             ammo_category = "cannon-shell",
-                            modifier = 0.3
+                            modifier = 0.2
                         }
                     },
                 prerequisites = {"rampant-arsenal-technology-cannon-shell-damage-2"},
@@ -1561,7 +1561,7 @@ function technologies.enable()
                         {
                             type = "ammo-damage",
                             ammo_category = "cannon-shell",
-                            modifier = 0.5
+                            modifier = 0.2
                         }
                     },
                 prerequisites = {"rampant-arsenal-technology-cannon-shell-damage-3"},
@@ -1591,7 +1591,7 @@ function technologies.enable()
                         {
                             type = "ammo-damage",
                             ammo_category = "cannon-shell",
-                            modifier = 1
+                            modifier = 0.3
                         }
                     },
                 prerequisites = {"rampant-arsenal-technology-cannon-shell-damage-4"},
@@ -1621,7 +1621,7 @@ function technologies.enable()
                         {
                             type = "ammo-damage",
                             ammo_category = "cannon-shell",
-                            modifier = 1
+                            modifier = 0.4
                         }
                     },
                 prerequisites = {"rampant-arsenal-technology-cannon-shell-damage-5"},
@@ -3631,7 +3631,7 @@ function technologies.enable()
         	{
         	    type = "ammo-damage",
         	    ammo_category = "landmine",
-        	    modifier = 0.1
+        	    modifier = 0.2
         	}
             },
             ingredients = {
@@ -3653,7 +3653,7 @@ function technologies.enable()
         	{
         	    type = "ammo-damage",
         	    ammo_category = "landmine",
-        	    modifier = 0.1
+        	    modifier = 0.2
         	}
             },
             ingredients = {
@@ -3675,7 +3675,7 @@ function technologies.enable()
         	{
         	    type = "ammo-damage",
         	    ammo_category = "landmine",
-        	    modifier = 0.2
+        	    modifier = 0.3
         	}
             },
             ingredients = {
@@ -3697,7 +3697,7 @@ function technologies.enable()
         	{
         	    type = "ammo-damage",
         	    ammo_category = "landmine",
-        	    modifier = 0.2
+        	    modifier = 0.3
         	}
             },
             ingredients = {
@@ -3720,7 +3720,7 @@ function technologies.enable()
         	{
         	    type = "ammo-damage",
         	    ammo_category = "landmine",
-        	    modifier = 0.2
+        	    modifier = 0.4
         	}
             },
             ingredients = {
@@ -3768,7 +3768,7 @@ function technologies.enable()
         	{
         	    type = "ammo-damage",
         	    ammo_category = "landmine",
-        	    modifier = 0.4
+        	    modifier = 0.6
         	}
             },
             ingredients = {
