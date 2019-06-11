@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.17.17
+Version: 0.17.18
 Date: 6. 10. 2019
   Tweaks:
     - Added utility science pack to rapid cannon technology
