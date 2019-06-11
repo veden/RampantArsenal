@@ -2064,7 +2064,7 @@ function technologies.enable()
 		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
-	    count = 100,
+	    count = 250,
 	    time = 30
     })
 
@@ -2337,22 +2337,23 @@ function technologies.enable()
 		{"chemical-science-pack", 1},
 		{"military-science-pack", 1}
 	    },
-	    count = 75,
+	    count = 250,
 	    time = 30
     })
 
     makeTechnology({
 	    name = "cannon-turret-2",
-	    prerequisites = {"explosives", "weapon-shooting-speed-5", cannonTech},
+	    prerequisites = {"explosives", "rampant-arsenal-technology-cannon-shell-speed-4", cannonTech},
 	    icon = "__RampantArsenal__/graphics/technology/cannon-turrets.png",
 	    effects = {},
 	    ingredients = {
 		{"automation-science-pack", 1},
 		{"logistic-science-pack", 1},
 		{"chemical-science-pack", 1},
-		{"military-science-pack", 1}
+		{"military-science-pack", 1},
+		{"utility-science-pack", 1}
 	    },
-	    count = 120,
+	    count = 400,
 	    time = 30
     })
 
@@ -3482,7 +3483,7 @@ function technologies.enable()
 
     makeTechnology({
 	    name = "rocket-turret-2",
-	    prerequisites = {"weapon-shooting-speed-4", "explosive-rocketry", "advanced-electronics-2", "military-3", rocketTurretTech, "engine"},
+	    prerequisites = {"rampant-arsenal-technology-rocket-speed-4", "explosive-rocketry", "advanced-electronics-2", "military-3", rocketTurretTech, "engine"},
 	    icon = "__RampantArsenal__/graphics/technology/rocket-turrets.png",
 	    effects = {},
 	    ingredients = {

@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.17
+Date: 6. 10. 2019
+  Tweaks:
+    - Added utility science pack to rapid cannon technology
+    - Increased cannon turret 2 science pack count to 400
+    - Increased cannon turret 1 science pack count to 250
+    - Increased capsule turret science pack count to 250
+  Bugfixes:
+    - Fixed rapid rocket and rapid cannon tech prerequisites
+
+---------------------------------------------------------------------------------------------------
 Version: 0.17.16
 Date: 5. 28. 2019
   Improvements:
