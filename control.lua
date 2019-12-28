@@ -31,7 +31,7 @@ local world
 local function onModSettingsChange(event)
 
     if event and (string.sub(event.setting, 1, 18) ~= "rampant-arsenal") then
-	return false
+        return false
     end
 
     -- world.spoutThreshold = settings.global["rampant-arsenal-spoutThreshold"].value
@@ -49,7 +49,7 @@ local function onConfigChanged()
     onModSettingsChange()
     if not world.version then
 
-	world.version = 1
+        world.version = 1
     end
     -- if (world.version < 5) then
 
@@ -67,22 +67,28 @@ local function onConfigChanged()
         world.mineChecks = 0
         world.mineCheckNextTick = 0
 
-	world.version = 6
+        world.version = 6
     end
     if (world.version < 7) then
 
-	world.nextTick = nil
-	world.count = nil
+        world.nextTick = nil
+        world.count = nil
 
-	world.version = 7
+        world.version = 7
     end
     if (world.version < 11) then
 
         game.forces.player.reset_technology_effects()
 
-	world.version = 11
+        world.version = 11
     end
+    if (world.version < 12) then
 
+        for i,p in ipairs(game.connected_players) do
+            p.print("Rampant Arsenal - Version 0.17.19")
+        end
+        world.version = 12
+    end
 end
 
 local function onInit()
@@ -100,29 +106,29 @@ end
 local function onDeath(event)
     local entity = event.entity
     if (event.cause and event.cause.force.name == "player") and (entity.force.name == "enemy") then
-	if (mRandom() < world.spoutThreshold) then
-	    if (entity.type == "unit-spawner") then
-		local name = entity.name
-		local gooType
-		if ENABLE_ALL_GOO then
-		    if (substr(name, -7) == "rampant") then
-			local prefix = (strFind(name,"-")) - 1
-			gooType = RAMPANT_PREFIX_TABLE[(substr(name,1,prefix))]
-		    else
-			gooType = RAW_GOO_TYPES[mRandom(#RAW_GOO_TYPES)]
-		    end
-		elseif ENABLE_NORMAL_GOO then
-		    gooType = DEFAULT_GOO_TYPE
-		end
-		local position = entity.position
-		local x = position.x
-		local y = position.y
-		local potentialYield = (((x * x) + (y * y)) ^ 0.5) * world.spoutDefaultValue
+        if (mRandom() < world.spoutThreshold) then
+            if (entity.type == "unit-spawner") then
+                local name = entity.name
+                local gooType
+                if ENABLE_ALL_GOO then
+                    if (substr(name, -7) == "rampant") then
+                        local prefix = (strFind(name,"-")) - 1
+                        gooType = RAMPANT_PREFIX_TABLE[(substr(name,1,prefix))]
+                    else
+                        gooType = RAW_GOO_TYPES[mRandom(#RAW_GOO_TYPES)]
+                    end
+                elseif ENABLE_NORMAL_GOO then
+                    gooType = DEFAULT_GOO_TYPE
+                end
+                local position = entity.position
+                local x = position.x
+                local y = position.y
+                local potentialYield = (((x * x) + (y * y)) ^ 0.5) * world.spoutDefaultValue
 
-		local yield = gaussianRandomRange(potentialYield, 0.15, potentialYield * 0.7, potentialYield * 1.3)
-		entity.surface.create_entity({name=gooType, amount=yield, position=entity.position})
-	    end
-	end
+                local yield = gaussianRandomRange(potentialYield, 0.15, potentialYield * 0.7, potentialYield * 1.3)
+                entity.surface.create_entity({name=gooType, amount=yield, position=entity.position})
+            end
+        end
     end
 end
 

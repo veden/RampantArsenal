@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.17.19
+Date: 28. 12. 2019
+  Tweaks:
+    - Reduce personnal cannon explosion count
+    - Increased Advanced Laser drain to 240kW
+    - Increased lightning turret drain to 125kW
+    - Increased oil generator emissions to 40
+  Bugfixes:
+    - Fixed lightning turret not dealing damage
+    
+    
+---------------------------------------------------------------------------------------------------
 Version: 0.17.18
 Date: 6. 10. 2019
   Tweaks:
