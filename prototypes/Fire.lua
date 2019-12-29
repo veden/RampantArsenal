@@ -186,8 +186,8 @@ function fire.enable()
                         }
     })
 
-    data.raw["fire"]["fire-flame"].maximum_damage_multiplier = 10
-    data.raw["fire"]["fire-flame"].damage_multiplier_increase_per_added_fuel = 1.35
+    -- data.raw["fire"]["fire-flame"].maximum_damage_multiplier = 10
+    -- data.raw["fire"]["fire-flame"].damage_multiplier_increase_per_added_fuel = 1.35
     data.raw["fire"]["fire-flame"].initial_lifetime = 5 * 60
     data.raw["fire"]["fire-flame"].lifetime_increase_by = 2.5 * 60
     data.raw["fire"]["fire-flame"].maximum_lifetime = 10 * 60

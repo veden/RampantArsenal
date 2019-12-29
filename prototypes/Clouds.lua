@@ -59,7 +59,7 @@ function clouds.enable()
             movementModifier = 0,
             spreadRadius = 2,
             tint = {r=0.5,g=0.3,b=0,a=0.8},
-            scale = 6
+            scale = 4
         },
         {
             type = "direct",
@@ -71,29 +71,51 @@ function clouds.enable()
                             type = "nested-result",
                             action =
                                 {
-                                    type = "area",
-                                    radius = 18,
-                                    action_delivery =
-                                        {
-                                            type = "instant",
-                                            target_effects =
-                                                {
+                                    {
+                                        type = "cluster",
+                                        cluster_count = 10,
+                                        distance = 10,
+                                        distance_deviation = 4,
+                                        action_delivery =
+                                            {
+                                                type = "instant",
+                                                target_effects =
                                                     {
-                                                        type = "damage",
-                                                        damage = { amount = 110, type = "fire" },
-                                                        apply_damage_to_trees = false
-                                                    },
-                                                    {
-                                                        type = "create-sticker",
-                                                        sticker = "small-fire-sticker-rampant-arsenal"
-                                                    },
-                                                    {
-                                                        type = "create-fire",
-                                                        entity_name = "fire-flame",
-                                                        initial_ground_flame_count = 4
+                                                        {
+                                                            type = "create-fire",
+                                                            entity_name = "fire-flame",
+                                                            initial_ground_flame_count = 4,
+                                                            check_buildability = true,
+                                                            show_in_tooltip = true
+                                                        }
                                                     }
-                                                }
-                                        }
+                                            }
+                                    },
+                                    {
+                                        type = "area",
+                                        radius = 14,
+                                        action_delivery =
+                                            {
+                                                type = "instant",
+                                                target_effects =
+                                                    {
+                                                        {
+                                                            type = "damage",
+                                                            damage = { amount = 110, type = "fire" },
+                                                            apply_damage_to_trees = false
+                                                        },
+                                                        {
+                                                            type = "create-sticker",
+                                                            sticker = "small-fire-sticker-rampant-arsenal"
+                                                        },
+                                                        {
+                                                            type = "create-fire",
+                                                            entity_name = "fire-flame",
+                                                            initial_ground_flame_count = 4
+                                                        }
+                                                    }
+                                            }
+                                    }
                                 }
                         }
                 }

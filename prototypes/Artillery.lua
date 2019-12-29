@@ -138,7 +138,7 @@ function artillery.enable()
                                                             action =
                                                                 {
                                                                     type = "area",
-                                                                    radius = 25.0,
+                                                                    radius = 10,
                                                                     action_delivery =
                                                                         {
                                                                             type = "instant",

@@ -19,16 +19,17 @@ Date: 28. 12. 2019
     - Reduced HE landmine AOE damage to 2000
     - Increased all fire durations by 5 seconds
     - Increased all "fire increase life" durations by 1.5 seconds
-    - Increased all maximum_damage_multipler to 10
-    - Increased all damage_multipler_per_added_fuel to 1.35
     - Landmines AOE no longer affects same force
     - Reduced landmine trigger radius to 2.5 (nuclear landmine is 7)
     - Normalized AOE Radius on cannons, grenades, capsules, rockets, artillery
     - Reduced damage on explosive uranium cannon shells
+    - Reduced AOE radius on HE artillery shells
+    - Added fire generation to incendiary artillery shells
   Bugfixes:
     - Fixed lightning turret not dealing damage
     - Fixed advanced solar panel and accumulator corpse size
     - Fixed grenades in tech tree not requiring military-2
+    - Fixed HE landmine trigger radius
 
   FIX BEFORE RELEASE:
     - HE magazine shooting projectiles
