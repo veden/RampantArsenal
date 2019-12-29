@@ -70,7 +70,7 @@ function guns.enable()
             order = "e[mortar]-b"
         },
         {
-            type = "stream",
+            type = "projectile",
             ammo_category = "capsule-launcher",
             cooldown = 350,
             movement_slow_down_factor = 0.9,
@@ -83,7 +83,12 @@ function guns.enable()
             },
             gun_barrel_length = 1,
             range = 45,
-            sound = make_heavy_gunshot_sounds()
+            sound = {
+                {
+                    filename = "__base__/sound/fight/rocket-launcher.ogg",
+                    volume = 0.9
+                }
+            }
     })
 
     local rocketLauncher = makeGun(
@@ -93,9 +98,9 @@ function guns.enable()
             order = "d[rocket-launcher]-b"
         },
         {
-            type = "stream",
+            type = "projectile",
             ammo_category = "rocket",
-            cooldown = 50,
+            cooldown = 70,
             movement_slow_down_factor = 0.8,
             damage_modifier = 1.5,
             gun_center_shift = {
@@ -105,11 +110,11 @@ function guns.enable()
                 west = {0, 0}
             },
             gun_barrel_length = 1,
-            range = 40,
+            range = 38,
             sound = {
                 {
                     filename = "__base__/sound/fight/rocket-launcher.ogg",
-                    volume = 0.7
+                    volume = 0.8
                 }
             }
     })
@@ -126,6 +131,7 @@ function guns.enable()
             cooldown = 15,
             movement_slow_down_factor = 0.7,
             damage_modifier = 1.2,
+            lead_target_for_projectile_speed = 0.9,
             shell_particle =
                 {
                     name = "shell-particle",
@@ -188,7 +194,7 @@ function guns.enable()
                                                         target_effects ={
                                                             {
                                                                 type = "damage",
-                                                                damage = {amount = 38, type = "physical"}
+                                                                damage = {amount = 26, type = "physical"}
                                                             }
                                                         }
                                                     }
@@ -203,7 +209,6 @@ function guns.enable()
                     }
             }
     })
-
     
     local incendiaryShotgunShellAmmo = makeAmmo({
             name = "incendiary-shotgun",
@@ -253,7 +258,7 @@ function guns.enable()
                                                             },
                                                             {
                                                                 type = "damage",
-                                                                damage = {amount = 14, type = "fire"}
+                                                                damage = {amount = 20, type = "fire"}
                                                             },
                                                             {
                                                                 type = "create-sticker",
@@ -310,11 +315,11 @@ function guns.enable()
                                         },					
                                         {
                                             type = "damage",
-                                            damage = { amount = 4, type = "physical"}
+                                            damage = { amount = 2, type = "physical"}
                                         },
                                         {
                                             type = "damage",
-                                            damage = { amount = 18, type = "fire"}
+                                            damage = { amount = 20, type = "fire"}
                                         }
                                     }
                             }
@@ -377,11 +382,11 @@ function guns.enable()
                                                                 },
                                                                 {
                                                                     type = "damage",
-                                                                    damage = {amount = 4, type = "physical"}
+                                                                    damage = {amount = 2, type = "physical"}
                                                                 },
                                                                 {
                                                                     type = "damage",
-                                                                    damage = {amount = 18, type = "explosion"}
+                                                                    damage = {amount = 20, type = "explosion"}
                                                                 },
                                                                 {
                                                                     type = "push-back",
@@ -402,7 +407,10 @@ function guns.enable()
             }
     })
     
-    local heMagazineAmmo = makeAmmo({
+    local heMagazineAmmo
+    -- if (settings.startup["rampant-arsenal-"]) then
+    -- end
+    = makeAmmo({
             name = "he-magazine",
             icon = "__RampantArsenal__/graphics/icons/he-rounds-magazine.png",
             order = "a[basic-clips]-c[he-rounds-magazine]",
@@ -431,7 +439,8 @@ function guns.enable()
                                             name = "heMagazine",
                                             directionOnly = false,
                                             tint = {r=0.4,g=0,b=0.8,a=0.8},
-                                            action = {
+                                            hitAtPosition = true,
+                                             action = {
                                                 type = "direct",
                                                 action_delivery =
                                                     {
@@ -443,11 +452,11 @@ function guns.enable()
                                                             },
                                                             {
                                                                 type = "damage",
-                                                                damage = {amount = 4, type = "physical"}
+                                                                damage = {amount = 2, type = "physical"}
                                                             },
                                                             {
                                                                 type = "damage",
-                                                                damage = {amount = 18, type = "explosion"}
+                                                                damage = {amount = 20, type = "explosion"}
                                                             },
                                                             {
                                                                 type = "push-back",
@@ -516,7 +525,7 @@ function guns.enable()
                                                             },
                                                             {
                                                                 type = "damage",
-                                                                damage = {amount = 14, type = "poison"}
+                                                                damage = {amount = 20, type = "poison"}
                                                             },
                                                             {
                                                                 type = "create-sticker",
@@ -565,11 +574,11 @@ function guns.enable()
                                         },
                                         {
                                             type = "damage",
-                                            damage = { amount = 4, type = "physical"}
+                                            damage = { amount = 2, type = "physical"}
                                         },
                                         {
                                             type = "damage",
-                                            damage = { amount = 18, type = "poison"}
+                                            damage = { amount = 20, type = "poison"}
                                         }
                                     }
                             }
@@ -732,7 +741,7 @@ function guns.enable()
                                 },
                                 {
                                     type = "damage",
-                                    damage = { amount = 32, type = "physical"}
+                                    damage = { amount = 26, type = "physical"}
                                 }
                             }
                     }

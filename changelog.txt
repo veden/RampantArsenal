@@ -5,11 +5,34 @@ Date: 28. 12. 2019
     - Reduce personnal cannon explosion count
     - Increased Advanced Laser drain to 240kW
     - Increased lightning turret drain to 125kW
-    - Increased oil generator emissions to 40
+    - Increased oil generator emissions to 15
+    - Switched Lightning turret back to beam sprite
+    - Lightning turret now effects trees
+    - Reduced explosions from personal cannon defense
+    - Reduced range of personal lightning defense to 20
+    - Reduced AOE radius for personal cannon defense to 2
+    - Change AOE from personal cannon to only effect enemies
+    - Removed min range on personal cannon defense
+    - Reduced uranium magazine and shotgun to 26 damage
+    - Increased incendiary, HE, and bio to 2 physical and 20 elemental
+    - Reduced incendiary landmine AOE radius to 6
+    - Reduced HE landmine AOE damage to 2000
+    - Increased all fire durations by 5 seconds
+    - Increased all "fire increase life" durations by 1.5 seconds
+    - Increased all maximum_damage_multipler to 10
+    - Increased all damage_multipler_per_added_fuel to 1.35
+    - Landmines AOE no longer affects same force
+    - Reduced landmine trigger radius to 2.5 (nuclear landmine is 7)
+    - Normalized AOE Radius on cannons, grenades, capsules, rockets, artillery
+    - Reduced damage on explosive uranium cannon shells
   Bugfixes:
     - Fixed lightning turret not dealing damage
-    
-    
+    - Fixed advanced solar panel and accumulator corpse size
+    - Fixed grenades in tech tree not requiring military-2
+
+  FIX BEFORE RELEASE:
+    - HE magazine shooting projectiles
+
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.18
 Date: 6. 10. 2019
@@ -39,7 +62,7 @@ Date: 5. 28. 2019
     - Doubled science cost for turrets 2 and lightning turrets
     - Decreased personal cannon equipment requirement to cannon shell damage 4
     - Decreased personal lightning equipment requirement to energy weapons damage 3
-    - Decreased he cannon shell AOE damage to 800    
+    - Decreased he cannon shell AOE damage to 800
     - Increased bonus damage for landmines by ~%10 per tech
     - Increased bonus damage for capsule launcher ammo by ~%10 per tech
     - Increased bonus damage for rockets final infinite tech to %50
@@ -72,7 +95,7 @@ Date: 5. 2. 2019
     - Fixed 0.17.35 changes
     - Fixed emissions_per_minute
     - Fixed Power armor research change
-    - Fixed player entity renamed    
+    - Fixed player entity renamed
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.13
@@ -101,7 +124,7 @@ Date: 4. 21. 2019
     - Fixed update_next on advanced accumulator and solar panel
     - Fixed minable on advanced accumulator and solar panel
     - Fixed adv and nuclear car and tank remaining bobs vehicle equipment integration
-    - Fixed advance accumulator research locale name    
+    - Fixed advance accumulator research locale name
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.11
@@ -176,7 +199,7 @@ Date: 4. 06. 2019
     - Normalized all shotgun and shotgun projectiles to range 22 (except the first level shotgun ammo)
     - Increased all combot robots base damage by x2
     - Added laser resistance to tanks and cars
-    - Changed shotgun turret to use the same min range and projectile creation distance as the cannon turret    
+    - Changed shotgun turret to use the same min range and projectile creation distance as the cannon turret
     - Removed cluster effect from incendiary landmine launcher
     - Reduced grenade launcher AoE by 1
     - Reduced HE grenade launcher AoE by 5
@@ -184,7 +207,7 @@ Date: 4. 06. 2019
     - Reduced HE grenade AoE by 3
     - Reduced HE cannon shell AoE by 5
     - Reduced HE rocket AoE by 6
-    - Reduced HE landmine AoE by 5    
+    - Reduced HE landmine AoE by 5
     - Reduced HE shell AoE damage by 500
     - Increased HE shell point damage by 600
     - Reduced Incendiary rocket AoE by 2
@@ -196,7 +219,7 @@ Date: 4. 06. 2019
     - Reduced Bio landmine AoE by 2
     - Reduced Advanced car machine gun range by 1
     - Increased Advanced car flamethrower range by 3
-    - Reduced Nuclear car machine gun range by 1    
+    - Reduced Nuclear car machine gun range by 1
     - Reduced Advanced tank gun range by 2
     - Reduced Advanced tank flamethrower range by 3
     - Reduced Nuclear tank machine gun range by 3

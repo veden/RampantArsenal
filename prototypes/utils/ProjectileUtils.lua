@@ -45,7 +45,8 @@ function projectileUtils.makeShotgunProjectile(attributes)
                         priority = "high"
                     },
                 shadow = attributes.shadow,
-                smoke = attributes.smoke
+                smoke = attributes.smoke,
+                hit_at_collision_position = attributes.hitAtPosition
     }})
     
     return name

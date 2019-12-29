@@ -23,7 +23,7 @@ function power.enable()
                 fluidPerTick = 1,
                 effectivity = 1,
                 maxTemp = 25,
-                emissions = 40,
+                emissions = 15,
                 scale = 1,
                 tint = { r = 0.7, g = 0.4, b = 0.3, a = 1 }
         })
@@ -80,6 +80,51 @@ function power.enable()
     end
 
     if settings.startup["rampant-arsenal-enableAdvancedSolarPanel"].value then
+        data:extend({
+                {
+                    type = "corpse",
+                    name = "advanced-solar-panel-remnants-rampant-arsenal",
+                    icon = "__base__/graphics/icons/solar-panel.png",
+                    icon_size = 32,
+                    flags = {"placeable-neutral", "not-on-map"},
+                    selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+                    tile_width = 3,
+                    tile_height = 3,
+                    selectable_in_game = false,
+                    subgroup = "remnants",
+                    order="d[remnants]-a[generic]-a[small]",
+                    time_before_removed = 60 * 60 * 15, -- 15 minutes
+                    final_render_layer = "remnants",
+                    remove_on_tile_placement = false,
+                    animation = make_rotated_animation_variations_from_sheet (2,
+                                                                              {
+                                                                                  filename = "__base__/graphics/entity/solar-panel/remnants/solar-panel-remnants.png",
+                                                                                  line_length = 1,
+                                                                                  width = 146,
+                                                                                  height = 142,
+                                                                                  frame_count = 1,
+                                                                                  variation_count = 1,
+                                                                                  axially_symmetrical = false,
+                                                                                  direction_count = 1,
+                                                                                  shift = util.by_pixel(4, 0),
+                                                                                  scale = 4,
+                                                                                  hr_version =
+                                                                                      {
+                                                                                          filename = "__base__/graphics/entity/solar-panel/remnants/hr-solar-panel-remnants.png",
+                                                                                          line_length = 1,
+                                                                                          width = 290,
+                                                                                          height = 282,
+                                                                                          frame_count = 1,
+                                                                                          variation_count = 1,
+                                                                                          axially_symmetrical = false,
+                                                                                          direction_count = 1,
+                                                                                          shift = util.by_pixel(3.5, 0),
+                                                                                          scale = 2,
+                                                                                      },
+                    })
+                }
+        })
+        
         local solarPanel = table.deepcopy(data.raw["solar-panel"]["solar-panel"])
         solarPanel.name = "advanced-solar-panel-rampant-arsenal"
         solarPanel.minable.result = "advanced-solar-panel-rampant-arsenal"
@@ -92,6 +137,7 @@ function power.enable()
         solarPanel.selection_box[1][2] = solarPanel.selection_box[1][2] * 4
         solarPanel.selection_box[2][1] = solarPanel.selection_box[2][1] * 4
         solarPanel.selection_box[2][2] = solarPanel.selection_box[2][2] * 4
+        solarPanel.corpse = "advanced-solar-panel-remnants-rampant-arsenal"
 
         solarPanel.max_health = 1000
         
@@ -171,6 +217,51 @@ function power.enable()
     end
 
     if settings.startup["rampant-arsenal-enableAdvancedAccumulator"].value then
+        data:extend({
+                {
+                    type = "corpse",
+                    name = "advanced-accumulator-remnants-rampant-arsenal",
+                    icon = "__base__/graphics/icons/accumulator.png",
+                    icon_size = 32,
+                    flags = {"placeable-neutral", "not-on-map"},
+                    selection_box = {{-1, -1}, {1, 1}},
+                    tile_width = 2,
+                    tile_height = 2,
+                    selectable_in_game = false,
+                    subgroup = "remnants",
+                    order="d[remnants]-a[generic]-a[small]",
+                    time_before_removed = 60 * 60 * 15, -- 15 minutes
+                    final_render_layer = "remnants",
+                    remove_on_tile_placement = false,
+                    animation = make_rotated_animation_variations_from_sheet (1,
+                                                                              {
+                                                                                  filename = "__base__/graphics/entity/accumulator/remnants/accumulator-remnants.png",
+                                                                                  line_length = 1,
+                                                                                  width = 86,
+                                                                                  height = 74,
+                                                                                  frame_count = 1,
+                                                                                  variation_count = 1,
+                                                                                  axially_symmetrical = false,
+                                                                                  direction_count = 1,
+                                                                                  shift = util.by_pixel(12, 20),
+                                                                                  scale = 3.8,
+                                                                                  hr_version =
+                                                                                      {
+                                                                                          filename = "__base__/graphics/entity/accumulator/remnants/hr-accumulator-remnants.png",
+                                                                                          line_length = 1,
+                                                                                          width = 172,
+                                                                                          height = 146,
+                                                                                          frame_count = 1,
+                                                                                          variation_count = 1,
+                                                                                          axially_symmetrical = false,
+                                                                                          direction_count = 1,
+                                                                                          shift = util.by_pixel(12, 35),
+                                                                                          scale = 1.8,
+                                                                                      },
+                    })
+                }
+        })
+        
         local accumulator = table.deepcopy(data.raw["accumulator"]["accumulator"])
         accumulator.name = "advanced-accumulator-rampant-arsenal"
         accumulator.collision_box[1][1] = accumulator.collision_box[1][1] * 3.4 
@@ -184,6 +275,7 @@ function power.enable()
         accumulator.selection_box[1][2] = accumulator.selection_box[1][2] * 3 + 1.8
         accumulator.selection_box[2][1] = accumulator.selection_box[2][1] * 3.4
         accumulator.selection_box[2][2] = accumulator.selection_box[2][2] * 3 + 1.8
+        accumulator.corpse = "advanced-accumulator-remnants-rampant-arsenal"
 
         accumulator.max_health = 2000
         
@@ -310,7 +402,7 @@ function power.enable()
         
         accumulator.charge_animation = charging
         accumulator.discharge_animation = discharging
-            
+        
         local recipe = table.deepcopy(data.raw["recipe"]["accumulator"])
         recipe.name = "advanced-accumulator-rampant-arsenal"
         recipe.ingredients = {

@@ -570,9 +570,9 @@ function lasers.enable()
                                                                        action =
                                                                            {
                                                                                type = "line",
-                                                                               range = 10,
+                                                                               range = 21,
                                                                                width =  5,
-                                                                               force = "enemy",
+                                                                               force = "not-same",
                                                                                action_delivery =
                                                                                    {
                                                                                        type = "beam",

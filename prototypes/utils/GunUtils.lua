@@ -30,6 +30,7 @@ function gunUtils.makeGun(attributes, attack)
                                 starting_frame_speed_deviation = 0.1
                             },
                         projectile_creation_distance = 1.125,
+                        lead_target_for_projectile_speed = attributes.leadDistance,
                         range = 18,
                         sound = make_light_gunshot_sounds(),
                     },

@@ -271,34 +271,56 @@ function rockets.enable()
                                                                         affects_target = true,
                                                                         action =
                                                                             {
-                                                                                type = "area",
-                                                                                radius = 6,
-                                                                                action_delivery =
-                                                                                    {
-                                                                                        type = "instant",
-                                                                                        target_effects =
-                                                                                            {
+                                                                                {
+                                                                                    type = "cluster",
+                                                                                    cluster_count = 7,
+                                                                                    distance = 4,
+                                                                                    distance_deviation = 3,
+                                                                                    action_delivery =
+                                                                                        {
+                                                                                            type = "instant",
+                                                                                            target_effects =
                                                                                                 {
-                                                                                                    type = "create-fire",
-                                                                                                    entity_name = "fire-flame",
-                                                                                                    initial_ground_flame_count = 4
-                                                                                                },
-                                                                                                {
-                                                                                                    type = "create-sticker",
-                                                                                                    sticker = "small-fire-sticker-rampant-arsenal"
-                                                                                                },
-                                                                                                {
-                                                                                                    type = "damage",
-                                                                                                    damage = {amount = 600 , type = "fire"},
-                                                                                                    apply_damage_to_trees = false
-                                                                                                },
-                                                                                                {
-                                                                                                    type = "damage",
-                                                                                                    damage = {amount = 50 , type = "explosion"},
-                                                                                                    apply_damage_to_trees = false
+                                                                                                    {
+                                                                                                        type = "create-fire",
+                                                                                                        entity_name = "fire-flame",
+                                                                                                        initial_ground_flame_count = 4,
+                                                                                                        check_buildability = true,
+                                                                                                        show_in_tooltip = true
+                                                                                                    }
                                                                                                 }
-                                                                                            }
-                                                                                    }
+                                                                                        }
+                                                                                },
+                                                                                {
+                                                                                    type = "area",
+                                                                                    radius = 6.5,
+                                                                                    action_delivery =
+                                                                                        {
+                                                                                            type = "instant",
+                                                                                            target_effects =
+                                                                                                {
+                                                                                                    {
+                                                                                                        type = "create-fire",
+                                                                                                        entity_name = "fire-flame",
+                                                                                                        initial_ground_flame_count = 7
+                                                                                                    },
+                                                                                                    {
+                                                                                                        type = "create-sticker",
+                                                                                                        sticker = "small-fire-sticker-rampant-arsenal"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        type = "damage",
+                                                                                                        damage = {amount = 600 , type = "fire"},
+                                                                                                        apply_damage_to_trees = false
+                                                                                                    },
+                                                                                                    {
+                                                                                                        type = "damage",
+                                                                                                        damage = {amount = 50 , type = "explosion"},
+                                                                                                        apply_damage_to_trees = false
+                                                                                                    }
+                                                                                                }
+                                                                                        }
+                                                                                }
                                                                             }
                                                                     },
                                                                     {
@@ -380,7 +402,7 @@ function rockets.enable()
                                                                         action =
                                                                             {
                                                                                 type = "area",
-                                                                                radius = 8,
+                                                                                radius = 6.5,
                                                                                 action_delivery =
                                                                                     {
                                                                                         type = "instant",
@@ -481,7 +503,7 @@ function rockets.enable()
                                                                         action =
                                                                             {
                                                                                 type = "area",
-                                                                                radius = 5,
+                                                                                radius = 6.5,
                                                                                 action_delivery =
                                                                                     {
                                                                                         type = "instant",
