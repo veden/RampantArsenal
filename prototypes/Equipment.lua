@@ -1,5 +1,6 @@
 local Equipment = {}
 
+local sounds = require("__base__.prototypes.entity.demo-sounds")
 local recipeUtils = require("utils/RecipeUtils")
 local technologyUtils = require("utils/TechnologyUtils")
 local armorUtils = require("utils/ArmorUtils")
@@ -430,7 +431,7 @@ function Equipment.enable()
             projectile_creation_distance = 1.39375,
             projectile_center = {0, -0.0875},
             range = 18,
-            sound = make_heavy_gunshot_sounds(),
+            sound = sounds.shotgun,
     })
 
     local passiveCannon = makePassiveDefense(
@@ -568,7 +569,12 @@ function Equipment.enable()
             },
             projectile_center = {0, -0.0875},
             range = 30,
-            sound = make_heavy_gunshot_sounds(),
+            sound = {
+                {
+                    filename = "__base__/sound/fight/tank-cannon.ogg",
+                    volume = 0.7
+                }
+            },
     })
 
     local passiveLightning = makePassiveDefense(
@@ -668,7 +674,7 @@ function Equipment.enable()
                             }
                     }
             },
-            sound = make_heavy_gunshot_sounds(),
+            sound = sounds.light_gunshot,
     })
 
     local passiveSlow = makePassiveDefense(
@@ -724,7 +730,7 @@ function Equipment.enable()
                             }
                     }
             },
-            sound = make_heavy_gunshot_sounds(),
+            sound = sounds.light_gunshot,
     })
 
     makeRecipe(

@@ -1,5 +1,6 @@
 local medic = {}
 
+local sounds = require("__base__.prototypes.entity.demo-sounds")
 local recipeUtils = require("utils/RecipeUtils")
 local technologyUtils = require("utils/TechnologyUtils")
 local projectileUtils = require("utils/ProjectileUtils")
@@ -102,7 +103,7 @@ function medic.enable()
                                                            damage_modifier = 1,
                                                            projectile_center = {0, 0},
                                                            range = 28,
-                                                           sound = make_heavy_gunshot_sounds(),
+                                                           sound = sounds.light_gunshot,
     })
 
     makeRecipe({
@@ -229,12 +230,14 @@ function medic.enable()
                         modifier = 0.4
     })
 
-    addEffectToTech("capsule-turret-damage-7",
-                    {
-                        type = "turret-attack",
-                        turret_id = medicTurret,
-                        modifier = 0.2
-    })
+    if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
+        addEffectToTech("capsule-turret-damage-7",
+                        {
+                            type = "turret-attack",
+                            turret_id = medicTurret,
+                            modifier = 0.2
+        })
+    end
 
     addEffectToTech("stronger-explosives-1",
                     {
@@ -278,13 +281,14 @@ function medic.enable()
                         modifier = 0.2
     })
 
-    addEffectToTech("stronger-explosives-7",
-                    {
-                        type = "ammo-damage",
-                        ammo_category = "turret-capsule",
-                        modifier = 0.2
-    })
-
+    if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
+        addEffectToTech("stronger-explosives-7",
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "turret-capsule",
+                            modifier = 0.2
+        })
+    end
     
 end
 

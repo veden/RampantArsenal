@@ -1,5 +1,6 @@
 local guns = {}
 
+local sounds = require("__base__.prototypes.entity.demo-sounds")
 local gunUtils = require("utils/GunUtils")
 local turretUtils = require("utils/TurretUtils")
 local ammoUtils = require("utils/AmmoUtils")
@@ -128,7 +129,7 @@ function guns.enable()
         {
             type = "projectile",
             ammo_category = "bullet",
-            cooldown = 15,
+            cooldown = 3,
             movement_slow_down_factor = 0.7,
             damage_modifier = 1.2,
             lead_target_for_projectile_speed = 0.9,
@@ -146,7 +147,7 @@ function guns.enable()
             projectile_center = {-0, -0},
             projectile_creation_distance = 0,
             range = 20,
-            sound = make_heavy_gunshot_sounds()
+            sound = sounds.heavy_gunshot
     })
 
     local uraniumShotgunShellAmmo = makeAmmo({
@@ -258,7 +259,7 @@ function guns.enable()
                                                             },
                                                             {
                                                                 type = "damage",
-                                                                damage = {amount = 20, type = "fire"}
+                                                                damage = {amount = 22, type = "fire"}
                                                             },
                                                             {
                                                                 type = "create-sticker",
@@ -319,7 +320,7 @@ function guns.enable()
                                         },
                                         {
                                             type = "damage",
-                                            damage = { amount = 20, type = "fire"}
+                                            damage = { amount = 22, type = "fire"}
                                         }
                                     }
                             }
@@ -386,7 +387,7 @@ function guns.enable()
                                                                 },
                                                                 {
                                                                     type = "damage",
-                                                                    damage = {amount = 20, type = "explosion"}
+                                                                    damage = {amount = 22, type = "explosion"}
                                                                 },
                                                                 {
                                                                     type = "push-back",
@@ -410,72 +411,94 @@ function guns.enable()
     local heMagazineAmmo
     -- if (settings.startup["rampant-arsenal-"]) then
     -- end
-    = makeAmmo({
-            name = "he-magazine",
-            icon = "__RampantArsenal__/graphics/icons/he-rounds-magazine.png",
-            order = "a[basic-clips]-c[he-rounds-magazine]",
-            magSize = 10,
-            stackSize = 200,
-            ammoType = {
-                category = "bullet",
-                target_type = "position",
-                clamp_position = true,
-                action =
-                    {
-                        type = "direct",
-                        action_delivery =
-                            {
+        = makeAmmo({
+                name = "he-magazine",
+                icon = "__RampantArsenal__/graphics/icons/he-rounds-magazine.png",
+                order = "a[basic-clips]-c[he-rounds-magazine]",
+                magSize = 10,
+                stackSize = 200,
+                ammoType = {
+                    category = "bullet",
+                    -- target_type = "position",
+                    -- clamp_position = true,
+                    action =
+                        {
+                            type = "direct",
+                            action_delivery =
                                 {
-                                    type = "instant",
-                                    source_effects =
-                                        {
-                                            type = "create-explosion",
-                                            entity_name = "explosion-gunshot"
-                                        }                                    
-                                },
-                                {
-                                    type = "projectile",
-                                    projectile = makeShotgunProjectile({
-                                            name = "heMagazine",
-                                            directionOnly = false,
-                                            tint = {r=0.4,g=0,b=0.8,a=0.8},
-                                            hitAtPosition = true,
-                                             action = {
-                                                type = "direct",
-                                                action_delivery =
-                                                    {
-                                                        type = "instant",
-                                                        target_effects = {
-                                                            {
-                                                                type = "create-explosion",
-                                                                entity_name = "explosion"
-                                                            },
-                                                            {
-                                                                type = "damage",
-                                                                damage = {amount = 2, type = "physical"}
-                                                            },
-                                                            {
-                                                                type = "damage",
-                                                                damage = {amount = 20, type = "explosion"}
-                                                            },
-                                                            {
-                                                                type = "push-back",
-                                                                distance = 0.5,
-                                                                show_in_tooltip = true
-                                                            }
-                                                        }
-                                                    }
+                                    {
+                                        type = "instant",
+                                        source_effects =
+                                            {
+                                                type = "create-explosion",
+                                                entity_name = "explosion-gunshot"
+                                            }                                    
+                                    },
+                                    {
+                                        type = "instant",
+                                        target_effects = {
+                                            {
+                                                type = "create-explosion",
+                                                entity_name = "explosion"
+                                            },
+                                            {
+                                                type = "damage",
+                                                damage = {amount = 2, type = "physical"}
+                                            },
+                                            {
+                                                type = "damage",
+                                                damage = {amount = 22, type = "explosion"}
+                                            },
+                                            {
+                                                type = "push-back",
+                                                distance = 0.5,
+                                                show_in_tooltip = true
                                             }
-                                    }),
-                                    starting_speed = 1,
-                                    direction_deviation = 0.1,
-                                    range_deviation = 0.1,
-                                    max_range = 40
+                                        }
+                                    }
+                                    -- {
+                                    --     type = "projectile",
+                                    --     projectile = makeShotgunProjectile({
+                                    --             name = "heMagazine",
+                                    --             directionOnly = false,
+                                    --             tint = {r=0.4,g=0,b=0.8,a=0.8},
+                                    --             hitAtPosition = true,
+                                    --              action = {
+                                    --                 type = "direct",
+                                    --                 action_delivery =
+                                    --                     {
+                                    --                         type = "instant",
+                                    --                         target_effects = {
+                                    --                             {
+                                    --                                 type = "create-explosion",
+                                    --                                 entity_name = "explosion"
+                                    --                             },
+                                    --                             {
+                                    --                                 type = "damage",
+                                    --                                 damage = {amount = 2, type = "physical"}
+                                    --                             },
+                                    --                             {
+                                    --                                 type = "damage",
+                                    --                                 damage = {amount = 20, type = "explosion"}
+                                    --                             },
+                                    --                             {
+                                    --                                 type = "push-back",
+                                    --                                 distance = 0.5,
+                                    --                                 show_in_tooltip = true
+                                    --                             }
+                                    --                         }
+                                    --                     }
+                                    --             }
+                                    --     }),
+                                    --     starting_speed = 1,
+                                    --     direction_deviation = 0.1,
+                                    --     range_deviation = 0.1,
+                                    --     max_range = 40
+                                    -- }
                                 }
-                            }
-                    }
-            }
-    })
+                        }
+                }
+                  })
 
     local bioShotgunShellAmmo = makeAmmo({
             name = "bio-shotgun",
@@ -578,7 +601,7 @@ function guns.enable()
                                         },
                                         {
                                             type = "damage",
-                                            damage = { amount = 20, type = "poison"}
+                                            damage = { amount = 22, type = "poison"}
                                         }
                                     }
                             }
@@ -866,7 +889,7 @@ function guns.enable()
                                                        damage_modifier = 2,
                                                        projectile_center = {0, 0},
                                                        range = 24,
-                                                       sound = make_heavy_gunshot_sounds(),
+                                                       sound = sounds.heavy_gunshot,
     })
     
     makeRecipe({
@@ -904,7 +927,7 @@ function guns.enable()
                                                            damage_modifier = 1.2,
                                                            projectile_center = {0, 0.2},
                                                            range = 16,
-                                                           sound = make_heavy_gunshot_sounds(),
+                                                           sound = sounds.light_gunshot,
     })
     
     makeRecipe({
@@ -1036,23 +1059,25 @@ function guns.enable()
                         }
     })
 
-    addEffectToTech("gun-turret-damage-7",
-                    {
+    if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
+        addEffectToTech("gun-turret-damage-7",
                         {
-                            type = "turret-attack",
-                            turret_id = rifleTurret,
-                            modifier = 0.8
-                        },
-                        {
-                            type = "turret-attack",
-                            turret_id = "gun-turret",
-                            modifier = 0.8
-                        },
-                        {
-                            type = "turret-attack",
-                            turret_id = gunTurret,
-                            modifier = 0.8
-    }})
+                            {
+                                type = "turret-attack",
+                                turret_id = rifleTurret,
+                                modifier = 0.8
+                            },
+                            {
+                                type = "turret-attack",
+                                turret_id = "gun-turret",
+                                modifier = 0.8
+                            },
+                            {
+                                type = "turret-attack",
+                                turret_id = gunTurret,
+                                modifier = 0.8
+        }})
+    end
     
     removeEffect("military-3", "unlock-recipe", "poison-capsule")
     removeEffect("military-3", "unlock-recipe", "slowdown-capsule")

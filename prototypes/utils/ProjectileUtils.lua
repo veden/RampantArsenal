@@ -64,6 +64,11 @@ function projectileUtils.makeLaserProjectile(attributes)
                 force_condition = (settings.startup["rampant-arsenal-useNonCollidingProjectilesLaser"].value and "not-same") or nil,
                 direction_only = attributes.directionOnly,
                 piercing_damage = attributes.piercingDamage or 300,
+                light = {
+                    intensity = 0.75,
+                    size = 8,
+                    color = attributes.tint,
+                },
                 action = attributes.action or 
                     {
                         type = "direct",

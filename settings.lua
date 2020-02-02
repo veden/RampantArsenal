@@ -26,7 +26,6 @@ data:extend({
             order = "a[projectile]-a[collide]",
             per_user = false
         },
-        
 
         {
             type = "bool-setting",
@@ -71,8 +70,17 @@ data:extend({
             default_value = false,
             order = "a[projectile]-a[collide]",
             per_user = false
+        },
+
+        {
+            type = "bool-setting",
+            name = "rampant-arsenal-useInfiniteTechnologies",
+            setting_type = 'startup',
+            default_value = true,
+            order = "a[projectile]-a[collide]",
+            per_user = false
         }
-        
+
         -- {
         --     type = "bool-setting",
         --     name = "rampant-arsenal-enableGunTurretDamageResearch",
@@ -101,7 +109,7 @@ data:extend({
         --     order = "a[modifer]-a[resource]",
         --     per_user = false
         -- },
-        
+
         -- {
         --     type = "double-setting",
         --     name = "rampant-arsenal-spoutThreshold",

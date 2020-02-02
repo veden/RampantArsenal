@@ -1,5 +1,6 @@
 local vehicles = {}
 
+local sounds = require("__base__.prototypes.entity.demo-sounds")
 local recipeUtils = require("utils/RecipeUtils")
 local technologyUtils = require("utils/TechnologyUtils")
 local vehicleUtils = require("utils/VehicleUtils")
@@ -50,7 +51,7 @@ function vehicles.enable()
             projectile_center = {-0.15625, -0.07812},
             projectile_creation_distance = 3,
             range = 20,
-            sound = make_heavy_gunshot_sounds()
+            sound = sounds.heavy_gunshot
     })
 
     local advancedTankCannon = makeGun(
@@ -142,7 +143,12 @@ function vehicles.enable()
             },
             gun_barrel_length = 3,
             range = 45,
-            sound = make_heavy_gunshot_sounds()
+            sound = {
+                {
+                    filename = "__base__/sound/fight/rocket-launcher.ogg",
+                    volume = 0.9
+                }
+            }
     })
 
     local advTankGrid
@@ -280,7 +286,7 @@ function vehicles.enable()
             projectile_center = {-0.15625, -0.07812},
             projectile_creation_distance = 4,
             range = 21,
-            sound = make_heavy_gunshot_sounds()
+            sound = sounds.heavy_gunshot
     })
 
     local nuclearTankCannon = makeGun(
@@ -372,7 +378,12 @@ function vehicles.enable()
             },
             gun_barrel_length = 4,
             range = 45,
-            sound = make_heavy_gunshot_sounds()
+            sound = {
+                {
+                    filename = "__base__/sound/fight/rocket-launcher.ogg",
+                    volume = 0.9
+                }
+            }
     })
 
 
@@ -543,7 +554,7 @@ function vehicles.enable()
             projectile_center = {-0.15625, -0.07812},
             projectile_creation_distance = 0.75,
             range = 20,
-            sound = make_heavy_gunshot_sounds()
+            sound = sounds.heavy_gunshot
     })
 
     local advancedCarShotgun = makeGun(
@@ -667,7 +678,7 @@ function vehicles.enable()
             projectile_creation_distance = 0.75,
             gun_barrel_length = 0.75,
             range = 21,
-            sound = make_heavy_gunshot_sounds()
+            sound = sounds.heavy_gunshot
     })
 
     local nuclearCarShotgun = makeGun(
@@ -716,7 +727,12 @@ function vehicles.enable()
             },
             gun_barrel_length = 1,
             range = 45,
-            sound = make_heavy_gunshot_sounds()
+            sound = {
+                {
+                    filename = "__base__/sound/fight/rocket-launcher.ogg",
+                    volume = 0.9
+                }
+            }
     })
 
     local nuclearCar = makeCar({

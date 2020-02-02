@@ -43,7 +43,7 @@ local function make_laser_beam()
                     frame_count = 8,
                     scale = 1,
                     animation_speed = 0.5,
-                    tint = {r=0.0,g=0.8,b=0.9,a=1},
+                    tint = {r=0.75,g=0.2,b=0.75,a=0.55},
                     blend_mode = laser_beam_blend_mode
                 },
             tail =
@@ -56,7 +56,7 @@ local function make_laser_beam()
                     shift = util.by_pixel(11.5, 1),
                     scale = 1,
                     animation_speed = 0.5,
-                    tint = {r=0.0,g=0.8,b=0.9,a=1},                    
+                    tint = {r=0.75,g=0.2,b=0.75,a=0.55},
                     blend_mode = laser_beam_blend_mode
                 },
             body =
@@ -70,9 +70,86 @@ local function make_laser_beam()
                         frame_count = 8,
                         scale = 1,
                         animation_speed = 0.5,
-                        tint = {r=0.0,g=0.7,b=0.9,a=1},
+                        tint = {r=0.75,g=0.2,b=0.75,a=0.55},
                         blend_mode = laser_beam_blend_mode
                     }
+                },
+            light_animations =
+                {
+                    head =
+                        {
+                            filename = "__base__/graphics/entity/laser-turret/hr-laser-body-light.png",
+                            line_length = 8,
+                            width = 64,
+                            height = 12,
+                            frame_count = 8,
+                            scale = 0.5,
+                            tint = {r=0.75,g=0.2,b=0.75,a=0.55},
+                            animation_speed = 0.5,
+                        },
+                    tail =
+                        {
+                            filename = "__base__/graphics/entity/laser-turret/hr-laser-end-light.png",
+                            width = 110,
+                            height = 62,
+                            frame_count = 8,
+                            shift = util.by_pixel(11.5, 1),
+                            scale = 0.5,
+                            tint = {r=0.75,g=0.2,b=0.75,a=0.55},
+                            animation_speed = 0.5,
+                        },
+                    body =
+                        {
+                            {
+                                filename = "__base__/graphics/entity/laser-turret/hr-laser-body-light.png",
+                                line_length = 8,
+                                width = 64,
+                                height = 12,
+                                frame_count = 8,
+                                scale = 0.5,
+                                tint = {r=0.75,g=0.2,b=0.75,a=0.55},
+                                animation_speed = 0.5,
+                            }
+                        }
+                },
+
+            ground_light_animations =
+                {
+                    head =
+                        {
+                            filename = "__base__/graphics/entity/laser-turret/laser-ground-light-head.png",
+                            line_length = 1,
+                            width = 256,
+                            height = 256,
+                            repeat_count = 8,
+                            scale = 0.5,
+                            shift = util.by_pixel(-32, 0),
+                            animation_speed = 0.5,
+                            tint = {r=0.75,g=0.2,b=0.75,a=0.55}
+                        },
+                    tail =
+                        {
+                            filename = "__base__/graphics/entity/laser-turret/laser-ground-light-tail.png",
+                            line_length = 1,
+                            width = 256,
+                            height = 256,
+                            repeat_count = 8,
+                            scale = 0.5,
+                            shift = util.by_pixel(32, 0),
+                            animation_speed = 0.5,
+                            tint = {r=0.75,g=0.2,b=0.75,a=0.55}
+                        },
+                    body =
+                        {
+                            filename = "__base__/graphics/entity/laser-turret/laser-ground-light-body.png",
+                            line_length = 1,
+                            width = 64,
+                            height = 256,
+                            repeat_count = 8,
+                            scale = 0.5,
+                            animation_speed = 0.5,
+                            tint = {r=0.75,g=0.2,b=0.75,a=0.55}
+                        }
                 }
         }
 
@@ -87,7 +164,7 @@ local function make_laser_beam()
     data:extend({
             result
     })
-    
+
     return result.name
 end
 
@@ -137,7 +214,7 @@ local function laser_turret_extension_shadow(inputs)
             direction_count = 4,
             draw_as_shadow = true,
             shift = util.by_pixel(47, 3),
-            scale = 2,  
+            scale = 2,
             hr_version =
                 {
                     filename = "__base__/graphics/entity/laser-turret/hr-laser-turret-raising-shadow.png",
@@ -199,14 +276,14 @@ local function laser_turret_shooting()
             tint = {r=0.5,g=0.7,b=0.7,a=1},
             direction_count = 64,
             shift = util.by_pixel(0, -35),
-            scale = 2,    
+            scale = 2,
             hr_version =
                 {
                     filename = "__base__/graphics/entity/laser-turret/hr-laser-turret-shooting.png",
                     line_length = 8,
                     width = 126,
                     height = 120,
-                    tint = {r=0.5,g=0.7,b=0.7,a=1},                    
+                    tint = {r=0.5,g=0.7,b=0.7,a=1},
                     frame_count = 1,
                     direction_count = 64,
                     shift = util.by_pixel(0, -35),
@@ -226,7 +303,7 @@ local function laser_turret_shooting_glow()
             direction_count = 64,
             blend_mode = "additive",
             shift = util.by_pixel(0, -35),
-            scale = 2,    
+            scale = 2,
             hr_version =
                 {
                     filename = "__base__/graphics/entity/laser-turret/hr-laser-turret-shooting-light.png",
@@ -282,7 +359,7 @@ local function laser_turret_shooting_shadow()
             direction_count = 64,
             draw_as_shadow = true,
             shift = util.by_pixel(51, 2),
-            scale = 2,    
+            scale = 2,
             hr_version =
                 {
                     filename = "__base__/graphics/entity/laser-turret/hr-laser-turret-shooting-shadow.png",
@@ -356,7 +433,7 @@ end
 
 function lasers.enable()
     make_laser_beam()
-    
+
     local entity = {
         name = "advanced-laser",
         icon = "__RampantArsenal__/graphics/icons/advancedLaserTurret.png",
@@ -554,7 +631,7 @@ function lasers.enable()
             }
         }
     }
-    
+
     local _, lightningTowerTurretItem = makeElectricTurret(entity1, {
                                                                type = "beam",
                                                                ammo_category = "electric",
@@ -563,6 +640,7 @@ function lasers.enable()
                                                                damage_modifier = 18,
                                                                turn_range = 0.45,
                                                                projectile_creation_distance = 2,
+                                                               source_offset = {0, -3.423489 / 2},
                                                                ammo_type =
                                                                    {
                                                                        category = "laser-turret",
@@ -600,7 +678,7 @@ function lasers.enable()
         collisionBox = {{-1.4, -1.4}, {1.4, 1.4}},
         selectionBox = {{-2, -2}, {2, 2}},
         rotationSpeed = 0.01,
-        preparingSpeed = 0.05,        
+        preparingSpeed = 0.05,
         basePicture = {
             layers =
                 {
@@ -611,7 +689,7 @@ function lasers.enable()
                         height = 52,
                         direction_count = 1,
                         frame_count = 1,
-                        shift = util.by_pixel(0, 2),                        
+                        shift = util.by_pixel(0, 2),
                         scale = 2,
                         tint = {r=0.5,g=0.7,b=0.7,a=1},
                         hr_version =
@@ -729,8 +807,8 @@ function lasers.enable()
                                                          range = 28,
                                                          damage_modifier = 14,
                                                          source_direction_count = 64,
-                                                         source_offset = {0, -3.423489 / 2},
-                                                         projectile_creation_distance = 1.5,
+                                                         source_offset = {0, -3.423489 / 1.8},
+                                                         projectile_creation_distance = 2,
                                                          ammo_type =
                                                              {
                                                                  category = "laser-turret",

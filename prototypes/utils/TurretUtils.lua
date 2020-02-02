@@ -1,7 +1,8 @@
 local turretUtils = {}
 
 require "util"
-
+local sounds = require("__base__.prototypes.entity.demo-sounds")
+local hit_effects = require ("__base__.prototypes.entity.demo-hit-effects")
 
 
 local function foreach(table_, fun_)
@@ -172,6 +173,7 @@ function turretUtils.makeAmmoTurret(attributes, attack)
                 energy_source = attributes.energySource,
                 attacking_animation = attributes.attackingAnimation,
                 turret_base_has_direction = attributes.hasBaseDirection,
+                damaged_trigger_effect = hit_effects.entity(),
 
                 resistances = attributes.resistances,
                 
@@ -196,7 +198,23 @@ function turretUtils.makeAmmoTurret(attributes, attack)
                                 starting_frame_speed_deviation = 0.1
                             },
                         range = 18,
-                        sound = make_heavy_gunshot_sounds(),
+                        sound = sounds.heavy_gunshot,
+                    },
+
+                water_reflection =
+                    {
+                        pictures =
+                            {
+                                filename = "__base__/graphics/entity/gun-turret/gun-turret-reflection.png",
+                                priority = "extra-high",
+                                width = 20,
+                                height = 32,
+                                shift = util.by_pixel(0, 40),
+                                variation_count = 1,
+                                scale = 5,
+                            },
+                        rotate = false,
+                        orientation_to_variation = false
                     },
 
                 call_for_help_radius = 40,
@@ -240,6 +258,7 @@ function turretUtils.makeFluidTurret(attributes, attack)
                 attacking_speed = attributes.attackingSpeed or 1,
                 ending_attack_speed = attributes.attackingEndSpeed or 0.2,
                 dying_explosion = "medium-explosion",
+                -- damaged_trigger_effect = hit_effects.entity(),
                 inventory_size = 1,
                 automated_ammo_count = 10,
                 attacking_animation_fade_out = 10,
@@ -279,6 +298,18 @@ function turretUtils.makeFluidTurret(attributes, attack)
                 not_enough_fuel_indicator_picture = indicator_pictures,
                 enough_fuel_indicator_picture = foreach(util.table.deepcopy(indicator_pictures), function (tab) tab.x = tab.width end),
                 indicator_light = { intensity = 0.8, size = 0.9 },
+                out_of_ammo_alert_icon =
+                    {
+                        filename = "__core__/graphics/icons/alerts/fuel-icon-red.png",
+                        priority = "extra-high-no-scale",
+                        width = 64,
+                        height = 64,
+                        flags = {"icon"}
+                    },
+                -- gun_animation_render_layer = "object",
+                -- gun_animation_secondary_draw_order = 1,
+                -- base_picture_render_layer = "lower-object-above-shadow",
+                -- base_picture_secondary_draw_order = 1,                
                 
                 vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
 
@@ -390,6 +421,7 @@ function turretUtils.makeElectricTurret(attributes, attack)
                 collision_box = attributes.collisionBox or {{ -0.7, -0.7}, {0.7, 0.7}},
                 selection_box = attributes.selectionBox or {{ -1, -1}, {1, 1}},
                 rotation_speed = attributes.rotationSpeed or 0.01,
+                damaged_trigger_effect = hit_effects.entity(),
                 preparing_speed = attributes.preparingSpeed or 0.05,
                 dying_explosion = "medium-explosion",
                 turret_base_has_direction = attributes.hasBaseDirection,
@@ -407,10 +439,47 @@ function turretUtils.makeElectricTurret(attributes, attack)
                 folded_animation = attributes.foldedAnimation,
                 preparing_animation = attributes.preparingAnimation,
                 prepared_animation = attributes.preparedAnimation,
+                energy_glow_animation = {
+                    filename = "__base__/graphics/entity/laser-turret/laser-turret-shooting-light.png",
+                    line_length = 8,
+                    width = 62,
+                    height = 58,
+                    frame_count = 1,
+                    direction_count = 64,
+                    blend_mode = "additive",
+                    shift = util.by_pixel(0, -35),
+                    hr_version =
+                        {
+                            filename = "__base__/graphics/entity/laser-turret/hr-laser-turret-shooting-light.png",
+                            line_length = 8,
+                            width = 122,
+                            height = 116,
+                            frame_count = 1,
+                            direction_count = 64,
+                            shift = util.by_pixel(-0.5, -35),
+                            blend_mode = "additive",
+                            scale = 0.5
+                        }
+                },
+                glow_light_intensity = 0.5,
                 folding_animation = attributes.foldingAnimation,
                 base_picture = attributes.basePicture,
                 vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-
+                water_reflection =
+                    {
+                        pictures =
+                            {
+                                filename = "__base__/graphics/entity/laser-turret/laser-turret-reflection.png",
+                                priority = "extra-high",
+                                width = 20,
+                                height = 32,
+                                shift = util.by_pixel(0, 40),
+                                variation_count = 1,
+                                scale = 5,
+                            },
+                        rotate = false,
+                        orientation_to_variation = false
+                    },
                 attack_parameters = attack or
                     {
                         type = "projectile",

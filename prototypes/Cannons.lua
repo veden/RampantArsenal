@@ -1,5 +1,6 @@
 local cannons = {}
 
+local sounds = require("__base__.prototypes.entity.demo-sounds")
 local turretUtils = require("utils/TurretUtils")
 local recipeUtils = require("utils/RecipeUtils")
 local technologyUtils = require("utils/TechnologyUtils")
@@ -571,7 +572,7 @@ function cannons.enable()
                                                                projectile_creation_distance = (settings.startup["rampant-arsenal-useNonCollidingProjectilesShotgun"].value and 1.39375) or 9,
                                                                projectile_center = {0, -0.0875},
                                                                range = 22,
-                                                               sound = make_heavy_gunshot_sounds(),
+                                                               sound = sounds.shotgun
     })
 
     makeRecipe({
@@ -715,12 +716,14 @@ function cannons.enable()
                         modifier = 0.6
     })
 
-    addEffectToTech("shotgun-turret-damage-7",
-                    {
-                        type = "turret-attack",
-                        turret_id = shotgunTurret,
-                        modifier = 0.8
-    })
+    if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
+        addEffectToTech("shotgun-turret-damage-7",
+                        {
+                            type = "turret-attack",
+                            turret_id = shotgunTurret,
+                            modifier = 0.8
+        })
+    end
 
 
     addEffectToTech("cannon-turret-damage-1",
@@ -806,19 +809,22 @@ function cannons.enable()
                             modifier = 0.4
                         }
     })
-    addEffectToTech("cannon-turret-damage-7",
-                    {
+    
+    if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
+        addEffectToTech("cannon-turret-damage-7",
                         {
-                            type = "turret-attack",
-                            turret_id = rapidCannonTurret,
-                            modifier = 0.5
-                        },
-                        {
-                            type = "turret-attack",
-                            turret_id = cannonTurret,
-                            modifier = 0.5
-                        }
-    })
+                            {
+                                type = "turret-attack",
+                                turret_id = rapidCannonTurret,
+                                modifier = 0.5
+                            },
+                            {
+                                type = "turret-attack",
+                                turret_id = cannonTurret,
+                                modifier = 0.5
+                            }
+        })
+    end
 
     addEffectToTech("refined-flammables-1",
                     {
@@ -862,12 +868,14 @@ function cannons.enable()
                         modifier = 0.4
     })
 
-    addEffectToTech("refined-flammables-7",
-                    {
-                        type = "turret-attack",
-                        turret_id = suppressionCannonTurret,
-                        modifier = 0.5
-    })
+    if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
+        addEffectToTech("refined-flammables-7",
+                        {
+                            type = "turret-attack",
+                            turret_id = suppressionCannonTurret,
+                            modifier = 0.5
+        })
+    end
 
     local incendiaryCannonShellAmmo = makeAmmo({
             name = "incendiary-cannon-shell",
@@ -1317,6 +1325,7 @@ function cannons.enable()
     data.raw["ammo"]["explosive-uranium-cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
     data.raw["ammo"]["uranium-cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
 
+    
     data.raw["technology"]["refined-flammables-7"].effects[2].modifier = 0.5
 
     targetEffects = data.raw["projectile"]["explosive-uranium-cannon-projectile"].action.action_delivery.target_effects

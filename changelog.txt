@@ -1,6 +1,9 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.17.19
-Date: 28. 12. 2019
+Version: 0.18.0
+Date: 2. 2. 2020
+  Improvements:
+    - Settings toggle for infinite technologies to enable or disable them
+    - Added on hit effects and added laser glows
   Tweaks:
     - Reduce personnal cannon explosion count
     - Increased Advanced Laser drain to 240kW
@@ -14,7 +17,7 @@ Date: 28. 12. 2019
     - Change AOE from personal cannon to only effect enemies
     - Removed min range on personal cannon defense
     - Reduced uranium magazine and shotgun to 26 damage
-    - Increased incendiary, HE, and bio to 2 physical and 20 elemental
+    - Increased incendiary, HE, and bio to 2 physical and 22 elemental
     - Reduced incendiary landmine AOE radius to 6
     - Reduced HE landmine AOE damage to 2000
     - Increased all fire durations by 5 seconds
@@ -29,10 +32,9 @@ Date: 28. 12. 2019
     - Fixed lightning turret not dealing damage
     - Fixed advanced solar panel and accumulator corpse size
     - Fixed grenades in tech tree not requiring military-2
+    - Fixed infinite science not having space-science-pack prerequisite
     - Fixed HE landmine trigger radius
-
-  FIX BEFORE RELEASE:
-    - HE magazine shooting projectiles
+    - Fixed 0.18 breaking changes    
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.18

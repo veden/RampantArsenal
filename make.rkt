@@ -78,9 +78,23 @@
 
 
   (define (copy)
+    (set! configuration (call-with-input-file "info.json"
+                          (lambda (port)
+                            (string->jsexpr (port->string port)))))
+    (set! packageName (string-append (string-replace (hash-ref configuration 'name) " " "_")
+                                     "_"
+                                     (hash-ref configuration 'version)))
+
     (copyFiles modFolder))
 
   (define (zipIt)
+    (set! configuration (call-with-input-file "info.json"
+                          (lambda (port)
+                            (string->jsexpr (port->string port)))))
+    (set! packageName (string-append (string-replace (hash-ref configuration 'name) " " "_")
+                                     "_"
+                                     (hash-ref configuration 'version)))
+
     (makeZip modFolder))
 
   (define (runStart)

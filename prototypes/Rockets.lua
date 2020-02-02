@@ -643,19 +643,21 @@ function rockets.enable()
                         }
     })
 
-    addEffectToTech("rocket-turret-damage-7",
-                    {
+    if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
+        addEffectToTech("rocket-turret-damage-7",
                         {
-                            type = "turret-attack",
-                            turret_id = rapidRocketTurret,
-                            modifier = 0.5
-                        },
-                        {
-                            type = "turret-attack",
-                            turret_id = rocketTurret,
-                            modifier = 0.5
-                        }
-    })
+                            {
+                                type = "turret-attack",
+                                turret_id = rapidRocketTurret,
+                                modifier = 0.5
+                            },
+                            {
+                                type = "turret-attack",
+                                turret_id = rocketTurret,
+                                modifier = 0.5
+                            }
+        })
+    end
 end
 
 return rockets

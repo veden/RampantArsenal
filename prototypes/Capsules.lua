@@ -1544,12 +1544,14 @@ function capsules.enable()
                         modifier = 0.4
     })
 
-    addEffectToTech("capsule-turret-damage-7",
-                    {
-                        type = "turret-attack",
-                        turret_id = capsuleTurret,
-                        modifier = 0.6
-    })
+    if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
+        addEffectToTech("capsule-turret-damage-7",
+                        {
+                            type = "turret-attack",
+                            turret_id = capsuleTurret,
+                            modifier = 0.6
+        })
+    end
 
     addEffectToTech("stronger-explosives-1",
                     {
@@ -1593,12 +1595,14 @@ function capsules.enable()
                         modifier = 0.4
     })
 
-    addEffectToTech("stronger-explosives-7",
-                    {
-                        type = "ammo-damage",
-                        ammo_category = "capsule-launcher",
-                        modifier = 0.5
-    })
+    if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
+        addEffectToTech("stronger-explosives-7",
+                        {
+                            type = "ammo-damage",
+                            ammo_category = "capsule-launcher",
+                            modifier = 0.5
+        })
+    end
 
     data.raw["combat-robot"]["distractor"]["attack_parameters"]["damage_modifier"] = 2
     data.raw["combat-robot"]["destroyer"]["attack_parameters"]["damage_modifier"] = 2
