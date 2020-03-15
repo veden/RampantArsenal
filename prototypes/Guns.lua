@@ -132,7 +132,7 @@ function guns.enable()
             cooldown = 3,
             movement_slow_down_factor = 0.7,
             damage_modifier = 1.2,
-            lead_target_for_projectile_speed = 0.9,
+            -- lead_target_for_projectile_speed = 0.9,
             shell_particle =
                 {
                     name = "shell-particle",
