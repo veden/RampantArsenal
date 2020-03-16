@@ -1,14 +1,16 @@
 local wallUtils = {}
 
+local hit_effects = require ("__base__.prototypes.entity.demo-hit-effects")
+
 function wallUtils.addResistance(eType, name, resistance)
     if data.raw[eType][name] then
-	for i=1,#data.raw[eType][name].resistances do
-	    if (resistance.type == data.raw[eType][name].resistances[i].type) then
-		data.raw[eType][name].resistances[i] = resistance
-		return
-	    end
-	end
-	data.raw[eType][name].resistances[#data.raw[eType][name].resistances+1] = resistance
+        for i=1,#data.raw[eType][name].resistances do
+            if (resistance.type == data.raw[eType][name].resistances[i].type) then
+                data.raw[eType][name].resistances[i] = resistance
+                return
+            end
+        end
+        data.raw[eType][name].resistances[#data.raw[eType][name].resistances+1] = resistance
     end
 end
 
@@ -18,99 +20,101 @@ function wallUtils.makeWall(attributes, attack)
     local itemName = attributes.name .. "-wall-rampant-arsenal"
 
     data:extend({
-	    {
-		type = "item",
-		name = itemName,
-		icon = attributes.icon or "__base__/graphics/icons/gun-turret.png",
-		icon_size = 32,
-		flags = attributes.itemFlags or {},
-		subgroup = attributes.subgroup or "defensive-structure",
-		order = attributes.order or "a[stone-wall]-a[stone-wall]",
-		place_result = name,
-		stack_size = attributes.stackSize or 200
-	    },
-	    {
-		type = "wall",
-		name = name,
-		icon = attributes.icon or "__base__/graphics/icons/stone-wall.png",
-		icon_size = 32,
-		flags = {"placeable-neutral", "player-creation"},
-		collision_box = {{-0.29, -0.29}, {0.29, 0.29}},
-		selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-		minable = {mining_time = 0.5, result = name},
-		fast_replaceable_group = "wall",
-		max_health = attributes.health or 350,
-		healing_per_tick = attributes.healing,
-		repair_speed_modifier = attributes.repairSpeed or 2,
-		corpse = "wall-remnants",
-		repair_sound = { filename = "__base__/sound/manual-repair-simple.ogg" },
-		mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg" },
-		vehicle_impact_sound =  { filename = "__base__/sound/car-stone-impact.ogg", volume = 1.0 },
-		-- this kind of code can be used for having walls mirror the effect
-		-- there can be multiple reaction items
-		attack_reaction = attack
-		-- {
-		-- 	{
-		-- 	    -- how far the mirroring works
-		-- 	    range = 2,
-		-- 	    -- what kind of damage triggers the mirroring
-		-- 	    -- if not present then anything triggers the mirroring
-		-- 	    damage_type = "physical",
-		-- 	    -- caused damage will be multiplied by this and added to the subsequent damages
-		-- 	    reaction_modifier = 0.1,
-		-- 	    action =
-		-- 		{
-		-- 		    type = "direct",
-		-- 		    action_delivery =
-		-- 			{
-		-- 			    type = "instant",
-		-- 			    target_effects =
-		-- 				{
-		-- 				    type = "damage",
-		-- 				    -- always use at least 0.1 damage
-		-- 				    damage = {amount = 0.1, type = "physical"}
-		-- 				}
-		-- 			}
-		-- 		},
-		-- 	}
-		-- }
-		,
-		connected_gate_visualization =
-		    {
-			filename = "__core__/graphics/arrows/underground-lines.png",
-			priority = "high",
-			width = 64,
-			height = 64,
-			scale = 0.5
-		    },
-		resistances = attributes.resistances or
-		    {
-			{
-			    type = "physical",
-			    decrease = 3,
-			    percent = 20
-			},                        
-			{
-			    type = "impact",
-			    decrease = 45,
-			    percent = 60
-			},
-			{
-			    type = "explosion",
-			    decrease = 10,
-			    percent = 30
-			},
-			{
-			    type = "fire",
-			    percent = 100
-			},
-			{
-			    type = "laser",
-			    percent = 70
-			}
-		    },
-		pictures =
-		    {
+            {
+                type = "item",
+                name = itemName,
+                icon = attributes.icon or "__base__/graphics/icons/gun-turret.png",
+                icon_size = 32,
+                flags = attributes.itemFlags or {},
+                subgroup = attributes.subgroup or "defensive-structure",
+                order = attributes.order or "a[stone-wall]-a[stone-wall]",
+                place_result = name,
+                stack_size = attributes.stackSize or 200
+            },
+            {
+                type = "wall",
+                name = name,
+                icon = attributes.icon or "__base__/graphics/icons/stone-wall.png",
+                icon_size = 32,
+                flags = {"placeable-neutral", "player-creation"},
+                collision_box = {{-0.29, -0.29}, {0.29, 0.29}},
+                selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+                minable = {mining_time = 0.5, result = name},
+                fast_replaceable_group = "wall",
+                max_health = attributes.health or 350,
+                healing_per_tick = attributes.healing,
+                damaged_trigger_effect = hit_effects.wall(),                                
+                repair_speed_modifier = attributes.repairSpeed or 2,
+                hide_resistances = false,
+                corpse = "wall-remnants",
+                repair_sound = { filename = "__base__/sound/manual-repair-simple.ogg" },
+                mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg" },
+                vehicle_impact_sound =  { filename = "__base__/sound/car-stone-impact.ogg", volume = 1.0 },
+                -- this kind of code can be used for having walls mirror the effect
+                -- there can be multiple reaction items
+                attack_reaction = attack
+                -- {
+                -- 	{
+                -- 	    -- how far the mirroring works
+                -- 	    range = 2,
+                -- 	    -- what kind of damage triggers the mirroring
+                -- 	    -- if not present then anything triggers the mirroring
+                -- 	    damage_type = "physical",
+                -- 	    -- caused damage will be multiplied by this and added to the subsequent damages
+                -- 	    reaction_modifier = 0.1,
+                -- 	    action =
+                -- 		{
+                -- 		    type = "direct",
+                -- 		    action_delivery =
+                -- 			{
+                -- 			    type = "instant",
+                -- 			    target_effects =
+                -- 				{
+                -- 				    type = "damage",
+                -- 				    -- always use at least 0.1 damage
+                -- 				    damage = {amount = 0.1, type = "physical"}
+                -- 				}
+                -- 			}
+                -- 		},
+                -- 	}
+                -- }
+                ,
+                connected_gate_visualization =
+                    {
+                        filename = "__core__/graphics/arrows/underground-lines.png",
+                        priority = "high",
+                        width = 64,
+                        height = 64,
+                        scale = 0.5
+                    },
+                resistances = attributes.resistances or
+                    {
+                        {
+                            type = "physical",
+                            decrease = 3,
+                            percent = 20
+                        },                        
+                        {
+                            type = "impact",
+                            decrease = 45,
+                            percent = 60
+                        },
+                        {
+                            type = "explosion",
+                            decrease = 10,
+                            percent = 30
+                        },
+                        {
+                            type = "fire",
+                            percent = 100
+                        },
+                        {
+                            type = "laser",
+                            percent = 70
+                        }
+                    },
+                pictures =
+                    {
                         single =
                             {
                                 layers =
@@ -723,12 +727,14 @@ function wallUtils.makeWall(attributes, attack)
                     size = 1,
                     intensity = 0.3
                 },
+
+                damaged_trigger_effect = hit_effects.wall(),
                 
-		circuit_wire_connection_point = circuit_connector_definitions["gate"].points,
-		circuit_connector_sprites = circuit_connector_definitions["gate"].sprites,
-		circuit_wire_max_distance = default_circuit_wire_max_distance,
-		default_output_signal = data.is_demo and {type = "virtual", name = "signal-green"} or {type = "virtual", name = "signal-G"}
-	    }
+                circuit_wire_connection_point = circuit_connector_definitions["gate"].points,
+                circuit_connector_sprites = circuit_connector_definitions["gate"].sprites,
+                circuit_wire_max_distance = default_circuit_wire_max_distance,
+                default_output_signal = data.is_demo and {type = "virtual", name = "signal-green"} or {type = "virtual", name = "signal-G"}
+            }
     })
 
     return name, itemName
@@ -739,61 +745,63 @@ function wallUtils.makeGate(attributes, attack)
     local itemName = attributes.name .. "-gate-rampant-arsenal"
 
     data:extend({
-	    {
-		type = "item",
-		name = itemName,
-		icon = attributes.icon or "__base__/graphics/icons/gun-turret.png",
-		icon_size = 32,
-		flags = attributes.itemFlags or {},
-		subgroup = attributes.subgroup or "defensive-structure",
-		order = attributes.order or "b[turret]-a[gun-turret]",
-		place_result = name,
-		stack_size = attributes.stackSize or 200
-	    },
-	    {
-		type = "gate",
-		name = name,
-		icon = attributes.icon or "__base__/graphics/icons/gate.png",
-		icon_size = 32,
-		flags = {"placeable-neutral","placeable-player", "player-creation"},
-		fast_replaceable_group = "wall",
-		minable = {hardness = 0.2, mining_time = 0.5, result = name},
-		max_health = attributes.health or 350,
-		healing_per_tick = attributes.healing or 0.04,
-		attack_reaction = attack,
-		corpse = "small-remnants",
-		collision_box = {{-0.29, -0.29}, {0.29, 0.29}},
-		selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
-		opening_speed = 0.0666666,
-		activation_distance = 3,
-		timeout_to_close = 5,
+            {
+                type = "item",
+                name = itemName,
+                icon = attributes.icon or "__base__/graphics/icons/gun-turret.png",
+                icon_size = 32,
+                flags = attributes.itemFlags or {},
+                subgroup = attributes.subgroup or "defensive-structure",
+                order = attributes.order or "b[turret]-a[gun-turret]",
+                place_result = name,
+                stack_size = attributes.stackSize or 200
+            },
+            {
+                type = "gate",
+                name = name,
+                icon = attributes.icon or "__base__/graphics/icons/gate.png",
+                icon_size = 32,
+                flags = {"placeable-neutral","placeable-player", "player-creation"},
+                fast_replaceable_group = "wall",
+                minable = {hardness = 0.2, mining_time = 0.5, result = name},
+                max_health = attributes.health or 350,
+                healing_per_tick = attributes.healing or 0.04,
+                damaged_trigger_effect = hit_effects.wall(),                
+                attack_reaction = attack,
+                hide_resistances = false,
+                corpse = "small-remnants",
+                collision_box = {{-0.29, -0.29}, {0.29, 0.29}},
+                selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+                opening_speed = 0.0666666,
+                activation_distance = 3,
+                timeout_to_close = 5,
                 fadeout_interval = 15,
-		resistances = attributes.resistances or
-		    {
-			{
-			    type = "physical",
-			    decrease = 3,
-			    percent = 20
-			},
-			{
-			    type = "impact",
-			    decrease = 45,
-			    percent = 60
-			},
-			{
-			    type = "explosion",
-			    decrease = 10,
-			    percent = 30
-			},
-			{
-			    type = "fire",
-			    percent = 100
-			},
-			{
-			    type = "laser",
-			    percent = 70
-			}
-		    },
+                resistances = attributes.resistances or
+                    {
+                        {
+                            type = "physical",
+                            decrease = 3,
+                            percent = 20
+                        },
+                        {
+                            type = "impact",
+                            decrease = 45,
+                            percent = 60
+                        },
+                        {
+                            type = "explosion",
+                            decrease = 10,
+                            percent = 30
+                        },
+                        {
+                            type = "fire",
+                            percent = 100
+                        },
+                        {
+                            type = "laser",
+                            percent = 70
+                        }
+                    },
                 vertical_animation =
                     {
                         layers =
@@ -1172,26 +1180,26 @@ function wallUtils.makeGate(attributes, attack)
                                 }
                             }
                     },
-		vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-		open_sound =
-		    {
-			variations = { filename = "__base__/sound/gate1.ogg", volume = 0.5 },
-			aggregation =
-			    {
-				max_count = 1,
-				remove = true
-			    }
-		    },
-		close_sound =
-		    {
-			variations = { filename = "__base__/sound/gate1.ogg", volume = 0.5 },
-			aggregation =
-			    {
-				max_count = 1,
-				remove = true
-			    }
-		    }
-	    }
+                vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
+                open_sound =
+                    {
+                        variations = { filename = "__base__/sound/gate1.ogg", volume = 0.5 },
+                        aggregation =
+                            {
+                                max_count = 1,
+                                remove = true
+                            }
+                    },
+                close_sound =
+                    {
+                        variations = { filename = "__base__/sound/gate1.ogg", volume = 0.5 },
+                        aggregation =
+                            {
+                                max_count = 1,
+                                remove = true
+                            }
+                    }
+            }
     })
 
     return name, itemName

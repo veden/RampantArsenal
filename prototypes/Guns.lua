@@ -36,7 +36,7 @@ local function gunTurretMkIISheet()
                         shift = {0, -0.5},
                     }
                 }
-        }    
+        }
 end
 
 
@@ -58,12 +58,12 @@ local function rifleTurretSheet()
                         shift = {0, -0.25},
                     }
                 }
-        }    
+        }
 end
 
 
 function guns.enable()
-    
+
     local mortar = makeGun(
         {
             name = "mortar",
@@ -75,7 +75,7 @@ function guns.enable()
             ammo_category = "capsule-launcher",
             cooldown = 350,
             movement_slow_down_factor = 0.9,
-            damage_modifier = 2,
+            damage_modifier = 1.25,
             gun_center_shift = {
                 north = {0, 0},
                 east = {0, 0},
@@ -145,7 +145,8 @@ function guns.enable()
                     starting_frame_speed_deviation = 0.1
                 },
             projectile_center = {-0, -0},
-            projectile_creation_distance = 0,
+            gun_barrel_length = 1,
+            projectile_creation_distance = 1,
             range = 20,
             sound = sounds.heavy_gunshot
     })
@@ -210,7 +211,7 @@ function guns.enable()
                     }
             }
     })
-    
+
     local incendiaryShotgunShellAmmo = makeAmmo({
             name = "incendiary-shotgun",
             icon = "__RampantArsenal__/graphics/icons/incendiary-shotgun-shell.png",
@@ -246,7 +247,7 @@ function guns.enable()
                                     projectile = makeShotgunProjectile({
                                             name = "incendiary",
                                             tint = {r=0.8,g=0.5,b=0,a=0.8},
-                                            directionOnly = true,					    
+                                            directionOnly = true,
                                             action = {
                                                 type = "direct",
                                                 action_delivery =
@@ -283,7 +284,7 @@ function guns.enable()
                     }
             }
     })
-    
+
     local incendiaryMagazineAmmo = makeAmmo({
             name = "incendiary-magazine",
             icon = "__RampantArsenal__/graphics/icons/incendiary-rounds-magazine.png",
@@ -313,7 +314,7 @@ function guns.enable()
                                         {
                                             type = "create-sticker",
                                             sticker = "fire-sticker"
-                                        },					
+                                        },
                                         {
                                             type = "damage",
                                             damage = { amount = 2, type = "physical"}
@@ -363,7 +364,7 @@ function guns.enable()
                                     projectile = makeShotgunProjectile({
                                             name = "he",
                                             directionOnly = true,
-                                            tint = {r=0,g=0,b=0.9,a=0.8},					    
+                                            tint = {r=0,g=0,b=0.9,a=0.8},
                                             action = {
                                                 type = "area",
                                                 radius = 1.5,
@@ -407,7 +408,7 @@ function guns.enable()
                     }
             }
     })
-    
+
     local heMagazineAmmo
     -- if (settings.startup["rampant-arsenal-"]) then
     -- end
@@ -432,7 +433,7 @@ function guns.enable()
                                             {
                                                 type = "create-explosion",
                                                 entity_name = "explosion-gunshot"
-                                            }                                    
+                                            }
                                     },
                                     {
                                         type = "instant",
@@ -568,7 +569,7 @@ function guns.enable()
                     }
             }
     })
-    
+
     local bioMagazineAmmo = makeAmmo({
             name = "bio-magazine",
             icon = "__RampantArsenal__/graphics/icons/bio-rounds-magazine.png",
@@ -608,10 +609,10 @@ function guns.enable()
                     }
             }
     })
-    
+
     makeRecipe({
             name = mortar,
-            icon = "__RampantArsenal__/graphics/icons/mortar.png",
+            icon = "__RampantArsenal__/graphics/icons/recipe-mortar.png",
             enabled = false,
             ingredients = {
                 {"steel-plate", 15},
@@ -624,7 +625,7 @@ function guns.enable()
 
     makeRecipe({
             name = minigun,
-            icon = "__RampantArsenal__/graphics/icons/minigun.png",
+            icon = "__RampantArsenal__/graphics/icons/recipe-minigun.png",
             enabled = false,
             ingredients = {
                 {"steel-plate", 10},
@@ -637,7 +638,7 @@ function guns.enable()
 
     makeRecipe({
             name = rocketLauncher,
-            icon = "__RampantArsenal__/graphics/icons/upgraded-rocket-launcher.png",
+            icon = "__RampantArsenal__/graphics/icons/recipe-upgraded-rocket-launcher.png",
             enabled = false,
             ingredients = {
                 {"steel-plate", 10},
@@ -661,7 +662,7 @@ function guns.enable()
             },
             result = incendiaryMagazineAmmo
     })
-    
+
     makeRecipe({
             name = incendiaryShotgunShellAmmo,
             icon = "__RampantArsenal__/graphics/icons/incendiary-shotgun-shell.png",
@@ -688,7 +689,7 @@ function guns.enable()
             result = heMagazineAmmo
     })
 
-    
+
     makeRecipe({
             name = heShotgunShellAmmo,
             icon = "__RampantArsenal__/graphics/icons/he-shotgun-shell.png",
@@ -701,7 +702,7 @@ function guns.enable()
             },
             result = heShotgunShellAmmo
     })
-    
+
     makeRecipe({
             name = bioMagazineAmmo,
             icon = "__RampantArsenal__/graphics/icons/bio-rounds-magazine.png",
@@ -715,7 +716,7 @@ function guns.enable()
             result = bioMagazineAmmo
     })
 
-    
+
     makeRecipe({
             name = bioShotgunShellAmmo,
             icon = "__RampantArsenal__/graphics/icons/bio-shotgun-shell.png",
@@ -728,7 +729,7 @@ function guns.enable()
             },
             result = bioShotgunShellAmmo
     })
-    
+
     makeRecipe({
             name = uraniumShotgunShellAmmo,
             icon = "__RampantArsenal__/graphics/icons/uranium-shotgun-shell.png",
@@ -737,7 +738,7 @@ function guns.enable()
             ingredients = {
                 {"piercing-shotgun-shell", 1},
                 {"uranium-238", 1},
-                {"steel-plate", 1}		
+                {"steel-plate", 1}
             },
             result = uraniumShotgunShellAmmo
     })
@@ -778,7 +779,7 @@ function guns.enable()
     data.raw["gun"]["shotgun"]["attack_parameters"]["range"] = 22
 
     data.raw["gun"]["combat-shotgun"]["attack_parameters"]["range"] = 22
-    
+
     addEffectToTech("explosives",
                     {
                         type = "unlock-recipe",
@@ -789,7 +790,7 @@ function guns.enable()
                     {
                         type = "unlock-recipe",
                         recipe = minigun
-    })    
+    })
 
     addEffectToTech("uranium-ammo",
                     {
@@ -808,7 +809,7 @@ function guns.enable()
                         type = "unlock-recipe",
                         recipe = incendiaryShotgunShellAmmo
     })
-    
+
     addEffectToTech("he-bullets",
                     {
                         type = "unlock-recipe",
@@ -891,7 +892,7 @@ function guns.enable()
                                                        range = 24,
                                                        sound = sounds.heavy_gunshot,
     })
-    
+
     makeRecipe({
             name = gunTurretItem,
             icon = "__RampantArsenal__/graphics/icons/gluegun-icon.png",
@@ -900,7 +901,7 @@ function guns.enable()
             ingredients = {
                 {"gun-turret", 1},
                 {"advanced-circuit", 5},
-                {"steel-plate", 15}		
+                {"steel-plate", 15}
             },
             result = gunTurretItem
     })
@@ -929,7 +930,7 @@ function guns.enable()
                                                            range = 16,
                                                            sound = sounds.light_gunshot,
     })
-    
+
     makeRecipe({
             name = rifleTurretItem,
             icon = "__RampantArsenal__/graphics/icons/rifle-turret.png",
@@ -949,7 +950,7 @@ function guns.enable()
                         type = "unlock-recipe",
                         recipe = gunTurretItem
     })
-    
+
     addEffectToTech("gun-turret-damage-1",
                     {
                         {
@@ -1078,7 +1079,7 @@ function guns.enable()
                                 modifier = 0.8
         }})
     end
-    
+
     removeEffect("military-3", "unlock-recipe", "poison-capsule")
     removeEffect("military-3", "unlock-recipe", "slowdown-capsule")
 
@@ -1115,7 +1116,7 @@ function guns.enable()
         data.raw["projectile"]["explosive-uranium-cannon-projectile"].force_condition = "not-same"
         data.raw["projectile"]["explosive-cannon-projectile"].force_condition = "not-same"
     end
-    
+
     addEffectToTech("military-3",
                     {
                         type = "unlock-recipe",

@@ -63,3 +63,12 @@ if mods["bobwarfare"] then
         grids[#grids+1] = "adv-generator"
     end
 end
+
+
+for _,wall in pairs(data.raw["wall"]) do
+    wall.hide_resistances = false
+end
+
+for _,gate in pairs(data.raw["gate"]) do
+    gate.hide_resistances = false
+end

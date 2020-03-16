@@ -1,8 +1,20 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.1
-Date: 13. 2. 2020
+Date: 13. 3. 2020
+  Tweaks:
+    - Changed mortar and capsule launcher projectile graphic
+    - Show wall and gate resistances
   Bugfixes:
     - Fixed minigun firing while not being in range
+    - Defender and destroyer launcher ammo no longer follows player
+    - Reduced mortar bonus damage to 25%
+    - Fixed launcher ammo tooltips
+    - advanced and nuclear vehicles not being immune to rocks
+    - adjusted vehicle volume to vanilla levels
+    - Fixed vehicle weapon icons
+    - Fixed vehicle on damage effects
+    - Fixed wall and gate on damage effects
+    - Fixed artillery scorchmark to big version
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.0

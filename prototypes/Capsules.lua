@@ -7,7 +7,7 @@ local ammoUtils = require("utils/AmmoUtils")
 local streamUtils = require("utils/StreamUtils")
 
 local addEffectToTech = technologyUtils.addEffectToTech
-local makeStream = streamUtils.makeStream
+local makeStreamProjectile = streamUtils.makeStreamProjectile
 local makeAmmo = ammoUtils.makeAmmo
 local makeRecipe = recipeUtils.makeRecipe
 local makeAmmoTurret = turretUtils.makeAmmoTurret
@@ -39,6 +39,10 @@ end
 
 function capsules.enable()
 
+    data.raw["combat-robot"]["distractor"]["attack_parameters"]["damage_modifier"] = 2
+    data.raw["combat-robot"]["destroyer"]["attack_parameters"]["damage_modifier"] = 2
+    data.raw["combat-robot"]["defender"]["attack_parameters"]["damage_modifier"] = 2
+    
     data:extend(
         {
             {
@@ -92,10 +96,12 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                stream = makeStreamProjectile({
                                         name = "slowdown-capsule",
+                                        bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
+                                        spawnInterval = 1,
                                         actions = {
                                             type = "area",
                                             radius = 10,
@@ -135,10 +141,12 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                stream = makeStreamProjectile({
                                         name = "paralysis-capsule",
+                                        bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
+                                        spawnInterval = 1,
                                         actions = {
                                             type = "direct",
                                             action_delivery =
@@ -177,10 +185,12 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                stream = makeStreamProjectile({
                                         name = "repair-capsule",
+                                        bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
+                                        spawnInterval = 1,
                                         actions = {
                                             type = "direct",
                                             action_delivery =
@@ -201,7 +211,6 @@ function capsules.enable()
                     }
     }})
 
-
     local toxicCapsules = makeAmmo({
             name = "toxic-capsule",
             icon = "__RampantArsenal__/graphics/icons/toxic-capsule-ammo.png",
@@ -220,10 +229,12 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                stream = makeStreamProjectile({
                                         name = "toxic-capsule",
+                                        bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
+                                        spawnInterval = 1,
                                         actions = {
                                             type = "direct",
                                             action_delivery =
@@ -261,10 +272,12 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                stream = makeStreamProjectile({
                                         name = "poison-capsule",
+                                        bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
+                                        spawnInterval = 1,
                                         actions = {
                                             type = "direct",
                                             action_delivery =
@@ -303,10 +316,12 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                stream = makeStreamProjectile({
                                         name = "distractor-capsule",
+                                        bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
+                                        spawnInterval = 1,
                                         actions = {
                                             type = "direct",
                                             action_delivery =
@@ -330,6 +345,21 @@ function capsules.enable()
                     }
     }})
 
+    local defenderLaunched = util.table.deepcopy(data.raw["combat-robot"]["defender"])
+    defenderLaunched.name = defenderLaunched.name .. "-launched-rampant-arsenal"
+    defenderLaunched.speed = 0
+    defenderLaunched.follows_player = false
+
+    local destroyerLaunched = util.table.deepcopy(data.raw["combat-robot"]["destroyer"])
+    destroyerLaunched.name = destroyerLaunched.name .. "-launched-rampant-arsenal"
+    destroyerLaunched.speed = 0
+    destroyerLaunched.follows_player = false
+
+    data:extend({
+            defenderLaunched,
+            destroyerLaunched
+    })
+    
     local defenderCapsules = makeAmmo({
             name = "defender-capsule",
             icon = "__RampantArsenal__/graphics/icons/defender-capsule-ammo.png",
@@ -348,10 +378,12 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                stream = makeStreamProjectile({
                                         name = "defender-capsule",
+                                        bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
+                                        spawnInterval = 1,
                                         actions = {
                                             type = "direct",
                                             action_delivery =
@@ -362,8 +394,8 @@ function capsules.enable()
                                                             {
                                                                 type = "create-entity",
                                                                 show_in_tooltip = true,
-                                                                entity_name = "defender",
-                                                                offsets = {{0.5, -0.5},{-0.5, -0.5},{0, 0.5}}
+                                                                entity_name = "defender-launched-rampant-arsenal",
+                                                                offsets = {{0.5, -0.5}}
                                                             }
                                                         }
                                                 }
@@ -393,10 +425,13 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                -- stream = "acid-stream-spitter-behemoth",
+                                stream = makeStreamProjectile({
                                         name = "destroyer-capsule",
+                                        bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
+                                        spawnInterval = 1,
                                         actions = {
                                             type = "direct",
                                             action_delivery =
@@ -407,8 +442,8 @@ function capsules.enable()
                                                             {
                                                                 type = "create-entity",
                                                                 show_in_tooltip = true,
-                                                                entity_name = "destroyer",
-                                                                offsets = {{0.5, -0.5},{-0.5, -0.5},{0, 0.5}}
+                                                                entity_name = "destroyer-launched-rampant-arsenal",
+                                                                offsets = {{0.5, -0.5},{-0.5, -0.5},{0, 0.5},{-0.5, 0},{0, 0}}
                                                             }
                                                         }
                                                 }
@@ -438,12 +473,12 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                stream = makeStreamProjectile({
                                         name = "landmine-capsule",
                                         bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
-                                        spawnInterval = 2,
+                                        spawnInterval = 1,
                                         actions = {
                                             {
                                                 type = "direct",
@@ -499,12 +534,12 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                stream = makeStreamProjectile({
                                         name = "incendiary-landmine-capsule",
                                         bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
-                                        spawnInterval = 2,
+                                        spawnInterval = 1,
                                         actions = {
                                             {
                                                 type = "direct",
@@ -564,12 +599,12 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                stream = makeStreamProjectile({
                                         name = "he-landmine-capsule",
                                         bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
-                                        spawnInterval = 2,
+                                        spawnInterval = 1,
                                         actions = {
                                             {
                                                 type = "direct",
@@ -611,12 +646,12 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                stream = makeStreamProjectile({
                                         name = "bio-landmine-capsule",
                                         bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
-                                        spawnInterval = 2,
+                                        spawnInterval = 1,
                                         actions = {
                                             {
                                                 type = "direct",
@@ -658,12 +693,12 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                stream = makeStreamProjectile({
                                         name = "nuclear-landmine-capsule",
                                         bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
-                                        spawnInterval = 2,
+                                        spawnInterval = 1,
                                         actions = {
                                             {
                                                 type = "direct",
@@ -704,12 +739,12 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                stream = makeStreamProjectile({
                                         name = "grenade-capsule",
                                         bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
-                                        spawnInterval = 64,
+                                        spawnInterval = 1,
                                         actions = {
                                             {
                                                 type = "direct",
@@ -775,12 +810,12 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                stream = makeStreamProjectile({
                                         name = "bio-grenade-capsule",
                                         bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
-                                        spawnInterval = 64,
+                                        spawnInterval = 1,
                                         actions = {
                                             {
                                                 type = "direct",
@@ -855,12 +890,12 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                stream = makeStreamProjectile({
                                         name = "he-grenade-capsule",
                                         bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
-                                        spawnInterval = 64,
+                                        spawnInterval = 1,
                                         actions = {
                                             {
                                                 type = "direct",
@@ -930,12 +965,12 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                stream = makeStreamProjectile({
                                         name = "incendiary-grenade-capsule",
                                         bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
-                                        spawnInterval = 64,
+                                        spawnInterval = 1,
                                         actions = {
                                             {
                                                 type = "direct",
@@ -1039,12 +1074,12 @@ function capsules.enable()
                         action_delivery =
                             {
                                 type = "stream",
-                                stream = makeStream({
+                                stream = makeStreamProjectile({
                                         name = "cluster-grenade-capsule",
                                         bufferSize = 1,
                                         spineAnimationTint = capsuleGrey,
                                         particleTint = particleGrey,
-                                        spawnInterval = 64,
+                                        spawnInterval = 1,
                                         actions = {
                                             {
                                                 type = "direct",
@@ -1602,12 +1637,7 @@ function capsules.enable()
                             ammo_category = "capsule-launcher",
                             modifier = 0.5
         })
-    end
-
-    data.raw["combat-robot"]["distractor"]["attack_parameters"]["damage_modifier"] = 2
-    data.raw["combat-robot"]["destroyer"]["attack_parameters"]["damage_modifier"] = 2
-    data.raw["combat-robot"]["defender"]["attack_parameters"]["damage_modifier"] = 2
-    
+    end    
 end
 
 return capsules

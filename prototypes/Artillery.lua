@@ -65,7 +65,7 @@ function artillery.enable()
                                                         },
                                                         {
                                                             type = "create-entity",
-                                                            entity_name = "small-scorchmark",
+                                                            entity_name = "big-scorchmark",
                                                             check_buildability = true
                                                         },
                                                         {
@@ -356,7 +356,7 @@ function artillery.enable()
                                                         },
                                                         {
                                                             type = "create-entity",
-                                                            entity_name = "small-scorchmark",
+                                                            entity_name = "big-scorchmark",
                                                             check_buildability = true
                                                         },
                                                         {
