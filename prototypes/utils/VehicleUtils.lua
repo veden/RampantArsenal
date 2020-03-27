@@ -2,6 +2,8 @@ local vehicleUtils = {}
 
 local hit_effects = require ("__base__.prototypes.entity.demo-hit-effects")
 
+local tank_shift_y = 6
+
 function vehicleUtils.addEquipmentGrid(eType, eName, equipmentGrid)
     if data.raw[eType] and data.raw[eType][eName] then
         data.raw[eType][eName].equipment_grid = equipmentGrid
@@ -115,7 +117,7 @@ function vehicleUtils.makeTank(attributes)
                                     width = 200,
                                     height = 200
                                 },
-                            shift = {-0.6, -14},
+                            shift = {-0.6, -14 + tank_shift_y / 32},
                             size = 2,
                             intensity = 0.6,
                             color = {r = 0.9, g = 1.0, b = 1.0}
@@ -132,7 +134,7 @@ function vehicleUtils.makeTank(attributes)
                                     width = 200,
                                     height = 200
                                 },
-                            shift = {0.6, -14},
+                            shift = {0.6, -14 + tank_shift_y / 32},
                             size = 2,
                             intensity = 0.6,
                             color = {r = 0.9, g = 1.0, b = 1.0}
@@ -144,11 +146,11 @@ function vehicleUtils.makeTank(attributes)
                             {
                                 {
                                     priority = "low",
-                                    width = 135,
+                                    width = 136,
                                     height = 106,
                                     frame_count = 2,
                                     direction_count = 64,
-                                    shift = util.by_pixel(-4.5, -10),
+                                    shift = util.by_pixel(0, -16 + tank_shift_y),
                                     animation_speed = 8,
                                     max_advance = 1,
                                     tint = attributes.tint,
@@ -179,11 +181,11 @@ function vehicleUtils.makeTank(attributes)
                                     hr_version =
                                         {
                                             priority = "low",
-                                            width = 269,
+                                            width = 270,
                                             height = 212,
                                             frame_count = 2,
                                             direction_count = 64,
-                                            shift = util.by_pixel(-4.75, -10),
+                                            shift = util.by_pixel(0, -16 + tank_shift_y),
                                             animation_speed = 8,
                                             max_advance = 1,
                                             tint = attributes.tint,
@@ -216,11 +218,11 @@ function vehicleUtils.makeTank(attributes)
                                 {
                                     priority = "low",
                                     width = 104,
-                                    height = 84,
+                                    height = 83,
                                     frame_count = 2,
                                     apply_runtime_tint = true,
                                     direction_count = 64,
-                                    shift = util.by_pixel(-5, -21),
+                                    shift = util.by_pixel(0, -27.5 + tank_shift_y),
                                     max_advance = 1,
                                     line_length = 2,
                                     scale = attributes.scale * 2,
@@ -245,12 +247,12 @@ function vehicleUtils.makeTank(attributes)
                                     hr_version =
                                         {
                                             priority = "low",
-                                            width = 207,
+                                            width = 208,
                                             height = 166,
                                             frame_count = 2,
                                             apply_runtime_tint = true,
                                             direction_count = 64,
-                                            shift = util.by_pixel(-4.75, -21),
+                                            shift = util.by_pixel(0, -27.5 + tank_shift_y),
                                             max_advance = 1,
                                             line_length = 2,
                                             scale = attributes.scale * 1,
@@ -281,7 +283,7 @@ function vehicleUtils.makeTank(attributes)
                                     frame_count = 2,
                                     draw_as_shadow = true,
                                     direction_count = 64,
-                                    shift = util.by_pixel(17.5, 7),
+                                    shift = util.by_pixel(22.5, 1 + tank_shift_y),
                                     max_advance = 1,
                                     scale = attributes.scale * 2,
                                     stripes = util.multiplystripes(2,
@@ -310,12 +312,12 @@ function vehicleUtils.makeTank(attributes)
                                     hr_version =
                                         {
                                             priority = "low",
-                                            width = 301,
+                                            width = 302,
                                             height = 194,
                                             frame_count = 2,
                                             draw_as_shadow = true,
                                             direction_count = 64,
-                                            shift = util.by_pixel(17.75, 7),
+                                            shift = util.by_pixel(22.5, 1 + tank_shift_y),
                                             max_advance = 1,
                                             scale = attributes.scale * 1,
                                             stripes = util.multiplystripes(2,
@@ -358,7 +360,7 @@ function vehicleUtils.makeTank(attributes)
                                     frame_count = 1,
                                     direction_count = 64,
                                     tint = attributes.tint,
-                                    shift = util.by_pixel(-5, -34.5),
+                                    shift = util.by_pixel(2-2, -40.5 + tank_shift_y),
                                     animation_speed = 8,
                                     scale = attributes.scale * 2.2,
                                     hr_version =
@@ -372,7 +374,7 @@ function vehicleUtils.makeTank(attributes)
                                             frame_count = 1,
                                             scale = attributes.scale * 1.2,
                                             direction_count = 64,
-                                            shift = util.by_pixel(-4.75, -34.5),
+                                            shift = util.by_pixel(2.25-2, -40.5 + tank_shift_y),
                                             animation_speed = 8
                                         }
                                 },
@@ -386,7 +388,7 @@ function vehicleUtils.makeTank(attributes)
                                     apply_runtime_tint = true,
                                     direction_count = 64,
                                     scale = attributes.scale * 2.2,
-                                    shift = util.by_pixel(-5, -35.5),
+                                    shift = util.by_pixel(2-2, -41.5 + tank_shift_y),
                                     hr_version =
                                         {
                                             filename = "__base__/graphics/entity/tank/hr-tank-turret-mask.png",
@@ -399,7 +401,7 @@ function vehicleUtils.makeTank(attributes)
                                             apply_runtime_tint = true,
                                             direction_count = 64,
                                             tint = attributes.tint,
-                                            shift = util.by_pixel(-5, -35.5)
+                                            shift = util.by_pixel(2-2, -41.5 + tank_shift_y)
                                         }
                                 },
                                 {
@@ -412,7 +414,7 @@ function vehicleUtils.makeTank(attributes)
                                     draw_as_shadow = true,
                                     direction_count = 64,
                                     scale = attributes.scale * 2.2,
-                                    shift = util.by_pixel(51.5, 6.5),
+                                    shift = util.by_pixel(58.5-2, 0.5 + tank_shift_y),
                                     hr_version =
                                         {
                                             filename = "__base__/graphics/entity/tank/hr-tank-turret-shadow.png",
@@ -424,7 +426,7 @@ function vehicleUtils.makeTank(attributes)
                                             scale = attributes.scale * 1.2,
                                             draw_as_shadow = true,
                                             direction_count = 64,
-                                            shift = util.by_pixel(51.25, 6.5)
+                                            shift = util.by_pixel(58.25-2, 0.5 + tank_shift_y)
                                         }
                                 }
                             }
