@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.18.3
+Date: 22. 3. 2020
+  Tweaks:
+    - Reverted mending gate/wall cloud durations
+
+---------------------------------------------------------------------------------------------------
 Version: 0.18.2
 Date: 22. 3. 2020
   Tweaks:
@@ -64,7 +70,7 @@ Date: 2. 2. 2020
     - Fixed grenades in tech tree not requiring military-2
     - Fixed infinite science not having space-science-pack prerequisite
     - Fixed HE landmine trigger radius
-    - Fixed 0.18 breaking changes    
+    - Fixed 0.18 breaking changes
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.17.18

@@ -475,11 +475,11 @@ function clouds.enable()
     local smallRepairCloud = makeCloud(
         {
             name = "small-repair",
-            duration = 180,
-            inDuration = 60,
-            outDuration = 60,
+            duration = 3000,
+            inDuration = 600,
+            outDuration = 600,
             movementModifier = 0,
-            cooldown = 20,
+            cooldown = 175,
             spreadRadius = 2,
             tint = {r=0.3,g=0.1,b=0,a=0.01},
             scale = 0.5
