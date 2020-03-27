@@ -2,6 +2,8 @@ local vehicleUtils = {}
 
 local hit_effects = require ("__base__.prototypes.entity.demo-hit-effects")
 
+local tank_shift_y = 6
+
 function vehicleUtils.addEquipmentGrid(eType, eName, equipmentGrid)
     if data.raw[eType] and data.raw[eType][eName] then
         data.raw[eType][eName].equipment_grid = equipmentGrid
@@ -15,7 +17,6 @@ function vehicleUtils.addAutomaticRobotDeploy(eType, eName)
 end
 
 function vehicleUtils.makeTank(attributes)
-    local tank_shift_y = 6
     local name = attributes.name .. "-tank-vehicle-rampant-arsenal"
 
     data:extend({
