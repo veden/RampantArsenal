@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.18.2
+Date: 22. 3. 2020
+  Tweaks:
+    - Fixed oil burner pollution amount being lower than vanilla boiler (35 pollution/m)
+    - Updated cloud animation
+    - Increased all cloud durations to be more inline with vanilla poison capsule duration
+    - Changed the incendiary artillery to create fire in general area without targets needed
+  Bugfixes:
+    - Tank not loading in factorio 0.18.16
+
+---------------------------------------------------------------------------------------------------
 Version: 0.18.1
 Date: 13. 3. 2020
   Tweaks:

@@ -62,6 +62,7 @@ function walls.enable()
         },
         {
             range = 18,
+            cooldown = 30,
             action = {
                 type = "direct",
                 action_delivery =
@@ -130,6 +131,7 @@ function walls.enable()
         },
         {
             range = 18,
+            cooldown = 30,
             action = {
                 type = "direct",
                 action_delivery =

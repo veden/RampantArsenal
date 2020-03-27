@@ -9,13 +9,13 @@ function clouds.enable()
     makeCloud(
         {
             name = "big-toxic",
-            duration = 400,
+            duration = 1600,
             inDuration = 45,
             outDuration = 30,
             movementModifier = 0,
             spreadRadius = 2,
-            tint = {r=0.5,g=0,b=0.5,a=0.8},
-            scale = 3
+            tint = {r=0.5,g=0,b=0.5,a=0.4},
+            scale = 2
         },
         {
             type = "direct",
@@ -53,13 +53,13 @@ function clouds.enable()
     makeCloud(
         {
             name = "massive-fire",
-            duration = 400,
+            duration = 1600,
             inDuration = 45,
             outDuration = 30,
             movementModifier = 0,
             spreadRadius = 2,
-            tint = {r=0.5,g=0.3,b=0,a=0.8},
-            scale = 4
+            tint = {r=0.5,g=0.3,b=0,a=0.4},
+            scale = 3
         },
         {
             type = "direct",
@@ -74,7 +74,28 @@ function clouds.enable()
                                     {
                                         type = "cluster",
                                         cluster_count = 10,
-                                        distance = 10,
+                                        distance = 13,
+                                        distance_deviation = 6,
+                                        action_delivery =
+                                            {
+                                                type = "instant",
+                                                target_effects =
+                                                    {
+                                                        {
+                                                            type = "create-fire",
+                                                            entity_name = "fire-flame",
+                                                            initial_ground_flame_count = 4,
+                                                            check_buildability = true,
+                                                            show_in_tooltip = true
+                                                            -- trigger_from_target = true
+                                                        }
+                                                    }
+                                            }
+                                    },
+                                    {
+                                        type = "cluster",
+                                        cluster_count = 6,
+                                        distance = 8,
                                         distance_deviation = 4,
                                         action_delivery =
                                             {
@@ -87,6 +108,7 @@ function clouds.enable()
                                                             initial_ground_flame_count = 4,
                                                             check_buildability = true,
                                                             show_in_tooltip = true
+                                                            -- trigger_from_target = true
                                                         }
                                                     }
                                             }
@@ -115,6 +137,23 @@ function clouds.enable()
                                                         }
                                                     }
                                             }
+                                    },
+                                    {
+                                        type = "area",
+                                        radius = 14,
+                                        target_entities = false,
+                                        action_delivery =
+                                            {
+                                                type = "instant",
+                                                target_effects =
+                                                    {
+                                                        {
+                                                            type = "create-fire",
+                                                            entity_name = "fire-flame",
+                                                            initial_ground_flame_count = 4,
+                                                        }
+                                                    }
+                                            }
                                     }
                                 }
                         }
@@ -124,13 +163,13 @@ function clouds.enable()
     makeCloud(
         {
             name = "big-poison",
-            duration = 240,
+            duration = 1200,
             inDuration = 45,
             outDuration = 30,
             movementModifier = 0,
             spreadRadius = 2,
-            tint = {r=0,g=0.8,b=0,a=0.8},
-            scale = 3
+            tint = {r=0,g=0.8,b=0,a=0.4},
+            scale = 2
         },
         {
             type = "direct",
@@ -162,13 +201,13 @@ function clouds.enable()
     makeCloud(
         {
             name = "big-repair",
-            duration = 240,
+            duration = 800,
             inDuration = 45,
             outDuration = 30,
             movementModifier = 0,
             spreadRadius = 2,
-            tint = {r=0.5,g=0.3,b=0,a=0.8},
-            scale = 3
+            tint = {r=0.5,g=0.3,b=0,a=0.4},
+            scale = 2
         },
         {
             type = "direct",
@@ -200,13 +239,13 @@ function clouds.enable()
     makeCloud(
         {
             name = "massive-repair",
-            duration = 240,
+            duration = 1200,
             inDuration = 45,
             outDuration = 30,
             movementModifier = 0,
             spreadRadius = 2,
-            tint = {r=0.5,g=0.3,b=0,a=0.8},
-            scale = 5
+            tint = {r=0.5,g=0.3,b=0,a=0.4},
+            scale = 4
         },
         {
             type = "direct",
@@ -238,12 +277,12 @@ function clouds.enable()
     makeCloud(
         {
             name = "big-paralysis",
-            duration = 180,
+            duration = 600,
             inDuration = 45,
             outDuration = 30,
             movementModifier = 0,
             spreadRadius = 2,
-            tint = {r=0,g=0,b=0.8,a=0.8},
+            tint = {r=0,g=0,b=0.8,a=0.4},
             scale = 2
         },
         {
@@ -277,13 +316,13 @@ function clouds.enable()
     local toxicCloud = makeCloud(
         {
             name = "toxic",
-            duration = 360,
+            duration = 1200,
             inDuration = 45,
             outDuration = 30,
             movementModifier = 0,
             spreadRadius = 2,
-            tint = {r=0.5,g=0,b=0.5,a=0.8},
-            scale = 2.5
+            tint = {r=0.5,g=0,b=0.5,a=0.4},
+            scale = 1.5
         },
         {
             type = "direct",
@@ -296,7 +335,7 @@ function clouds.enable()
                             action =
                                 {
                                     type = "area",
-                                    radius = 10,
+                                    radius = 9,
                                     entity_flags = {"breaths-air"},
                                     action_delivery =
                                         {
@@ -321,13 +360,13 @@ function clouds.enable()
     local paralysisCloud = makeCloud(
         {
             name = "paralysis",
-            duration = 180,
+            duration = 560,
             inDuration = 45,
             outDuration = 30,
             movementModifier = 0,
             spreadRadius = 2,
-            tint = {r=0,g=0,b=0.8,a=0.8},
-            scale = 1.5
+            tint = {r=0,g=0,b=0.8,a=0.4},
+            scale = 1
         },
         {
             type = "direct",
@@ -359,13 +398,13 @@ function clouds.enable()
     local repairCloud = makeCloud(
         {
             name = "repair",
-            duration = 240,
+            duration = 1200,
             inDuration = 45,
             outDuration = 30,
             movementModifier = 0,
             spreadRadius = 2,
-            tint = {r=0.5,g=0.3,b=0,a=0.8},
-            scale = 2.5
+            tint = {r=0.5,g=0.3,b=0,a=0.4},
+            scale = 1.5
         },
         {
             type = "direct",
@@ -378,7 +417,7 @@ function clouds.enable()
                             action =
                                 {
                                     type = "area",
-                                    radius = 10,
+                                    radius = 9,
                                     entity_flags = {"player-creation"},
                                     action_delivery =
                                         {
@@ -397,12 +436,12 @@ function clouds.enable()
     local healingCloud = makeCloud(
         {
             name = "healing",
-            duration = 180,
+            duration = 800,
             inDuration = 45,
             outDuration = 30,
             movementModifier = 0,
             spreadRadius = 2,
-            tint = {r=0.8,g=0,b=0,a=0.8},
+            tint = {r=0.8,g=0,b=0,a=0.4},
             scale = 2
         },
         {
@@ -436,14 +475,14 @@ function clouds.enable()
     local smallRepairCloud = makeCloud(
         {
             name = "small-repair",
-            duration = 3000,
-            inDuration = 1500,
-            outDuration = 1500,
+            duration = 180,
+            inDuration = 60,
+            outDuration = 60,
             movementModifier = 0,
-            cooldown = 175,
+            cooldown = 20,
             spreadRadius = 2,
             tint = {r=0.3,g=0.1,b=0,a=0.01},
-            scale = 1
+            scale = 0.5
         },
         {
             type = "direct",
