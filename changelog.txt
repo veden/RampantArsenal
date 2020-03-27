@@ -6,8 +6,9 @@ Date: 22. 3. 2020
     - Updated cloud animation
     - Increased all cloud durations to be more inline with vanilla poison capsule duration
     - Changed the incendiary artillery to create fire in general area without targets needed
+    - Moved tank turret forward on adv and nuclear tanks
   Bugfixes:
-    - Tank not loading in factorio 0.18.16
+    - Tank not loading in factorio 0.18.16 (YenRaven)
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.1
