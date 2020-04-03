@@ -1,4 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.18.4
+Date: 28. 3. 2020
+  Improvements:
+    - Added an advanced lab + technology with a setting to enable/disable
+    - Added an large storage tank + technology with a setting to enable/disable
+    - Reworked mending wall and gate frequency, duration, amount, and cooldown
+    - Lowered medic turret warmup to be 100 ticks
+    - Increased medic turret cooldown to 1340 ticks
+    - Decreased medic turret health per action to 200
+    - Doubled medic turret cloud action cooldown to 60
+    - Increased medic ammo magazine size to 25
+  Bugfixes:
+    - Fixed bullet trials compatibility (WarStalkerR)
+
+---------------------------------------------------------------------------------------------------
 Version: 0.18.3
 Date: 22. 3. 2020
   Tweaks:

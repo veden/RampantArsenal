@@ -17,6 +17,7 @@ local wall = require("Walls")
 local vehicle = require("Vehicles")
 local power = require("Power")
 local equipment = require("Equipment")
+local buildings = require("Buildings")
 
 local enableEquipment = equipment.enable
 local enablePower = power.enable
@@ -35,6 +36,7 @@ local enableGrenades = grenades.enable
 local enableClouds = clouds.enable
 local enableTechnologies = technologies.enable
 local enableMedic = medic.enable
+local enableBuildings = buildings.enable
 
 function turrets.addTurrets()
 
@@ -67,6 +69,7 @@ function turrets.addTurrets()
     data.raw["character"]["character"].damage_hit_tint = {r = 0, g = 0.2, b = 0, a = 0}
 
     enableTechnologies()
+    enableBuildings()
     enableStickers()
     enableFire()
     enableClouds()

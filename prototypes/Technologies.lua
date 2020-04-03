@@ -1797,6 +1797,37 @@ function technologies.enable()
         })
     end
 
+    if settings.startup["rampant-arsenal-enableAdvancedLab"].value then
+        makeTechnology({
+                name="advanced-lab",
+                icon="__RampantArsenal__/graphics/technology/advanced-lab.png",
+                prerequisites = {"research-speed-2"},
+                effects = {},
+                ingredients = {
+                    {"automation-science-pack", 1},
+                    {"logistic-science-pack", 1}
+                },
+                count = 800,
+                time = 30
+        })
+    end
+
+    if settings.startup["rampant-arsenal-enableLargeStorageTank"].value then
+        makeTechnology({
+                name="large-storage-tank-2",
+                icon="__base__/graphics/technology/fluid-handling.png",
+                prerequisites = {"fluid-handling"},
+                effects = {},
+                ingredients = {
+                    {"automation-science-pack", 1},
+                    {"logistic-science-pack", 1}
+                },
+                count = 800,
+                time = 30
+        })
+    end
+
+    
     local incendiary = makeTechnology({
             name="incendiary",
             icon="__RampantArsenal__/graphics/technology/incendiary.png",

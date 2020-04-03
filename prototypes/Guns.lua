@@ -427,36 +427,33 @@ function guns.enable()
                             type = "direct",
                             action_delivery =
                                 {
-                                    {
-                                        type = "instant",
-                                        source_effects =
-                                            {
-                                                type = "create-explosion",
-                                                entity_name = "explosion-gunshot"
-                                            }
-                                    },
-                                    {
-                                        type = "instant",
-                                        target_effects = {
-                                            {
-                                                type = "create-explosion",
-                                                entity_name = "explosion"
-                                            },
-                                            {
-                                                type = "damage",
-                                                damage = {amount = 2, type = "physical"}
-                                            },
-                                            {
-                                                type = "damage",
-                                                damage = {amount = 22, type = "explosion"}
-                                            },
-                                            {
-                                                type = "push-back",
-                                                distance = 0.5,
-                                                show_in_tooltip = true
-                                            }
+                                    
+                                    type = "instant",
+                                    source_effects =
+                                        {
+                                            type = "create-explosion",
+                                            entity_name = "explosion-gunshot"
                                         }
-                                    }
+                                    ,
+                                    target_effects = {
+                                        {
+                                            type = "create-explosion",
+                                            entity_name = "explosion"
+                                        },
+                                        {
+                                            type = "damage",
+                                            damage = {amount = 2, type = "physical"}
+                                        },
+                                        {
+                                            type = "damage",
+                                            damage = {amount = 22, type = "explosion"}
+                                        },
+                                        {
+                                            type = "push-back",
+                                            distance = 0.5,
+                                            show_in_tooltip = true
+                                        }
+                                    }                                    
                                     -- {
                                     --     type = "projectile",
                                     --     projectile = makeShotgunProjectile({

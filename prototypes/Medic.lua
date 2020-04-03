@@ -97,8 +97,8 @@ function medic.enable()
                                                        {
                                                            type = "projectile",
                                                            ammo_category = "turret-capsule",
-                                                           cooldown = 300,
-                                                           warmup = 240,
+                                                           cooldown = 1340,
+                                                           warmup = 100,
                                                            projectile_creation_distance = 1,
                                                            damage_modifier = 1,
                                                            projectile_center = {0, 0},
@@ -125,7 +125,7 @@ function medic.enable()
             icon = "__RampantArsenal__/graphics/icons/medic-repair-pack.png",
             subgroup = "launcher-capsule",
             order = "y[turret-capsule]",
-            magSize = 15,
+            magSize = 25,
             stackSize = 200,
             ammoType = {		
                 category = "turret-capsule",

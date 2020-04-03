@@ -81,6 +81,8 @@ constants.RAMPANT_SPAWNER_BITER_SPAWNER = "spawner-biter-nest"
 constants.RAMPANT_SPAWNER_SPITTER_SPAWNER = "spawner-spitter-nest"
 -- constants.RAMPANT_SPAWNER_WORM = "spawner-worm"
 
+constants.MENDING_WALL_COOLDOWN = 3000
+
 constants.RAMPANT_PREFIX_TABLE = {
     ["spawner"] = "dirty-alien-goo-green-resource-rampant-arsenal",
     ["wasp"] = "dirty-alien-goo-purple-resource-rampant-arsenal",

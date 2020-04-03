@@ -13,6 +13,7 @@ local DEFAULT_GOO_TYPE = constants.DEFAULT_GOO_TYPE
 
 local ENABLE_NORMAL_GOO = constants.ENABLE_NORMAL_GOO
 local ENABLE_ALL_GOO = constants.ENABLE_ALL_GOO
+local MENDING_WALL_COOLDOWN = constants.MENDING_WALL_COOLDOWN
 
 -- imported functions
 
@@ -82,12 +83,20 @@ local function onConfigChanged()
 
         world.version = 11
     end
-    if (world.version < 12) then
+    if (world.version < 13) then
+
+        world.createSmallMendingCloudQuery = {
+            name = "small-repair-cloud-rampant-arsenal",
+            position = 0,
+            force = 0
+        }
+
+        world.mendingWalls = {}
 
         for i,p in ipairs(game.connected_players) do
-            p.print("Rampant Arsenal - Version 0.17.19")
+            p.print("Rampant Arsenal - Version 0.18.5")
         end
-        world.version = 12
+        world.version = 13
     end
 end
 
@@ -101,6 +110,20 @@ end
 
 local function onLoad()
     world = global.world
+end
+
+local function onTick(event)
+    local counter = 0
+    for k,v in pairs(world.mendingWalls) do
+        if (v < event.tick) then
+            world.mendingWalls[k] = nil
+        end
+        if (counter > 5) then
+            return
+        else
+            counter = counter + 1
+        end
+    end
 end
 
 local function onDeath(event)
@@ -135,9 +158,16 @@ end
 local function onTriggerEntityCreated(event)
     local entity = event.entity
     if entity and entity.valid then
-        if (event.entity.name == "small-repair-cloud-rampant-arsenal") then
-            if (mRandom() < 0.75) then
-                entity.destroy()
+        if (event.entity.name == "dummy-small-repair-cloud-rampant-arsenal") then
+            local sourceEntity = event.source
+            entity.destroy()
+            local entityId = sourceEntity.unit_number
+            local cooldownTick = world.mendingWalls[entityId]
+            if (not cooldownTick) or (cooldownTick < event.tick) then
+                world.mendingWalls[entityId] = event.tick + MENDING_WALL_COOLDOWN
+                world.createSmallMendingCloudQuery.position = sourceEntity.position
+                world.createSmallMendingCloudQuery.force = sourceEntity.force.name
+                sourceEntity.surface.create_entity(world.createSmallMendingCloudQuery)
             end
         end
     end
@@ -149,5 +179,6 @@ script.on_init(onInit)
 script.on_load(onLoad)
 script.on_event(defines.events.on_runtime_mod_setting_changed, onModSettingsChange)
 script.on_configuration_changed(onConfigChanged)
+script.on_nth_tick(360, onTick)
 
 script.on_event(defines.events.on_trigger_created_entity, onTriggerEntityCreated)

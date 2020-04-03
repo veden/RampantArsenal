@@ -245,7 +245,8 @@ function clouds.enable()
             movementModifier = 0,
             spreadRadius = 2,
             tint = {r=0.5,g=0.3,b=0,a=0.4},
-            scale = 4
+            scale = 4,
+            cooldown = 60
         },
         {
             type = "direct",
@@ -266,7 +267,7 @@ function clouds.enable()
                                             target_effects =
                                                 {
                                                     type = "damage",
-                                                    damage = { amount = -100, type = "healing" }
+                                                    damage = { amount = -20, type = "healing" }
                                                 }
                                         }
                                 }
@@ -472,14 +473,38 @@ function clouds.enable()
                 }
     })
 
+    data:extend({
+            {
+                type = "simple-entity-with-force",
+                name = "dummy-small-repair-cloud-rampant-arsenal",
+                render_layer = "object",
+                icon = "__base__/graphics/icons/steel-chest.png",
+                icon_size = 64, icon_mipmaps = 4,
+                flags = {"placeable-neutral", "player-creation"},
+                order = "s-e-w-f",
+                minable = {mining_time = 0.1, result = "simple-entity-with-force"},
+                max_health = 100,
+                corpse = "small-remnants",
+                collision_box = {{-0.35, -0.35}, {0.35, 0.35}},
+                selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
+                picture =
+                    {
+                        filename = "__core__/graphics/empty.png",
+                        priority = "low",
+                        width = 1,
+                        height = 1
+                    }
+            }
+    })
+
     local smallRepairCloud = makeCloud(
         {
             name = "small-repair",
             duration = 3000,
-            inDuration = 600,
-            outDuration = 600,
+            inDuration = 10,
+            outDuration = 10,
             movementModifier = 0,
-            cooldown = 175,
+            cooldown = 125,
             spreadRadius = 2,
             tint = {r=0.3,g=0.1,b=0,a=0.01},
             scale = 0.5
@@ -503,14 +528,13 @@ function clouds.enable()
                                             target_effects =
                                                 {
                                                     type = "damage",
-                                                    damage = { amount = -7, type = "healing" }
+                                                    damage = { amount = -6, type = "healing" }
                                                 }
                                         }
                                 }
                         }
                 }
     })
-
 end
 
 return clouds

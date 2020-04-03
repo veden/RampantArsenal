@@ -35,6 +35,24 @@ data:extend({
             order = "a[projectile]-a[collide]",
             per_user = false
         },
+        
+        {
+            type = "bool-setting",
+            name = "rampant-arsenal-enableAdvancedLab",
+            setting_type = 'startup',
+            default_value = true,
+            order = "a[projectile]-a[collide]",
+            per_user = false
+        },
+
+        {
+            type = "bool-setting",
+            name = "rampant-arsenal-enableLargeStorageTank",
+            setting_type = 'startup',
+            default_value = true,
+            order = "a[projectile]-a[collide]",
+            per_user = false
+        },
 
         {
             type = "bool-setting",
