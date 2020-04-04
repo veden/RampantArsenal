@@ -21,7 +21,7 @@ local function CapsuleLauncherSheet()
             layers =
                 {
                     {
-                        filename = "__RampantArsenal__/graphics/entities/arty2x2-sheet.png",
+                        filename = "__RampantArsenal__/graphics/yuokiTani/entities/arty2x2-sheet.png",
                         priority = "high",
                         width = 168,
                         height = 168,

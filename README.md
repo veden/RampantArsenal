@@ -8,7 +8,7 @@ YuokiTani - for turret sprite sheets
 
 # Graphics License
 
-THE GRAPHICS INCLUDED BELONG TO YuokiTani AND PERMISSION FOR THERE
+THE GRAPHICS INCLUDED UNDER THE graphics/yuokiTani FOLDER BELONG TO YuokiTani AND PERMISSION FOR THERE
 USE MUST BE SOUGHT FROM YuokiTani.
 
 # Forum Post

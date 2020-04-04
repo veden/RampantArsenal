@@ -12,6 +12,9 @@ Date: 28. 3. 2020
     - Increased medic ammo magazine size to 25
   Bugfixes:
     - Fixed bullet trials compatibility (WarStalkerR)
+  Framework:
+    - Separated Yuoki Tani graphics to dedicated folder
+    - License changed to CC 4.0 BY-NC
 
 ---------------------------------------------------------------------------------------------------
 Version: 0.18.3

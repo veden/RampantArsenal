@@ -382,7 +382,7 @@ local function advancedLaserSheet()
             layers =
                 {
                     {
-                        filename = "__RampantArsenal__/graphics/entities/advanced-laser-sheet.png",
+                        filename = "__RampantArsenal__/graphics/yuokiTani/entities/advanced-laser-sheet.png",
                         priority = "high",
                         width = 256,
                         height = 256,
@@ -393,7 +393,7 @@ local function advancedLaserSheet()
                         shift = {0.5, -1.6},
                     },
                     {
-                        filename = "__RampantArsenal__/graphics/entities/advanced-laser-sheet-mask.png",
+                        filename = "__RampantArsenal__/graphics/yuokiTani/entities/advanced-laser-sheet-mask.png",
                         flags = { "mask" },
                         width = 256,
                         height = 256,
@@ -415,7 +415,7 @@ local function lightningTowerSheet()
             layers =
                 {
                     {
-                        filename = "__RampantArsenal__/graphics/entities/r1_sheet.png",
+                        filename = "__RampantArsenal__/graphics/yuokiTani/entities/r1_sheet.png",
                         priority = "high",
                         width = 96,
                         height = 80,

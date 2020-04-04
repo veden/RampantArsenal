@@ -18,7 +18,7 @@ local function rocketSheetMk1()
             layers =
                 {
                     {
-                        filename = "__RampantArsenal__/graphics/entities/rocket-mk1-sheet.png",
+                        filename = "__RampantArsenal__/graphics/yuokiTani/entities/rocket-mk1-sheet.png",
                         priority = "high",
                         width = 72,
                         height = 80,
@@ -39,7 +39,7 @@ local function rocketSheetMk2()
             layers =
                 {
                     {
-                        filename = "__RampantArsenal__/graphics/entities/rocket-mk2-sheet.png",
+                        filename = "__RampantArsenal__/graphics/yuokiTani/entities/rocket-mk2-sheet.png",
                         priority = "high",
                         width = 88,
                         height = 80,

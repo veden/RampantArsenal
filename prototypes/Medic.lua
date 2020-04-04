@@ -19,7 +19,7 @@ local function medicSheet()
             layers =
                 {
                     {
-                        filename = "__RampantArsenal__/graphics/entities/zone-expander.png",
+                        filename = "__RampantArsenal__/graphics/yuokiTani/entities/zone-expander.png",
                         priority = "high",
                         width = 96,
                         height = 128,

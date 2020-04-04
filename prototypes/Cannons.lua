@@ -22,7 +22,7 @@ local function cannonMkISheet()
             layers =
                 {
                     {
-                        filename = "__RampantArsenal__/graphics/entities/cannon-mk1-sheet.png",
+                        filename = "__RampantArsenal__/graphics/yuokiTani/entities/cannon-mk1-sheet.png",
                         priority = "high",
                         width = 128,
                         height = 128,
@@ -64,7 +64,7 @@ local function shotgunTurretSheet()
             layers =
                 {
                     {
-                        filename = "__RampantArsenal__/graphics/entities/shotgun-turret-sheet.png",
+                        filename = "__RampantArsenal__/graphics/yuokiTani/entities/shotgun-turret-sheet.png",
                         priority = "high",
                         width = 90,
                         height = 90,
@@ -85,7 +85,7 @@ local function cannonMkIISheet()
             layers =
                 {
                     {
-                        filename = "__RampantArsenal__/graphics/entities/cannon-mk2-sheet.png",
+                        filename = "__RampantArsenal__/graphics/yuokiTani/entities/cannon-mk2-sheet.png",
                         priority = "high",
                         width = 128,
                         height = 128,
@@ -106,7 +106,7 @@ local function cannonMkIIPlace(lineLength, directionCount, frameCount, backward)
             layers =
                 {
                     {
-                        filename = "__RampantArsenal__/graphics/entities/cannon-mk2-place.png",
+                        filename = "__RampantArsenal__/graphics/yuokiTani/entities/cannon-mk2-place.png",
                         priority = "high",
                         width = 128,
                         height = 128,
@@ -129,7 +129,7 @@ local function largeCannonSheet()
             layers =
                 {
                     {
-                        filename = "__RampantArsenal__/graphics/entities/cr-sheet.png",
+                        filename = "__RampantArsenal__/graphics/yuokiTani/entities/cr-sheet.png",
                         priority = "high",
                         width = 256,
                         height = 256,

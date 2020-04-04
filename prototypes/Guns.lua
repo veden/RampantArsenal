@@ -24,7 +24,7 @@ local function gunTurretMkIISheet()
             layers =
                 {
                     {
-                        filename = "__RampantArsenal__/graphics/entities/gluegun_anim.png",
+                        filename = "__RampantArsenal__/graphics/yuokiTani/entities/gluegun_anim.png",
                         priority = "high",
                         width = 80,
                         height = 72,
@@ -55,7 +55,7 @@ local function rifleTurretSheet()
                         axially_symmetrical = false,
                         direction_count = 64,
                         frame_count = 1,
-                        shift = {0, -0.25},
+                        shift = {0, -0.25}
                     }
                 }
         }
