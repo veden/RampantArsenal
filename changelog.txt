@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------
-Version: 0.18.4
+Version: 0.18.5
 Date: 28. 3. 2020
   Improvements:
     - Added an advanced lab + technology with a setting to enable/disable
@@ -7,12 +7,16 @@ Date: 28. 3. 2020
     - Reworked mending wall and gate frequency, duration, amount, and cooldown
     - Lowered medic turret warmup to be 100 ticks
     - Increased medic turret cooldown to 1340 ticks
-    - Decreased medic turret health per action to 200
+    - Decreased medic turret health per action to 20
     - Doubled medic turret cloud action cooldown to 60
     - Increased medic ammo magazine size to 25
+    - Added new sounds to ammo, fluid, and electric turrets
   Bugfixes:
     - Fixed bullet trials compatibility (WarStalkerR)
+    - Changed vanilla damage technologies to hidden instead of disabled
+    - Fixed 0.18.18 factorio changes
   Framework:
+    - Removed colliding projectiles settings
     - Separated Yuoki Tani graphics to dedicated folder
     - License changed to CC 4.0 BY-NC
 

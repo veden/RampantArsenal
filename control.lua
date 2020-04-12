@@ -15,6 +15,9 @@ local ENABLE_NORMAL_GOO = constants.ENABLE_NORMAL_GOO
 local ENABLE_ALL_GOO = constants.ENABLE_ALL_GOO
 local MENDING_WALL_COOLDOWN = constants.MENDING_WALL_COOLDOWN
 
+local CHUNK_SIZE = constants.CHUNK_SIZE
+local CHUNK_SIZE_DIVIDER = constants.CHUNK_SIZE_DIVIDER
+
 -- imported functions
 
 local gaussianRandomRange = mathUtils.gaussianRandomRange
@@ -22,6 +25,8 @@ local gaussianRandomRange = mathUtils.gaussianRandomRange
 local strFind = string.find
 local substr = string.sub
 local mRandom = math.random
+local mFloor = math.floor
+local mCeil = math.ceil
 
 -- local references
 
@@ -34,6 +39,8 @@ local function onModSettingsChange(event)
     if event and (string.sub(event.setting, 1, 18) ~= "rampant-arsenal") then
         return false
     end
+
+    world.airFilterCooldown = settings.global["rampant-arsenal-airFilterCooldown"].value
 
     -- world.spoutThreshold = settings.global["rampant-arsenal-spoutThreshold"].value
     -- world.spoutScaler = settings.global["rampant-arsenal-spoutScaler"].value
@@ -83,7 +90,7 @@ local function onConfigChanged()
 
         world.version = 11
     end
-    if (world.version < 13) then
+    if (world.version < 14) then
 
         world.createSmallMendingCloudQuery = {
             name = "small-repair-cloud-rampant-arsenal",
@@ -92,11 +99,33 @@ local function onConfigChanged()
         }
 
         world.mendingWalls = {}
+        world.airFilterTick = {}
+        world.position = {x=0,y=0}
+        world.airFilterCount = 0
+        world.playerSelection = {}
+
+        for _,surface in pairs(game.surfaces) do
+            local entities = surface.count_entities_filtered({
+                    name = "air-filter-rampant-arsenal"
+            })
+            -- world.airFilterTick
+            world.airFilterCount = world.airFilterCount + entities
+        end
+        world.airFilterPerTick = (world.airFilterCount / world.airFilterCooldown)
+
+        -- for _, surface in pairs(game.surfaces) do
+        --     world.airFilterTick =
+        -- end
+
+        world.insertFluidQuery = {
+            name="pollution-fluid-rampant-arsenal",
+            amount=10
+        }
 
         for i,p in ipairs(game.connected_players) do
             p.print("Rampant Arsenal - Version 0.18.5")
         end
-        world.version = 13
+        world.version = 14
     end
 end
 
@@ -110,20 +139,6 @@ end
 
 local function onLoad()
     world = global.world
-end
-
-local function onTick(event)
-    local counter = 0
-    for k,v in pairs(world.mendingWalls) do
-        if (v < event.tick) then
-            world.mendingWalls[k] = nil
-        end
-        if (counter > 5) then
-            return
-        else
-            counter = counter + 1
-        end
-    end
 end
 
 local function onDeath(event)
@@ -153,6 +168,9 @@ local function onDeath(event)
             end
         end
     end
+    if (entity.name == "air-filter-rampant-arsenal") then
+        world.airFilterCount = world.airFilterCount - 1
+    end
 end
 
 local function onTriggerEntityCreated(event)
@@ -173,12 +191,197 @@ local function onTriggerEntityCreated(event)
     end
 end
 
+local function onMendingWallsTick(event)
+    local counter = 0
+    for k,v in pairs(world.mendingWalls) do
+        if (v < event.tick) then
+            world.mendingWalls[k] = nil
+        end
+        if (counter > 5) then
+            return
+        else
+            counter = counter + 1
+        end
+    end
+end
+
+local function onBuilding(event)
+    local entity = event.created_entity or event.entity
+    if (entity.name == "air-filter-rampant-arsenal") then
+        local nextTick = event.tick + world.airFilterCooldown
+
+        world.airFilterCount = world.airFilterCount + 1
+        world.airFilterPerTick = (world.airFilterCount / world.airFilterCooldown)
+
+        local tickSlot = world.airFilterTick[nextTick]
+        if not tickSlot then
+            tickSlot = {}
+            world.airFilterTick[nextTick] = tickSlot
+        end
+        tickSlot[#tickSlot+1] = entity
+
+    end
+end
+
+local function onRemoval(event)
+    local entity = event.created_entity or event.entity
+    if (entity.name == "air-filter-rampant-arsenal") then
+        world.airFilterCount = world.airFilterCount - 1
+        world.airFilterPerTick = (world.airFilterCount / world.airFilterCooldown)
+    end
+end
+
+local function calculatePollution(surface, position)
+    local chunkX = position.x
+    local chunkY = position.y
+
+    local position = world.position
+    local totalPollution = 0
+
+    position.x = chunkX
+    position.y = chunkY
+    totalPollution = totalPollution + surface.get_pollution(position)
+
+    position.x = chunkX + CHUNK_SIZE
+    position.y = chunkY
+    totalPollution = totalPollution + surface.get_pollution(position)
+
+    position.x = chunkX - CHUNK_SIZE
+    position.y = chunkY
+    totalPollution = totalPollution + surface.get_pollution(position)
+
+    position.x = chunkX
+    position.y = chunkY + CHUNK_SIZE
+    totalPollution = totalPollution + surface.get_pollution(position)
+
+    position.x = chunkX
+    position.y = chunkY - CHUNK_SIZE
+    totalPollution = totalPollution + surface.get_pollution(position)
+
+    return mCeil(totalPollution)
+end
+
+local function onAirFiltering(event)
+    local entities = world.airFilterTick[event.tick]
+    if entities then
+        local nextTick = event.tick + world.airFilterCooldown
+        local tickSlot = world.airFilterTick[nextTick]
+        local airFilterPerTick = world.airFilterPerTick
+        for i=1,#entities do
+            local entity = entities[i]
+            if (entity.valid) then
+                if entity.is_connected_to_electric_network() and ((entity.energy / entity.prototype.max_energy_usage) > 0.65) then
+                    local amount = calculatePollution(entity.surface, entity.position)
+                    if (amount > 0) then
+                        world.insertFluidQuery.amount = amount
+                        entity.insert_fluid(world.insertFluidQuery)
+                    end
+                end
+
+                if not tickSlot then
+                    tickSlot = {}
+                    world.airFilterTick[nextTick] = tickSlot
+                    tickSlot[#tickSlot+1] = entity
+                else
+                    if (#tickSlot > airFilterPerTick) then
+                        while (#tickSlot > airFilterPerTick) do
+                            nextTick = nextTick + 1
+                            tickSlot = world.airFilterTick[nextTick]
+                            if not tickSlot then
+                                tickSlot = {}
+                                world.airFilterTick[nextTick] = tickSlot
+                                tickSlot[#tickSlot+1] = entity
+                            elseif (#tickSlot < airFilterPerTick) then
+                                tickSlot[#tickSlot+1] = entity
+                            end
+                        end
+                    else
+                        tickSlot[#tickSlot+1] = entity
+                    end
+                end
+            end
+        end
+        world.airFilterTick[event.tick] = nil
+    end
+end
+
+local function onSelectionChanged(event)
+    local player = game.players[event.player_index]
+    local selection = game.players[event.player_index].selected
+    if selection and (selection.name == "air-filter-rampant-arsenal") then
+
+        local chunkX = mFloor(selection.position.x / 32) * 32
+        local chunkY = mFloor(selection.position.y / 32) * 32
+
+        if world.playerSelection[event.player_index] then
+            rendering.destroy(world.playerSelection[event.player_index][2])
+        end
+
+        local graphicId = rendering.draw_rectangle({
+                color = {0.1, 0.3, 0.1, 0.6},
+                width = 32 * 32,
+                filled = true,
+                left_top = {chunkX, chunkY},
+                right_bottom = {chunkX+32, chunkY+32},
+                surface = selection.surface,
+                draw_on_ground = true,
+                visible = true
+        })
+        world.playerSelection[event.player_index] = {selection, graphicId}
+    end
+end
+
+local function removePlayerSelection(event)
+    for player,pair in pairs(world.playerSelection) do
+        if game.players[player].selected ~= pair[1] then
+            rendering.destroy(pair[2])
+            world.playerSelection[player] = nil
+        end
+    end
+end
+
 -- hooks
 
 script.on_init(onInit)
 script.on_load(onLoad)
 script.on_event(defines.events.on_runtime_mod_setting_changed, onModSettingsChange)
 script.on_configuration_changed(onConfigChanged)
-script.on_nth_tick(360, onTick)
+script.on_nth_tick(360, onMendingWallsTick)
+
+script.on_nth_tick(15, removePlayerSelection)
+script.on_event(defines.events.on_tick, onAirFiltering)
+
+script.on_event(defines.events.on_selected_entity_changed, onSelectionChanged)
+
+script.on_event(defines.events.on_entity_died, onRemoval, {{
+                        name = "air-filter-rampant-arsenal",
+                        filter = "name"
+}})
+
+script.on_event(defines.events.on_robot_mined_entity, onRemoval, {{
+                        name = "air-filter-rampant-arsenal",
+                        filter = "name"
+}})
+
+script.on_event(defines.events.on_player_mined_entity, onRemoval, {{
+                        name = "air-filter-rampant-arsenal",
+                        filter = "name"
+}})
+
+script.on_event(defines.events.on_built_entity, onBuilding, {{
+                        name = "air-filter-rampant-arsenal",
+                        filter = "name"
+}})
+
+script.on_event(defines.events.on_robot_built_entity, onBuilding, {{
+                        name = "air-filter-rampant-arsenal",
+                        filter = "name"
+}})
+
+script.on_event({defines.events.script_raised_destroy}, onRemoval)
+
+script.on_event({ defines.events.script_raised_built,
+                  defines.events.script_raised_revive }, onBuilding)
+
 
 script.on_event(defines.events.on_trigger_created_entity, onTriggerEntityCreated)

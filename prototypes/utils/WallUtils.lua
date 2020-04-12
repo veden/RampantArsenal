@@ -1,6 +1,7 @@
 local wallUtils = {}
 
 local hit_effects = require ("__base__.prototypes.entity.demo-hit-effects")
+local sounds = require("__base__.prototypes.entity.demo-sounds")
 
 function wallUtils.addResistance(eType, name, resistance)
     if data.raw[eType][name] then
@@ -49,7 +50,7 @@ function wallUtils.makeWall(attributes, attack)
                 corpse = "wall-remnants",
                 repair_sound = { filename = "__base__/sound/manual-repair-simple.ogg" },
                 mined_sound = { filename = "__base__/sound/deconstruct-bricks.ogg" },
-                vehicle_impact_sound =  { filename = "__base__/sound/car-stone-impact.ogg", volume = 1.0 },
+                vehicle_impact_sound = sounds.car_stone_impact,
                 -- this kind of code can be used for having walls mirror the effect
                 -- there can be multiple reaction items
                 attack_reaction = attack
@@ -1180,25 +1181,9 @@ function wallUtils.makeGate(attributes, attack)
                                 }
                             }
                     },
-                vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
-                open_sound =
-                    {
-                        variations = { filename = "__base__/sound/gate1.ogg", volume = 0.5 },
-                        aggregation =
-                            {
-                                max_count = 1,
-                                remove = true
-                            }
-                    },
-                close_sound =
-                    {
-                        variations = { filename = "__base__/sound/gate1.ogg", volume = 0.5 },
-                        aggregation =
-                            {
-                                max_count = 1,
-                                remove = true
-                            }
-                    }
+                vehicle_impact_sound = sounds.generic_impact,
+                open_sound = sounds.gate_open,
+                close_sound = sounds.gate_close
             }
     })
 

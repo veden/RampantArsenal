@@ -131,7 +131,7 @@ end
 function turretUtils.makeAmmoTurret(attributes, attack)
     local name = attributes.name .. "-ammo-turret-rampant-arsenal"
     local itemName = attributes.name .. "-item-rampant-arsenal"
-    
+
     data:extend({
             {
                 type = "item",
@@ -157,6 +157,16 @@ function turretUtils.makeAmmoTurret(attributes, attack)
                 collision_box = attributes.collisionBox or {{-0.7, -0.7 }, {0.7, 0.7}},
                 selection_box = attributes.selectionBox or {{-1, -1 }, {1, 1}},
                 rotation_speed = attributes.rotationSpeed or 0.007,
+                preparing_sound = sounds.gun_turret_activate,
+                folding_sound = sounds.gun_turret_deactivate,
+                rotating_sound =
+                    {
+                        sound =
+                            {
+                                filename = "__base__/sound/fight/gun-turret-rotation-01.ogg",
+                                volume = 0.3
+                            }
+                    },
                 preparing_speed = attributes.preparingSpeed or 0.08,
                 folding_speed = attributes.foldingSpeed or 0.08,
                 dying_explosion = "medium-explosion",
@@ -164,8 +174,8 @@ function turretUtils.makeAmmoTurret(attributes, attack)
                 automated_ammo_count = attributes.autoAmmoCount or 10,
                 attacking_speed = attributes.attackingSpeed or 0.5,
                 alert_when_attacking = true,
-                open_sound = { filename = "__base__/sound/machine-open.ogg", volume = 0.85 },
-                close_sound = { filename = "__base__/sound/machine-close.ogg", volume = 0.75 },
+                open_sound = sounds.machine_open,
+                close_sound = sounds.machine_close,
                 folded_animation = attributes.foldedAnimation,
                 preparing_animation = attributes.preparingAnimation,
                 prepared_animation = attributes.preparedAnimation,
@@ -176,7 +186,7 @@ function turretUtils.makeAmmoTurret(attributes, attack)
                 damaged_trigger_effect = hit_effects.entity(),
 
                 resistances = attributes.resistances,
-                
+
                 vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
 
                 attack_parameters = attack or
@@ -218,7 +228,7 @@ function turretUtils.makeAmmoTurret(attributes, attack)
                     },
 
                 call_for_help_radius = 40,
-                order = attributes.order		
+                order = attributes.order
             }
     })
 
@@ -240,7 +250,7 @@ function turretUtils.makeFluidTurret(attributes, attack)
                 order = attributes.order or "b[turret]-a[gun-turret]",
                 place_result = name,
                 stack_size = attributes.stackSize or 50
-            },	  
+            },
             {
                 type = "fluid-turret",
                 name = name,
@@ -256,6 +266,8 @@ function turretUtils.makeFluidTurret(attributes, attack)
                 preparing_speed = attributes.preparingSpeed or 0.08,
                 folding_speed = attributes.foldingSpeed or 0.08,
                 attacking_speed = attributes.attackingSpeed or 1,
+                preparing_sound = sounds.flamethrower_turret_activate,
+                folding_sound = sounds.flamethrower_turret_deactivate,                
                 ending_attack_speed = attributes.attackingEndSpeed or 0.2,
                 dying_explosion = "medium-explosion",
                 -- damaged_trigger_effect = hit_effects.entity(),
@@ -272,7 +284,7 @@ function turretUtils.makeFluidTurret(attributes, attack)
                         },
                     },
 
-                fluid_box = 
+                fluid_box =
                     {
                         pipe_picture = flamethrower_turret_pipepictures(),
                         render_layer = "lower-object",
@@ -292,7 +304,7 @@ function turretUtils.makeFluidTurret(attributes, attack)
 
                 preparing_animation = attributes.preparingAnimation,
                 prepared_animation = attributes.preparedAnimation,
-                
+
                 folding_animation = attributes.foldingAnimation,
 
                 not_enough_fuel_indicator_picture = indicator_pictures,
@@ -309,13 +321,13 @@ function turretUtils.makeFluidTurret(attributes, attack)
                 -- gun_animation_render_layer = "object",
                 -- gun_animation_secondary_draw_order = 1,
                 -- base_picture_render_layer = "lower-object-above-shadow",
-                -- base_picture_secondary_draw_order = 1,                
-                
+                -- base_picture_secondary_draw_order = 1,
+
                 vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
 
                 prepare_range = attributes.prepareRange or 55,
                 shoot_in_prepare_state = false,
-                attack_parameters = attack or 
+                attack_parameters = attack or
                     {
                         type = "stream",
                         ammo_category = "flamethrower",
@@ -365,22 +377,46 @@ function turretUtils.makeFluidTurret(attributes, attack)
                                 begin_sound =
                                     {
                                         {
-                                            filename = "__base__/sound/fight/flamethrower-start.ogg",
-                                            volume = 0.7
+                                            filename = "__base__/sound/fight/flamethrower-turret-start-01.ogg",
+                                            volume = 0.5
+                                        },
+                                        {
+                                            filename = "__base__/sound/fight/flamethrower-turret-start-02.ogg",
+                                            volume = 0.5
+                                        },
+                                        {
+                                            filename = "__base__/sound/fight/flamethrower-turret-start-03.ogg",
+                                            volume = 0.5
                                         }
                                     },
                                 middle_sound =
                                     {
                                         {
-                                            filename = "__base__/sound/fight/flamethrower-mid.ogg",
-                                            volume = 0.7
+                                            filename = "__base__/sound/fight/flamethrower-turret-mid-01.ogg",
+                                            volume = 0.5
+                                        },
+                                        {
+                                            filename = "__base__/sound/fight/flamethrower-turret-mid-02.ogg",
+                                            volume = 0.5
+                                        },
+                                        {
+                                            filename = "__base__/sound/fight/flamethrower-turret-mid-03.ogg",
+                                            volume = 0.5
                                         }
                                     },
                                 end_sound =
                                     {
                                         {
-                                            filename = "__base__/sound/fight/flamethrower-end.ogg",
-                                            volume = 0.7
+                                            filename = "__base__/sound/fight/flamethrower-turret-end-01.ogg",
+                                            volume = 0.5
+                                        },
+                                        {
+                                            filename = "__base__/sound/fight/flamethrower-turret-end-02.ogg",
+                                            volume = 0.5
+                                        },
+                                        {
+                                            filename = "__base__/sound/fight/flamethrower-turret-end-03.ogg",
+                                            volume = 0.5
                                         }
                                     }
                             }
@@ -396,7 +432,7 @@ end
 function turretUtils.makeElectricTurret(attributes, attack)
     local name = attributes.name .. "-electric-turret-rampant-arsenal"
     local itemName = attributes.name .. "-item-rampant-arsenal"
-    
+
     data:extend({
             {
                 type = "item",
@@ -426,7 +462,17 @@ function turretUtils.makeElectricTurret(attributes, attack)
                 dying_explosion = "medium-explosion",
                 turret_base_has_direction = attributes.hasBaseDirection,
                 folding_speed = attributes.foldingSpeed or 0.05,
-                energy_source = attributes.energySource or 
+                preparing_sound = sounds.laser_turret_activate,
+                folding_sound = sounds.laser_turret_deactivate,
+                rotating_sound =
+                    {
+                        sound =
+                            {
+                                filename = "__base__/sound/fight/laser-turret-rotation-01.ogg",
+                                volume = 0.3
+                            }
+                    },                
+                energy_source = attributes.energySource or
                     {
                         type = "electric",
                         buffer_capacity = "801kJ",

@@ -5,12 +5,14 @@ local itemUtils = require("utils/ItemUtils")
 local powerUtils = require("utils/PowerUtils")
 local technologyUtils = require("utils/TechnologyUtils")
 local scaleUtils = require("utils/ScaleUtils")
+local oilUtils = require("resources/OilUtils")
 
 local addEffectToTech = technologyUtils.addEffectToTech
 local makeRecipe = recipeUtils.makeRecipe
 local makeOilBurner = powerUtils.makeOilBurner
 local addFuelToItem = itemUtils.addFuelToItem
 local scalePicture = scaleUtils.scalePicture
+local addFluid = oilUtils.addFluid
 
 function buildings.enable()
 
@@ -206,7 +208,7 @@ function buildings.enable()
                                 priority = "extra-high",
                                 frames = 2,
                                 width = 146,
-                                height = 77,                                
+                                height = 77,
                                 shift = util.by_pixel(30, 22.5),
                                 scale = 1,
                                 draw_as_shadow = true,
@@ -322,6 +324,103 @@ function buildings.enable()
         data:extend({
                 storageTank,
                 recipe,
+                item
+        })
+    end
+
+    if settings.startup["rampant-arsenal-enableAirFiltering"].value and false then
+        local radar = table.deepcopy(data.raw["assembling-machine"]["assembling-machine-2"])
+        radar.name = "air-filter-rampant-arsenal"
+        radar.fixed_recipe = "air-filter-pollution-rampant-arsenal"
+        radar.crafting_categories = { "air-filter-rampant-arsenal" }
+        radar.always_draw_idle_animation = true
+        radar.minable = {mining_time=2,result="air-filter-rampant-arsenal"}
+        radar.next_upgrade = nil
+        radar.energy_usage = "750KW"
+        radar.energy_source.drain = "500KW"
+        radar.match_speed_to_activity = true
+        radar.match_volume_to_activity = true
+        radar.crafting_speed = 1
+        radar.fast_replaceable_group = nil
+        radar.allowed_effects = { "speed", "productivity", "consumption" }
+        radar.fluid_boxes = {
+            {
+                production_type = "input",
+                pipe_picture = assembler3pipepictures(),
+                pipe_covers = pipecoverspictures(),
+                base_area = 10,
+                base_level = -1,
+                pipe_connections = {},
+                secondary_draw_orders = { north = -1 }
+            },
+            {
+                production_type = "output",
+                pipe_picture = assembler3pipepictures(),
+                pipe_covers = pipecoverspictures(),
+                base_area = 10,
+                base_level = 1,
+                pipe_connections = {{ type="output", position = {0, 2} }},
+                secondary_draw_orders = { north = -1 }
+            },
+            off_when_no_fluid_recipe = false
+        }
+
+        local recipe = table.deepcopy(data.raw["recipe"]["assembling-machine-2"])
+        recipe.name = "air-filter-rampant-arsenal"
+        recipe.normal.ingredients = {
+            {"steel-plate", 20},
+            {"electronic-circuit", 30},
+            {"storage-tank", 16}
+        }
+        recipe.normal.energy_required = 30
+        recipe.normal.hidden = false
+        recipe.normal.enabled = true
+        recipe.subgroup = "raw-material"
+        recipe.normal.result = "air-filter-rampant-arsenal"
+
+        local item = table.deepcopy(data.raw["item"]["assembling-machine-2"])
+        item.name = "air-filter-rampant-arsenal"
+        item.place_result = "air-filter-rampant-arsenal"
+        item.order = "a[zzassembling-machine-10]"
+
+        local recipePollution = table.deepcopy(data.raw["recipe"]["assembling-machine-2"])
+        recipePollution.name = "air-filter-pollution-rampant-arsenal"
+        recipePollution.category = "air-filter-rampant-arsenal"
+        recipePollution.subgroup = "raw-material"
+        recipePollution.normal.ingredients = {
+            {type="fluid",name="pollution-fluid-rampant-arsenal", amount=10}
+        }
+        recipePollution.normal.energy_required = 120
+        recipePollution.normal.hide_from_player_crafting = true
+        recipePollution.normal.hidden = false
+        recipePollution.normal.enabled = true
+        recipePollution.normal.emissions_multiplier = -8
+        recipePollution.normal.allow_as_intermediate = false
+        recipePollution.normal.always_show_products = true
+        recipePollution.normal.show_amount_in_title = false
+        recipePollution.normal.result = nil
+        recipePollution.normal.results = {
+            {type="fluid", name="compressed-pollution-fluid-rampant-arsenal", amount=100}
+        }
+
+        addFluid({
+                name="pollution",
+                icon="__RampantArsenal__/graphics/icons/pollution.png",
+                
+        })
+
+        addFluid({
+                name="compressed-pollution"
+        })
+
+        data:extend({
+                {
+                    type="recipe-category",
+                    name="air-filter-rampant-arsenal"
+                },
+                recipe,
+                recipePollution,
+                radar,
                 item
         })
     end

@@ -16,7 +16,7 @@ function oilUtils.addFluid(attributes)
 		-- icons = {
 		--     {icon = "__base__/graphics/icons/fluid/crude-oil.png", tint = attributes.tint},
 		-- },
-		icon_size = 32,
+		icon_size = 64, mipmaps = 4,
 		pressure_to_speed_ratio = 0.4,
 		flow_to_energy_ratio = 0.59,
 		emissions_multiplier = attributes.emissionsMultiplier,

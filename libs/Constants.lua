@@ -10,6 +10,11 @@ constants.DEFAULT_SPOUT_SIZE = 1000
 
 constants.INTERVAL_LOGIC = 38
 
+constants.CHUNK_SIZE = 32
+constants.CHUNK_SIZE_DIVIDER = 0.3125
+
+constants.MENDING_WALL_COOLDOWN = 3000
+
 -- spawners
 
 constants.BITER_SPAWNER = "biter-spawner"
@@ -80,8 +85,6 @@ constants.RAMPANT_WASP_SPITTER_SPAWNER = "wasp-spitter-nest"
 constants.RAMPANT_SPAWNER_BITER_SPAWNER = "spawner-biter-nest"
 constants.RAMPANT_SPAWNER_SPITTER_SPAWNER = "spawner-spitter-nest"
 -- constants.RAMPANT_SPAWNER_WORM = "spawner-worm"
-
-constants.MENDING_WALL_COOLDOWN = 3000
 
 constants.RAMPANT_PREFIX_TABLE = {
     ["spawner"] = "dirty-alien-goo-green-resource-rampant-arsenal",

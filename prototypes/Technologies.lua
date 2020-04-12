@@ -4293,36 +4293,36 @@ function technologies.enable()
 
 
     if not settings.startup["rampant-arsenal-unhideVanillaDamageTechnologies"].value then
-        data.raw["technology"]["physical-projectile-damage-1"].enabled = false
-        data.raw["technology"]["physical-projectile-damage-2"].enabled = false
-        data.raw["technology"]["physical-projectile-damage-3"].enabled = false
-        data.raw["technology"]["physical-projectile-damage-4"].enabled = false
-        data.raw["technology"]["physical-projectile-damage-5"].enabled = false
-        data.raw["technology"]["physical-projectile-damage-6"].enabled = false
-        data.raw["technology"]["physical-projectile-damage-7"].enabled = false
+        data.raw["technology"]["physical-projectile-damage-1"].hidden = true
+        data.raw["technology"]["physical-projectile-damage-2"].hidden = true
+        data.raw["technology"]["physical-projectile-damage-3"].hidden = true
+        data.raw["technology"]["physical-projectile-damage-4"].hidden = true
+        data.raw["technology"]["physical-projectile-damage-5"].hidden = true
+        data.raw["technology"]["physical-projectile-damage-6"].hidden = true
+        data.raw["technology"]["physical-projectile-damage-7"].hidden = true
 
-        data.raw["technology"]["energy-weapons-damage-1"].enabled = false
-        data.raw["technology"]["energy-weapons-damage-2"].enabled = false
-        data.raw["technology"]["energy-weapons-damage-3"].enabled = false
-        data.raw["technology"]["energy-weapons-damage-4"].enabled = false
-        data.raw["technology"]["energy-weapons-damage-5"].enabled = false
-        data.raw["technology"]["energy-weapons-damage-6"].enabled = false
-        data.raw["technology"]["energy-weapons-damage-7"].enabled = false
+        data.raw["technology"]["energy-weapons-damage-1"].hidden = true
+        data.raw["technology"]["energy-weapons-damage-2"].hidden = true
+        data.raw["technology"]["energy-weapons-damage-3"].hidden = true
+        data.raw["technology"]["energy-weapons-damage-4"].hidden = true
+        data.raw["technology"]["energy-weapons-damage-5"].hidden = true
+        data.raw["technology"]["energy-weapons-damage-6"].hidden = true
+        data.raw["technology"]["energy-weapons-damage-7"].hidden = true
 
-        data.raw["technology"]["weapon-shooting-speed-1"].enabled = false
-        data.raw["technology"]["weapon-shooting-speed-2"].enabled = false
-        data.raw["technology"]["weapon-shooting-speed-3"].enabled = false
-        data.raw["technology"]["weapon-shooting-speed-4"].enabled = false
-        data.raw["technology"]["weapon-shooting-speed-5"].enabled = false
-        data.raw["technology"]["weapon-shooting-speed-6"].enabled = false
+        data.raw["technology"]["weapon-shooting-speed-1"].hidden = true
+        data.raw["technology"]["weapon-shooting-speed-2"].hidden = true
+        data.raw["technology"]["weapon-shooting-speed-3"].hidden = true
+        data.raw["technology"]["weapon-shooting-speed-4"].hidden = true
+        data.raw["technology"]["weapon-shooting-speed-5"].hidden = true
+        data.raw["technology"]["weapon-shooting-speed-6"].hidden = true
 
-        data.raw["technology"]["stronger-explosives-1"].enabled = false
-        data.raw["technology"]["stronger-explosives-2"].enabled = false
-        data.raw["technology"]["stronger-explosives-3"].enabled = false
-        data.raw["technology"]["stronger-explosives-4"].enabled = false
-        data.raw["technology"]["stronger-explosives-5"].enabled = false
-        data.raw["technology"]["stronger-explosives-6"].enabled = false
-        data.raw["technology"]["stronger-explosives-7"].enabled = false
+        data.raw["technology"]["stronger-explosives-1"].hidden = true
+        data.raw["technology"]["stronger-explosives-2"].hidden = true
+        data.raw["technology"]["stronger-explosives-3"].hidden = true
+        data.raw["technology"]["stronger-explosives-4"].hidden = true
+        data.raw["technology"]["stronger-explosives-5"].hidden = true
+        data.raw["technology"]["stronger-explosives-6"].hidden = true
+        data.raw["technology"]["stronger-explosives-7"].hidden = true
     end
 end
 
