@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.18.7
+Date: 11. 4. 2020
+  Bugfixes:
+    - Fixed nuclear power armor MK3 not showing armored character sprite
+    - Fixed large tank storage size
+
+---------------------------------------------------------------------------------------------------
 Version: 0.18.6
 Date: 11. 4. 2020
   Bugfixes:

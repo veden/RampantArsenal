@@ -123,7 +123,7 @@ local function onConfigChanged()
         }
 
         for i,p in ipairs(game.connected_players) do
-            p.print("Rampant Arsenal - Version 0.18.5")
+            p.print("Rampant Arsenal - Version 0.18.7")
         end
         world.version = 14
     end

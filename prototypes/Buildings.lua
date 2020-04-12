@@ -165,7 +165,7 @@ function buildings.enable()
         })
 
         local storageTank = table.deepcopy(data.raw["storage-tank"]["storage-tank"])
-        storageTank.minable.mining_time = 0.5
+        storageTank.minable.mining_time = 3
         storageTank.name = "large-storage-tank-rampant-arsenal"
         storageTank.minable.result = "large-storage-tank-rampant-arsenal"
         storageTank.collision_box[1][1] = storageTank.collision_box[1][1] * 4
@@ -178,7 +178,6 @@ function buildings.enable()
         storageTank.selection_box[2][1] = storageTank.selection_box[2][1] * 4
         storageTank.selection_box[2][2] = storageTank.selection_box[2][2] * 4
         storageTank.corpse = "large-storage-tank-remnants-rampant-arsenal"
-        -- storageTank.window_bounding_box = {{-0.125, 0.6875}, {0.1875, 1.1875}}
         storageTank.window_bounding_box = {{0, 0.5}, {0, 3}}
         storageTank.pictures = {
             picture =
@@ -294,7 +293,7 @@ function buildings.enable()
 
         storageTank.max_health = 2000
 
-        storageTank.fluid_box.base_area = 600
+        storageTank.fluid_box.base_area = 6000
         storageTank.fluid_box.pipe_connections =
             {
                 { position = {-4, 6} },
