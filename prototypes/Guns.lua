@@ -68,6 +68,7 @@ function guns.enable()
         {
             name = "mortar",
             icon = "__RampantArsenal__/graphics/icons/mortar.png",
+            iconSize = 64,
             order = "e[mortar]-b"
         },
         {
@@ -124,6 +125,7 @@ function guns.enable()
         {
             name = "minigun",
             icon = "__RampantArsenal__/graphics/icons/minigun.png",
+            iconSize = 64,            
             order = "a[basic-clips]-e[minigun]"
         },
         {

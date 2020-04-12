@@ -8,7 +8,7 @@ function gunUtils.makeGun(attributes, attack)
                 type = "gun",
                 name = name,
                 icon = attributes.icon or "__base__/graphics/icons/submachine-gun.png",
-                icon_size = 64, icon_mipmaps = 4,
+                icon_size = attributes.iconSize or 32, icon_mipmaps = attributes.iconMipmaps or 1,
                 flags = attributes.flags or {},
                 subgroup = "gun",
                 order = attributes.order or "a[basic-clips]-b[submachine-gun]",
