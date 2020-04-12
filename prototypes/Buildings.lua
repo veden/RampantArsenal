@@ -5,7 +5,7 @@ local itemUtils = require("utils/ItemUtils")
 local powerUtils = require("utils/PowerUtils")
 local technologyUtils = require("utils/TechnologyUtils")
 local scaleUtils = require("utils/ScaleUtils")
-local oilUtils = require("resources/OilUtils")
+local oilUtils = require("utils/OilUtils")
 
 local addEffectToTech = technologyUtils.addEffectToTech
 local makeRecipe = recipeUtils.makeRecipe
@@ -165,7 +165,7 @@ function buildings.enable()
         })
 
         local storageTank = table.deepcopy(data.raw["storage-tank"]["storage-tank"])
-        storageTank.minable.mining_time = 4
+        storageTank.minable.mining_time = 0.5
         storageTank.name = "large-storage-tank-rampant-arsenal"
         storageTank.minable.result = "large-storage-tank-rampant-arsenal"
         storageTank.collision_box[1][1] = storageTank.collision_box[1][1] * 4
@@ -178,7 +178,8 @@ function buildings.enable()
         storageTank.selection_box[2][1] = storageTank.selection_box[2][1] * 4
         storageTank.selection_box[2][2] = storageTank.selection_box[2][2] * 4
         storageTank.corpse = "large-storage-tank-remnants-rampant-arsenal"
-
+        -- storageTank.window_bounding_box = {{-0.125, 0.6875}, {0.1875, 1.1875}}
+        storageTank.window_bounding_box = {{0, 0.5}, {0, 3}}
         storageTank.pictures = {
             picture =
                 {
@@ -228,10 +229,13 @@ function buildings.enable()
                 },
             fluid_background =
                 {
-                    filename = "__base__/graphics/entity/storage-tank/fluid-background.png",
+                    -- filename = "__base__/graphics/entity/storage-tank/fluid-background.png",
+                    filename = "__RampantArsenal__/graphics/entities/fluid-background.png",
                     priority = "extra-high",
-                    width = 32,
-                    height = 15
+                    width = 45,
+                    height = 35,
+                    shift = {0,1.7},
+                    scale = 1
                 },
             window_background =
                 {
@@ -239,52 +243,58 @@ function buildings.enable()
                     priority = "extra-high",
                     width = 17,
                     height = 24,
+                    scale = 2,
+                    shift = {0,1.7},
                     hr_version =
                         {
                             filename = "__base__/graphics/entity/storage-tank/hr-window-background.png",
                             priority = "extra-high",
                             width = 34,
                             height = 48,
-                            scale = 0.5
+                            shift = {0,1.7},
+                            scale = 1
                         }
                 },
             flow_sprite =
                 {
-                    filename = "__base__/graphics/entity/pipe/fluid-flow-low-temperature.png",
+                    filename = "__RampantArsenal__/graphics/entities/fluid-flow-low-temperature.png",
                     priority = "extra-high",
                     width = 160,
-                    height = 20
+                    height = 60,
+                    shift = {0.2,1.7},
+                    scale = 1
                 },
-            gas_flow =
-                {
-                    filename = "__base__/graphics/entity/pipe/steam.png",
-                    priority = "extra-high",
-                    line_length = 10,
-                    width = 24,
-                    height = 15,
-                    frame_count = 60,
-                    axially_symmetrical = false,
-                    direction_count = 1,
-                    animation_speed = 0.25,
-                    hr_version =
-                        {
-                            filename = "__base__/graphics/entity/pipe/hr-steam.png",
-                            priority = "extra-high",
-                            line_length = 10,
-                            width = 48,
-                            height = 30,
-                            frame_count = 60,
-                            axially_symmetrical = false,
-                            animation_speed = 0.25,
-                            direction_count = 1,
-                            scale = 0.5
-                        }
-                }
+            gas_flow = {
+                filename = "__base__/graphics/entity/pipe/steam.png",
+                priority = "extra-high",
+                line_length = 10,
+                width = 24,
+                height = 15,
+                frame_count = 60,
+                axially_symmetrical = false,
+                direction_count = 1,
+                animation_speed = 0.25,
+                shift = {0.2,1.7},
+                scale = 2,
+                hr_version =
+                    {
+                        filename = "__RampantArsenal__/graphics/entities/hr-steam.png",
+                        priority = "extra-high",
+                        line_length = 10,
+                        width = 48,
+                        height = 120,
+                        frame_count = 60,
+                        shift = {0.2,1.7},
+                        axially_symmetrical = false,
+                        animation_speed = 0.25,
+                        direction_count = 1
+                    }
+            }
         }
 
         storageTank.max_health = 2000
 
-        storageTank.fluid_box.base_area = 6000
+        storageTank.fluid_box.base_area = 600
         storageTank.fluid_box.pipe_connections =
             {
                 { position = {-4, 6} },
@@ -328,7 +338,7 @@ function buildings.enable()
         })
     end
 
-    if settings.startup["rampant-arsenal-enableAirFiltering"].value and false then
+    if false and settings.startup["rampant-arsenal-enableAirFiltering"].value then
         local radar = table.deepcopy(data.raw["assembling-machine"]["assembling-machine-2"])
         radar.name = "air-filter-rampant-arsenal"
         radar.fixed_recipe = "air-filter-pollution-rampant-arsenal"
@@ -406,7 +416,7 @@ function buildings.enable()
         addFluid({
                 name="pollution",
                 icon="__RampantArsenal__/graphics/icons/pollution.png",
-                
+
         })
 
         addFluid({

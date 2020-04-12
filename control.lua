@@ -40,7 +40,7 @@ local function onModSettingsChange(event)
         return false
     end
 
-    world.airFilterCooldown = settings.global["rampant-arsenal-airFilterCooldown"].value
+    world.airFilterCooldown = 30 * 60 -- settings.global["rampant-arsenal-airFilterCooldown"].value
 
     -- world.spoutThreshold = settings.global["rampant-arsenal-spoutThreshold"].value
     -- world.spoutScaler = settings.global["rampant-arsenal-spoutScaler"].value

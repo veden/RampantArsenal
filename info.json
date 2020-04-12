@@ -1,10 +1,10 @@
 {
     "name" : "RampantArsenal",
     "factorio_version" : "0.18",
-    "version" : "0.18.5",
+    "version" : "0.18.6",
     "title" : "Rampant Arsenal",
     "author" : "Veden",
     "homepage" : "https://forums.factorio.com/viewtopic.php?f=190&t=60626",
     "description" : "Adds a variety of weapons to wage war. Adds Additional Turrets, Ammo Types, Landmines, Equipment, Capsules, Walls, Oil Burner, Vehicles, Infinite Technologies",
-    "dependencies" : ["base >= 0.18.15", "? bobvehicleequipment >= 0.16.2", "? Power Armor MK4", "? Power Armor MK3"]
+    "dependencies" : ["base >= 0.18.18", "? bobvehicleequipment >= 0.16.2", "? Power Armor MK4", "? Power Armor MK3"]
 }

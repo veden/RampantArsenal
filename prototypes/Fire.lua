@@ -4,7 +4,7 @@ local technologyUtils = require("utils/TechnologyUtils")
 local ammoUtils = require("utils/AmmoUtils")
 local streamUtils = require("utils/StreamUtils")
 local recipeUtils = require("utils/RecipeUtils")
-local oilUtils = require("resources/OilUtils")
+local oilUtils = require("utils/OilUtils")
 
 local makeStream = streamUtils.makeStream
 local makeAmmo = ammoUtils.makeAmmo
@@ -17,6 +17,8 @@ function fire.enable()
     local napalm = addFluid({
             name = "napalm",
             icon = "__RampantArsenal__/graphics/icons/napalm.png",
+            iconSize = 64,
+            iconMipmaps = 4,
             baseColor = { r = 0.57, g = 0.37, b = 0, a = 0.9 },
             flowColor = { r = 0.57, g = 0.37, b = 0, a = 0.9 },
             emissionsMultiplier = 2.5,
@@ -161,6 +163,8 @@ function fire.enable()
     makeRecipe({
             name = napalm,
             icon = "__RampantArsenal__/graphics/icons/napalm.png",
+            iconSize = 64,
+            iconMipmaps = 4,
             enabled = false,
             category = "chemistry",
             subgroup = "fluid-recipes",
