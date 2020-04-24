@@ -1,27 +1,26 @@
 data:extend({
 
-        -- {
-        --     type = "int-setting",
-        --     name = "rampant-arsenal-airFilterCooldown",
-        --     description = "rampant-arsenal-airFilterCooldown",
-        --     setting_type = 'runtime-global',
-        --     default_value = 30 * 60,
-        --     min_value = 1,
-        --     max_value = 1000000,
-        --     order = "a[modifer]-a[resource]",
-        --     per_user = false
-        -- },
-        
-        -- {
-        --     type = "bool-setting",
-        --     name = "rampant-arsenal-enableAirFiltering",
-        --     setting_type = 'startup',
-        --     default_value = true,
-        --     order = "a[projectile]-a[collide]",
-        --     per_user = false
-        -- },
-        
-        
+        {
+            type = "int-setting",
+            name = "rampant-arsenal-airFilterCooldown",
+            description = "rampant-arsenal-airFilterCooldown",
+            setting_type = 'runtime-global',
+            default_value = 30 * 60,
+            min_value = 1,
+            max_value = 1000000,
+            order = "a[modifer]-a[resource]",
+            per_user = false
+        },
+
+        {
+            type = "bool-setting",
+            name = "rampant-arsenal-enableAirFiltering",
+            setting_type = 'startup',
+            default_value = true,
+            order = "a[projectile]-a[collide]",
+            per_user = false
+        },
+
         {
             type = "bool-setting",
             name = "rampant-arsenal-enableOilBurner",
@@ -30,7 +29,7 @@ data:extend({
             order = "a[projectile]-a[collide]",
             per_user = false
         },
-        
+
         {
             type = "bool-setting",
             name = "rampant-arsenal-enableAdvancedLab",

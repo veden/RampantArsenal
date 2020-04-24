@@ -182,6 +182,8 @@ function power.enable()
 
         local item = table.deepcopy(data.raw["item"]["solar-panel"])
         item.name = "advanced-solar-panel-rampant-arsenal"
+        item.icons = {{icon = item.icon, tint={0.8,0.8,1,1}}}
+        item.icon = nil
         item.place_result = "advanced-solar-panel-rampant-arsenal"
         item.order = "d[solar-panel]-a[zsolar-panel]"
 
@@ -414,6 +416,8 @@ function power.enable()
 
         local item = table.deepcopy(data.raw["item"]["accumulator"])
         item.name = "advanced-accumulator-rampant-arsenal"
+        item.icons = {{icon = item.icon, tint={0.8,0.8,1,1}}}
+        item.icon = nil
         item.place_result = "advanced-accumulator-rampant-arsenal"
         item.order = "e[accumulator]-a[zaccumulator]"
 

@@ -16,7 +16,7 @@ function fire.enable()
 
     local napalm = addFluid({
             name = "napalm",
-            icon = "__RampantArsenal__/graphics/icons/napalm.png",
+            tint = { r=0.57, g = 0.37, b = 0, a = 0.9 },
             iconSize = 64,
             iconMipmaps = 4,
             baseColor = { r = 0.57, g = 0.37, b = 0, a = 0.9 },

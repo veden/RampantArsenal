@@ -97,6 +97,7 @@ function guns.enable()
         {
             name = "rocket-launcher",
             icon = "__RampantArsenal__/graphics/icons/upgraded-rocket-launcher.png",
+            iconSize = 64, iconMipmaps = 4,
             order = "d[rocket-launcher]-b"
         },
         {

@@ -40,7 +40,7 @@ local function onModSettingsChange(event)
         return false
     end
 
-    world.airFilterCooldown = 30 * 60 -- settings.global["rampant-arsenal-airFilterCooldown"].value
+    world.airFilterCooldown = settings.global["rampant-arsenal-airFilterCooldown"].value
 
     -- world.spoutThreshold = settings.global["rampant-arsenal-spoutThreshold"].value
     -- world.spoutScaler = settings.global["rampant-arsenal-spoutScaler"].value
@@ -108,6 +108,9 @@ local function onConfigChanged()
             local entities = surface.count_entities_filtered({
                     name = "air-filter-rampant-arsenal"
             })
+            entities = entities + surface.count_entities_filtered({
+                    name = "air-filter-2-rampant-arsenal"
+                                                                 })
             -- world.airFilterTick
             world.airFilterCount = world.airFilterCount + entities
         end
@@ -168,7 +171,7 @@ local function onDeath(event)
             end
         end
     end
-    if (entity.name == "air-filter-rampant-arsenal") then
+    if (entity.name == "air-filter-rampant-arsenal") or (entity.name == "air-filter-2-rampant-arsenal") then
         world.airFilterCount = world.airFilterCount - 1
     end
 end
@@ -207,7 +210,7 @@ end
 
 local function onBuilding(event)
     local entity = event.created_entity or event.entity
-    if (entity.name == "air-filter-rampant-arsenal") then
+    if (entity.name == "air-filter-rampant-arsenal") or (entity.name == "air-filter-2-rampant-arsenal") then
         local nextTick = event.tick + world.airFilterCooldown
 
         world.airFilterCount = world.airFilterCount + 1
@@ -225,7 +228,7 @@ end
 
 local function onRemoval(event)
     local entity = event.created_entity or event.entity
-    if (entity.name == "air-filter-rampant-arsenal") then
+    if (entity.name == "air-filter-rampant-arsenal") or (entity.name == "air-filter-2-rampant-arsenal") then
         world.airFilterCount = world.airFilterCount - 1
         world.airFilterPerTick = (world.airFilterCount / world.airFilterCooldown)
     end
@@ -270,7 +273,8 @@ local function onAirFiltering(event)
         for i=1,#entities do
             local entity = entities[i]
             if (entity.valid) then
-                if entity.is_connected_to_electric_network() and ((entity.energy / entity.prototype.max_energy_usage) > 0.65) then
+                if entity.is_connected_to_electric_network() and
+                ((entity.energy / entity.prototype.max_energy_usage) > 0.65) then
                     local amount = calculatePollution(entity.surface, entity.position)
                     if (amount > 0) then
                         world.insertFluidQuery.amount = amount
@@ -308,34 +312,73 @@ end
 local function onSelectionChanged(event)
     local player = game.players[event.player_index]
     local selection = game.players[event.player_index].selected
-    if selection and (selection.name == "air-filter-rampant-arsenal") then
+    if selection then
+        local previousSelection = world.playerSelection[event.player_index]
 
-        local chunkX = mFloor(selection.position.x / 32) * 32
-        local chunkY = mFloor(selection.position.y / 32) * 32
-
-        if world.playerSelection[event.player_index] then
-            rendering.destroy(world.playerSelection[event.player_index][2])
+        if previousSelection then
+            if (selection ~= previousSelection[1]) then
+                for i=2,#previousSelection do
+                    rendering.destroy(previousSelection[i])
+                end
+            end
         end
 
-        local graphicId = rendering.draw_rectangle({
-                color = {0.1, 0.3, 0.1, 0.6},
-                width = 32 * 32,
-                filled = true,
-                left_top = {chunkX, chunkY},
-                right_bottom = {chunkX+32, chunkY+32},
-                surface = selection.surface,
-                draw_on_ground = true,
-                visible = true
-        })
-        world.playerSelection[event.player_index] = {selection, graphicId}
+        if (selection.name == "air-filter-rampant-arsenal") then
+            local chunkX = mFloor(selection.position.x / 32) * 32
+            local chunkY = mFloor(selection.position.y / 32) * 32
+
+            local graphicId = rendering.draw_rectangle({
+                    color = {0.1, 0.3, 0.1, 0.6},
+                    width = 32 * 32,
+                    filled = true,
+                    left_top = {chunkX, chunkY},
+                    right_bottom = {chunkX+32, chunkY+32},
+                    surface = selection.surface,
+                    draw_on_ground = true,
+                    visible = true
+            })
+            world.playerSelection[event.player_index] = {selection.unit_number, graphicId}
+        elseif (selection.name == "air-filter-2-rampant-arsenal") then
+            local chunkX = mFloor(selection.position.x / 32) * 32
+            local chunkY = mFloor(selection.position.y / 32) * 32
+
+            local graphicId = rendering.draw_rectangle({
+                    color = {0.1, 0.3, 0.1, 0.6},
+                    width = 32 * 32,
+                    filled = true,
+                    left_top = {chunkX, chunkY-32},
+                    right_bottom = {chunkX+32, chunkY+64},
+                    surface = selection.surface,
+                    draw_on_ground = true,
+                    visible = true
+            })
+            local graphicId2 = rendering.draw_rectangle({
+                    color = {0.1, 0.3, 0.1, 0.6},
+                    width = 32 * 32,
+                    filled = true,
+                    left_top = {chunkX-32, chunkY},
+                    right_bottom = {chunkX+64, chunkY+32},
+                    surface = selection.surface,
+                    draw_on_ground = true,
+                    visible = true
+            })
+            world.playerSelection[event.player_index] = {selection.unit_number, graphicId, graphicId2}
+        end
     end
 end
 
 local function removePlayerSelection(event)
     for player,pair in pairs(world.playerSelection) do
-        if game.players[player].selected ~= pair[1] then
-            rendering.destroy(pair[2])
-            world.playerSelection[player] = nil
+        local selection = game.players[player].selected
+        local previousSelection = world.playerSelection[player]
+
+        if previousSelection then
+            if not selection or (previousSelection[1] ~= selection.unit_number) then
+                for i=2,#previousSelection do
+                    rendering.destroy(previousSelection[i])
+                end
+                world.playerSelection[player] = nil
+            end
         end
     end
 end
@@ -353,30 +396,60 @@ script.on_event(defines.events.on_tick, onAirFiltering)
 
 script.on_event(defines.events.on_selected_entity_changed, onSelectionChanged)
 
-script.on_event(defines.events.on_entity_died, onRemoval, {{
+script.on_event(defines.events.on_entity_died, onRemoval, {
+                    {
                         name = "air-filter-rampant-arsenal",
                         filter = "name"
-}})
+                    },
+                    {
+                        name = "air-filter-2-rampant-arsenal",
+                        filter = "name"
+                    }
+})
 
-script.on_event(defines.events.on_robot_mined_entity, onRemoval, {{
+script.on_event(defines.events.on_robot_mined_entity, onRemoval, {
+                    {
                         name = "air-filter-rampant-arsenal",
                         filter = "name"
-}})
+                    },
+                    {
+                        name = "air-filter-2-rampant-arsenal",
+                        filter = "name"
+                    }
+})
 
-script.on_event(defines.events.on_player_mined_entity, onRemoval, {{
+script.on_event(defines.events.on_player_mined_entity, onRemoval, {
+                    {
                         name = "air-filter-rampant-arsenal",
                         filter = "name"
-}})
+                    },
+                    {
+                        name = "air-filter-2-rampant-arsenal",
+                        filter = "name"
+                    }
+})
 
-script.on_event(defines.events.on_built_entity, onBuilding, {{
+script.on_event(defines.events.on_built_entity, onBuilding, {
+                    {
                         name = "air-filter-rampant-arsenal",
                         filter = "name"
-}})
+                    },
+                    {
+                        name = "air-filter-2-rampant-arsenal",
+                        filter = "name"
+                    }
+})
 
-script.on_event(defines.events.on_robot_built_entity, onBuilding, {{
+script.on_event(defines.events.on_robot_built_entity, onBuilding, {
+                    {
                         name = "air-filter-rampant-arsenal",
                         filter = "name"
-}})
+                    },
+                    {
+                        name = "air-filter-2-rampant-arsenal",
+                        filter = "name"
+                    }
+})
 
 script.on_event({defines.events.script_raised_destroy}, onRemoval)
 
