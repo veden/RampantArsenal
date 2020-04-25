@@ -82,7 +82,7 @@ function buildings.enable()
 
         lab.researching_speed = 24
 
-        lab.next_upgrade = ""
+        lab.next_upgrade = nil
 
         lab.module_specification =
             {
@@ -166,6 +166,7 @@ function buildings.enable()
 
         local storageTank = table.deepcopy(data.raw["storage-tank"]["storage-tank"])
         storageTank.minable.mining_time = 3
+        storageTank.next_upgrade = nil
         storageTank.name = "large-storage-tank-rampant-arsenal"
         storageTank.minable.result = "large-storage-tank-rampant-arsenal"
         storageTank.collision_box[1][1] = storageTank.collision_box[1][1] * 4
