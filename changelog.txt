@@ -8,6 +8,12 @@ Date: 24. 4. 2020
     - Fixed rocket launcher MKII icon
 
 ---------------------------------------------------------------------------------------------------
+Version: 0.18.8
+Date: 24. 4. 2020
+  Bugfixes:
+    - Fixed next_upgrade bounding box error on large storage tank
+
+---------------------------------------------------------------------------------------------------
 Version: 0.18.7
 Date: 11. 4. 2020
   Bugfixes:
