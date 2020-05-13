@@ -14,7 +14,7 @@ local scalePicture = scaleUtils.scalePicture
 
 function power.enable()
 
-    if settings.startup["rampant-arsenal-enableOilBurner"].value then        
+    if settings.startup["rampant-arsenal-enableOilBurner"].value then
         local oilBurner = makeOilBurner({
                 name = "basic",
                 icon = "__RampantArsenal__/graphics/icons/oil-burner.png",
@@ -39,30 +39,31 @@ function power.enable()
                     {"electronic-circuit", 40},
                     {"copper-plate", 30}
                 },
+                time = 35,
                 result = oilBurner
         })
-        
+
         addEffectToTech("rampant-arsenal-technology-oil-burner",
                         {
                             type = "unlock-recipe",
                             recipe = oilBurner
         })
-        
+
         addFuelToItem({
                 eType = "fluid",
                 eName = "light-oil",
                 fuelValue = "0.95MJ",
                 fuelEmissionsMultipler = 1.5
         })
-        
+
         addFuelToItem({
                 eType = "fluid",
                 eName = "crude-oil",
-                
+
                 fuelValue = "0.45MJ",
                 fuelEmissionsMultipler = 4
         })
-        
+
         addFuelToItem({
                 eType = "fluid",
                 eName = "heavy-oil",
@@ -124,7 +125,7 @@ function power.enable()
                     })
                 }
         })
-        
+
         local solarPanel = table.deepcopy(data.raw["solar-panel"]["solar-panel"])
         solarPanel.name = "advanced-solar-panel-rampant-arsenal"
         solarPanel.minable.result = "advanced-solar-panel-rampant-arsenal"
@@ -140,10 +141,10 @@ function power.enable()
         solarPanel.corpse = "advanced-solar-panel-remnants-rampant-arsenal"
 
         solarPanel.max_health = 1000
-        
+
         solarPanel.production = "1.44MW"
 
-        solarPanel.next_upgrade = ""
+        solarPanel.next_upgrade = nil
 
         scalePicture(2, solarPanel.picture)
         -- scalePicture(2, solarPanel.overlay, true)
@@ -178,6 +179,7 @@ function power.enable()
             {"electronic-circuit", 30},
             {"solar-panel", 16}
         }
+        recipe.energy_required = 25
         recipe.result = "advanced-solar-panel-rampant-arsenal"
 
         local item = table.deepcopy(data.raw["item"]["solar-panel"])
@@ -263,16 +265,16 @@ function power.enable()
                     })
                 }
         })
-        
+
         local accumulator = table.deepcopy(data.raw["accumulator"]["accumulator"])
         accumulator.name = "advanced-accumulator-rampant-arsenal"
-        accumulator.collision_box[1][1] = accumulator.collision_box[1][1] * 3.4 
+        accumulator.collision_box[1][1] = accumulator.collision_box[1][1] * 3.4
         accumulator.collision_box[1][2] = accumulator.collision_box[1][2] * 3 + 1.8
-        accumulator.collision_box[2][1] = accumulator.collision_box[2][1] * 3.4 
+        accumulator.collision_box[2][1] = accumulator.collision_box[2][1] * 3.4
         accumulator.collision_box[2][2] = accumulator.collision_box[2][2] * 3 + 1.8
 
         accumulator.minable.result = "advanced-accumulator-rampant-arsenal"
-        
+
         accumulator.selection_box[1][1] = accumulator.selection_box[1][1] * 3.4
         accumulator.selection_box[1][2] = accumulator.selection_box[1][2] * 3 + 1.8
         accumulator.selection_box[2][1] = accumulator.selection_box[2][1] * 3.4
@@ -280,16 +282,16 @@ function power.enable()
         accumulator.corpse = "advanced-accumulator-remnants-rampant-arsenal"
 
         accumulator.max_health = 2000
-        
+
         accumulator.energy_source.buffer_capacity = "67.5MJ"
         accumulator.energy_source.input_flow_limit = "4MW"
         accumulator.energy_source.output_flow_limit = "4MW"
-        
+
         scalePicture(1.8, accumulator.picture)
         scalePicture(1.8, accumulator.charge_animation)
 
-        accumulator.next_upgrade = ""
-        
+        accumulator.next_upgrade = nil
+
         local picture = function (tint, repeat_count)
             return {
                 layers =
@@ -401,10 +403,10 @@ function power.enable()
                     }
                 }
         }
-        
+
         accumulator.charge_animation = charging
         accumulator.discharge_animation = discharging
-        
+
         local recipe = table.deepcopy(data.raw["recipe"]["accumulator"])
         recipe.name = "advanced-accumulator-rampant-arsenal"
         recipe.ingredients = {
@@ -412,11 +414,12 @@ function power.enable()
             {"electronic-circuit", 30},
             {"accumulator", 9}
         }
+        recipe.energy_required = 35
         recipe.result = "advanced-accumulator-rampant-arsenal"
 
         local item = table.deepcopy(data.raw["item"]["accumulator"])
         item.name = "advanced-accumulator-rampant-arsenal"
-        item.icons = {{icon = item.icon, tint={0.8,0.8,1,1}}}
+        item.icons = {{icon = item.icon, tint={0.7,0.7,1,1}}}
         item.icon = nil
         item.place_result = "advanced-accumulator-rampant-arsenal"
         item.order = "e[accumulator]-a[zaccumulator]"
@@ -424,7 +427,7 @@ function power.enable()
         local solarTech = table.deepcopy(data.raw["technology"]["electric-energy-accumulators"])
 
         solarTech.localised_name = nil
-        
+
         solarTech.name = "rampant-arsenal-technology-electric-energy-accumulators-2"
         solarTech.effects = {
             {

@@ -381,7 +381,7 @@ function buildings.enable()
 
         local item = table.deepcopy(data.raw["item"]["storage-tank"])
         item.name = "large-storage-tank-rampant-arsenal"
-        item.icons = {{icon = item.icon, tint={0.8,0.8,1,1}}}
+        item.icons = {{icon = item.icon, tint={0.7,0.7,1,1}}}
         item.icon = nil
         item.place_result = "large-storage-tank-rampant-arsenal"
         item.order = "b[fluid]-a[zstorage-tank]"
@@ -575,6 +575,7 @@ function buildings.enable()
                         line_length = 4,
                         shift = {-0.75, -0.4},
                         scale = 1,
+                        tint = { r=0.8,g=0.8,b=0.9,a=1 },
                         hr_version =
                             {
                                 filename = "__RampantArsenal__/graphics/entities/hr-air-filter.png",
@@ -583,6 +584,7 @@ function buildings.enable()
                                 height = 210,
                                 frame_count = 8,
                                 line_length = 4,
+                                tint = { r=0.8,g=0.8,b=0.9,a=1 },
                                 shift = {-0.75, -0.4},
                                 scale = 1
                             }
@@ -687,6 +689,9 @@ function buildings.enable()
                     scale = 0.5
                 }
         }
+        airFilter2.fluid_boxes[1].pipe_picture.east = airFilter2.fluid_boxes[2].pipe_picture.east
+        airFilter2.fluid_boxes[3].pipe_picture.east = airFilter2.fluid_boxes[2].pipe_picture.east
+        airFilter2.fluid_boxes[4].pipe_picture.east = airFilter2.fluid_boxes[2].pipe_picture.east
         airFilter2.fluid_boxes[2].pipe_picture.west = {
             filename = "__RampantArsenal__/graphics/entities/hr-assembling-machine-3-pipe-W.png",
             priority = "extra-high",
@@ -703,46 +708,64 @@ function buildings.enable()
                     scale = 0.5
                 }
         }
+        airFilter2.fluid_boxes[1].pipe_picture.west = airFilter2.fluid_boxes[2].pipe_picture.west
+        airFilter2.fluid_boxes[3].pipe_picture.west = airFilter2.fluid_boxes[2].pipe_picture.west
+        airFilter2.fluid_boxes[4].pipe_picture.west = airFilter2.fluid_boxes[2].pipe_picture.west
 
         airFilter2.idle_animation =  airFilter2.animation
 
 
-        local recipe = table.deepcopy(data.raw["recipe"]["assembling-machine-2"])
+        local recipe = table.deepcopy(data.raw["recipe"]["assembling-machine-1"])
         recipe.name = "air-filter-rampant-arsenal"
-        recipe.normal.ingredients = {
+        recipe.icon = "__RampantArsenal__/graphics/icons/air-filter.png"
+        recipe.icon_size = 64
+        recipe.icon_mipmaps = 1
+        recipe.ingredients = {
             {"steel-plate", 20},
             {"electronic-circuit", 30},
             {"storage-tank", 16}
         }
-        recipe.normal.energy_required = 30
-        recipe.normal.hidden = false
-        recipe.normal.enabled = true
-        recipe.subgroup = "raw-material"
-        recipe.normal.result = "air-filter-rampant-arsenal"
+        recipe.energy_required = 30
+        recipe.hidden = false
+        recipe.enabled = true
+        recipe.result = "air-filter-rampant-arsenal"
 
-        local recipe2 = table.deepcopy(data.raw["recipe"]["assembling-machine-2"])
+        local recipe2 = table.deepcopy(data.raw["recipe"]["assembling-machine-1"])
         recipe2.name = "air-filter-2-rampant-arsenal"
-        recipe2.normal.ingredients = {
+        recipe2.icon = nil
+        recipe2.icons = {
+            {icon = "__RampantArsenal__/graphics/icons/air-filter.png", tint = { r=0.7,g=0.7,b=0.9,a=1 }}
+        }
+        recipe2.icon_size = 64
+        recipe2.icon_mipmaps = 1
+        recipe2.ingredients = {
             {"steel-plate", 20},
             {"electronic-circuit", 30},
             {"storage-tank", 16}
         }
-        recipe2.normal.energy_required = 30
-        recipe2.normal.hidden = false
-        recipe2.normal.enabled = true
-        recipe2.subgroup = "raw-material"
-        recipe2.normal.result = "air-filter-2-rampant-arsenal"
+        recipe2.energy_required = 30
+        recipe2.hidden = false
+        recipe2.enabled = true
+        recipe2.result = "air-filter-2-rampant-arsenal"
 
 
         local item = table.deepcopy(data.raw["item"]["assembling-machine-2"])
         item.name = "air-filter-rampant-arsenal"
+        item.icon = nil
+        item.icons = {
+            {icon = "__RampantArsenal__/graphics/icons/air-filter.png"}
+        }
         item.place_result = "air-filter-rampant-arsenal"
-        item.order = "a[zzassembling-machine-10]"
+        item.order = "c[zassembling-machine-3]"
 
         local item2 = table.deepcopy(data.raw["item"]["assembling-machine-2"])
         item2.name = "air-filter-2-rampant-arsenal"
+        item2.icon = nil
+        item2.icons = {
+            {icon = "__RampantArsenal__/graphics/icons/air-filter.png", tint = { r=0.7,g=0.7,b=0.9,a=1 }}
+        }
         item2.place_result = "air-filter-2-rampant-arsenal"
-        item2.order = "a[zzassembling-machine-10]"
+        item2.order = "c[zzassembling-machine-3]"
 
         local recipePollution = table.deepcopy(data.raw["recipe"]["assembling-machine-2"])
         recipePollution.name = "air-filter-pollution-rampant-arsenal"
@@ -767,13 +790,12 @@ function buildings.enable()
             {type="fluid", name="water", amount=20}
         }
 
-        print(serpent.dump(recipePollution))
-
         addFluid({
                 name="pollution",
                 icon="__RampantArsenal__/graphics/icons/pollution.png",
                 iconSize = 64,
-                iconMipmaps = 4
+                iconMipmaps = 4,
+                disableAutoBarrel = true
         })
 
         addFluid({
@@ -787,11 +809,11 @@ function buildings.enable()
                     type="recipe-category",
                     name="air-filter-rampant-arsenal"
                 },
-                recipe,
-                recipe2,
                 recipePollution,
                 airFilter,
                 airFilter2,
+                recipe,
+                recipe2,
                 item,
                 item2
         })

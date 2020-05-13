@@ -183,7 +183,6 @@ function technologies.enable()
                 order = "e-l-f"
             },
 
-
             {
                 type = "technology",
                 name = "rampant-arsenal-technology-energy-robots-damage-1",
@@ -940,7 +939,6 @@ function technologies.enable()
                 upgrade = true,
                 order = "e-j-n"
             },
-
 
             {
                 type = "technology",
@@ -1858,7 +1856,6 @@ function technologies.enable()
             time = 30
     })
 
-
     local he = makeTechnology({
             name="high-explosives",
             icon="__RampantArsenal__/graphics/technology/he-ordnance.png",
@@ -1963,7 +1960,6 @@ function technologies.enable()
             count = 100,
             time = 30
     })
-
 
     makeTechnology({
             name="incendiary-cannon-shells",
@@ -2193,7 +2189,6 @@ function technologies.enable()
             time = 60
     })
 
-
     local capsuleTurretSpeed5 = makeTechnology({
             name = "capsule-turret-speed-5",
             prerequisites = {capsuleTurretSpeed4},
@@ -2305,7 +2300,6 @@ function technologies.enable()
             time = 60
     })
 
-
     local capsuleTurretDamage5 = makeTechnology({
             name = "capsule-turret-damage-5",
             prerequisites = {capsuleTurretDamage4},
@@ -2340,7 +2334,6 @@ function technologies.enable()
             time = 60
     })
 
-
     if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
         makeTechnology({
                 name = "capsule-turret-damage-7",
@@ -2362,8 +2355,7 @@ function technologies.enable()
                 order = "e-z-f"
         })
     end
-
-
+    
     local cannonTech = makeTechnology({
             name = "cannon-turret-1",
             prerequisites = {"turrets","tanks","concrete","steel-processing"},
@@ -2394,22 +2386,6 @@ function technologies.enable()
             count = 400,
             time = 30
     })
-
-    -- makeTechnology({
-    --         name = "cannon-turret-3",
-    --         prerequisites = {"explosives", cannonTech},
-    --         icon = "__RampantArsenal__/graphics/technology/cannon-turrets.png",
-    --         effects = {},
-    --         ingredients = {
-    --     	{"automation-science-pack", 1},
-    --     	{"logistic-science-pack", 1},
-    --     	{"chemical-science-pack", 1},
-    --     	{"military-science-pack", 1},
-    --             {"utility-science-pack", 1}
-    --         },
-    --         count = 2000,
-    --         time = 30
-    -- })
 
     local shotgunTurretTech = makeTechnology({
             name = "shotgun",
@@ -2952,7 +2928,6 @@ function technologies.enable()
         })
     end
 
-
     local gunTurretDamage1 = makeTechnology({
             name = "gun-turret-damage-1",
             prerequisites = {"turrets"},
@@ -3013,7 +2988,6 @@ function technologies.enable()
             time = 60,
             order = "e-z-d"
     })
-
 
     local gunTurretDamage5 = makeTechnology({
             name = "gun-turret-damage-5",
@@ -3276,7 +3250,6 @@ function technologies.enable()
             time = 30
     })
 
-
     local laserTurret = makeTechnology({
             name = "advanced-laser-turret-2",
             prerequisites = {"laser-turrets", "rampant-arsenal-technology-energy-weapons-damage-1", "military-3"},
@@ -3291,7 +3264,6 @@ function technologies.enable()
             count = 600,
             time = 30
     })
-
 
     makeTechnology({
             name = "advanced-laser-turret-3",
@@ -3339,8 +3311,6 @@ function technologies.enable()
             time = 30
     })
 
-
-
     makeTechnology({
             name = "incendiary-rockets",
             icon="__RampantArsenal__/graphics/technology/incendiary-rockets.png",
@@ -3385,7 +3355,6 @@ function technologies.enable()
             },
             time = 30
     })
-
 
     makeTechnology({
             name = "he-rockets",
@@ -3617,7 +3586,6 @@ function technologies.enable()
             order = "e-z-d"
     })
 
-
     local rocketTurretDamage5 = makeTechnology({
             name = "rocket-turret-damage-5",
             prerequisites = {rocketTurretDamage4},
@@ -3764,7 +3732,6 @@ function technologies.enable()
             order = "e-z-d"
     })
 
-
     local landmineDamage5 = makeTechnology({
             name = "landmine-damage-5",
             prerequisites = {landmineDamage4},
@@ -3839,7 +3806,6 @@ function technologies.enable()
                 order = "e-z-f"
         })
     end
-
 
     local turrets2 = makeTechnology({
             name = "turrets-2",
@@ -3921,7 +3887,6 @@ function technologies.enable()
             time = 30
     })
 
-
     makeTechnology({
             name = "nuclear-cars",
             icon="__RampantArsenal__/graphics/technology/nuclear-cars.png",
@@ -3969,7 +3934,6 @@ function technologies.enable()
             },
             time = 30
     })
-
 
     local genMk2 = makeTechnology({
             name = "generator-equipment-2",
@@ -4290,7 +4254,6 @@ function technologies.enable()
             },
             time = 30
     })
-
 
     if not settings.startup["rampant-arsenal-unhideVanillaDamageTechnologies"].value then
         data.raw["technology"]["physical-projectile-damage-1"].hidden = true

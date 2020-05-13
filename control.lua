@@ -295,8 +295,10 @@ local function onAirFiltering(event)
                                 tickSlot = {}
                                 world.airFilterTick[nextTick] = tickSlot
                                 tickSlot[#tickSlot+1] = entity
+                                break
                             elseif (#tickSlot < airFilterPerTick) then
                                 tickSlot[#tickSlot+1] = entity
+                                break
                             end
                         end
                     else
@@ -323,7 +325,7 @@ local function onSelectionChanged(event)
             end
         end
 
-        if (selection.name == "air-filter-rampant-arsenal") then
+        if (selection.name == "air-filter-rampant-arsenal") or (selection.name == "air-filter-2-rampant-arsenal") then
             local chunkX = mFloor(selection.position.x / 32) * 32
             local chunkY = mFloor(selection.position.y / 32) * 32
 
@@ -338,31 +340,31 @@ local function onSelectionChanged(event)
                     visible = true
             })
             world.playerSelection[event.player_index] = {selection.unit_number, graphicId}
-        elseif (selection.name == "air-filter-2-rampant-arsenal") then
-            local chunkX = mFloor(selection.position.x / 32) * 32
-            local chunkY = mFloor(selection.position.y / 32) * 32
+            -- elseif (selection.name == "air-filter-2-rampant-arsenal") then
+            --     local chunkX = mFloor(selection.position.x / 32) * 32
+            --     local chunkY = mFloor(selection.position.y / 32) * 32
 
-            local graphicId = rendering.draw_rectangle({
-                    color = {0.1, 0.3, 0.1, 0.6},
-                    width = 32 * 32,
-                    filled = true,
-                    left_top = {chunkX, chunkY-32},
-                    right_bottom = {chunkX+32, chunkY+64},
-                    surface = selection.surface,
-                    draw_on_ground = true,
-                    visible = true
-            })
-            local graphicId2 = rendering.draw_rectangle({
-                    color = {0.1, 0.3, 0.1, 0.6},
-                    width = 32 * 32,
-                    filled = true,
-                    left_top = {chunkX-32, chunkY},
-                    right_bottom = {chunkX+64, chunkY+32},
-                    surface = selection.surface,
-                    draw_on_ground = true,
-                    visible = true
-            })
-            world.playerSelection[event.player_index] = {selection.unit_number, graphicId, graphicId2}
+            --     local graphicId = rendering.draw_rectangle({
+            --             color = {0.1, 0.3, 0.1, 0.6},
+            --             width = 32 * 32,
+            --             filled = true,
+            --             left_top = {chunkX, chunkY-32},
+            --             right_bottom = {chunkX+32, chunkY+64},
+            --             surface = selection.surface,
+            --             draw_on_ground = true,
+            --             visible = true
+            --     })
+            --     local graphicId2 = rendering.draw_rectangle({
+            --             color = {0.1, 0.3, 0.1, 0.6},
+            --             width = 32 * 32,
+            --             filled = true,
+            --             left_top = {chunkX-32, chunkY},
+            --             right_bottom = {chunkX+64, chunkY+32},
+            --             surface = selection.surface,
+            --             draw_on_ground = true,
+            --             visible = true
+            --     })
+            --     world.playerSelection[event.player_index] = {selection.unit_number, graphicId, graphicId2}
         end
     end
 end

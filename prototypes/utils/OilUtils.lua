@@ -21,13 +21,18 @@ function oilUtils.addFluid(attributes)
                 base_color = attributes.baseColor or {r=0, g=0, b=0},
                 flow_color = attributes.flowColor or {r=0.5, g=0.5, b=0.5},
                 max_temperature = attributes.maxTemp or 100,
-                icons = attributes.icons or {
-                    {icon = "__base__/graphics/icons/fluid/light-oil.png", tint = attributes.tint},
-                },
-                icon_size = attributes.iconSize or 32,
-                icon_mipmaps = attributes.iconMipmaps or 1,
+                icons = attributes.icons or
+                    {
+                        {
+                            icon = "__base__/graphics/icons/fluid/light-oil.png",
+                            tint = attributes.tint,
+                            icon_size = attributes.iconSize or 64,
+                            icon_mipmaps = 4
+                        }
+                    },
                 pressure_to_speed_ratio = 0.4,
                 flow_to_energy_ratio = 0.59,
+                auto_barrel = not attributes.disableAutoBarrel,
                 emissions_multiplier = attributes.emissionsMultiplier,
                 fuel_value = attributes.fuelValue, --"8MJ"
                 order = attributes.order or "a[fluid]-b[crude-oil]"

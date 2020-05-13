@@ -72,3 +72,5 @@ end
 for _,gate in pairs(data.raw["gate"]) do
     gate.hide_resistances = false
 end
+
+

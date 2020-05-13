@@ -28,7 +28,10 @@ function recipeUtils.makeRecipe(attributes)
             {
                 type = "recipe",
                 name = attributes.name,
-                icon = attributes.icon,
+                -- icon = attributes.icon,
+                icons = attributes.icons or {
+                    {icon=attributes.icon, tint=attributes.tint}
+                },
                 icon_size = attributes.iconSize or 32,
                 icon_mipmaps = attributes.iconMipmaps or 1,
                 hidden = attributes.hidden,

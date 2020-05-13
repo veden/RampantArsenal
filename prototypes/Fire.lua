@@ -16,11 +16,9 @@ function fire.enable()
 
     local napalm = addFluid({
             name = "napalm",
-            tint = { r=0.57, g = 0.37, b = 0, a = 0.9 },
-            iconSize = 64,
-            iconMipmaps = 4,
-            baseColor = { r = 0.57, g = 0.37, b = 0, a = 0.9 },
-            flowColor = { r = 0.57, g = 0.37, b = 0, a = 0.9 },
+            tint = { r=0.97, g = 0.77, b = 0.77, a = 1 },
+            baseColor = { r=0.97, g = 0.77, b = 0.77, a = 1 },
+            flowColor = { r=0.97, g = 0.77, b = 0.77, a = 1 },
             emissionsMultiplier = 2.5,
             fuelValue = "0.85MJ",
             order = "e[napalm]"
@@ -162,14 +160,15 @@ function fire.enable()
 
     makeRecipe({
             name = napalm,
-            icon = "__RampantArsenal__/graphics/icons/napalm.png",
+            icon = "__base__/graphics/icons/fluid/light-oil.png",
             iconSize = 64,
             iconMipmaps = 4,
+            tint = { r=0.97, g = 0.77, b = 0.77, a = 1 },
             enabled = false,
             category = "chemistry",
             subgroup = "fluid-recipes",
             ingredients = {
-                {"plastic-bar", 1},
+                {"plastic-bar", 3},
                 {type="fluid", name="petroleum-gas", amount=30},
                 {type="fluid", name="sulfuric-acid", amount=20}
             },
