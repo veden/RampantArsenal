@@ -639,6 +639,7 @@ function guns.enable()
     makeRecipe({
             name = rocketLauncher,
             icon = "__RampantArsenal__/graphics/icons/recipe-upgraded-rocket-launcher.png",
+            iconSize = 32, iconMipmaps = 1,
             enabled = false,
             ingredients = {
                 {"steel-plate", 10},

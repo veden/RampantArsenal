@@ -60,6 +60,16 @@ function fire.enable()
                                                                         type = "create-fire",
                                                                         entity_name = "fire-flame",
                                                                         initial_ground_flame_count = 6,
+                                                                    },
+                                                                    {
+                                                                        type = "destroy-decoratives",
+                                                                        from_render_layer = "decorative",
+                                                                        to_render_layer = "object",
+                                                                        include_soft_decoratives = true,
+                                                                        include_decals = false,
+                                                                        invoke_decorative_trigger = true,
+                                                                        decoratives_with_trigger_only = false,
+                                                                        radius = 1
                                                                     }
                                                                 }
                                                         }

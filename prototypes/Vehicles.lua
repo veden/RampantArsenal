@@ -28,6 +28,7 @@ function vehicles.enable()
         {
             name = "advanced-tank-machine-gun",
             icon = "__RampantArsenal__/graphics/icons/minigun.png",
+            iconSize = 64, iconMipmaps = 1,
             flags = {"hidden"},
             order = "e[mortar]-b"
         },
@@ -58,6 +59,7 @@ function vehicles.enable()
         {
             name = "advanced-tank-cannon",
             icon = "__base__/graphics/icons/tank-cannon.png",
+            iconSize = 64, iconMipmaps = 4,
             flags = {"hidden"},
             order = "e[mortar]-b"
         },
@@ -83,6 +85,7 @@ function vehicles.enable()
         {
             name = "advanced-tank-flamethrower",
             icon = "__base__/graphics/icons/flamethrower.png",
+            iconSize = 64, iconMipmaps = 4,
             flags = {"hidden"},
             order = "e[mortar]-b"
         },
@@ -126,6 +129,7 @@ function vehicles.enable()
         {
             name = "advanced-tank-launcher",
             icon = "__RampantArsenal__/graphics/icons/mortar.png",
+            iconSize = 64, iconMipmaps = 1,
             flags = {"hidden"},
             order = "e[mortar]-b"
         },
@@ -263,6 +267,7 @@ function vehicles.enable()
         {
             name = "nuclear-tank-machine-gun",
             icon = "__RampantArsenal__/graphics/icons/minigun.png",
+            iconSize = 64, iconMipmaps = 1,
             flags = {"hidden"},
             order = "e[mortar]-b"
         },
@@ -293,6 +298,7 @@ function vehicles.enable()
         {
             name = "nuclear-tank-cannon",
             icon = "__base__/graphics/icons/tank-cannon.png",
+            iconSize = 64, iconMipmaps = 4,
             flags = {"hidden"},
             order = "e[mortar]-b"
         },
@@ -318,6 +324,7 @@ function vehicles.enable()
         {
             name = "nuclear-tank-flamethrower",
             icon = "__base__/graphics/icons/flamethrower.png",
+            iconSize = 64, iconMipmaps = 4,
             flags = {"hidden"},
             order = "e[mortar]-b"
         },
@@ -361,6 +368,7 @@ function vehicles.enable()
         {
             name = "nuclear-tank-launcher",
             icon = "__RampantArsenal__/graphics/icons/mortar.png",
+            iconSize = 64, iconMipmaps = 1,
             flags = {"hidden"},
             order = "e[mortar]-b"
         },
@@ -391,6 +399,7 @@ function vehicles.enable()
         {
             name = "nuclear-tank-rocket",
             icon = "__base__/graphics/icons/rocket-launcher.png",
+            iconSize = 64, iconMipmaps = 4,
             flags = {"hidden"},
             order = "e[mortar]-b"
         },
@@ -530,6 +539,7 @@ function vehicles.enable()
         {
             name = "advanced-car-machine-gun",
             icon = "__RampantArsenal__/graphics/icons/minigun.png",
+            iconSize = 64, iconMipmaps = 1,
             flags = {"hidden"},
             order = "e[mortar]-b"
         },
@@ -561,6 +571,7 @@ function vehicles.enable()
         {
             name = "advanced-car-shotgun",
             icon = "__base__/graphics/icons/combat-shotgun.png",
+            iconSize = 64, iconMipmaps = 4,
             flags = {"hidden"},
             order = "e[mortar]-b"
         },
@@ -654,6 +665,7 @@ function vehicles.enable()
         {
             name = "nuclear-car-machine-gun",
             icon = "__RampantArsenal__/graphics/icons/minigun.png",
+            iconSize = 64, iconMipmaps = 1,
             flags = {"hidden"},
             order = "e[mortar]-b"
         },
@@ -685,6 +697,7 @@ function vehicles.enable()
         {
             name = "nuclear-car-shotgun",
             icon = "__base__/graphics/icons/combat-shotgun.png",
+            iconSize = 64, iconMipmaps = 4,
             flags = {"hidden"},
             order = "e[mortar]-b"
         },
@@ -710,6 +723,7 @@ function vehicles.enable()
         {
             name = "nuclear-car-launcher",
             icon = "__RampantArsenal__/graphics/icons/mortar.png",
+            iconSize = 64, iconMipmaps = 1,
             flags = {"hidden"},
             order = "e[mortar]-b"
         },
@@ -946,7 +960,7 @@ function vehicles.enable()
     }))
 
     addAutomaticRobotDeploy("cargo-wagon", "cargo-wagon")
-    
+
     addEquipmentGrid("cargo-wagon",
                      "cargo-wagon",
                      makeGrid({

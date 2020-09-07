@@ -74,7 +74,7 @@ function walls.enable()
                                 {
                                     type = "create-entity",
                                     trigger_created_entity = true,
-                                    entity_name = "dummy-small-repair-cloud-rampant-arsenal",
+                                    entity_name = "small-repair-cloud-rampant-arsenal",
                                     show_in_tooltip = true
                                 }
                             }
@@ -143,7 +143,7 @@ function walls.enable()
                                 {
                                     type = "create-entity",
                                     trigger_created_entity = true,
-                                    entity_name = "dummy-small-repair-cloud-rampant-arsenal",
+                                    entity_name = "small-repair-cloud-rampant-arsenal",
                                     show_in_tooltip = true
                                 }
                             }

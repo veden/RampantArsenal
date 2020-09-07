@@ -225,7 +225,6 @@ function rockets.enable()
                         recipe = rapidRocketTurretItem,
     })
 
-
     local incendiaryRocketAmmo = makeAmmo({
             name = "incendiary-rocket",
             icon = "__RampantArsenal__/graphics/icons/incendiary-rocket.png",
@@ -324,6 +323,20 @@ function rockets.enable()
                                                                             }
                                                                     },
                                                                     {
+                                                                        type = "invoke-tile-trigger",
+                                                                        repeat_count = 1,
+                                                                    },
+                                                                    {
+                                                                        type = "destroy-decoratives",
+                                                                        from_render_layer = "decorative",
+                                                                        to_render_layer = "object",
+                                                                        include_soft_decoratives = true,
+                                                                        include_decals = false,
+                                                                        invoke_decorative_trigger = true,
+                                                                        decoratives_with_trigger_only = false,
+                                                                        radius = 3
+                                                                    },
+                                                                    {
                                                                         type = "create-entity",
                                                                         entity_name = "explosion"
                                                                     }
@@ -415,14 +428,24 @@ function rockets.enable()
                                                                                                 {
                                                                                                     type = "damage",
                                                                                                     damage = {amount = 1050 , type = "explosion"}
-                                                                                                },
-                                                                                                {
-                                                                                                    type = "create-entity",
-                                                                                                    entity_name = "big-explosion"
                                                                                                 }
                                                                                             }
                                                                                     }
                                                                             }
+                                                                    },
+                                                                    {
+                                                                        type = "invoke-tile-trigger",
+                                                                        repeat_count = 1,
+                                                                    },
+                                                                    {
+                                                                        type = "destroy-decoratives",
+                                                                        from_render_layer = "decorative",
+                                                                        to_render_layer = "object",
+                                                                        include_soft_decoratives = true,
+                                                                        include_decals = false,
+                                                                        invoke_decorative_trigger = true,
+                                                                        decoratives_with_trigger_only = false,
+                                                                        radius = 3
                                                                     },
                                                                     {
                                                                         type = "create-entity",
@@ -521,6 +544,20 @@ function rockets.enable()
                                                                                     }
                                                                             }
                                                                     },
+{
+                                                                        type = "invoke-tile-trigger",
+                                                                        repeat_count = 1,
+                                                                    },
+                                                                    {
+                                                                        type = "destroy-decoratives",
+                                                                        from_render_layer = "decorative",
+                                                                        to_render_layer = "object",
+                                                                        include_soft_decoratives = true,
+                                                                        include_decals = false,
+                                                                        invoke_decorative_trigger = true,
+                                                                        decoratives_with_trigger_only = false,
+                                                                        radius = 3
+                                                                    },                                                                    
                                                                     {
                                                                         type = "create-entity",
                                                                         entity_name = "toxic-cloud-rampant-arsenal",

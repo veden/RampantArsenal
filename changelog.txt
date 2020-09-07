@@ -1,4 +1,31 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 06. 9. 2020
+  Contributions:
+    - cerafim1 has provided a ru locale
+  Improvements:
+    - Added acid thrower
+    - Added destroy decoratives to explosive weapons and invoke tile-trigger
+  Optimizations:
+    - Mending wall and gate should now be usable without FPS or UPS issues
+  Tweaks:
+    - Changed infinite tech provided by Rampant Arsenal to arithmetic instead of geometric cost
+    - Changed refined flammables infinite tech to follow pattern of other infinite techs
+    - Reduced atomic landmine trigger radius to 5
+    - Reduced capsule launcher landmines arming time to 60 ticks
+    - Increased mining time on cannon, rapid cannon, and adv flamethrower
+    - Increased recipe time on cannon (+10s), rapid cannon(+5s), and shotgun(+8s)
+    - Removed extra explosions effects on HE shell and rockets
+    - Removed supported mods from info.json, left the support logic in the mod.
+    - Decreased advanced lab module slots to 2
+    - Increased advanced lab power drain to 1.75MW
+  Bugfixes:
+    - Fixed atomic artillery shell shockwave
+    - Fixed vehicle weapon icons
+    - Fixed rocket tail before behind cloud
+    - Fixed atomic landmine shockwave
+
+---------------------------------------------------------------------------------------------------
 Version: 0.18.9
 Date: 24. 4. 2020
   Improvements:

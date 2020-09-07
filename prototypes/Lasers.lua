@@ -523,27 +523,51 @@ function lasers.enable()
                                                                                                          piercingDamage = 2000,
                                                                                                          tint = {r=0.8, g=0.0, b=0.0,a=0.9},
                                                                                                          action = {
-                                                                                                             type = "area",
-                                                                                                             radius = 5,
-                                                                                                             action_delivery =
-                                                                                                                 {
-                                                                                                                     type = "instant",
-                                                                                                                     target_effects =
-                                                                                                                         {
+                                                                                                             {
+                                                                                                                 type = "area",
+                                                                                                                 radius = 5,
+                                                                                                                 action_delivery =
+                                                                                                                     {
+                                                                                                                         type = "instant",
+                                                                                                                         target_effects =
                                                                                                                              {
-                                                                                                                                 type = "damage",
-                                                                                                                                 damage = {amount = 200 , type = "laser"}
-                                                                                                                             },
-                                                                                                                             {
-                                                                                                                                 type = "damage",
-                                                                                                                                 damage = {amount = 100 , type = "explosion"}
-                                                                                                                             },
-                                                                                                                             {
-                                                                                                                                 type = "create-entity",
-                                                                                                                                 entity_name = "big-explosion"
+                                                                                                                                 {
+                                                                                                                                     type = "damage",
+                                                                                                                                     damage = {amount = 200 , type = "laser"}
+                                                                                                                                 },
+                                                                                                                                 {
+                                                                                                                                     type = "damage",
+                                                                                                                                     damage = {amount = 100 , type = "explosion"}
+                                                                                                                                 },
+                                                                                                                                 {
+                                                                                                                                     type = "create-entity",
+                                                                                                                                     entity_name = "big-explosion"
+                                                                                                                                 }
                                                                                                                              }
+                                                                                                                     }
+                                                                                                             },
+                                                                                                             {
+                                                                                                                 type = "direct",
+                                                                                                                 action_delivery = {
+                                                                                                                     type = "instant",
+                                                                                                                     target_effects = {
+                                                                                                                         {
+                                                                                                                             type = "invoke-tile-trigger",
+                                                                                                                             repeat_count = 1,
+                                                                                                                         },
+                                                                                                                         {
+                                                                                                                             type = "destroy-decoratives",
+                                                                                                                             from_render_layer = "decorative",
+                                                                                                                             to_render_layer = "object",
+                                                                                                                             include_soft_decoratives = true,
+                                                                                                                             include_decals = false,
+                                                                                                                             invoke_decorative_trigger = true,
+                                                                                                                             decoratives_with_trigger_only = false,
+                                                                                                                             radius = 3
                                                                                                                          }
+                                                                                                                     }
                                                                                                                  }
+                                                                                                             }
                                                                                                          },
                                                                                                          finalAction = {
                                                                                                              type = "direct",
@@ -552,6 +576,20 @@ function lasers.enable()
                                                                                                                      type = "instant",
                                                                                                                      target_effects =
                                                                                                                          {
+                                                                                                                             {
+                                                                                                                                 type = "invoke-tile-trigger",
+                                                                                                                                 repeat_count = 1,
+                                                                                                                             },
+                                                                                                                             {
+                                                                                                                                 type = "destroy-decoratives",
+                                                                                                                                 from_render_layer = "decorative",
+                                                                                                                                 to_render_layer = "object",
+                                                                                                                                 include_soft_decoratives = true,
+                                                                                                                                 include_decals = false,
+                                                                                                                                 invoke_decorative_trigger = true,
+                                                                                                                                 decoratives_with_trigger_only = false,
+                                                                                                                                 radius = 3
+                                                                                                                             },
                                                                                                                              {
                                                                                                                                  type = "create-entity",
                                                                                                                                  entity_name = "small-scorchmark",

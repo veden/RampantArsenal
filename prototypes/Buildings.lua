@@ -80,7 +80,7 @@ function buildings.enable()
 
         lab.max_health = 1000
 
-        lab.energy_usage = "1.5MW"
+        lab.energy_usage = "1.75MW"
 
         lab.researching_speed = 24
 
@@ -88,7 +88,7 @@ function buildings.enable()
 
         lab.module_specification =
             {
-                module_slots = 4,
+                module_slots = 2,
                 module_info_icon_shift = {0, 0.9}
             }
 
@@ -399,425 +399,425 @@ function buildings.enable()
         })
     end
 
-    if settings.startup["rampant-arsenal-enableAirFiltering"].value then
-        local airFilter = table.deepcopy(data.raw["assembling-machine"]["assembling-machine-2"])
-        airFilter.name = "air-filter-rampant-arsenal"
-        airFilter.fixed_recipe = "air-filter-pollution-rampant-arsenal"
-        airFilter.crafting_categories = { "air-filter-rampant-arsenal" }
-        airFilter.minable = {mining_time=2,result="air-filter-rampant-arsenal"}
-        airFilter.next_upgrade = nil
-        airFilter.energy_usage = "750KW"
-        airFilter.energy_source.drain = "500KW"
-        airFilter.match_speed_to_activity = true
-        airFilter.match_volume_to_activity = true
-        airFilter.crafting_speed = 1
-        airFilter.fast_replaceable_group = nil
-        airFilter.default_recipe_tint = {
-            primary = {r=0,g=1,b=1,a=1},
-            secondary = {r=1,g=1,b=1,a=1},
-            tertiary = {r=1,g=1,b=1,a=1},
-            quaternary = {r=1,g=1,b=1,a=1}
-        }
-        airFilter.allowed_effects = { "speed", "productivity", "consumption", "pollution" }
-        airFilter.animation = {
-            layers =
-                {
-                    {
-                        filename = "__RampantArsenal__/graphics/entities/hr-air-filter.png",
-                        priority = "high",
-                        width = 275,
-                        height = 210,
-                        frame_count = 8,
-                        line_length = 4,
-                        shift = {-0.45, -0.1},
-                        scale = 0.6,
-                        hr_version =
-                            {
-                                filename = "__RampantArsenal__/graphics/entities/hr-air-filter.png",
-                                priority = "high",
-                                width = 275,
-                                height = 210,
-                                frame_count = 8,
-                                line_length = 4,
-                                shift = {-0.45, -0.1},
-                                scale = 0.6
-                            }
-                    },
-                    {
-                        filename = "__RampantArsenal__/graphics/entities/hr-air-filter-shadow.png",
-                        priority = "high",
-                        width = 260,
-                        height = 162,
-                        frame_count = 8,
-                        line_length = 4,
-                        draw_as_shadow = true,
-                        shift = util.by_pixel(28, 4),
-                        hr_version =
-                            {
-                                filename = "__RampantArsenal__/graphics/entities/hr-air-filter-shadow.png",
-                                priority = "high",
-                                width = 260,
-                                height = 162,
-                                frame_count = 8,
-                                line_length = 4,
-                                draw_as_shadow = true,
-                                shift = util.by_pixel(28, 4),
-                                scale = 0.5
-                            }
-                    }
-                }
-        }
-        airFilter.idle_animation =  airFilter.animation
-        airFilter.always_draw_idle_animation = true
-        airFilter.fluid_boxes = {
-            {
-                production_type = "input",
-                pipe_picture = assembler3pipepictures(),
-                pipe_covers = pipecoverspictures(),
-                base_area = 10,
-                base_level = -1,
-                pipe_connections = {
-                    { type="input", position = {-1, -2} }
-                },
-                secondary_draw_orders = { north = -1 }
-            },
-            {
-                production_type = "input",
-                pipe_picture = assembler3pipepictures(),
-                pipe_covers = pipecoverspictures(),
-                base_area = 10,
-                base_level = -1,
-                pipe_connections = {
-                    { type="input", position = {1, -2} }
-                },
-                secondary_draw_orders = { north = -1 }
-            },
-            {
-                production_type = "output",
-                pipe_picture = assembler3pipepictures(),
-                pipe_covers = pipecoverspictures(),
-                base_area = 1,
-                base_level = 1,
-                pipe_connections = {
-                    { type="output", position = {-1, 2} }
-                },
-                secondary_draw_orders = { north = -1 }
-            },
-            {
-                production_type = "output",
-                pipe_picture = assembler3pipepictures(),
-                pipe_covers = pipecoverspictures(),
-                base_area = 1,
-                base_level = 1,
-                pipe_connections = {
-                    { type="output", position = {1, 2} }
-                },
-                secondary_draw_orders = { north = -1 }
-            },
-            off_when_no_fluid_recipe = false
-        }
+    -- if settings.startup["rampant-arsenal-enableAirFiltering"].value then
+    --     local airFilter = table.deepcopy(data.raw["assembling-machine"]["assembling-machine-2"])
+    --     airFilter.name = "air-filter-rampant-arsenal"
+    --     airFilter.fixed_recipe = "air-filter-pollution-rampant-arsenal"
+    --     airFilter.crafting_categories = { "air-filter-rampant-arsenal" }
+    --     airFilter.minable = {mining_time=2,result="air-filter-rampant-arsenal"}
+    --     airFilter.next_upgrade = nil
+    --     airFilter.energy_usage = "750KW"
+    --     airFilter.energy_source.drain = "500KW"
+    --     airFilter.match_speed_to_activity = true
+    --     airFilter.match_volume_to_activity = true
+    --     airFilter.crafting_speed = 1
+    --     airFilter.fast_replaceable_group = nil
+    --     airFilter.default_recipe_tint = {
+    --         primary = {r=0,g=1,b=1,a=1},
+    --         secondary = {r=1,g=1,b=1,a=1},
+    --         tertiary = {r=1,g=1,b=1,a=1},
+    --         quaternary = {r=1,g=1,b=1,a=1}
+    --     }
+    --     airFilter.allowed_effects = { "speed", "productivity", "consumption", "pollution" }
+    --     airFilter.animation = {
+    --         layers =
+    --             {
+    --                 {
+    --                     filename = "__RampantArsenal__/graphics/entities/hr-air-filter.png",
+    --                     priority = "high",
+    --                     width = 275,
+    --                     height = 210,
+    --                     frame_count = 8,
+    --                     line_length = 4,
+    --                     shift = {-0.45, -0.1},
+    --                     scale = 0.6,
+    --                     hr_version =
+    --                         {
+    --                             filename = "__RampantArsenal__/graphics/entities/hr-air-filter.png",
+    --                             priority = "high",
+    --                             width = 275,
+    --                             height = 210,
+    --                             frame_count = 8,
+    --                             line_length = 4,
+    --                             shift = {-0.45, -0.1},
+    --                             scale = 0.6
+    --                         }
+    --                 },
+    --                 {
+    --                     filename = "__RampantArsenal__/graphics/entities/hr-air-filter-shadow.png",
+    --                     priority = "high",
+    --                     width = 260,
+    --                     height = 162,
+    --                     frame_count = 8,
+    --                     line_length = 4,
+    --                     draw_as_shadow = true,
+    --                     shift = util.by_pixel(28, 4),
+    --                     hr_version =
+    --                         {
+    --                             filename = "__RampantArsenal__/graphics/entities/hr-air-filter-shadow.png",
+    --                             priority = "high",
+    --                             width = 260,
+    --                             height = 162,
+    --                             frame_count = 8,
+    --                             line_length = 4,
+    --                             draw_as_shadow = true,
+    --                             shift = util.by_pixel(28, 4),
+    --                             scale = 0.5
+    --                         }
+    --                 }
+    --             }
+    --     }
+    --     airFilter.idle_animation =  airFilter.animation
+    --     airFilter.always_draw_idle_animation = true
+    --     airFilter.fluid_boxes = {
+    --         {
+    --             production_type = "input",
+    --             pipe_picture = assembler3pipepictures(),
+    --             pipe_covers = pipecoverspictures(),
+    --             base_area = 10,
+    --             base_level = -1,
+    --             pipe_connections = {
+    --                 { type="input", position = {-1, -2} }
+    --             },
+    --             secondary_draw_orders = { north = -1 }
+    --         },
+    --         {
+    --             production_type = "input",
+    --             pipe_picture = assembler3pipepictures(),
+    --             pipe_covers = pipecoverspictures(),
+    --             base_area = 10,
+    --             base_level = -1,
+    --             pipe_connections = {
+    --                 { type="input", position = {1, -2} }
+    --             },
+    --             secondary_draw_orders = { north = -1 }
+    --         },
+    --         {
+    --             production_type = "output",
+    --             pipe_picture = assembler3pipepictures(),
+    --             pipe_covers = pipecoverspictures(),
+    --             base_area = 1,
+    --             base_level = 1,
+    --             pipe_connections = {
+    --                 { type="output", position = {-1, 2} }
+    --             },
+    --             secondary_draw_orders = { north = -1 }
+    --         },
+    --         {
+    --             production_type = "output",
+    --             pipe_picture = assembler3pipepictures(),
+    --             pipe_covers = pipecoverspictures(),
+    --             base_area = 1,
+    --             base_level = 1,
+    --             pipe_connections = {
+    --                 { type="output", position = {1, 2} }
+    --             },
+    --             secondary_draw_orders = { north = -1 }
+    --         },
+    --         off_when_no_fluid_recipe = false
+    --     }
 
-        airFilter.fluid_boxes[2].pipe_picture.east = {
-            filename = "__RampantArsenal__/graphics/entities/hr-assembling-machine-3-pipe-E.png",
-            priority = "extra-high",
-            width = 42,
-            height = 76,
-            shift = util.by_pixel(-24.5, 1),
-            hr_version =
-                {
-                    filename = "__RampantArsenal__/graphics/entities/hr-assembling-machine-3-pipe-E.png",
-                    priority = "extra-high",
-                    width = 42,
-                    height = 76,
-                    shift = util.by_pixel(-24.5, 1),
-                    scale = 0.5
-                }
-        }
-        airFilter.fluid_boxes[2].pipe_picture.west = {
-            filename = "__RampantArsenal__/graphics/entities/hr-assembling-machine-3-pipe-W.png",
-            priority = "extra-high",
-            width = 39,
-            height = 73,
-            shift = util.by_pixel(25.75, 1.25),
-            hr_version =
-                {
-                    filename = "__RampantArsenal__/graphics/entities/hr-assembling-machine-3-pipe-W.png",
-                    priority = "extra-high",
-                    width = 39,
-                    height = 73,
-                    shift = util.by_pixel(25.75, 1.25),
-                    scale = 0.5
-                }
-        }
-
-
-        local airFilter2 = table.deepcopy(airFilter)
-        airFilter2.name = "air-filter-2-rampant-arsenal"
-        airFilter2.fixed_recipe = "air-filter-pollution-rampant-arsenal"
-        airFilter2.crafting_categories = { "air-filter-rampant-arsenal" }
-        airFilter2.minable = {mining_time=2,result="air-filter-2-rampant-arsenal"}
-        airFilter2.next_upgrade = nil
-        airFilter2.energy_usage = "750KW"
-        airFilter2.energy_source.drain = "500KW"
-        airFilter2.match_speed_to_activity = true
-        airFilter2.match_volume_to_activity = true
-        airFilter2.crafting_speed = 1
-        airFilter2.fast_replaceable_group = nil
-        airFilter2.animation = {
-            layers =
-                {
-                    {
-                        filename = "__RampantArsenal__/graphics/entities/hr-air-filter.png",
-                        priority = "high",
-                        width = 275,
-                        height = 210,
-                        frame_count = 8,
-                        line_length = 4,
-                        shift = {-0.75, -0.4},
-                        scale = 1,
-                        tint = { r=0.8,g=0.8,b=0.9,a=1 },
-                        hr_version =
-                            {
-                                filename = "__RampantArsenal__/graphics/entities/hr-air-filter.png",
-                                priority = "high",
-                                width = 275,
-                                height = 210,
-                                frame_count = 8,
-                                line_length = 4,
-                                tint = { r=0.8,g=0.8,b=0.9,a=1 },
-                                shift = {-0.75, -0.4},
-                                scale = 1
-                            }
-                    },
-                    {
-                        filename = "__RampantArsenal__/graphics/entities/hr-air-filter-shadow.png",
-                        priority = "high",
-                        width = 260,
-                        height = 162,
-                        frame_count = 8,
-                        line_length = 4,
-                        draw_as_shadow = true,
-                        shift = util.by_pixel(28, 4),
-                        scale = 1.9,
-                        hr_version =
-                            {
-                                filename = "__RampantArsenal__/graphics/entities/hr-air-filter-shadow.png",
-                                priority = "high",
-                                width = 260,
-                                height = 162,
-                                frame_count = 8,
-                                line_length = 4,
-                                draw_as_shadow = true,
-                                shift = util.by_pixel(28, 4),
-                                scale = 0.95
-                            }
-                    }
-                }
-        }
-
-        airFilter2.collision_box[1][1] = airFilter2.collision_box[1][1] * 2.05
-        airFilter2.collision_box[1][2] = airFilter2.collision_box[1][2] * 2.05
-        airFilter2.collision_box[2][1] = airFilter2.collision_box[2][1] * 2.05
-        airFilter2.collision_box[2][2] = airFilter2.collision_box[2][2] * 2.05
-
-        airFilter2.drawing_box = nil
-        airFilter2.selection_box[1][1] = airFilter2.selection_box[1][1] * 1.66
-        airFilter2.selection_box[1][2] = airFilter2.selection_box[1][2] * 1.66
-        airFilter2.selection_box[2][1] = airFilter2.selection_box[2][1] * 1.66
-        airFilter2.selection_box[2][2] = airFilter2.selection_box[2][2] * 1.66
-        airFilter2.fluid_boxes = {
-            {
-                production_type = "input",
-                pipe_picture = assembler3pipepictures(),
-                pipe_covers = pipecoverspictures(),
-                base_area = 10,
-                base_level = -1,
-                pipe_connections = {
-                    { type="input", position = {1, -3} }
-                },
-                secondary_draw_orders = { north = -1 }
-            },
-            {
-                production_type = "input",
-                pipe_picture = assembler3pipepictures(),
-                pipe_covers = pipecoverspictures(),
-                base_area = 10,
-                base_level = -1,
-                pipe_connections = {
-                    { type="input", position = {-1, -3} }
-                },
-                secondary_draw_orders = { north = -1 }
-            },
-            {
-                production_type = "output",
-                pipe_picture = assembler3pipepictures(),
-                pipe_covers = pipecoverspictures(),
-                base_area = 2,
-                base_level = 1,
-                pipe_connections = {
-                    { type="output", position = {1, 3} }
-                },
-                secondary_draw_orders = { north = -1 }
-            },
-            {
-                production_type = "output",
-                pipe_picture = assembler3pipepictures(),
-                pipe_covers = pipecoverspictures(),
-                base_area = 2,
-                base_level = 1,
-                pipe_connections = {
-                    { type="output", position = {-1, 3} }
-                },
-                secondary_draw_orders = { north = -1 }
-            },
-            off_when_no_fluid_recipe = false
-        }
-
-        airFilter2.fluid_boxes[2].pipe_picture.east = {
-            filename = "__RampantArsenal__/graphics/entities/hr-assembling-machine-3-pipe-E.png",
-            priority = "extra-high",
-            width = 42,
-            height = 76,
-            shift = util.by_pixel(-24.5, 1),
-            hr_version =
-                {
-                    filename = "__RampantArsenal__/graphics/entities/hr-assembling-machine-3-pipe-E.png",
-                    priority = "extra-high",
-                    width = 42,
-                    height = 76,
-                    shift = util.by_pixel(-24.5, 1),
-                    scale = 0.5
-                }
-        }
-        airFilter2.fluid_boxes[1].pipe_picture.east = airFilter2.fluid_boxes[2].pipe_picture.east
-        airFilter2.fluid_boxes[3].pipe_picture.east = airFilter2.fluid_boxes[2].pipe_picture.east
-        airFilter2.fluid_boxes[4].pipe_picture.east = airFilter2.fluid_boxes[2].pipe_picture.east
-        airFilter2.fluid_boxes[2].pipe_picture.west = {
-            filename = "__RampantArsenal__/graphics/entities/hr-assembling-machine-3-pipe-W.png",
-            priority = "extra-high",
-            width = 39,
-            height = 73,
-            shift = util.by_pixel(25.75, 1.25),
-            hr_version =
-                {
-                    filename = "__RampantArsenal__/graphics/entities/hr-assembling-machine-3-pipe-W.png",
-                    priority = "extra-high",
-                    width = 39,
-                    height = 73,
-                    shift = util.by_pixel(25.75, 1.25),
-                    scale = 0.5
-                }
-        }
-        airFilter2.fluid_boxes[1].pipe_picture.west = airFilter2.fluid_boxes[2].pipe_picture.west
-        airFilter2.fluid_boxes[3].pipe_picture.west = airFilter2.fluid_boxes[2].pipe_picture.west
-        airFilter2.fluid_boxes[4].pipe_picture.west = airFilter2.fluid_boxes[2].pipe_picture.west
-
-        airFilter2.idle_animation =  airFilter2.animation
+    --     airFilter.fluid_boxes[2].pipe_picture.east = {
+    --         filename = "__RampantArsenal__/graphics/entities/hr-assembling-machine-3-pipe-E.png",
+    --         priority = "extra-high",
+    --         width = 42,
+    --         height = 76,
+    --         shift = util.by_pixel(-24.5, 1),
+    --         hr_version =
+    --             {
+    --                 filename = "__RampantArsenal__/graphics/entities/hr-assembling-machine-3-pipe-E.png",
+    --                 priority = "extra-high",
+    --                 width = 42,
+    --                 height = 76,
+    --                 shift = util.by_pixel(-24.5, 1),
+    --                 scale = 0.5
+    --             }
+    --     }
+    --     airFilter.fluid_boxes[2].pipe_picture.west = {
+    --         filename = "__RampantArsenal__/graphics/entities/hr-assembling-machine-3-pipe-W.png",
+    --         priority = "extra-high",
+    --         width = 39,
+    --         height = 73,
+    --         shift = util.by_pixel(25.75, 1.25),
+    --         hr_version =
+    --             {
+    --                 filename = "__RampantArsenal__/graphics/entities/hr-assembling-machine-3-pipe-W.png",
+    --                 priority = "extra-high",
+    --                 width = 39,
+    --                 height = 73,
+    --                 shift = util.by_pixel(25.75, 1.25),
+    --                 scale = 0.5
+    --             }
+    --     }
 
 
-        local recipe = table.deepcopy(data.raw["recipe"]["assembling-machine-1"])
-        recipe.name = "air-filter-rampant-arsenal"
-        recipe.icon = "__RampantArsenal__/graphics/icons/air-filter.png"
-        recipe.icon_size = 64
-        recipe.icon_mipmaps = 1
-        recipe.ingredients = {
-            {"steel-plate", 20},
-            {"electronic-circuit", 30},
-            {"storage-tank", 16}
-        }
-        recipe.energy_required = 30
-        recipe.hidden = false
-        recipe.enabled = true
-        recipe.result = "air-filter-rampant-arsenal"
+    --     local airFilter2 = table.deepcopy(airFilter)
+    --     airFilter2.name = "air-filter-2-rampant-arsenal"
+    --     airFilter2.fixed_recipe = "air-filter-pollution-rampant-arsenal"
+    --     airFilter2.crafting_categories = { "air-filter-rampant-arsenal" }
+    --     airFilter2.minable = {mining_time=2,result="air-filter-2-rampant-arsenal"}
+    --     airFilter2.next_upgrade = nil
+    --     airFilter2.energy_usage = "750KW"
+    --     airFilter2.energy_source.drain = "500KW"
+    --     airFilter2.match_speed_to_activity = true
+    --     airFilter2.match_volume_to_activity = true
+    --     airFilter2.crafting_speed = 1
+    --     airFilter2.fast_replaceable_group = nil
+    --     airFilter2.animation = {
+    --         layers =
+    --             {
+    --                 {
+    --                     filename = "__RampantArsenal__/graphics/entities/hr-air-filter.png",
+    --                     priority = "high",
+    --                     width = 275,
+    --                     height = 210,
+    --                     frame_count = 8,
+    --                     line_length = 4,
+    --                     shift = {-0.75, -0.4},
+    --                     scale = 1,
+    --                     tint = { r=0.8,g=0.8,b=0.9,a=1 },
+    --                     hr_version =
+    --                         {
+    --                             filename = "__RampantArsenal__/graphics/entities/hr-air-filter.png",
+    --                             priority = "high",
+    --                             width = 275,
+    --                             height = 210,
+    --                             frame_count = 8,
+    --                             line_length = 4,
+    --                             tint = { r=0.8,g=0.8,b=0.9,a=1 },
+    --                             shift = {-0.75, -0.4},
+    --                             scale = 1
+    --                         }
+    --                 },
+    --                 {
+    --                     filename = "__RampantArsenal__/graphics/entities/hr-air-filter-shadow.png",
+    --                     priority = "high",
+    --                     width = 260,
+    --                     height = 162,
+    --                     frame_count = 8,
+    --                     line_length = 4,
+    --                     draw_as_shadow = true,
+    --                     shift = util.by_pixel(28, 4),
+    --                     scale = 1.9,
+    --                     hr_version =
+    --                         {
+    --                             filename = "__RampantArsenal__/graphics/entities/hr-air-filter-shadow.png",
+    --                             priority = "high",
+    --                             width = 260,
+    --                             height = 162,
+    --                             frame_count = 8,
+    --                             line_length = 4,
+    --                             draw_as_shadow = true,
+    --                             shift = util.by_pixel(28, 4),
+    --                             scale = 0.95
+    --                         }
+    --                 }
+    --             }
+    --     }
 
-        local recipe2 = table.deepcopy(data.raw["recipe"]["assembling-machine-1"])
-        recipe2.name = "air-filter-2-rampant-arsenal"
-        recipe2.icon = nil
-        recipe2.icons = {
-            {icon = "__RampantArsenal__/graphics/icons/air-filter.png", tint = { r=0.7,g=0.7,b=0.9,a=1 }}
-        }
-        recipe2.icon_size = 64
-        recipe2.icon_mipmaps = 1
-        recipe2.ingredients = {
-            {"steel-plate", 20},
-            {"electronic-circuit", 30},
-            {"storage-tank", 16}
-        }
-        recipe2.energy_required = 30
-        recipe2.hidden = false
-        recipe2.enabled = true
-        recipe2.result = "air-filter-2-rampant-arsenal"
+    --     airFilter2.collision_box[1][1] = airFilter2.collision_box[1][1] * 2.05
+    --     airFilter2.collision_box[1][2] = airFilter2.collision_box[1][2] * 2.05
+    --     airFilter2.collision_box[2][1] = airFilter2.collision_box[2][1] * 2.05
+    --     airFilter2.collision_box[2][2] = airFilter2.collision_box[2][2] * 2.05
+
+    --     airFilter2.drawing_box = nil
+    --     airFilter2.selection_box[1][1] = airFilter2.selection_box[1][1] * 1.66
+    --     airFilter2.selection_box[1][2] = airFilter2.selection_box[1][2] * 1.66
+    --     airFilter2.selection_box[2][1] = airFilter2.selection_box[2][1] * 1.66
+    --     airFilter2.selection_box[2][2] = airFilter2.selection_box[2][2] * 1.66
+    --     airFilter2.fluid_boxes = {
+    --         {
+    --             production_type = "input",
+    --             pipe_picture = assembler3pipepictures(),
+    --             pipe_covers = pipecoverspictures(),
+    --             base_area = 10,
+    --             base_level = -1,
+    --             pipe_connections = {
+    --                 { type="input", position = {1, -3} }
+    --             },
+    --             secondary_draw_orders = { north = -1 }
+    --         },
+    --         {
+    --             production_type = "input",
+    --             pipe_picture = assembler3pipepictures(),
+    --             pipe_covers = pipecoverspictures(),
+    --             base_area = 10,
+    --             base_level = -1,
+    --             pipe_connections = {
+    --                 { type="input", position = {-1, -3} }
+    --             },
+    --             secondary_draw_orders = { north = -1 }
+    --         },
+    --         {
+    --             production_type = "output",
+    --             pipe_picture = assembler3pipepictures(),
+    --             pipe_covers = pipecoverspictures(),
+    --             base_area = 2,
+    --             base_level = 1,
+    --             pipe_connections = {
+    --                 { type="output", position = {1, 3} }
+    --             },
+    --             secondary_draw_orders = { north = -1 }
+    --         },
+    --         {
+    --             production_type = "output",
+    --             pipe_picture = assembler3pipepictures(),
+    --             pipe_covers = pipecoverspictures(),
+    --             base_area = 2,
+    --             base_level = 1,
+    --             pipe_connections = {
+    --                 { type="output", position = {-1, 3} }
+    --             },
+    --             secondary_draw_orders = { north = -1 }
+    --         },
+    --         off_when_no_fluid_recipe = false
+    --     }
+
+    --     airFilter2.fluid_boxes[2].pipe_picture.east = {
+    --         filename = "__RampantArsenal__/graphics/entities/hr-assembling-machine-3-pipe-E.png",
+    --         priority = "extra-high",
+    --         width = 42,
+    --         height = 76,
+    --         shift = util.by_pixel(-24.5, 1),
+    --         hr_version =
+    --             {
+    --                 filename = "__RampantArsenal__/graphics/entities/hr-assembling-machine-3-pipe-E.png",
+    --                 priority = "extra-high",
+    --                 width = 42,
+    --                 height = 76,
+    --                 shift = util.by_pixel(-24.5, 1),
+    --                 scale = 0.5
+    --             }
+    --     }
+    --     airFilter2.fluid_boxes[1].pipe_picture.east = airFilter2.fluid_boxes[2].pipe_picture.east
+    --     airFilter2.fluid_boxes[3].pipe_picture.east = airFilter2.fluid_boxes[2].pipe_picture.east
+    --     airFilter2.fluid_boxes[4].pipe_picture.east = airFilter2.fluid_boxes[2].pipe_picture.east
+    --     airFilter2.fluid_boxes[2].pipe_picture.west = {
+    --         filename = "__RampantArsenal__/graphics/entities/hr-assembling-machine-3-pipe-W.png",
+    --         priority = "extra-high",
+    --         width = 39,
+    --         height = 73,
+    --         shift = util.by_pixel(25.75, 1.25),
+    --         hr_version =
+    --             {
+    --                 filename = "__RampantArsenal__/graphics/entities/hr-assembling-machine-3-pipe-W.png",
+    --                 priority = "extra-high",
+    --                 width = 39,
+    --                 height = 73,
+    --                 shift = util.by_pixel(25.75, 1.25),
+    --                 scale = 0.5
+    --             }
+    --     }
+    --     airFilter2.fluid_boxes[1].pipe_picture.west = airFilter2.fluid_boxes[2].pipe_picture.west
+    --     airFilter2.fluid_boxes[3].pipe_picture.west = airFilter2.fluid_boxes[2].pipe_picture.west
+    --     airFilter2.fluid_boxes[4].pipe_picture.west = airFilter2.fluid_boxes[2].pipe_picture.west
+
+    --     airFilter2.idle_animation =  airFilter2.animation
 
 
-        local item = table.deepcopy(data.raw["item"]["assembling-machine-2"])
-        item.name = "air-filter-rampant-arsenal"
-        item.icon = nil
-        item.icons = {
-            {icon = "__RampantArsenal__/graphics/icons/air-filter.png"}
-        }
-        item.place_result = "air-filter-rampant-arsenal"
-        item.order = "c[zassembling-machine-3]"
+    --     local recipe = table.deepcopy(data.raw["recipe"]["assembling-machine-1"])
+    --     recipe.name = "air-filter-rampant-arsenal"
+    --     recipe.icon = "__RampantArsenal__/graphics/icons/air-filter.png"
+    --     recipe.icon_size = 64
+    --     recipe.icon_mipmaps = 1
+    --     recipe.ingredients = {
+    --         {"steel-plate", 20},
+    --         {"electronic-circuit", 30},
+    --         {"storage-tank", 16}
+    --     }
+    --     recipe.energy_required = 30
+    --     recipe.hidden = false
+    --     recipe.enabled = true
+    --     recipe.result = "air-filter-rampant-arsenal"
 
-        local item2 = table.deepcopy(data.raw["item"]["assembling-machine-2"])
-        item2.name = "air-filter-2-rampant-arsenal"
-        item2.icon = nil
-        item2.icons = {
-            {icon = "__RampantArsenal__/graphics/icons/air-filter.png", tint = { r=0.7,g=0.7,b=0.9,a=1 }}
-        }
-        item2.place_result = "air-filter-2-rampant-arsenal"
-        item2.order = "c[zzassembling-machine-3]"
+    --     local recipe2 = table.deepcopy(data.raw["recipe"]["assembling-machine-1"])
+    --     recipe2.name = "air-filter-2-rampant-arsenal"
+    --     recipe2.icon = nil
+    --     recipe2.icons = {
+    --         {icon = "__RampantArsenal__/graphics/icons/air-filter.png", tint = { r=0.7,g=0.7,b=0.9,a=1 }}
+    --     }
+    --     recipe2.icon_size = 64
+    --     recipe2.icon_mipmaps = 1
+    --     recipe2.ingredients = {
+    --         {"steel-plate", 20},
+    --         {"electronic-circuit", 30},
+    --         {"storage-tank", 16}
+    --     }
+    --     recipe2.energy_required = 30
+    --     recipe2.hidden = false
+    --     recipe2.enabled = true
+    --     recipe2.result = "air-filter-2-rampant-arsenal"
 
-        local recipePollution = table.deepcopy(data.raw["recipe"]["assembling-machine-2"])
-        recipePollution.name = "air-filter-pollution-rampant-arsenal"
-        recipePollution.category = "air-filter-rampant-arsenal"
-        recipePollution.subgroup = "raw-material"
-        recipePollution.normal.ingredients = {
-            {type="fluid",name="pollution-fluid-rampant-arsenal", amount=20},
-            {type="fluid",name="water", amount=60}
-        }
-        recipePollution.normal.energy_required = 1
-        recipePollution.normal.hide_from_player_crafting = true
-        recipePollution.normal.hidden = false
-        recipePollution.normal.enabled = true
-        recipePollution.normal.emissions_multiplier = -3
-        recipePollution.normal.allow_as_intermediate = false
-        recipePollution.normal.always_show_products = true
-        recipePollution.normal.show_amount_in_title = false
-        recipePollution.normal.result = nil
-        recipePollution.normal.main_product = "compressed-pollution-fluid-rampant-arsenal"
-        recipePollution.normal.results = {
-            {type="fluid", name="compressed-pollution-fluid-rampant-arsenal", amount=40},
-            {type="fluid", name="water", amount=20}
-        }
 
-        addFluid({
-                name="pollution",
-                icon="__RampantArsenal__/graphics/icons/pollution.png",
-                iconSize = 64,
-                iconMipmaps = 4,
-                disableAutoBarrel = true
-        })
+    --     local item = table.deepcopy(data.raw["item"]["assembling-machine-2"])
+    --     item.name = "air-filter-rampant-arsenal"
+    --     item.icon = nil
+    --     item.icons = {
+    --         {icon = "__RampantArsenal__/graphics/icons/air-filter.png"}
+    --     }
+    --     item.place_result = "air-filter-rampant-arsenal"
+    --     item.order = "c[zassembling-machine-3]"
 
-        addFluid({
-                name="compressed-pollution",
-                iconSize = 64,
-                iconMipmaps = 4
-        })
+    --     local item2 = table.deepcopy(data.raw["item"]["assembling-machine-2"])
+    --     item2.name = "air-filter-2-rampant-arsenal"
+    --     item2.icon = nil
+    --     item2.icons = {
+    --         {icon = "__RampantArsenal__/graphics/icons/air-filter.png", tint = { r=0.7,g=0.7,b=0.9,a=1 }}
+    --     }
+    --     item2.place_result = "air-filter-2-rampant-arsenal"
+    --     item2.order = "c[zzassembling-machine-3]"
 
-        data:extend({
-                {
-                    type="recipe-category",
-                    name="air-filter-rampant-arsenal"
-                },
-                recipePollution,
-                airFilter,
-                airFilter2,
-                recipe,
-                recipe2,
-                item,
-                item2
-        })
-    end
+    --     local recipePollution = table.deepcopy(data.raw["recipe"]["assembling-machine-2"])
+    --     recipePollution.name = "air-filter-pollution-rampant-arsenal"
+    --     recipePollution.category = "air-filter-rampant-arsenal"
+    --     recipePollution.subgroup = "raw-material"
+    --     recipePollution.normal.ingredients = {
+    --         {type="fluid",name="pollution-fluid-rampant-arsenal", amount=20},
+    --         {type="fluid",name="water", amount=60}
+    --     }
+    --     recipePollution.normal.energy_required = 1
+    --     recipePollution.normal.hide_from_player_crafting = true
+    --     recipePollution.normal.hidden = false
+    --     recipePollution.normal.enabled = true
+    --     recipePollution.normal.emissions_multiplier = -3
+    --     recipePollution.normal.allow_as_intermediate = false
+    --     recipePollution.normal.always_show_products = true
+    --     recipePollution.normal.show_amount_in_title = false
+    --     recipePollution.normal.result = nil
+    --     recipePollution.normal.main_product = "compressed-pollution-fluid-rampant-arsenal"
+    --     recipePollution.normal.results = {
+    --         {type="fluid", name="compressed-pollution-fluid-rampant-arsenal", amount=40},
+    --         {type="fluid", name="water", amount=20}
+    --     }
+
+    --     addFluid({
+    --             name="pollution",
+    --             icon="__RampantArsenal__/graphics/icons/pollution.png",
+    --             iconSize = 64,
+    --             iconMipmaps = 4,
+    --             disableAutoBarrel = true
+    --     })
+
+    --     addFluid({
+    --             name="compressed-pollution",
+    --             iconSize = 64,
+    --             iconMipmaps = 4
+    --     })
+
+    --     data:extend({
+    --             {
+    --                 type="recipe-category",
+    --                 name="air-filter-rampant-arsenal"
+    --             },
+    --             recipePollution,
+    --             airFilter,
+    --             airFilter2,
+    --             recipe,
+    --             recipe2,
+    --             item,
+    --             item2
+    --     })
+    -- end
 end
 
 return buildings

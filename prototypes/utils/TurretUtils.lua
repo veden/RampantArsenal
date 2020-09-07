@@ -267,8 +267,9 @@ function turretUtils.makeFluidTurret(attributes, attack)
                 folding_speed = attributes.foldingSpeed or 0.08,
                 attacking_speed = attributes.attackingSpeed or 1,
                 preparing_sound = sounds.flamethrower_turret_activate,
-                folding_sound = sounds.flamethrower_turret_deactivate,                
+                folding_sound = sounds.flamethrower_turret_deactivate,
                 ending_attack_speed = attributes.attackingEndSpeed or 0.2,
+                ending_attack_animation = attributes.endingAttackAnimation,
                 dying_explosion = "medium-explosion",
                 -- damaged_trigger_effect = hit_effects.entity(),
                 inventory_size = 1,
@@ -284,7 +285,7 @@ function turretUtils.makeFluidTurret(attributes, attack)
                         },
                     },
 
-                fluid_box =
+                fluid_box = attributes.fluidBox or
                     {
                         pipe_picture = flamethrower_turret_pipepictures(),
                         render_layer = "lower-object",
@@ -471,7 +472,7 @@ function turretUtils.makeElectricTurret(attributes, attack)
                                 filename = "__base__/sound/fight/laser-turret-rotation-01.ogg",
                                 volume = 0.3
                             }
-                    },                
+                    },
                 energy_source = attributes.energySource or
                     {
                         type = "electric",

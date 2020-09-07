@@ -18,6 +18,18 @@ function technologyUtils.addEffectToTech(tech, recipe)
     end
 end
 
+function technologyUtils.modifyInfiniteFormula(tech, formula)
+    local t = data.raw["technology"]["rampant-arsenal-technology-"..tech]
+    if not t then
+        t = data.raw["technology"][tech]
+    end
+    if t then
+        t.unit.count_formula = formula
+    else
+        error("lookup bad tech - ".. tech)
+    end
+end
+
 function technologyUtils.removeEffect(tech, field, name)
     local t = data.raw["technology"]["rampant-arsenal-technology-"..tech]
     if not t then

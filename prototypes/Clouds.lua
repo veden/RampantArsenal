@@ -501,6 +501,7 @@ function clouds.enable()
         {
             name = "small-repair",
             duration = 3000,
+            skipSubEntity = true,
             inDuration = 10,
             outDuration = 10,
             movementModifier = 0,

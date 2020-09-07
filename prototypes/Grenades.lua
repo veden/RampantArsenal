@@ -68,6 +68,20 @@ function grenades.enable()
                                                                             type = "create-fire",
                                                                             entity_name = "fire-flame",
                                                                             initial_ground_flame_count = 4
+                                                                        },
+                                                                        {
+                                                                            type = "invoke-tile-trigger",
+                                                                            repeat_count = 1,
+                                                                        },
+                                                                        {
+                                                                            type = "destroy-decoratives",
+                                                                            from_render_layer = "decorative",
+                                                                            to_render_layer = "object",
+                                                                            include_soft_decoratives = true,
+                                                                            include_decals = false,
+                                                                            invoke_decorative_trigger = true,
+                                                                            decoratives_with_trigger_only = false,
+                                                                            radius = 3
                                                                         }
                                                                     }
                                                             }
@@ -147,7 +161,7 @@ function grenades.enable()
                         recipe = incendiaryGrenade,
     })
 
-    
+
     local heGrenade = makeCapsule(
         {
             name = "he-grenade",
@@ -194,6 +208,20 @@ function grenades.enable()
                                                                             type = "create-entity",
                                                                             entity_name = "small-scorchmark",
                                                                             check_buildability = true
+                                                                        },
+                                                                        {
+                                                                            type = "invoke-tile-trigger",
+                                                                            repeat_count = 1,
+                                                                        },
+                                                                        {
+                                                                            type = "destroy-decoratives",
+                                                                            from_render_layer = "decorative",
+                                                                            to_render_layer = "object",
+                                                                            include_soft_decoratives = true,
+                                                                            include_decals = false,
+                                                                            invoke_decorative_trigger = true,
+                                                                            decoratives_with_trigger_only = false,
+                                                                            radius = 4
                                                                         }
                                                                     }
                                                             }
@@ -241,13 +269,13 @@ function grenades.enable()
             },
             result = heGrenade,
     })
-    
+
     addEffectToTech("he-grenades",
                     {
                         type = "unlock-recipe",
                         recipe = heGrenade,
     })
-    
+
     local bioGrenade = makeCapsule(
         {
             name = "bio-grenade",
@@ -299,6 +327,20 @@ function grenades.enable()
                                                                             type = "create-entity",
                                                                             entity_name = "toxic-cloud-rampant-arsenal",
                                                                             show_in_tooltip = true
+                                                                        },
+                                                                        {
+                                                                            type = "invoke-tile-trigger",
+                                                                            repeat_count = 1,
+                                                                        },
+                                                                        {
+                                                                            type = "destroy-decoratives",
+                                                                            from_render_layer = "decorative",
+                                                                            to_render_layer = "object",
+                                                                            include_soft_decoratives = true,
+                                                                            include_decals = false,
+                                                                            invoke_decorative_trigger = true,
+                                                                            decoratives_with_trigger_only = false,
+                                                                            radius = 3
                                                                         }
                                                                     }
                                                             }
@@ -318,7 +360,7 @@ function grenades.enable()
                                                                         {
                                                                             type = "damage",
                                                                             damage = {amount = 175, type = "poison"}
-                                                                        }									
+                                                                        }
                                                                     }
                                                             }
                                                     }
@@ -348,7 +390,7 @@ function grenades.enable()
                         type = "unlock-recipe",
                         recipe = bioGrenade,
     })
-    
+
     local toxicCapsule = makeCapsule(
         {
             name = "toxic",
@@ -357,7 +399,7 @@ function grenades.enable()
         },
         {
             type = "throw",
-            attack_parameters =	    
+            attack_parameters =
                 {
                     type = "projectile",
                     ammo_category = "capsule",
@@ -412,13 +454,13 @@ function grenades.enable()
             },
             result = toxicCapsule,
     })
-    
+
     addEffectToTech("bio-capsules",
                     {
                         type = "unlock-recipe",
                         recipe = toxicCapsule,
     })
-    
+
     local repairCapsule = makeCapsule(
         {
             name = "repair",
@@ -427,7 +469,7 @@ function grenades.enable()
         },
         {
             type = "throw",
-            attack_parameters =	    
+            attack_parameters =
                 {
                     type = "projectile",
                     ammo_category = "capsule",
@@ -487,8 +529,8 @@ function grenades.enable()
                     {
                         type = "unlock-recipe",
                         recipe = repairCapsule,
-    })    
-    
+    })
+
     local paralysisCapsule = makeCapsule(
         {
             name = "paralysis",
@@ -497,7 +539,7 @@ function grenades.enable()
         },
         {
             type = "throw",
-            attack_parameters =	    
+            attack_parameters =
                 {
                     type = "projectile",
                     ammo_category = "capsule",
@@ -558,7 +600,7 @@ function grenades.enable()
                         type = "unlock-recipe",
                         recipe = paralysisCapsule,
     })
-    
+
     local healingCapsule = makeCapsule(
         {
             name = "healing",
@@ -567,7 +609,7 @@ function grenades.enable()
         },
         {
             type = "use-on-self",
-            attack_parameters =	    
+            attack_parameters =
                 {
                     type = "projectile",
                     ammo_category = "grenade",
@@ -602,7 +644,7 @@ function grenades.enable()
             ingredients = {
                 {"stone", 5},
                 {"coal", 2},
-                {"wood", 1}		
+                {"wood", 1}
             },
             result = healingCapsule,
     })
@@ -613,7 +655,7 @@ function grenades.enable()
                         recipe = healingCapsule,
     })
 
-    
+
     local speedCapsule = makeCapsule(
         {
             name = "speed",
@@ -622,7 +664,7 @@ function grenades.enable()
         },
         {
             type = "use-on-self",
-            attack_parameters =	    
+            attack_parameters =
                 {
                     type = "projectile",
                     ammo_category = "grenade",

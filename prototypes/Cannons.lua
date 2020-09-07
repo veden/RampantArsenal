@@ -1,5 +1,6 @@
 local cannons = {}
 
+local stickerUtils = require("utils/StickerUtils")
 local sounds = require("__base__.prototypes.entity.demo-sounds")
 local turretUtils = require("utils/TurretUtils")
 local recipeUtils = require("utils/RecipeUtils")
@@ -7,14 +8,21 @@ local technologyUtils = require("utils/TechnologyUtils")
 local streamUtils = require("utils/StreamUtils")
 local projectileUtils = require("utils/ProjectileUtils")
 local ammoUtils = require("utils/AmmoUtils")
+local fireUtils = require("utils/FireUtils")
+local scaleUtils = require("utils/ScaleUtils")
 
 local makeCannonProjectile = projectileUtils.makeCannonProjectile
 local makeAmmo = ammoUtils.makeAmmo
 local makeStream = streamUtils.makeStream
+local makeAcidStream = streamUtils.makeAcidStream
 local makeFluidTurret = turretUtils.makeFluidTurret
 local makeAmmoTurret = turretUtils.makeAmmoTurret
 local makeRecipe = recipeUtils.makeRecipe
+local makeAcidSticker = stickerUtils.makeAcidSticker
+local makeAcidPuddle = fireUtils.makeAcidPuddle
 local addEffectToTech = technologyUtils.addEffectToTech
+local modifyInfiniteFormula = technologyUtils.modifyInfiniteFormula
+local tintPicture = scaleUtils.tintPicture
 
 local function cannonMkISheet()
     return
@@ -148,7 +156,7 @@ function cannons.enable()
     local cannonAttributes = {
         name = "cannon",
         icon = "__RampantArsenal__/graphics/icons/cannonTurret.png",
-        miningTime = 1,
+        miningTime = 5,
         health = 2500,
         collisionBox = {{-1.8, -1.8 }, {1.8, 1.8}},
         selectionBox = {{-2.1, -2.1 }, {2.1, 2.1}},
@@ -282,7 +290,7 @@ function cannons.enable()
     local rapidCannonAttributes = {
         name = "rapid-cannon",
         icon = "__RampantArsenal__/graphics/icons/rapidCannonTurret.png",
-        miningTime = 1,
+        miningTime = 5,
         health = 2000,
         order = "b[turret]-a[zzrapid-cannon-turret]",
         collisionBox = {{-1.4, -1.4 }, {1.4, 1.4}},
@@ -350,7 +358,7 @@ function cannons.enable()
     local advFlamethrowerAttributes = {
         name = "suppression-cannon",
         icon = "__RampantArsenal__/graphics/icons/suppressionCannonTurret.png",
-        miningTime = 1,
+        miningTime = 5,
         health = 3000,
         collisionBox = {{-1.7, -2.2 }, {1.7, 2.2}},
         selectionBox = {{-2, -2.5 }, {2, 2.5}},
@@ -454,8 +462,19 @@ function cannons.enable()
                                                                                                                                     target_effects =
                                                                                                                                         {
                                                                                                                                             {
+                                                                                                                                                type = "destroy-decoratives",
+                                                                                                                                                from_render_layer = "decorative",
+                                                                                                                                                to_render_layer = "object",
+                                                                                                                                                include_soft_decoratives = true,
+                                                                                                                                                include_decals = false,
+                                                                                                                                                invoke_decorative_trigger = true,
+                                                                                                                                                decoratives_with_trigger_only = false,
+                                                                                                                                                radius = 1
+                                                                                                                                            },
+                                                                                                                                            {
                                                                                                                                                 type = "create-fire",
                                                                                                                                                 show_in_tooltip = true,
+                                                                                                                                                initial_ground_flame_count = 4,
                                                                                                                                                 entity_name = "fire-flame"
                                                                                                                                             }
                                                                                                                                         }
@@ -471,6 +490,7 @@ function cannons.enable()
                                                                                                                                         {
                                                                                                                                             {
                                                                                                                                                 type = "create-sticker",
+                                                                                                                                                show_in_tooltip = true,
                                                                                                                                                 sticker = "fire-sticker"
                                                                                                                                             },
                                                                                                                                             {
@@ -513,6 +533,280 @@ function cannons.enable()
                                                                                                     }
                                                                                                 }
                                                                                         }
+    })
+
+    local acidTurret = util.table.deepcopy(data.raw["fluid-turret"]["flamethrower-turret"])
+
+    acidTurret.icon = nil
+    acidTurret.icons = {
+        {icon="__base__/graphics/icons/flamethrower-turret.png", icon_size=64, icon_mipmaps=4, tint={r=0.6,g=0.8,b=0.6}}
+    }
+    
+    tintPicture(acidTurret.base_picture, {r=0.6,g=0.8,b=0.6})
+
+    acidTurret.name = "acid-cannon-rampant-arsenal"
+    acidTurret.minable = { mining_time = 3, result = "acid-cannon-rampant-arsenal" }
+    acidTurret.health = 2000
+    acidTurret.prepare_range = 40
+    acidTurret.resistances = {
+        {
+            type = "fire",
+            percent = 60
+        },
+        {
+            type = "explosion",
+            percent = 40
+        },
+        {
+            type = "impact",
+            percent = 30
+        },
+        {
+            type = "physical",
+            percent = 40
+        },
+        {
+            type = "acid",
+            percent = 40
+        },
+        {
+            type = "electric",
+            percent = 20
+        },
+        {
+            type = "laser",
+            percent = 20
+        },
+        {
+            type = "poison",
+            percent = 40
+        }
+    }
+
+    local acidSticker = makeAcidSticker({
+            name = "acid-cannon",
+            duration = 1000,
+            damage = 1
+    })
+
+    local acidPuddleName = makeAcidPuddle({
+            name = "acid-cannon",
+            damage = 40 / 60,
+            scale = 1,
+            stickerName = acidSticker
+    })
+
+    acidTurret.muzzle_animation = nil
+    acidTurret.muzzle_light = nil
+
+    acidTurret.attack_parameters = {
+        type = "stream",
+        ammo_category = "flamethrower",
+        cooldown = 4,
+        range = 36,
+        min_range = 9,
+
+        turn_range = 0.4,
+        fire_penalty = 30,
+
+        fluids = {
+            {type = "sulfuric-acid", damage_modifier = 1.35}
+        },
+        fluid_consumption = 0.9,
+
+        lead_target_for_projectile_speed = 0.6,
+        gun_center_shift = {
+            north={0,-1.5062500000000001},
+            east={0.578125,-1.0218750000000001},
+            south={0,-0.72500000000000009},
+            west={-0.375,-1.1468750000000001}
+        },
+        gun_barrel_length = 0.4,
+
+        ammo_type =
+            {
+                category = "flamethrower",
+                action =
+                    {
+                        type = "direct",
+                        action_delivery =
+                            {
+                                type = "stream",
+                                stream = makeAcidStream({
+                                        name = "acid-cannon",
+                                        bufferSize = 10,
+                                        scale = 1,
+                                        spawnInterval = 1,
+                                        particleTimeout = 1,
+                                        particleHoizontalSpeed = 0.4,
+                                        actions = {
+                                            {
+                                                type = "direct",
+                                                action_delivery =
+                                                    {
+                                                        type = "instant",
+                                                        target_effects =
+                                                            {
+                                                                {
+                                                                    type = "play-sound",
+                                                                    sound =
+                                                                        {
+                                                                            {
+                                                                                filename = "__base__/sound/creatures/projectile-acid-burn-1.ogg",
+                                                                                volume = 0.65
+                                                                            },
+                                                                            {
+                                                                                filename = "__base__/sound/creatures/projectile-acid-burn-2.ogg",
+                                                                                volume = 0.65
+                                                                            },
+                                                                            {
+                                                                                filename = "__base__/sound/creatures/projectile-acid-burn-long-1.ogg",
+                                                                                volume = 0.6
+                                                                            },
+                                                                            {
+                                                                                filename = "__base__/sound/creatures/projectile-acid-burn-long-2.ogg",
+                                                                                volume = 0.6
+                                                                            }
+                                                                        }
+                                                                },
+                                                                {
+                                                                    type = "create-fire",
+                                                                    entity_name = acidPuddleName,
+                                                                    tile_collision_mask = { "water-tile" },
+                                                                    show_in_tooltip = true
+                                                                },
+                                                                {
+                                                                    type = "create-entity",
+                                                                    entity_name = "water-splash",
+                                                                    tile_collision_mask = { "ground-tile" }
+                                                                },
+                                                                {
+                                                                    type = "destroy-decoratives",
+                                                                    from_render_layer = "decorative",
+                                                                    to_render_layer = "object",
+                                                                    include_soft_decoratives = true,
+                                                                    include_decals = false,
+                                                                    invoke_decorative_trigger = true,
+                                                                    decoratives_with_trigger_only = false,
+                                                                    radius = 1
+                                                                }
+                                                            }
+                                                    }
+                                            },
+                                            {
+                                                type = "area",
+                                                radius = 2.5,
+                                                ignore_collision_condition = true,
+                                                action_delivery =
+                                                    {
+                                                        type = "instant",
+                                                        target_effects =
+                                                            {
+                                                                {
+                                                                    type = "create-sticker",
+                                                                    sticker = acidSticker
+                                                                },
+                                                                {
+                                                                    type = "damage",
+                                                                    damage = {amount = 3, type = "acid"}
+                                                                }
+                                                            }
+                                                    }
+                                            }
+                                        }
+                                }),
+                                duration = 10,
+                                source_offset = {0.15, -0.5},
+                            }
+                    }
+            },
+
+        cyclic_sound =
+            {
+                begin_sound =
+                    {
+                        {
+                            filename = "__base__/sound/fight/flamethrower-turret-start-01.ogg",
+                            volume = 0.5
+                        },
+                        {
+                            filename = "__base__/sound/fight/flamethrower-turret-start-02.ogg",
+                            volume = 0.5
+                        },
+                        {
+                            filename = "__base__/sound/fight/flamethrower-turret-start-03.ogg",
+                            volume = 0.5
+                        }
+                    },
+                middle_sound =
+                    {
+                        {
+                            filename = "__base__/sound/fight/flamethrower-turret-mid-01.ogg",
+                            volume = 0.5
+                        },
+                        {
+                            filename = "__base__/sound/fight/flamethrower-turret-mid-02.ogg",
+                            volume = 0.5
+                        },
+                        {
+                            filename = "__base__/sound/fight/flamethrower-turret-mid-03.ogg",
+                            volume = 0.5
+                        }
+                    },
+                end_sound =
+                    {
+                        {
+                            filename = "__base__/sound/fight/flamethrower-turret-end-01.ogg",
+                            volume = 0.5
+                        },
+                        {
+                            filename = "__base__/sound/fight/flamethrower-turret-end-02.ogg",
+                            volume = 0.5
+                        },
+                        {
+                            filename = "__base__/sound/fight/flamethrower-turret-end-03.ogg",
+                            volume = 0.5
+                        }
+                    }
+            }
+    }
+
+    local acidCannonRecipe = util.table.deepcopy(data.raw["recipe"]["flamethrower-turret"])
+    acidCannonRecipe.name = acidTurret.name
+    acidCannonRecipe.result = acidTurret.name
+    acidCannonRecipe.energy_required = 25
+    acidCannonRecipe.icon = nil
+    acidCannonRecipe.icons = {
+        {icon="__base__/graphics/icons/flamethrower-turret.png", icon_size=64, icon_mipmaps=4, tint={r=0.6,g=0.8,b=0.6}}
+    }
+    acidCannonRecipe.ingredients =
+        {
+            {"steel-plate", 30},
+            {"iron-gear-wheel", 15},
+            {"plastic-bar", 5},
+            {"pipe", 10},
+            {"engine-unit", 10}
+        }
+
+    local acidItem = util.table.deepcopy(data.raw["item"]["flamethrower-turret"])
+    acidItem.name = acidTurret.name
+    acidItem.icon = nil
+    acidItem.icons = {
+        {icon="__base__/graphics/icons/flamethrower-turret.png", icon_size=64, icon_mipmaps=4, tint={r=0.6,g=0.8,b=0.6}}
+    }    
+    acidItem.place_result = acidTurret.name
+
+    data:extend({
+            acidCannonRecipe,
+            acidItem,
+            acidTurret
+    })
+
+
+    addEffectToTech("flamethrower-2",
+                    {
+                        type = "unlock-recipe",
+                        recipe = acidCannonRecipe.name,
     })
 
     local shotgunAttributes = {
@@ -579,7 +873,7 @@ function cannons.enable()
             name = cannonTurretItem,
             icon = "__RampantArsenal__/graphics/icons/cannonTurret.png",
             enabled = false,
-            time = 20,
+            time = 30,
             ingredients = {
                 {"steel-plate", 45},
                 {"engine-unit", 5},
@@ -607,7 +901,7 @@ function cannons.enable()
             name = rapidCannonTurretItem,
             icon = "__RampantArsenal__/graphics/icons/rapidCannonTurret.png",
             enabled = false,
-            time = 30,
+            time = 35,
             ingredients = {
                 {"steel-plate", 40},
                 {"engine-unit", 10},
@@ -635,6 +929,7 @@ function cannons.enable()
             name = shotgunTurretItem,
             icon = "__RampantArsenal__/graphics/icons/shotgunTurret.png",
             enabled = false,
+            time = 16,
             ingredients = {
                 {"steel-plate", 10},
                 {"copper-plate", 10},
@@ -668,7 +963,7 @@ function cannons.enable()
                         recipe = shotgunTurretItem,
     })
 
-    addEffectToTech("flamethrower-2",
+    addEffectToTech("flamethrower-3",
                     {
                         type = "unlock-recipe",
                         recipe = suppressionCannonTurretItem,
@@ -809,7 +1104,7 @@ function cannons.enable()
                             modifier = 0.4
                         }
     })
-    
+
     if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
         addEffectToTech("cannon-turret-damage-7",
                         {
@@ -833,6 +1128,13 @@ function cannons.enable()
                         modifier = 0.2
     })
 
+    addEffectToTech("refined-flammables-1",
+                    {
+                        type = "turret-attack",
+                        turret_id = acidTurret.name,
+                        modifier = 0.2
+    })
+
     addEffectToTech("refined-flammables-2",
                     {
                         type = "turret-attack",
@@ -840,10 +1142,24 @@ function cannons.enable()
                         modifier = 0.2
     })
 
+    addEffectToTech("refined-flammables-2",
+                    {
+                        type = "turret-attack",
+                        turret_id = acidTurret.name,
+                        modifier = 0.2
+    })
+
     addEffectToTech("refined-flammables-3",
                     {
                         type = "turret-attack",
                         turret_id = suppressionCannonTurret,
+                        modifier = 0.3
+    })
+
+    addEffectToTech("refined-flammables-3",
+                    {
+                        type = "turret-attack",
+                        turret_id = acidTurret.name,
                         modifier = 0.3
     })
 
@@ -857,7 +1173,21 @@ function cannons.enable()
     addEffectToTech("refined-flammables-5",
                     {
                         type = "turret-attack",
+                        turret_id = acidTurret.name,
+                        modifier = 0.4
+    })
+
+    addEffectToTech("refined-flammables-5",
+                    {
+                        type = "turret-attack",
                         turret_id = suppressionCannonTurret,
+                        modifier = 0.4
+    })
+
+    addEffectToTech("refined-flammables-6",
+                    {
+                        type = "turret-attack",
+                        turret_id = acidTurret.name,
                         modifier = 0.4
     })
 
@@ -873,6 +1203,15 @@ function cannons.enable()
                         {
                             type = "turret-attack",
                             turret_id = suppressionCannonTurret,
+                            modifier = 0.5
+        })
+
+        modifyInfiniteFormula("refined-flammables-7", "(L-7)*20000")
+
+        addEffectToTech("refined-flammables-7",
+                        {
+                            type = "turret-attack",
+                            turret_id = acidTurret.name,
                             modifier = 0.5
         })
     end
@@ -1145,10 +1484,6 @@ function cannons.enable()
                                                                                                 {
                                                                                                     type = "damage",
                                                                                                     damage = {amount = 800, type = "explosion"}
-                                                                                                },
-                                                                                                {
-                                                                                                    type = "create-entity",
-                                                                                                    entity_name = "big-explosion"
                                                                                                 }
                                                                                             }
                                                                                     }
@@ -1325,7 +1660,7 @@ function cannons.enable()
     data.raw["ammo"]["explosive-uranium-cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
     data.raw["ammo"]["uranium-cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
 
-    
+
     data.raw["technology"]["refined-flammables-7"].effects[2].modifier = 0.5
 
     targetEffects = data.raw["projectile"]["explosive-uranium-cannon-projectile"].action.action_delivery.target_effects

@@ -42,7 +42,7 @@ function capsules.enable()
     data.raw["combat-robot"]["distractor"]["attack_parameters"]["damage_modifier"] = 2
     data.raw["combat-robot"]["destroyer"]["attack_parameters"]["damage_modifier"] = 2
     data.raw["combat-robot"]["defender"]["attack_parameters"]["damage_modifier"] = 2
-    
+
     data:extend(
         {
             {
@@ -359,7 +359,7 @@ function capsules.enable()
             defenderLaunched,
             destroyerLaunched
     })
-    
+
     local defenderCapsules = makeAmmo({
             name = "defender-capsule",
             icon = "__RampantArsenal__/graphics/icons/defender-capsule-ammo.png",
@@ -486,7 +486,7 @@ function capsules.enable()
                                                     {
                                                         type = "instant",
                                                         target_effects = {
-                                                            type = "create-entity",                                                            
+                                                            type = "create-entity",
                                                             entity_name = "landmine-ghostless-rampant-arsenal"
                                                         }
                                                     }
@@ -549,7 +549,7 @@ function capsules.enable()
                                                         target_effects = {
                                                             {
                                                                 type = "create-entity",
-                                                                show_in_tooltip = true,                                                                
+                                                                show_in_tooltip = true,
                                                                 entity_name = "incendiary-landmine-ghostless-rampant-arsenal"
                                                             }
                                                         }
@@ -614,7 +614,7 @@ function capsules.enable()
                                                         target_effects = {
                                                             {
                                                                 type = "create-entity",
-                                                                show_in_tooltip = true,                                                                
+                                                                show_in_tooltip = true,
                                                                 entity_name = "he-landmine-ghostless-rampant-arsenal"
                                                             }
                                                         }
@@ -661,7 +661,7 @@ function capsules.enable()
                                                         target_effects = {
                                                             {
                                                                 type = "create-entity",
-                                                                show_in_tooltip = true,                                                                
+                                                                show_in_tooltip = true,
                                                                 entity_name = "bio-landmine-ghostless-rampant-arsenal"
                                                             }
                                                         }
@@ -761,6 +761,20 @@ function capsules.enable()
                                                                     type = "create-entity",
                                                                     entity_name = "small-scorchmark",
                                                                     check_buildability = true
+                                                                },
+                                                                {
+                                                                    type = "invoke-tile-trigger",
+                                                                    repeat_count = 1,
+                                                                },
+                                                                {
+                                                                    type = "destroy-decoratives",
+                                                                    from_render_layer = "decorative",
+                                                                    to_render_layer = "object",
+                                                                    include_soft_decoratives = true,
+                                                                    include_decals = false,
+                                                                    invoke_decorative_trigger = true,
+                                                                    decoratives_with_trigger_only = false,
+                                                                    radius = 3
                                                                 }
                                                             }
                                                     }
@@ -837,6 +851,20 @@ function capsules.enable()
                                                                     type = "create-entity",
                                                                     entity_name = "toxic-cloud-rampant-arsenal",
                                                                     show_in_tooltip = true
+                                                                },
+                                                                {
+                                                                    type = "invoke-tile-trigger",
+                                                                    repeat_count = 1,
+                                                                },
+                                                                {
+                                                                    type = "destroy-decoratives",
+                                                                    from_render_layer = "decorative",
+                                                                    to_render_layer = "object",
+                                                                    include_soft_decoratives = true,
+                                                                    include_decals = false,
+                                                                    invoke_decorative_trigger = true,
+                                                                    decoratives_with_trigger_only = false,
+                                                                    radius = 3
                                                                 }
                                                             }
                                                     }
@@ -860,7 +888,7 @@ function capsules.enable()
                                                                 {
                                                                     type = "create-entity",
                                                                     entity_name = "explosion"
-                                                                }								
+                                                                }
                                                             }
                                                     }
                                             }
@@ -912,6 +940,20 @@ function capsules.enable()
                                                                     type = "create-entity",
                                                                     entity_name = "small-scorchmark",
                                                                     check_buildability = true
+                                                                },
+                                                                {
+                                                                    type = "invoke-tile-trigger",
+                                                                    repeat_count = 1,
+                                                                },
+                                                                {
+                                                                    type = "destroy-decoratives",
+                                                                    from_render_layer = "decorative",
+                                                                    to_render_layer = "object",
+                                                                    include_soft_decoratives = true,
+                                                                    include_decals = false,
+                                                                    invoke_decorative_trigger = true,
+                                                                    decoratives_with_trigger_only = false,
+                                                                    radius = 3
                                                                 }
                                                             }
                                                     }
@@ -992,6 +1034,20 @@ function capsules.enable()
                                                                     type = "create-fire",
                                                                     entity_name = "fire-flame",
                                                                     initial_ground_flame_count = 4
+                                                                },
+                                                                {
+                                                                    type = "invoke-tile-trigger",
+                                                                    repeat_count = 1,
+                                                                },
+                                                                {
+                                                                    type = "destroy-decoratives",
+                                                                    from_render_layer = "decorative",
+                                                                    to_render_layer = "object",
+                                                                    include_soft_decoratives = true,
+                                                                    include_decals = false,
+                                                                    invoke_decorative_trigger = true,
+                                                                    decoratives_with_trigger_only = false,
+                                                                    radius = 3
                                                                 }
                                                             }
                                                     }
@@ -1096,6 +1152,20 @@ function capsules.enable()
                                                                     type = "create-entity",
                                                                     entity_name = "small-scorchmark",
                                                                     check_buildability = true
+                                                                },
+                                                                {
+                                                                    type = "invoke-tile-trigger",
+                                                                    repeat_count = 1,
+                                                                },
+                                                                {
+                                                                    type = "destroy-decoratives",
+                                                                    from_render_layer = "decorative",
+                                                                    to_render_layer = "object",
+                                                                    include_soft_decoratives = true,
+                                                                    include_decals = false,
+                                                                    invoke_decorative_trigger = true,
+                                                                    decoratives_with_trigger_only = false,
+                                                                    radius = 3
                                                                 }
                                                             }
                                                     }
@@ -1637,7 +1707,7 @@ function capsules.enable()
                             ammo_category = "capsule-launcher",
                             modifier = 0.5
         })
-    end    
+    end
 end
 
 return capsules

@@ -6,7 +6,6 @@ local makeTechnology = technologyUtils.makeTechnology
 
 function technologies.enable()
 
-
     data:extend({
 
             {
@@ -1611,7 +1610,7 @@ function technologies.enable()
                     prerequisites = {"rampant-arsenal-technology-stronger-explosives-6", "space-science-pack"},
                     unit =
                         {
-                            count_formula = "2^(L-7)*1000",
+                            count_formula = "(L-7)*20000",
                             ingredients =
                                 {
                                     {"automation-science-pack", 1},
@@ -1648,7 +1647,7 @@ function technologies.enable()
                     prerequisites = {"rampant-arsenal-technology-energy-robots-damage-6", "space-science-pack"},
                     unit =
                         {
-                            count_formula = "2^(L-7)*1000",
+                            count_formula = "(L-7)*20000",
                             ingredients =
                                 {
                                     {"automation-science-pack", 1},
@@ -1680,7 +1679,7 @@ function technologies.enable()
                     prerequisites = {"rampant-arsenal-technology-energy-weapons-damage-6", "space-science-pack"},
                     unit =
                         {
-                            count_formula = "2^(L-7)*1000",
+                            count_formula = "(L-7)*20000",
                             ingredients =
                                 {
                                     {"automation-science-pack", 1},
@@ -1712,7 +1711,7 @@ function technologies.enable()
                     prerequisites = {"rampant-arsenal-technology-rocket-damage-6", "space-science-pack"},
                     unit =
                         {
-                            count_formula = "2^(L-7)*1000",
+                            count_formula = "(L-7)*20000",
                             ingredients =
                                 {
                                     {"automation-science-pack", 1},
@@ -1744,7 +1743,7 @@ function technologies.enable()
                     prerequisites = {"rampant-arsenal-technology-bullet-damage-6", "space-science-pack"},
                     unit =
                         {
-                            count_formula = "2^(L-7)*1000",
+                            count_formula = "(L-7)*20000",
                             ingredients =
                                 {
                                     {"automation-science-pack", 1},
@@ -1776,7 +1775,7 @@ function technologies.enable()
                     prerequisites = {"rampant-arsenal-technology-cannon-shell-damage-5", "space-science-pack"},
                     unit =
                         {
-                            count_formula = "2^(L-5)*1000",
+                            count_formula = "(L-5)*25000",
                             ingredients =
                                 {
                                     {"military-science-pack", 1},
@@ -1825,7 +1824,7 @@ function technologies.enable()
         })
     end
 
-    
+
     local incendiary = makeTechnology({
             name="incendiary",
             icon="__RampantArsenal__/graphics/technology/incendiary.png",
@@ -2350,12 +2349,12 @@ function technologies.enable()
                     {"utility-science-pack", 1},
                     {"space-science-pack", 1}
                 },
-                countForumla = "2^(L-7)*1000",
+                countForumla = "(L-7)*20000",
                 time = 60,
                 order = "e-z-f"
         })
     end
-    
+
     local cannonTech = makeTechnology({
             name = "cannon-turret-1",
             prerequisites = {"turrets","tanks","concrete","steel-processing"},
@@ -2399,6 +2398,21 @@ function technologies.enable()
 
     makeTechnology({
             name = "flamethrower-2",
+            prerequisites = {"refined-flammables-2", "military-3"},
+            icon = "__base__/graphics/technology/flamethrower.png",
+            effects = {},
+            ingredients = {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"military-science-pack", 1}
+            },
+            count = 1500,
+            time = 30
+    })
+
+    makeTechnology({
+            name = "flamethrower-3",
             prerequisites = {"refined-flammables-4", "military-4", "advanced-electronics-2", "concrete"},
             icon = "__base__/graphics/technology/flamethrower.png",
             effects = {},
@@ -2526,7 +2540,7 @@ function technologies.enable()
                     {"utility-science-pack", 1},
                     {"space-science-pack", 1}
                 },
-                countForumla = "2^(L-7)*1000",
+                countForumla = "(L-7)*20000",
                 time = 60,
                 order = "e-z-f"
         })
@@ -2909,7 +2923,7 @@ function technologies.enable()
                     prerequisites = {"rampant-arsenal-technology-shotgun-shell-damage-6", "space-science-pack"},
                     unit =
                         {
-                            count_formula = "2^(L-7)*1000",
+                            count_formula = "(L-7)*20000",
                             ingredients =
                                 {
                                     {"automation-science-pack", 1},
@@ -3040,7 +3054,7 @@ function technologies.enable()
                     {"utility-science-pack", 1},
                     {"space-science-pack", 1}
                 },
-                countForumla = "2^(L-7)*1000",
+                countForumla = "(L-7)*20000",
                 time = 60,
                 order = "e-z-f"
         })
@@ -3168,7 +3182,7 @@ function technologies.enable()
                     {"utility-science-pack", 1},
                     {"space-science-pack", 1}
                 },
-                countForumla = "2^(L-7)*1000",
+                countForumla = "(L-7)*20000",
                 time = 60,
                 order = "e-z-f"
         })
@@ -3196,7 +3210,7 @@ function technologies.enable()
                     {"utility-science-pack", 1},
                     {"space-science-pack", 1}
                 },
-                countForumla = "2^(L)*1000",
+                countForumla = "(L)*20000",
                 time = 60,
                 order = "e-z-f"
         })
@@ -3229,7 +3243,7 @@ function technologies.enable()
                     {"utility-science-pack", 1},
                     {"space-science-pack", 1}
                 },
-                countForumla = "2^(L)*1000",
+                countForumla = "(L)*20000",
                 time = 60,
                 order = "e-z-f"
         })
@@ -3638,7 +3652,7 @@ function technologies.enable()
                     {"utility-science-pack", 1},
                     {"space-science-pack", 1}
                 },
-                countForumla = "2^(L-7)*1000",
+                countForumla = "(L-7)*20000",
                 time = 60,
                 order = "e-z-f"
         })
@@ -3801,7 +3815,7 @@ function technologies.enable()
                     {"utility-science-pack", 1},
                     {"space-science-pack", 1}
                 },
-                countForumla = "2^(L-7)*1000",
+                countForumla = "(L-7)*20000",
                 time = 60,
                 order = "e-z-f"
         })
@@ -4167,7 +4181,7 @@ function technologies.enable()
                     {"utility-science-pack", 1},
                     {"space-science-pack", 1}
                 },
-                countForumla = "2^(L-7)*1000",
+                countForumla = "(L-7)*20000",
                 time = 60,
                 order = "e-z-f"
         })
