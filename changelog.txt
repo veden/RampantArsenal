@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 28. 11. 2020
+  Improvements:
+    - Added settings to toggle all equipment, vehicles, rifle turret, and additional ammo types on and off
+    - Added setting to use vanilla damage technologies
+    - Updated for factorio 1.1
+  Bugfixes:
+    - Fixed technology icons
+  Warning:
+    - Moved oil generator, advanced lab, advanced accumulator, and large storage tank to another mod
+
+---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 06. 9. 2020
   Contributions:

@@ -1,7 +1,7 @@
 local wallUtils = {}
 
-local hit_effects = require ("__base__.prototypes.entity.demo-hit-effects")
-local sounds = require("__base__.prototypes.entity.demo-sounds")
+local hit_effects = require ("__base__.prototypes.entity.hit-effects")
+local sounds = require("__base__.prototypes.entity.sounds")
 
 function wallUtils.addResistance(eType, name, resistance)
     if data.raw[eType][name] then

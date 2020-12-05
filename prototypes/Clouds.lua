@@ -497,6 +497,50 @@ function clouds.enable()
             }
     })
 
+    makeCloud(
+        {
+            name = "small-toxic",
+            duration = 800,
+            inDuration = 45,
+            outDuration = 30,
+            movementModifier = 0,
+            spreadRadius = 2,
+            tint = {r=0.5,g=0,b=0.5,a=0.4},
+            scale = 0.75
+        },
+        {
+            type = "direct",
+            action_delivery =
+                {
+                    type = "instant",
+                    target_effects =
+                        {
+                            type = "nested-result",
+                            action =
+                                {
+                                    type = "area",
+                                    radius = 4.5,
+                                    entity_flags = {"breaths-air"},
+                                    action_delivery =
+                                        {
+                                            type = "instant",
+                                            target_effects =
+                                                {
+                                                    {
+                                                        type = "damage",
+                                                        damage = { amount = 300, type = "poison" }
+                                                    },
+                                                    {
+                                                        type = "create-sticker",
+                                                        sticker = "small-toxic-sticker-rampant-arsenal"
+                                                    }
+                                                }
+                                        }
+                                }
+                        }
+                }
+    })
+    
     local smallRepairCloud = makeCloud(
         {
             name = "small-repair",

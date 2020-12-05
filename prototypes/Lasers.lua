@@ -503,7 +503,7 @@ function lasers.enable()
                                                                  ammo_type =
                                                                      {
                                                                          type = "projectile",
-                                                                         category = "laser-turret",
+                                                                         category = "laser",
                                                                          direction_deviation = 0.1,
                                                                          range_deviation = 0.1,
                                                                          clamp_position = true,
@@ -681,7 +681,7 @@ function lasers.enable()
                                                                source_offset = {0, -3.423489 / 2},
                                                                ammo_type =
                                                                    {
-                                                                       category = "laser-turret",
+                                                                       category = "laser",
                                                                        energy_consumption = "20MJ",
                                                                        action =
                                                                            {
@@ -849,7 +849,7 @@ function lasers.enable()
                                                          projectile_creation_distance = 2,
                                                          ammo_type =
                                                              {
-                                                                 category = "laser-turret",
+                                                                 category = "laser",
                                                                  energy_consumption = "5MJ",
                                                                  action =
                                                                      {

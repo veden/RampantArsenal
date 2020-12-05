@@ -55,7 +55,7 @@ local function rocketSheetMk2()
 end
 
 function rockets.enable()
-    
+
     local entity = {
         name = "rocket",
         icon = "__RampantArsenal__/graphics/icons/rocketTurret.png",
@@ -225,71 +225,196 @@ function rockets.enable()
                         recipe = rapidRocketTurretItem,
     })
 
-    local incendiaryRocketAmmo = makeAmmo({
-            name = "incendiary-rocket",
-            icon = "__RampantArsenal__/graphics/icons/incendiary-rocket.png",
-            order = "d[rocket-launcher]-b[incendiary]",
-            magSize = 1,
-            stackSize = 200,
-            ammoType = {
-                category = "rocket",
-                action =
-                    {
+    if settings.startup["rampant-arsenal-enableAmmoTypes"].value then
+
+        local incendiaryRocketAmmo = makeAmmo({
+                name = "incendiary-rocket",
+                icon = "__RampantArsenal__/graphics/icons/incendiary-rocket.png",
+                order = "d[rocket-launcher]-b[incendiary]",
+                magSize = 1,
+                stackSize = 200,
+                ammoType = {
+                    category = "rocket",
+                    action =
                         {
-                            type = "direct",
-                            action_delivery =
-                                {
-                                    type = "instant",
-                                    source_effects =
-                                        {
+                            {
+                                type = "direct",
+                                action_delivery =
+                                    {
+                                        type = "instant",
+                                        source_effects =
                                             {
-                                                type = "create-explosion",
-                                                entity_name = "explosion-gunshot"
-                                            }
-                                        }
-                                }
-                        },
-                        {
-                            type = "direct",
-                            action_delivery =
-                                {
-                                    type = "projectile",
-                                    starting_speed = 0.1,
-                                    projectile = makeRocketProjectile({
-                                            name = "incendiary",
-                                            action =
                                                 {
-                                                    type = "direct",
-                                                    action_delivery =
-                                                        {
-                                                            type = "instant",
-                                                            target_effects =
-                                                                {
+                                                    type = "create-explosion",
+                                                    entity_name = "explosion-gunshot"
+                                                }
+                                            }
+                                    }
+                            },
+                            {
+                                type = "direct",
+                                action_delivery =
+                                    {
+                                        type = "projectile",
+                                        starting_speed = 0.1,
+                                        projectile = makeRocketProjectile({
+                                                name = "incendiary",
+                                                action =
+                                                    {
+                                                        type = "direct",
+                                                        action_delivery =
+                                                            {
+                                                                type = "instant",
+                                                                target_effects =
                                                                     {
-                                                                        type = "nested-result",
-                                                                        affects_target = true,
-                                                                        action =
-                                                                            {
+                                                                        {
+                                                                            type = "nested-result",
+                                                                            affects_target = true,
+                                                                            action =
                                                                                 {
-                                                                                    type = "cluster",
-                                                                                    cluster_count = 7,
-                                                                                    distance = 4,
-                                                                                    distance_deviation = 3,
-                                                                                    action_delivery =
-                                                                                        {
-                                                                                            type = "instant",
-                                                                                            target_effects =
-                                                                                                {
+                                                                                    {
+                                                                                        type = "cluster",
+                                                                                        cluster_count = 7,
+                                                                                        distance = 4,
+                                                                                        distance_deviation = 3,
+                                                                                        action_delivery =
+                                                                                            {
+                                                                                                type = "instant",
+                                                                                                target_effects =
                                                                                                     {
-                                                                                                        type = "create-fire",
-                                                                                                        entity_name = "fire-flame",
-                                                                                                        initial_ground_flame_count = 4,
-                                                                                                        check_buildability = true,
-                                                                                                        show_in_tooltip = true
+                                                                                                        {
+                                                                                                            type = "create-fire",
+                                                                                                            entity_name = "fire-flame",
+                                                                                                            initial_ground_flame_count = 4,
+                                                                                                            check_buildability = true,
+                                                                                                            show_in_tooltip = true
+                                                                                                        }
                                                                                                     }
-                                                                                                }
-                                                                                        }
-                                                                                },
+                                                                                            }
+                                                                                    },
+                                                                                    {
+                                                                                        type = "area",
+                                                                                        radius = 6.5,
+                                                                                        action_delivery =
+                                                                                            {
+                                                                                                type = "instant",
+                                                                                                target_effects =
+                                                                                                    {
+                                                                                                        {
+                                                                                                            type = "create-fire",
+                                                                                                            entity_name = "fire-flame",
+                                                                                                            initial_ground_flame_count = 7
+                                                                                                        },
+                                                                                                        {
+                                                                                                            type = "create-sticker",
+                                                                                                            sticker = "small-fire-sticker-rampant-arsenal"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            type = "damage",
+                                                                                                            damage = {amount = 600 , type = "fire"},
+                                                                                                            apply_damage_to_trees = false
+                                                                                                        },
+                                                                                                        {
+                                                                                                            type = "damage",
+                                                                                                            damage = {amount = 50 , type = "explosion"},
+                                                                                                            apply_damage_to_trees = false
+                                                                                                        }
+                                                                                                    }
+                                                                                            }
+                                                                                    }
+                                                                                }
+                                                                        },
+                                                                        {
+                                                                            type = "invoke-tile-trigger",
+                                                                            repeat_count = 1,
+                                                                        },
+                                                                        {
+                                                                            type = "destroy-decoratives",
+                                                                            from_render_layer = "decorative",
+                                                                            to_render_layer = "object",
+                                                                            include_soft_decoratives = true,
+                                                                            include_decals = false,
+                                                                            invoke_decorative_trigger = true,
+                                                                            decoratives_with_trigger_only = false,
+                                                                            radius = 3
+                                                                        },
+                                                                        {
+                                                                            type = "create-entity",
+                                                                            entity_name = "explosion"
+                                                                        }
+                                                                    }
+                                                            }
+                                                    }
+                                        })
+                                    }
+                            }
+                        }
+                }
+        })
+
+        makeRecipe({
+                name = incendiaryRocketAmmo,
+                icon = "__RampantArsenal__/graphics/icons/incendiary-rocket.png",
+                enabled = false,
+                category = "crafting-with-fluid",
+                ingredients = {
+                    {"explosive-rocket", 1},
+                    {"steel-plate", 1},
+                    {type="fluid", name="light-oil", amount=40}
+                },
+                result = incendiaryRocketAmmo,
+        })
+
+        addEffectToTech("incendiary-rockets",
+                        {
+                            type = "unlock-recipe",
+                            recipe = incendiaryRocketAmmo,
+        })
+
+        local heRocketAmmo = makeAmmo({
+                name = "he-rocket",
+                icon = "__RampantArsenal__/graphics/icons/he-rocket.png",
+                order = "d[rocket-launcher]-b[he]",
+                magSize = 1,
+                stackSize = 200,
+                ammoType = {
+                    category = "rocket",
+                    action =
+                        {
+                            {
+                                type = "direct",
+                                action_delivery =
+                                    {
+                                        type = "instant",
+                                        source_effects =
+                                            {
+                                                {
+                                                    type = "create-explosion",
+                                                    entity_name = "explosion-gunshot"
+                                                }
+                                            }
+                                    }
+                            },
+                            {
+                                type = "direct",
+                                action_delivery =
+                                    {
+                                        type = "projectile",
+                                        starting_speed = 0.1,
+                                        projectile = makeRocketProjectile({
+                                                name = "he",
+                                                action =
+                                                    {
+                                                        type = "direct",
+                                                        action_delivery =
+                                                            {
+                                                                type = "instant",
+                                                                target_effects =
+                                                                    {
+                                                                        {
+                                                                            type = "nested-result",
+                                                                            affects_target = true,
+                                                                            action =
                                                                                 {
                                                                                     type = "area",
                                                                                     radius = 6.5,
@@ -299,304 +424,182 @@ function rockets.enable()
                                                                                             target_effects =
                                                                                                 {
                                                                                                     {
-                                                                                                        type = "create-fire",
-                                                                                                        entity_name = "fire-flame",
-                                                                                                        initial_ground_flame_count = 7
-                                                                                                    },
-                                                                                                    {
-                                                                                                        type = "create-sticker",
-                                                                                                        sticker = "small-fire-sticker-rampant-arsenal"
+                                                                                                        type = "push-back",
+                                                                                                        distance = 1
                                                                                                     },
                                                                                                     {
                                                                                                         type = "damage",
-                                                                                                        damage = {amount = 600 , type = "fire"},
-                                                                                                        apply_damage_to_trees = false
-                                                                                                    },
-                                                                                                    {
-                                                                                                        type = "damage",
-                                                                                                        damage = {amount = 50 , type = "explosion"},
-                                                                                                        apply_damage_to_trees = false
+                                                                                                        damage = {amount = 1050 , type = "explosion"}
                                                                                                     }
                                                                                                 }
                                                                                         }
                                                                                 }
-                                                                            }
-                                                                    },
-                                                                    {
-                                                                        type = "invoke-tile-trigger",
-                                                                        repeat_count = 1,
-                                                                    },
-                                                                    {
-                                                                        type = "destroy-decoratives",
-                                                                        from_render_layer = "decorative",
-                                                                        to_render_layer = "object",
-                                                                        include_soft_decoratives = true,
-                                                                        include_decals = false,
-                                                                        invoke_decorative_trigger = true,
-                                                                        decoratives_with_trigger_only = false,
-                                                                        radius = 3
-                                                                    },
-                                                                    {
-                                                                        type = "create-entity",
-                                                                        entity_name = "explosion"
+                                                                        },
+                                                                        {
+                                                                            type = "invoke-tile-trigger",
+                                                                            repeat_count = 1,
+                                                                        },
+                                                                        {
+                                                                            type = "destroy-decoratives",
+                                                                            from_render_layer = "decorative",
+                                                                            to_render_layer = "object",
+                                                                            include_soft_decoratives = true,
+                                                                            include_decals = false,
+                                                                            invoke_decorative_trigger = true,
+                                                                            decoratives_with_trigger_only = false,
+                                                                            radius = 3
+                                                                        },
+                                                                        {
+                                                                            type = "create-entity",
+                                                                            entity_name = "big-explosion"
+                                                                        }
                                                                     }
-                                                                }
-                                                        }
-                                                }
-                                    })
-                                }
+                                                            }
+                                                    }
+                                        })
+                                    }
+                            }
                         }
-                    }
-            }
-    })
+                }
+        })
 
-    makeRecipe({
-            name = incendiaryRocketAmmo,
-            icon = "__RampantArsenal__/graphics/icons/incendiary-rocket.png",
-            enabled = false,
-            category = "crafting-with-fluid",
-            ingredients = {
-                {"explosive-rocket", 1},
-                {"steel-plate", 1},
-                {type="fluid", name="light-oil", amount=40}
-            },
-            result = incendiaryRocketAmmo,
-    })
+        makeRecipe({
+                name = heRocketAmmo,
+                icon = "__RampantArsenal__/graphics/icons/he-rocket.png",
+                enabled = false,
+                category = "crafting",
+                ingredients = {
+                    {"explosive-rocket", 1},
+                    {"steel-plate", 1},
+                    {"explosives", 6}
+                },
+                result = heRocketAmmo,
+        })
 
-    addEffectToTech("incendiary-rockets",
-                    {
-                        type = "unlock-recipe",
-                        recipe = incendiaryRocketAmmo,
-    })
-
-    local heRocketAmmo = makeAmmo({
-            name = "he-rocket",
-            icon = "__RampantArsenal__/graphics/icons/he-rocket.png",
-            order = "d[rocket-launcher]-b[he]",
-            magSize = 1,
-            stackSize = 200,
-            ammoType = {
-                category = "rocket",
-                action =
-                    {
+        addEffectToTech("he-rockets",
                         {
-                            type = "direct",
-                            action_delivery =
-                                {
-                                    type = "instant",
-                                    source_effects =
-                                        {
+                            type = "unlock-recipe",
+                            recipe = heRocketAmmo,
+        })
+
+        local bioRocketAmmo = makeAmmo({
+                name = "bio-rocket",
+                icon = "__RampantArsenal__/graphics/icons/bio-rocket.png",
+                order = "d[rocket-launcher]-b[fbio]",
+                magSize = 1,
+                stackSize = 200,
+                ammoType = {
+                    category = "rocket",
+                    action =
+                        {
+                            {
+                                type = "direct",
+                                action_delivery =
+                                    {
+                                        type = "instant",
+                                        source_effects =
                                             {
-                                                type = "create-explosion",
-                                                entity_name = "explosion-gunshot"
-                                            }
-                                        }
-                                }
-                        },
-                        {
-                            type = "direct",
-                            action_delivery =
-                                {
-                                    type = "projectile",
-                                    starting_speed = 0.1,
-                                    projectile = makeRocketProjectile({
-                                            name = "he",
-                                            action =
                                                 {
-                                                    type = "direct",
-                                                    action_delivery =
-                                                        {
-                                                            type = "instant",
-                                                            target_effects =
-                                                                {
-                                                                    {
-                                                                        type = "nested-result",
-                                                                        affects_target = true,
-                                                                        action =
-                                                                            {
-                                                                                type = "area",
-                                                                                radius = 6.5,
-                                                                                action_delivery =
-                                                                                    {
-                                                                                        type = "instant",
-                                                                                        target_effects =
-                                                                                            {
-                                                                                                {
-                                                                                                    type = "push-back",
-                                                                                                    distance = 1
-                                                                                                },
-                                                                                                {
-                                                                                                    type = "damage",
-                                                                                                    damage = {amount = 1050 , type = "explosion"}
-                                                                                                }
-                                                                                            }
-                                                                                    }
-                                                                            }
-                                                                    },
-                                                                    {
-                                                                        type = "invoke-tile-trigger",
-                                                                        repeat_count = 1,
-                                                                    },
-                                                                    {
-                                                                        type = "destroy-decoratives",
-                                                                        from_render_layer = "decorative",
-                                                                        to_render_layer = "object",
-                                                                        include_soft_decoratives = true,
-                                                                        include_decals = false,
-                                                                        invoke_decorative_trigger = true,
-                                                                        decoratives_with_trigger_only = false,
-                                                                        radius = 3
-                                                                    },
-                                                                    {
-                                                                        type = "create-entity",
-                                                                        entity_name = "big-explosion"
-                                                                    }
-                                                                }
-                                                        }
+                                                    type = "create-explosion",
+                                                    entity_name = "explosion-gunshot"
                                                 }
-                                    })
-                                }
-                        }
-                    }
-            }
-    })
-
-    makeRecipe({
-            name = heRocketAmmo,
-            icon = "__RampantArsenal__/graphics/icons/he-rocket.png",
-            enabled = false,
-            category = "crafting",
-            ingredients = {
-                {"explosive-rocket", 1},
-                {"steel-plate", 1},
-                {"explosives", 6}
-            },
-            result = heRocketAmmo,
-    })
-
-    addEffectToTech("he-rockets",
-                    {
-                        type = "unlock-recipe",
-                        recipe = heRocketAmmo,
-    })
-
-    local bioRocketAmmo = makeAmmo({
-            name = "bio-rocket",
-            icon = "__RampantArsenal__/graphics/icons/bio-rocket.png",
-            order = "d[rocket-launcher]-b[fbio]",
-            magSize = 1,
-            stackSize = 200,
-            ammoType = {
-                category = "rocket",
-                action =
-                    {
-                        {
-                            type = "direct",
-                            action_delivery =
-                                {
-                                    type = "instant",
-                                    source_effects =
-                                        {
-                                            {
-                                                type = "create-explosion",
-                                                entity_name = "explosion-gunshot"
                                             }
-                                        }
-                                }
-                        },
-                        {
-                            type = "direct",
-                            action_delivery =
-                                {
-                                    type = "projectile",
-                                    starting_speed = 0.1,
-                                    projectile = makeRocketProjectile({
-                                            name = "bio",
-                                            action =
-                                                {
-                                                    type = "direct",
-                                                    action_delivery =
-                                                        {
-                                                            type = "instant",
-                                                            target_effects =
-                                                                {
+                                    }
+                            },
+                            {
+                                type = "direct",
+                                action_delivery =
+                                    {
+                                        type = "projectile",
+                                        starting_speed = 0.1,
+                                        projectile = makeRocketProjectile({
+                                                name = "bio",
+                                                action =
+                                                    {
+                                                        type = "direct",
+                                                        action_delivery =
+                                                            {
+                                                                type = "instant",
+                                                                target_effects =
                                                                     {
-                                                                        type = "nested-result",
-                                                                        affects_target = true,
-                                                                        action =
-                                                                            {
-                                                                                type = "area",
-                                                                                radius = 6.5,
-                                                                                action_delivery =
-                                                                                    {
-                                                                                        type = "instant",
-                                                                                        target_effects =
-                                                                                            {												
+                                                                        {
+                                                                            type = "nested-result",
+                                                                            affects_target = true,
+                                                                            action =
+                                                                                {
+                                                                                    type = "area",
+                                                                                    radius = 6.5,
+                                                                                    action_delivery =
+                                                                                        {
+                                                                                            type = "instant",
+                                                                                            target_effects =
                                                                                                 {
-                                                                                                    type = "damage",
-                                                                                                    damage = {amount = 600 , type = "poison"}
-                                                                                                },
-                                                                                                {
-                                                                                                    type = "damage",
-                                                                                                    damage = {amount = 50 , type = "explosion"}
+                                                                                                    {
+                                                                                                        type = "damage",
+                                                                                                        damage = {amount = 600 , type = "poison"}
+                                                                                                    },
+                                                                                                    {
+                                                                                                        type = "damage",
+                                                                                                        damage = {amount = 50 , type = "explosion"}
+                                                                                                    }
                                                                                                 }
-                                                                                            }
-                                                                                    }
-                                                                            }
-                                                                    },
-{
-                                                                        type = "invoke-tile-trigger",
-                                                                        repeat_count = 1,
-                                                                    },
-                                                                    {
-                                                                        type = "destroy-decoratives",
-                                                                        from_render_layer = "decorative",
-                                                                        to_render_layer = "object",
-                                                                        include_soft_decoratives = true,
-                                                                        include_decals = false,
-                                                                        invoke_decorative_trigger = true,
-                                                                        decoratives_with_trigger_only = false,
-                                                                        radius = 3
-                                                                    },                                                                    
-                                                                    {
-                                                                        type = "create-entity",
-                                                                        entity_name = "toxic-cloud-rampant-arsenal",
-                                                                        show_in_tooltip = true
-                                                                    },
-                                                                    {
-                                                                        type = "create-entity",
-                                                                        entity_name = "big-explosion"
+                                                                                        }
+                                                                                }
+                                                                        },
+                                                                        {
+                                                                            type = "invoke-tile-trigger",
+                                                                            repeat_count = 1,
+                                                                        },
+                                                                        {
+                                                                            type = "destroy-decoratives",
+                                                                            from_render_layer = "decorative",
+                                                                            to_render_layer = "object",
+                                                                            include_soft_decoratives = true,
+                                                                            include_decals = false,
+                                                                            invoke_decorative_trigger = true,
+                                                                            decoratives_with_trigger_only = false,
+                                                                            radius = 3
+                                                                        },
+                                                                        {
+                                                                            type = "create-entity",
+                                                                            entity_name = "toxic-cloud-rampant-arsenal",
+                                                                            show_in_tooltip = true
+                                                                        },
+                                                                        {
+                                                                            type = "create-entity",
+                                                                            entity_name = "big-explosion"
+                                                                        }
                                                                     }
-                                                                }
-                                                        }
-                                                }
-                                    })
-                                }
+                                                            }
+                                                    }
+                                        })
+                                    }
+                            }
                         }
-                    }
-            }
-    })
+                }
+        })
 
-    makeRecipe({
-            name = bioRocketAmmo,
-            icon = "__RampantArsenal__/graphics/icons/bio-rocket.png",
-            enabled = false,
-            category = "crafting-with-fluid",
-            ingredients = {
-                {"explosive-rocket", 1},
-                {"steel-plate", 1},
-                {"poison-capsule", 2}
-            },
-            result = bioRocketAmmo,
-    })
+        makeRecipe({
+                name = bioRocketAmmo,
+                icon = "__RampantArsenal__/graphics/icons/bio-rocket.png",
+                enabled = false,
+                category = "crafting-with-fluid",
+                ingredients = {
+                    {"explosive-rocket", 1},
+                    {"steel-plate", 1},
+                    {"poison-capsule", 2}
+                },
+                result = bioRocketAmmo,
+        })
 
-    addEffectToTech("bio-rockets",
-                    {
-                        type = "unlock-recipe",
-                        recipe = bioRocketAmmo,
-    })
+        addEffectToTech("bio-rockets",
+                        {
+                            type = "unlock-recipe",
+                            recipe = bioRocketAmmo,
+        })
+    end
 
-    addEffectToTech("rocket-turret-damage-1",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rocket-turret-damage-1") or "stronger-explosives-1",
                     {
                         {
                             type = "turret-attack",
@@ -610,7 +613,7 @@ function rockets.enable()
                         }
     })
 
-    addEffectToTech("rocket-turret-damage-2",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rocket-turret-damage-2") or "stronger-explosives-2",
                     {
                         {
                             type = "turret-attack",
@@ -624,7 +627,7 @@ function rockets.enable()
                         }
     })
 
-    addEffectToTech("rocket-turret-damage-3",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rocket-turret-damage-3") or "stronger-explosives-3",
                     {
                         {
                             type = "turret-attack",
@@ -638,7 +641,7 @@ function rockets.enable()
                         }
     })
 
-    addEffectToTech("rocket-turret-damage-4",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rocket-turret-damage-4") or "stronger-explosives-4",
                     {
                         {
                             type = "turret-attack",
@@ -652,7 +655,7 @@ function rockets.enable()
                         }
     })
 
-    addEffectToTech("rocket-turret-damage-5",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rocket-turret-damage-5") or "stronger-explosives-5",
                     {
                         {
                             type = "turret-attack",
@@ -666,7 +669,7 @@ function rockets.enable()
                         }
     })
 
-    addEffectToTech("rocket-turret-damage-6",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rocket-turret-damage-6") or "stronger-explosives-6",
                     {
                         {
                             type = "turret-attack",
@@ -681,7 +684,7 @@ function rockets.enable()
     })
 
     if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
-        addEffectToTech("rocket-turret-damage-7",
+        addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rocket-turret-damage-7") or "stronger-explosives-7",
                         {
                             {
                                 type = "turret-attack",

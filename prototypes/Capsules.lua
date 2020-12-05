@@ -211,50 +211,6 @@ function capsules.enable()
                     }
     }})
 
-    local toxicCapsules = makeAmmo({
-            name = "toxic-capsule",
-            icon = "__RampantArsenal__/graphics/icons/toxic-capsule-ammo.png",
-            magSize = 1,
-            subgroup = "launcher-capsule",
-            order = "g[capsule]",
-            stackSize = 200,
-            ammoType = {
-                category = "capsule-launcher",
-                target_type = "position",
-                clamp_position = true,
-
-                action =
-                    {
-                        type = "direct",
-                        action_delivery =
-                            {
-                                type = "stream",
-                                stream = makeStreamProjectile({
-                                        name = "toxic-capsule",
-                                        bufferSize = 1,
-                                        spineAnimationTint = capsuleGrey,
-                                        particleTint = particleGrey,
-                                        spawnInterval = 1,
-                                        actions = {
-                                            type = "direct",
-                                            action_delivery =
-                                                {
-                                                    type = "instant",
-                                                    target_effects =
-                                                        {
-                                                            type = "create-entity",
-                                                            show_in_tooltip = true,
-                                                            entity_name = "big-toxic-cloud-rampant-arsenal"
-                                                        }
-                                                }
-                                        }
-                                }),
-                                max_length = 9,
-                                duration = 160
-                            }
-                    }
-    }})
-
     local poisonCapsules = makeAmmo({
             name = "poison-capsule",
             icon = "__RampantArsenal__/graphics/icons/poison-capsule-ammo.png",
@@ -516,211 +472,6 @@ function capsules.enable()
                     }
     }})
 
-    local incendiaryLandmineCapsules = makeAmmo({
-            name = "incendiary-landmine-capsule",
-            icon = "__RampantArsenal__/graphics/icons/incendiary-landmine-capsule-ammo.png",
-            magSize = 1,
-            subgroup = "launcher-capsule",
-            order = "w[capsule]",
-            stackSize = 200,
-            ammoType = {
-                category = "capsule-launcher",
-                target_type = "position",
-                clamp_position = true,
-
-                action =
-                    {
-                        type = "direct",
-                        action_delivery =
-                            {
-                                type = "stream",
-                                stream = makeStreamProjectile({
-                                        name = "incendiary-landmine-capsule",
-                                        bufferSize = 1,
-                                        spineAnimationTint = capsuleGrey,
-                                        particleTint = particleGrey,
-                                        spawnInterval = 1,
-                                        actions = {
-                                            {
-                                                type = "direct",
-                                                action_delivery =
-                                                    {
-                                                        type = "instant",
-                                                        target_effects = {
-                                                            {
-                                                                type = "create-entity",
-                                                                show_in_tooltip = true,
-                                                                entity_name = "incendiary-landmine-ghostless-rampant-arsenal"
-                                                            }
-                                                        }
-                                                    }
-                                            }-- ,
-                                            -- {
-                                            --     type = "cluster",
-                                            --     cluster_count = 2,
-                                            --     distance = 7,
-                                            --     distance_deviation = 3,
-                                            --     action_delivery =
-                                            --         {
-                                            --     	type = "instant",
-                                            --     	target_effects =
-                                            --     	    {
-                                            --     		{
-                                            --     		    type = "create-entity",
-                                            --     		    show_in_tooltip = true,
-                                            --     		    entity_name = "incendiary-landmine-ghostless-rampant-arsenal"
-                                            --     		}
-                                            --     	    }
-                                            --         }
-                                            -- }
-                                        }
-                                }),
-                                max_length = 9,
-                                duration = 160,
-                            }
-                    }
-    }})
-
-    local heLandmineCapsules = makeAmmo({
-            name = "he-landmine-capsule",
-            icon = "__RampantArsenal__/graphics/icons/he-landmine-capsule-ammo.png",
-            magSize = 1,
-            subgroup = "launcher-capsule",
-            order = "p[capsule]",
-            stackSize = 200,
-            ammoType = {
-                category = "capsule-launcher",
-                target_type = "position",
-                clamp_position = true,
-
-                action =
-                    {
-                        type = "direct",
-                        action_delivery =
-                            {
-                                type = "stream",
-                                stream = makeStreamProjectile({
-                                        name = "he-landmine-capsule",
-                                        bufferSize = 1,
-                                        spineAnimationTint = capsuleGrey,
-                                        particleTint = particleGrey,
-                                        spawnInterval = 1,
-                                        actions = {
-                                            {
-                                                type = "direct",
-                                                action_delivery =
-                                                    {
-                                                        type = "instant",
-                                                        target_effects = {
-                                                            {
-                                                                type = "create-entity",
-                                                                show_in_tooltip = true,
-                                                                entity_name = "he-landmine-ghostless-rampant-arsenal"
-                                                            }
-                                                        }
-                                                    }
-                                            }
-                                        }
-                                }),
-                                max_length = 9,
-                                duration = 160,
-                            }
-                    }
-    }})
-
-    local bioLandmineCapsules = makeAmmo({
-            name = "bio-landmine-capsule",
-            icon = "__RampantArsenal__/graphics/icons/bio-landmine-capsule-ammo.png",
-            magSize = 1,
-            subgroup = "launcher-capsule",
-            order = "o[capsule]",
-            stackSize = 200,
-            ammoType = {
-                category = "capsule-launcher",
-                target_type = "position",
-                clamp_position = true,
-
-                action =
-                    {
-                        type = "direct",
-                        action_delivery =
-                            {
-                                type = "stream",
-                                stream = makeStreamProjectile({
-                                        name = "bio-landmine-capsule",
-                                        bufferSize = 1,
-                                        spineAnimationTint = capsuleGrey,
-                                        particleTint = particleGrey,
-                                        spawnInterval = 1,
-                                        actions = {
-                                            {
-                                                type = "direct",
-                                                action_delivery =
-                                                    {
-                                                        type = "instant",
-                                                        target_effects = {
-                                                            {
-                                                                type = "create-entity",
-                                                                show_in_tooltip = true,
-                                                                entity_name = "bio-landmine-ghostless-rampant-arsenal"
-                                                            }
-                                                        }
-                                                    }
-                                            }
-                                        }
-                                }),
-                                max_length = 9,
-                                duration = 160,
-                            }
-                    }
-    }})
-
-    local nuclearLandmineCapsules = makeAmmo({
-            name = "nuclear-landmine-capsule",
-            icon = "__RampantArsenal__/graphics/icons/nuclear-landmine-capsule-ammo.png",
-            magSize = 1,
-            subgroup = "launcher-capsule",
-            order = "x[capsule]",
-            stackSize = 200,
-            ammoType = {
-                category = "capsule-launcher",
-                target_type = "position",
-                clamp_position = true,
-
-                action =
-                    {
-                        type = "direct",
-                        action_delivery =
-                            {
-                                type = "stream",
-                                stream = makeStreamProjectile({
-                                        name = "nuclear-landmine-capsule",
-                                        bufferSize = 1,
-                                        spineAnimationTint = capsuleGrey,
-                                        particleTint = particleGrey,
-                                        spawnInterval = 1,
-                                        actions = {
-                                            {
-                                                type = "direct",
-                                                action_delivery =
-                                                    {
-                                                        type = "instant",
-                                                        target_effects = {
-                                                            {
-                                                                type = "create-entity",
-                                                                show_in_tooltip = true,
-                                                                entity_name = "nuclear-landmine-ghostless-rampant-arsenal"
-                                                            }
-                                                        }
-                                                    }
-                                        }}
-                                }),
-                                max_length = 9,
-                                duration = 160,
-                            }
-                    }
-    }})
-
     local grenadeCapsules = makeAmmo({
             name = "grenade-capsule",
             icon = "__RampantArsenal__/graphics/icons/grenade-capsule-ammo.png",
@@ -806,312 +557,710 @@ function capsules.enable()
                     }
     }})
 
-    local bioGrenadeCapsules = makeAmmo({
-            name = "bio-grenade-capsule",
-            icon = "__RampantArsenal__/graphics/icons/bio-grenade-capsule-ammo.png",
-            magSize = 1,
-            subgroup = "launcher-capsule",
-            order = "b[capsule]",
-            stackSize = 200,
-            ammoType = {
-                category = "capsule-launcher",
-                target_type = "position",
-                clamp_position = true,
+    if settings.startup["rampant-arsenal-enableAmmoTypes"].value then
 
-                action =
-                    {
-                        type = "direct",
-                        action_delivery =
-                            {
-                                type = "stream",
-                                stream = makeStreamProjectile({
-                                        name = "bio-grenade-capsule",
-                                        bufferSize = 1,
-                                        spineAnimationTint = capsuleGrey,
-                                        particleTint = particleGrey,
-                                        spawnInterval = 1,
-                                        actions = {
-                                            {
+        local toxicCapsules = makeAmmo({
+                name = "toxic-capsule",
+                icon = "__RampantArsenal__/graphics/icons/toxic-capsule-ammo.png",
+                magSize = 1,
+                subgroup = "launcher-capsule",
+                order = "g[capsule]",
+                stackSize = 200,
+                ammoType = {
+                    category = "capsule-launcher",
+                    target_type = "position",
+                    clamp_position = true,
+
+                    action =
+                        {
+                            type = "direct",
+                            action_delivery =
+                                {
+                                    type = "stream",
+                                    stream = makeStreamProjectile({
+                                            name = "toxic-capsule",
+                                            bufferSize = 1,
+                                            spineAnimationTint = capsuleGrey,
+                                            particleTint = particleGrey,
+                                            spawnInterval = 1,
+                                            actions = {
                                                 type = "direct",
                                                 action_delivery =
                                                     {
                                                         type = "instant",
                                                         target_effects =
                                                             {
-                                                                {
-                                                                    type = "create-entity",
-                                                                    entity_name = "medium-explosion"
-                                                                },
-                                                                {
-                                                                    type = "create-entity",
-                                                                    entity_name = "small-scorchmark",
-                                                                    check_buildability = true
-                                                                },
-                                                                {
-                                                                    type = "create-entity",
-                                                                    entity_name = "toxic-cloud-rampant-arsenal",
-                                                                    show_in_tooltip = true
-                                                                },
-                                                                {
-                                                                    type = "invoke-tile-trigger",
-                                                                    repeat_count = 1,
-                                                                },
-                                                                {
-                                                                    type = "destroy-decoratives",
-                                                                    from_render_layer = "decorative",
-                                                                    to_render_layer = "object",
-                                                                    include_soft_decoratives = true,
-                                                                    include_decals = false,
-                                                                    invoke_decorative_trigger = true,
-                                                                    decoratives_with_trigger_only = false,
-                                                                    radius = 3
-                                                                }
-                                                            }
-                                                    }
-                                            },
-                                            {
-                                                type = "area",
-                                                radius = 7.5,
-                                                action_delivery =
-                                                    {
-                                                        type = "instant",
-                                                        target_effects =
-                                                            {
-                                                                {
-                                                                    type = "damage",
-                                                                    damage = {amount = 350, type = "poison"}
-                                                                },
-                                                                {
-                                                                    type = "damage",
-                                                                    damage = {amount = 50, type = "explosion"}
-                                                                },
-                                                                {
-                                                                    type = "create-entity",
-                                                                    entity_name = "explosion"
-                                                                }
+                                                                type = "create-entity",
+                                                                show_in_tooltip = true,
+                                                                entity_name = "big-toxic-cloud-rampant-arsenal"
                                                             }
                                                     }
                                             }
-                                        }
-                                }),
-                                max_length = 9,
-                                duration = 200,
-                            }
-                    }
-    }})
+                                    }),
+                                    max_length = 9,
+                                    duration = 160
+                                }
+                        }
+        }})
 
-    local heGrenadeCapsules = makeAmmo({
-            name = "he-grenade-capsule",
-            icon = "__RampantArsenal__/graphics/icons/he-grenade-capsule-ammo.png",
-            magSize = 1,
-            subgroup = "launcher-capsule",
-            order = "c[capsule]",
-            stackSize = 200,
-            ammoType = {
-                category = "capsule-launcher",
-                target_type = "position",
-                clamp_position = true,
+        local incendiaryLandmineCapsules = makeAmmo({
+                name = "incendiary-landmine-capsule",
+                icon = "__RampantArsenal__/graphics/icons/incendiary-landmine-capsule-ammo.png",
+                magSize = 1,
+                subgroup = "launcher-capsule",
+                order = "w[capsule]",
+                stackSize = 200,
+                ammoType = {
+                    category = "capsule-launcher",
+                    target_type = "position",
+                    clamp_position = true,
 
-                action =
-                    {
-                        type = "direct",
-                        action_delivery =
-                            {
-                                type = "stream",
-                                stream = makeStreamProjectile({
-                                        name = "he-grenade-capsule",
-                                        bufferSize = 1,
-                                        spineAnimationTint = capsuleGrey,
-                                        particleTint = particleGrey,
-                                        spawnInterval = 1,
-                                        actions = {
-                                            {
-                                                type = "direct",
-                                                action_delivery =
-                                                    {
-                                                        type = "instant",
-                                                        target_effects =
-                                                            {
+                    action =
+                        {
+                            type = "direct",
+                            action_delivery =
+                                {
+                                    type = "stream",
+                                    stream = makeStreamProjectile({
+                                            name = "incendiary-landmine-capsule",
+                                            bufferSize = 1,
+                                            spineAnimationTint = capsuleGrey,
+                                            particleTint = particleGrey,
+                                            spawnInterval = 1,
+                                            actions = {
+                                                {
+                                                    type = "direct",
+                                                    action_delivery =
+                                                        {
+                                                            type = "instant",
+                                                            target_effects = {
                                                                 {
                                                                     type = "create-entity",
-                                                                    entity_name = "big-explosion"
-                                                                },
-                                                                {
-                                                                    type = "create-entity",
-                                                                    entity_name = "small-scorchmark",
-                                                                    check_buildability = true
-                                                                },
-                                                                {
-                                                                    type = "invoke-tile-trigger",
-                                                                    repeat_count = 1,
-                                                                },
-                                                                {
-                                                                    type = "destroy-decoratives",
-                                                                    from_render_layer = "decorative",
-                                                                    to_render_layer = "object",
-                                                                    include_soft_decoratives = true,
-                                                                    include_decals = false,
-                                                                    invoke_decorative_trigger = true,
-                                                                    decoratives_with_trigger_only = false,
-                                                                    radius = 3
+                                                                    show_in_tooltip = true,
+                                                                    entity_name = "incendiary-landmine-ghostless-rampant-arsenal"
                                                                 }
                                                             }
-                                                    }
-                                            },
-                                            {
-                                                type = "area",
-                                                radius = 7.5,
-                                                action_delivery =
-                                                    {
-                                                        type = "instant",
-                                                        target_effects =
-                                                            {
-                                                                {
-                                                                    type = "damage",
-                                                                    damage = {amount = 675, type = "explosion"}
-                                                                },
-                                                                {
-                                                                    type = "damage",
-                                                                    damage = {amount = 150, type = "physical"}
-                                                                },
-                                                                {
-                                                                    type = "create-entity",
-                                                                    entity_name = "medium-explosion"
-                                                                }
-                                                            }
-                                                    }
+                                                        }
+                                                }-- ,
+                                                -- {
+                                                --     type = "cluster",
+                                                --     cluster_count = 2,
+                                                --     distance = 7,
+                                                --     distance_deviation = 3,
+                                                --     action_delivery =
+                                                --         {
+                                                --     	type = "instant",
+                                                --     	target_effects =
+                                                --     	    {
+                                                --     		{
+                                                --     		    type = "create-entity",
+                                                --     		    show_in_tooltip = true,
+                                                --     		    entity_name = "incendiary-landmine-ghostless-rampant-arsenal"
+                                                --     		}
+                                                --     	    }
+                                                --         }
+                                                -- }
                                             }
-                                        }
-                                }),
-                                max_length = 9,
-                                duration = 200,
-                            }
-                    }
-    }})
+                                    }),
+                                    max_length = 9,
+                                    duration = 160,
+                                }
+                        }
+        }})
 
-    local incendiaryGrenadeCapsules = makeAmmo({
-            name = "incendiary-grenade-capsule",
-            icon = "__RampantArsenal__/graphics/icons/incendiary-grenade-capsule-ammo.png",
-            magSize = 1,
-            subgroup = "launcher-capsule",
-            order = "d[capsule]",
-            stackSize = 200,
-            ammoType = {
-                category = "capsule-launcher",
-                target_type = "position",
-                clamp_position = true,
+        local heLandmineCapsules = makeAmmo({
+                name = "he-landmine-capsule",
+                icon = "__RampantArsenal__/graphics/icons/he-landmine-capsule-ammo.png",
+                magSize = 1,
+                subgroup = "launcher-capsule",
+                order = "p[capsule]",
+                stackSize = 200,
+                ammoType = {
+                    category = "capsule-launcher",
+                    target_type = "position",
+                    clamp_position = true,
 
-                action =
-                    {
-                        type = "direct",
-                        action_delivery =
-                            {
-                                type = "stream",
-                                stream = makeStreamProjectile({
-                                        name = "incendiary-grenade-capsule",
-                                        bufferSize = 1,
-                                        spineAnimationTint = capsuleGrey,
-                                        particleTint = particleGrey,
-                                        spawnInterval = 1,
-                                        actions = {
-                                            {
-                                                type = "direct",
-                                                action_delivery =
-                                                    {
-                                                        type = "instant",
-                                                        target_effects =
-                                                            {
+                    action =
+                        {
+                            type = "direct",
+                            action_delivery =
+                                {
+                                    type = "stream",
+                                    stream = makeStreamProjectile({
+                                            name = "he-landmine-capsule",
+                                            bufferSize = 1,
+                                            spineAnimationTint = capsuleGrey,
+                                            particleTint = particleGrey,
+                                            spawnInterval = 1,
+                                            actions = {
+                                                {
+                                                    type = "direct",
+                                                    action_delivery =
+                                                        {
+                                                            type = "instant",
+                                                            target_effects = {
                                                                 {
                                                                     type = "create-entity",
-                                                                    entity_name = "medium-explosion"
-                                                                },
+                                                                    show_in_tooltip = true,
+                                                                    entity_name = "he-landmine-ghostless-rampant-arsenal"
+                                                                }
+                                                            }
+                                                        }
+                                                }
+                                            }
+                                    }),
+                                    max_length = 9,
+                                    duration = 160,
+                                }
+                        }
+        }})
+
+        local bioLandmineCapsules = makeAmmo({
+                name = "bio-landmine-capsule",
+                icon = "__RampantArsenal__/graphics/icons/bio-landmine-capsule-ammo.png",
+                magSize = 1,
+                subgroup = "launcher-capsule",
+                order = "o[capsule]",
+                stackSize = 200,
+                ammoType = {
+                    category = "capsule-launcher",
+                    target_type = "position",
+                    clamp_position = true,
+
+                    action =
+                        {
+                            type = "direct",
+                            action_delivery =
+                                {
+                                    type = "stream",
+                                    stream = makeStreamProjectile({
+                                            name = "bio-landmine-capsule",
+                                            bufferSize = 1,
+                                            spineAnimationTint = capsuleGrey,
+                                            particleTint = particleGrey,
+                                            spawnInterval = 1,
+                                            actions = {
+                                                {
+                                                    type = "direct",
+                                                    action_delivery =
+                                                        {
+                                                            type = "instant",
+                                                            target_effects = {
                                                                 {
                                                                     type = "create-entity",
-                                                                    entity_name = "small-scorchmark",
-                                                                    check_buildability = true
-                                                                },
-                                                                {
-                                                                    type = "create-fire",
-                                                                    entity_name = "fire-flame",
-                                                                    initial_ground_flame_count = 4
-                                                                },
-                                                                {
-                                                                    type = "invoke-tile-trigger",
-                                                                    repeat_count = 1,
-                                                                },
-                                                                {
-                                                                    type = "destroy-decoratives",
-                                                                    from_render_layer = "decorative",
-                                                                    to_render_layer = "object",
-                                                                    include_soft_decoratives = true,
-                                                                    include_decals = false,
-                                                                    invoke_decorative_trigger = true,
-                                                                    decoratives_with_trigger_only = false,
-                                                                    radius = 3
+                                                                    show_in_tooltip = true,
+                                                                    entity_name = "bio-landmine-ghostless-rampant-arsenal"
                                                                 }
                                                             }
-                                                    }
-                                            },
-                                            {
-                                                type = "cluster",
-                                                cluster_count = 10,
-                                                distance = 4,
-                                                distance_deviation = 3,
-                                                action_delivery =
-                                                    {
-                                                        type = "instant",
-                                                        target_effects =
-                                                            {
+                                                        }
+                                                }
+                                            }
+                                    }),
+                                    max_length = 9,
+                                    duration = 160,
+                                }
+                        }
+        }})
+
+        local nuclearLandmineCapsules = makeAmmo({
+                name = "nuclear-landmine-capsule",
+                icon = "__RampantArsenal__/graphics/icons/nuclear-landmine-capsule-ammo.png",
+                magSize = 1,
+                subgroup = "launcher-capsule",
+                order = "x[capsule]",
+                stackSize = 200,
+                ammoType = {
+                    category = "capsule-launcher",
+                    target_type = "position",
+                    clamp_position = true,
+
+                    action =
+                        {
+                            type = "direct",
+                            action_delivery =
+                                {
+                                    type = "stream",
+                                    stream = makeStreamProjectile({
+                                            name = "nuclear-landmine-capsule",
+                                            bufferSize = 1,
+                                            spineAnimationTint = capsuleGrey,
+                                            particleTint = particleGrey,
+                                            spawnInterval = 1,
+                                            actions = {
+                                                {
+                                                    type = "direct",
+                                                    action_delivery =
+                                                        {
+                                                            type = "instant",
+                                                            target_effects = {
                                                                 {
-                                                                    type = "create-fire",
-                                                                    entity_name = "fire-flame",
-                                                                    initial_ground_flame_count = 4,
-                                                                    check_buildability = true,
-                                                                    show_in_tooltip = true
+                                                                    type = "create-entity",
+                                                                    show_in_tooltip = true,
+                                                                    entity_name = "nuclear-landmine-ghostless-rampant-arsenal"
                                                                 }
                                                             }
-                                                    }
-                                            },
-                                            {
-                                                type = "area",
-                                                radius = 7.5,
-                                                action_delivery =
-                                                    {
+                                                        }
+                                            }}
+                                    }),
+                                    max_length = 9,
+                                    duration = 160,
+                                }
+                        }
+        }})
+
+        local bioGrenadeCapsules = makeAmmo({
+                name = "bio-grenade-capsule",
+                icon = "__RampantArsenal__/graphics/icons/bio-grenade-capsule-ammo.png",
+                magSize = 1,
+                subgroup = "launcher-capsule",
+                order = "b[capsule]",
+                stackSize = 200,
+                ammoType = {
+                    category = "capsule-launcher",
+                    target_type = "position",
+                    clamp_position = true,
+
+                    action =
+                        {
+                            type = "direct",
+                            action_delivery =
+                                {
+                                    type = "stream",
+                                    stream = makeStreamProjectile({
+                                            name = "bio-grenade-capsule",
+                                            bufferSize = 1,
+                                            spineAnimationTint = capsuleGrey,
+                                            particleTint = particleGrey,
+                                            spawnInterval = 1,
+                                            actions = {
+                                                {
+                                                    type = "direct",
+                                                    action_delivery =
+                                                        {
+                                                            type = "instant",
+                                                            target_effects =
+                                                                {
+                                                                    {
+                                                                        type = "create-entity",
+                                                                        entity_name = "medium-explosion"
+                                                                    },
+                                                                    {
+                                                                        type = "create-entity",
+                                                                        entity_name = "small-scorchmark",
+                                                                        check_buildability = true
+                                                                    },
+                                                                    {
+                                                                        type = "create-entity",
+                                                                        entity_name = "toxic-cloud-rampant-arsenal",
+                                                                        show_in_tooltip = true
+                                                                    },
+                                                                    {
+                                                                        type = "invoke-tile-trigger",
+                                                                        repeat_count = 1,
+                                                                    },
+                                                                    {
+                                                                        type = "destroy-decoratives",
+                                                                        from_render_layer = "decorative",
+                                                                        to_render_layer = "object",
+                                                                        include_soft_decoratives = true,
+                                                                        include_decals = false,
+                                                                        invoke_decorative_trigger = true,
+                                                                        decoratives_with_trigger_only = false,
+                                                                        radius = 3
+                                                                    }
+                                                                }
+                                                        }
+                                                },
+                                                {
+                                                    type = "area",
+                                                    radius = 7.5,
+                                                    action_delivery =
                                                         {
                                                             type = "instant",
                                                             target_effects =
                                                                 {
                                                                     {
                                                                         type = "damage",
-                                                                        damage = {amount = 50, type = "explosion"}
+                                                                        damage = {amount = 350, type = "poison"}
                                                                     },
                                                                     {
                                                                         type = "damage",
-                                                                        damage = {amount = 350, type = "fire"}
+                                                                        damage = {amount = 50, type = "explosion"}
                                                                     },
                                                                     {
                                                                         type = "create-entity",
                                                                         entity_name = "explosion"
+                                                                    }
+                                                                }
+                                                        }
+                                                }
+                                            }
+                                    }),
+                                    max_length = 9,
+                                    duration = 200,
+                                }
+                        }
+        }})
+
+        local heGrenadeCapsules = makeAmmo({
+                name = "he-grenade-capsule",
+                icon = "__RampantArsenal__/graphics/icons/he-grenade-capsule-ammo.png",
+                magSize = 1,
+                subgroup = "launcher-capsule",
+                order = "c[capsule]",
+                stackSize = 200,
+                ammoType = {
+                    category = "capsule-launcher",
+                    target_type = "position",
+                    clamp_position = true,
+
+                    action =
+                        {
+                            type = "direct",
+                            action_delivery =
+                                {
+                                    type = "stream",
+                                    stream = makeStreamProjectile({
+                                            name = "he-grenade-capsule",
+                                            bufferSize = 1,
+                                            spineAnimationTint = capsuleGrey,
+                                            particleTint = particleGrey,
+                                            spawnInterval = 1,
+                                            actions = {
+                                                {
+                                                    type = "direct",
+                                                    action_delivery =
+                                                        {
+                                                            type = "instant",
+                                                            target_effects =
+                                                                {
+                                                                    {
+                                                                        type = "create-entity",
+                                                                        entity_name = "big-explosion"
                                                                     },
                                                                     {
-                                                                        type = "create-sticker",
-                                                                        sticker = "small-fire-sticker-rampant-arsenal"
+                                                                        type = "create-entity",
+                                                                        entity_name = "small-scorchmark",
+                                                                        check_buildability = true
+                                                                    },
+                                                                    {
+                                                                        type = "invoke-tile-trigger",
+                                                                        repeat_count = 1,
+                                                                    },
+                                                                    {
+                                                                        type = "destroy-decoratives",
+                                                                        from_render_layer = "decorative",
+                                                                        to_render_layer = "object",
+                                                                        include_soft_decoratives = true,
+                                                                        include_decals = false,
+                                                                        invoke_decorative_trigger = true,
+                                                                        decoratives_with_trigger_only = false,
+                                                                        radius = 3
+                                                                    }
+                                                                }
+                                                        }
+                                                },
+                                                {
+                                                    type = "area",
+                                                    radius = 7.5,
+                                                    action_delivery =
+                                                        {
+                                                            type = "instant",
+                                                            target_effects =
+                                                                {
+                                                                    {
+                                                                        type = "damage",
+                                                                        damage = {amount = 675, type = "explosion"}
+                                                                    },
+                                                                    {
+                                                                        type = "damage",
+                                                                        damage = {amount = 150, type = "physical"}
+                                                                    },
+                                                                    {
+                                                                        type = "create-entity",
+                                                                        entity_name = "medium-explosion"
+                                                                    }
+                                                                }
+                                                        }
+                                                }
+                                            }
+                                    }),
+                                    max_length = 9,
+                                    duration = 200,
+                                }
+                        }
+        }})
+
+        local incendiaryGrenadeCapsules = makeAmmo({
+                name = "incendiary-grenade-capsule",
+                icon = "__RampantArsenal__/graphics/icons/incendiary-grenade-capsule-ammo.png",
+                magSize = 1,
+                subgroup = "launcher-capsule",
+                order = "d[capsule]",
+                stackSize = 200,
+                ammoType = {
+                    category = "capsule-launcher",
+                    target_type = "position",
+                    clamp_position = true,
+
+                    action =
+                        {
+                            type = "direct",
+                            action_delivery =
+                                {
+                                    type = "stream",
+                                    stream = makeStreamProjectile({
+                                            name = "incendiary-grenade-capsule",
+                                            bufferSize = 1,
+                                            spineAnimationTint = capsuleGrey,
+                                            particleTint = particleGrey,
+                                            spawnInterval = 1,
+                                            actions = {
+                                                {
+                                                    type = "direct",
+                                                    action_delivery =
+                                                        {
+                                                            type = "instant",
+                                                            target_effects =
+                                                                {
+                                                                    {
+                                                                        type = "create-entity",
+                                                                        entity_name = "medium-explosion"
+                                                                    },
+                                                                    {
+                                                                        type = "create-entity",
+                                                                        entity_name = "small-scorchmark",
+                                                                        check_buildability = true
                                                                     },
                                                                     {
                                                                         type = "create-fire",
                                                                         entity_name = "fire-flame",
                                                                         initial_ground_flame_count = 4
+                                                                    },
+                                                                    {
+                                                                        type = "invoke-tile-trigger",
+                                                                        repeat_count = 1,
+                                                                    },
+                                                                    {
+                                                                        type = "destroy-decoratives",
+                                                                        from_render_layer = "decorative",
+                                                                        to_render_layer = "object",
+                                                                        include_soft_decoratives = true,
+                                                                        include_decals = false,
+                                                                        invoke_decorative_trigger = true,
+                                                                        decoratives_with_trigger_only = false,
+                                                                        radius = 3
                                                                     }
                                                                 }
-                                                    }}
+                                                        }
+                                                },
+                                                {
+                                                    type = "cluster",
+                                                    cluster_count = 10,
+                                                    distance = 4,
+                                                    distance_deviation = 3,
+                                                    action_delivery =
+                                                        {
+                                                            type = "instant",
+                                                            target_effects =
+                                                                {
+                                                                    {
+                                                                        type = "create-fire",
+                                                                        entity_name = "fire-flame",
+                                                                        initial_ground_flame_count = 4,
+                                                                        check_buildability = true,
+                                                                        show_in_tooltip = true
+                                                                    }
+                                                                }
+                                                        }
+                                                },
+                                                {
+                                                    type = "area",
+                                                    radius = 7.5,
+                                                    action_delivery =
+                                                        {
+                                                            {
+                                                                type = "instant",
+                                                                target_effects =
+                                                                    {
+                                                                        {
+                                                                            type = "damage",
+                                                                            damage = {amount = 50, type = "explosion"}
+                                                                        },
+                                                                        {
+                                                                            type = "damage",
+                                                                            damage = {amount = 350, type = "fire"}
+                                                                        },
+                                                                        {
+                                                                            type = "create-entity",
+                                                                            entity_name = "explosion"
+                                                                        },
+                                                                        {
+                                                                            type = "create-sticker",
+                                                                            sticker = "small-fire-sticker-rampant-arsenal"
+                                                                        },
+                                                                        {
+                                                                            type = "create-fire",
+                                                                            entity_name = "fire-flame",
+                                                                            initial_ground_flame_count = 4
+                                                                        }
+                                                                    }
+                                                        }}
+                                                }
                                             }
-                                        }
-                                }),
-                                max_length = 9,
-                                duration = 200,
-                            }
-                    }
-    }})
+                                    }),
+                                    max_length = 9,
+                                    duration = 200,
+                                }
+                        }
+        }})
+
+
+        makeRecipe({
+                name = toxicCapsules,
+                icon = "__RampantArsenal__/graphics/icons/toxic-capsule-ammo.png",
+                enabled = false,
+                ingredients = {
+                    {"iron-plate", 2},
+                    {"toxic-capsule-rampant-arsenal", 1},
+                    {"explosives", 1}
+                },
+                result = toxicCapsules
+        })
+
+        makeRecipe({
+                name = incendiaryLandmineCapsules,
+                icon = "__RampantArsenal__/graphics/icons/incendiary-landmine-capsule-ammo.png",
+                enabled = false,
+                ingredients = {
+                    {"iron-plate", 2},
+                    {"incendiary-landmine-rampant-arsenal", 1},
+                    {"explosives", 1}
+                },
+                result = incendiaryLandmineCapsules
+        })
+
+        makeRecipe({
+                name = heLandmineCapsules,
+                icon = "__RampantArsenal__/graphics/icons/he-landmine-capsule-ammo.png",
+                enabled = false,
+                ingredients = {
+                    {"iron-plate", 2},
+                    {"he-landmine-rampant-arsenal", 1},
+                    {"explosives", 1}
+                },
+                result = heLandmineCapsules
+        })
+
+
+        makeRecipe({
+                name = bioLandmineCapsules,
+                icon = "__RampantArsenal__/graphics/icons/bio-landmine-capsule-ammo.png",
+                enabled = false,
+                ingredients = {
+                    {"iron-plate", 2},
+                    {"bio-landmine-rampant-arsenal", 1},
+                    {"explosives", 1}
+                },
+                result = bioLandmineCapsules
+        })
+
+        makeRecipe({
+                name = nuclearLandmineCapsules,
+                icon = "__RampantArsenal__/graphics/icons/nuclear-landmine-capsule-ammo.png",
+                enabled = false,
+                ingredients = {
+                    {"iron-plate", 2},
+                    {"nuclear-landmine-rampant-arsenal", 1},
+                    {"explosives", 1}
+                },
+                result = nuclearLandmineCapsules
+        })
+
+        makeRecipe({
+                name = bioGrenadeCapsules,
+                icon = "__RampantArsenal__/graphics/icons/bio-grenade-capsule-ammo.png",
+                enabled = false,
+                ingredients = {
+                    {"iron-plate", 2},
+                    {"bio-grenade-capsule-rampant-arsenal", 1},
+                    {"explosives", 1}
+                },
+                result = bioGrenadeCapsules
+        })
+
+        makeRecipe({
+                name = heGrenadeCapsules,
+                icon = "__RampantArsenal__/graphics/icons/he-grenade-capsule-ammo.png",
+                enabled = false,
+                ingredients = {
+                    {"iron-plate", 2},
+                    {"he-grenade-capsule-rampant-arsenal", 1},
+                    {"explosives", 1}
+                },
+                result = heGrenadeCapsules
+        })
+
+        makeRecipe({
+                name = incendiaryGrenadeCapsules,
+                icon = "__RampantArsenal__/graphics/icons/incendiary-grenade-capsule-ammo.png",
+                enabled = false,
+                ingredients = {
+                    {"iron-plate", 2},
+                    {"incendiary-grenade-capsule-rampant-arsenal", 1},
+                    {"explosives", 1}
+                },
+                result = incendiaryGrenadeCapsules
+        })
+
+        addEffectToTech("incendiary-landmine",
+                        {
+                            type = "unlock-recipe",
+                            recipe = incendiaryLandmineCapsules,
+        })
+
+        addEffectToTech("he-landmine",
+                        {
+                            type = "unlock-recipe",
+                            recipe = heLandmineCapsules,
+        })
+
+        addEffectToTech("bio-landmine",
+                        {
+                            type = "unlock-recipe",
+                            recipe = bioLandmineCapsules,
+        })
+
+        addEffectToTech("uranium-ammo",
+                        {
+                            type = "unlock-recipe",
+                            recipe = nuclearLandmineCapsules,
+        })
+
+        addEffectToTech("bio-grenades",
+                        {
+                            type = "unlock-recipe",
+                            recipe = bioGrenadeCapsules,
+        })
+
+        addEffectToTech("bio-capsules",
+                        {
+                            type = "unlock-recipe",
+                            recipe = toxicCapsules,
+        })
+
+        addEffectToTech("he-grenades",
+                        {
+                            type = "unlock-recipe",
+                            recipe = heGrenadeCapsules,
+        })
+
+        addEffectToTech("incendiary-grenades",
+                        {
+                            type = "unlock-recipe",
+                            recipe = incendiaryGrenadeCapsules,
+        })
+    end
 
     local clusterGrenadeCapsules = makeAmmo({
             name = "cluster-grenade-capsule",
@@ -1216,19 +1365,6 @@ function capsules.enable()
             result = poisonCapsules
     })
 
-
-    makeRecipe({
-            name = toxicCapsules,
-            icon = "__RampantArsenal__/graphics/icons/toxic-capsule-ammo.png",
-            enabled = false,
-            ingredients = {
-                {"iron-plate", 2},
-                {"toxic-capsule-rampant-arsenal", 1},
-                {"explosives", 1}
-            },
-            result = toxicCapsules
-    })
-
     makeRecipe({
             name = paralysisCapsules,
             icon = "__RampantArsenal__/graphics/icons/paralysis-capsule-ammo.png",
@@ -1252,7 +1388,6 @@ function capsules.enable()
             },
             result = repairCapsules
     })
-
 
     makeRecipe({
             name = distractorCapsules,
@@ -1303,55 +1438,6 @@ function capsules.enable()
     })
 
     makeRecipe({
-            name = incendiaryLandmineCapsules,
-            icon = "__RampantArsenal__/graphics/icons/incendiary-landmine-capsule-ammo.png",
-            enabled = false,
-            ingredients = {
-                {"iron-plate", 2},
-                {"incendiary-landmine-rampant-arsenal", 1},
-                {"explosives", 1}
-            },
-            result = incendiaryLandmineCapsules
-    })
-
-    makeRecipe({
-            name = heLandmineCapsules,
-            icon = "__RampantArsenal__/graphics/icons/he-landmine-capsule-ammo.png",
-            enabled = false,
-            ingredients = {
-                {"iron-plate", 2},
-                {"he-landmine-rampant-arsenal", 1},
-                {"explosives", 1}
-            },
-            result = heLandmineCapsules
-    })
-
-
-    makeRecipe({
-            name = bioLandmineCapsules,
-            icon = "__RampantArsenal__/graphics/icons/bio-landmine-capsule-ammo.png",
-            enabled = false,
-            ingredients = {
-                {"iron-plate", 2},
-                {"bio-landmine-rampant-arsenal", 1},
-                {"explosives", 1}
-            },
-            result = bioLandmineCapsules
-    })
-
-    makeRecipe({
-            name = nuclearLandmineCapsules,
-            icon = "__RampantArsenal__/graphics/icons/nuclear-landmine-capsule-ammo.png",
-            enabled = false,
-            ingredients = {
-                {"iron-plate", 2},
-                {"nuclear-landmine-rampant-arsenal", 1},
-                {"explosives", 1}
-            },
-            result = nuclearLandmineCapsules
-    })
-
-    makeRecipe({
             name = grenadeCapsules,
             icon = "__RampantArsenal__/graphics/icons/grenade-capsule-ammo.png",
             enabled = false,
@@ -1361,42 +1447,6 @@ function capsules.enable()
                 {"explosives", 1}
             },
             result = grenadeCapsules
-    })
-
-    makeRecipe({
-            name = bioGrenadeCapsules,
-            icon = "__RampantArsenal__/graphics/icons/bio-grenade-capsule-ammo.png",
-            enabled = false,
-            ingredients = {
-                {"iron-plate", 2},
-                {"bio-grenade-capsule-rampant-arsenal", 1},
-                {"explosives", 1}
-            },
-            result = bioGrenadeCapsules
-    })
-
-    makeRecipe({
-            name = heGrenadeCapsules,
-            icon = "__RampantArsenal__/graphics/icons/he-grenade-capsule-ammo.png",
-            enabled = false,
-            ingredients = {
-                {"iron-plate", 2},
-                {"he-grenade-capsule-rampant-arsenal", 1},
-                {"explosives", 1}
-            },
-            result = heGrenadeCapsules
-    })
-
-    makeRecipe({
-            name = incendiaryGrenadeCapsules,
-            icon = "__RampantArsenal__/graphics/icons/incendiary-grenade-capsule-ammo.png",
-            enabled = false,
-            ingredients = {
-                {"iron-plate", 2},
-                {"incendiary-grenade-capsule-rampant-arsenal", 1},
-                {"explosives", 1}
-            },
-            result = incendiaryGrenadeCapsules
     })
 
     makeRecipe({
@@ -1495,19 +1545,19 @@ function capsules.enable()
             result = capsuleTurretItem,
     })
 
-    addEffectToTech("combat-robotics",
+    addEffectToTech("defender",
                     {
                         type = "unlock-recipe",
                         recipe = defenderCapsules,
     })
 
-    addEffectToTech("combat-robotics-2",
+    addEffectToTech("distractor",
                     {
                         type = "unlock-recipe",
                         recipe = distractorCapsules,
     })
 
-    addEffectToTech("combat-robotics-3",
+    addEffectToTech("destroyer",
                     {
                         type = "unlock-recipe",
                         recipe = destroyerCapsules,
@@ -1519,34 +1569,10 @@ function capsules.enable()
                         recipe = landmineCapsules,
     })
 
-    addEffectToTech("incendiary-landmine",
-                    {
-                        type = "unlock-recipe",
-                        recipe = incendiaryLandmineCapsules,
-    })
-
-    addEffectToTech("he-landmine",
-                    {
-                        type = "unlock-recipe",
-                        recipe = heLandmineCapsules,
-    })
-
-    addEffectToTech("bio-landmine",
-                    {
-                        type = "unlock-recipe",
-                        recipe = bioLandmineCapsules,
-    })
-
     addEffectToTech("military-4",
                     {
                         type = "unlock-recipe",
                         recipe = clusterGrenadeCapsules,
-    })
-
-    addEffectToTech("uranium-ammo",
-                    {
-                        type = "unlock-recipe",
-                        recipe = nuclearLandmineCapsules,
     })
 
     addEffectToTech("military-2",
@@ -1555,40 +1581,16 @@ function capsules.enable()
                         recipe = grenadeCapsules,
     })
 
-    addEffectToTech("bio-grenades",
-                    {
-                        type = "unlock-recipe",
-                        recipe = bioGrenadeCapsules,
-    })
-
     addEffectToTech("regeneration",
                     {
                         type = "unlock-recipe",
                         recipe = repairCapsules,
     })
 
-    addEffectToTech("bio-capsules",
-                    {
-                        type = "unlock-recipe",
-                        recipe = toxicCapsules,
-    })
-
     addEffectToTech("paralysis",
                     {
                         type = "unlock-recipe",
                         recipe = paralysisCapsules,
-    })
-
-    addEffectToTech("he-grenades",
-                    {
-                        type = "unlock-recipe",
-                        recipe = heGrenadeCapsules,
-    })
-
-    addEffectToTech("incendiary-grenades",
-                    {
-                        type = "unlock-recipe",
-                        recipe = incendiaryGrenadeCapsules,
     })
 
     addEffectToTech("capsule-turret",
@@ -1607,42 +1609,42 @@ function capsules.enable()
                         }
     })
 
-    addEffectToTech("capsule-turret-damage-1",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-1") or "stronger-explosives-1",
                     {
                         type = "turret-attack",
                         turret_id = capsuleTurret,
                         modifier = 0.2
     })
 
-    addEffectToTech("capsule-turret-damage-2",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-2") or "stronger-explosives-2",
                     {
                         type = "turret-attack",
                         turret_id = capsuleTurret,
                         modifier = 0.2
     })
 
-    addEffectToTech("capsule-turret-damage-3",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-3") or "stronger-explosives-3",
                     {
                         type = "turret-attack",
                         turret_id = capsuleTurret,
                         modifier = 0.3
     })
 
-    addEffectToTech("capsule-turret-damage-4",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-4") or "stronger-explosives-4",
                     {
                         type = "turret-attack",
                         turret_id = capsuleTurret,
                         modifier = 0.3
     })
 
-    addEffectToTech("capsule-turret-damage-5",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-5") or "stronger-explosives-5",
                     {
                         type = "turret-attack",
                         turret_id = capsuleTurret,
                         modifier = 0.4
     })
 
-    addEffectToTech("capsule-turret-damage-6",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-6") or "stronger-explosives-6",
                     {
                         type = "turret-attack",
                         turret_id = capsuleTurret,
@@ -1650,7 +1652,7 @@ function capsules.enable()
     })
 
     if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
-        addEffectToTech("capsule-turret-damage-7",
+        addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-7") or "stronger-explosives-7",
                         {
                             type = "turret-attack",
                             turret_id = capsuleTurret,
@@ -1662,42 +1664,42 @@ function capsules.enable()
                     {
                         type = "ammo-damage",
                         ammo_category = "capsule-launcher",
-                        modifier = 0.2
+                        modifier = 0.3
     })
 
     addEffectToTech("stronger-explosives-2",
                     {
                         type = "ammo-damage",
                         ammo_category = "capsule-launcher",
-                        modifier = 0.2
+                        modifier = 0.3
     })
 
     addEffectToTech("stronger-explosives-3",
                     {
                         type = "ammo-damage",
                         ammo_category = "capsule-launcher",
-                        modifier = 0.3
+                        modifier = 0.4
     })
 
     addEffectToTech("stronger-explosives-4",
                     {
                         type = "ammo-damage",
                         ammo_category = "capsule-launcher",
-                        modifier = 0.3
+                        modifier = 0.4
     })
 
     addEffectToTech("stronger-explosives-5",
                     {
                         type = "ammo-damage",
                         ammo_category = "capsule-launcher",
-                        modifier = 0.4
+                        modifier = 0.5
     })
 
     addEffectToTech("stronger-explosives-6",
                     {
                         type = "ammo-damage",
                         ammo_category = "capsule-launcher",
-                        modifier = 0.4
+                        modifier = 0.5
     })
 
     if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
@@ -1705,7 +1707,7 @@ function capsules.enable()
                         {
                             type = "ammo-damage",
                             ammo_category = "capsule-launcher",
-                            modifier = 0.5
+                            modifier = 0.6
         })
     end
 end

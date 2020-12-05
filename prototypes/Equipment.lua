@@ -1,6 +1,6 @@
 local Equipment = {}
 
-local sounds = require("__base__.prototypes.entity.demo-sounds")
+local sounds = require("__base__.prototypes.entity.sounds")
 local recipeUtils = require("utils/RecipeUtils")
 local technologyUtils = require("utils/TechnologyUtils")
 local armorUtils = require("utils/ArmorUtils")
@@ -342,11 +342,11 @@ function Equipment.enable()
 
     changeAmmoCategory("active-defense-equipment",
                        "personal-laser-defense-equipment",
-                       "laser-turret")
+                       "laser")
 
     changeAmmoCategory("active-defense-equipment",
                        "discharge-defense-equipment",
-                       "laser-turret")
+                       "laser")
 
     local passiveShotgun = makePassiveDefense(
         {
@@ -603,7 +603,7 @@ function Equipment.enable()
             projectile_creation_distance = 1,
             ammo_type =
                 {
-                    category = "laser-turret",
+                    category = "laser",
                     energy_consumption = "1MJ",
                     action =
                         {

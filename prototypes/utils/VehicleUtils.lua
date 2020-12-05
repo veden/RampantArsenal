@@ -1,6 +1,6 @@
 local vehicleUtils = {}
 
-local hit_effects = require ("__base__.prototypes.entity.demo-hit-effects")
+local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 
 local tank_shift_y = 6
 

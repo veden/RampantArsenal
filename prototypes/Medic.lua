@@ -1,6 +1,6 @@
 local medic = {}
 
-local sounds = require("__base__.prototypes.entity.demo-sounds")
+local sounds = require("__base__.prototypes.entity.sounds")
 local recipeUtils = require("utils/RecipeUtils")
 local technologyUtils = require("utils/TechnologyUtils")
 local projectileUtils = require("utils/ProjectileUtils")
@@ -188,42 +188,42 @@ function medic.enable()
     })
 
 
-    addEffectToTech("capsule-turret-damage-1",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-1") or "stronger-explosives-1",
                     {
                         type = "turret-attack",
                         turret_id = medicTurret,
                         modifier = 0.1
     })
 
-    addEffectToTech("capsule-turret-damage-2",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-2") or "stronger-explosives-2",
                     {
                         type = "turret-attack",
                         turret_id = medicTurret,
                         modifier = 0.1
     })
 
-    addEffectToTech("capsule-turret-damage-3",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-3") or "stronger-explosives-3",
                     {
                         type = "turret-attack",
                         turret_id = medicTurret,
                         modifier = 0.2
     })
 
-    addEffectToTech("capsule-turret-damage-4",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-4") or "stronger-explosives-4",
                     {
                         type = "turret-attack",
                         turret_id = medicTurret,
                         modifier = 0.3
     })
 
-    addEffectToTech("capsule-turret-damage-5",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-5") or "stronger-explosives-5",
                     {
                         type = "turret-attack",
                         turret_id = medicTurret,
                         modifier = 0.3
     })
 
-    addEffectToTech("capsule-turret-damage-6",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-6") or "stronger-explosives-6",
                     {
                         type = "turret-attack",
                         turret_id = medicTurret,
@@ -231,7 +231,7 @@ function medic.enable()
     })
 
     if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
-        addEffectToTech("capsule-turret-damage-7",
+        addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-7") or "stronger-explosives-7",
                         {
                             type = "turret-attack",
                             turret_id = medicTurret,

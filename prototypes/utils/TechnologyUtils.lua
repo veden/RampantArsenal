@@ -57,7 +57,8 @@ function technologyUtils.makeTechnology(attributes)
             {
                 type = "technology",
                 name = name,
-                icon_size = 128,
+                icon_size = attributes.iconSize or 128,
+                icon_mipmaps = attributes.iconMipmaps or 1,
                 icon = attributes.icon or "__base__/graphics/technology/turrets.png",
                 prerequisites = attributes.prerequisites or {},
                 effects = attributes.effects or

@@ -1,7 +1,7 @@
 local cannons = {}
 
 local stickerUtils = require("utils/StickerUtils")
-local sounds = require("__base__.prototypes.entity.demo-sounds")
+local sounds = require("__base__.prototypes.entity.sounds")
 local turretUtils = require("utils/TurretUtils")
 local recipeUtils = require("utils/RecipeUtils")
 local technologyUtils = require("utils/TechnologyUtils")
@@ -407,6 +407,14 @@ function cannons.enable()
             }
         }
     }
+    local fluidBonuses = {
+        {type = "crude-oil", damage_modifier = 0.9},
+        {type = "heavy-oil", damage_modifier = 1.0},
+        {type = "light-oil", damage_modifier = 1.1}
+    }
+    if settings.startup["rampant-arsenal-enableAmmoTypes"].value then
+        fluidBonuses[#fluidBonuses+1] = {type = "napalm-fluid-rampant-arsenal", damage_modifier = 1.5}
+    end
     local suppressionCannonTurret,suppressionCannonTurretItem = makeFluidTurret(advFlamethrowerAttributes,
                                                                                 {
                                                                                     type = "stream",
@@ -418,12 +426,7 @@ function cannons.enable()
                                                                                     turn_range = 0.4,
                                                                                     fire_penalty = 30,
 
-                                                                                    fluids = {
-                                                                                        {type = "crude-oil", damage_modifier = 0.9},
-                                                                                        {type = "heavy-oil", damage_modifier = 1.0},
-                                                                                        {type = "light-oil", damage_modifier = 1.1},
-                                                                                        {type = "napalm-fluid-rampant-arsenal", damage_modifier = 1.5}
-                                                                                    },
+                                                                                    fluids = fluidBonuses,
                                                                                     fluid_consumption = 2.2,
 
                                                                                     lead_target_for_projectile_speed = 0.6,
@@ -541,7 +544,7 @@ function cannons.enable()
     acidTurret.icons = {
         {icon="__base__/graphics/icons/flamethrower-turret.png", icon_size=64, icon_mipmaps=4, tint={r=0.6,g=0.8,b=0.6}}
     }
-    
+
     tintPicture(acidTurret.base_picture, {r=0.6,g=0.8,b=0.6})
 
     acidTurret.name = "acid-cannon-rampant-arsenal"
@@ -793,7 +796,7 @@ function cannons.enable()
     acidItem.icon = nil
     acidItem.icons = {
         {icon="__base__/graphics/icons/flamethrower-turret.png", icon_size=64, icon_mipmaps=4, tint={r=0.6,g=0.8,b=0.6}}
-    }    
+    }
     acidItem.place_result = acidTurret.name
 
     data:extend({
@@ -969,42 +972,42 @@ function cannons.enable()
                         recipe = suppressionCannonTurretItem,
     })
 
-    addEffectToTech("shotgun-turret-damage-1",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "shotgun-turret-damage-1") or "physical-projectile-damage-1",
                     {
                         type = "turret-attack",
                         turret_id = shotgunTurret,
                         modifier = 0.2
     })
 
-    addEffectToTech("shotgun-turret-damage-2",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "shotgun-turret-damage-2") or "physical-projectile-damage-2",
                     {
                         type = "turret-attack",
                         turret_id = shotgunTurret,
                         modifier = 0.2
     })
 
-    addEffectToTech("shotgun-turret-damage-3",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "shotgun-turret-damage-3") or "physical-projectile-damage-3",
                     {
                         type = "turret-attack",
                         turret_id = shotgunTurret,
                         modifier = 0.3
     })
 
-    addEffectToTech("shotgun-turret-damage-4",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "shotgun-turret-damage-4") or "physical-projectile-damage-4",
                     {
                         type = "turret-attack",
                         turret_id = shotgunTurret,
                         modifier = 0.3
     })
 
-    addEffectToTech("shotgun-turret-damage-5",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "shotgun-turret-damage-5") or "physical-projectile-damage-5",
                     {
                         type = "turret-attack",
                         turret_id = shotgunTurret,
                         modifier = 0.4
     })
 
-    addEffectToTech("shotgun-turret-damage-6",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "shotgun-turret-damage-6") or "physical-projectile-damage-6",
                     {
                         type = "turret-attack",
                         turret_id = shotgunTurret,
@@ -1012,7 +1015,7 @@ function cannons.enable()
     })
 
     if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
-        addEffectToTech("shotgun-turret-damage-7",
+        addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "shotgun-turret-damage-7") or "physical-projectile-damage-7",
                         {
                             type = "turret-attack",
                             turret_id = shotgunTurret,
@@ -1020,6 +1023,8 @@ function cannons.enable()
         })
     end
 
+
+    if settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value then
 
     addEffectToTech("cannon-turret-damage-1",
                     {
@@ -1076,8 +1081,9 @@ function cannons.enable()
                             modifier = 0.3
                         }
     })
+    end
 
-    addEffectToTech("cannon-turret-damage-5",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "cannon-turret-damage-5") or "physical-projectile-damage-5",
                     {
                         {
                             type = "turret-attack",
@@ -1091,7 +1097,7 @@ function cannons.enable()
                         }
     })
 
-    addEffectToTech("cannon-turret-damage-6",
+    addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "cannon-turret-damage-6") or "physical-projectile-damage-6",
                     {
                         {
                             type = "turret-attack",
@@ -1106,7 +1112,7 @@ function cannons.enable()
     })
 
     if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
-        addEffectToTech("cannon-turret-damage-7",
+        addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "cannon-turret-damage-7") or "physical-projectile-damage-7",
                         {
                             {
                                 type = "turret-attack",
@@ -1215,130 +1221,111 @@ function cannons.enable()
                             modifier = 0.5
         })
     end
-
-    local incendiaryCannonShellAmmo = makeAmmo({
-            name = "incendiary-cannon-shell",
-            icon = "__RampantArsenal__/graphics/icons/incendiary-cannon-shell.png",
-            order = "d[cannon-shell]-c[incendiary]",
-            magSize = 1,
-            stackSize = 200,
-            ammoType = {
-                category = "cannon-shell",
-                target_type = "direction",
-                clamp_position = true,
-                action =
-                    {
+    if settings.startup["rampant-arsenal-enableAmmoTypes"].value then
+        local incendiaryCannonShellAmmo = makeAmmo({
+                name = "incendiary-cannon-shell",
+                icon = "__RampantArsenal__/graphics/icons/incendiary-cannon-shell.png",
+                order = "d[cannon-shell]-c[incendiary]",
+                magSize = 1,
+                stackSize = 200,
+                ammoType = {
+                    category = "cannon-shell",
+                    target_type = "direction",
+                    clamp_position = true,
+                    action =
                         {
-                            type = "direct",
-                            action_delivery =
-                                {
-                                    type = "instant",
-                                    source_effects =
-                                        {
+                            {
+                                type = "direct",
+                                action_delivery =
+                                    {
+                                        type = "instant",
+                                        source_effects =
                                             {
-                                                type = "create-explosion",
-                                                entity_name = "explosion-gunshot"
+                                                {
+                                                    type = "create-explosion",
+                                                    entity_name = "explosion-gunshot"
+                                                }
                                             }
-                                        }
-                                }
-                        },
-                        {
-                            type = "direct",
-                            action_delivery =
-                                {
-                                    type = "projectile",
-                                    starting_speed = 1,
-                                    max_range = 34,
-                                    direction_deviation = 0.1,
-                                    range_deviation = 0.1,
-                                    min_range = 5,
-                                    projectile = makeCannonProjectile({
-                                            name = "incendiary",
-                                            piercingDamage = 100,
-                                            animation = {
-                                                filename = "__base__/graphics/entity/bullet/bullet.png",
-                                                frame_count = 1,
-                                                width = 3,
-                                                height = 50,
-                                                priority = "high"
-                                            },
-                                            action =
-                                                {
-                                                    type = "direct",
-                                                    action_delivery =
-                                                        {
-                                                            type = "instant",
-                                                            target_effects =
-                                                                {
-                                                                    {
-                                                                        type = "damage",
-                                                                        damage = {amount = 100 , type = "physical"}
-                                                                    },
-                                                                    {
-                                                                        type = "damage",
-                                                                        damage = {amount = 800 , type = "fire"}
-                                                                    },
-                                                                    {
-                                                                        type = "damage",
-                                                                        damage = {amount = 100 , type = "explosion"}
-                                                                    },
-                                                                    {
-                                                                        type = "create-entity",
-                                                                        entity_name = "big-explosion"
-                                                                    },
-                                                                    {
-                                                                        type = "create-sticker",
-                                                                        sticker = "small-fire-sticker-rampant-arsenal"
-                                                                    },
-                                                                    {
-                                                                        type = "create-fire",
-                                                                        entity_name = "fire-flame",
-                                                                        initial_ground_flame_count = 4
-                                                                    }
-                                                                }
-                                                        }
+                                    }
+                            },
+                            {
+                                type = "direct",
+                                action_delivery =
+                                    {
+                                        type = "projectile",
+                                        starting_speed = 1,
+                                        max_range = 34,
+                                        direction_deviation = 0.1,
+                                        range_deviation = 0.1,
+                                        min_range = 5,
+                                        projectile = makeCannonProjectile({
+                                                name = "incendiary",
+                                                piercingDamage = 100,
+                                                animation = {
+                                                    filename = "__base__/graphics/entity/bullet/bullet.png",
+                                                    frame_count = 1,
+                                                    width = 3,
+                                                    height = 50,
+                                                    priority = "high"
                                                 },
-                                            finalAction =
-                                                {
-                                                    type = "direct",
-                                                    action_delivery =
-                                                        {
-                                                            type = "instant",
-                                                            target_effects =
-                                                                {
+                                                action =
+                                                    {
+                                                        type = "direct",
+                                                        action_delivery =
+                                                            {
+                                                                type = "instant",
+                                                                target_effects =
                                                                     {
-                                                                        type = "create-entity",
-                                                                        entity_name = "big-explosion"
-                                                                    },
+                                                                        {
+                                                                            type = "damage",
+                                                                            damage = {amount = 100 , type = "physical"}
+                                                                        },
+                                                                        {
+                                                                            type = "damage",
+                                                                            damage = {amount = 800 , type = "fire"}
+                                                                        },
+                                                                        {
+                                                                            type = "damage",
+                                                                            damage = {amount = 100 , type = "explosion"}
+                                                                        },
+                                                                        {
+                                                                            type = "create-entity",
+                                                                            entity_name = "big-explosion"
+                                                                        },
+                                                                        {
+                                                                            type = "create-sticker",
+                                                                            sticker = "small-fire-sticker-rampant-arsenal"
+                                                                        },
+                                                                        {
+                                                                            type = "create-fire",
+                                                                            entity_name = "fire-flame",
+                                                                            initial_ground_flame_count = 4
+                                                                        }
+                                                                    }
+                                                            }
+                                                    },
+                                                finalAction =
+                                                    {
+                                                        type = "direct",
+                                                        action_delivery =
+                                                            {
+                                                                type = "instant",
+                                                                target_effects =
                                                                     {
-                                                                        type = "nested-result",
-                                                                        action =
-                                                                            {
+                                                                        {
+                                                                            type = "create-entity",
+                                                                            entity_name = "big-explosion"
+                                                                        },
+                                                                        {
+                                                                            type = "nested-result",
+                                                                            action =
                                                                                 {
-                                                                                    type = "cluster",
-                                                                                    cluster_count = 5,
-                                                                                    distance = 4,
-                                                                                    distance_deviation = 3,
-                                                                                    action_delivery =
-                                                                                        {
-                                                                                            type = "instant",
-                                                                                            target_effects =
-                                                                                                {
-                                                                                                    {
-                                                                                                        type = "create-fire",
-                                                                                                        entity_name = "fire-flame",
-                                                                                                        initial_ground_flame_count = 4,
-                                                                                                        check_buildability = true,
-                                                                                                        show_in_tooltip = true
-                                                                                                    }
-                                                                                                }
-                                                                                        }
-                                                                                },
-                                                                                {
-                                                                                    type = "area",
-                                                                                    radius = 4,
-                                                                                    action_delivery =
-                                                                                        {
+                                                                                    {
+                                                                                        type = "cluster",
+                                                                                        cluster_count = 5,
+                                                                                        distance = 4,
+                                                                                        distance_deviation = 3,
+                                                                                        action_delivery =
                                                                                             {
                                                                                                 type = "instant",
                                                                                                 target_effects =
@@ -1346,329 +1333,350 @@ function cannons.enable()
                                                                                                         {
                                                                                                             type = "create-fire",
                                                                                                             entity_name = "fire-flame",
-                                                                                                            initial_ground_flame_count = 4
-                                                                                                        },
-                                                                                                        {
-                                                                                                            type = "create-sticker",
-                                                                                                            sticker = "small-fire-sticker-rampant-arsenal"
+                                                                                                            initial_ground_flame_count = 4,
+                                                                                                            check_buildability = true,
+                                                                                                            show_in_tooltip = true
                                                                                                         }
                                                                                                     }
                                                                                             }
-                                                                                        }
-                                                                            }}
-                                                                    },
-                                                                    {
-                                                                        type = "create-entity",
-                                                                        entity_name = "small-scorchmark",
-                                                                        check_buildability = true
-                                                                    }
-                                                                }
-                                                        }
-                                                }
-                                    })
-                                }
-                        }
-                    }
-            }
-    })
-
-    makeRecipe({
-            name = incendiaryCannonShellAmmo,
-            icon = "__RampantArsenal__/graphics/icons/incendiary-cannon-shell.png",
-            enabled = false,
-            category = "crafting-with-fluid",
-            ingredients = {
-                {"explosive-cannon-shell", 1},
-                {"iron-plate", 1},
-                {type="fluid", name="light-oil", amount=40}
-            },
-            result = incendiaryCannonShellAmmo,
-    })
-
-    addEffectToTech("incendiary-cannon-shells",
-                    {
-                        type = "unlock-recipe",
-                        recipe = incendiaryCannonShellAmmo,
-    })
-
-
-    local heCannonShellAmmo = makeAmmo({
-            name = "he-cannon-shell",
-            icon = "__RampantArsenal__/graphics/icons/he-cannon-shell.png",
-            order = "d[cannon-shell]-c[he]",
-            magSize = 1,
-            stackSize = 200,
-            ammoType = {
-                category = "cannon-shell",
-                target_type = "direction",
-                clamp_position = true,
-                action =
-                    {
-                        {
-                            type = "direct",
-                            action_delivery =
-                                {
-                                    type = "instant",
-                                    source_effects =
-                                        {
-                                            {
-                                                type = "create-explosion",
-                                                entity_name = "explosion-gunshot"
-                                            }
-                                        }
-                                }
-                        },
-                        {
-                            type = "direct",
-                            action_delivery =
-                                {
-                                    type = "projectile",
-                                    max_range = 34,
-                                    direction_deviation = 0.1,
-                                    range_deviation = 0.1,
-                                    min_range = 5,
-
-                                    starting_speed = 1,
-                                    projectile = makeCannonProjectile({
-                                            name = "he",
-                                            piercingDamage = 100,
-                                            animation = {
-                                                filename = "__base__/graphics/entity/bullet/bullet.png",
-                                                frame_count = 1,
-                                                width = 3,
-                                                height = 50,
-                                                priority = "high"
-                                            },
-                                            action =
-                                                {
-                                                    type = "direct",
-                                                    action_delivery =
-                                                        {
-                                                            type = "instant",
-                                                            target_effects =
-                                                                {
-                                                                    {
-                                                                        type = "damage",
-                                                                        damage = {amount = 800 , type = "physical"}
-                                                                    },
-                                                                    {
-                                                                        type = "create-entity",
-                                                                        entity_name = "big-explosion"
-                                                                    }
-                                                                }
-                                                        }
-                                                },
-                                            finalAction =
-                                                {
-                                                    type = "direct",
-                                                    action_delivery =
-                                                        {
-                                                            type = "instant",
-                                                            target_effects =
-                                                                {
-                                                                    {
-                                                                        type = "create-entity",
-                                                                        entity_name = "big-explosion"
-                                                                    },
-                                                                    {
-                                                                        type = "nested-result",
-                                                                        action =
-                                                                            {
-                                                                                type = "area",
-                                                                                radius = 4,
-                                                                                action_delivery =
+                                                                                    },
                                                                                     {
-                                                                                        type = "instant",
-                                                                                        target_effects =
+                                                                                        type = "area",
+                                                                                        radius = 4,
+                                                                                        action_delivery =
                                                                                             {
                                                                                                 {
-                                                                                                    type = "damage",
-                                                                                                    damage = {amount = 800, type = "explosion"}
+                                                                                                    type = "instant",
+                                                                                                    target_effects =
+                                                                                                        {
+                                                                                                            {
+                                                                                                                type = "create-fire",
+                                                                                                                entity_name = "fire-flame",
+                                                                                                                initial_ground_flame_count = 4
+                                                                                                            },
+                                                                                                            {
+                                                                                                                type = "create-sticker",
+                                                                                                                sticker = "small-fire-sticker-rampant-arsenal"
+                                                                                                            }
+                                                                                                        }
                                                                                                 }
                                                                                             }
-                                                                                    }
-                                                                            }
-                                                                    },
-                                                                    {
-                                                                        type = "create-entity",
-                                                                        entity_name = "small-scorchmark",
-                                                                        check_buildability = true
+                                                                                }}
+                                                                        },
+                                                                        {
+                                                                            type = "create-entity",
+                                                                            entity_name = "small-scorchmark",
+                                                                            check_buildability = true
+                                                                        }
                                                                     }
-                                                                }
-                                                        }
-                                                }
-                                    })
-                                }
+                                                            }
+                                                    }
+                                        })
+                                    }
+                            }
                         }
-                    }
-            }
-    })
+                }
+        })
 
-    makeRecipe({
-            name = heCannonShellAmmo,
-            icon = "__RampantArsenal__/graphics/icons/he-cannon-shell.png",
-            enabled = false,
-            category = "crafting",
-            ingredients = {
-                {"explosive-cannon-shell", 1},
-                {"iron-plate", 1},
-                {"explosives", 6}
-            },
-            result = heCannonShellAmmo,
-    })
+        makeRecipe({
+                name = incendiaryCannonShellAmmo,
+                icon = "__RampantArsenal__/graphics/icons/incendiary-cannon-shell.png",
+                enabled = false,
+                category = "crafting-with-fluid",
+                ingredients = {
+                    {"explosive-cannon-shell", 1},
+                    {"iron-plate", 1},
+                    {type="fluid", name="light-oil", amount=40}
+                },
+                result = incendiaryCannonShellAmmo,
+        })
 
-    addEffectToTech("he-cannon-shells",
-                    {
-                        type = "unlock-recipe",
-                        recipe = heCannonShellAmmo,
-    })
-
-    local bioCannonShellAmmo = makeAmmo({
-            name = "bio-cannon-shell",
-            icon = "__RampantArsenal__/graphics/icons/bio-cannon-shell.png",
-            order = "d[cannon-shell]-c[fbio]",
-            magSize = 1,
-            stackSize = 200,
-            ammoType = {
-                category = "cannon-shell",
-                target_type = "direction",
-                clamp_position = true,
-                action =
-                    {
+        addEffectToTech("incendiary-cannon-shells",
                         {
-                            type = "direct",
-                            action_delivery =
-                                {
-                                    type = "instant",
-                                    source_effects =
-                                        {
+                            type = "unlock-recipe",
+                            recipe = incendiaryCannonShellAmmo,
+        })
+
+        local heCannonShellAmmo = makeAmmo({
+                name = "he-cannon-shell",
+                icon = "__RampantArsenal__/graphics/icons/he-cannon-shell.png",
+                order = "d[cannon-shell]-c[he]",
+                magSize = 1,
+                stackSize = 200,
+                ammoType = {
+                    category = "cannon-shell",
+                    target_type = "direction",
+                    clamp_position = true,
+                    action =
+                        {
+                            {
+                                type = "direct",
+                                action_delivery =
+                                    {
+                                        type = "instant",
+                                        source_effects =
                                             {
-                                                type = "create-explosion",
-                                                entity_name = "explosion-gunshot"
-                                            }
-                                        }
-                                }
-                        },
-                        {
-                            type = "direct",
-                            action_delivery =
-                                {
-                                    type = "projectile",
-                                    starting_speed = 1,
-                                    max_range = 34,
-                                    direction_deviation = 0.1,
-                                    range_deviation = 0.1,
-                                    min_range = 5,
-
-                                    projectile = makeCannonProjectile({
-                                            name = "bio",
-                                            piercingDamage = 100,
-                                            animation = {
-                                                filename = "__base__/graphics/entity/bullet/bullet.png",
-                                                frame_count = 1,
-                                                width = 3,
-                                                height = 50,
-                                                priority = "high"
-                                            },
-                                            action =
                                                 {
-                                                    type = "direct",
-                                                    action_delivery =
-                                                        {
-                                                            type = "instant",
-                                                            target_effects =
-                                                                {
-                                                                    {
-                                                                        type = "damage",
-                                                                        damage = {amount = 100 , type = "physical"}
-                                                                    },
-                                                                    {
-                                                                        type = "damage",
-                                                                        damage = {amount = 800 , type = "poison"}
-                                                                    },
-                                                                    {
-                                                                        type = "damage",
-                                                                        damage = {amount = 100 , type = "explosion"}
-                                                                    },
-                                                                    {
-                                                                        type = "create-entity",
-                                                                        entity_name = "big-explosion"
-                                                                    }
-                                                                }
-                                                        }
-                                                },
-                                            finalAction =
-                                                {
-                                                    type = "direct",
-                                                    action_delivery =
-                                                        {
-                                                            type = "instant",
-                                                            target_effects =
-                                                                {
-                                                                    {
-                                                                        type = "create-entity",
-                                                                        entity_name = "big-explosion"
-                                                                    },
-                                                                    {
-                                                                        type = "create-entity",
-                                                                        entity_name = "toxic-cloud-rampant-arsenal",
-                                                                        show_in_tooltip = true
-                                                                    },
-                                                                    {
-                                                                        type = "create-entity",
-                                                                        entity_name = "small-scorchmark",
-                                                                        check_buildability = true
-                                                                    }
-                                                                }
-                                                        }
+                                                    type = "create-explosion",
+                                                    entity_name = "explosion-gunshot"
                                                 }
-                                    })
-                                }
+                                            }
+                                    }
+                            },
+                            {
+                                type = "direct",
+                                action_delivery =
+                                    {
+                                        type = "projectile",
+                                        max_range = 34,
+                                        direction_deviation = 0.1,
+                                        range_deviation = 0.1,
+                                        min_range = 5,
+
+                                        starting_speed = 1,
+                                        projectile = makeCannonProjectile({
+                                                name = "he",
+                                                piercingDamage = 100,
+                                                animation = {
+                                                    filename = "__base__/graphics/entity/bullet/bullet.png",
+                                                    frame_count = 1,
+                                                    width = 3,
+                                                    height = 50,
+                                                    priority = "high"
+                                                },
+                                                action =
+                                                    {
+                                                        type = "direct",
+                                                        action_delivery =
+                                                            {
+                                                                type = "instant",
+                                                                target_effects =
+                                                                    {
+                                                                        {
+                                                                            type = "damage",
+                                                                            damage = {amount = 800 , type = "physical"}
+                                                                        },
+                                                                        {
+                                                                            type = "create-entity",
+                                                                            entity_name = "big-explosion"
+                                                                        }
+                                                                    }
+                                                            }
+                                                    },
+                                                finalAction =
+                                                    {
+                                                        type = "direct",
+                                                        action_delivery =
+                                                            {
+                                                                type = "instant",
+                                                                target_effects =
+                                                                    {
+                                                                        {
+                                                                            type = "create-entity",
+                                                                            entity_name = "big-explosion"
+                                                                        },
+                                                                        {
+                                                                            type = "nested-result",
+                                                                            action =
+                                                                                {
+                                                                                    type = "area",
+                                                                                    radius = 4,
+                                                                                    action_delivery =
+                                                                                        {
+                                                                                            type = "instant",
+                                                                                            target_effects =
+                                                                                                {
+                                                                                                    {
+                                                                                                        type = "damage",
+                                                                                                        damage = {amount = 800, type = "explosion"}
+                                                                                                    }
+                                                                                                }
+                                                                                        }
+                                                                                }
+                                                                        },
+                                                                        {
+                                                                            type = "create-entity",
+                                                                            entity_name = "small-scorchmark",
+                                                                            check_buildability = true
+                                                                        }
+                                                                    }
+                                                            }
+                                                    }
+                                        })
+                                    }
+                            }
                         }
-                    }
-            }
-    })
+                }
+        })
 
-    makeRecipe({
-            name = bioCannonShellAmmo,
-            icon = "__RampantArsenal__/graphics/icons/bio-cannon-shell.png",
-            enabled = false,
-            category = "crafting-with-fluid",
-            ingredients = {
-                {"explosive-cannon-shell", 1},
-                {"iron-plate", 1},
-                {"poison-capsule", 2}
-            },
-            result = bioCannonShellAmmo,
-    })
+        makeRecipe({
+                name = heCannonShellAmmo,
+                icon = "__RampantArsenal__/graphics/icons/he-cannon-shell.png",
+                enabled = false,
+                category = "crafting",
+                ingredients = {
+                    {"explosive-cannon-shell", 1},
+                    {"iron-plate", 1},
+                    {"explosives", 6}
+                },
+                result = heCannonShellAmmo,
+        })
 
-    data.raw["fluid-turret"]["flamethrower-turret"].attack_parameters.fluids[1].damage_modifier = 0.8
-    data.raw["fluid-turret"]["flamethrower-turret"].attack_parameters.fluids[2].damage_modifier = 1.0
+        addEffectToTech("he-cannon-shells",
+                        {
+                            type = "unlock-recipe",
+                            recipe = heCannonShellAmmo,
+        })
 
-    addEffectToTech("bio-cannon-shells",
-                    {
-                        type = "unlock-recipe",
-                        recipe = bioCannonShellAmmo,
-    })
+        local bioCannonShellAmmo = makeAmmo({
+                name = "bio-cannon-shell",
+                icon = "__RampantArsenal__/graphics/icons/bio-cannon-shell.png",
+                order = "d[cannon-shell]-c[fbio]",
+                magSize = 1,
+                stackSize = 200,
+                ammoType = {
+                    category = "cannon-shell",
+                    target_type = "direction",
+                    clamp_position = true,
+                    action =
+                        {
+                            {
+                                type = "direct",
+                                action_delivery =
+                                    {
+                                        type = "instant",
+                                        source_effects =
+                                            {
+                                                {
+                                                    type = "create-explosion",
+                                                    entity_name = "explosion-gunshot"
+                                                }
+                                            }
+                                    }
+                            },
+                            {
+                                type = "direct",
+                                action_delivery =
+                                    {
+                                        type = "projectile",
+                                        starting_speed = 1,
+                                        max_range = 34,
+                                        direction_deviation = 0.1,
+                                        range_deviation = 0.1,
+                                        min_range = 5,
 
-    local targetEffects = data.raw["projectile"]["uranium-cannon-projectile"].action.action_delivery.target_effects
-    targetEffects[1].damage.amount = targetEffects[1].damage.amount * 3
-    targetEffects[2].damage.amount = targetEffects[2].damage.amount * 3
+                                        projectile = makeCannonProjectile({
+                                                name = "bio",
+                                                piercingDamage = 100,
+                                                animation = {
+                                                    filename = "__base__/graphics/entity/bullet/bullet.png",
+                                                    frame_count = 1,
+                                                    width = 3,
+                                                    height = 50,
+                                                    priority = "high"
+                                                },
+                                                action =
+                                                    {
+                                                        type = "direct",
+                                                        action_delivery =
+                                                            {
+                                                                type = "instant",
+                                                                target_effects =
+                                                                    {
+                                                                        {
+                                                                            type = "damage",
+                                                                            damage = {amount = 100 , type = "physical"}
+                                                                        },
+                                                                        {
+                                                                            type = "damage",
+                                                                            damage = {amount = 800 , type = "poison"}
+                                                                        },
+                                                                        {
+                                                                            type = "damage",
+                                                                            damage = {amount = 100 , type = "explosion"}
+                                                                        },
+                                                                        {
+                                                                            type = "create-entity",
+                                                                            entity_name = "big-explosion"
+                                                                        }
+                                                                    }
+                                                            }
+                                                    },
+                                                finalAction =
+                                                    {
+                                                        type = "direct",
+                                                        action_delivery =
+                                                            {
+                                                                type = "instant",
+                                                                target_effects =
+                                                                    {
+                                                                        {
+                                                                            type = "create-entity",
+                                                                            entity_name = "big-explosion"
+                                                                        },
+                                                                        {
+                                                                            type = "create-entity",
+                                                                            entity_name = "toxic-cloud-rampant-arsenal",
+                                                                            show_in_tooltip = true
+                                                                        },
+                                                                        {
+                                                                            type = "create-entity",
+                                                                            entity_name = "small-scorchmark",
+                                                                            check_buildability = true
+                                                                        }
+                                                                    }
+                                                            }
+                                                    }
+                                        })
+                                    }
+                            }
+                        }
+                }
+        })
 
-    data.raw["ammo"]["cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
-    data.raw["ammo"]["explosive-cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
-    data.raw["ammo"]["explosive-uranium-cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
-    data.raw["ammo"]["uranium-cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
+        makeRecipe({
+                name = bioCannonShellAmmo,
+                icon = "__RampantArsenal__/graphics/icons/bio-cannon-shell.png",
+                enabled = false,
+                category = "crafting-with-fluid",
+                ingredients = {
+                    {"explosive-cannon-shell", 1},
+                    {"iron-plate", 1},
+                    {"poison-capsule", 2}
+                },
+                result = bioCannonShellAmmo,
+        })
+
+        addEffectToTech("bio-cannon-shells",
+                        {
+                            type = "unlock-recipe",
+                            recipe = bioCannonShellAmmo,
+        })
 
 
-    data.raw["technology"]["refined-flammables-7"].effects[2].modifier = 0.5
+        data.raw["fluid-turret"]["flamethrower-turret"].attack_parameters.fluids[1].damage_modifier = 0.8
+        data.raw["fluid-turret"]["flamethrower-turret"].attack_parameters.fluids[2].damage_modifier = 1.0
 
-    targetEffects = data.raw["projectile"]["explosive-uranium-cannon-projectile"].action.action_delivery.target_effects
-    targetEffects[1].damage.amount = targetEffects[1].damage.amount * 2.4
+        local targetEffects = data.raw["projectile"]["uranium-cannon-projectile"].action.action_delivery.target_effects
+        targetEffects[1].damage.amount = targetEffects[1].damage.amount * 3
+        targetEffects[2].damage.amount = targetEffects[2].damage.amount * 3
 
-    local action = data.raw["projectile"]["explosive-uranium-cannon-projectile"].final_action.action_delivery.target_effects[2].action
-    targetEffects = action.action_delivery.target_effects
-    targetEffects[1].damage.amount = targetEffects[1].damage.amount * 2.4
+        data.raw["ammo"]["cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
+        data.raw["ammo"]["explosive-cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
+        data.raw["ammo"]["explosive-uranium-cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
+        data.raw["ammo"]["uranium-cannon-shell"]["ammo_type"]["action"]["action_delivery"]["max_range"] = 34
+
+
+        data.raw["technology"]["refined-flammables-7"].effects[2].modifier = 0.5
+
+        targetEffects = data.raw["projectile"]["explosive-uranium-cannon-projectile"].action.action_delivery.target_effects
+        targetEffects[1].damage.amount = targetEffects[1].damage.amount * 2.4
+
+        local action = data.raw["projectile"]["explosive-uranium-cannon-projectile"].final_action.action_delivery.target_effects[2].action
+        targetEffects = action.action_delivery.target_effects
+        targetEffects[1].damage.amount = targetEffects[1].damage.amount * 2.4
+
+    end
 end
 
 
