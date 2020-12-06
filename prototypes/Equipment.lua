@@ -188,7 +188,8 @@ function Equipment.enable()
             name = "mk3",
             icon = "__RampantArsenal__/graphics/icons/energy-shield-mk3-equipment.png",
             picture = "__RampantArsenal__/graphics/equipment/energy-shield-mk3-equipment.png",
-            order = "b[shield]-b[energy-shield-equipment-mk3]",
+            order = "a[shield]-b[energy-shield-equipment-mk2z]",
+            subgroup = "military-equipment",
             energyPerShield = "50kJ",
             energySource = {
                 type = "electric",
@@ -353,7 +354,8 @@ function Equipment.enable()
             name = "shotgun",
             icon = "__RampantArsenal__/graphics/icons/personal-shotgun-defense-equipment.png",
             picture = "__RampantArsenal__/graphics/equipment/personal-shotgun-defense-equipment.png",
-            order = "d[active-defense]-a[personal-laser-defense-equipmentz]",
+            order = "b[active-defense]-a[personal-laser-defense-equipmentz]",
+            subgroup = "military-equipment",
             shape = {
                 width = 3,
                 height = 3,
@@ -439,7 +441,8 @@ function Equipment.enable()
             name = "cannon",
             icon = "__RampantArsenal__/graphics/icons/personal-cannon-defense-equipment.png",
             picture = "__RampantArsenal__/graphics/equipment/personal-cannon-defense-equipment.png",
-            order = "d[active-defense]-a[personal-laser-defense-equipmentzz]",
+            order = "b[active-defense]-a[personal-laser-defense-equipmentzz]",
+            subgroup = "military-equipment",            
             shape = {
                 width = 4,
                 height = 4,
@@ -582,7 +585,8 @@ function Equipment.enable()
             name = "lightning",
             icon = "__RampantArsenal__/graphics/icons/personal-lightning-defense-equipment.png",
             picture = "__RampantArsenal__/graphics/equipment/personal-lightning-defense-equipment.png",
-            order = "d[active-defense]-a[personal-laser-defense-equipmentzzz]",
+            order = "b[active-defense]-a[personal-laser-defense-equipmentzzz]",
+            subgroup = "military-equipment",            
             shape = {
                 width = 3,
                 height = 4,
@@ -626,7 +630,8 @@ function Equipment.enable()
             name = "bullets",
             icon = "__RampantArsenal__/graphics/icons/personal-bullet-defense-equipment.png",
             picture = "__RampantArsenal__/graphics/equipment/personal-bullet-defense-equipment.png",
-            order = "d[active-defense]-a[personal-laser-defense-equipmentzzzz]",
+            order = "b[active-defense]-a[personal-laser-defense-equipmentzzzz]",
+            subgroup = "military-equipment",            
             shape = {
                 width = 3,
                 height = 3,
@@ -682,7 +687,8 @@ function Equipment.enable()
             name = "slow",
             icon = "__RampantArsenal__/graphics/icons/personal-slow-defense-equipment.png",
             picture = "__RampantArsenal__/graphics/equipment/personal-slow-defense-equipment.png",
-            order = "d[active-defense]-a[personal-laser-defense-equipmentzzzzz]",
+            order = "b[active-defense]-a[personal-laser-defense-equipmentzzzzz]",
+            subgroup = "military-equipment",            
             shape = {
                 width = 3,
                 height = 3,

@@ -26,7 +26,7 @@ function equipmentUtils.makeShield(attributes)
                 icon_size = 32,
                 placed_as_equipment_result = name,
                 flags = {},
-                subgroup = "equipment",
+                subgroup = attributes.subgroup or "equipment",
                 order = attributes.order or "b[shield]-a[energy-shield-equipment]",
                 stack_size = 50,
                 default_request_amount = 10
@@ -304,7 +304,7 @@ function equipmentUtils.makePassiveDefense(attributes, attack)
                 icon_size = 32,
                 placed_as_equipment_result = name,
                 flags = {},
-                subgroup = "equipment",
+                subgroup = attributes.subgroup or "equipment",
                 order = attributes.order or "d[active-defense]-a[personal-laser-defense-equipment]",
                 stack_size = 20
             },
