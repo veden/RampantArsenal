@@ -60,6 +60,37 @@ function technologies.enable()
             time = 30
     })
 
+
+    local cannonTech = makeTechnology({
+            name = "cannon-turret-1",
+            prerequisites = {"gun-turret","tank","concrete","steel-processing"},
+            icon = "__RampantArsenal__/graphics/technology/cannon-turrets.png",
+            effects = {},
+            ingredients = {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"military-science-pack", 1}
+            },
+            count = 250,
+            time = 30
+    })
+
+    makeTechnology({
+            name = "cannon-turret-2",
+            prerequisites = {"explosives", (settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rampant-arsenal-technology-cannon-shell-speed-4") or "stronger-explosives-4", cannonTech},
+            icon = "__RampantArsenal__/graphics/technology/cannon-turrets.png",
+            effects = {},
+            ingredients = {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"military-science-pack", 1},
+                {"utility-science-pack", 1}
+            },
+            count = 400,
+            time = 30
+    })
     
     if settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value then
         data:extend({
@@ -1937,37 +1968,6 @@ function technologies.enable()
                     order = "e-z-f"
             })
         end
-
-        local cannonTech = makeTechnology({
-                name = "cannon-turret-1",
-                prerequisites = {"gun-turret","tank","concrete","steel-processing"},
-                icon = "__RampantArsenal__/graphics/technology/cannon-turrets.png",
-                effects = {},
-                ingredients = {
-                    {"automation-science-pack", 1},
-                    {"logistic-science-pack", 1},
-                    {"chemical-science-pack", 1},
-                    {"military-science-pack", 1}
-                },
-                count = 250,
-                time = 30
-        })
-
-        makeTechnology({
-                name = "cannon-turret-2",
-                prerequisites = {"explosives", (settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rampant-arsenal-technology-cannon-shell-speed-4") or "stronger-explosives-4", cannonTech},
-                icon = "__RampantArsenal__/graphics/technology/cannon-turrets.png",
-                effects = {},
-                ingredients = {
-                    {"automation-science-pack", 1},
-                    {"logistic-science-pack", 1},
-                    {"chemical-science-pack", 1},
-                    {"military-science-pack", 1},
-                    {"utility-science-pack", 1}
-                },
-                count = 400,
-                time = 30
-        })
         
         local cannonTurretDamage1 = makeTechnology({
                 name = "cannon-turret-damage-1",
@@ -3620,7 +3620,7 @@ function technologies.enable()
     makeTechnology({
             name = "regeneration-walls",
             icon="__RampantArsenal__/graphics/technology/mending-walls.png",
-            prerequisites = {regeneration, "stone-wall", "military-3"},
+            prerequisites = {regeneration, "stone-wall", "gate", "military-3"},
             effects = {},
             count = 200,
             ingredients = {
@@ -3845,7 +3845,7 @@ function technologies.enable()
             icon="__base__/graphics/technology/stone-wall.png",
             iconSize=256,
             iconMipmaps=4,            
-            prerequisites = {"military-3", "concrete", "stone-wall"},
+            prerequisites = {"military-3", "concrete", "stone-wall", "gate"},
             effects = {},
             count = 400,
             ingredients = {
@@ -4018,7 +4018,11 @@ function technologies.enable()
         makeTechnology({
                 name = "personal-shotgun-defense",
                 icon="__RampantArsenal__/graphics/technology/personal-shotgun-defense-equipment.png",
-                prerequisites = {"personal-laser-defense-equipment", "advanced-electronics-2", "effectivity-module-2", shotgunTurretTech, "rampant-arsenal-technology-shotgun-shell-damage-5"},
+                prerequisites = {"personal-laser-defense-equipment",
+                                 "advanced-electronics-2",
+                                 "effectivity-module-2",
+                                 shotgunTurretTech,
+                                 (settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rampant-arsenal-technology-shotgun-shell-damage-5") or "physical-projectile-damage-5"},
                 effects = {},
                 count = 400,
                 ingredients = {
@@ -4034,7 +4038,12 @@ function technologies.enable()
         makeTechnology({
                 name = "personal-cannon-defense",
                 icon="__RampantArsenal__/graphics/technology/personal-cannon-defense-equipment.png",
-                prerequisites = {"personal-laser-defense-equipment", "military-4", "advanced-electronics-2", cannonTech, "productivity-module-2", "rampant-arsenal-technology-cannon-shell-damage-4"},
+                prerequisites = {"personal-laser-defense-equipment",
+                                 "military-4",
+                                 "advanced-electronics-2",
+                                 cannonTech,
+                                 "productivity-module-2",
+                                 (settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rampant-arsenal-technology-cannon-shell-damage-4") or "physical-projectile-damage-6"},
                 effects = {},
                 count = 400,
                 ingredients = {
@@ -4050,7 +4059,12 @@ function technologies.enable()
         makeTechnology({
                 name = "personal-lightning-defense",
                 icon="__RampantArsenal__/graphics/technology/personal-lightning-defense-equipment.png",
-                prerequisites = {"personal-laser-defense-equipment", "military-4", "advanced-electronics-2", lightningTurretTech, "speed-module-2", "rampant-arsenal-technology-energy-weapons-damage-3"},
+                prerequisites = {"personal-laser-defense-equipment",
+                                 "military-4",
+                                 "advanced-electronics-2",
+                                 lightningTurretTech,
+                                 "speed-module-2",
+                                 (settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rampant-arsenal-technology-energy-weapons-damage-3") or "energy-weapons-damage-5"},
                 effects = {},
                 count = 400,
                 ingredients = {

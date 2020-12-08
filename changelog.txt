@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 07. 12. 2020
+  Bugfixes:
+    - Added Gate technology prerequisite to regenerating and reinforced walls and gates technology
+    - Fixed hide vanilla technologies not correctly disabling
+
+---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 28. 11. 2020
   Improvements:
