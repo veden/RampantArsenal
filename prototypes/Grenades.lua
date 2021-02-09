@@ -630,7 +630,7 @@ function grenades.enable()
                                             target_effects =
                                                 {
                                                     type = "damage",
-                                                    damage = {type = "healing", amount = -100}
+                                                    damage = {type = "healing", amount = -300}
                                                 }
                                         }
                                 }
