@@ -1,20 +1,12 @@
 -- imports
 
 local constants = require("libs/Constants")
-local mathUtils = require("libs/MathUtils")
 
 -- constants
 
 local MENDING_WALL_COOLDOWN = constants.MENDING_WALL_COOLDOWN
 
 -- imported functions
-
-local gaussianRandomRange = mathUtils.gaussianRandomRange
-
-local strFind = string.find
-local substr = string.sub
-local mRandom = math.random
-local mFloor = math.floor
 
 -- local references
 
@@ -27,11 +19,11 @@ local function onModSettingsChange(event)
     if (remote.interfaces["flammable_oils"]) then
         remote.call("flammable_oils", "add_flammable_type", "napalm-fluid-rampant-arsenal")
     end
-    
+
     if event and (string.sub(event.setting, 1, 18) ~= "rampant-arsenal") then
         return false
     end
-    
+
     return true
 end
 
@@ -54,7 +46,7 @@ local function onConfigChanged()
 
         world.mendingWalls = {}
 
-        for i,p in ipairs(game.connected_players) do
+        for _,p in ipairs(game.connected_players) do
             p.print("Rampant Arsenal - Version 1.0.1")
         end
         world.version = 16
