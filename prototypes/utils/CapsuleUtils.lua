@@ -16,6 +16,7 @@ function capsuleUtils.makeCapsule(attributes, attack)
                         attack_parameters =
                             {
                                 type = "projectile",
+                                activation_type = "throw",
                                 ammo_category = "grenade",
                                 cooldown = 30,
                                 projectile_creation_distance = 0.6,
@@ -26,13 +27,29 @@ function capsuleUtils.makeCapsule(attributes, attack)
                                         target_type = "position",
                                         action =
                                             {
-                                                type = "direct",
-                                                action_delivery =
-                                                    {
-                                                        type = "projectile",
-                                                        projectile = "grenade",
-                                                        starting_speed = 0.3
-                                                    }
+                                                {
+                                                    type = "direct",
+                                                    action_delivery =
+                                                        {
+                                                            type = "projectile",
+                                                            projectile = "grenade",
+                                                            starting_speed = 0.3
+                                                        }
+                                                },
+                                                {
+                                                    type = "direct",
+                                                    action_delivery =
+                                                        {
+                                                            type = "instant",
+                                                            target_effects =
+                                                                {
+                                                                    {
+                                                                        type = "play-sound",
+                                                                        sound = sounds.throw_projectile
+                                                                    }
+                                                                }
+                                                        }
+                                                }
                                             }
                                     }
                             }
@@ -42,7 +59,7 @@ function capsuleUtils.makeCapsule(attributes, attack)
                 stack_size = attributes.stackSize or 100
             }
     })
-    
+
     return name
 end
 

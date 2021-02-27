@@ -3,6 +3,8 @@ Version: 1.0.3
 Date: 07. 02. 2021
   Bugfixes:
     - Added increased healing capsule to 300 health recovery
+    - Fixed throw/consume tooltip missing on capsules and grenades
+    - Fixed missing throw sound for capsules
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.2
