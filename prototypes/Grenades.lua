@@ -787,7 +787,8 @@ function grenades.enable()
                                             target_effects =
                                                 {
                                                     type = "create-sticker",
-                                                    sticker = "speed-boost-sticker-rampant-arsenal"
+                                                    sticker = "speed-boost-sticker-rampant-arsenal",
+                                                    show_in_tooltip = true
                                                 }
                                         }
                                 }
