@@ -190,6 +190,10 @@ function vehicles.enable()
         })
     end
 
+    local spidertronGrid = data.raw["equipment-grid"]["spidertron-equipment-grid"].equipment_categories
+
+    spidertronGrid[#spidertronGrid+1] = "adv-generator"
+
     local advTank = makeTank({
             name = "advanced",
             scale = 0.8,
