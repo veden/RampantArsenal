@@ -1061,12 +1061,14 @@ function vehicles.enable()
             eName = "nuclear-fuel",
             fuelEmissionsMultipler = 4
     })
-
-    modifyItem({
-            eType = "item",
-            eName = "nuclear-fuel",
-            stackSize = 10
-    })
+    
+    if settings.startup["rampant-arsenal-enableVehicleNuclearFuelStackSize"].value then
+        modifyItem({
+                eType = "item",
+                eName = "nuclear-fuel",
+                stackSize = 10
+        })
+    end
 
     addCategory("night-vision-equipment", "immobile")
     addCategory("energy-shield-equipment", "immobile")
