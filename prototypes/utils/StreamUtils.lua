@@ -17,7 +17,7 @@ function streamUtils.makeAcidStream(attributes)
                 particle_buffer_size = attributes.bufferSize,
                 particle_spawn_interval = attributes.spawnInterval,
                 particle_spawn_timeout = attributes.particleTimeout,
-                particle_vertical_acceleration = 0.005 * 0.60 *1.5, --x
+                particle_vertical_acceleration = 0.005 * 0.60 * 1.5, --x
                 particle_horizontal_speed = attributes.particleHoizontalSpeed or 0.2* 0.75 * 1.5 * 1.5, --x
                 particle_horizontal_speed_deviation = 0.005 * 0.70,
                 particle_start_alpha = 0.5,
@@ -224,7 +224,7 @@ function streamUtils.makeStreamProjectile(attributes)
                 particle_buffer_size = 90,
                 particle_spawn_interval = 1,
                 particle_spawn_timeout = 1,
-                particle_vertical_acceleration = 0.005 * 0.60 *1.5, --x
+                particle_vertical_acceleration =  0.005 * 0.60 * 0.9, --x
                 particle_horizontal_speed = 0.2* 0.75 * 1.5 * 1.5, --x
                 particle_horizontal_speed_deviation = 0.005 * 0.70,
                 particle_start_alpha = 0.5,

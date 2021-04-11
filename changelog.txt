@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.6
+Date: 10. 04. 2021
+  Improvements:
+    - Added light artillery that shoots launcher ammo that is modeled after an artillery turret with remote
+  Migration:
+    - Fuel emission multipliers moved to Rampant Industry
+  Tweaks:
+    - Shotgun turret range reduced by 29%
+    - Reverted nuclear cell to vanilla stack size
+    - Capsule turret damage bonus reduced by 50%
+
+---------------------------------------------------------------------------------------------------
 Version: 1.0.5
 Date: 28. 03. 2021
   Bugfixes:

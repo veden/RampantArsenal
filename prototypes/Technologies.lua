@@ -91,7 +91,7 @@ function technologies.enable()
             count = 400,
             time = 30
     })
-    
+
     if settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value then
         data:extend({
 
@@ -303,7 +303,7 @@ function technologies.enable()
                         },
                     upgrade = true,
                     order = "e-l-f"
-                },                
+                },
 
                 {
                     type = "technology",
@@ -604,7 +604,7 @@ function technologies.enable()
                 {
                     type = "technology",
                     name = "rampant-arsenal-technology-rocket-damage-5",
-                    icon_size = 128,                    
+                    icon_size = 128,
                     icon_mipmaps = 1,
                     icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
                     effects =
@@ -634,7 +634,7 @@ function technologies.enable()
                 {
                     type = "technology",
                     name = "rampant-arsenal-technology-rocket-damage-6",
-                    icon_size = 128,                    
+                    icon_size = 128,
                     icon_mipmaps = 1,
                     icon = "__RampantArsenal__/graphics/technology/rocket-damage.png",
                     effects =
@@ -1269,7 +1269,7 @@ function technologies.enable()
                 {
                     type = "technology",
                     name = "rampant-arsenal-technology-cannon-shell-damage-2",
-                    icon_size = 128,                    
+                    icon_size = 128,
                     icon_mipmaps = 1,
                     icon = "__RampantArsenal__/graphics/technology/cannon-damage.png",
                     effects =
@@ -1968,7 +1968,7 @@ function technologies.enable()
                     order = "e-z-f"
             })
         end
-        
+
         local cannonTurretDamage1 = makeTechnology({
                 name = "cannon-turret-damage-1",
                 prerequisites = {cannonTech},
@@ -2735,7 +2735,7 @@ function technologies.enable()
                     time = 60,
                     order = "e-z-f"
             })
-        end        
+        end
 
         if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
             makeTechnology({
@@ -3088,7 +3088,7 @@ function technologies.enable()
             })
         end
 
-    end    
+    end
 
     if settings.startup["rampant-arsenal-enableAmmoTypes"].value then
         local incendiary = makeTechnology({
@@ -3544,7 +3544,7 @@ function technologies.enable()
             prerequisites = {"laser-turret", (settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rampant-arsenal-technology-energy-weapons-damage-1") or "energy-weapons-damage-1", "military-3"},
             icon = "__base__/graphics/technology/laser-turret.png",
             iconSize=256,
-            iconMipmaps=4,            
+            iconMipmaps=4,
             effects = {},
             ingredients = {
                 {"automation-science-pack", 1},
@@ -3558,9 +3558,9 @@ function technologies.enable()
 
     makeTechnology({
             name = "advanced-laser-turret-3",
-            icon = "__base__/graphics/technology/laser-turret.png",            
+            icon = "__base__/graphics/technology/laser-turret.png",
             iconSize=256,
-            iconMipmaps=4,            
+            iconMipmaps=4,
             prerequisites = {(settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rampant-arsenal-technology-energy-weapons-damage-4") or "energy-weapons-damage-4", laserTurret, "advanced-electronics-2", "military-4", "electric-engine"},
             effects = {},
             ingredients = {
@@ -3681,7 +3681,7 @@ function technologies.enable()
                 name = "tanks-2",
                 icon="__base__/graphics/technology/tank.png",
                 iconSize=256,
-                iconMipmaps=4,            
+                iconMipmaps=4,
                 prerequisites = {"tank", "advanced-electronics-2", "military-4"},
                 effects = {},
                 count = 300,
@@ -3746,7 +3746,7 @@ function technologies.enable()
                 time = 30
         })
     end
-    
+
     if settings.startup["rampant-arsenal-enableEquipment"].value then
         makeTechnology({
                 name = "power-armor-mk3",
@@ -3769,7 +3769,7 @@ function technologies.enable()
                 name = "generator-equipment-2",
                 icon="__base__/graphics/technology/fusion-reactor-equipment.png",
                 iconSize=256,
-                iconMipmaps=4,            
+                iconMipmaps=4,
                 prerequisites = {"fusion-reactor-equipment", "productivity-module-3"},
                 effects = {},
                 count = 600,
@@ -3784,11 +3784,35 @@ function technologies.enable()
                 time = 30
         })
 
+
+        makeTechnology({
+                name = "lite-artillery",
+                icons=
+                    {
+                        {
+                            icon = "__base__/graphics/technology/artillery.png",
+                            icon_size=256,
+                            icon_mipmaps=4,
+                            tint = { 0.5, 0.9, 0.5, 1 }
+                        }
+                    },
+                prerequisites = {"tank", capsuleTurretTech, "concrete"},
+                effects = {},
+                count = 800,
+                ingredients = {
+                    {"automation-science-pack", 1},
+                    {"logistic-science-pack", 1},
+                    {"chemical-science-pack", 1},
+                    {"military-science-pack", 1}
+                },
+                time = 60
+        })
+
         makeTechnology({
                 name = "generator-equipment-3",
                 icon="__base__/graphics/technology/fusion-reactor-equipment.png",
                 iconSize=256,
-                iconMipmaps=4,            
+                iconMipmaps=4,
                 prerequisites = {genMk2, "nuclear-power"},
                 effects = {},
                 count = 800,
@@ -3807,7 +3831,7 @@ function technologies.enable()
                 name = "shield-equipment-2",
                 icon="__base__/graphics/technology/energy-shield-mk2-equipment.png",
                 iconSize=256,
-                iconMipmaps=4,            
+                iconMipmaps=4,
                 prerequisites = {"energy-shield-mk2-equipment", "speed-module-3"},
                 effects = {},
                 count = 400,
@@ -3825,7 +3849,7 @@ function technologies.enable()
                 name = "battery-equipment-3",
                 icon="__base__/graphics/technology/battery-mk2-equipment.png",
                 iconSize=256,
-                iconMipmaps=4,            
+                iconMipmaps=4,
                 prerequisites = {"battery-mk2-equipment", "effectivity-module-3"},
                 effects = {},
                 count = 400,
@@ -3844,7 +3868,7 @@ function technologies.enable()
             name = "stone-walls-2",
             icon="__base__/graphics/technology/stone-wall.png",
             iconSize=256,
-            iconMipmaps=4,            
+            iconMipmaps=4,
             prerequisites = {"military-3", "concrete", "stone-wall", "gate"},
             effects = {},
             count = 400,

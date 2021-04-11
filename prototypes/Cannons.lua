@@ -868,7 +868,7 @@ function cannons.enable()
                                                                turn_range = 0.4,
                                                                projectile_creation_distance = 1.39375,
                                                                projectile_center = {0, -0.0875},
-                                                               range = 22,
+                                                               range = 17,
                                                                sound = sounds.shotgun
     })
 

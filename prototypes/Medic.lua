@@ -31,20 +31,20 @@ local function medicSheet()
                         shift = {-0.2, -1},
                     }
                 }
-        }    
+        }
 end
 
 
 function medic.enable()
 
     data:extend(
-        {	    
+        {
             {
                 type = "ammo-category",
                 name = "turret-capsule",
-            }	    
+            }
     })
-    
+
     local medicTurretAttributes = {
         name = "medic",
         icon = "__RampantArsenal__/graphics/icons/zone-expander.png",
@@ -114,20 +114,20 @@ function medic.enable()
             ingredients = {
                 {"engine-unit", 5},
                 {"advanced-circuit", 5},
-                {"steel-plate", 15}		
+                {"steel-plate", 15}
             },
             result = medicTurretItem
     })
 
 
-    local repairCapsules = makeAmmo({		    
+    local repairCapsules = makeAmmo({
             name = "self-repair-capsule",
             icon = "__RampantArsenal__/graphics/icons/medic-repair-pack.png",
             subgroup = "launcher-capsule",
             order = "y[turret-capsule]",
             magSize = 25,
             stackSize = 200,
-            ammoType = {		
+            ammoType = {
                 category = "turret-capsule",
                 target_type = "position",
                 clamp_position = true,
@@ -289,7 +289,7 @@ function medic.enable()
                             modifier = 0.2
         })
     end
-    
+
 end
 
 return medic

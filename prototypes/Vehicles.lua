@@ -5,14 +5,11 @@ local recipeUtils = require("utils/RecipeUtils")
 local technologyUtils = require("utils/TechnologyUtils")
 local vehicleUtils = require("utils/VehicleUtils")
 local gridUtils = require("utils/GridUtils")
-local itemUtils = require("utils/ItemUtils")
 local gunUtils = require("utils/GunUtils")
 local equipmentUtils = require("utils/EquipmentUtils")
 
 local addCategory = equipmentUtils.addCategory
 local makeGun = gunUtils.makeGun
-local addFuelToItem = itemUtils.addFuelToItem
-local modifyItem = itemUtils.modifyItem
 local makeGrid = gridUtils.makeGrid
 local addEquipmentGrid = vehicleUtils.addEquipmentGrid
 local addAutomaticRobotDeploy = vehicleUtils.addAutomaticRobotDeploy
@@ -1029,46 +1026,6 @@ function vehicles.enable()
                         type = "unlock-recipe",
                         recipe = nuclearTrain
     })
-
-    addFuelToItem({
-            eType = "item",
-            eName = "uranium-fuel-cell",
-            accelerationMutlipler = 1.5,
-            topSpeedMultipler = 1.10,
-            fuelEmissionsMultipler = 3
-    })
-
-    addFuelToItem({
-            eType = "item",
-            eName = "solid-fuel",
-            fuelEmissionsMultipler = 0.75
-    })
-
-    addFuelToItem({
-            eType = "item",
-            eName = "rocket-fuel",
-            fuelEmissionsMultipler = 1.5
-    })
-
-    addFuelToItem({
-            eType = "item",
-            eName = "coal",
-            fuelEmissionsMultipler = 2
-    })
-
-    addFuelToItem({
-            eType = "item",
-            eName = "nuclear-fuel",
-            fuelEmissionsMultipler = 4
-    })
-    
-    if settings.startup["rampant-arsenal-enableVehicleNuclearFuelStackSize"].value then
-        modifyItem({
-                eType = "item",
-                eName = "nuclear-fuel",
-                stackSize = 10
-        })
-    end
 
     addCategory("night-vision-equipment", "immobile")
     addCategory("energy-shield-equipment", "immobile")

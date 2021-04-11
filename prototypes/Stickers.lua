@@ -12,7 +12,7 @@ function stickers.enable()
             duration = 120,
             spreadRadius = 5,
             tint = {r=0.5,g=0,b=0.5,a=0.8},
-            movementModifier = 0.95,	    
+            movementModifier = 0.95,
             damagePerTick = { type = "poison", amount = 15 }
         }
     )
@@ -28,7 +28,7 @@ function stickers.enable()
         }
     )
 
-    
+
     makeSticker(
         {
             name = "small-fire",
@@ -50,7 +50,7 @@ function stickers.enable()
             damagePerTick = { type = "poison", amount = 17 }
         }
     )
-    
+
     makeSticker(
         {
             name = "paralysis",
@@ -80,7 +80,7 @@ function stickers.enable()
             movementModifier = 0.7
         }
     )
-    
+
     makeSticker(
         {
             name = "big-paralysis",
@@ -90,7 +90,7 @@ function stickers.enable()
             movementModifier = 0
         }
     )
-    
+
     makeSticker(
         {
             name = "big-toxic",

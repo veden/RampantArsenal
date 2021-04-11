@@ -2,6 +2,7 @@ local artillery = {}
 
 local sounds = require("__base__.prototypes.entity.sounds")
 
+local scaleUtils = require("utils/ScaleUtils")
 local recipeUtils = require("utils/RecipeUtils")
 local technologyUtils = require("utils/TechnologyUtils")
 local projectileUtils = require("utils/ProjectileUtils")
@@ -11,9 +12,129 @@ local makeAmmo = ammoUtils.makeAmmo
 local addEffectToTech = technologyUtils.addEffectToTech
 local makeArtilleryShell = projectileUtils.makeArtilleryShell
 local makeRecipe = recipeUtils.makeRecipe
+local scaleBoundingBox = scaleUtils.scaleBoundingBox
+local scalePicture = scaleUtils.scalePicture
 
 function artillery.enable()
-    
+
+    local liteArtillery = table.deepcopy(data.raw["artillery-turret"]["artillery-turret"])
+    liteArtillery.name = "lite-artillery-turret-rampant-arsenal"
+    liteArtillery.max_health = 1000
+    liteArtillery.minable.result = "lite-artillery-turret-rampant-arsenal"
+    liteArtillery.rotating_sound.sound.volume = 0.4
+    liteArtillery.collision_box = scaleBoundingBox(0.65, liteArtillery.collision_box)
+    liteArtillery.selection_box = scaleBoundingBox(0.65, liteArtillery.selection_box)
+    liteArtillery.drawing_box = scaleBoundingBox(0.65, liteArtillery.drawing_box)
+    liteArtillery.base_shift[1] = 0
+    liteArtillery.base_shift[2] = 0
+    liteArtillery.manual_range_modifier = 1.25
+    liteArtillery.gun = "lite-artillery-turret-gun-rampant-arsenal"
+    scalePicture(0.35, liteArtillery.base_picture, 0.35)
+    scalePicture(0.35, liteArtillery.cannon_barrel_pictures, 0.74)
+    scalePicture(0.35, liteArtillery.cannon_base_pictures, 0.75)
+
+
+    local liteArtilleryItem = table.deepcopy(data.raw["item"]["artillery-turret"])
+    liteArtilleryItem.name = "lite-artillery-turret-rampant-arsenal"
+    liteArtilleryItem.place_result = "lite-artillery-turret-rampant-arsenal"
+    liteArtilleryItem.icons = {
+        {icon = "__base__/graphics/icons/artillery-turret.png", icon_size = 64, icon_mipmaps = 4, tint = { 0.5, 0.9, 0.5, 1 }}
+    }
+
+    local liteArtilleryRecipe = table.deepcopy(data.raw["recipe"]["artillery-turret"])
+    liteArtilleryRecipe.name = "lite-artillery-turret-rampant-arsenal"
+    liteArtilleryRecipe.result = "lite-artillery-turret-rampant-arsenal"
+    liteArtilleryRecipe.enabled = false
+    liteArtilleryRecipe.energy_required = 30
+    liteArtilleryRecipe.order = "b[turret]-d[aremote]"
+    liteArtilleryRecipe.ingredients = {
+        {"steel-plate", 30},
+        {"concrete", 30},
+        {"iron-gear-wheel", 20},
+        {"advanced-circuit", 10}
+    }
+
+    local liteArtilleryGun = table.deepcopy(data.raw["gun"]["artillery-wagon-cannon"])
+    liteArtilleryGun.name = "lite-artillery-turret-gun-rampant-arsenal"
+    liteArtilleryGun.attack_parameters.ammo_category = "capsule-launcher"
+    liteArtilleryGun.attack_parameters.range = 90
+    liteArtilleryGun.attack_parameters.cooldown = 350
+    liteArtilleryGun.attack_parameters.damage_modifier = 0.75
+    liteArtilleryGun.attack_parameters.sound[1].volume = 0.5
+    liteArtilleryGun.attack_parameters.shell_particle.scale = 0.75
+
+
+    local liteArtilleryRemote = table.deepcopy(data.raw["capsule"]["artillery-targeting-remote"])
+    liteArtilleryRemote.name = "artillery-targeting-remote-rampant-arsenal"
+    liteArtilleryRemote.icons = {
+        {icon = "__base__/graphics/icons/artillery-targeting-remote.png", icon_size = 64, icon_mipmaps = 4, tint = { 0.5, 0.9, 0.5, 1 }}
+    }
+    liteArtilleryRemote.capsule_action =
+        {
+            type = "artillery-remote",
+            flare = "artillery-flare-rampant-arsenal"
+        }
+
+    local artilleryFlare = data.raw["artillery-flare"]["artillery-flare"]
+    if artilleryFlare then
+        artilleryFlare.shot_category = artilleryFlare.shot_category or "artillery-shell"
+    end
+
+    data:extend({liteArtilleryGun, liteArtillery, liteArtilleryItem, liteArtilleryRecipe, liteArtilleryRemote,
+                 {
+                     type = "artillery-flare",
+                     name = "artillery-flare-rampant-arsenal",
+                     icon = "__base__/graphics/icons/artillery-targeting-remote.png",
+                     icon_size = 64, icon_mipmaps = 4,
+                     flags = {"placeable-off-grid", "not-on-map"},
+                     map_color = {r=1, g=1, b=0},
+                     life_time = 60 * 60,
+                     initial_height = 0,
+                     initial_vertical_speed = 0,
+                     initial_frame_speed = 1,
+                     shots_per_flare = 1,
+                     shot_category = "capsule-launcher",
+                     early_death_ticks = 3 * 60,
+                     pictures =
+                         {
+                             {
+                                 filename = "__core__/graphics/shoot-cursor-red.png",
+                                 tint = {r=0.75, g=0.75, b=0},
+                                 priority = "low",
+                                 width = 258,
+                                 height = 183,
+                                 frame_count = 1,
+                                 scale = 1,
+                                 flags = {"icon"}
+                             }
+                         }
+                 },
+                 {
+                     type = "recipe",
+                     name = "artillery-targeting-remote-rampant-arsenal",
+                     enabled = false,
+                     ingredients =
+                         {
+                             {"advanced-circuit", 1},
+                             {"radar", 1}
+                         },
+                     order = "b[turret]-d[atz]",
+                     result = "artillery-targeting-remote-rampant-arsenal"
+                 }
+    })
+
+    addEffectToTech("lite-artillery",
+                    {
+                        type = "unlock-recipe",
+                        recipe = liteArtillery.name,
+    })
+
+    addEffectToTech("lite-artillery",
+                    {
+                        type = "unlock-recipe",
+                        recipe = liteArtilleryRemote.name,
+    })
+
     local incendiaryArtilleryShellAmmo = makeAmmo({
             name = "incendiary-artillery",
             icon = "__RampantArsenal__/graphics/icons/incendiary-artillery-shell.png",
@@ -88,9 +209,9 @@ function artillery.enable()
                                     },
                             }
                     },
-            }	    
+            }
     })
-    
+
     makeRecipe({
             name = incendiaryArtilleryShellAmmo,
             icon = "__RampantArsenal__/graphics/icons/incendiary-artillery-shell.png",
@@ -108,7 +229,7 @@ function artillery.enable()
                         type = "unlock-recipe",
                         recipe = incendiaryArtilleryShellAmmo,
     })
-    
+
     local heArtilleryShellAmmo = makeAmmo({
             name = "he-artillery",
             icon = "__RampantArsenal__/graphics/icons/he-artillery-shell.png",
@@ -205,12 +326,12 @@ function artillery.enable()
                                     {
                                         type = "create-explosion",
                                         entity_name = "artillery-cannon-muzzle-flash"
-                                    }				
+                                    }
                             }
                     },
-            }	    
+            }
     })
-    
+
     makeRecipe({
             name = heArtilleryShellAmmo,
             icon = "__RampantArsenal__/graphics/icons/he-artillery-shell.png",
@@ -228,7 +349,7 @@ function artillery.enable()
                         type = "unlock-recipe",
                         recipe = heArtilleryShellAmmo,
     })
-    
+
     local bioArtilleryShellAmmo = makeAmmo({
             name = "bio-artillery",
             icon = "__RampantArsenal__/graphics/icons/bio-artillery-shell.png",
@@ -313,9 +434,9 @@ function artillery.enable()
                                     },
                             }
                     },
-            }	    
+            }
     })
-    
+
     makeRecipe({
             name = bioArtilleryShellAmmo,
             icon = "__RampantArsenal__/graphics/icons/bio-artillery-shell.png",
@@ -336,7 +457,7 @@ function artillery.enable()
                         recipe = bioArtilleryShellAmmo,
     })
 
-    
+
     local nuclearArtilleryShellAmmo = makeAmmo({
             name = "nuclear-artillery",
             icon = "__RampantArsenal__/graphics/icons/nuclear-artillery-shell.png",
@@ -588,9 +709,9 @@ function artillery.enable()
                                     },
                             }
                     },
-            }	    
+            }
     })
-    
+
     makeRecipe({
             name = nuclearArtilleryShellAmmo,
             icon = "__RampantArsenal__/graphics/icons/nuclear-artillery-shell.png",
