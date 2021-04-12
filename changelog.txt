@@ -9,6 +9,11 @@ Date: 10. 04. 2021
     - Shotgun turret range reduced by 29%
     - Reverted nuclear cell to vanilla stack size
     - Capsule turret damage bonus reduced by 50%
+    - Increased breaking power for advanced and nuclear car and tank
+    - Reduced nuclear tank speed by x4
+    - Increased nuclear tank fuel consumption by x3
+    - Increased nuclear car fuel consumption by x6.6
+    - Increased nuclear car fuel consumption by x3.33
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.5

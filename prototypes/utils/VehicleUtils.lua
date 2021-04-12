@@ -478,7 +478,7 @@ function vehicleUtils.makeTank(attributes)
                     },
                 open_sound = { filename = "__base__/sound/car-door-open.ogg", volume=0.5 },
                 close_sound = { filename = "__base__/sound/car-door-close.ogg", volume = 0.3 },
-                rotation_speed = 0.0035,
+                rotation_speed = attributes.rotationSpeed or 0.0035,
                 tank_driving = true,
                 weight = 60000,
                 inventory_size = 120,
