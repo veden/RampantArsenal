@@ -44,7 +44,7 @@ data:extend({
         --     order = "a[projectile]-a[collide]",
         --     per_user = false
         -- },
-        
+
         {
             type = "bool-setting",
             name = "rampant-arsenal-enableNuclearGeneratorEquipmentConsuming",
