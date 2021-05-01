@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.9
+Date: 24. 04. 2021
+  Integrations:
+    - When RPGSystem is active the health research from Rampant arsenal is hidden
+  Tweaks:
+    - Increased rocket turrets minimum ranges by 5 and max range by 2
+    - Reduced shotgun turret damage bonus by 50%
+    - Increased min range on capsule turret by 5 and max range by 3
+  Bugfixes:
+    - Added check for artillery sound changes
+
+---------------------------------------------------------------------------------------------------
 Version: 1.0.8
 Date: 17. 04. 2021
   Contributions:

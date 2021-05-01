@@ -863,7 +863,7 @@ function cannons.enable()
                                                                ammo_category = "shotgun-shell",
                                                                cooldown = 45,
                                                                min_range = 0,
-                                                               damage_modifier = 2.0,
+                                                               damage_modifier = 1.5,
                                                                lead_target_for_projectile_speed = 0.9,
                                                                turn_range = 0.4,
                                                                projectile_creation_distance = 1.39375,

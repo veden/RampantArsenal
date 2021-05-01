@@ -1521,9 +1521,9 @@ function capsules.enable()
                                                                     west = {0, -4}
                                                                 },
                                                                 gun_barrel_length = 4,
-                                                                min_range = 15,
+                                                                min_range = 20,
                                                                 turn_range = 0.30,
-                                                                range = 47,
+                                                                range = 50,
                                                                 sound = {
                                                                     {
                                                                         filename = "__base__/sound/fight/tank-cannon.ogg",

@@ -112,9 +112,9 @@ function rockets.enable()
                                                               cooldown = 300,
                                                               projectile_creation_distance = 1.39375,
                                                               projectile_center = {0, -0.0875},
-                                                              min_range = 15,
+                                                              min_range = 20,
                                                               turn_range = 0.30,
-                                                              range = 50,
+                                                              range = 52,
                                                               sound = {
                                                                   {
                                                                       filename = "__base__/sound/fight/rocket-launcher.ogg",
@@ -176,9 +176,9 @@ function rockets.enable()
                                                                         cooldown = 50,
                                                                         projectile_creation_distance = 1.39375,
                                                                         projectile_center = {0, -0.0875},
-                                                                        min_range = 15,
+                                                                        min_range = 20,
                                                                         turn_range = 0.30,
-                                                                        range = 40,
+                                                                        range = 42,
                                                                         sound = {
                                                                             {
                                                                                 filename = "__base__/sound/fight/rocket-launcher.ogg",

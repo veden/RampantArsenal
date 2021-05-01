@@ -60,7 +60,9 @@ function artillery.enable()
     liteArtilleryGun.attack_parameters.range = 90
     liteArtilleryGun.attack_parameters.cooldown = 350
     liteArtilleryGun.attack_parameters.damage_modifier = 0.75
-    liteArtilleryGun.attack_parameters.sound[1].volume = 0.5
+    if liteArtilleryGun.attack_parameters.sound[1] then
+        liteArtilleryGun.attack_parameters.sound[1].volume = 0.5
+    end
     liteArtilleryGun.attack_parameters.shell_particle.scale = 0.75
 
 
