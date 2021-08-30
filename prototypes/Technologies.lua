@@ -3661,6 +3661,29 @@ function technologies.enable()
             time = 30
     })
 
+    makeTechnology({
+            name = "lite-artillery",
+            icons=
+            {
+                {
+                    icon = "__base__/graphics/technology/artillery.png",
+                    icon_size=256,
+                    icon_mipmaps=4,
+                    tint = { 0.5, 0.9, 0.5, 1 }
+                }
+            },
+            prerequisites = {"tank", capsuleTurretTech, "concrete"},
+            effects = {},
+            count = 800,
+            ingredients = {
+                {"automation-science-pack", 1},
+                {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1},
+                {"military-science-pack", 1}
+            },
+            time = 60
+    })
+
     if settings.startup["rampant-arsenal-enableVehicle"].value then
         makeTechnology({
                 name = "nuclear-railway",
@@ -3782,30 +3805,6 @@ function technologies.enable()
                     {"production-science-pack", 1}
                 },
                 time = 30
-        })
-
-
-        makeTechnology({
-                name = "lite-artillery",
-                icons=
-                    {
-                        {
-                            icon = "__base__/graphics/technology/artillery.png",
-                            icon_size=256,
-                            icon_mipmaps=4,
-                            tint = { 0.5, 0.9, 0.5, 1 }
-                        }
-                    },
-                prerequisites = {"tank", capsuleTurretTech, "concrete"},
-                effects = {},
-                count = 800,
-                ingredients = {
-                    {"automation-science-pack", 1},
-                    {"logistic-science-pack", 1},
-                    {"chemical-science-pack", 1},
-                    {"military-science-pack", 1}
-                },
-                time = 60
         })
 
         makeTechnology({
