@@ -29,6 +29,7 @@ function landmines.enable()
                     trigger_from_target = false,
                     repeat_count = 1000,
                     radius = 7,
+                    force = "not-same",
                     action_delivery =
                         {
                             type = "projectile",
@@ -43,6 +44,7 @@ function landmines.enable()
                     trigger_from_target = false,
                     repeat_count = 1000,
                     radius = 35,
+                    force = "not-same",
                     action_delivery =
                         {
                             type = "projectile",
@@ -58,6 +60,7 @@ function landmines.enable()
                     trigger_from_target = false,
                     repeat_count = 1000,
                     radius = 26,
+                    force = "not-same",
                     action_delivery =
                         {
                             type = "projectile",
@@ -72,6 +75,7 @@ function landmines.enable()
                     target_entities = false,
                     trigger_from_target = false,
                     repeat_count = 700,
+                    force = "not-same",
                     radius = 4,
                     action_delivery =
                         {
@@ -87,6 +91,7 @@ function landmines.enable()
                     target_entities = false,
                     trigger_from_target = false,
                     repeat_count = 1000,
+                    force = "not-same",
                     radius = 8,
                     action_delivery =
                         {
@@ -102,6 +107,7 @@ function landmines.enable()
                     target_entities = false,
                     trigger_from_target = false,
                     repeat_count = 300,
+                    force = "not-same",
                     radius = 26,
                     action_delivery =
                         {
@@ -118,6 +124,7 @@ function landmines.enable()
                     trigger_from_target = false,
                     repeat_count = 10,
                     radius = 8,
+                    force = "not-same",
                     action_delivery =
                         {
                             type = "instant",

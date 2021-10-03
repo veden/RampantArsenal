@@ -47,7 +47,7 @@ local function onConfigChanged()
         world.mendingWalls = {}
 
         for _,p in ipairs(game.connected_players) do
-            p.print("Rampant Arsenal - Version 1.0.7")
+            p.print("Rampant Arsenal - Version 1.1.0")
         end
         world.version = 16
     end

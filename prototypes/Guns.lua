@@ -74,7 +74,7 @@ function guns.enable()
         {
             type = "projectile",
             ammo_category = "capsule-launcher",
-            cooldown = 350,
+            cooldown = 175,
             movement_slow_down_factor = 0.9,
             damage_modifier = 1.25,
             gun_center_shift = {
