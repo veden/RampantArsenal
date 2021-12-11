@@ -81,8 +81,9 @@ end
 
 local function onMendingWallsTick(event)
     local counter = 0
+    local tick = event.tick
     for k,v in pairs(world.mendingWalls) do
-        if (v < event.tick) then
+        if (v < tick) then
             world.mendingWalls[k] = nil
         end
         if (counter > 5) then
@@ -100,6 +101,6 @@ script.on_load(onLoad)
 script.on_event(defines.events.on_runtime_mod_setting_changed, onModSettingsChange)
 
 script.on_configuration_changed(onConfigChanged)
-script.on_nth_tick(72, onMendingWallsTick)
+script.on_nth_tick(5, onMendingWallsTick)
 
 script.on_event(defines.events.on_trigger_created_entity, onTriggerEntityCreated)

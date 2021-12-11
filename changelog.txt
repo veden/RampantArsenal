@@ -1,8 +1,11 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.0
 Date: 05. 09. 2021
+  Contributions:
+    - moolex fixed unchecking use equipment breaking on lite artillery technology
   Tweaks:
     - Reduced mortar cooldown by %50
+    - Increased the rate that mending wall events are processed to every 5 ticks
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.9
