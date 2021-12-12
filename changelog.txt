@@ -4,6 +4,10 @@ Date: 05. 09. 2021
   Contributions:
     - moolex fixed unchecking use equipment breaking on lite artillery technology
   Tweaks:
+    - Increased advCar consumption by 3x, lowered top speed, and set emissions to 15 minute
+    - Increased advTank consumption by 2x, lowered top speed, and set emissions to 20 minute
+    - Increased nuclearTank consumption by 5x, lowered top speed, and set emissions to 30 minute
+    - Increased nuclearCar consumption by 3x, lowered top speed, and set emissions to 20 minute
     - Reduced mortar cooldown by %50
     - Increased the rate that mending wall events are processed to every 5 ticks
 
