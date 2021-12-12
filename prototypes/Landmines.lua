@@ -122,7 +122,12 @@ function landmines.enable()
                                     {
                                         type = "damage",
                                         vaporize = true,
-                                        damage = { type = "explosion", amount = 2500 }
+                                        damage = { type = "explosion", amount = 5000 }
+                                    },
+                                    {
+                                        type = "damage",
+                                        vaporize = true,
+                                        damage = { type = "fire", amount = 2500 }
                                     }
                                 }
                         }
@@ -140,7 +145,11 @@ function landmines.enable()
                                 {
                                     {
                                         type = "damage",
-                                        damage = { type = "explosion", amount = 1200 }
+                                        damage = { type = "explosion", amount = 2000 }
+                                    },
+                                    {
+                                        type = "damage",
+                                        damage = { type = "fire", amount = 1000 }
                                     }
                                 }
                         }
@@ -158,7 +167,11 @@ function landmines.enable()
                                 {
                                     {
                                         type = "damage",
-                                        damage = { type = "explosion", amount = 800 }
+                                        damage = { type = "explosion", amount = 1200 }
+                                    },
+                                    {
+                                        type = "damage",
+                                        damage = { type = "fire", amount = 400 }
                                     }
                                 }
                         }
@@ -176,7 +189,7 @@ function landmines.enable()
                                 {
                                     {
                                         type = "damage",
-                                        damage = { type = "explosion", amount = 400 }
+                                        damage = { type = "explosion", amount = 800 }
                                     }
                                 }
                         }
