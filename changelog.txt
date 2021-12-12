@@ -4,6 +4,7 @@ Date: 05. 09. 2021
   Contributions:
     - moolex fixed unchecking use equipment breaking on lite artillery technology
   Tweaks:
+    - Nuclear landmines no longer hurt the same force that laid them (Thanks Necrobotic)
     - Increased advCar consumption by 3x, lowered top speed, and set emissions to 15 minute
     - Increased advTank consumption by 2x, lowered top speed, and set emissions to 20 minute
     - Increased nuclearTank consumption by 5x, lowered top speed, and set emissions to 30 minute

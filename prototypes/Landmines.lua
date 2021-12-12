@@ -25,36 +25,6 @@ function landmines.enable()
             {
                 {
                     type = "area",
-                    target_entities = false,
-                    trigger_from_target = false,
-                    repeat_count = 1000,
-                    radius = 7,
-                    force = "not-same",
-                    action_delivery =
-                        {
-                            type = "projectile",
-                            projectile = "atomic-bomb-ground-zero-projectile",
-                            starting_speed = 0.6 * 0.8,
-                            starting_speed_deviation = nuke_shockwave_starting_speed_deviation,
-                        }
-                },
-                {
-                    type = "area",
-                    target_entities = false,
-                    trigger_from_target = false,
-                    repeat_count = 1000,
-                    radius = 35,
-                    force = "not-same",
-                    action_delivery =
-                        {
-                            type = "projectile",
-                            projectile = "atomic-bomb-wave",
-                            starting_speed = 0.5 * 0.7,
-                            starting_speed_deviation = nuke_shockwave_starting_speed_deviation,
-                        }
-                },
-                {
-                    type = "area",
                     show_in_tooltip = false,
                     target_entities = false,
                     trigger_from_target = false,
@@ -139,6 +109,79 @@ function landmines.enable()
                         }
                 },
                 {
+                    type = "area",
+                    show_in_tooltip = false,
+                    trigger_from_target = false,
+                    radius = 12,
+                    force = "not-same",
+                    action_delivery =
+                        {
+                            type = "instant",
+                            target_effects =
+                                {
+                                    {
+                                        type = "damage",
+                                        vaporize = true,
+                                        damage = { type = "explosion", amount = 2500 }
+                                    }
+                                }
+                        }
+                },
+                {
+                    type = "area",
+                    show_in_tooltip = false,
+                    trigger_from_target = false,
+                    radius = 18,
+                    force = "not-same",
+                    action_delivery =
+                        {
+                            type = "instant",
+                            target_effects =
+                                {
+                                    {
+                                        type = "damage",
+                                        damage = { type = "explosion", amount = 1200 }
+                                    }
+                                }
+                        }
+                },
+                {
+                    type = "area",
+                    show_in_tooltip = false,
+                    trigger_from_target = false,
+                    radius = 20,
+                    force = "not-same",
+                    action_delivery =
+                        {
+                            type = "instant",
+                            target_effects =
+                                {
+                                    {
+                                        type = "damage",
+                                        damage = { type = "explosion", amount = 800 }
+                                    }
+                                }
+                        }
+                },
+                {
+                    type = "area",
+                    show_in_tooltip = false,
+                    trigger_from_target = false,
+                    radius = 22,
+                    force = "not-same",
+                    action_delivery =
+                        {
+                            type = "instant",
+                            target_effects =
+                                {
+                                    {
+                                        type = "damage",
+                                        damage = { type = "explosion", amount = 400 }
+                                    }
+                                }
+                        }
+                },
+                {
                     type = "direct",
                     action_delivery =
                         {
@@ -169,7 +212,7 @@ function landmines.enable()
                                         ease_out_duration = 60,
                                         delay = 0,
                                         strength = 6,
-                                        full_strength_max_distance = 200,
+                                        full_strength_max_distance = 100,
                                         max_distance = 800
                                     },
                                     {
@@ -177,7 +220,7 @@ function landmines.enable()
                                         sound = sounds.nuclear_explosion(0.9),
                                         play_on_target_position = false,
                                         -- min_distance = 200,
-                                        max_distance = 1000,
+                                        max_distance = 800,
                                         -- volume_modifier = 1,
                                         audible_distance_modifier = 3
                                     },
@@ -186,7 +229,7 @@ function landmines.enable()
                                         sound = sounds.nuclear_explosion_aftershock(0.4),
                                         play_on_target_position = false,
                                         -- min_distance = 200,
-                                        max_distance = 1000,
+                                        max_distance = 800,
                                         -- volume_modifier = 1,
                                         audible_distance_modifier = 3
                                     },
