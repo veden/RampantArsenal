@@ -12,7 +12,7 @@ function projectileUtils.makeShotgunProjectile(attributes)
                 direction_only = attributes.directionOnly,
                 force_condition = "not-same",
                 piercing_damage = attributes.piercingDamage,
-                action = attributes.action or 
+                action = attributes.action or
                     {
                         type = "direct",
                         action_delivery =
@@ -48,7 +48,7 @@ function projectileUtils.makeShotgunProjectile(attributes)
                 smoke = attributes.smoke,
                 hit_at_collision_position = attributes.hitAtPosition
     }})
-    
+
     return name
 end
 
@@ -69,7 +69,7 @@ function projectileUtils.makeLaserProjectile(attributes)
                     size = 8,
                     color = attributes.tint,
                 },
-                action = attributes.action or 
+                action = attributes.action or
                     {
                         type = "direct",
                         action_delivery =
@@ -122,7 +122,7 @@ function projectileUtils.makeLaserProjectile(attributes)
                 shadow = attributes.shadow,
                 smoke = attributes.smoke
     }})
-    
+
     return name
 end
 
@@ -138,7 +138,7 @@ function projectileUtils.makeCannonProjectile(attributes)
                 direction_only = attributes.directionOnly,
                 force_condition = "not-same",
                 piercing_damage = attributes.piercingDamage or 300,
-                action = attributes.action or 
+                action = attributes.action or
                     {
                         type = "direct",
                         action_delivery =
@@ -191,7 +191,7 @@ function projectileUtils.makeCannonProjectile(attributes)
                 shadow = attributes.shadow,
                 smoke = attributes.smoke
     }})
-    
+
     return name
 end
 
@@ -219,7 +219,7 @@ function projectileUtils.makeCapsuleProjectile(attributes, attack)
                             }
                     },
                 light = {intensity = 0.5, size = 4},
-                animation = attributes.animation or 
+                animation = attributes.animation or
                     {
                         filename = "__base__/graphics/entity/poison-capsule/poison-capsule.png",
                         frame_count = 1,
@@ -228,7 +228,7 @@ function projectileUtils.makeCapsuleProjectile(attributes, attack)
                         height = 32,
                         priority = "high"
                     },
-                shadow = attributes.shadow or 
+                shadow = attributes.shadow or
                     {
                         filename = "__base__/graphics/entity/poison-capsule/poison-capsule-shadow.png",
                         frame_count = 1,
@@ -249,7 +249,7 @@ function projectileUtils.makeCapsuleProjectile(attributes, attack)
                 },
             }
     })
-    
+
     return name
 end
 
@@ -304,7 +304,7 @@ function projectileUtils.makeGrenadeProjectile(attributes, attack)
                         }
                     },
                 light = {intensity = 0.5, size = 4},
-                animation = attributes.animation or 
+                animation = attributes.animation or
                     {
                         filename = "__base__/graphics/entity/grenade/grenade.png",
                         frame_count = 1,
@@ -339,7 +339,7 @@ function projectileUtils.makeRocketProjectile(attributes)
                 acceleration = attributes.acceleration or 0.005,
                 direction_only = attributes.directionOnly,
                 piercing_damage = attributes.piercingDamage,
-                action = attributes.action or 
+                action = attributes.action or
                     {
                         type = "direct",
                         action_delivery =
@@ -409,11 +409,11 @@ function projectileUtils.makeRocketProjectile(attributes)
                     }
                 }
     }})
-    
+
     return name
 end
 
-function projectileUtils.makeArtilleryShell(attributes, attack, finalAttack)
+function projectileUtils.makeArtilleryShell(attributes, finalAttack, attack)
     local name = attributes.name .. "-artillery-projectile-rampant-arsenal"
 
     data:extend({
@@ -530,7 +530,7 @@ function projectileUtils.makeArtilleryShell(attributes, attack, finalAttack)
                 height_from_ground = 280 / 64
             }
     })
-    
+
     return name
 end
 
@@ -591,7 +591,7 @@ function projectileUtils.makeBombWave(attributes, attack)
                     }
             }
     })
-    
+
     return name
 end
 

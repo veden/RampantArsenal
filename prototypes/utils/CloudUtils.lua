@@ -2,9 +2,9 @@ local cloudUtils = {}
 
 function cloudUtils.makeCloud(attributes, attack)
     local name = attributes.name .. "-cloud-rampant-arsenal"
-    
+
     local dummyName = attributes.name .. "-visual-dummy-rampant"
-    
+
     local dummy = {
         type = "smoke-with-trigger",
         name = dummyName,
@@ -42,7 +42,7 @@ function cloudUtils.makeCloud(attributes, attack)
                 scale = attributes.scale or 1
             }
     }
-    
+
     local subEffects = nil
     if not attributes.skipSubEntity then
         subEffects = {
@@ -161,9 +161,9 @@ function cloudUtils.makeCloud(attributes, attack)
     if not attributes.skipSubEntity then
         mainEntities[2] = dummy
     end
-    
+
     data:extend(mainEntities)
-    
+
     return name
 end
 
