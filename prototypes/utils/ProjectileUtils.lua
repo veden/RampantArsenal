@@ -324,7 +324,39 @@ function projectileUtils.makeGrenadeProjectile(attributes, attack)
             }
     })
 
-    
+
+    return name
+end
+
+function projectileUtils.makeInvisibleProjectile(attributes)
+    local name = attributes.name .. "-invisible-projectile-rampant-arsenal"
+
+    data:extend({
+            {
+                type = "projectile",
+                name = name,
+                flags = {"not-on-map"},
+                collision_box = attributes.collisionBox,
+                acceleration = attributes.acceleration or 0,
+                direction_only = attributes.directionOnly,
+                piercing_damage = attributes.piercingDamage,
+                action = attributes.action,
+                final_action = attributes.finalAction,
+                animation = nil -- {
+                --     filename = "__base__/graphics/entity/rocket/rocket.png",
+                --     frame_count = 8,
+                --     line_length = 8,
+                --     width = 9,
+                --     height = 35,
+                --     shift = {0, 0},
+                --     priority = "high"
+                -- }
+                ,
+                shadow = nil,
+                smoke = nil
+            }
+    })
+
     return name
 end
 
@@ -451,74 +483,76 @@ function projectileUtils.makeArtilleryShell(attributes, finalAttack, attack)
                         priority = "high",
                         scale = 0.25,
                     },
-                action = attack or 
-                    {
-                        type = "direct",
-                        action_delivery =
-                            {
-                                type = "instant",
-                                target_effects =
-                                    {
-                                        {
-                                            type = "nested-result",
-                                            action =
-                                                {
-                                                    type = "area",
-                                                    radius = 4.0,
-                                                    action_delivery =
-                                                        {
-                                                            type = "instant",
-                                                            target_effects =
-                                                                {
-                                                                    {
-                                                                        type = "damage",
-                                                                        damage = {amount = 500 , type = "physical"}
-                                                                    },
-                                                                    {
-                                                                        type = "damage",
-                                                                        damage = {amount = 500 , type = "explosion"}
-                                                                    },
-                                                                }
-                                                        }
-                                                }
-                                        },
-                                        {
-                                            type = "create-trivial-smoke",
-                                            smoke_name = "artillery-smoke",
-                                            initial_height = 0,
-                                            speed_from_center = 0.05,
-                                            speed_from_center_deviation = 0.005,
-                                            offset_deviation = {{-4, -4}, {4, 4}},
-                                            max_radius = 3.5,
-                                            repeat_count = 4 * 4 * 15
-                                        },
-                                        {
-                                            type = "create-entity",
-                                            entity_name = "big-artillery-explosion"
-                                        },
-                                        {
-                                            type = "show-explosion-on-chart",
-                                            scale = 8/32,
-                                        }
-                                    }
-                            }
-                    },
-                final_action = finalAttack or 
-                    {
-                        type = "direct",
-                        action_delivery =
-                            {
-                                type = "instant",
-                                target_effects =
-                                    {
-                                        {
-                                            type = "create-entity",
-                                            entity_name = "small-scorchmark",
-                                            check_buildability = true
-                                        }
-                                    }
-                            }
-                    },
+                action = attack -- or
+                    -- {
+                    --     type = "direct",
+                    --     action_delivery =
+                    --         {
+                    --             type = "instant",
+                    --             target_effects =
+                    --                 {
+                    --                     {
+                    --                         type = "nested-result",
+                    --                         action =
+                    --                             {
+                    --                                 type = "area",
+                    --                                 radius = 4.0,
+                    --                                 action_delivery =
+                    --                                     {
+                    --                                         type = "instant",
+                    --                                         target_effects =
+                    --                                             {
+                    --                                                 {
+                    --                                                     type = "damage",
+                    --                                                     damage = {amount = 500 , type = "physical"}
+                    --                                                 },
+                    --                                                 {
+                    --                                                     type = "damage",
+                    --                                                     damage = {amount = 500 , type = "explosion"}
+                    --                                                 },
+                    --                                             }
+                    --                                     }
+                    --                             }
+                    --                     },
+                    --                     {
+                    --                         type = "create-trivial-smoke",
+                    --                         smoke_name = "artillery-smoke",
+                    --                         initial_height = 0,
+                    --                         speed_from_center = 0.05,
+                    --                         speed_from_center_deviation = 0.005,
+                    --                         offset_deviation = {{-4, -4}, {4, 4}},
+                    --                         max_radius = 3.5,
+                    --                         repeat_count = 4 * 4 * 15
+                    --                     },
+                    --                     {
+                    --                         type = "create-entity",
+                    --                         entity_name = "big-artillery-explosion"
+                    --                     },
+                    --                     {
+                    --                         type = "show-explosion-on-chart",
+                    --                         scale = 8/32,
+                    --                     }
+                    --                 }
+                    --         }
+                    -- }
+                ,
+                final_action = finalAttack -- or
+                    -- {
+                    --     type = "direct",
+                    --     action_delivery =
+                    --         {
+                    --             type = "instant",
+                    --             target_effects =
+                    --                 {
+                    --                     {
+                    --                         type = "create-entity",
+                    --                         entity_name = "small-scorchmark",
+                    --                         check_buildability = true
+                    --                     }
+                    --                 }
+                    --         }
+                    -- }
+                ,
                 animation =
                     {
                         filename = "__base__/graphics/entity/bullet/bullet.png",

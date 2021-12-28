@@ -1,164 +1,47 @@
 local clouds = {}
 
 local cloudUtils = require("utils/CloudUtils")
+local fireUtils = require("utils/FireUtils")
 
 local makeCloud = cloudUtils.makeCloud
+local makeFireFlame = fireUtils.makeFireFlame
 
 function clouds.enable()
 
     makeCloud(
         {
             name = "big-toxic",
-            duration = 1600,
-            inDuration = 45,
-            outDuration = 30,
+            duration = 160,
+            inDuration = 120,
+            outDuration = 40,
             movementModifier = 0,
-            spreadRadius = 2,
+            spreadDuration = 120,
             tint = {r=0.5,g=0,b=0.5,a=0.4},
             scale = 2
-        },
-        {
-            type = "direct",
-            action_delivery =
-                {
-                    type = "instant",
-                    target_effects =
-                        {
-                            type = "nested-result",
-                            action =
-                                {
-                                    type = "area",
-                                    radius = 12,
-                                    entity_flags = {"breaths-air"},
-                                    action_delivery =
-                                        {
-                                            type = "instant",
-                                            target_effects =
-                                                {
-                                                    {
-                                                        type = "damage",
-                                                        damage = { amount = 400, type = "poison" }
-                                                    },
-                                                    {
-                                                        type = "create-sticker",
-                                                        sticker = "big-toxic-sticker-rampant-arsenal"
-                                                    }
-                                                }
-                                        }
-                                }
-                        }
-                }
     })
+
+    makeFireFlame(
+        {
+            name = "massive",
+            duration = 1600,
+            inDuration = 120,
+            outDuration = 30,
+            damagePerTick = 3.67
+        }
+    )
 
     makeCloud(
         {
             name = "massive-fire",
             duration = 1600,
-            inDuration = 45,
+            inDuration = 160,
             outDuration = 30,
             movementModifier = 0,
             spreadRadius = 2,
             tint = {r=0.5,g=0.3,b=0,a=0.4},
             scale = 3
-        },
-        {
-            type = "direct",
-            action_delivery =
-                {
-                    type = "instant",
-                    target_effects =
-                        {
-                            type = "nested-result",
-                            action =
-                                {
-                                    {
-                                        type = "cluster",
-                                        cluster_count = 10,
-                                        distance = 13,
-                                        distance_deviation = 6,
-                                        action_delivery =
-                                            {
-                                                type = "instant",
-                                                target_effects =
-                                                    {
-                                                        {
-                                                            type = "create-fire",
-                                                            entity_name = "fire-flame",
-                                                            initial_ground_flame_count = 4,
-                                                            check_buildability = true,
-                                                            show_in_tooltip = true
-                                                            -- trigger_from_target = true
-                                                        }
-                                                    }
-                                            }
-                                    },
-                                    {
-                                        type = "cluster",
-                                        cluster_count = 6,
-                                        distance = 8,
-                                        distance_deviation = 4,
-                                        action_delivery =
-                                            {
-                                                type = "instant",
-                                                target_effects =
-                                                    {
-                                                        {
-                                                            type = "create-fire",
-                                                            entity_name = "fire-flame",
-                                                            initial_ground_flame_count = 4,
-                                                            check_buildability = true,
-                                                            show_in_tooltip = true
-                                                            -- trigger_from_target = true
-                                                        }
-                                                    }
-                                            }
-                                    },
-                                    {
-                                        type = "area",
-                                        radius = 14,
-                                        action_delivery =
-                                            {
-                                                type = "instant",
-                                                target_effects =
-                                                    {
-                                                        {
-                                                            type = "damage",
-                                                            damage = { amount = 110, type = "fire" },
-                                                            apply_damage_to_trees = false
-                                                        },
-                                                        {
-                                                            type = "create-sticker",
-                                                            sticker = "small-fire-sticker-rampant-arsenal"
-                                                        },
-                                                        {
-                                                            type = "create-fire",
-                                                            entity_name = "fire-flame",
-                                                            initial_ground_flame_count = 4
-                                                        }
-                                                    }
-                                            }
-                                    },
-                                    {
-                                        type = "area",
-                                        radius = 14,
-                                        target_entities = false,
-                                        action_delivery =
-                                            {
-                                                type = "instant",
-                                                target_effects =
-                                                    {
-                                                        {
-                                                            type = "create-fire",
-                                                            entity_name = "fire-flame",
-                                                            initial_ground_flame_count = 4,
-                                                        }
-                                                    }
-                                            }
-                                    }
-                                }
-                        }
-                }
-    })
+        }
+    )
 
     makeCloud(
         {
@@ -540,7 +423,7 @@ function clouds.enable()
                         }
                 }
     })
-    
+
     local smallRepairCloud = makeCloud(
         {
             name = "small-repair",

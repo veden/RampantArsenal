@@ -60,6 +60,7 @@ function fire.enable()
                                                                         type = "create-fire",
                                                                         entity_name = "fire-flame",
                                                                         initial_ground_flame_count = 6,
+                                                                        show_in_tooltip = true
                                                                     },
                                                                     {
                                                                         type = "destroy-decoratives",
@@ -84,12 +85,14 @@ function fire.enable()
                                                                 {
                                                                     {
                                                                         type = "create-sticker",
-                                                                        sticker = "small-fire-sticker-rampant-arsenal"
+                                                                        sticker = "small-fire-sticker-rampant-arsenal",
+                                                                        show_in_tooltip = true
                                                                     },
                                                                     {
                                                                         type = "create-fire",
                                                                         entity_name = "fire-flame",
                                                                         initial_ground_flame_count = 6,
+                                                                        show_in_tooltip = true
                                                                     },
                                                                     {
                                                                         type = "damage",

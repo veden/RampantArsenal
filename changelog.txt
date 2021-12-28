@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.1
+Date: 05. 09. 2021
+  Contributions:
+    - PlexPt has provided a Chinese locale
+  Tweaks:
+    - Increased HE artillery shell damage by ~15%
+    - Changed behavior for incendiary and bio artillery shells to allow for damage scaling effect from research.
+  Bugfixes:
+    - Incendiary and Bio artillery shells not scaling with damage research
+    - Fixed naplam not showing fire stats in tooltip window
+
+---------------------------------------------------------------------------------------------------
 Version: 1.1.0
 Date: 05. 09. 2021
   Contributions:

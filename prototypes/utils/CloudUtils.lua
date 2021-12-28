@@ -24,8 +24,8 @@ function cloudUtils.makeCloud(attributes, attack)
         affected_by_wind = false,
         cyclic = true,
         duration = attributes.duration or 60 * 20,
-        fade_away_duration = 3 * 60,
-        spread_duration = (300 - 20) / 2 ,
+        fade_away_duration = attributes.outDuration,
+        spread_duration = attributes.inDuration or ((300 - 20) / 2),
         color = attributes.tint or {r = 0.014, g = 0.358, b = 0.395, a = 0.322}, -- #035b6452
 
         animation =
@@ -127,33 +127,34 @@ function cloudUtils.makeCloud(attributes, attack)
             spread_duration = attributes.inDuration or 10,
             color = attributes.tint or { r = 0.2, g = 0.9, b = 0.2 },
             created_effect = subEffects,
-            action = attack or 
-                {
-                    type = "direct",
-                    action_delivery =
-                        {
-                            type = "instant",
-                            target_effects =
-                                {
-                                    type = "nested-result",
-                                    action =
-                                        {
-                                            type = "area",
-                                            radius = 11,
-                                            entity_flags = {"breaths-air"},
-                                            action_delivery =
-                                                {
-                                                    type = "instant",
-                                                    target_effects =
-                                                        {
-                                                            type = "damage",
-                                                            damage = { amount = 8, type = "poison"}
-                                                        }
-                                                }
-                                        }
-                                }
-                        }
-                },
+            action = attack -- or
+                -- {
+                --     type = "direct",
+                --     action_delivery =
+                --         {
+                --             type = "instant",
+                --             target_effects =
+                --                 {
+                --                     type = "nested-result",
+                --                     action =
+                --                         {
+                --                             type = "area",
+                --                             radius = 11,
+                --                             entity_flags = {"breaths-air"},
+                --                             action_delivery =
+                --                                 {
+                --                                     type = "instant",
+                --                                     target_effects =
+                --                                         {
+                --                                             type = "damage",
+                --                                             damage = { amount = 8, type = "poison"}
+                --                                         }
+                --                                 }
+                --                         }
+                --                 }
+                --         }
+                -- }
+            ,
             action_cooldown = attributes.cooldown or 30
         }
     }

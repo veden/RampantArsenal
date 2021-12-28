@@ -20,7 +20,7 @@ local function onModSettingsChange(event)
         remote.call("flammable_oils", "add_flammable_type", "napalm-fluid-rampant-arsenal")
     end
 
-    if event and (string.sub(event.setting, 1, 18) ~= "rampant-arsenal") then
+    if event and (string.sub(event.setting, 1, #"rampant-arsenal") ~= "rampant-arsenal") then
         return false
     end
 

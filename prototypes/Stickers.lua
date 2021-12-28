@@ -94,7 +94,7 @@ function stickers.enable()
     makeSticker(
         {
             name = "big-toxic",
-            duration = 360,
+            duration = 1400,
             spreadRadius = 5,
             tint = {r=0.5,g=0,b=0.5,a=0.8},
             movementModifier = 0.87,
