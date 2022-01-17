@@ -1557,7 +1557,7 @@ function technologies.enable()
                         prerequisites = {"rampant-arsenal-technology-stronger-explosives-6", "space-science-pack"},
                         unit =
                             {
-                                count_formula = "(L-7)*20000",
+                                count_formula = "(L-6)*20000",
                                 ingredients =
                                     {
                                         {"automation-science-pack", 1},
@@ -1595,7 +1595,7 @@ function technologies.enable()
                         prerequisites = {"rampant-arsenal-technology-energy-weapons-damage-6", "space-science-pack"},
                         unit =
                             {
-                                count_formula = "(L-7)*20000",
+                                count_formula = "(L-6)*20000",
                                 ingredients =
                                     {
                                         {"automation-science-pack", 1},
@@ -1628,7 +1628,7 @@ function technologies.enable()
                         prerequisites = {"rampant-arsenal-technology-rocket-damage-6", "space-science-pack"},
                         unit =
                             {
-                                count_formula = "(L-7)*20000",
+                                count_formula = "(L-6)*20000",
                                 ingredients =
                                     {
                                         {"automation-science-pack", 1},
@@ -1661,7 +1661,7 @@ function technologies.enable()
                         prerequisites = {"rampant-arsenal-technology-bullet-damage-6", "space-science-pack"},
                         unit =
                             {
-                                count_formula = "(L-7)*20000",
+                                count_formula = "(L-6)*20000",
                                 ingredients =
                                     {
                                         {"automation-science-pack", 1},
@@ -1694,7 +1694,7 @@ function technologies.enable()
                         prerequisites = {"rampant-arsenal-technology-cannon-shell-damage-5", "space-science-pack"},
                         unit =
                             {
-                                count_formula = "(L-5)*25000",
+                                count_formula = "(L-4)*25000",
                                 ingredients =
                                     {
                                         {"military-science-pack", 1},
