@@ -196,7 +196,7 @@ function vehicles.enable()
             scale = 0.8,
             order = "b[personal-transport]-b[zatank]",
             icon = "__RampantArsenal__/graphics/icons/advanced-tank.png",
-            health = 3500,
+            health = 4500,
             consumption = "4.0MW",
             weight = 30000,
             inventorySize = 100,
@@ -397,7 +397,6 @@ function vehicles.enable()
             }
     })
 
-
     local nuclearTankRocket = makeGun(
         {
             name = "nuclear-tank-rocket",
@@ -439,9 +438,9 @@ function vehicles.enable()
             equipmentGrid = nuclearTankGrid,
             weapons = { nuclearTankMachineGun, nuclearTankCannon, nuclearTankFlamethrower, nuclearTankLauncher, nuclearTankRocket},
             immuneToTrees = true,
-            health = 5000,
+            health = 7500,
             brakingForce = "80KW",
-            consumption = "150.0MW",
+            consumption = "75.0MW",
             weight = 40000,
             friction = 0.06,
             rotationSpeed = 0.0027,
@@ -610,7 +609,7 @@ function vehicles.enable()
             weapons = {advancedCarMachineGun, advancedCarShotgun},
             effectivity = 0.80,
             brakingForce = "250MW",
-            consumption = "3.0MW",
+            consumption = "2.0MW",
             weight = 1600,
             inventorySize = 130,
             energySource = {
@@ -765,7 +764,7 @@ function vehicles.enable()
             friction = 0.06,
             weapons = {nuclearCarMachineGun, nuclearCarShotgun, nuclearCarLauncher},
             brakingForce = "30MW",
-            consumption = "30MW",
+            consumption = "20MW",
             weight = 2500,
             inventorySize = 200,
             icon = "__RampantArsenal__/graphics/icons/nuclear-car.png",
@@ -850,16 +849,15 @@ function vehicles.enable()
             icon = "__RampantArsenal__/graphics/icons/nuclear-locomotive.png",
             equipmentGrid = nuclearTrainGrid,
             health = 2400,
-            brakingForce = 15,
-            consumption = "10.0MW",
-            maxSpeed = 1.3,
+            brakingForce = 180,
+            maxSpeed = 1.4,
             maxReverse = 0.7,
-            maxPower = "1MW",
-            weight = 6000,
+            maxPower = "16MW",
+            weight = 60000,
             tint = { r = 0.70, g = 0.9, b = 0.70, a = 1 },
             energySource = {
                 fuel_category = "nuclear",
-                effectivity = 0.9,
+                effectivity = 0.16,
                 fuel_inventory_size = 3,
                 burnt_inventory_size = 3,
                 smoke =

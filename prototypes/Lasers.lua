@@ -445,7 +445,7 @@ function lasers.enable()
         order = "b[turret]-b[zzlaser-turret]",
         energySource = {
             type = "electric",
-            buffer_capacity = "439MJ",
+            buffer_capacity = "600MJ",
             input_flow_limit = "1000MW",
             drain = "150kW",
             usage_priority = "primary-input"
@@ -493,7 +493,7 @@ function lasers.enable()
     local _, advancedElectricTurretItem = makeElectricTurret(entity, {
                                                                  type = "projectile",
                                                                  ammo_category = "electric",
-                                                                 cooldown = 120,
+                                                                 cooldown = 300,
                                                                  projectile_center = {-0.09375, -0.2},
                                                                  turn_range = 0.35,
                                                                  projectile_creation_distance = 13,
@@ -508,7 +508,7 @@ function lasers.enable()
                                                                          range_deviation = 0.1,
                                                                          clamp_position = true,
                                                                          target_type = "position",
-                                                                         energy_consumption = "438MJ",
+                                                                         energy_consumption = "200MJ",
                                                                          action =
                                                                              {
                                                                                  {

@@ -1,4 +1,18 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.4
+Date: 18. 02. 2022
+  Tweaks:
+    - Reduced advanced laser energy consumption by 55%
+    - Increased advanced laser cooldown by 200%
+    - Increased nuclear train consumption by 1000%
+    - Increased advanced tank health by 1000 HP
+    - Increased nuclear tank health by 2500 HP
+    - Decreased nuclear tank consumption by 50%
+    - Decreased advanced car consumption by 33%
+    - Decreased nuclear car consumption by 33%
+    - Increased nuclear train top speed by 10%
+
+---------------------------------------------------------------------------------------------------
 Version: 1.1.3
 Date: 16. 01. 2022
   Bugfixes:
