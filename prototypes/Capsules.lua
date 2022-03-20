@@ -592,7 +592,7 @@ function capsules.enable()
                                                             {
                                                                 type = "create-entity",
                                                                 show_in_tooltip = true,
-                                                                entity_name = "big-toxic-cloud-rampant-arsenal"
+                                                                entity_name = "big-toxic-launcher-cloud-rampant-arsenal"
                                                             }
                                                     }
                                             }
@@ -1610,53 +1610,53 @@ function capsules.enable()
     })
 
     addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-1") or "stronger-explosives-1",
-                    {
-                        type = "turret-attack",
-                        turret_id = capsuleTurret,
-                        modifier = 0.2
+        {
+            type = "turret-attack",
+            turret_id = capsuleTurret,
+            modifier = 0.2
     })
 
     addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-2") or "stronger-explosives-2",
-                    {
-                        type = "turret-attack",
-                        turret_id = capsuleTurret,
-                        modifier = 0.2
+        {
+            type = "turret-attack",
+            turret_id = capsuleTurret,
+            modifier = 0.2
     })
 
     addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-3") or "stronger-explosives-3",
-                    {
-                        type = "turret-attack",
-                        turret_id = capsuleTurret,
-                        modifier = 0.3
+        {
+            type = "turret-attack",
+            turret_id = capsuleTurret,
+            modifier = 0.3
     })
 
     addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-4") or "stronger-explosives-4",
-                    {
-                        type = "turret-attack",
-                        turret_id = capsuleTurret,
-                        modifier = 0.3
+        {
+            type = "turret-attack",
+            turret_id = capsuleTurret,
+            modifier = 0.3
     })
 
     addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-5") or "stronger-explosives-5",
-                    {
-                        type = "turret-attack",
-                        turret_id = capsuleTurret,
-                        modifier = 0.4
+        {
+            type = "turret-attack",
+            turret_id = capsuleTurret,
+            modifier = 0.4
     })
 
     addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-6") or "stronger-explosives-6",
-                    {
-                        type = "turret-attack",
-                        turret_id = capsuleTurret,
-                        modifier = 0.4
+        {
+            type = "turret-attack",
+            turret_id = capsuleTurret,
+            modifier = 0.4
     })
 
     if (settings.startup["rampant-arsenal-useInfiniteTechnologies"].value) then
         addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "capsule-turret-damage-7") or "stronger-explosives-7",
-                        {
-                            type = "turret-attack",
-                            turret_id = capsuleTurret,
-                            modifier = 0.6
+            {
+                type = "turret-attack",
+                turret_id = capsuleTurret,
+                modifier = 0.6
         })
     end
 
