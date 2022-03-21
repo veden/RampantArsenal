@@ -20,6 +20,51 @@ function clouds.enable()
             scale = 2
     })
 
+    makeCloud(
+        {
+            name = "big-toxic-launcher",
+            duration = 160,
+            inDuration = 120,
+            outDuration = 40,
+            movementModifier = 0,
+            spreadDuration = 120,
+            tint = {r=0.5,g=0,b=0.5,a=0.4},
+            scale = 2
+        },
+        {
+            type = "direct",
+            action_delivery =
+                {
+                    type = "instant",
+                    target_effects =
+                        {
+                            type = "nested-result",
+                            action =
+                                {
+                                    type = "area",
+                                    radius = 12,
+                                    entity_flags = {"breaths-air"},
+                                    action_delivery =
+                                        {
+                                            type = "instant",
+                                            target_effects =
+                                                {
+                                                    {
+                                                        type = "damage",
+                                                        damage = { amount = 400, type = "poison" }
+                                                    },
+                                                    {
+                                                        type = "create-sticker",
+                                                        sticker = "big-toxic-sticker-rampant-arsenal"
+                                                    }
+                                                }
+                                        }
+                                }
+                        }
+                }
+        }
+    )
+
     makeFireFlame(
         {
             name = "massive",
