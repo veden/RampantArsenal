@@ -13,6 +13,7 @@ Date: 18. 02. 2022
     - Increased nuclear train top speed by 10%
   Bugfixes:
     - Fixed toxic launcher ammo not doing damage
+    - Fixed Krastorio 2 overriding nuclear car and tank fuel type
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.3
