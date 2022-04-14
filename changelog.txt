@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.4
 Date: 18. 02. 2022
+  Contribution:
+    - Locale for KO from x2605
   Tweaks:
     - Reduced advanced laser energy consumption by 55%
     - Increased advanced laser cooldown by 200%
