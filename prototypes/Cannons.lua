@@ -1212,7 +1212,7 @@ function cannons.enable()
                             modifier = 0.5
         })
 
-        modifyInfiniteFormula("refined-flammables-7", "(L-7)*20000")
+        modifyInfiniteFormula("refined-flammables-7", "(L-6)*20000")
 
         addEffectToTech("refined-flammables-7",
                         {

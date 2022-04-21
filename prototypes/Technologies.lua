@@ -1963,7 +1963,7 @@ function technologies.enable()
                         {"utility-science-pack", 1},
                         {"space-science-pack", 1}
                     },
-                    countForumla = "(L-7)*20000",
+                    countForumla = "(L-6)*20000",
                     time = 60,
                     order = "e-z-f"
             })
@@ -2091,7 +2091,7 @@ function technologies.enable()
                         {"utility-science-pack", 1},
                         {"space-science-pack", 1}
                     },
-                    countForumla = "(L-7)*20000",
+                    countForumla = "(L-6)*20000",
                     time = 60,
                     order = "e-z-f"
             })
@@ -2210,7 +2210,7 @@ function technologies.enable()
                         {"utility-science-pack", 1},
                         {"space-science-pack", 1}
                     },
-                    countForumla = "(L-7)*20000",
+                    countForumla = "(L-6)*20000",
                     time = 60,
                     order = "e-z-f"
             })
@@ -2600,7 +2600,7 @@ function technologies.enable()
                         prerequisites = {"rampant-arsenal-technology-shotgun-shell-damage-6", "space-science-pack"},
                         unit =
                             {
-                                count_formula = "(L-7)*20000",
+                                count_formula = "(L-6)*20000",
                                 ingredients =
                                     {
                                         {"automation-science-pack", 1},
@@ -2731,7 +2731,7 @@ function technologies.enable()
                         {"utility-science-pack", 1},
                         {"space-science-pack", 1}
                     },
-                    countForumla = "(L-7)*20000",
+                    countForumla = "(L-6)*20000",
                     time = 60,
                     order = "e-z-f"
             })
@@ -2919,7 +2919,7 @@ function technologies.enable()
                         {"utility-science-pack", 1},
                         {"space-science-pack", 1}
                     },
-                    countForumla = "(L-7)*20000",
+                    countForumla = "(L-6)*20000",
                     time = 60,
                     order = "e-z-f"
             })
@@ -3082,7 +3082,7 @@ function technologies.enable()
                         {"utility-science-pack", 1},
                         {"space-science-pack", 1}
                     },
-                    countForumla = "(L-7)*20000",
+                    countForumla = "(L-6)*20000",
                     time = 60,
                     order = "e-z-f"
             })
@@ -4032,7 +4032,7 @@ function technologies.enable()
                         {"utility-science-pack", 1},
                         {"space-science-pack", 1}
                     },
-                    countForumla = "(L-7)*20000",
+                    countForumla = "(L-6)*20000",
                     time = 60,
                     order = "e-z-f"
             })
