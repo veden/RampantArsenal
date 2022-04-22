@@ -13,6 +13,7 @@ Date: 18. 02. 2022
     - Decreased advanced car consumption by 33%
     - Decreased nuclear car consumption by 33%
     - Increased nuclear train top speed by 10%
+    - Changed license to GPLv3
   Bugfixes:
     - Fixed toxic launcher ammo not doing damage
     - Fixed Krastorio 2 overriding nuclear car and tank fuel type
