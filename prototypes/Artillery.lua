@@ -175,21 +175,45 @@ function artillery.enable()
                                     },
                                     {
                                         {
-                                            type = "cluster",
-                                            cluster_count = 36,
-                                            distance = 16,
-                                            distance_deviation = 6,
+                                            type = "direct",
                                             action_delivery =
                                                 {
                                                     type = "instant",
                                                     target_effects =
                                                         {
                                                             {
-                                                                type = "create-fire",
-                                                                entity_name = "massive-fire-rampant-arsenal",
-                                                                initial_ground_flame_count = 2,
-                                                                check_buildability = true,
-                                                                show_in_tooltip = true
+                                                                repeat_count = 100,
+                                                                type = "create-trivial-smoke",
+                                                                smoke_name = "nuclear-smoke",
+                                                                offset_deviation = {{-1, -1}, {1, 1}},
+                                                                slow_down_factor = 1,
+                                                                starting_frame = 3,
+                                                                starting_frame_deviation = 5,
+                                                                starting_frame_speed = 0,
+                                                                starting_frame_speed_deviation = 5,
+                                                                speed_from_center = 0.5,
+                                                                speed_deviation = 0.2
+                                                            },
+                                                            {
+                                                                type = "show-explosion-on-chart",
+                                                                scale = 8/32,
+                                                            },
+                                                            {
+                                                                type = "create-entity",
+                                                                entity_name = "big-artillery-explosion"
+                                                            },
+                                                            {
+                                                                type = "damage",
+                                                                damage = {amount = 600, type = "fire"}
+                                                            },
+                                                            {
+                                                                type = "create-entity",
+                                                                entity_name = "big-scorchmark",
+                                                                check_buildability = true
+                                                            },
+                                                            {
+                                                                type = "create-smoke",
+                                                                entity_name = "massive-fire-cloud-rampant-arsenal"
                                                             }
                                                         }
                                                 }
@@ -275,45 +299,21 @@ function artillery.enable()
                                                 }
                                         },
                                         {
-                                            type = "direct",
+                                            type = "cluster",
+                                            cluster_count = 36,
+                                            distance = 16,
+                                            distance_deviation = 6,
                                             action_delivery =
                                                 {
                                                     type = "instant",
                                                     target_effects =
                                                         {
                                                             {
-                                                                repeat_count = 100,
-                                                                type = "create-trivial-smoke",
-                                                                smoke_name = "nuclear-smoke",
-                                                                offset_deviation = {{-1, -1}, {1, 1}},
-                                                                slow_down_factor = 1,
-                                                                starting_frame = 3,
-                                                                starting_frame_deviation = 5,
-                                                                starting_frame_speed = 0,
-                                                                starting_frame_speed_deviation = 5,
-                                                                speed_from_center = 0.5,
-                                                                speed_deviation = 0.2
-                                                            },
-                                                            {
-                                                                type = "show-explosion-on-chart",
-                                                                scale = 8/32,
-                                                            },
-                                                            {
-                                                                type = "create-entity",
-                                                                entity_name = "big-artillery-explosion"
-                                                            },
-                                                            {
-                                                                type = "damage",
-                                                                damage = {amount = 600, type = "fire"}
-                                                            },
-                                                            {
-                                                                type = "create-entity",
-                                                                entity_name = "big-scorchmark",
-                                                                check_buildability = true
-                                                            },
-                                                            {
-                                                                type = "create-smoke",
-                                                                entity_name = "massive-fire-cloud-rampant-arsenal"
+                                                                type = "create-fire",
+                                                                entity_name = "massive-fire-rampant-arsenal",
+                                                                initial_ground_flame_count = 2,
+                                                                check_buildability = true,
+                                                                show_in_tooltip = true
                                                             }
                                                         }
                                                 }
@@ -491,106 +491,102 @@ function artillery.enable()
                                         name = "bio"
                                     },
                                     {
-                                        {
-                                            type = "direct",
-                                            action_delivery =
-                                                {
+                                        type = "direct",
+                                        action_delivery =
+                                            {
+                                                type = "instant",
+                                                target_effects =
                                                     {
-                                                        type = "instant",
-                                                        target_effects =
-                                                            {
+                                                        {
+                                                            repeat_count = 100,
+                                                            type = "create-trivial-smoke",
+                                                            smoke_name = "nuclear-smoke",
+                                                            offset_deviation = {{-1, -1}, {1, 1}},
+                                                            slow_down_factor = 1,
+                                                            starting_frame = 3,
+                                                            starting_frame_deviation = 5,
+                                                            starting_frame_speed = 0,
+                                                            starting_frame_speed_deviation = 5,
+                                                            speed_from_center = 0.5,
+                                                            speed_deviation = 0.2
+                                                        },
+                                                        {
+                                                            type = "show-explosion-on-chart",
+                                                            scale = 8/32,
+                                                        },
+                                                        {
+                                                            type = "create-entity",
+                                                            entity_name = "big-artillery-explosion"
+                                                        },
+                                                        {
+                                                            type = "nested-result",
+                                                            action =
                                                                 {
-                                                                    repeat_count = 100,
-                                                                    type = "create-trivial-smoke",
-                                                                    smoke_name = "nuclear-smoke",
-                                                                    offset_deviation = {{-1, -1}, {1, 1}},
-                                                                    slow_down_factor = 1,
-                                                                    starting_frame = 3,
-                                                                    starting_frame_deviation = 5,
-                                                                    starting_frame_speed = 0,
-                                                                    starting_frame_speed_deviation = 5,
-                                                                    speed_from_center = 0.5,
-                                                                    speed_deviation = 0.2
-                                                                },
-                                                                {
-                                                                    type = "show-explosion-on-chart",
-                                                                    scale = 8/32,
-                                                                },
-                                                                {
-                                                                    type = "create-entity",
-                                                                    entity_name = "big-artillery-explosion"
-                                                                },
-                                                                {
-                                                                    type = "nested-result",
-                                                                    action =
+                                                                    type = "area",
+                                                                    target_entities = false,
+                                                                    trigger_from_target = true,
+                                                                    repeat_count = 300,
+                                                                    radius = 12,
+                                                                    action_delivery =
                                                                         {
-                                                                            type = "area",
-                                                                            target_entities = false,
-                                                                            trigger_from_target = true,
-                                                                            repeat_count = 300,
-                                                                            radius = 12,
-                                                                            action_delivery =
-                                                                                {
-                                                                                    type = "projectile",
-                                                                                    projectile = makeInvisibleProjectile({
-                                                                                            name = "bio",
-                                                                                            action = {
+                                                                            type = "projectile",
+                                                                            projectile = makeInvisibleProjectile({
+                                                                                    name = "bio",
+                                                                                    action = {
+                                                                                        {
+                                                                                            type = "area",
+                                                                                            radius = 3,
+                                                                                            entity_flags = { "breaths-air" },
+                                                                                            ignore_collision_condition = true,
+                                                                                            action_delivery =
                                                                                                 {
-                                                                                                    type = "area",
-                                                                                                    radius = 3,
-                                                                                                    entity_flags = { "breaths-air" },
-                                                                                                    ignore_collision_condition = true,
-                                                                                                    action_delivery =
+                                                                                                    type = "instant",
+                                                                                                    target_effects = {
                                                                                                         {
-                                                                                                            type = "instant",
-                                                                                                            target_effects = {
-                                                                                                                {
-                                                                                                                    type = "damage",
-                                                                                                                    lower_distance_threshold = 0,
-                                                                                                                    upper_distance_threshold = 12,
-                                                                                                                    lower_damage_modifier = 1,
-                                                                                                                    upper_damage_modifier = 0.1,
-                                                                                                                    damage = {amount = 400, type = "poison"}
-                                                                                                                },
-                                                                                                                {
-                                                                                                                    type = "create-sticker",
-                                                                                                                    sticker = "big-toxic-sticker-rampant-arsenal",
-                                                                                                                    show_in_tooltip = true
-                                                                                                                }
-                                                                                                            }
+                                                                                                            type = "damage",
+                                                                                                            lower_distance_threshold = 0,
+                                                                                                            upper_distance_threshold = 12,
+                                                                                                            lower_damage_modifier = 1,
+                                                                                                            upper_damage_modifier = 0.1,
+                                                                                                            damage = {amount = 400, type = "poison"}
+                                                                                                        },
+                                                                                                        {
+                                                                                                            type = "create-sticker",
+                                                                                                            sticker = "big-toxic-sticker-rampant-arsenal",
+                                                                                                            show_in_tooltip = true
                                                                                                         }
+                                                                                                    }
                                                                                                 }
-                                                                                            }
-                                                                                    }),
-                                                                                    show_in_tooltip = true,
-                                                                                    starting_speed = 0.15,
-                                                                                    starting_speed_deviation = 0.02
-                                                                                }
+                                                                                        }
+                                                                                    }
+                                                                            }),
+                                                                            show_in_tooltip = true,
+                                                                            starting_speed = 0.15,
+                                                                            starting_speed_deviation = 0.02
                                                                         }
-                                                                },
-                                                                {
-                                                                    type = "create-smoke",
-                                                                    entity_name = "big-toxic-cloud-rampant-arsenal",
-                                                                    show_in_tooltip = false
-                                                                },
-                                                                {
-                                                                    type = "invoke-tile-trigger",
-                                                                    repeat_count = 1,
-                                                                },
-                                                                {
-                                                                    type = "destroy-decoratives",
-                                                                    from_render_layer = "decorative",
-                                                                    to_render_layer = "object",
-                                                                    include_soft_decoratives = true,
-                                                                    include_decals = false,
-                                                                    invoke_decorative_trigger = true,
-                                                                    decoratives_with_trigger_only = false,
-                                                                    radius = 3
-                                                                },
-                                                            }
+                                                                }
+                                                        },
+                                                        {
+                                                            type = "create-smoke",
+                                                            entity_name = "big-toxic-cloud-rampant-arsenal",
+                                                            show_in_tooltip = false
+                                                        },
+                                                        {
+                                                            type = "invoke-tile-trigger",
+                                                            repeat_count = 1,
+                                                        },
+                                                        {
+                                                            type = "destroy-decoratives",
+                                                            from_render_layer = "decorative",
+                                                            to_render_layer = "object",
+                                                            include_soft_decoratives = true,
+                                                            include_decals = false,
+                                                            invoke_decorative_trigger = true,
+                                                            decoratives_with_trigger_only = false,
+                                                            radius = 3
+                                                        },
                                                     }
-                                                }
-                                        }
+                                            }
                                 }),
                                 starting_speed = 1,
                                 direction_deviation = 0,

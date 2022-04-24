@@ -461,7 +461,7 @@ function projectileUtils.makeRocketProjectile(attributes)
     return name
 end
 
-function projectileUtils.makeArtilleryShell(attributes, finalAttack, attack)
+function projectileUtils.makeArtilleryShell(attributes, attack, finalAttack)
     local name = attributes.name .. "-artillery-projectile-rampant-arsenal"
 
     data:extend({
