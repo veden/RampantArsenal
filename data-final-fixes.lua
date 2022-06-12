@@ -14,7 +14,7 @@
 -- along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-if mods["Krastorio2"] then
+if mods["Krastorio2"] and settings.startup["rampant-arsenal-enableVehicle"].value then
     data.raw["car"]["nuclear-tank-vehicle-rampant-arsenal"].burner = {
         fuel_category = "nuclear",
         effectivity = 0.9,

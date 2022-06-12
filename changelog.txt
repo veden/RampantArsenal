@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.6
+  Bugfixes:
+    - Mod setting for disabling vehicles now works with Krastorio
+
+---------------------------------------------------------------------------------------------------
+Version: 1.1.5
+  Bugfixes:
+    - Fixed mushroom cloud and fixed better artillery sounds compatibility
+
+---------------------------------------------------------------------------------------------------
 Version: 1.1.4
 Date: 18. 02. 2022
   Contribution:
