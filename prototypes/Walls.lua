@@ -19,9 +19,7 @@ local walls = {}
 local recipeUtils = require("utils/RecipeUtils")
 local technologyUtils = require("utils/TechnologyUtils")
 local wallUtils = require("utils/WallUtils")
-local projectileUtils = require("utils/ProjectileUtils")
 
-local makeBombWave = projectileUtils.makeBombWave
 local makeRecipe = recipeUtils.makeRecipe
 local addEffectToTech = technologyUtils.addEffectToTech
 local makeWall = wallUtils.makeWall
@@ -29,6 +27,56 @@ local addResistance = wallUtils.addResistance
 local makeGate = wallUtils.makeGate
 
 function walls.enable()
+
+    local mendingWallResistance = {
+        {
+            type = "physical",
+            decrease = 3,
+            percent = 20
+        },
+        {
+            type = "impact",
+            decrease = 45,
+            percent = 60
+        },
+        {
+            type = "explosion",
+            decrease = 10,
+            percent = 30
+        },
+        {
+            type = "acid",
+            percent = 30
+        },
+        {
+            type = "fire",
+            percent = 100
+        },
+        {
+            type = "laser",
+            percent = 40
+        },
+        {
+            type = "electric",
+            percent = 30
+        },
+        {
+            type = "poison",
+            percent = 30
+        }
+    }
+
+    if mods["bobwarfare"] then
+        mendingWallResistance[#mendingWallResistance+1] = {
+            type = "bob-pierce",
+            percent = 25,
+            decrease = 20
+        }
+        mendingWallResistance[#mendingWallResistance+1] = {
+            type = "plasma",
+            percent = 100
+        }
+    end
 
     local mendingWall,mendingWallItem = makeWall(
         {
@@ -38,43 +86,7 @@ function walls.enable()
             healing = 1,
             tint = {r=0.5,g=0.60,b=0.5,a=1},
             order = "a[stone-wall]-a[zmending-wall]",
-            resistances = {
-                {
-                    type = "physical",
-                    decrease = 3,
-                    percent = 20
-                },
-                {
-                    type = "impact",
-                    decrease = 45,
-                    percent = 60
-                },
-                {
-                    type = "explosion",
-                    decrease = 10,
-                    percent = 30
-                },
-                {
-                    type = "acid",
-                    percent = 30
-                },
-                {
-                    type = "fire",
-                    percent = 100
-                },
-                {
-                    type = "laser",
-                    percent = 40
-                },
-                {
-                    type = "electric",
-                    percent = 30
-                },
-                {
-                    type = "poison",
-                    percent = 30
-                }
-            }
+            resistances = mendingWallResistance
         },
         {
             range = 18,
@@ -107,43 +119,7 @@ function walls.enable()
             healing = 1,
             tint = {r=0.5,g=0.60,b=0.5,a=1},
             order = "a[wall]-b[gatez]",
-            resistances = {
-                {
-                    type = "physical",
-                    decrease = 3,
-                    percent = 20
-                },
-                {
-                    type = "impact",
-                    decrease = 45,
-                    percent = 60
-                },
-                {
-                    type = "explosion",
-                    decrease = 10,
-                    percent = 30
-                },
-                {
-                    type = "acid",
-                    percent = 30
-                },
-                {
-                    type = "fire",
-                    percent = 100
-                },
-                {
-                    type = "laser",
-                    percent = 40
-                },
-                {
-                    type = "electric",
-                    percent = 30
-                },
-                {
-                    type = "poison",
-                    percent = 30
-                }
-            }
+            resistances = mendingWallResistance
         },
         {
             range = 18,
@@ -205,14 +181,7 @@ function walls.enable()
                         }
     })
 
-    local reinforcedWall,reinforcedWallItem = makeWall(
-        {
-            name = "reinforced",
-            icon = "__RampantArsenal__/graphics/icons/reinforced-wall.png",
-            health = 1500,
-            tint = {r=0.5,g=0.5,b=0.60,a=1},
-            order = "a[stone-wall]-a[zreinforced-wall]",
-            resistances = {
+    local reinforcedWallResistance = {
                 {
                     type = "physical",
                     decrease = 6,
@@ -248,7 +217,28 @@ function walls.enable()
                     type = "poison",
                     percent = 60
                 }
-            }
+    }
+
+    if mods["bobwarfare"] then
+        reinforcedWallResistance[#reinforcedWallResistance+1] = {
+            type = "bob-pierce",
+            percent = 25,
+            decrease = 20
+        }
+        reinforcedWallResistance[#reinforcedWallResistance+1] = {
+            type = "plasma",
+            percent = 100
+        }
+    end
+
+    local reinforcedWall,reinforcedWallItem = makeWall(
+        {
+            name = "reinforced",
+            icon = "__RampantArsenal__/graphics/icons/reinforced-wall.png",
+            health = 1500,
+            tint = {r=0.5,g=0.5,b=0.60,a=1},
+            order = "a[stone-wall]-a[zreinforced-wall]",
+            resistances = reinforcedWallResistance
         }
     )
 
@@ -259,43 +249,7 @@ function walls.enable()
             health = 1500,
             tint = {r=0.5,g=0.5,b=0.9,a=1},
             order = "a[wall]-b[gatezz]",
-            resistances = {
-                {
-                    type = "physical",
-                    decrease = 6,
-                    percent = 40
-                },
-                {
-                    type = "impact",
-                    decrease = 45,
-                    percent = 80
-                },
-                {
-                    type = "explosion",
-                    decrease = 20,
-                    percent = 60
-                },
-                {
-                    type = "acid",
-                    percent = 70
-                },
-                {
-                    type = "fire",
-                    percent = 100
-                },
-                {
-                    type = "laser",
-                    percent = 60
-                },
-                {
-                    type = "electric",
-                    percent = 60
-                },
-                {
-                    type = "poison",
-                    percent = 60
-                }
-            }
+            resistances = reinforcedWallResistance
         }
     )
 

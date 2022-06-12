@@ -1,5 +1,7 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.6
+  Compatibility:
+    - Added bobs warfare pierce and plasma to mending and reinforced walls and gates
   Bugfixes:
     - Mod setting for disabling vehicles now works with Krastorio
 
