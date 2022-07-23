@@ -941,7 +941,7 @@ function guns.enable()
                                                        ammo_category = "bullet",
                                                        cooldown = 3.3,
                                                        projectile_creation_distance = 2,
-                                                       damage_modifier = 2,
+                                                       damage_modifier = 1.4,
                                                        projectile_center = {0, 0},
                                                        range = 24,
                                                        sound = sounds.heavy_gunshot,
