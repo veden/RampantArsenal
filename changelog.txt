@@ -2,6 +2,9 @@
 Version: 1.1.7
   Tweaks:
     - Increased mending wall and gate detection range to 60
+    - Increased research costs of high explosive, incendiary, and bio researches by ~4x
+    - Increased research costs of new turrets by ~2x
+    - Increased research costs of new vehicles by ~2x to ~4x
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.6

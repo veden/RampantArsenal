@@ -33,7 +33,7 @@ function technologies.enable()
                 {"chemical-science-pack", 1},
                 {"military-science-pack", 1}
             },
-            count = 250,
+            count = 500,
             time = 30
     })
 
@@ -57,7 +57,7 @@ function technologies.enable()
                 {"logistic-science-pack", 1},
                 {"military-science-pack", 1}
             },
-            count = 200,
+            count = 500,
             time = 30
     })
 
@@ -72,7 +72,7 @@ function technologies.enable()
                 {"chemical-science-pack", 1},
                 {"military-science-pack", 1}
             },
-            count = 300,
+            count = 1000,
             time = 30
     })
 
@@ -88,7 +88,7 @@ function technologies.enable()
                 {"chemical-science-pack", 1},
                 {"military-science-pack", 1}
             },
-            count = 250,
+            count = 500,
             time = 30
     })
 
@@ -104,7 +104,7 @@ function technologies.enable()
                 {"military-science-pack", 1},
                 {"utility-science-pack", 1}
             },
-            count = 400,
+            count = 1000,
             time = 30
     })
 
@@ -3112,7 +3112,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/incendiary.png",
                 prerequisites = {"flamethrower"},
                 effects = {},
-                count = 75,
+                count = 400,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3127,7 +3127,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/incendiary-napalm.png",
                 prerequisites = {incendiary, "sulfur-processing"},
                 effects = {},
-                count = 75,
+                count = 400,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3142,7 +3142,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/he-ordnance.png",
                 prerequisites = {"explosives"},
                 effects = {},
-                count = 75,
+                count = 400,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3157,7 +3157,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/biowarfare.png",
                 prerequisites = {"military-3"},
                 effects = {},
-                count = 75,
+                count = 400,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3178,7 +3178,7 @@ function technologies.enable()
                     {"chemical-science-pack", 1},
                     {"military-science-pack", 1}
                 },
-                count = 100,
+                count = 400,
                 time = 30
         })
 
@@ -3193,7 +3193,7 @@ function technologies.enable()
                     {"chemical-science-pack", 1},
                     {"military-science-pack", 1}
                 },
-                count = 100,
+                count = 400,
                 time = 30
         })
 
@@ -3208,7 +3208,7 @@ function technologies.enable()
                     {"chemical-science-pack", 1},
                     {"military-science-pack", 1}
                 },
-                count = 100,
+                count = 400,
                 time = 30
         })
 
@@ -3223,7 +3223,7 @@ function technologies.enable()
                     {"chemical-science-pack", 1},
                     {"military-science-pack", 1}
                 },
-                count = 100,
+                count = 400,
                 time = 30
         })
 
@@ -3238,7 +3238,7 @@ function technologies.enable()
                     {"chemical-science-pack", 1},
                     {"military-science-pack", 1}
                 },
-                count = 100,
+                count = 400,
                 time = 30
         })
 
@@ -3253,7 +3253,7 @@ function technologies.enable()
                     {"chemical-science-pack", 1},
                     {"military-science-pack", 1}
                 },
-                count = 100,
+                count = 400,
                 time = 30
         })
 
@@ -3268,7 +3268,7 @@ function technologies.enable()
                     {"chemical-science-pack", 1},
                     {"military-science-pack", 1}
                 },
-                count = 100,
+                count = 400,
                 time = 30
         })
 
@@ -3283,7 +3283,7 @@ function technologies.enable()
                     {"chemical-science-pack", 1},
                     {"military-science-pack", 1}
                 },
-                count = 100,
+                count = 400,
                 time = 30
         })
 
@@ -3331,7 +3331,7 @@ function technologies.enable()
                     {"chemical-science-pack", 1},
                     {"military-science-pack", 1}
                 },
-                count = 100,
+                count = 400,
                 time = 30
         })
 
@@ -3362,7 +3362,7 @@ function technologies.enable()
                     {"chemical-science-pack", 1},
                     {"military-science-pack", 1}
                 },
-                count = 100,
+                count = 400,
                 time = 30
         })
 
@@ -3371,7 +3371,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/bio-bullets.png",
                 prerequisites = {bioweapons},
                 effects = {},
-                count = 75,
+                count = 400,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3386,7 +3386,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/bio-shotgun-shells.png",
                 prerequisites = {bioweapons},
                 effects = {},
-                count = 75,
+                count = 400,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3401,7 +3401,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/bio-rockets.png",
                 prerequisites = {bioweapons, "explosive-rocketry"},
                 effects = {},
-                count = 75,
+                count = 400,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3417,7 +3417,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/incendiary-bullets.png",
                 prerequisites = {incendiary},
                 effects = {},
-                count = 75,
+                count = 400,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3432,7 +3432,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/incendiary-shotgun-shells.png",
                 prerequisites = {incendiary},
                 effects = {},
-                count = 75,
+                count = 400,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3447,7 +3447,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/incendiary-rockets.png",
                 prerequisites = {incendiary, "explosive-rocketry"},
                 effects = {},
-                count = 75,
+                count = 400,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3462,7 +3462,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/he-bullets.png",
                 prerequisites = {he},
                 effects = {},
-                count = 75,
+                count = 400,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3477,7 +3477,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/he-shotgun-shells.png",
                 prerequisites = {he},
                 effects = {},
-                count = 75,
+                count = 400,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3492,7 +3492,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/he-rockets.png",
                 prerequisites = {he, "explosive-rocketry"},
                 effects = {},
-                count = 75,
+                count = 400,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3551,7 +3551,7 @@ function technologies.enable()
                 {"chemical-science-pack", 1},
                 {"military-science-pack", 1}
             },
-            count = 400,
+            count = 800,
             time = 30
     })
 
@@ -3568,7 +3568,7 @@ function technologies.enable()
                 {"chemical-science-pack", 1},
                 {"military-science-pack", 1}
             },
-            count = 600,
+            count = 1200,
             time = 30
     })
 
@@ -3595,7 +3595,7 @@ function technologies.enable()
             icon="__RampantArsenal__/graphics/technology/boosters.png",
             prerequisites = {"military-2"},
             effects = {},
-            count = 35,
+            count = 200,
             ingredients = {
                 {"automation-science-pack", 1},
                 {"logistic-science-pack", 1},
@@ -3609,7 +3609,7 @@ function technologies.enable()
             icon="__RampantArsenal__/graphics/technology/paralysis.png",
             prerequisites = {bioweapons, "military-4"},
             effects = {},
-            count = 75,
+            count = 500,
             ingredients = {
                 {"automation-science-pack", 1},
                 {"logistic-science-pack", 1},
@@ -3624,7 +3624,7 @@ function technologies.enable()
             icon="__RampantArsenal__/graphics/technology/regeneration.png",
             prerequisites = {"military-2", "advanced-electronics", "plastics"},
             effects = {},
-            count = 200,
+            count = 400,
             ingredients = {
                 {"automation-science-pack", 1},
                 {"logistic-science-pack", 1},
@@ -3638,7 +3638,7 @@ function technologies.enable()
             icon="__RampantArsenal__/graphics/technology/mending-walls.png",
             prerequisites = {regeneration, "stone-wall", "gate", "military-3"},
             effects = {},
-            count = 200,
+            count = 500,
             ingredients = {
                 {"automation-science-pack", 1},
                 {"logistic-science-pack", 1},
@@ -3653,7 +3653,7 @@ function technologies.enable()
             icon="__RampantArsenal__/graphics/technology/medic-turrets.png",
             prerequisites = {regeneration, "engine"},
             effects = {},
-            count = 200,
+            count = 500,
             ingredients = {
                 {"automation-science-pack", 1},
                 {"logistic-science-pack", 1},
@@ -3667,7 +3667,7 @@ function technologies.enable()
             icon="__RampantArsenal__/graphics/technology/turrets-2.png",
             prerequisites = {"gun-turret", "military-3", (settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rampant-arsenal-technology-bullet-damage-4") or "physical-projectile-damage-4", (settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rampant-arsenal-technology-bullet-speed-4") or "weapon-shooting-speed-4"},
             effects = {},
-            count = 500,
+            count = 800,
             ingredients = {
                 {"automation-science-pack", 1},
                 {"logistic-science-pack", 1},
@@ -3706,7 +3706,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/nuclear-railway.png",
                 prerequisites = {"nuclear-power", "railway", "advanced-electronics-2"},
                 effects = {},
-                count = 350,
+                count = 1500,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3723,7 +3723,7 @@ function technologies.enable()
                 iconMipmaps=4,
                 prerequisites = {"tank", "advanced-electronics-2", "military-4"},
                 effects = {},
-                count = 300,
+                count = 1200,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3739,7 +3739,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/nuclear-tanks.png",
                 prerequisites = {"nuclear-power", tanks2},
                 effects = {},
-                count = 1000,
+                count = 2000,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3759,7 +3759,7 @@ function technologies.enable()
                 iconMipmaps=4,
                 prerequisites = {"automobilism", "military-3", "advanced-electronics-2"},
                 effects = {},
-                count = 300,
+                count = 600,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3774,7 +3774,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/nuclear-cars.png",
                 prerequisites = {"nuclear-power", "military-4", cars2},
                 effects = {},
-                count = 750,
+                count = 1500,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3792,7 +3792,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/power-armor-mk3.png",
                 prerequisites = {"power-armor-mk2", "nuclear-power"},
                 effects = {},
-                count = 600,
+                count = 2500,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3811,7 +3811,7 @@ function technologies.enable()
                 iconMipmaps=4,
                 prerequisites = {"fusion-reactor-equipment", "productivity-module-3"},
                 effects = {},
-                count = 600,
+                count = 1200,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3830,7 +3830,7 @@ function technologies.enable()
                 iconMipmaps=4,
                 prerequisites = {genMk2, "nuclear-power"},
                 effects = {},
-                count = 800,
+                count = 1800,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3849,7 +3849,7 @@ function technologies.enable()
                 iconMipmaps=4,
                 prerequisites = {"energy-shield-mk2-equipment", "speed-module-3"},
                 effects = {},
-                count = 400,
+                count = 800,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3867,7 +3867,7 @@ function technologies.enable()
                 iconMipmaps=4,
                 prerequisites = {"battery-mk2-equipment", "effectivity-module-3"},
                 effects = {},
-                count = 400,
+                count = 800,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -3886,7 +3886,7 @@ function technologies.enable()
             iconMipmaps=4,
             prerequisites = {"military-3", "concrete", "stone-wall", "gate"},
             effects = {},
-            count = 400,
+            count = 1600,
             ingredients = {
                 {"automation-science-pack", 1},
                 {"logistic-science-pack", 1},
@@ -4065,7 +4065,7 @@ function technologies.enable()
                                  shotgunTurretTech,
                                  (settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rampant-arsenal-technology-shotgun-shell-damage-5") or "physical-projectile-damage-5"},
                 effects = {},
-                count = 400,
+                count = 1000,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -4086,7 +4086,7 @@ function technologies.enable()
                                  "productivity-module-2",
                                  (settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rampant-arsenal-technology-cannon-shell-damage-4") or "physical-projectile-damage-6"},
                 effects = {},
-                count = 400,
+                count = 1000,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -4107,7 +4107,7 @@ function technologies.enable()
                                  "speed-module-2",
                                  (settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "rampant-arsenal-technology-energy-weapons-damage-3") or "energy-weapons-damage-5"},
                 effects = {},
-                count = 400,
+                count = 1200,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -4123,7 +4123,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/personal-bullets-defense-equipment.png",
                 prerequisites = {"personal-laser-defense-equipment", "military-4", "advanced-electronics-2", turrets2},
                 effects = {},
-                count = 400,
+                count = 800,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
@@ -4139,7 +4139,7 @@ function technologies.enable()
                 icon="__RampantArsenal__/graphics/technology/personal-slow-defense-equipment.png",
                 prerequisites = {"personal-laser-defense-equipment", "military-4", capsuleTurretTech, "advanced-electronics-2"},
                 effects = {},
-                count = 400,
+                count = 1000,
                 ingredients = {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
