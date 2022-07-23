@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.7
+  Tweaks:
+    - Increased mending wall and gate detection range to 60
+
+---------------------------------------------------------------------------------------------------
 Version: 1.1.6
   Compatibility:
     - Added bobs warfare pierce and plasma to mending and reinforced walls and gates

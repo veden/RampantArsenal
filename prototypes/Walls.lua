@@ -89,7 +89,7 @@ function walls.enable()
             resistances = mendingWallResistance
         },
         {
-            range = 18,
+            range = 60,
             cooldown = 30,
             action = {
                 type = "direct",
@@ -122,7 +122,7 @@ function walls.enable()
             resistances = mendingWallResistance
         },
         {
-            range = 18,
+            range = 60,
             cooldown = 30,
             action = {
                 type = "direct",
