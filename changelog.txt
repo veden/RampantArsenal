@@ -5,6 +5,7 @@ Version: 1.1.7
     - Increased research costs of high explosive, incendiary, and bio researches by ~4x
     - Increased research costs of new turrets by ~2x
     - Increased research costs of new vehicles by ~2x to ~4x
+    - Increased power armor mk3 build time to 90 seconds and 2x steel, processing chip cost, and add electric engines
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.6

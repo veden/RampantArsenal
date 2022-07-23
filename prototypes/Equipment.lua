@@ -185,11 +185,13 @@ function Equipment.enable()
             icon = "__RampantArsenal__/graphics/icons/power-armor-mk3.png",
             enabled = false,
             ingredients = {
-                {"steel-plate", 30},
+                {"steel-plate", 60},
                 {"power-armor-mk2", 1},
-                {"processing-unit", 30},
+                {"processing-unit", 60},
+                {"electric-engine-unit", 60},
                 {"nuclear-reactor", 1}
             },
+            time = 90,
             result = powerArmor
     })
 
