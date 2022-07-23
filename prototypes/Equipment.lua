@@ -187,7 +187,7 @@ function Equipment.enable()
             ingredients = {
                 {"steel-plate", 60},
                 {"power-armor-mk2", 1},
-                {"processing-unit", 60},
+                {"processing-unit", 100},
                 {"electric-engine-unit", 60},
                 {"nuclear-reactor", 1}
             },
