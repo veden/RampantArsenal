@@ -40,7 +40,7 @@ function stickers.enable()
             spreadRadius = 5,
             tint = {r=0.5,g=0,b=0.5,a=0.8},
             movementModifier = 0.95,
-            damagePerTick = { type = "poison", amount = 5 }
+            damagePerTick = { type = "poison", amount = 2 }
         }
     )
 
