@@ -113,8 +113,8 @@ function medic.enable()
                                                        {
                                                            type = "projectile",
                                                            ammo_category = "turret-capsule",
-                                                           cooldown = 1340,
-                                                           warmup = 100,
+                                                           cooldown = 240,
+                                                           warmup = 1,
                                                            projectile_creation_distance = 1,
                                                            damage_modifier = 1,
                                                            projectile_center = {0, 0},
