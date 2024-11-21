@@ -178,8 +178,8 @@ function guns.enable()
                 order = "b[shotgun]-d[uranium]",
                 magSize = 10,
                 stackSize = 200,
+                ammoCategory = "shotgun-shell",
                 ammoType = {
-                    category = "shotgun-shell",
                     target_type = "direction",
                     clamp_position = true,
                     action =
@@ -239,8 +239,8 @@ function guns.enable()
                 order = "b[shotgun]-c[incendiary]",
                 magSize = 10,
                 stackSize = 200,
+                ammoCategory = "shotgun-shell",
                 ammoType = {
-                    category = "shotgun-shell",
                     target_type = "direction",
                     clamp_position = true,
                     action =
@@ -312,8 +312,8 @@ function guns.enable()
                 order = "a[basic-clips]-c[incendiary-rounds-magazine]",
                 magSize = 10,
                 stackSize = 200,
+                ammoCategory = "bullet",
                 ammoType = {
-                    category = "bullet",
                     action =
                         {
                             type = "direct",
@@ -356,8 +356,8 @@ function guns.enable()
                 order = "b[shotgun]-c[he]",
                 magSize = 10,
                 stackSize = 200,
+                ammoCategory = "shotgun-shell",
                 ammoType = {
-                    category = "shotgun-shell",
                     target_type = "direction",
                     clamp_position = true,
                     action =
@@ -439,8 +439,8 @@ function guns.enable()
                     order = "a[basic-clips]-c[he-rounds-magazine]",
                     magSize = 10,
                     stackSize = 200,
+                    ammoCategory = "bullet",
                     ammoType = {
-                        category = "bullet",
                         -- target_type = "position",
                         -- clamp_position = true,
                         action =
@@ -525,8 +525,8 @@ function guns.enable()
                 order = "b[shotgun]-c[bio]",
                 magSize = 10,
                 stackSize = 200,
+                ammoCategory = "shotgun-shell",
                 ammoType = {
-                    category = "shotgun-shell",
                     target_type = "direction",
                     clamp_position = true,
                     action =
@@ -594,8 +594,8 @@ function guns.enable()
                 order = "a[basic-clips]-c[bio-rounds-magazine]",
                 magSize = 10,
                 stackSize = 200,
+                ammoCategory = "bullet",
                 ammoType = {
-                    category = "bullet",
                     action =
                         {
                             type = "direct",
@@ -634,11 +634,11 @@ function guns.enable()
                 enabled = false,
                 category = "crafting-with-fluid",
                 ingredients = {
-                    {"piercing-rounds-magazine", 1},
-                    {"copper-plate", 2},
+                    {type="item", name="piercing-rounds-magazine", amount=1},
+                    {type="item", name="copper-plate", amount=2},
                     {type="fluid", name="light-oil", amount=20}
                 },
-                result = incendiaryMagazineAmmo
+                results = {{type="item", name=incendiaryMagazineAmmo, amount=1}}
         })
 
         makeRecipe({
@@ -647,11 +647,11 @@ function guns.enable()
                 enabled = false,
                 category = "crafting-with-fluid",
                 ingredients = {
-                    {"piercing-shotgun-shell", 1},
-                    {"steel-plate", 1},
+                    {type="item", name="piercing-shotgun-shell", amount=1},
+                    {type="item", name="steel-plate", amount=1},
                     {type="fluid", name="light-oil", amount=20}
                 },
-                result = incendiaryShotgunShellAmmo
+                results = {{type="item", name=incendiaryShotgunShellAmmo, amount=1}}
         })
 
         makeRecipe({
@@ -660,11 +660,11 @@ function guns.enable()
                 enabled = false,
                 category = "crafting",
                 ingredients = {
-                    {"piercing-rounds-magazine", 1},
-                    {"copper-plate", 2},
-                    {"explosives", 2}
+                    {type="item", name="piercing-rounds-magazine", amount=1},
+                    {type="item", name="copper-plate", amount=2},
+                    {type="item", name="explosives", amount=2}
                 },
-                result = heMagazineAmmo
+                results = {{type="item", name=heMagazineAmmo, amount=1}}
         })
 
         makeRecipe({
@@ -673,11 +673,11 @@ function guns.enable()
                 enabled = false,
                 category = "crafting",
                 ingredients = {
-                    {"piercing-shotgun-shell", 1},
-                    {"steel-plate", 2},
-                    {"explosives", 2}
+                    {type="item", name="piercing-shotgun-shell", amount=1},
+                    {type="item", name="steel-plate", amount=2},
+                    {type="item", name="explosives", amount=2}
                 },
-                result = heShotgunShellAmmo
+                results = {{type="item", name=heShotgunShellAmmo, amount=1}}
         })
 
         makeRecipe({
@@ -686,11 +686,11 @@ function guns.enable()
                 enabled = false,
                 category = "crafting",
                 ingredients = {
-                    {"piercing-rounds-magazine", 1},
-                    {"copper-plate", 2},
-                    {"poison-capsule", 1}
+                    {type="item", name="piercing-rounds-magazine", amount=1},
+                    {type="item", name="copper-plate", amount=2},
+                    {type="item", name="poison-capsule", amount=1}
                 },
-                result = bioMagazineAmmo
+                results = {{type="item", name=bioMagazineAmmo, amount=1}}
         })
 
         makeRecipe({
@@ -699,11 +699,11 @@ function guns.enable()
                 enabled = false,
                 category = "crafting",
                 ingredients = {
-                    {"piercing-shotgun-shell", 1},
-                    {"steel-plate", 1},
-                    {"poison-capsule", 1}
+                    {type="item", name="piercing-shotgun-shell", amount=1},
+                    {type="item", name="steel-plate", amount=1},
+                    {type="item", name="poison-capsule", amount=1}
                 },
-                result = bioShotgunShellAmmo
+                results = {{type="item", name=bioShotgunShellAmmo, amount=1}}
         })
 
         makeRecipe({
@@ -712,16 +712,16 @@ function guns.enable()
                 enabled = false,
                 category = "crafting",
                 ingredients = {
-                    {"piercing-shotgun-shell", 1},
-                    {"uranium-238", 1},
-                    {"steel-plate", 1}
+                    {type="item", name="piercing-shotgun-shell", amount=1},
+                    {type="item", name="uranium-238", amount=1},
+                    {type="item", name="steel-plate", amount=1}
                 },
-                result = uraniumShotgunShellAmmo
+                results = {{type="item", name=uraniumShotgunShellAmmo, amount=1}}
         })
 
         local uraniumBullets = data.raw["ammo"]["uranium-rounds-magazine"]
+        uraniumBullets.ammo_category = "bullet"
         uraniumBullets.ammo_type = {
-            category = "bullet",
             action =
                 {
                     type = "direct",
@@ -841,12 +841,12 @@ function guns.enable()
             icon = "__RampantArsenal__/graphics/icons/recipe-mortar.png",
             enabled = false,
             ingredients = {
-                {"steel-plate", 15},
-                {"iron-gear-wheel", 5},
-                {"copper-plate", 10},
-                {"explosives", 5}
+                {type="item", name="steel-plate", amount=15},
+                {type="item", name="iron-gear-wheel", amount=5},
+                {type="item", name="copper-plate", amount=10},
+                {type="item", name="explosives", amount=5}
             },
-            result = mortar
+            results = {{type="item", name=mortar, amount=1}}
     })
 
     makeRecipe({
@@ -854,12 +854,12 @@ function guns.enable()
             icon = "__RampantArsenal__/graphics/icons/recipe-minigun.png",
             enabled = false,
             ingredients = {
-                {"steel-plate", 10},
-                {"iron-gear-wheel", 5},
-                {"engine-unit", 3},
-                {"electronic-circuit", 5}
+                {type="item", name="steel-plate", amount=10},
+                {type="item", name="iron-gear-wheel", amount=5},
+                {type="item", name="engine-unit", amount=3},
+                {type="item", name="electronic-circuit", amount=5}
             },
-            result = minigun
+            results = {{type="item", name=minigun, amount=1}}
     })
 
     makeRecipe({
@@ -868,12 +868,12 @@ function guns.enable()
             iconSize = 32, iconMipmaps = 1,
             enabled = false,
             ingredients = {
-                {"steel-plate", 10},
-                {"iron-gear-wheel", 5},
-                {"rocket-launcher", 1},
-                {"electronic-circuit", 5}
+                {type="item", name="steel-plate", amount=10},
+                {type="item", name="iron-gear-wheel", amount=5},
+                {type="item", name="rocket-launcher", amount=1},
+                {type="item", name="electronic-circuit", amount=5}
             },
-            result = rocketLauncher
+            results = {{type="item", name=rocketLauncher, amount=1}}
     })
 
     addEffectToTech("explosives",
@@ -953,11 +953,11 @@ function guns.enable()
             enabled = false,
             category = "crafting",
             ingredients = {
-                {"gun-turret", 1},
-                {"advanced-circuit", 5},
-                {"steel-plate", 15}
+                {type="item", name="gun-turret", amount=1},
+                {type="item", name="advanced-circuit", amount=5},
+                {type="item", name="steel-plate", amount=15}
             },
-            result = gunTurretItem
+            results = {{type="item", name=gunTurretItem, amount=1}}
     })
 
     local rifleTurret,rifleTurretItem
@@ -993,11 +993,11 @@ function guns.enable()
                 enabled = true,
                 category = "crafting",
                 ingredients = {
-                    {"copper-plate", 10},
-                    {"wood", 5},
-                    {"iron-plate", 15}
+                    {type="item", name="copper-plate", amount=10},
+                    {type="item", name="wood", amount=5},
+                    {type="item", name="iron-plate", amount=15}
                 },
-                result = rifleTurretItem
+                results = {{type="item", name=rifleTurretItem, amount=1}}
         })
 
         addEffectToTech((settings.startup["rampant-arsenal-hideVanillaDamageTechnologies"].value and "gun-turret-damage-1") or "physical-projectile-damage-1",

@@ -42,7 +42,7 @@ function vehicles.enable()
             name = "advanced-tank-machine-gun",
             icon = "__RampantArsenal__/graphics/icons/minigun.png",
             iconSize = 64, iconMipmaps = 1,
-            flags = {"hidden"},
+            hidden = true,
             order = "e[mortar]-b"
         },
         {
@@ -73,7 +73,7 @@ function vehicles.enable()
             name = "advanced-tank-cannon",
             icon = "__base__/graphics/icons/tank-cannon.png",
             iconSize = 64, iconMipmaps = 4,
-            flags = {"hidden"},
+            hidden = true,
             order = "e[mortar]-b"
         },
         {
@@ -99,7 +99,7 @@ function vehicles.enable()
             name = "advanced-tank-flamethrower",
             icon = "__base__/graphics/icons/flamethrower.png",
             iconSize = 64, iconMipmaps = 4,
-            flags = {"hidden"},
+            hidden = true,
             order = "e[mortar]-b"
         },
         {
@@ -143,7 +143,7 @@ function vehicles.enable()
             name = "advanced-tank-launcher",
             icon = "__RampantArsenal__/graphics/icons/mortar.png",
             iconSize = 64, iconMipmaps = 1,
-            flags = {"hidden"},
+            hidden = true,
             order = "e[mortar]-b"
         },
         {
@@ -218,7 +218,7 @@ function vehicles.enable()
             inventorySize = 100,
             collisionBox = {{-1.5, -2.5}, {1.2, 1.8}},
             selectionBox = {{-1.7, -2.7}, {1.4, 2}},
-            drawingBox = {{-3.4, -3.4}, {3.4, 2.8}},
+            --drawingBox = {{-3.4, -3.4}, {3.4, 2.8}},
             brakingPower = "3MW",
             equipmentGrid = advTankGrid,
             friction = 0.006,
@@ -227,9 +227,10 @@ function vehicles.enable()
             weapons = { advancedTankMachineGun, advancedTankCannon, advancedTankFlamethrower, advancedTankLauncher},
             tint = { r = 0.85, g = 0.75, b = 0.75, a = 1 },
             energySource = {
-                fuel_category = "chemical",
+                type = "burner",
+                fuel_categories = {"chemical"},
                 effectivity = 0.85,
-                emissions_per_minute = 20,
+                emissions_per_minute = { pollution = 20 },
                 fuel_inventory_size = 2,
                 smoke =
                     {
@@ -287,7 +288,7 @@ function vehicles.enable()
             name = "nuclear-tank-machine-gun",
             icon = "__RampantArsenal__/graphics/icons/minigun.png",
             iconSize = 64, iconMipmaps = 1,
-            flags = {"hidden"},
+            hidden = true,
             order = "e[mortar]-b"
         },
         {
@@ -318,7 +319,7 @@ function vehicles.enable()
             name = "nuclear-tank-cannon",
             icon = "__base__/graphics/icons/tank-cannon.png",
             iconSize = 64, iconMipmaps = 4,
-            flags = {"hidden"},
+            hidden = true,
             order = "e[mortar]-b"
         },
         {
@@ -344,7 +345,7 @@ function vehicles.enable()
             name = "nuclear-tank-flamethrower",
             icon = "__base__/graphics/icons/flamethrower.png",
             iconSize = 64, iconMipmaps = 4,
-            flags = {"hidden"},
+            hidden = true,
             order = "e[mortar]-b"
         },
         {
@@ -388,7 +389,7 @@ function vehicles.enable()
             name = "nuclear-tank-launcher",
             icon = "__RampantArsenal__/graphics/icons/mortar.png",
             iconSize = 64, iconMipmaps = 1,
-            flags = {"hidden"},
+            hidden = true,
             order = "e[mortar]-b"
         },
         {
@@ -418,7 +419,7 @@ function vehicles.enable()
             name = "nuclear-tank-rocket",
             icon = "__base__/graphics/icons/rocket-launcher.png",
             iconSize = 64, iconMipmaps = 4,
-            flags = {"hidden"},
+            hidden = true,
             order = "e[mortar]-b"
         },
         {
@@ -450,7 +451,8 @@ function vehicles.enable()
             icon = "__RampantArsenal__/graphics/icons/nuclear-tank.png",
             collisionBox = {{-1.5, -2.8}, {1.3, 2}},
             selectionBox = {{-1.9, -3.2}, {1.7, 2.4}},
-            drawingBox = {{-3.6, -3.6}, {3.4, 2.8}},
+            --drawingBox = {{-3.6, -3.6}, {3.4, 2.8}},
+            drawingBoxVerticalExtension = 1,
             equipmentGrid = nuclearTankGrid,
             weapons = { nuclearTankMachineGun, nuclearTankCannon, nuclearTankFlamethrower, nuclearTankLauncher, nuclearTankRocket},
             immuneToTrees = true,
@@ -463,9 +465,10 @@ function vehicles.enable()
             inventorySize = 180,
             tint = { r = 0.75, g = 0.85, b = 0.75, a = 1 },
             energySource = {
-                fuel_category = "nuclear",
+                type = "burner",
+                fuel_categories = {"nuclear"},
                 effectivity = 0.9,
-                emissions_per_minute = 30,
+                emissions_per_minute = { pollution = 30 },
                 fuel_inventory_size = 2,
                 burnt_inventory_size = 2,
                 smoke =
@@ -560,7 +563,7 @@ function vehicles.enable()
             name = "advanced-car-machine-gun",
             icon = "__RampantArsenal__/graphics/icons/minigun.png",
             iconSize = 64, iconMipmaps = 1,
-            flags = {"hidden"},
+            hidden = true,
             order = "e[mortar]-b"
         },
         {
@@ -592,7 +595,7 @@ function vehicles.enable()
             name = "advanced-car-shotgun",
             icon = "__base__/graphics/icons/combat-shotgun.png",
             iconSize = 64, iconMipmaps = 4,
-            flags = {"hidden"},
+            hidden = true,
             order = "e[mortar]-b"
         },
         {
@@ -629,10 +632,11 @@ function vehicles.enable()
             weight = 1600,
             inventorySize = 130,
             energySource = {
-                fuel_category = "chemical",
+                type = "burner",
+                fuel_categories = {"chemical"},
                 effectivity = 0.6,
                 fuel_inventory_size = 1,
-                emissions_per_minute = 15,
+                emissions_per_minute = { pollution = 15 },
                 smoke =
                     {
                         {
@@ -686,7 +690,7 @@ function vehicles.enable()
             name = "nuclear-car-machine-gun",
             icon = "__RampantArsenal__/graphics/icons/minigun.png",
             iconSize = 64, iconMipmaps = 1,
-            flags = {"hidden"},
+            hidden = true,
             order = "e[mortar]-b"
         },
         {
@@ -718,7 +722,7 @@ function vehicles.enable()
             name = "nuclear-car-shotgun",
             icon = "__base__/graphics/icons/combat-shotgun.png",
             iconSize = 64, iconMipmaps = 4,
-            flags = {"hidden"},
+            hidden = true,
             order = "e[mortar]-b"
         },
         {
@@ -744,7 +748,7 @@ function vehicles.enable()
             name = "nuclear-car-launcher",
             icon = "__RampantArsenal__/graphics/icons/mortar.png",
             iconSize = 64, iconMipmaps = 1,
-            flags = {"hidden"},
+            hidden = true,
             order = "e[mortar]-b"
         },
         {
@@ -788,9 +792,10 @@ function vehicles.enable()
             selectionBox = {{-1.1, -1.4}, {1.1, 1.4}},
             tint = { r = 0.75, g = 0.85, b = 0.75, a = 1 },
             energySource = {
-                fuel_category = "nuclear",
+                type = "burner",
+                fuel_categories = {"nuclear"},
                 effectivity = 1,
-                emissions_per_minute = 20,
+                emissions_per_minute = { pollution = 20 },
                 fuel_inventory_size = 1,
                 burnt_inventory_size = 1,
                 smoke =
@@ -872,7 +877,8 @@ function vehicles.enable()
             weight = 60000,
             tint = { r = 0.70, g = 0.9, b = 0.70, a = 1 },
             energySource = {
-                fuel_category = "nuclear",
+                type = "burner",
+                fuel_categories = {"nuclear"},
                 effectivity = 0.16,
                 fuel_inventory_size = 3,
                 burnt_inventory_size = 3,
@@ -896,12 +902,12 @@ function vehicles.enable()
             enabled = false,
             category = "crafting",
             ingredients = {
-                {"tank", 1},
-                {"plastic-bar", 100},
-                {"steel-plate", 150},
-                {"processing-unit", 30}
+                {type="item", name="tank", amount=1},
+                {type="item", name="plastic-bar", amount=100},
+                {type="item", name="steel-plate", amount=150},
+                {type="item", name="processing-unit", amount=30}
             },
-            result = advTank,
+            results = {{type="item", name=advTank, amount=1}}
     })
 
     makeRecipe({
@@ -910,12 +916,12 @@ function vehicles.enable()
             enabled = false,
             category = "crafting",
             ingredients = {
-                {advTank, 1},
-                {"nuclear-reactor", 1},
-                {"steel-plate", 200},
-                {"processing-unit", 50}
+                {type="item", name=advTank, amount=1},
+                {type="item", name="nuclear-reactor", amount=1},
+                {type="item", name="steel-plate", amount=200},
+                {type="item", name="processing-unit", amount=50}
             },
-            result = nuclearTank,
+            results = {{type="item", name=nuclearTank, amount=1}}
     })
 
     makeRecipe({
@@ -924,12 +930,12 @@ function vehicles.enable()
             enabled = false,
             category = "crafting",
             ingredients = {
-                {"car", 1},
-                {"steel-plate", 30},
-                {"copper-plate", 40},
-                {"processing-unit", 25}
+                {type="item", name="car", amount=1},
+                {type="item", name="steel-plate", amount=30},
+                {type="item", name="copper-plate", amount=40},
+                {type="item", name="processing-unit", amount=25}
             },
-            result = advCar,
+            results = {{type="item", name=advCar, amount=1}}
     })
 
     makeRecipe({
@@ -938,12 +944,12 @@ function vehicles.enable()
             enabled = false,
             category = "crafting",
             ingredients = {
-                {advCar, 1},
-                {"nuclear-reactor", 1},
-                {"steel-plate", 75},
-                {"processing-unit", 30}
+                {type="item", name=advCar, amount=1},
+                {type="item", name="nuclear-reactor", amount=1},
+                {type="item", name="steel-plate", amount=75},
+                {type="item", name="processing-unit", amount=30}
             },
-            result = nuclearCar,
+            results = {{type="item", name=nuclearCar, amount=1}}
     })
 
     makeRecipe({
@@ -952,12 +958,12 @@ function vehicles.enable()
             enabled = false,
             category = "crafting",
             ingredients = {
-                {"locomotive", 1},
-                {"nuclear-reactor", 1},
-                {"steel-plate", 100},
-                {"processing-unit", 20}
+                {type="item", name="locomotive", amount=1},
+                {type="item", name="nuclear-reactor", amount=1},
+                {type="item", name="steel-plate", amount=100},
+                {type="item", name="processing-unit", amount=20}
             },
-            result = nuclearTrain,
+            results = {{type="item", name=nuclearTrain, amount=1}}
     })
 
     addEquipmentGrid("locomotive",

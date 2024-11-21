@@ -26,7 +26,7 @@ function landmineUtils.makeLandmine(attributes, attack)
                 name = nameGhostless,
                 icon = attributes.icon or "__base__/graphics/icons/gun-turret.png",
                 icon_size = 32,
-                flags = attributes.itemFlags or {"hidden"},
+                hidden = true,
                 subgroup = attributes.subgroup or "enemies",
                 order = attributes.order or "b[turret]-a[gun-turret]",
                 place_result = nameGhostless,
@@ -145,9 +145,9 @@ function landmineUtils.makeLandmine(attributes, attack)
                     {
                         "player-creation",
                         "placeable-off-grid",
-                        "not-on-map",
-                        "hidden"
+                        "not-on-map"
                     },
+                hidden = true,
                 minable = {mining_time = 1, result = name},
                 mined_sound = { filename = "__core__/sound/deconstruct-small.ogg" },
                 max_health = 15,

@@ -177,7 +177,7 @@ function Equipment.enable()
     -- 		{"advanced-circuit", 15},
     -- 		{"battery", 5}
     -- 	    },
-    -- 	    result = "belt-immunity-equipment"
+    -- 	    results = {{type="item", name=""belt-immunity-equipment"", amount=1}}
     -- })
 
     makeRecipe({
@@ -185,12 +185,12 @@ function Equipment.enable()
             icon = "__RampantArsenal__/graphics/icons/power-armor-mk3.png",
             enabled = false,
             ingredients = {
-                {"steel-plate", 30},
-                {"power-armor-mk2", 1},
-                {"processing-unit", 30},
-                {"nuclear-reactor", 1}
+                {type="item", name="steel-plate", amount=30},
+                {type="item", name="power-armor-mk2", amount=1},
+                {type="item", name="processing-unit", amount=30},
+                {type="item", name="nuclear-reactor", amount=1}
             },
-            result = powerArmor
+            results = {{type="item", name=powerArmor, amount=1}}
     })
 
 
@@ -225,10 +225,10 @@ function Equipment.enable()
             icon = "__RampantArsenal__/graphics/icons/energy-shield-mk3-equipment.png",
             enabled = false,
             ingredients = {
-                {"energy-shield-mk2-equipment", 10},
-                {"speed-module-3", 20}
+                {type="item", name="energy-shield-mk2-equipment", amount=10},
+                {type="item", name="speed-module-3", amount=20}
             },
-            result = shieldMk3
+            results = {{type="item", name=shieldMk3, amount=1}}
     })
 
     addEffectToTech("rampant-arsenal-technology-shield-equipment-2",
@@ -261,10 +261,10 @@ function Equipment.enable()
             icon = "__RampantArsenal__/graphics/icons/battery-mk3-equipment.png",
             enabled = false,
             ingredients = {
-                {"battery-mk2-equipment", 10},
-                {"effectivity-module-3", 20}
+                {type="item", name="battery-mk2-equipment", amount=10},
+                {type="item", name="efficiency-module-3", amount=20}
             },
-            result = batteryMk3
+            results = {{type="item", name=batteryMk3, amount=1}}
     })
 
     addEffectToTech("rampant-arsenal-technology-battery-equipment-3",
@@ -295,11 +295,11 @@ function Equipment.enable()
             power = "13000kW",
             burner = (settings.startup["rampant-arsenal-enableNuclearGeneratorEquipmentConsuming"].value and {
                           type = "burner",
-                          fuel_category = "nuclear",
+                          fuel_categories = {"nuclear"},
                           effectivity = 1,
                           fuel_inventory_size = 2,
                           burnt_inventory_size = 2,
-                          emissions_per_minute = 2,
+                          emissions_per_minute = { pollution = 2 },
                           smoke =
                               {
                                   {
@@ -327,10 +327,10 @@ function Equipment.enable()
             icon = "__RampantArsenal__/graphics/icons/generator-mk3-equipment.png",
             enabled = false,
             ingredients = {
-                {"fusion-reactor-equipment", 5},
-                {"productivity-module-3", 20}
+                {type="item", name="fission-reactor-equipment", amount=5},
+                {type="item", name="productivity-module-3", amount=20}
             },
-            result = generatorMk3
+            results = {{type="item", name=generatorMk3, amount=1}}
     })
 
     makeRecipe({
@@ -338,11 +338,11 @@ function Equipment.enable()
             icon = "__RampantArsenal__/graphics/icons/generator-nuclear-equipment.png",
             enabled = false,
             ingredients = {
-                {"heat-exchanger", 5},
-                {generatorMk3, 1},
-                {"accumulator", 10}
+                {type="item", name="heat-exchanger", amount=5},
+                {type="item", name=generatorMk3, amount=1},
+                {type="item", name="accumulator", amount=10}
             },
-            result = generatorNuclear
+            results = {{type="item", name=generatorNuclear, amount=1}}
     })
 
     addEffectToTech("rampant-arsenal-technology-generator-equipment-2",
@@ -761,11 +761,11 @@ function Equipment.enable()
             icon = "__RampantArsenal__/graphics/icons/personal-shotgun-defense-equipment.png",
             enabled = false,
             ingredients = {
-                {"shotgun-item-rampant-arsenal", 5},
-                {"steel-plate", 5},
-                {"effectivity-module-2", 10}
+                {type="item", name="shotgun-item-rampant-arsenal", amount=5},
+                {type="item", name="steel-plate", amount=5},
+                {type="item", name="efficiency-module-2", amount=10}
             },
-            result = passiveShotgun
+            results = {{type="item", name=passiveShotgun, amount=1}}
     })
 
     makeRecipe({
@@ -773,11 +773,11 @@ function Equipment.enable()
             icon = "__RampantArsenal__/graphics/icons/personal-cannon-defense-equipment.png",
             enabled = false,
             ingredients = {
-                {"cannon-item-rampant-arsenal", 5},
-                {"steel-plate", 5},
-                {"productivity-module-2", 10}
+                {type="item", name="cannon-item-rampant-arsenal", amount=5},
+                {type="item", name="steel-plate", amount=5},
+                {type="item", name="productivity-module-2", amount=10}
             },
-            result = passiveCannon
+            results = {{type="item", name=passiveCannon, amount=1}}
     })
 
     makeRecipe({
@@ -785,11 +785,11 @@ function Equipment.enable()
             icon = "__RampantArsenal__/graphics/icons/personal-lightning-defense-equipment.png",
             enabled = false,
             ingredients = {
-                {"lightning-item-rampant-arsenal", 5},
-                {"steel-plate", 5},
-                {"speed-module-2", 10}
+                {type="item", name="lightning-item-rampant-arsenal", amount=5},
+                {type="item", name="steel-plate", amount=5},
+                {type="item", name="speed-module-2", amount=10}
             },
-            result = passiveLightning
+            results = {{type="item", name=passiveLightning, amount=1}}
     })
 
     makeRecipe({
@@ -797,11 +797,11 @@ function Equipment.enable()
             icon = "__RampantArsenal__/graphics/icons/personal-bullet-defense-equipment.png",
             enabled = false,
             ingredients = {
-                {"gun-item-rampant-arsenal", 5},
-                {"steel-plate", 5},
-                {"processing-unit", 40}
+                {type="item", name="gun-item-rampant-arsenal", amount=5},
+                {type="item", name="steel-plate", amount=5},
+                {type="item", name="processing-unit", amount=40}
             },
-            result = passiveBullets
+            results = {{type="item", name=passiveBullets, amount=1}}
     })
 
     makeRecipe({
@@ -809,11 +809,11 @@ function Equipment.enable()
             icon = "__RampantArsenal__/graphics/icons/personal-slow-defense-equipment.png",
             enabled = false,
             ingredients = {
-                {"capsule-item-rampant-arsenal", 5},
-                {"steel-plate", 5},
-                {"processing-unit", 40}
+                {type="item", name="capsule-item-rampant-arsenal", amount=5},
+                {type="item", name="steel-plate", amount=5},
+                {type="item", name="processing-unit", amount=40}
             },
-            result = passiveSlow
+            results = {{type="item", name=passiveSlow, amount=1}}
     })
 
 

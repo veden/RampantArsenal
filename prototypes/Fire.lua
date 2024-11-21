@@ -44,10 +44,10 @@ function fire.enable()
             name = "napalm",
             icon = "__RampantArsenal__/graphics/icons/napalm-ammo.png",
             order = "e[napalm]",
+            ammoCategory = "flamethrower",
             ammoType = {
                 {
                     source_type = "default",
-                    category = "flamethrower",
                     target_type = "position",
                     clamp_position = true,
 
@@ -180,11 +180,11 @@ function fire.enable()
             enabled = false,
             category = "crafting-with-fluid",
             ingredients = {
-                {"steel-plate", 5},
-                {"copper-plate", 2},
+                {type="item", name="steel-plate", amount=5},
+                {type="item", name="copper-plate", amount=2},
                 {type="fluid", name=napalm, amount=100}
             },
-            result = napalmAmmo,
+            results = {{type="item", name=napalmAmmo, amount=1}}
     })
 
     makeRecipe({
@@ -197,7 +197,7 @@ function fire.enable()
             category = "chemistry",
             subgroup = "fluid-recipes",
             ingredients = {
-                {"plastic-bar", 3},
+                {type="item", name="plastic-bar", amount=3},
                 {type="fluid", name="petroleum-gas", amount=30},
                 {type="fluid", name="sulfuric-acid", amount=20}
             },

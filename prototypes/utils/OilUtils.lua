@@ -33,7 +33,7 @@ function oilUtils.addFluid(attributes)
                 type = "fluid",
                 name = name,
                 default_temperature = attributes.defaultTemp or 25,
-                heat_capacity = attributes.heatCapacity or "0.1KJ",
+                heat_capacity = attributes.heatCapacity or "0.1kJ",
                 base_color = attributes.baseColor or {r=0, g=0, b=0},
                 flow_color = attributes.flowColor or {r=0.5, g=0.5, b=0.5},
                 max_temperature = attributes.maxTemp or 100,

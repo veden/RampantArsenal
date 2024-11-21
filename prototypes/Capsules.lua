@@ -101,8 +101,8 @@ function capsules.enable()
             subgroup = "launcher-capsule",
             order = "h[capsule]",
             stackSize = 200,
+            ammoCategory = "capsule-launcher",
             ammoType = {
-                category = "capsule-launcher",
                 target_type = "position",
                 clamp_position = true,
 
@@ -146,8 +146,8 @@ function capsules.enable()
             subgroup = "launcher-capsule",
             order = "i[capsule]",
             stackSize = 200,
+            ammoCategory = "capsule-launcher",
             ammoType = {
-                category = "capsule-launcher",
                 target_type = "position",
                 clamp_position = true,
 
@@ -190,8 +190,8 @@ function capsules.enable()
             subgroup = "launcher-capsule",
             order = "j[capsule]",
             stackSize = 200,
+            ammoCategory = "capsule-launcher",
             ammoType = {
-                category = "capsule-launcher",
                 target_type = "position",
                 clamp_position = true,
 
@@ -234,8 +234,8 @@ function capsules.enable()
             subgroup = "launcher-capsule",
             order = "f[capsule]",
             stackSize = 200,
+            ammoCategory = "capsule-launcher",
             ammoType = {
-                category = "capsule-launcher",
                 target_type = "position",
                 clamp_position = true,
                 action =
@@ -277,8 +277,8 @@ function capsules.enable()
             subgroup = "launcher-capsule",
             order = "l[capsule]",
             stackSize = 200,
+            ammoCategory = "capsule-launcher",
             ammoType = {
-                category = "capsule-launcher",
                 target_type = "position",
                 clamp_position = true,
 
@@ -339,8 +339,8 @@ function capsules.enable()
             subgroup = "launcher-capsule",
             order = "k[capsule]",
             stackSize = 200,
+            ammoCategory = "capsule-launcher",
             ammoType = {
-                category = "capsule-launcher",
                 target_type = "position",
                 clamp_position = true,
 
@@ -386,8 +386,8 @@ function capsules.enable()
             subgroup = "launcher-capsule",
             order = "m[capsule]",
             stackSize = 200,
+            ammoCategory = "capsule-launcher",
             ammoType = {
-                category = "capsule-launcher",
                 target_type = "position",
                 clamp_position = true,
 
@@ -434,8 +434,8 @@ function capsules.enable()
             subgroup = "launcher-capsule",
             order = "n[capsule]",
             stackSize = 200,
+            ammoCategory = "capsule-launcher",
             ammoType = {
-                category = "capsule-launcher",
                 target_type = "position",
                 clamp_position = true,
 
@@ -495,8 +495,8 @@ function capsules.enable()
             subgroup = "launcher-capsule",
             order = "a[capsule]",
             stackSize = 200,
+            ammoCategory = "capsule-launcher",
             ammoType = {
-                category = "capsule-launcher",
                 target_type = "position",
                 clamp_position = true,
 
@@ -582,8 +582,8 @@ function capsules.enable()
                 subgroup = "launcher-capsule",
                 order = "g[capsule]",
                 stackSize = 200,
+                ammoCategory = "capsule-launcher",
                 ammoType = {
-                    category = "capsule-launcher",
                     target_type = "position",
                     clamp_position = true,
 
@@ -626,8 +626,8 @@ function capsules.enable()
                 subgroup = "launcher-capsule",
                 order = "w[capsule]",
                 stackSize = 200,
+                ammoCategory = "capsule-launcher",
                 ammoType = {
-                    category = "capsule-launcher",
                     target_type = "position",
                     clamp_position = true,
 
@@ -691,8 +691,8 @@ function capsules.enable()
                 subgroup = "launcher-capsule",
                 order = "p[capsule]",
                 stackSize = 200,
+                ammoCategory = "capsule-launcher",
                 ammoType = {
-                    category = "capsule-launcher",
                     target_type = "position",
                     clamp_position = true,
 
@@ -738,8 +738,8 @@ function capsules.enable()
                 subgroup = "launcher-capsule",
                 order = "o[capsule]",
                 stackSize = 200,
+                ammoCategory = "capsule-launcher",
                 ammoType = {
-                    category = "capsule-launcher",
                     target_type = "position",
                     clamp_position = true,
 
@@ -785,8 +785,8 @@ function capsules.enable()
                 subgroup = "launcher-capsule",
                 order = "x[capsule]",
                 stackSize = 200,
+                ammoCategory = "capsule-launcher",
                 ammoType = {
-                    category = "capsule-launcher",
                     target_type = "position",
                     clamp_position = true,
 
@@ -831,8 +831,8 @@ function capsules.enable()
                 subgroup = "launcher-capsule",
                 order = "b[capsule]",
                 stackSize = 200,
+                ammoCategory = "capsule-launcher",
                 ammoType = {
-                    category = "capsule-launcher",
                     target_type = "position",
                     clamp_position = true,
 
@@ -925,8 +925,8 @@ function capsules.enable()
                 subgroup = "launcher-capsule",
                 order = "c[capsule]",
                 stackSize = 200,
+                ammoCategory = "capsule-launcher",
                 ammoType = {
-                    category = "capsule-launcher",
                     target_type = "position",
                     clamp_position = true,
 
@@ -1014,8 +1014,8 @@ function capsules.enable()
                 subgroup = "launcher-capsule",
                 order = "d[capsule]",
                 stackSize = 200,
+                ammoCategory = "capsule-launcher",
                 ammoType = {
-                    category = "capsule-launcher",
                     target_type = "position",
                     clamp_position = true,
 
@@ -1137,11 +1137,11 @@ function capsules.enable()
                 icon = "__RampantArsenal__/graphics/icons/toxic-capsule-ammo.png",
                 enabled = false,
                 ingredients = {
-                    {"iron-plate", 2},
-                    {"toxic-capsule-rampant-arsenal", 1},
-                    {"explosives", 1}
+                    {type="item", name="iron-plate", amount=2},
+                    {type="item", name="toxic-capsule-rampant-arsenal", amount=1},
+                    {type="item", name="explosives", amount=1}
                 },
-                result = toxicCapsules
+                results = {{type="item", name=toxicCapsules, amount=1}}
         })
 
         makeRecipe({
@@ -1149,11 +1149,11 @@ function capsules.enable()
                 icon = "__RampantArsenal__/graphics/icons/incendiary-landmine-capsule-ammo.png",
                 enabled = false,
                 ingredients = {
-                    {"iron-plate", 2},
-                    {"incendiary-landmine-rampant-arsenal", 1},
-                    {"explosives", 1}
+                    {type="item", name="iron-plate", amount=2},
+                    {type="item", name="incendiary-landmine-rampant-arsenal", amount=1},
+                    {type="item", name="explosives", amount=1}
                 },
-                result = incendiaryLandmineCapsules
+                results = {{type="item", name=incendiaryLandmineCapsules, amount=1}}
         })
 
         makeRecipe({
@@ -1161,11 +1161,11 @@ function capsules.enable()
                 icon = "__RampantArsenal__/graphics/icons/he-landmine-capsule-ammo.png",
                 enabled = false,
                 ingredients = {
-                    {"iron-plate", 2},
-                    {"he-landmine-rampant-arsenal", 1},
-                    {"explosives", 1}
+                    {type="item", name="iron-plate", amount=2},
+                    {type="item", name="he-landmine-rampant-arsenal", amount=1},
+                    {type="item", name="explosives", amount=1}
                 },
-                result = heLandmineCapsules
+                results = {{type="item", name=heLandmineCapsules, amount=1}}
         })
 
 
@@ -1174,11 +1174,11 @@ function capsules.enable()
                 icon = "__RampantArsenal__/graphics/icons/bio-landmine-capsule-ammo.png",
                 enabled = false,
                 ingredients = {
-                    {"iron-plate", 2},
-                    {"bio-landmine-rampant-arsenal", 1},
-                    {"explosives", 1}
+                    {type="item", name="iron-plate", amount=2},
+                    {type="item", name="bio-landmine-rampant-arsenal", amount=1},
+                    {type="item", name="explosives", amount=1}
                 },
-                result = bioLandmineCapsules
+                results = {{type="item", name=bioLandmineCapsules, amount=1}}
         })
 
         makeRecipe({
@@ -1186,11 +1186,11 @@ function capsules.enable()
                 icon = "__RampantArsenal__/graphics/icons/nuclear-landmine-capsule-ammo.png",
                 enabled = false,
                 ingredients = {
-                    {"iron-plate", 2},
-                    {"nuclear-landmine-rampant-arsenal", 1},
-                    {"explosives", 1}
+                    {type="item", name="iron-plate", amount=2},
+                    {type="item", name="nuclear-landmine-rampant-arsenal", amount=1},
+                    {type="item", name="explosives", amount=1}
                 },
-                result = nuclearLandmineCapsules
+                results = {{type="item", name=nuclearLandmineCapsules, amount=1}}
         })
 
         makeRecipe({
@@ -1198,11 +1198,11 @@ function capsules.enable()
                 icon = "__RampantArsenal__/graphics/icons/bio-grenade-capsule-ammo.png",
                 enabled = false,
                 ingredients = {
-                    {"iron-plate", 2},
-                    {"bio-grenade-capsule-rampant-arsenal", 1},
-                    {"explosives", 1}
+                    {type="item", name="iron-plate", amount=2},
+                    {type="item", name="bio-grenade-capsule-rampant-arsenal", amount=1},
+                    {type="item", name="explosives", amount=1}
                 },
-                result = bioGrenadeCapsules
+                results = {{type="item", name=bioGrenadeCapsules, amount=1}}
         })
 
         makeRecipe({
@@ -1210,11 +1210,11 @@ function capsules.enable()
                 icon = "__RampantArsenal__/graphics/icons/he-grenade-capsule-ammo.png",
                 enabled = false,
                 ingredients = {
-                    {"iron-plate", 2},
-                    {"he-grenade-capsule-rampant-arsenal", 1},
-                    {"explosives", 1}
+                    {type="item", name="iron-plate", amount=2},
+                    {type="item", name="he-grenade-capsule-rampant-arsenal", amount=1},
+                    {type="item", name="explosives", amount=1}
                 },
-                result = heGrenadeCapsules
+                results = {{type="item", name=heGrenadeCapsules, amount=1}}
         })
 
         makeRecipe({
@@ -1222,11 +1222,11 @@ function capsules.enable()
                 icon = "__RampantArsenal__/graphics/icons/incendiary-grenade-capsule-ammo.png",
                 enabled = false,
                 ingredients = {
-                    {"iron-plate", 2},
-                    {"incendiary-grenade-capsule-rampant-arsenal", 1},
-                    {"explosives", 1}
+                    {type="item", name="iron-plate", amount=2},
+                    {type="item", name="incendiary-grenade-capsule-rampant-arsenal", amount=1},
+                    {type="item", name="explosives", amount=1}
                 },
-                result = incendiaryGrenadeCapsules
+                results = {{type="item", name=incendiaryGrenadeCapsules, amount=1}}
         })
 
         addEffectToTech("incendiary-landmine",
@@ -1285,8 +1285,8 @@ function capsules.enable()
             subgroup = "launcher-capsule",
             order = "e[capsule]",
             stackSize = 200,
+            ammoCategory = "capsule-launcher",
             ammoType = {
-                category = "capsule-launcher",
                 target_type = "position",
                 clamp_position = true,
                 action =
@@ -1362,11 +1362,11 @@ function capsules.enable()
             icon = "__RampantArsenal__/graphics/icons/slowdown-capsule-ammo.png",
             enabled = false,
             ingredients = {
-                {"iron-plate", 2},
-                {"slowdown-capsule", 1},
-                {"explosives", 1}
+                {type="item", name="iron-plate", amount=2},
+                {type="item", name="slowdown-capsule", amount=1},
+                {type="item", name="explosives", amount=1}
             },
-            result = slowCapsules
+            results = {{type="item", name=slowCapsules, amount=1}}
     })
 
     makeRecipe({
@@ -1374,11 +1374,11 @@ function capsules.enable()
             icon = "__RampantArsenal__/graphics/icons/poison-capsule-ammo.png",
             enabled = false,
             ingredients = {
-                {"iron-plate", 2},
-                {"poison-capsule", 1},
-                {"explosives", 1}
+                {type="item", name="iron-plate", amount=2},
+                {type="item", name="poison-capsule", amount=1},
+                {type="item", name="explosives", amount=1}
             },
-            result = poisonCapsules
+            results = {{type="item", name=poisonCapsules, amount=1}}
     })
 
     makeRecipe({
@@ -1386,11 +1386,11 @@ function capsules.enable()
             icon = "__RampantArsenal__/graphics/icons/paralysis-capsule-ammo.png",
             enabled = false,
             ingredients = {
-                {"iron-plate", 2},
-                {"paralysis-capsule-rampant-arsenal", 1},
-                {"explosives", 1}
+                {type="item", name="iron-plate", amount=2},
+                {type="item", name="paralysis-capsule-rampant-arsenal", amount=1},
+                {type="item", name="explosives", amount=1}
             },
-            result = paralysisCapsules
+            results = {{type="item", name=paralysisCapsules, amount=1}}
     })
 
     makeRecipe({
@@ -1398,11 +1398,11 @@ function capsules.enable()
             icon = "__RampantArsenal__/graphics/icons/repair-capsule-ammo.png",
             enabled = false,
             ingredients = {
-                {"iron-plate", 2},
-                {"repair-capsule-rampant-arsenal", 1},
-                {"explosives", 1}
+                {type="item", name="iron-plate", amount=2},
+                {type="item", name="repair-capsule-rampant-arsenal", amount=1},
+                {type="item", name="explosives", amount=1}
             },
-            result = repairCapsules
+            results = {{type="item", name=repairCapsules, amount=1}}
     })
 
     makeRecipe({
@@ -1410,11 +1410,11 @@ function capsules.enable()
             icon = "__RampantArsenal__/graphics/icons/distractor-capsule-ammo.png",
             enabled = false,
             ingredients = {
-                {"iron-plate", 2},
-                {"distractor-capsule", 1},
-                {"explosives", 1}
+                {type="item", name="iron-plate", amount=2},
+                {type="item", name="distractor-capsule", amount=1},
+                {type="item", name="explosives", amount=1}
             },
-            result = distractorCapsules
+            results = {{type="item", name=distractorCapsules, amount=1}}
     })
 
     makeRecipe({
@@ -1422,11 +1422,11 @@ function capsules.enable()
             icon = "__RampantArsenal__/graphics/icons/defender-capsule-ammo.png",
             enabled = false,
             ingredients = {
-                {"iron-plate", 2},
-                {"defender-capsule", 1},
-                {"explosives", 1}
+                {type="item", name="iron-plate", amount=2},
+                {type="item", name="defender-capsule", amount=1},
+                {type="item", name="explosives", amount=1}
             },
-            result = defenderCapsules
+            results = {{type="item", name=defenderCapsules, amount=1}}
     })
 
     makeRecipe({
@@ -1434,11 +1434,11 @@ function capsules.enable()
             icon = "__RampantArsenal__/graphics/icons/destroyer-capsule-ammo.png",
             enabled = false,
             ingredients = {
-                {"iron-plate", 2},
-                {"destroyer-capsule", 1},
-                {"explosives", 1}
+                {type="item", name="iron-plate", amount=2},
+                {type="item", name="destroyer-capsule", amount=1},
+                {type="item", name="explosives", amount=1}
             },
-            result = destroyerCapsules
+            results = {{type="item", name=destroyerCapsules, amount=1}}
     })
 
     makeRecipe({
@@ -1446,11 +1446,11 @@ function capsules.enable()
             icon = "__RampantArsenal__/graphics/icons/landmine-capsule-ammo.png",
             enabled = false,
             ingredients = {
-                {"iron-plate", 2},
-                {"land-mine", 4},
-                {"explosives", 1}
+                {type="item", name="iron-plate", amount=2},
+                {type="item", name="land-mine", amount=4},
+                {type="item", name="explosives", amount=1}
             },
-            result = landmineCapsules
+            results = {{type="item", name=landmineCapsules, amount=1}}
     })
 
     makeRecipe({
@@ -1458,11 +1458,11 @@ function capsules.enable()
             icon = "__RampantArsenal__/graphics/icons/grenade-capsule-ammo.png",
             enabled = false,
             ingredients = {
-                {"iron-plate", 2},
-                {"grenade", 1},
-                {"explosives", 1}
+                {type="item", name="iron-plate", amount=2},
+                {type="item", name="grenade", amount=1},
+                {type="item", name="explosives", amount=1}
             },
-            result = grenadeCapsules
+            results = {{type="item", name=grenadeCapsules, amount=1}}
     })
 
     makeRecipe({
@@ -1470,11 +1470,11 @@ function capsules.enable()
             icon = "__RampantArsenal__/graphics/icons/cluster-grenade-capsule-ammo.png",
             enabled = false,
             ingredients = {
-                {"iron-plate", 2},
-                {"cluster-grenade", 1},
-                {"explosives", 1}
+                {type="item", name="iron-plate", amount=2},
+                {type="item", name="cluster-grenade", amount=1},
+                {type="item", name="explosives", amount=1}
             },
-            result = clusterGrenadeCapsules
+            results = {{type="item", name=clusterGrenadeCapsules, amount=1}}
     })
 
     local entity = {
@@ -1553,12 +1553,12 @@ function capsules.enable()
             icon = "__RampantArsenal__/graphics/icons/capsuleTurret.png",
             enabled = false,
             ingredients = {
-                {"steel-plate", 10},
-                {"engine-unit", 5},
-                {"advanced-circuit", 15},
-                {"explosives", 30}
+                {type="item", name="steel-plate", amount=10},
+                {type="item", name="engine-unit", amount=5},
+                {type="item", name="advanced-circuit", amount=15},
+                {type="item", name="explosives", amount=30}
             },
-            result = capsuleTurretItem,
+            results = {{type="item", name=capsuleTurretItem, amount=1}}
     })
 
     addEffectToTech("defender",

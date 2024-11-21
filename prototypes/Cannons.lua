@@ -379,9 +379,10 @@ function cannons.enable()
         collisionBox = {{-1.7, -2.2 }, {1.7, 2.2}},
         selectionBox = {{-2, -2.5 }, {2, 2.5}},
         order = "b[turret]-c[zflamethrower-turret]",
+        volume = 100,
         pipeConnections = {
-            { position = {-2.5, 2.0} },
-            { position = {2.5, 2.0} }
+            { direction = defines.direction.west, position = {-1.5, 2.0} },
+            { direction = defines.direction.east, position = {1.5, 2.0} }
         },
         foldedAnimation = largeCannonSheet(),
         preparingAnimation = largeCannonSheet(),
@@ -561,7 +562,7 @@ function cannons.enable()
         {icon="__base__/graphics/icons/flamethrower-turret.png", icon_size=64, icon_mipmaps=4, tint={r=0.6,g=0.8,b=0.6}}
     }
 
-    tintPicture(acidTurret.base_picture, {r=0.6,g=0.8,b=0.6})
+    tintPicture(acidTurret.graphics_set, {r=0.6,g=0.8,b=0.6})
 
     acidTurret.name = "acid-cannon-rampant-arsenal"
     acidTurret.minable = { mining_time = 3, result = "acid-cannon-rampant-arsenal" }
@@ -691,13 +692,13 @@ function cannons.enable()
                                                                 {
                                                                     type = "create-fire",
                                                                     entity_name = acidPuddleName,
-                                                                    tile_collision_mask = { "water-tile" },
+                                                                    tile_collision_mask = { layers={water_tile=true} },
                                                                     show_in_tooltip = true
                                                                 },
                                                                 {
                                                                     type = "create-entity",
                                                                     entity_name = "water-splash",
-                                                                    tile_collision_mask = { "ground-tile" }
+                                                                    tile_collision_mask = { layers={ground_tile=true} }
                                                                 },
                                                                 {
                                                                     type = "destroy-decoratives",
@@ -745,45 +746,45 @@ function cannons.enable()
                 begin_sound =
                     {
                         {
-                            filename = "__base__/sound/fight/flamethrower-turret-start-01.ogg",
+                            filename = "__base__/sound/fight/flamethrower-turret-start-1.ogg",
                             volume = 0.5
                         },
                         {
-                            filename = "__base__/sound/fight/flamethrower-turret-start-02.ogg",
+                            filename = "__base__/sound/fight/flamethrower-turret-start-2.ogg",
                             volume = 0.5
                         },
                         {
-                            filename = "__base__/sound/fight/flamethrower-turret-start-03.ogg",
+                            filename = "__base__/sound/fight/flamethrower-turret-start-3.ogg",
                             volume = 0.5
                         }
                     },
                 middle_sound =
                     {
                         {
-                            filename = "__base__/sound/fight/flamethrower-turret-mid-01.ogg",
+                            filename = "__base__/sound/fight/flamethrower-turret-mid-1.ogg",
                             volume = 0.5
                         },
                         {
-                            filename = "__base__/sound/fight/flamethrower-turret-mid-02.ogg",
+                            filename = "__base__/sound/fight/flamethrower-turret-mid-2.ogg",
                             volume = 0.5
                         },
                         {
-                            filename = "__base__/sound/fight/flamethrower-turret-mid-03.ogg",
+                            filename = "__base__/sound/fight/flamethrower-turret-mid-3.ogg",
                             volume = 0.5
                         }
                     },
                 end_sound =
                     {
                         {
-                            filename = "__base__/sound/fight/flamethrower-turret-end-01.ogg",
+                            filename = "__base__/sound/fight/flamethrower-turret-end-1.ogg",
                             volume = 0.5
                         },
                         {
-                            filename = "__base__/sound/fight/flamethrower-turret-end-02.ogg",
+                            filename = "__base__/sound/fight/flamethrower-turret-end-2.ogg",
                             volume = 0.5
                         },
                         {
-                            filename = "__base__/sound/fight/flamethrower-turret-end-03.ogg",
+                            filename = "__base__/sound/fight/flamethrower-turret-end-3.ogg",
                             volume = 0.5
                         }
                     }
@@ -792,7 +793,7 @@ function cannons.enable()
 
     local acidCannonRecipe = util.table.deepcopy(data.raw["recipe"]["flamethrower-turret"])
     acidCannonRecipe.name = acidTurret.name
-    acidCannonRecipe.result = acidTurret.name
+    acidCannonRecipe.results = {{type="item", name=acidTurret.name, amount=1}}
     acidCannonRecipe.energy_required = 25
     acidCannonRecipe.icon = nil
     acidCannonRecipe.icons = {
@@ -800,11 +801,11 @@ function cannons.enable()
     }
     acidCannonRecipe.ingredients =
         {
-            {"steel-plate", 30},
-            {"iron-gear-wheel", 15},
-            {"plastic-bar", 5},
-            {"pipe", 10},
-            {"engine-unit", 10}
+            {type="item", name="steel-plate", amount=30},
+            {type="item", name="iron-gear-wheel", amount=15},
+            {type="item", name="plastic-bar", amount=5},
+            {type="item", name="pipe", amount=10},
+            {type="item", name="engine-unit", amount=10},
         }
 
     local acidItem = util.table.deepcopy(data.raw["item"]["flamethrower-turret"])
@@ -894,12 +895,12 @@ function cannons.enable()
             enabled = false,
             time = 30,
             ingredients = {
-                {"steel-plate", 45},
-                {"engine-unit", 5},
-                {"iron-gear-wheel", 15},
-                {"concrete", 20}
+                {type="item", name="steel-plate", amount=45},
+                {type="item", name="engine-unit", amount=5},
+                {type="item", name="iron-gear-wheel", amount=15},
+                {type="item", name="concrete", amount=20},
             },
-            result = cannonTurretItem,
+            results = {{type="item", name=cannonTurretItem, amount=1}},
     })
 
     -- makeRecipe({
@@ -922,12 +923,12 @@ function cannons.enable()
             enabled = false,
             time = 35,
             ingredients = {
-                {"steel-plate", 40},
-                {"engine-unit", 10},
-                {"advanced-circuit", 15},
-                {"concrete", 20}
+                {type="item", name="steel-plate", amount=40},
+                {type="item", name="engine-unit", amount=10},
+                {type="item", name="iron-gear-wheel", amount=15},
+                {type="item", name="concrete", amount=20},
             },
-            result = rapidCannonTurretItem,
+            results = {{type="item", name=rapidCannonTurretItem, amount=1}},
     })
 
     makeRecipe({
@@ -936,12 +937,12 @@ function cannons.enable()
             enabled = false,
             time = 40,
             ingredients = {
-                {"steel-plate", 60},
-                {"engine-unit", 20},
-                {"advanced-circuit", 30},
-                {"concrete", 60}
+                {type="item", name="steel-plate", amount=60},
+                {type="item", name="engine-unit", amount=20},
+                {type="item", name="advanced-circuit", amount=30},
+                {type="item", name="concrete", amount=60},
             },
-            result = suppressionCannonTurretItem,
+            results = {{type="item", name=suppressionCannonTurretItem, amount=1}},
     })
 
     makeRecipe({
@@ -950,11 +951,11 @@ function cannons.enable()
             enabled = false,
             time = 16,
             ingredients = {
-                {"steel-plate", 10},
-                {"copper-plate", 10},
-                {"iron-gear-wheel", 10}
+                {type="item", name="steel-plate", amount=10},
+                {type="item", name="copper-plate", amount=10},
+                {type="item", name="iron-gear-wheel", amount=10},
             },
-            result = shotgunTurretItem,
+            results = {{type="item", name=shotgunTurretItem, amount=1}},
 
     })
 
@@ -1244,8 +1245,8 @@ function cannons.enable()
                 order = "d[cannon-shell]-c[incendiary]",
                 magSize = 1,
                 stackSize = 200,
+                ammoCategory = "cannon-shell",
                 ammoType = {
-                    category = "cannon-shell",
                     target_type = "direction",
                     clamp_position = true,
                     action =
@@ -1400,11 +1401,11 @@ function cannons.enable()
                 enabled = false,
                 category = "crafting-with-fluid",
                 ingredients = {
-                    {"explosive-cannon-shell", 1},
-                    {"iron-plate", 1},
-                    {type="fluid", name="light-oil", amount=40}
+                    {type="item", name="explosive-cannon-shell", amount=1},
+                    {type="item", name="iron-plate", amount=1},
+                    {type = "fluid", name = "light-oil", amount = 40},
                 },
-                result = incendiaryCannonShellAmmo,
+                results = {{type="item", name=incendiaryCannonShellAmmo, amount=1}},
         })
 
         addEffectToTech("incendiary-cannon-shells",
@@ -1419,8 +1420,8 @@ function cannons.enable()
                 order = "d[cannon-shell]-c[he]",
                 magSize = 1,
                 stackSize = 200,
+                ammoCategory = "cannon-shell",
                 ammoType = {
-                    category = "cannon-shell",
                     target_type = "direction",
                     clamp_position = true,
                     action =
@@ -1531,11 +1532,11 @@ function cannons.enable()
                 enabled = false,
                 category = "crafting",
                 ingredients = {
-                    {"explosive-cannon-shell", 1},
-                    {"iron-plate", 1},
-                    {"explosives", 6}
+                    {type="item", name="explosive-cannon-shell", amount=1},
+                    {type="item", name="iron-plate", amount=1},
+                    {type="item", name="explosives", amount=6},
                 },
-                result = heCannonShellAmmo,
+                results = {{type="item", name=heCannonShellAmmo, amount=1}},
         })
 
         addEffectToTech("he-cannon-shells",
@@ -1550,8 +1551,8 @@ function cannons.enable()
                 order = "d[cannon-shell]-c[fbio]",
                 magSize = 1,
                 stackSize = 200,
+                ammoCategory = "cannon-shell",
                 ammoType = {
-                    category = "cannon-shell",
                     target_type = "direction",
                     clamp_position = true,
                     action =
@@ -1656,11 +1657,11 @@ function cannons.enable()
                 enabled = false,
                 category = "crafting-with-fluid",
                 ingredients = {
-                    {"explosive-cannon-shell", 1},
-                    {"iron-plate", 1},
-                    {"poison-capsule", 2}
+                    {type="item", name="explosive-cannon-shell", amount=1},
+                    {type="item", name="iron-plate", amount=1},
+                    {type="item", name="poison-capsule", amount=2},
                 },
-                result = bioCannonShellAmmo,
+                results = {{type="item", name=bioCannonShellAmmo, amount=1}},
         })
 
         addEffectToTech("bio-cannon-shells",

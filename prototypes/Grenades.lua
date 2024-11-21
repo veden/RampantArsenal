@@ -180,11 +180,11 @@ function grenades.enable()
                 enabled = false,
                 category = "crafting-with-fluid",
                 ingredients = {
-                    {"grenade", 1},
-                    {"copper-plate", 1},
+                    {type="item", name="grenade", amount=1},
+                    {type="item", name="copper-plate", amount=1},
                     {type="fluid", name="light-oil", amount=40}
                 },
-                result = incendiaryGrenade,
+                results = {{type="item", name=incendiaryGrenade, amount=1}}
         })
 
         addEffectToTech("incendiary-grenades",
@@ -312,11 +312,11 @@ function grenades.enable()
                 enabled = false,
                 category = "crafting",
                 ingredients = {
-                    {"grenade", 1},
-                    {"copper-plate", 1},
-                    {"explosives", 4}
+                    {type="item", name="grenade", amount=1},
+                    {type="item", name="copper-plate", amount=1},
+                    {type="item", name="explosives", amount=4}
                 },
-                result = heGrenade,
+                results = {{type="item", name=heGrenade, amount=1}}
         })
 
         addEffectToTech("he-grenades",
@@ -444,11 +444,11 @@ function grenades.enable()
                 enabled = false,
                 category = "crafting",
                 ingredients = {
-                    {"grenade", 1},
-                    {"copper-plate", 1},
-                    {"poison-capsule", 1}
+                    {type="item", name="grenade", amount=1},
+                    {type="item", name="copper-plate", amount=1},
+                    {type="item", name="poison-capsule", amount=1}
                 },
-                result = bioGrenade,
+                results = {{type="item", name=bioGrenade, amount=1}}
         })
 
         addEffectToTech("bio-grenades",
@@ -531,11 +531,11 @@ function grenades.enable()
                 enabled = false,
                 category = "crafting",
                 ingredients = {
-                    {"poison-capsule", 3},
-                    {"iron-plate", 3},
-                    {"plastic-bar", 3}
+                    {type="item", name="poison-capsule", amount=3},
+                    {type="item", name="iron-plate", amount=3},
+                    {type="item", name="plastic-bar", amount=3}
                 },
-                result = toxicCapsule,
+                results = {{type="item", name=toxicCapsule, amount=1}}
         })
 
         addEffectToTech("bio-capsules",
@@ -619,11 +619,11 @@ function grenades.enable()
             enabled = false,
             category = "crafting",
             ingredients = {
-                {"repair-pack", 2},
-                {"steel-plate", 1},
-                {"plastic-bar", 1}
+                {type="item", name="repair-pack", amount=2},
+                {type="item", name="steel-plate", amount=1},
+                {type="item", name="plastic-bar", amount=1}
             },
-            result = repairCapsule,
+            results = {{type="item", name=repairCapsule, amount=1}}
     })
 
     addEffectToTech("regeneration",
@@ -706,11 +706,11 @@ function grenades.enable()
             enabled = false,
             category = "crafting",
             ingredients = {
-                {"slowdown-capsule", 3},
-                {"iron-plate", 3},
-                {"plastic-bar", 3}
+                {type="item", name="slowdown-capsule", amount=3},
+                {type="item", name="iron-plate", amount=3},
+                {type="item", name="plastic-bar", amount=3}
             },
-            result = paralysisCapsule,
+            results = {{type="item", name=paralysisCapsule, amount=1}}
     })
 
     addEffectToTech("paralysis",
@@ -761,11 +761,11 @@ function grenades.enable()
             enabled = false,
             category = "crafting-with-fluid",
             ingredients = {
-                {"stone", 5},
-                {"coal", 2},
-                {"wood", 1}
+                {type="item", name="stone", amount=5},
+                {type="item", name="coal", amount=2},
+                {type="item", name="wood", amount=1}
             },
-            result = healingCapsule,
+            results = {{type="item", name=healingCapsule, amount=1}}
     })
 
     addEffectToTech("boosters",
@@ -818,10 +818,10 @@ function grenades.enable()
             enabled = false,
             category = "crafting-with-fluid",
             ingredients = {
-                {"steel-plate", 2},
-                {"electronic-circuit", 2}
+                {type="item", name="steel-plate", amount=2},
+                {type="item", name="electronic-circuit", amount=2}
             },
-            result = speedCapsule,
+            results = {{type="item", name=speedCapsule, amount=1}}
     })
 
     addEffectToTech("boosters",

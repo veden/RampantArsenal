@@ -33,93 +33,49 @@ local indicator_pictures =
             {
                 filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-north.png",
                 line_length = 2,
-                width = 4,
-                height = 10,
+                width = 10,
+                height = 18,
                 frame_count = 2,
                 axially_symmetrical = false,
                 direction_count = 1,
-                shift = util.by_pixel(8, 20),
-                hr_version =
-                    {
-                        filename = "__base__/graphics/entity/flamethrower-turret/hr-flamethrower-turret-led-indicator-north.png",
-                        line_length = 2,
-                        width = 10,
-                        height = 18,
-                        frame_count = 2,
-                        axially_symmetrical = false,
-                        direction_count = 1,
-                        shift = util.by_pixel(7, 20),
-                        scale = 0.5
-                    }
+                shift = util.by_pixel(7, 20),
+                scale = 0.5
             },
         east =
             {
                 filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-east.png",
                 line_length = 2,
-                width = 12,
-                height = 6,
+                width = 18,
+                height = 8,
                 frame_count = 2,
                 axially_symmetrical = false,
                 direction_count = 1,
-                shift = util.by_pixel(-34, -6),
-                hr_version =
-                    {
-                        filename = "__base__/graphics/entity/flamethrower-turret/hr-flamethrower-turret-led-indicator-east.png",
-                        line_length = 2,
-                        width = 18,
-                        height = 8,
-                        frame_count = 2,
-                        axially_symmetrical = false,
-                        direction_count = 1,
-                        shift = util.by_pixel(-33, -5),
-                        scale = 0.5
-                    }
+                shift = util.by_pixel(-33, -5),
+                scale = 0.5
             },
         south =
             {
                 filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-south.png",
                 line_length = 2,
-                width = 4,
-                height = 12,
+                width = 8,
+                height = 18,
                 frame_count = 2,
                 axially_symmetrical = false,
                 direction_count = 1,
-                shift = util.by_pixel(-8, -46),
-                hr_version =
-                    {
-                        filename = "__base__/graphics/entity/flamethrower-turret/hr-flamethrower-turret-led-indicator-south.png",
-                        line_length = 2,
-                        width = 8,
-                        height = 18,
-                        frame_count = 2,
-                        axially_symmetrical = false,
-                        direction_count = 1,
-                        shift = util.by_pixel(-8, -45),
-                        scale = 0.5
-                    }
+                shift = util.by_pixel(-8, -45),
+                scale = 0.5
             },
         west =
             {
                 filename = "__base__/graphics/entity/flamethrower-turret/flamethrower-turret-led-indicator-west.png",
                 line_length = 2,
-                width = 10,
+                width = 20,
                 height = 10,
                 frame_count = 2,
                 axially_symmetrical = false,
                 direction_count = 1,
-                shift = util.by_pixel(32, -22),
-                hr_version =
-                    {
-                        filename = "__base__/graphics/entity/flamethrower-turret/hr-flamethrower-turret-led-indicator-west.png",
-                        line_length = 2,
-                        width = 20,
-                        height = 10,
-                        frame_count = 2,
-                        axially_symmetrical = false,
-                        direction_count = 1,
-                        shift = util.by_pixel(32, -20),
-                        scale = 0.5
-                    }
+                shift = util.by_pixel(32, -20),
+                scale = 0.5
             }
     }
 
@@ -196,6 +152,7 @@ function turretUtils.makeAmmoTurret(attributes, attack)
                 preparing_animation = attributes.preparingAnimation,
                 prepared_animation = attributes.preparedAnimation,
                 folding_animation = attributes.foldingAnimation,
+                graphics_set = {},
                 energy_source = attributes.energySource,
                 attacking_animation = attributes.attackingAnimation,
                 turret_base_has_direction = attributes.hasBaseDirection,
@@ -308,6 +265,7 @@ function turretUtils.makeFluidTurret(attributes, attack)
                         secondary_draw_order = 0,
                         pipe_covers = pipecoverspictures(),
                         base_area = 1,
+                        volume = 100,
                         pipe_connections = attributes.pipeConnections or {
                             { position = {-2.5, 2.0} },
                             { position = {2.5, 2.0} }
@@ -323,7 +281,7 @@ function turretUtils.makeFluidTurret(attributes, attack)
                 prepared_animation = attributes.preparedAnimation,
 
                 folding_animation = attributes.foldingAnimation,
-
+                graphics_set = {},
                 not_enough_fuel_indicator_picture = indicator_pictures,
                 enough_fuel_indicator_picture = foreach(util.table.deepcopy(indicator_pictures), function (tab) tab.x = tab.width end),
                 indicator_light = { intensity = 0.8, size = 0.9 },
@@ -505,27 +463,17 @@ function turretUtils.makeElectricTurret(attributes, attack)
                 energy_glow_animation = {
                     filename = "__base__/graphics/entity/laser-turret/laser-turret-shooting-light.png",
                     line_length = 8,
-                    width = 62,
-                    height = 58,
+                    width = 122,
+                    height = 116,
                     frame_count = 1,
                     direction_count = 64,
+                    shift = util.by_pixel(-0.5, -35),
                     blend_mode = "additive",
-                    shift = util.by_pixel(0, -35),
-                    hr_version =
-                        {
-                            filename = "__base__/graphics/entity/laser-turret/hr-laser-turret-shooting-light.png",
-                            line_length = 8,
-                            width = 122,
-                            height = 116,
-                            frame_count = 1,
-                            direction_count = 64,
-                            shift = util.by_pixel(-0.5, -35),
-                            blend_mode = "additive",
-                            scale = 0.5
-                        }
+                    scale = 0.5
                 },
                 glow_light_intensity = 0.5,
                 folding_animation = attributes.foldingAnimation,
+                graphics_set = {},
                 base_picture = attributes.basePicture,
                 vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
                 water_reflection =

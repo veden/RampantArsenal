@@ -41,9 +41,9 @@ function artillery.enable()
     liteArtillery.rotating_sound.sound.volume = 0.4
     liteArtillery.collision_box = scaleBoundingBox(0.65, liteArtillery.collision_box)
     liteArtillery.selection_box = scaleBoundingBox(0.65, liteArtillery.selection_box)
-    liteArtillery.drawing_box = scaleBoundingBox(0.65, liteArtillery.drawing_box)
-    liteArtillery.base_shift[1] = 0
-    liteArtillery.base_shift[2] = 0
+    liteArtillery.drawing_box_vertical_extension = 0.65 * liteArtillery.drawing_box_vertical_extension
+    liteArtillery.cannon_base_shift[1] = 0
+    liteArtillery.cannon_base_shift[2] = 0
     liteArtillery.manual_range_modifier = 1.25
     liteArtillery.gun = "lite-artillery-turret-gun-rampant-arsenal"
     scalePicture(0.35, liteArtillery.base_picture, 0.35)
@@ -60,20 +60,20 @@ function artillery.enable()
 
     local liteArtilleryRecipe = table.deepcopy(data.raw["recipe"]["artillery-turret"])
     liteArtilleryRecipe.name = "lite-artillery-turret-rampant-arsenal"
-    liteArtilleryRecipe.result = "lite-artillery-turret-rampant-arsenal"
+    liteArtilleryRecipe.results = {{type="item", name="lite-artillery-turret-rampant-arsenal", amount=1}}
     liteArtilleryRecipe.enabled = false
     liteArtilleryRecipe.energy_required = 30
     liteArtilleryRecipe.order = "b[turret]-d[aremote]"
     liteArtilleryRecipe.ingredients = {
-        {"steel-plate", 30},
-        {"concrete", 30},
-        {"iron-gear-wheel", 20},
-        {"advanced-circuit", 10}
+        {type="item", name="steel-plate", amount=30},
+        {type="item", name="concrete", amount=30},
+        {type="item", name="iron-gear-wheel", amount=20},
+        {type="item", name="advanced-circuit", amount=10},
     }
 
     local liteArtilleryGun = table.deepcopy(data.raw["gun"]["artillery-wagon-cannon"])
     liteArtilleryGun.name = "lite-artillery-turret-gun-rampant-arsenal"
-    liteArtilleryGun.attack_parameters.ammo_category = "capsule-launcher"
+    liteArtilleryGun.attack_parameters.ammoCategory = "artillery-shell"
     liteArtilleryGun.attack_parameters.range = 90
     liteArtilleryGun.attack_parameters.cooldown = 350
     liteArtilleryGun.attack_parameters.damage_modifier = 0.75
@@ -82,65 +82,7 @@ function artillery.enable()
     end
     liteArtilleryGun.attack_parameters.shell_particle.scale = 0.75
 
-
-    local liteArtilleryRemote = table.deepcopy(data.raw["capsule"]["artillery-targeting-remote"])
-    liteArtilleryRemote.name = "artillery-targeting-remote-rampant-arsenal"
-    liteArtilleryRemote.icons = {
-        {icon = "__base__/graphics/icons/artillery-targeting-remote.png", icon_size = 64, icon_mipmaps = 4, tint = { 0.5, 0.9, 0.5, 1 }}
-    }
-    liteArtilleryRemote.capsule_action =
-        {
-            type = "artillery-remote",
-            flare = "artillery-flare-rampant-arsenal"
-        }
-
-    local artilleryFlare = data.raw["artillery-flare"]["artillery-flare"]
-    if artilleryFlare then
-        artilleryFlare.shot_category = artilleryFlare.shot_category or "artillery-shell"
-    end
-
-    data:extend({liteArtilleryGun, liteArtillery, liteArtilleryItem, liteArtilleryRecipe, liteArtilleryRemote,
-                 {
-                     type = "artillery-flare",
-                     name = "artillery-flare-rampant-arsenal",
-                     icon = "__base__/graphics/icons/artillery-targeting-remote.png",
-                     icon_size = 64, icon_mipmaps = 4,
-                     flags = {"placeable-off-grid", "not-on-map"},
-                     map_color = {r=1, g=1, b=0},
-                     life_time = 60 * 60,
-                     initial_height = 0,
-                     initial_vertical_speed = 0,
-                     initial_frame_speed = 1,
-                     shots_per_flare = 1,
-                     shot_category = "capsule-launcher",
-                     early_death_ticks = 3 * 60,
-                     pictures =
-                         {
-                             {
-                                 filename = "__core__/graphics/shoot-cursor-red.png",
-                                 tint = {r=0.75, g=0.75, b=0},
-                                 priority = "low",
-                                 width = 258,
-                                 height = 183,
-                                 frame_count = 1,
-                                 scale = 1,
-                                 flags = {"icon"}
-                             }
-                         }
-                 },
-                 {
-                     type = "recipe",
-                     name = "artillery-targeting-remote-rampant-arsenal",
-                     enabled = false,
-                     ingredients =
-                         {
-                             {"advanced-circuit", 1},
-                             {"radar", 1}
-                         },
-                     order = "b[turret]-d[atz]",
-                     result = "artillery-targeting-remote-rampant-arsenal"
-                 }
-    })
+    data:extend({liteArtilleryGun, liteArtillery, liteArtilleryItem, liteArtilleryRecipe})
 
     addEffectToTech("lite-artillery",
                     {
@@ -148,11 +90,7 @@ function artillery.enable()
                         recipe = liteArtillery.name,
     })
 
-    addEffectToTech("lite-artillery",
-                    {
-                        type = "unlock-recipe",
-                        recipe = liteArtilleryRemote.name,
-    })
+    data.raw["shortcut"]["give-artillery-targeting-remote"].technology_to_unlock = "rampant-arsenal-technology-lite-artillery"
 
     local incendiaryArtilleryShellAmmo = makeAmmo({
             name = "incendiary-artillery",
@@ -160,8 +98,8 @@ function artillery.enable()
             order = "d[explosive-cannon-shell]-d[incendiary]",
             magSize = 1,
             stackSize = 1,
+            ammoCategory = "artillery-shell",
             ammoType = {
-                category = "artillery-shell",
                 target_type = "position",
                 action =
                     {
@@ -338,10 +276,10 @@ function artillery.enable()
             enabled = false,
             category = "crafting-with-fluid",
             ingredients = {
-                {"artillery-shell", 1},
+                {type="item", name="artillery-shell", amount=1},
                 {type="fluid", name="napalm-fluid-rampant-arsenal", amount=400}
             },
-            result = incendiaryArtilleryShellAmmo,
+            results = {{type = "item", name = incendiaryArtilleryShellAmmo, amount = 1}},
     })
 
     addEffectToTech("incendiary-artillery-shells",
@@ -356,8 +294,8 @@ function artillery.enable()
             order = "d[explosive-cannon-shell]-d[he]",
             magSize = 1,
             stackSize = 1,
+            ammoCategory = "artillery-shell",
             ammoType = {
-                category = "artillery-shell",
                 target_type = "position",
                 action =
                     {
@@ -458,10 +396,10 @@ function artillery.enable()
             enabled = false,
             category = "crafting",
             ingredients = {
-                {"artillery-shell", 1},
-                {"cluster-grenade", 3}
+                {type="item", name="artillery-shell", amount=1},
+                {type="item", name="cluster-grenade", amount=3}
             },
-            result = heArtilleryShellAmmo,
+            results = {{type = "item", name = heArtilleryShellAmmo, amount = 1}},
     })
 
     addEffectToTech("he-artillery-shells",
@@ -477,8 +415,8 @@ function artillery.enable()
             magSize = 1,
             stackSize = 1,
 
+            ammoCategory = "artillery-shell",
             ammoType = {
-                category = "artillery-shell",
                 target_type = "position",
                 action =
                     {
@@ -609,10 +547,10 @@ function artillery.enable()
             magSize = 1,
             stackSize = 1,
             ingredients = {
-                {"artillery-shell", 1},
-                {"toxic-capsule-rampant-arsenal", 5}
+                {type="item", name="artillery-shell", amount=1},
+                {type="item", name="toxic-capsule-rampant-arsenal", amount=5}
             },
-            result = bioArtilleryShellAmmo,
+            results = {{type = "item", name = bioArtilleryShellAmmo, amount = 1}},
     })
 
     addEffectToTech("bio-artillery-shells",
@@ -628,8 +566,8 @@ function artillery.enable()
             order = "d[explosive-cannon-shell]-d[nuclear]",
             magSize = 1,
             stackSize = 1,
+            ammoCategory = "artillery-shell",
             ammoType = {
-                category = "artillery-shell",
                 target_type = "position",
                 action =
                     {
@@ -653,7 +591,7 @@ function artillery.enable()
                                                             tile_name = "nuclear-ground",
                                                             radius = 12,
                                                             apply_projection = true,
-                                                            tile_collision_mask = { "water-tile" },
+                                                            tile_collision_mask = { layers={water_tile=true} },
                                                         },
                                                         {
                                                             type = "destroy-cliffs",
@@ -854,7 +792,7 @@ function artillery.enable()
                                                                                     {
                                                                                         type = "create-entity",
                                                                                         entity_name = "nuclear-smouldering-smoke-source",
-                                                                                        tile_collision_mask = { "water-tile" }
+                                                                                        tile_collision_mask = { layers={water_tile=true} }
                                                                                     }
                                                                                 }
                                                                         }
@@ -882,10 +820,10 @@ function artillery.enable()
             enabled = false,
             category = "crafting",
             ingredients = {
-                {"artillery-shell", 1},
-                {"atomic-bomb", 1}
+                {type="item", name="artillery-shell", amount=1},
+                {type="item", name="atomic-bomb", amount=1}
             },
-            result = nuclearArtilleryShellAmmo,
+            results = {{type = "item", name = nuclearArtilleryShellAmmo, amount = 1}},
     })
 
     addEffectToTech("atomic-bomb",

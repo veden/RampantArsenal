@@ -139,46 +139,24 @@ function wallUtils.makeWall(attributes, attack)
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-single.png",
                                             priority = "extra-high",
-                                            width = 32,
-                                            height = 46,
+                                            width = 64,
+                                            height = 86,
                                             variation_count = 2,
                                             line_length = 2,
                                             tint = attributes.tint,
-                                            shift = util.by_pixel(0, -6),
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-single.png",
-                                                    priority = "extra-high",
-                                                    width = 64,
-                                                    height = 86,
-                                                    variation_count = 2,
-                                                    line_length = 2,
-                                                    tint = attributes.tint,
-                                                    shift = util.by_pixel(0, -5),
-                                                    scale = 0.5
-                                                }
+                                            shift = util.by_pixel(0, -5),
+                                            scale = 0.5
                                         },
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-single-shadow.png",
                                             priority = "extra-high",
-                                            width = 50,
-                                            height = 32,
-                                            repeat_count = 2,
+                                            width = 98,
+                                            height = 60,
                                             tint = attributes.tint,
-                                            shift = util.by_pixel(10, 16),
+                                            repeat_count = 2,
+                                            shift = util.by_pixel(10, 17),
                                             draw_as_shadow = true,
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-single-shadow.png",
-                                                    priority = "extra-high",
-                                                    width = 98,
-                                                    height = 60,
-                                                    tint = attributes.tint,
-                                                    repeat_count = 2,
-                                                    shift = util.by_pixel(10, 17),
-                                                    draw_as_shadow = true,
-                                                    scale = 0.5
-                                                }
+                                            scale = 0.5
                                         }
                                     }
                             },
@@ -189,46 +167,24 @@ function wallUtils.makeWall(attributes, attack)
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-vertical.png",
                                             priority = "extra-high",
-                                            width = 32,
-                                            height = 68,
+                                            width = 64,
+                                            height = 134,
                                             variation_count = 5,
                                             line_length = 5,
                                             tint = attributes.tint,
                                             shift = util.by_pixel(0, 8),
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-vertical.png",
-                                                    priority = "extra-high",
-                                                    width = 64,
-                                                    height = 134,
-                                                    variation_count = 5,
-                                                    line_length = 5,
-                                                    tint = attributes.tint,
-                                                    shift = util.by_pixel(0, 8),
-                                                    scale = 0.5
-                                                }
+                                            scale = 0.5
                                         },
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-vertical-shadow.png",
                                             priority = "extra-high",
-                                            width = 50,
-                                            height = 58,
+                                            width = 98,
+                                            height = 110,
                                             repeat_count = 5,
                                             tint = attributes.tint,
-                                            shift = util.by_pixel(10, 28),
+                                            shift = util.by_pixel(10, 29),
                                             draw_as_shadow = true,
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-vertical-shadow.png",
-                                                    priority = "extra-high",
-                                                    width = 98,
-                                                    height = 110,
-                                                    repeat_count = 5,
-                                                    tint = attributes.tint,
-                                                    shift = util.by_pixel(10, 29),
-                                                    draw_as_shadow = true,
-                                                    scale = 0.5
-                                                }
+                                            scale = 0.5
                                         }
                                     }
                             },
@@ -239,46 +195,24 @@ function wallUtils.makeWall(attributes, attack)
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-horizontal.png",
                                             priority = "extra-high",
-                                            width = 32,
-                                            height = 50,
+                                            width = 64,
+                                            height = 92,
                                             variation_count = 6,
                                             tint = attributes.tint,
                                             line_length = 6,
-                                            shift = util.by_pixel(0, -4),
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-horizontal.png",
-                                                    priority = "extra-high",
-                                                    width = 64,
-                                                    height = 92,
-                                                    variation_count = 6,
-                                                    tint = attributes.tint,
-                                                    line_length = 6,
-                                                    shift = util.by_pixel(0, -2),
-                                                    scale = 0.5
-                                                }
+                                            shift = util.by_pixel(0, -2),
+                                            scale = 0.5
                                         },
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-horizontal-shadow.png",
                                             priority = "extra-high",
-                                            width = 62,
-                                            height = 36,
+                                            width = 124,
+                                            height = 68,
                                             tint = attributes.tint,
                                             repeat_count = 6,
-                                            shift = util.by_pixel(14, 14),
+                                            shift = util.by_pixel(14, 15),
                                             draw_as_shadow = true,
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-horizontal-shadow.png",
-                                                    priority = "extra-high",
-                                                    width = 124,
-                                                    height = 68,
-                                                    tint = attributes.tint,
-                                                    repeat_count = 6,
-                                                    shift = util.by_pixel(14, 15),
-                                                    draw_as_shadow = true,
-                                                    scale = 0.5
-                                                }
+                                            scale = 0.5
                                         }
                                     }
                             },
@@ -289,46 +223,24 @@ function wallUtils.makeWall(attributes, attack)
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-corner-right.png",
                                             priority = "extra-high",
-                                            width = 32,
-                                            height = 64,
+                                            width = 64,
+                                            height = 128,
                                             variation_count = 2,
                                             tint = attributes.tint,
                                             line_length = 2,
-                                            shift = util.by_pixel(0, 6),
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-corner-right.png",
-                                                    priority = "extra-high",
-                                                    width = 64,
-                                                    height = 128,
-                                                    variation_count = 2,
-                                                    tint = attributes.tint,
-                                                    line_length = 2,
-                                                    shift = util.by_pixel(0, 7),
-                                                    scale = 0.5
-                                                }
+                                            shift = util.by_pixel(0, 7),
+                                            scale = 0.5
                                         },
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-corner-right-shadow.png",
                                             priority = "extra-high",
-                                            width = 62,
-                                            height = 60,
-                                            repeat_count = 2,
+                                            width = 124,
+                                            height = 120,
                                             tint = attributes.tint,
-                                            shift = util.by_pixel(14, 28),
+                                            repeat_count = 2,
+                                            shift = util.by_pixel(17, 28),
                                             draw_as_shadow = true,
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-corner-right-shadow.png",
-                                                    priority = "extra-high",
-                                                    width = 124,
-                                                    height = 120,
-                                                    tint = attributes.tint,
-                                                    repeat_count = 2,
-                                                    shift = util.by_pixel(17, 28),
-                                                    draw_as_shadow = true,
-                                                    scale = 0.5
-                                                }
+                                            scale = 0.5
                                         }
                                     }
                             },
@@ -339,46 +251,24 @@ function wallUtils.makeWall(attributes, attack)
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-corner-left.png",
                                             priority = "extra-high",
-                                            width = 32,
-                                            height = 68,
+                                            width = 64,
+                                            height = 134,
                                             variation_count = 2,
                                             tint = attributes.tint,
                                             line_length = 2,
-                                            shift = util.by_pixel(0, 6),
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-corner-left.png",
-                                                    priority = "extra-high",
-                                                    width = 64,
-                                                    height = 134,
-                                                    variation_count = 2,
-                                                    tint = attributes.tint,
-                                                    line_length = 2,
-                                                    shift = util.by_pixel(0, 7),
-                                                    scale = 0.5
-                                                }
+                                            shift = util.by_pixel(0, 7),
+                                            scale = 0.5
                                         },
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-corner-left-shadow.png",
                                             priority = "extra-high",
-                                            width = 54,
-                                            height = 60,
+                                            width = 102,
+                                            height = 120,
                                             repeat_count = 2,
                                             tint = attributes.tint,
-                                            shift = util.by_pixel(8, 28),
+                                            shift = util.by_pixel(9, 28),
                                             draw_as_shadow = true,
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-corner-left-shadow.png",
-                                                    priority = "extra-high",
-                                                    width = 102,
-                                                    height = 120,
-                                                    repeat_count = 2,
-                                                    tint = attributes.tint,
-                                                    shift = util.by_pixel(9, 28),
-                                                    draw_as_shadow = true,
-                                                    scale = 0.5
-                                                }
+                                            scale = 0.5
                                         }
                                     }
                             },
@@ -389,46 +279,24 @@ function wallUtils.makeWall(attributes, attack)
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-t.png",
                                             priority = "extra-high",
-                                            width = 32,
-                                            height = 68,
+                                            width = 64,
+                                            height = 134,
                                             variation_count = 4,
                                             tint = attributes.tint,
                                             line_length = 4,
-                                            shift = util.by_pixel(0, 6),
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-t.png",
-                                                    priority = "extra-high",
-                                                    width = 64,
-                                                    height = 134,
-                                                    variation_count = 4,
-                                                    tint = attributes.tint,
-                                                    line_length = 4,
-                                                    shift = util.by_pixel(0, 7),
-                                                    scale = 0.5
-                                                }
+                                            shift = util.by_pixel(0, 7),
+                                            scale = 0.5
                                         },
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-t-shadow.png",
                                             priority = "extra-high",
-                                            width = 62,
-                                            height = 60,
-                                            repeat_count = 4,
+                                            width = 124,
+                                            height = 120,
                                             tint = attributes.tint,
+                                            repeat_count = 4,
                                             shift = util.by_pixel(14, 28),
                                             draw_as_shadow = true,
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-t-shadow.png",
-                                                    priority = "extra-high",
-                                                    width = 124,
-                                                    height = 120,
-                                                    tint = attributes.tint,
-                                                    repeat_count = 4,
-                                                    shift = util.by_pixel(14, 28),
-                                                    draw_as_shadow = true,
-                                                    scale = 0.5
-                                                }
+                                            scale = 0.5
                                         }
                                     }
                             },
@@ -439,46 +307,24 @@ function wallUtils.makeWall(attributes, attack)
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-ending-right.png",
                                             priority = "extra-high",
-                                            width = 32,
-                                            height = 48,
+                                            width = 64,
+                                            height = 92,
                                             variation_count = 2,
                                             tint = attributes.tint,
                                             line_length = 2,
-                                            shift = util.by_pixel(0, -4),
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-ending-right.png",
-                                                    priority = "extra-high",
-                                                    width = 64,
-                                                    height = 92,
-                                                    variation_count = 2,
-                                                    tint = attributes.tint,
-                                                    line_length = 2,
-                                                    shift = util.by_pixel(0, -3),
-                                                    scale = 0.5
-                                                }
+                                            shift = util.by_pixel(0, -3),
+                                            scale = 0.5
                                         },
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-ending-right-shadow.png",
                                             priority = "extra-high",
-                                            width = 62,
-                                            height = 36,
+                                            width = 124,
+                                            height = 68,
                                             tint = attributes.tint,
                                             repeat_count = 2,
-                                            shift = util.by_pixel(14, 14),
+                                            shift = util.by_pixel(17, 15),
                                             draw_as_shadow = true,
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-ending-right-shadow.png",
-                                                    priority = "extra-high",
-                                                    width = 124,
-                                                    height = 68,
-                                                    tint = attributes.tint,
-                                                    repeat_count = 2,
-                                                    shift = util.by_pixel(17, 15),
-                                                    draw_as_shadow = true,
-                                                    scale = 0.5
-                                                }
+                                            scale = 0.5
                                         }
                                     }
                             },
@@ -489,46 +335,24 @@ function wallUtils.makeWall(attributes, attack)
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-ending-left.png",
                                             priority = "extra-high",
-                                            width = 32,
-                                            height = 48,
+                                            width = 64,
+                                            height = 92,
                                             variation_count = 2,
-                                            tint = attributes.tint,
                                             line_length = 2,
-                                            shift = util.by_pixel(0, -4),
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-ending-left.png",
-                                                    priority = "extra-high",
-                                                    width = 64,
-                                                    height = 92,
-                                                    variation_count = 2,
-                                                    line_length = 2,
-                                                    tint = attributes.tint,
-                                                    shift = util.by_pixel(0, -3),
-                                                    scale = 0.5
-                                                }
+                                            tint = attributes.tint,
+                                            shift = util.by_pixel(0, -3),
+                                            scale = 0.5
                                         },
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-ending-left-shadow.png",
                                             priority = "extra-high",
-                                            width = 54,
-                                            height = 36,
-                                            tint = attributes.tint,
+                                            width = 102,
+                                            height = 68,
                                             repeat_count = 2,
-                                            shift = util.by_pixel(8, 14),
+                                            tint = attributes.tint,
+                                            shift = util.by_pixel(9, 15),
                                             draw_as_shadow = true,
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-ending-left-shadow.png",
-                                                    priority = "extra-high",
-                                                    width = 102,
-                                                    height = 68,
-                                                    repeat_count = 2,
-                                                    tint = attributes.tint,
-                                                    shift = util.by_pixel(9, 15),
-                                                    draw_as_shadow = true,
-                                                    scale = 0.5
-                                                }
+                                            scale = 0.5
                                         }
                                     }
                             },
@@ -536,24 +360,13 @@ function wallUtils.makeWall(attributes, attack)
                             {
                                 filename = "__base__/graphics/entity/wall/wall-filling.png",
                                 priority = "extra-high",
-                                width = 24,
-                                height = 30,
+                                width = 48,
+                                height = 56,
                                 variation_count = 8,
                                 tint = attributes.tint,
                                 line_length = 8,
-                                shift = util.by_pixel(0, -2),
-                                hr_version =
-                                    {
-                                        filename = "__base__/graphics/entity/wall/hr-wall-filling.png",
-                                        priority = "extra-high",
-                                        width = 48,
-                                        height = 56,
-                                        variation_count = 8,
-                                        tint = attributes.tint,
-                                        line_length = 8,
-                                        shift = util.by_pixel(0, -1),
-                                        scale = 0.5
-                                    }
+                                shift = util.by_pixel(0, -1),
+                                scale = 0.5
                             },
                         water_connection_patch =
                             {
@@ -562,40 +375,21 @@ function wallUtils.makeWall(attributes, attack)
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-patch.png",
                                             priority = "extra-high",
-                                            width = 58,
-                                            height = 64,
+                                            width = 116,
+                                            height = 128,
                                             tint = attributes.tint,
                                             shift = util.by_pixel(0, -2),
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-patch.png",
-                                                    priority = "extra-high",
-                                                    width = 116,
-                                                    height = 128,
-                                                    tint = attributes.tint,
-                                                    shift = util.by_pixel(0, -2),
-                                                    scale = 0.5
-                                                }
+                                            scale = 0.5
                                         },
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-patch-shadow.png",
                                             priority = "extra-high",
-                                            width = 74,
-                                            height = 52,
+                                            width = 144,
+                                            height = 100,
                                             tint = attributes.tint,
-                                            shift = util.by_pixel(8, 14),
+                                            shift = util.by_pixel(9, 15),
                                             draw_as_shadow = true,
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-patch-shadow.png",
-                                                    priority = "extra-high",
-                                                    width = 144,
-                                                    height = 100,
-                                                    tint = attributes.tint,
-                                                    shift = util.by_pixel(9, 15),
-                                                    draw_as_shadow = true,
-                                                    scale = 0.5
-                                                }
+                                            scale = 0.5
                                         }
                                     }
                             },
@@ -606,40 +400,21 @@ function wallUtils.makeWall(attributes, attack)
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-gate.png",
                                             priority = "extra-high",
-                                            width = 42,
-                                            height = 56,
+                                            width = 82,
+                                            height = 108,
                                             tint = attributes.tint,
-                                            shift = util.by_pixel(0, -8),
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-gate.png",
-                                                    priority = "extra-high",
-                                                    width = 82,
-                                                    height = 108,
-                                                    tint = attributes.tint,
-                                                    shift = util.by_pixel(0, -7),
-                                                    scale = 0.5
-                                                }
+                                            shift = util.by_pixel(0, -7),
+                                            scale = 0.5
                                         },
                                         {
                                             filename = "__base__/graphics/entity/wall/wall-gate-shadow.png",
                                             priority = "extra-high",
-                                            width = 66,
-                                            height = 40,
+                                            width = 130,
+                                            height = 78,
                                             tint = attributes.tint,
                                             shift = util.by_pixel(14, 18),
                                             draw_as_shadow = true,
-                                            hr_version =
-                                                {
-                                                    filename = "__base__/graphics/entity/wall/hr-wall-gate-shadow.png",
-                                                    priority = "extra-high",
-                                                    width = 130,
-                                                    height = 78,
-                                                    tint = attributes.tint,
-                                                    shift = util.by_pixel(14, 18),
-                                                    draw_as_shadow = true,
-                                                    scale = 0.5
-                                                }
+                                            scale = 0.5
                                         }
                                     }
                             }
@@ -650,20 +425,11 @@ function wallUtils.makeWall(attributes, attack)
                         {
                             filename = "__base__/graphics/entity/wall/wall-diode-green.png",
                             priority = "extra-high",
-                            width = 38,
-                            height = 24,
-                            --frames = 4, -- this is optional, it will default to 4 for Sprite4Way
-                            shift = util.by_pixel(-2, -24),
-                            hr_version =
-                                {
-                                    filename = "__base__/graphics/entity/wall/hr-wall-diode-green.png",
-                                    priority = "extra-high",
-                                    width = 72,
-                                    height = 44,
-                                    --frames = 4,
-                                    shift = util.by_pixel(-1, -23),
-                                    scale = 0.5
-                                }
+                            width = 72,
+                            height = 44,
+                            --frames = 4,
+                            shift = util.by_pixel(-1, -23),
+                            scale = 0.5
                         }
                 },
                 wall_diode_green_light_top = {
@@ -700,20 +466,11 @@ function wallUtils.makeWall(attributes, attack)
                         {
                             filename = "__base__/graphics/entity/wall/wall-diode-red.png",
                             priority = "extra-high",
-                            width = 38,
-                            height = 24,
-                            --frames = 4, -- this is optional, it will default to 4 for Sprite4Way
-                            shift = util.by_pixel(-2, -24),
-                            hr_version =
-                                {
-                                    filename = "__base__/graphics/entity/wall/hr-wall-diode-red.png",
-                                    priority = "extra-high",
-                                    width = 72,
-                                    height = 44,
-                                    --frames = 4,
-                                    shift = util.by_pixel(-1, -23),
-                                    scale = 0.5
-                                }
+                            width = 72,
+                            height = 44,
+                            --frames = 4,
+                            shift = util.by_pixel(-1, -23),
+                            scale = 0.5
                         }
                 },
                 wall_diode_red_light_top = {
@@ -747,8 +504,8 @@ function wallUtils.makeWall(attributes, attack)
 
                 damaged_trigger_effect = hit_effects.wall(),
                 
-                circuit_wire_connection_point = circuit_connector_definitions["gate"].points,
-                circuit_connector_sprites = circuit_connector_definitions["gate"].sprites,
+                circuit_wire_connection_point = circuit_connector_definitions["wall"].points,
+                circuit_connector_sprites = circuit_connector_definitions["wall"].sprites,
                 circuit_wire_max_distance = default_circuit_wire_max_distance,
                 default_output_signal = data.is_demo and {type = "virtual", name = "signal-green"} or {type = "virtual", name = "signal-G"}
             }
@@ -826,44 +583,23 @@ function wallUtils.makeGate(attributes, attack)
                                 {
                                     filename = "__base__/graphics/entity/gate/gate-vertical.png",
                                     line_length = 8,
-                                    width = 38,
-                                    height = 62,
+                                    width = 78,
+                                    height = 120,
                                     frame_count = 16,
                                     tint = attributes.tint,
-                                    shift = util.by_pixel(0, -14),
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/gate/hr-gate-vertical.png",
-                                            line_length = 8,
-                                            width = 78,
-                                            height = 120,
-                                            frame_count = 16,
-                                            tint = attributes.tint,
-                                            shift = util.by_pixel(-1, -13),
-                                            scale = 0.5
-                                        }
+                                    shift = util.by_pixel(-1, -13),
+                                    scale = 0.5
                                 },
                                 {
                                     filename = "__base__/graphics/entity/gate/gate-vertical-shadow.png",
                                     line_length = 8,
-                                    width = 40,
-                                    height = 54,
+                                    width = 82,
+                                    height = 104,
                                     frame_count = 16,
                                     tint = attributes.tint,
-                                    shift = util.by_pixel(10, 8),
+                                    shift = util.by_pixel(9, 9),
                                     draw_as_shadow = true,
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/gate/hr-gate-vertical-shadow.png",
-                                            line_length = 8,
-                                            width = 82,
-                                            height = 104,
-                                            frame_count = 16,
-                                            tint = attributes.tint,
-                                            shift = util.by_pixel(9, 9),
-                                            draw_as_shadow = true,
-                                            scale = 0.5
-                                        }
+                                    scale = 0.5
                                 }
                             }
                     },
@@ -874,44 +610,23 @@ function wallUtils.makeGate(attributes, attack)
                                 {
                                     filename = "__base__/graphics/entity/gate/gate-horizontal.png",
                                     line_length = 8,
-                                    width = 34,
-                                    height = 48,
+                                    width = 66,
+                                    height = 90,
                                     frame_count = 16,
                                     tint = attributes.tint,
-                                    shift = util.by_pixel(0, -4),
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/gate/hr-gate-horizontal.png",
-                                            line_length = 8,
-                                            width = 66,
-                                            height = 90,
-                                            frame_count = 16,
-                                            tint = attributes.tint,
-                                            shift = util.by_pixel(0, -3),
-                                            scale = 0.5
-                                        }
+                                    shift = util.by_pixel(0, -3),
+                                    scale = 0.5
                                 },
                                 {
                                     filename = "__base__/graphics/entity/gate/gate-horizontal-shadow.png",
                                     line_length = 8,
-                                    width = 62,
-                                    height = 30,
+                                    width = 122,
+                                    height = 60,
                                     frame_count = 16,
-                                    shift = util.by_pixel(12, 10),
                                     tint = attributes.tint,
+                                    shift = util.by_pixel(12, 10),
                                     draw_as_shadow = true,
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/gate/hr-gate-horizontal-shadow.png",
-                                            line_length = 8,
-                                            width = 122,
-                                            height = 60,
-                                            frame_count = 16,
-                                            tint = attributes.tint,
-                                            shift = util.by_pixel(12, 10),
-                                            draw_as_shadow = true,
-                                            scale = 0.5
-                                        }
+                                    scale = 0.5
                                 }
                             }
                     },
@@ -922,44 +637,23 @@ function wallUtils.makeGate(attributes, attack)
                                 {
                                     filename = "__base__/graphics/entity/gate/gate-rail-horizontal-left.png",
                                     line_length = 8,
-                                    width = 34,
-                                    height = 40,
+                                    width = 66,
+                                    height = 74,
                                     frame_count = 16,
                                     tint = attributes.tint,
-                                    shift = util.by_pixel(0, -8),
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/gate/hr-gate-rail-horizontal-left.png",
-                                            line_length = 8,
-                                            width = 66,
-                                            height = 74,
-                                            frame_count = 16,
-                                            tint = attributes.tint,
-                                            shift = util.by_pixel(0, -7),
-                                            scale = 0.5
-                                        }
+                                    shift = util.by_pixel(0, -7),
+                                    scale = 0.5
                                 },
                                 {
                                     filename = "__base__/graphics/entity/gate/gate-rail-horizontal-shadow-left.png",
                                     line_length = 8,
-                                    width = 62,
-                                    height = 30,
+                                    width = 122,
+                                    height = 60,
                                     tint = attributes.tint,
                                     frame_count = 16,
                                     shift = util.by_pixel(12, 10),
                                     draw_as_shadow = true,
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/gate/hr-gate-rail-horizontal-shadow-left.png",
-                                            line_length = 8,
-                                            width = 122,
-                                            height = 60,
-                                            tint = attributes.tint,
-                                            frame_count = 16,
-                                            shift = util.by_pixel(12, 10),
-                                            draw_as_shadow = true,
-                                            scale = 0.5
-                                        }
+                                    scale = 0.5
                                 }
                             }
                     },
@@ -970,44 +664,23 @@ function wallUtils.makeGate(attributes, attack)
                                 {
                                     filename = "__base__/graphics/entity/gate/gate-rail-horizontal-right.png",
                                     line_length = 8,
-                                    width = 34,
-                                    height = 40,
+                                    width = 66,
+                                    height = 74,
                                     tint = attributes.tint,
                                     frame_count = 16,
-                                    shift = util.by_pixel(0, -8),
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/gate/hr-gate-rail-horizontal-right.png",
-                                            line_length = 8,
-                                            width = 66,
-                                            height = 74,
-                                            tint = attributes.tint,
-                                            frame_count = 16,
-                                            shift = util.by_pixel(0, -7),
-                                            scale = 0.5
-                                        }
+                                    shift = util.by_pixel(0, -7),
+                                    scale = 0.5
                                 },
                                 {
                                     filename = "__base__/graphics/entity/gate/gate-rail-horizontal-shadow-right.png",
                                     line_length = 8,
-                                    width = 62,
-                                    height = 30,
+                                    width = 122,
+                                    height = 58,
                                     tint = attributes.tint,
                                     frame_count = 16,
-                                    shift = util.by_pixel(12, 10),
+                                    shift = util.by_pixel(12, 11),
                                     draw_as_shadow = true,
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/gate/hr-gate-rail-horizontal-shadow-right.png",
-                                            line_length = 8,
-                                            width = 122,
-                                            height = 58,
-                                            tint = attributes.tint,
-                                            frame_count = 16,
-                                            shift = util.by_pixel(12, 11),
-                                            draw_as_shadow = true,
-                                            scale = 0.5
-                                        }
+                                    scale = 0.5
                                 }
                             }
                     },
@@ -1018,44 +691,23 @@ function wallUtils.makeGate(attributes, attack)
                                 {
                                     filename = "__base__/graphics/entity/gate/gate-rail-vertical-left.png",
                                     line_length = 8,
-                                    width = 22,
-                                    height = 62,
+                                    width = 42,
+                                    height = 118,
                                     tint = attributes.tint,
                                     frame_count = 16,
-                                    shift = util.by_pixel(0, -14),
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/gate/hr-gate-rail-vertical-left.png",
-                                            line_length = 8,
-                                            width = 42,
-                                            height = 118,
-                                            tint = attributes.tint,
-                                            frame_count = 16,
-                                            shift = util.by_pixel(0, -13),
-                                            scale = 0.5
-                                        }
+                                    shift = util.by_pixel(0, -13),
+                                    scale = 0.5
                                 },
                                 {
                                     filename = "__base__/graphics/entity/gate/gate-rail-vertical-shadow-left.png",
                                     line_length = 8,
-                                    width = 44,
-                                    height = 54,
+                                    width = 82,
+                                    height = 104,
                                     tint = attributes.tint,
                                     frame_count = 16,
-                                    shift = util.by_pixel(8, 8),
+                                    shift = util.by_pixel(9, 9),
                                     draw_as_shadow = true,
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/gate/hr-gate-rail-vertical-shadow-left.png",
-                                            line_length = 8,
-                                            width = 82,
-                                            height = 104,
-                                            tint = attributes.tint,
-                                            frame_count = 16,
-                                            shift = util.by_pixel(9, 9),
-                                            draw_as_shadow = true,
-                                            scale = 0.5
-                                        }
+                                    scale = 0.5
                                 }
                             }
                     },
@@ -1066,44 +718,23 @@ function wallUtils.makeGate(attributes, attack)
                                 {
                                     filename = "__base__/graphics/entity/gate/gate-rail-vertical-right.png",
                                     line_length = 8,
-                                    width = 22,
-                                    height = 62,
+                                    width = 42,
+                                    height = 118,
                                     frame_count = 16,
                                     tint = attributes.tint,
-                                    shift = util.by_pixel(0, -14),
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/gate/hr-gate-rail-vertical-right.png",
-                                            line_length = 8,
-                                            width = 42,
-                                            height = 118,
-                                            frame_count = 16,
-                                            tint = attributes.tint,
-                                            shift = util.by_pixel(0, -13),
-                                            scale = 0.5
-                                        }
+                                    shift = util.by_pixel(0, -13),
+                                    scale = 0.5
                                 },
                                 {
                                     filename = "__base__/graphics/entity/gate/gate-rail-vertical-shadow-right.png",
                                     line_length = 8,
-                                    width = 44,
-                                    height = 54,
+                                    width = 82,
+                                    height = 104,
                                     frame_count = 16,
                                     tint = attributes.tint,
-                                    shift = util.by_pixel(8, 8),
+                                    shift = util.by_pixel(9, 9),
                                     draw_as_shadow = true,
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/gate/hr-gate-rail-vertical-shadow-right.png",
-                                            line_length = 8,
-                                            width = 82,
-                                            height = 104,
-                                            frame_count = 16,
-                                            tint = attributes.tint,
-                                            shift = util.by_pixel(9, 9),
-                                            draw_as_shadow = true,
-                                            scale = 0.5
-                                        }
+                                    scale = 0.5
                                 }
                             }
                     },
@@ -1111,43 +742,23 @@ function wallUtils.makeGate(attributes, attack)
                     {
                         filename = "__base__/graphics/entity/gate/gate-rail-base-vertical.png",
                         line_length = 8,
-                        width = 68,
-                        height = 66,
-                        frame_count = 16,
+                        width = 138,
+                        height = 130,
                         tint = attributes.tint,
-                        shift = util.by_pixel(0, 0),
-                        hr_version =
-                            {
-                                filename = "__base__/graphics/entity/gate/hr-gate-rail-base-vertical.png",
-                                line_length = 8,
-                                width = 138,
-                                height = 130,
-                                tint = attributes.tint,
-                                frame_count = 16,
-                                shift = util.by_pixel(-1, 0),
-                                scale = 0.5
-                            }
+                        frame_count = 16,
+                        shift = util.by_pixel(-1, 0),
+                        scale = 0.5
                     },
                 horizontal_rail_base =
                     {
                         filename = "__base__/graphics/entity/gate/gate-rail-base-horizontal.png",
                         line_length = 8,
-                        width = 66,
-                        height = 54,
+                        width = 130,
+                        height = 104,
                         tint = attributes.tint,
                         frame_count = 16,
-                        shift = util.by_pixel(0, 2),
-                        hr_version =
-                            {
-                                filename = "__base__/graphics/entity/gate/hr-gate-rail-base-horizontal.png",
-                                line_length = 8,
-                                width = 130,
-                                height = 104,
-                                tint = attributes.tint,
-                                frame_count = 16,
-                                shift = util.by_pixel(0, 3),
-                                scale = 0.5
-                            }
+                        shift = util.by_pixel(0, 3),
+                        scale = 0.5
                     },
                 wall_patch =
                     {
@@ -1156,44 +767,23 @@ function wallUtils.makeGate(attributes, attack)
                                 {
                                     filename = "__base__/graphics/entity/gate/gate-wall-patch.png",
                                     line_length = 8,
-                                    width = 34,
-                                    height = 48,
+                                    width = 70,
+                                    height = 94,
                                     tint = attributes.tint,
                                     frame_count = 16,
-                                    shift = util.by_pixel(0, 12),
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/gate/hr-gate-wall-patch.png",
-                                            line_length = 8,
-                                            width = 70,
-                                            height = 94,
-                                            tint = attributes.tint,
-                                            frame_count = 16,
-                                            shift = util.by_pixel(-1, 13),
-                                            scale = 0.5
-                                        }
+                                    shift = util.by_pixel(-1, 13),
+                                    scale = 0.5
                                 },
                                 {
                                     filename = "__base__/graphics/entity/gate/gate-wall-patch-shadow.png",
                                     line_length = 8,
-                                    width = 44,
-                                    height = 38,
-                                    frame_count = 16,
+                                    width = 82,
                                     tint = attributes.tint,
-                                    shift = util.by_pixel(8, 32),
+                                    height = 72,
+                                    frame_count = 16,
+                                    shift = util.by_pixel(9, 33),
                                     draw_as_shadow = true,
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/gate/hr-gate-wall-patch-shadow.png",
-                                            line_length = 8,
-                                            width = 82,
-                                            tint = attributes.tint,
-                                            height = 72,
-                                            frame_count = 16,
-                                            shift = util.by_pixel(9, 33),
-                                            draw_as_shadow = true,
-                                            scale = 0.5
-                                        }
+                                    scale = 0.5
                                 }
                             }
                     },

@@ -70,15 +70,15 @@ local function onConfigChanged()
 end
 
 local function onInit()
-    global.world = {}
+    storage.world = {}
 
-    world = global.world
+    world = storage.world
 
     onConfigChanged()
 end
 
 local function onLoad()
-    world = global.world
+    world = storage.world
 end
 
 local function onTriggerEntityCreated(event)
@@ -110,11 +110,16 @@ local function onMendingWallsTick(event)
     end
 end
 
+local function onDamaged(event)
+
+end
+
 -- hooks
 
 script.on_init(onInit)
 script.on_load(onLoad)
 script.on_event(defines.events.on_runtime_mod_setting_changed, onModSettingsChange)
+-- script.on_event(defines.events.on_entity_damaged, onDamaged)
 
 script.on_configuration_changed(onConfigChanged)
 script.on_nth_tick(5, onMendingWallsTick)

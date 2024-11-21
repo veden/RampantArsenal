@@ -426,36 +426,10 @@ function projectileUtils.makeRocketProjectile(attributes)
                                     }
                             }
                     },
-                animation = {
-                    filename = "__base__/graphics/entity/rocket/rocket.png",
-                    frame_count = 8,
-                    line_length = 8,
-                    width = 9,
-                    height = 35,
-                    shift = {0, 0},
-                    priority = "high"
-                },
-                shadow = {
-                    filename = "__base__/graphics/entity/rocket/rocket-shadow.png",
-                    frame_count = 1,
-                    width = 7,
-                    height = 24,
-                    priority = "high",
-                    shift = {0, 0}
-                },
-                smoke = {
-                    {
-                        name = "smoke-fast",
-                        deviation = {0.15, 0.15},
-                        frequency = 1,
-                        position = {0, 1},
-                        slow_down_factor = 1,
-                        starting_frame = 3,
-                        starting_frame_deviation = 5,
-                        starting_frame_speed = 0,
-                        starting_frame_speed_deviation = 5
-                    }
-                }
+                animation =  require("__base__.prototypes.entity.rocket-projectile-pictures").animation({1, 0.8, 0.3}),
+                shadow = require("__base__.prototypes.entity.rocket-projectile-pictures").shadow,
+                smoke = require("__base__.prototypes.entity.rocket-projectile-pictures").smoke,
+
     }})
 
     return name
@@ -475,7 +449,7 @@ function projectileUtils.makeArtilleryShell(attributes, attack, finalAttack)
                 map_color = {r=1, g=1, b=0},
                 picture =
                     {
-                        filename = "__base__/graphics/entity/artillery-projectile/hr-shell.png",
+                        filename = "__base__/graphics/entity/artillery-projectile/shell.png",
                         width = 64,
                         height = 64,
                         tint = attributes.tint,
@@ -483,7 +457,7 @@ function projectileUtils.makeArtilleryShell(attributes, attack, finalAttack)
                     },
                 shadow =
                     {
-                        filename = "__base__/graphics/entity/artillery-projectile/hr-shell-shadow.png",
+                        filename = "__base__/graphics/entity/artillery-projectile/shell-shadow.png",
                         width = 64,
                         height = 64,
                         tint = attributes.tint,

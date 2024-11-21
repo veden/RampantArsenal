@@ -150,10 +150,10 @@ function walls.enable()
             enabled = false,
             category = "crafting",
             ingredients = {
-                {"stone-wall", 1},
-                {"repair-capsule-rampant-arsenal", 1}
+                {type="item", name="stone-wall", amount=1},
+                {type="item", name="repair-capsule-rampant-arsenal", amount=1}
             },
-            result = mendingWallItem
+            results = {{type="item", name=mendingWallItem, amount=1}}
     })
 
     makeRecipe({
@@ -162,11 +162,11 @@ function walls.enable()
             enabled = false,
             category = "crafting",
             ingredients = {
-                {mendingWall, 1},
-                {"steel-plate", 1},
-                {"advanced-circuit", 5}
+                {type="item", name="mending-wall-rampant-arsenal", amount=1},
+                {type="item", name="steel-plate", amount=1},
+                {type="item", name="advanced-circuit", amount=5}
             },
-            result = mendingGateItem
+            results = {{type="item", name=mendingGateItem, amount=1}}
     })
 
     addEffectToTech("regeneration-walls",
@@ -259,9 +259,9 @@ function walls.enable()
             enabled = false,
             category = "crafting",
             ingredients = {
-                {"refined-concrete", 5}
+                {type="item", name="refined-concrete", amount=5}
             },
-            result = reinforcedWallItem
+            results = {{type="item", name=reinforcedWallItem, amount=1}}
     })
 
     makeRecipe({
@@ -270,11 +270,11 @@ function walls.enable()
             enabled = false,
             category = "crafting",
             ingredients = {
-                {reinforcedWall, 1},
-                {"steel-plate", 1},
-                {"advanced-circuit", 5}
+                {type="item", name="reinforced-wall-rampant-arsenal", amount=1},
+                {type="item", name="steel-plate", amount=1},
+                {type="item", name="advanced-circuit", amount=5}
             },
-            result = reinforcedGateItem
+            results = {{type="item", name=reinforcedGateItem, amount=1}}
     })
 
     addEffectToTech("stone-walls-2",

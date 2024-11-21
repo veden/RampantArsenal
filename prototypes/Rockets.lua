@@ -32,19 +32,19 @@ local function rocketSheetMk1()
     return
         {
             layers =
+            {
                 {
-                    {
-                        filename = "__RampantArsenal__/graphics/yuokiTani/entities/rocket-mk1-sheet.png",
-                        priority = "high",
-                        width = 72,
-                        height = 80,
-                        line_length = 16,
-                        axially_symmetrical = false,
-                        direction_count = 64,
-                        frame_count = 1,
-                        shift = {0.35, 0},
-                    }
+                    filename = "__RampantArsenal__/graphics/yuokiTani/entities/rocket-mk1-sheet.png",
+                    priority = "high",
+                    width = 72,
+                    height = 80,
+                    line_length = 16,
+                    axially_symmetrical = false,
+                    direction_count = 64,
+                    frame_count = 1,
+                    shift = {0.35, 0},
                 }
+            }
         }
 
 end
@@ -53,19 +53,19 @@ local function rocketSheetMk2()
     return
         {
             layers =
+            {
                 {
-                    {
-                        filename = "__RampantArsenal__/graphics/yuokiTani/entities/rocket-mk2-sheet.png",
-                        priority = "high",
-                        width = 88,
-                        height = 80,
-                        line_length = 16,
-                        axially_symmetrical = false,
-                        direction_count = 64,
-                        frame_count = 1,
-                        shift = {0.1, -0.15},
-                    }
+                    filename = "__RampantArsenal__/graphics/yuokiTani/entities/rocket-mk2-sheet.png",
+                    priority = "high",
+                    width = 88,
+                    height = 80,
+                    line_length = 16,
+                    axially_symmetrical = false,
+                    direction_count = 64,
+                    frame_count = 1,
+                    shift = {0.1, -0.15},
                 }
+            }
         }
 
 end
@@ -208,11 +208,11 @@ function rockets.enable()
             icon = "__RampantArsenal__/graphics/icons/rocketTurret.png",
             enabled = false,
             ingredients = {
-                {"electronic-circuit", 20},
-                {"steel-plate", 10},
-                {"iron-gear-wheel", 15}
+                {type="item", name="electronic-circuit", amount=20},
+                {type="item", name="steel-plate", amount=10},
+                {type="item", name="iron-gear-wheel", amount=15},
             },
-            result = rocketTurretItem,
+            results = {{type="item", name=rocketTurretItem, amount=1}}
     })
 
     makeRecipe({
@@ -220,12 +220,12 @@ function rockets.enable()
             icon = "__RampantArsenal__/graphics/icons/rapidRocketTurret.png",
             enabled = false,
             ingredients = {
-                {"steel-plate", 30},
-                {"advanced-circuit", 30},
-                {"engine-unit", 10},
-                {"copper-plate", 20}
+                {type="item", name="steel-plate", amount=30},
+                {type="item", name="advanced-circuit", amount=30},
+                {type="item", name="engine-unit", amount=10},
+                {type="item", name="copper-plate", amount=20}
             },
-            result = rapidRocketTurretItem,
+            results = {{type="item", name=rapidRocketTurretItem, amount=1}}
     })
 
     addEffectToTech("rocket-turret-1",
@@ -249,8 +249,8 @@ function rockets.enable()
                 order = "d[rocket-launcher]-b[incendiary]",
                 magSize = 1,
                 stackSize = 200,
+                ammoCategory = "rocket",
                 ammoType = {
-                    category = "rocket",
                     action =
                         {
                             {
@@ -374,11 +374,11 @@ function rockets.enable()
                 enabled = false,
                 category = "crafting-with-fluid",
                 ingredients = {
-                    {"explosive-rocket", 1},
-                    {"steel-plate", 1},
+                    {type="item", name="explosive-rocket", amount=1},
+                    {type="item", name="steel-plate", amount=1},
                     {type="fluid", name="light-oil", amount=40}
                 },
-                result = incendiaryRocketAmmo,
+                results = {{type="item", name=incendiaryRocketAmmo, amount=1}}
         })
 
         addEffectToTech("incendiary-rockets",
@@ -390,11 +390,12 @@ function rockets.enable()
         local heRocketAmmo = makeAmmo({
                 name = "he-rocket",
                 icon = "__RampantArsenal__/graphics/icons/he-rocket.png",
+                iconSize = 32,
                 order = "d[rocket-launcher]-b[he]",
                 magSize = 1,
                 stackSize = 200,
+                ammoCategory = "rocket",
                 ammoType = {
-                    category = "rocket",
                     action =
                         {
                             {
@@ -482,14 +483,15 @@ function rockets.enable()
         makeRecipe({
                 name = heRocketAmmo,
                 icon = "__RampantArsenal__/graphics/icons/he-rocket.png",
+                iconSize = 32,
                 enabled = false,
                 category = "crafting",
                 ingredients = {
-                    {"explosive-rocket", 1},
-                    {"steel-plate", 1},
-                    {"explosives", 6}
+                    {type="item", name="explosive-rocket", amount=1},
+                    {type="item", name="steel-plate", amount=1},
+                    {type="item", name="explosives", amount=6}
                 },
-                result = heRocketAmmo,
+                results = {{type="item", name=heRocketAmmo, amount=1}}
         })
 
         addEffectToTech("he-rockets",
@@ -504,8 +506,8 @@ function rockets.enable()
                 order = "d[rocket-launcher]-b[fbio]",
                 magSize = 1,
                 stackSize = 200,
+                ammoCategory = "rocket",
                 ammoType = {
-                    category = "rocket",
                     action =
                         {
                             {
@@ -601,11 +603,11 @@ function rockets.enable()
                 enabled = false,
                 category = "crafting-with-fluid",
                 ingredients = {
-                    {"explosive-rocket", 1},
-                    {"steel-plate", 1},
-                    {"poison-capsule", 2}
+                    {type="item", name="explosive-rocket", amount=1},
+                    {type="item", name="steel-plate", amount=1},
+                    {type="item", name="poison-capsule", amount=2}
                 },
-                result = bioRocketAmmo,
+                results = {{type="item", name=bioRocketAmmo, amount=1}}
         })
 
         addEffectToTech("bio-rockets",

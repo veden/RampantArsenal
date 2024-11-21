@@ -95,11 +95,12 @@ function vehicleUtils.makeTank(attributes)
                 collision_box = attributes.collisionBox or {{-1.8, -2.6}, {1.8, 2.6}},
                 selection_box = attributes.selectionBox or {{-1.8, -1.3}, {1.8, 2.6}},
                 damaged_trigger_effect = hit_effects.entity(),
-                drawing_box = attributes.drawingBox or {{-3.6, -3.6}, {3.6, 3}},
+                drawing_box_vertical_extension = attributes.drawingBoxVerticalExtension or 0.5,
                 effectivity = attributes.effectivity or 0.5,
                 braking_power = attributes.brakingPower or "600kW",
-                burner = attributes.energySource or
+                energy_source = attributes.energySource or
                     {
+                        type = "burner",
                         fuel_category = "chemical",
                         effectivity = 0.55,
                         fuel_inventory_size = attributes.fuelInventorySize or 3,
@@ -162,15 +163,15 @@ function vehicleUtils.makeTank(attributes)
                             {
                                 {
                                     priority = "low",
-                                    width = 136,
-                                    height = 106,
+                                    width = 270,
+                                    height = 212,
                                     frame_count = 2,
                                     direction_count = 64,
                                     shift = util.by_pixel(0, -16 + tank_shift_y),
                                     animation_speed = 8,
                                     max_advance = 1,
                                     tint = attributes.tint,
-                                    scale = attributes.scale * 2,
+                                    scale = attributes.scale,
                                     stripes =
                                         {
                                             {
@@ -193,173 +194,71 @@ function vehicleUtils.makeTank(attributes)
                                                 width_in_frames = 2,
                                                 height_in_frames = 16
                                             }
-                                        },
-                                    hr_version =
-                                        {
-                                            priority = "low",
-                                            width = 270,
-                                            height = 212,
-                                            frame_count = 2,
-                                            direction_count = 64,
-                                            shift = util.by_pixel(0, -16 + tank_shift_y),
-                                            animation_speed = 8,
-                                            max_advance = 1,
-                                            tint = attributes.tint,
-                                            scale = attributes.scale,
-                                            stripes =
-                                                {
-                                                    {
-                                                        filename = "__base__/graphics/entity/tank/hr-tank-base-1.png",
-                                                        width_in_frames = 2,
-                                                        height_in_frames = 16
-                                                    },
-                                                    {
-                                                        filename = "__base__/graphics/entity/tank/hr-tank-base-2.png",
-                                                        width_in_frames = 2,
-                                                        height_in_frames = 16
-                                                    },
-                                                    {
-                                                        filename = "__base__/graphics/entity/tank/hr-tank-base-3.png",
-                                                        width_in_frames = 2,
-                                                        height_in_frames = 16
-                                                    },
-                                                    {
-                                                        filename = "__base__/graphics/entity/tank/hr-tank-base-4.png",
-                                                        width_in_frames = 2,
-                                                        height_in_frames = 16
-                                                    }
-                                                }
                                         }
                                 },
                                 {
                                     priority = "low",
-                                    width = 104,
-                                    height = 83,
+                                    width = 208,
+                                    height = 166,
                                     frame_count = 2,
                                     apply_runtime_tint = true,
                                     direction_count = 64,
                                     shift = util.by_pixel(0, -27.5 + tank_shift_y),
                                     max_advance = 1,
                                     line_length = 2,
-                                    scale = attributes.scale * 2,
+                                    scale = attributes.scale,
                                     stripes = util.multiplystripes(2,
-                                                                   {
-                                                                       {
-                                                                           filename = "__base__/graphics/entity/tank/tank-base-mask-1.png",
-                                                                           width_in_frames = 1,
-                                                                           height_in_frames = 22
-                                                                       },
-                                                                       {
-                                                                           filename = "__base__/graphics/entity/tank/tank-base-mask-2.png",
-                                                                           width_in_frames = 1,
-                                                                           height_in_frames = 22
-                                                                       },
-                                                                       {
-                                                                           filename = "__base__/graphics/entity/tank/tank-base-mask-3.png",
-                                                                           width_in_frames = 1,
-                                                                           height_in_frames = 20
-                                                                       }
-                                    }),
-                                    hr_version =
-                                        {
-                                            priority = "low",
-                                            width = 208,
-                                            height = 166,
-                                            frame_count = 2,
-                                            apply_runtime_tint = true,
-                                            direction_count = 64,
-                                            shift = util.by_pixel(0, -27.5 + tank_shift_y),
-                                            max_advance = 1,
-                                            line_length = 2,
-                                            scale = attributes.scale,
-                                            stripes = util.multiplystripes(2,
-                                                                           {
-                                                                               {
-                                                                                   filename = "__base__/graphics/entity/tank/hr-tank-base-mask-1.png",
-                                                                                   width_in_frames = 1,
-                                                                                   height_in_frames = 22
-                                                                               },
-                                                                               {
-                                                                                   filename = "__base__/graphics/entity/tank/hr-tank-base-mask-2.png",
-                                                                                   width_in_frames = 1,
-                                                                                   height_in_frames = 22
-                                                                               },
-                                                                               {
-                                                                                   filename = "__base__/graphics/entity/tank/hr-tank-base-mask-3.png",
-                                                                                   width_in_frames = 1,
-                                                                                   height_in_frames = 20
-                                                                               }
-                                            })
-                                        }
+                                                                    {
+                                                                        {
+                                                                            filename = "__base__/graphics/entity/tank/tank-base-mask-1.png",
+                                                                            width_in_frames = 1,
+                                                                            height_in_frames = 22
+                                                                        },
+                                                                        {
+                                                                            filename = "__base__/graphics/entity/tank/tank-base-mask-2.png",
+                                                                            width_in_frames = 1,
+                                                                            height_in_frames = 22
+                                                                        },
+                                                                        {
+                                                                            filename = "__base__/graphics/entity/tank/tank-base-mask-3.png",
+                                                                            width_in_frames = 1,
+                                                                            height_in_frames = 20
+                                                                        }
+                                    })
                                 },
                                 {
                                     priority = "low",
-                                    width = 151,
-                                    height = 98,
+                                    width = 302,
+                                    height = 194,
                                     frame_count = 2,
                                     draw_as_shadow = true,
                                     direction_count = 64,
                                     shift = util.by_pixel(22.5, 1 + tank_shift_y),
                                     max_advance = 1,
-                                    scale = attributes.scale * 2,
+                                    scale = attributes.scale,
                                     stripes = util.multiplystripes(2,
-                                                                   {
-                                                                       {
-                                                                           filename = "__base__/graphics/entity/tank/tank-base-shadow-1.png",
-                                                                           width_in_frames = 1,
-                                                                           height_in_frames = 16
-                                                                       },
-                                                                       {
-                                                                           filename = "__base__/graphics/entity/tank/tank-base-shadow-2.png",
-                                                                           width_in_frames = 1,
-                                                                           height_in_frames = 16
-                                                                       },
-                                                                       {
-                                                                           filename = "__base__/graphics/entity/tank/tank-base-shadow-3.png",
-                                                                           width_in_frames = 1,
-                                                                           height_in_frames = 16
-                                                                       },
-                                                                       {
-                                                                           filename = "__base__/graphics/entity/tank/tank-base-shadow-4.png",
-                                                                           width_in_frames = 1,
-                                                                           height_in_frames = 16
-                                                                       }
-                                    }),
-                                    hr_version =
-                                        {
-                                            priority = "low",
-                                            width = 302,
-                                            height = 194,
-                                            frame_count = 2,
-                                            draw_as_shadow = true,
-                                            direction_count = 64,
-                                            shift = util.by_pixel(22.5, 1 + tank_shift_y),
-                                            max_advance = 1,
-                                            scale = attributes.scale,
-                                            stripes = util.multiplystripes(2,
-                                                                           {
-                                                                               {
-                                                                                   filename = "__base__/graphics/entity/tank/hr-tank-base-shadow-1.png",
-                                                                                   width_in_frames = 1,
-                                                                                   height_in_frames = 16
-                                                                               },
-                                                                               {
-                                                                                   filename = "__base__/graphics/entity/tank/hr-tank-base-shadow-2.png",
-                                                                                   width_in_frames = 1,
-                                                                                   height_in_frames = 16
-                                                                               },
-                                                                               {
-                                                                                   filename = "__base__/graphics/entity/tank/hr-tank-base-shadow-3.png",
-                                                                                   width_in_frames = 1,
-                                                                                   height_in_frames = 16
-                                                                               },
-                                                                               {
-                                                                                   filename = "__base__/graphics/entity/tank/hr-tank-base-shadow-4.png",
-                                                                                   width_in_frames = 1,
-                                                                                   height_in_frames = 16
-                                                                               }
-                                            })
-                                        }
+                                                                    {
+                                                                        {
+                                                                            filename = "__base__/graphics/entity/tank/tank-base-shadow-1.png",
+                                                                            width_in_frames = 1,
+                                                                            height_in_frames = 16
+                                                                        },
+                                                                        {
+                                                                            filename = "__base__/graphics/entity/tank/tank-base-shadow-2.png",
+                                                                            width_in_frames = 1,
+                                                                            height_in_frames = 16
+                                                                        },
+                                                                        {
+                                                                            filename = "__base__/graphics/entity/tank/tank-base-shadow-3.png",
+                                                                            width_in_frames = 1,
+                                                                            height_in_frames = 16
+                                                                        },
+                                                                        {
+                                                                            filename = "__base__/graphics/entity/tank/tank-base-shadow-4.png",
+                                                                            width_in_frames = 1,
+                                                                            height_in_frames = 16
+                                                                        }
+                                    })
                                 }
                             }
                     },
@@ -371,79 +270,39 @@ function vehicleUtils.makeTank(attributes)
                                     filename = "__base__/graphics/entity/tank/tank-turret.png",
                                     priority = "low",
                                     line_length = 8,
-                                    width = 90,
-                                    height = 67,
-                                    frame_count = 1,
-                                    direction_count = 64,
+                                    width = 179,
+                                    height = 132,
                                     tint = attributes.tint,
-                                    shift = util.by_pixel(2-2, -40.5 + tank_shift_y + (-15 * attributes.scale)),
-                                    animation_speed = 8,
-                                    scale = attributes.scale * 2.2,
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/tank/hr-tank-turret.png",
-                                            priority = "low",
-                                            line_length = 8,
-                                            width = 179,
-                                            height = 132,
-                                            tint = attributes.tint,
-                                            frame_count = 1,
-                                            scale = attributes.scale * 1.2,
-                                            direction_count = 64,
-                                            shift = util.by_pixel(2.25-2, -40.5 + tank_shift_y + (-15 * attributes.scale)),
-                                            animation_speed = 8
-                                        }
+                                    frame_count = 1,
+                                    scale = attributes.scale * 1.2,
+                                    direction_count = 64,
+                                    shift = util.by_pixel(2.25-2, -40.5 + tank_shift_y + (-15 * attributes.scale)),
+                                    animation_speed = 8
                                 },
                                 {
                                     filename = "__base__/graphics/entity/tank/tank-turret-mask.png",
                                     priority = "low",
                                     line_length = 8,
-                                    width = 36,
-                                    height = 33,
+                                    width = 72,
+                                    height = 66,
                                     frame_count = 1,
+                                    scale = attributes.scale * 1.2,
                                     apply_runtime_tint = true,
                                     direction_count = 64,
-                                    scale = attributes.scale * 2.6,
-                                    shift = util.by_pixel(2-2, -41.5 + tank_shift_y + (-15 * attributes.scale)),
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/tank/hr-tank-turret-mask.png",
-                                            priority = "low",
-                                            line_length = 8,
-                                            width = 72,
-                                            height = 66,
-                                            frame_count = 1,
-                                            scale = attributes.scale * 1.2,
-                                            apply_runtime_tint = true,
-                                            direction_count = 64,
-                                            tint = attributes.tint,
-                                            shift = util.by_pixel(2-2, -41.5 + tank_shift_y + (-15 * attributes.scale))
-                                        }
+                                    tint = attributes.tint,
+                                    shift = util.by_pixel(2-2, -41.5 + tank_shift_y + (-15 * attributes.scale))
                                 },
                                 {
                                     filename = "__base__/graphics/entity/tank/tank-turret-shadow.png",
                                     priority = "low",
                                     line_length = 8,
-                                    width = 97,
-                                    height = 67,
+                                    width = 193,
+                                    height = 134,
                                     frame_count = 1,
+                                    scale = attributes.scale * 1.2,
                                     draw_as_shadow = true,
                                     direction_count = 64,
-                                    scale = attributes.scale * 2.2,
-                                    shift = util.by_pixel(58.5-2, 0.5 + tank_shift_y),
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/tank/hr-tank-turret-shadow.png",
-                                            priority = "low",
-                                            line_length = 8,
-                                            width = 193,
-                                            height = 134,
-                                            frame_count = 1,
-                                            scale = attributes.scale * 1.2,
-                                            draw_as_shadow = true,
-                                            direction_count = 64,
-                                            shift = util.by_pixel(58.25-2, 0.5 + tank_shift_y)
-                                        }
+                                    shift = util.by_pixel(58.25-2, 0.5 + tank_shift_y)
                                 }
                             }
                     },
@@ -560,8 +419,9 @@ function vehicleUtils.makeCar(attributes)
                 effectivity = attributes.effectivity or 0.5,
                 braking_power = attributes.brakingPower or "200kW",
 
-                burner = attributes.energySource or
+                energy_source = attributes.energySource or
                     {
+                        type = "burner",
                         fuel_category = "chemical",
                         effectivity = 1,
                         fuel_inventory_size = 1,
@@ -623,151 +483,89 @@ function vehicleUtils.makeCar(attributes)
                             {
                                 {
                                     priority = "low",
-                                    width = 102,
-                                    height = 86,
+                                    width = 201,
+                                    height = 172,
                                     frame_count = 2,
+                                    scale = attributes.scale * 1,
                                     direction_count = 64,
-                                    shift = {0, -0.1875},
+                                    tint = attributes.tint,
+                                    shift = util.by_pixel(0+2, -11.5+8.5),
                                     animation_speed = 8,
                                     max_advance = 0.2,
-                                    tint = attributes.tint,
-                                    scale = attributes.scale * 2,
                                     stripes =
                                         {
                                             {
                                                 filename = "__base__/graphics/entity/car/car-1.png",
                                                 width_in_frames = 2,
-                                                height_in_frames = 22
+                                                height_in_frames = 11
                                             },
                                             {
                                                 filename = "__base__/graphics/entity/car/car-2.png",
                                                 width_in_frames = 2,
-                                                height_in_frames = 22
+                                                height_in_frames = 11
                                             },
                                             {
                                                 filename = "__base__/graphics/entity/car/car-3.png",
                                                 width_in_frames = 2,
-                                                height_in_frames = 20
+                                                height_in_frames = 11
+                                            },
+                                            {
+                                                filename = "__base__/graphics/entity/car/car-4.png",
+                                                width_in_frames = 2,
+                                                height_in_frames = 11
+                                            },
+                                            {
+                                                filename = "__base__/graphics/entity/car/car-5.png",
+                                                width_in_frames = 2,
+                                                height_in_frames = 11
+                                            },
+                                            {
+                                                filename = "__base__/graphics/entity/car/car-6.png",
+                                                width_in_frames = 2,
+                                                height_in_frames = 9
                                             }
-                                        },
-                                    hr_version =
-                                        {
-                                            priority = "low",
-                                            width = 201,
-                                            height = 172,
-                                            frame_count = 2,
-                                            scale = attributes.scale * 1,
-                                            direction_count = 64,
-                                            tint = attributes.tint,
-                                            shift = util.by_pixel(0+2, -11.5+8.5),
-                                            animation_speed = 8,
-                                            max_advance = 0.2,
-                                            stripes =
-                                                {
-                                                    {
-                                                        filename = "__base__/graphics/entity/car/hr-car-1.png",
-                                                        width_in_frames = 2,
-                                                        height_in_frames = 11
-                                                    },
-                                                    {
-                                                        filename = "__base__/graphics/entity/car/hr-car-2.png",
-                                                        width_in_frames = 2,
-                                                        height_in_frames = 11
-                                                    },
-                                                    {
-                                                        filename = "__base__/graphics/entity/car/hr-car-3.png",
-                                                        width_in_frames = 2,
-                                                        height_in_frames = 11
-                                                    },
-                                                    {
-                                                        filename = "__base__/graphics/entity/car/hr-car-4.png",
-                                                        width_in_frames = 2,
-                                                        height_in_frames = 11
-                                                    },
-                                                    {
-                                                        filename = "__base__/graphics/entity/car/hr-car-5.png",
-                                                        width_in_frames = 2,
-                                                        height_in_frames = 11
-                                                    },
-                                                    {
-                                                        filename = "__base__/graphics/entity/car/hr-car-6.png",
-                                                        width_in_frames = 2,
-                                                        height_in_frames = 9
-                                                    }
-                                                }
                                         }
                                 },
                                 {
                                     priority = "low",
-                                    width = 100,
-                                    height = 75,
+                                    width = 199,
+                                    height = 147,
                                     frame_count = 2,
                                     apply_runtime_tint = true,
+                                    scale = attributes.scale * 1,
+                                    axially_symmetrical = false,
                                     direction_count = 64,
                                     max_advance = 0.2,
-                                    scale = attributes.scale * 2,
-                                    line_length = 2,
-                                    shift = {0, -0.171875},
+                                    shift = util.by_pixel(0+2, -11+8.5),
+                                    line_length = 1,
                                     stripes = util.multiplystripes(2,
-                                                                   {
-                                                                       {
-                                                                           filename = "__base__/graphics/entity/car/car-mask-1.png",
-                                                                           width_in_frames = 1,
-                                                                           height_in_frames = 22
-                                                                       },
-                                                                       {
-                                                                           filename = "__base__/graphics/entity/car/car-mask-2.png",
-                                                                           width_in_frames = 1,
-                                                                           height_in_frames = 22
-                                                                       },
-                                                                       {
-                                                                           filename = "__base__/graphics/entity/car/car-mask-3.png",
-                                                                           width_in_frames = 1,
-                                                                           height_in_frames = 20
-                                                                       }
-                                    }),
-                                    hr_version =
-                                        {
-                                            priority = "low",
-                                            width = 199,
-                                            height = 147,
-                                            frame_count = 2,
-                                            apply_runtime_tint = true,
-                                            scale = attributes.scale * 1,
-                                            axially_symmetrical = false,
-                                            direction_count = 64,
-                                            max_advance = 0.2,
-                                            shift = util.by_pixel(0+2, -11+8.5),
-                                            line_length = 1,
-                                            stripes = util.multiplystripes(2,
-                                                                           {
-                                                                               {
-                                                                                   filename = "__base__/graphics/entity/car/hr-car-mask-1.png",
-                                                                                   width_in_frames = 1,
-                                                                                   height_in_frames = 13
-                                                                               },
-                                                                               {
-                                                                                   filename = "__base__/graphics/entity/car/hr-car-mask-2.png",
-                                                                                   width_in_frames = 1,
-                                                                                   height_in_frames = 13
-                                                                               },
-                                                                               {
-                                                                                   filename = "__base__/graphics/entity/car/hr-car-mask-3.png",
-                                                                                   width_in_frames = 1,
-                                                                                   height_in_frames = 13
-                                                                               },
-                                                                               {
-                                                                                   filename = "__base__/graphics/entity/car/hr-car-mask-4.png",
-                                                                                   width_in_frames = 1,
-                                                                                   height_in_frames = 13
-                                                                               },
-                                                                               {
-                                                                                   filename = "__base__/graphics/entity/car/hr-car-mask-5.png",
-                                                                                   width_in_frames = 1,
-                                                                                   height_in_frames = 12
-                                                                               }
-                                            })
-                                        }
+                                                                    {
+                                                                        {
+                                                                            filename = "__base__/graphics/entity/car/car-mask-1.png",
+                                                                            width_in_frames = 1,
+                                                                            height_in_frames = 13
+                                                                        },
+                                                                        {
+                                                                            filename = "__base__/graphics/entity/car/car-mask-2.png",
+                                                                            width_in_frames = 1,
+                                                                            height_in_frames = 13
+                                                                        },
+                                                                        {
+                                                                            filename = "__base__/graphics/entity/car/car-mask-3.png",
+                                                                            width_in_frames = 1,
+                                                                            height_in_frames = 13
+                                                                        },
+                                                                        {
+                                                                            filename = "__base__/graphics/entity/car/car-mask-4.png",
+                                                                            width_in_frames = 1,
+                                                                            height_in_frames = 13
+                                                                        },
+                                                                        {
+                                                                            filename = "__base__/graphics/entity/car/car-mask-5.png",
+                                                                            width_in_frames = 1,
+                                                                            height_in_frames = 12
+                                                                        }
+                                    })
                                 },
                                 {
                                     priority = "low",
@@ -805,42 +603,28 @@ function vehicleUtils.makeCar(attributes)
                         layers =
                             {
                                 {
-                                    filename = "__base__/graphics/entity/car/car-turret.png",
                                     priority = "low",
-                                    line_length = 8,
-                                    width = 36,
-                                    height = 29,
+                                    width = 71,
+                                    height = 57,
                                     frame_count = 1,
+                                    axially_symmetrical = false,
                                     direction_count = 64,
                                     tint = attributes.tint,
-                                    scale = attributes.scale * 2,
-                                    shift = {0.03125, -0.890625},
+                                    shift = util.by_pixel(0+2, -33.5+8.5),
                                     animation_speed = 8,
-                                    hr_version =
+                                    scale = attributes.scale * 1,
+                                    stripes =
                                         {
-                                            priority = "low",
-                                            width = 71,
-                                            height = 57,
-                                            frame_count = 1,
-                                            axially_symmetrical = false,
-                                            direction_count = 64,
-                                            tint = attributes.tint,
-                                            shift = util.by_pixel(0+2, -33.5+8.5),
-                                            animation_speed = 8,
-                                            scale = attributes.scale * 1,
-                                            stripes =
-                                                {
-                                                    {
-                                                        filename = "__base__/graphics/entity/car/hr-car-turret-1.png",
-                                                        width_in_frames = 1,
-                                                        height_in_frames = 32
-                                                    },
-                                                    {
-                                                        filename = "__base__/graphics/entity/car/hr-car-turret-2.png",
-                                                        width_in_frames = 1,
-                                                        height_in_frames = 32
-                                                    }
-                                                }
+                                            {
+                                                filename = "__base__/graphics/entity/car/car-turret-1.png",
+                                                width_in_frames = 1,
+                                                height_in_frames = 32
+                                            },
+                                            {
+                                                filename = "__base__/graphics/entity/car/car-turret-2.png",
+                                                width_in_frames = 1,
+                                                height_in_frames = 32
+                                            }
                                         }
                                 },
                                 {
@@ -986,8 +770,9 @@ function vehicleUtils.makeTrain(attributes)
                             percent = 20
                         }
                     },
-                burner = attributes.energySource or
+                energy_source = attributes.energySource or
                     {
+                        type = "burner",
                         fuel_category = "chemical",
                         effectivity = 1,
                         fuel_inventory_size = 3,
@@ -1009,14 +794,14 @@ function vehicleUtils.makeTrain(attributes)
                     },
                 minimap_representation =
                     {
-                        filename = "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-minimap-representation.png",
+                        filename = "__base__/graphics/entity/locomotive/minimap-representation/locomotive-minimap-representation.png",
                         flags = {"icon"},
                         size = {20, 40},
                         scale = 0.5
                     },
                 selected_minimap_representation =
                     {
-                        filename = "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-selected-minimap-representation.png",
+                        filename = "__base__/graphics/entity/locomotive/minimap-representation/locomotive-selected-minimap-representation.png",
                         flags = {"icon"},
                         size = {20, 40},
                         scale = 0.5
@@ -1058,157 +843,98 @@ function vehicleUtils.makeTrain(attributes)
                             color = {r = 1.0, g = 0.9, b = 0.9}
                         }
                     },
-                back_light = rolling_stock_back_light(),
-                stand_by_light = rolling_stock_stand_by_light(),
+                back_light = {
+                    {
+                        minimum_darkness = 0.3,
+                        color = {1, 0.1, 0.05, 0},
+                        shift = {-0.6, 3.5},
+                        size = 2,
+                        intensity = 0.6,
+                        add_perspective = true
+                    },
+                    {
+                        minimum_darkness = 0.3,
+                        color = {1, 0.1, 0.05, 0},
+                        shift = {0.6, 3.5},
+                        size = 2,
+                        intensity = 0.6,
+                        add_perspective = true
+                    }
+                },
+                stand_by_light = {
+                    {
+                        minimum_darkness = 0.3,
+                        color = {0.05, 0.2, 1, 0},
+                        shift = {-0.6, -3.5},
+                        size = 2,
+                        intensity = 0.5,
+                        add_perspective = true
+                    },
+                    {
+                        minimum_darkness = 0.3,
+                        color = {0.05, 0.2, 1, 0},
+                        shift = {0.6, -3.5},
+                        size = 2,
+                        intensity = 0.5,
+                        add_perspective = true
+                    }
+                },
                 color = {r = 0.92, g = 0.07, b = 0, a = 0.5},
                 pictures =
+                {
+                    rotated =
                     {
-                        layers =
-                            {
-                                {
-                                    slice = 4,
-                                    priority = "very-low",
-                                    width = 238,
-                                    height = 230,
-                                    direction_count = 256,
-                                    allow_low_quality_rotation = true,
-                                    filenames =
-                                        {
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-01.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-02.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-03.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-04.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-05.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-06.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-07.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-08.png"
-                                        },
-                                    line_length = 4,
-                                    lines_per_file = 8,
-                                    tint = attributes.tint,
-                                    scale = attributes.scale * 2,
-                                    shift = {0.0, -0.5},
-                                    hr_version =
-                                        {
-                                            priority = "very-low",
-                                            slice = 4,
-                                            width = 474,
-                                            height = 458,
-                                            tint = attributes.tint,
-                                            direction_count = 256,
-                                            allow_low_quality_rotation = true,
-                                            filenames =
-                                                {
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-1.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-2.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-3.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-4.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-5.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-6.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-7.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-8.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-9.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-10.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-11.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-12.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-13.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-14.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-15.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-16.png"
-                                                },
-                                            line_length = 4,
-                                            lines_per_file = 4,
-                                            shift = {0.0, -0.5},
-                                            scale = attributes.scale * 1
-                                        }
-                                },
-                                {
-                                    priority = "very-low",
-                                    flags = { "mask" },
-                                    slice = 4,
-                                    width = 236,
-                                    height = 228,
-                                    direction_count = 256,
-                                    scale = attributes.scale * 2,
-                                    allow_low_quality_rotation = true,
-                                    filenames =
-                                        {
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-mask-01.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-mask-02.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-mask-03.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-mask-04.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-mask-05.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-mask-06.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-mask-07.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-mask-08.png"
-                                        },
-                                    line_length = 4,
-                                    lines_per_file = 8,
-                                    shift = {0.0, -0.5},
-                                    apply_runtime_tint = true,
-                                    hr_version =
-                                        {
-                                            priority = "very-low",
-                                            flags = { "mask" },
-                                            slice = 4,
-                                            width = 472,
-                                            height = 456,
-                                            direction_count = 256,
-                                            allow_low_quality_rotation = true,
-                                            filenames =
-                                                {
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-mask-1.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-mask-2.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-mask-3.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-mask-4.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-mask-5.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-mask-6.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-mask-7.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-mask-8.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-mask-9.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-mask-10.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-mask-11.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-mask-12.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-mask-13.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-mask-14.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-mask-15.png",
-                                                    "__base__/graphics/entity/diesel-locomotive/hr-diesel-locomotive-mask-16.png"
-                                                },
-                                            line_length = 4,
-                                            lines_per_file = 4,
-                                            shift = {0.0, -0.5},
-                                            apply_runtime_tint = true,
-                                            scale = attributes.scale * 1
-                                        }
-                                },
-                                {
-                                    priority = "very-low",
-                                    slice = 4,
-                                    flags = { "shadow" },
-                                    width = 253,
-                                    height = 212,
-                                    direction_count = 256,
-                                    draw_as_shadow = true,
-                                    scale = attributes.scale * 2,
-                                    allow_low_quality_rotation = true,
-                                    filenames =
-                                        {
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-shadow-01.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-shadow-02.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-shadow-03.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-shadow-04.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-shadow-05.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-shadow-06.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-shadow-07.png",
-                                            "__base__/graphics/entity/diesel-locomotive/diesel-locomotive-shadow-08.png"
-                                        },
-                                    line_length = 4,
-                                    lines_per_file = 8,
-                                    shift = {1, 0.3}
-                                }
-                            }
+                      layers =
+                      {
+                        util.sprite_load("__base__/graphics/entity/locomotive/locomotive",
+                          {
+                            dice = 4,
+                            priority = "very-low",
+                            allow_low_quality_rotation = true,
+                            direction_count = 256,
+                            scale = 0.5,
+                            usage = "train"
+                          }
+                        ),
+                        util.sprite_load("__base__/graphics/entity/locomotive/locomotive-mask",
+                          {
+                            dice = 4,
+                            priority = "very-low",
+                            flags = { "mask" },
+                            apply_runtime_tint = true,
+                            tint_as_overlay = true,
+                            allow_low_quality_rotation = true,
+                            direction_count = 256,
+                            scale = 0.5,
+                            usage = "train"
+                          }
+                        ),
+                        util.sprite_load("__base__/graphics/entity/locomotive/locomotive-shadow",
+                          {
+                            dice = 4,
+                            priority = "very-low",
+                            flags = { "shadow" },
+                            draw_as_shadow = true,
+                            allow_low_quality_rotation = true,
+                            direction_count = 256,
+                            scale = 0.5,
+                            usage = "train"
+                          }
+                        )
+                      }
                     },
-                wheels = standard_train_wheels,
+                  },
+                wheels = {
+                    rotated = util.sprite_load("__base__/graphics/entity/train-wheel/train-wheel",
+                      {
+                        priority = "very-low",
+                        direction_count = 256,
+                        scale = 0.5,
+                        shift = util.by_pixel(0, 8),
+                        usage = "train"
+                      }
+                    )
+                  },
                 rail_category = "regular",
                 stop_trigger =
                     {
@@ -1247,7 +973,11 @@ function vehicleUtils.makeTrain(attributes)
                                 }
                         }
                     },
-                drive_over_tie_trigger = drive_over_tie(),
+                drive_over_tie_trigger =  
+                    {
+                        type = "play-sound",
+                        sound = sound_variations("__base__/sound/train-tie", 6, 0.4, { volume_multiplier("main-menu", 2.4), volume_multiplier("driving", 1.3) } )
+                    },
                 tie_distance = 50,
                 vehicle_impact_sound =  { filename = "__base__/sound/car-metal-impact.ogg", volume = 0.65 },
                 working_sound =
@@ -1262,7 +992,21 @@ function vehicleUtils.makeTrain(attributes)
                 open_sound = { filename = "__base__/sound/car-door-open.ogg", volume=0.7 },
                 close_sound = { filename = "__base__/sound/car-door-close.ogg", volume = 0.7 },
                 sound_minimum_speed = 0.7,
-                water_reflection = locomotive_reflection(),
+                water_reflection = 
+                    {
+                        pictures =
+                        {
+                        filename = "__base__/graphics/entity/locomotive/reflection/locomotive-reflection.png",
+                        priority = "extra-high",
+                        width = 20,
+                        height = 52,
+                        shift = util.by_pixel(0, 40),
+                        variation_count = 1,
+                        scale = 5
+                        },
+                        rotate = true,
+                        orientation_to_variation = false
+                    },
             }
     })
 

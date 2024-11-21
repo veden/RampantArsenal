@@ -119,7 +119,7 @@ function landmines.enable()
                                     {
                                         type = "create-entity",
                                         entity_name = "nuclear-smouldering-smoke-source",
-                                        tile_collision_mask = { "water-tile" }
+                                        tile_collision_mask = { layers={water_tile=true} }
                                     }
                                 }
                         }
@@ -222,7 +222,7 @@ function landmines.enable()
                                         tile_name = "nuclear-ground",
                                         radius = 12,
                                         apply_projection = true,
-                                        tile_collision_mask = { "water-tile" },
+                                        tile_collision_mask = { layers={water_tile=true} },
                                     },
                                     {
                                         type = "destroy-cliffs",
@@ -552,10 +552,10 @@ function landmines.enable()
                 icon = "__RampantArsenal__/graphics/icons/nuclear-landmine.png",
                 enabled = false,
                 ingredients = {
-                    {"land-mine", 1},
-                    {"atomic-bomb", 1}
+                    {type="item", name="land-mine", amount=1},
+                    {type="item", name="atomic-bomb", amount=1}
                 },
-                result = nuclearLandmine
+                results = {{type="item", name=nuclearLandmine, amount=1}}
         })
 
         makeRecipe({
@@ -564,11 +564,11 @@ function landmines.enable()
                 enabled = false,
                 category = "chemistry",
                 ingredients = {
-                    {"land-mine", 1},
-                    {"steel-plate", 1},
+                    {type="item", name="land-mine", amount=1},
+                    {type="item", name="steel-plate", amount=1},
                     {type="fluid", name="light-oil", amount=40}
                 },
-                result = incendiaryLandmine
+                results = {{type="item", name=incendiaryLandmine, amount=1}}
         })
 
 
@@ -578,11 +578,11 @@ function landmines.enable()
                 enabled = false,
                 category = "chemistry",
                 ingredients = {
-                    {"land-mine", 1},
-                    {"steel-plate", 1},
-                    {"explosives", 4}
+                    {type="item", name="land-mine", amount=1},
+                    {type="item", name="steel-plate", amount=1},
+                    {type="item", name="explosives", amount=4}
                 },
-                result = heLandmine
+                results = {{type="item", name=heLandmine, amount=1}}
         })
 
 
@@ -592,11 +592,11 @@ function landmines.enable()
                 enabled = false,
                 category = "chemistry",
                 ingredients = {
-                    {"land-mine", 1},
-                    {"steel-plate", 1},
-                    {"poison-capsule", 2}
+                    {type="item", name="land-mine", amount=1},
+                    {type="item", name="steel-plate", amount=1},
+                    {type="item", name="poison-capsule", amount=2}
                 },
-                result = bioLandmine
+                results = {{type="item", name=bioLandmine, amount=1}}
         })
 
         local landmine = data.raw["land-mine"]["land-mine"]
@@ -704,7 +704,7 @@ function landmines.enable()
 
     landmine.name = "landmine-ghostless-rampant-arsenal"
     landmine.create_ghost_on_death = false
-    landmine.flags[#landmine.flags+1] = "hidden"
+    --landmine.flags[#landmine.flags+1] = "hidden"
 
     data:extend({
             landmine,

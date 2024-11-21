@@ -44,28 +44,24 @@ function recipeUtils.makeRecipe(attributes)
             {
                 type = "recipe",
                 name = attributes.name,
-                -- icon = attributes.icon,
+                icon = attributes.icon,
                 icons = attributes.icons or {
-                    {icon=attributes.icon, tint=attributes.tint}
+                    {icon=attributes.icon, tint=attributes.tint, icon_size = attributes.iconSize or 32}
                 },
-                icon_size = attributes.iconSize or 32,
                 icon_mipmaps = attributes.iconMipmaps or 1,
                 hidden = attributes.hidden,
                 category = attributes.category,
                 subgroup = attributes.subgroup,
-                normal = {
-                    enabled = attributes.enabled,
-                    energy_required = attributes.time or 8,		
-                    ingredients = attributes.ingredients or 
-                        {
-                            {"iron-gear-wheel", 10},
-                            {"copper-plate", 10},
-                            {"iron-plate", 20}
-                        },
-                    result = attributes.result,
-                    results = attributes.results
-                },
-                expensive = attributes.expensive
+                enabled = attributes.enabled,
+                energy_required = attributes.time or 8,		
+                ingredients = attributes.ingredients or 
+                    {
+                        {type="item", name="iron-gear-wheel", amount=10},
+                        {type="item", name="copper-plate", amount=10},
+                        {type="item", name="iron-plate", amount=20},
+                    },
+                result = attributes.result,
+                results = attributes.results
             }
     })
 

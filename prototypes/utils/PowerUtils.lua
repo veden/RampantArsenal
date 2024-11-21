@@ -86,47 +86,24 @@ function powerUtils.makeOilBurner(attributes)
                             {
                                 {
                                     filename = "__base__/graphics/entity/steam-turbine/steam-turbine-H.png",
-                                    width = 160,
-                                    height = 123,
+                                    width = 320,
+                                    height = 245,
                                     frame_count = 8,
                                     line_length = 4,
-                                    scale = attributes.scale * 2,
                                     tint = attributes.tint,
                                     shift = util.by_pixel(0, attributes.scale * -5),
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/steam-turbine/hr-steam-turbine-H.png",
-                                            width = 320,
-                                            height = 245,
-                                            frame_count = 8,
-                                            line_length = 4,
-                                            tint = attributes.tint,
-                                            shift = util.by_pixel(0, attributes.scale * -5),
-                                            scale = attributes.scale * 1
-                                        }
+                                    scale = attributes.scale * 1
                                 },
                                 {
                                     filename = "__base__/graphics/entity/steam-turbine/steam-turbine-H-shadow.png",
-                                    width = 217,
-                                    height = 74,
+                                    width = 435,
+                                    height = 150,
                                     repeat_count = 8,
                                     frame_count = 1,
                                     line_length = 1,
                                     draw_as_shadow = true,
-                                    scale = attributes.scale * 2,
-                                    shift = util.by_pixel(attributes.scale * 57.5, attributes.scale * 36),
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/steam-turbine/hr-steam-turbine-H-shadow.png",
-                                            width = 435,
-                                            height = 150,
-                                            repeat_count = 8,
-                                            frame_count = 1,
-                                            line_length = 1,
-                                            draw_as_shadow = true,
-                                            shift = util.by_pixel(attributes.scale * 57, attributes.scale * 36),
-                                            scale = attributes.scale * 1
-                                        }
+                                    shift = util.by_pixel(attributes.scale * 57, attributes.scale * 36),
+                                    scale = attributes.scale * 1
                                 }
                             }
                     },
@@ -136,47 +113,24 @@ function powerUtils.makeOilBurner(attributes)
                             {
                                 {
                                     filename = "__base__/graphics/entity/steam-turbine/steam-turbine-V.png",
-                                    width = 108,
-                                    height = 173,
+                                    width = 217,
+                                    height = 347,
                                     frame_count = 8,
                                     line_length = 4,
-                                    scale = attributes.scale * 2,
                                     tint = attributes.tint,
-                                    shift = util.by_pixel(attributes.scale * 10, attributes.scale * 13),
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/steam-turbine/hr-steam-turbine-V.png",
-                                            width = 217,
-                                            height = 347,
-                                            frame_count = 8,
-                                            line_length = 4,
-                                            tint = attributes.tint,
-                                            shift = util.by_pixel(attributes.scale * 9.5, attributes.scale * 13.5),
-                                            scale = attributes.scale * 1
-                                        }
+                                    shift = util.by_pixel(attributes.scale * 9.5, attributes.scale * 13.5),
+                                    scale = attributes.scale * 1
                                 },
                                 {
                                     filename = "__base__/graphics/entity/steam-turbine/steam-turbine-V-shadow.png",
-                                    width = 151,
-                                    height = 131,
+                                    width = 302,
+                                    height = 260,
                                     repeat_count = 8,
                                     frame_count = 1,
                                     line_length = 1,
                                     draw_as_shadow = true,
-                                    scale = attributes.scale * 2,
                                     shift = util.by_pixel(attributes.scale * 79, attributes.scale * 49),
-                                    hr_version =
-                                        {
-                                            filename = "__base__/graphics/entity/steam-turbine/hr-steam-turbine-V-shadow.png",
-                                            width = 302,
-                                            height = 260,
-                                            repeat_count = 8,
-                                            frame_count = 1,
-                                            line_length = 1,
-                                            draw_as_shadow = true,
-                                            shift = util.by_pixel(attributes.scale * 79, attributes.scale * 49),
-                                            scale = attributes.scale * 1
-                                        }
+                                    scale = attributes.scale * 1
                                 }
                             }
                     },

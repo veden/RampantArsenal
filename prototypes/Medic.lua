@@ -128,11 +128,11 @@ function medic.enable()
             enabled = false,
             category = "crafting",
             ingredients = {
-                {"engine-unit", 5},
-                {"advanced-circuit", 5},
-                {"steel-plate", 15}
+                {type="item", name="engine-unit", amount=5},
+                {type="item", name="advanced-circuit", amount=5},
+                {type="item", name="steel-plate", amount=15}
             },
-            result = medicTurretItem
+            results = {{type="item", name=medicTurretItem, amount=1}}
     })
 
 
@@ -184,11 +184,11 @@ function medic.enable()
             icon = "__RampantArsenal__/graphics/icons/medic-repair-pack.png",
             enabled = false,
             ingredients = {
-                {"copper-plate", 2},
-                {"repair-capsule-rampant-arsenal", 5},
-                {"advanced-circuit", 2}
+                {type="item", name="copper-plate", amount=2},
+                {type="item", name="repair-capsule-rampant-arsenal", amount=5},
+                {type="item", name="advanced-circuit", amount=2}
             },
-            result = repairCapsules
+            results = {{type="item", name=repairCapsules, amount=1}}
     })
 
     addEffectToTech("regeneration-turrets",

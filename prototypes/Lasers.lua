@@ -49,52 +49,59 @@ local function make_laser_beam()
                                 }
                         }
                 },
-            head =
+            graphics_set = 
                 {
-                    filename = "__base__/graphics/entity/laser-turret/hr-laser-body.png",
-                    flags = {"mipmap"},
-                    line_length = 8,
-                    width = 64,
-                    height = 12,
-                    frame_count = 8,
-                    scale = 1,
-                    animation_speed = 0.5,
-                    tint = {r=0.75,g=0.2,b=0.75,a=0.55},
-                    blend_mode = laser_beam_blend_mode
-                },
-            tail =
-                {
-                    filename = "__base__/graphics/entity/laser-turret/hr-laser-end.png",
-                    flags = { "no-crop", "mipmap" },
-                    width = 110,
-                    height = 62,
-                    frame_count = 8,
-                    shift = util.by_pixel(11.5, 1),
-                    scale = 1,
-                    animation_speed = 0.5,
-                    tint = {r=0.75,g=0.2,b=0.75,a=0.55},
-                    blend_mode = laser_beam_blend_mode
-                },
-            body =
-                {
-                    {
-                        filename = "__base__/graphics/entity/laser-turret/hr-laser-body.png",
-                        flags = {"mipmap"},
-                        line_length = 8,
-                        width = 64,
-                        height = 12,
-                        frame_count = 8,
-                        scale = 1,
-                        animation_speed = 0.5,
-                        tint = {r=0.75,g=0.2,b=0.75,a=0.55},
-                        blend_mode = laser_beam_blend_mode
-                    }
-                },
+                    beam = 
+                        {
+                        head =
+                            {
+                                filename = "__base__/graphics/entity/laser-turret/laser-body.png",
+                                flags = {"mipmap"},
+                                line_length = 8,
+                                width = 64,
+                                height = 12,
+                                frame_count = 8,
+                                scale = 1,
+                                animation_speed = 0.5,
+                                tint = {r=0.75,g=0.2,b=0.75,a=0.55},
+                                blend_mode = laser_beam_blend_mode
+                            },
+                        tail =
+                            {
+                                filename = "__base__/graphics/entity/laser-turret/laser-end.png",
+                                flags = { "no-crop", "mipmap" },
+                                width = 110,
+                                height = 62,
+                                frame_count = 8,
+                                shift = util.by_pixel(11.5, 1),
+                                scale = 1,
+                                animation_speed = 0.5,
+                                tint = {r=0.75,g=0.2,b=0.75,a=0.55},
+                                blend_mode = laser_beam_blend_mode
+                            },
+                        body =
+                            {
+                                {
+                                    filename = "__base__/graphics/entity/laser-turret/laser-body.png",
+                                    flags = {"mipmap"},
+                                    line_length = 8,
+                                    width = 64,
+                                    height = 12,
+                                    frame_count = 8,
+                                    scale = 1,
+                                    animation_speed = 0.5,
+                                    tint = {r=0.75,g=0.2,b=0.75,a=0.55},
+                                    blend_mode = laser_beam_blend_mode
+                                }
+                            },
+                    },
+            },
+
             light_animations =
                 {
                     head =
                         {
-                            filename = "__base__/graphics/entity/laser-turret/hr-laser-body-light.png",
+                            filename = "__base__/graphics/entity/laser-turret/laser-body-light.png",
                             line_length = 8,
                             width = 64,
                             height = 12,
@@ -105,7 +112,7 @@ local function make_laser_beam()
                         },
                     tail =
                         {
-                            filename = "__base__/graphics/entity/laser-turret/hr-laser-end-light.png",
+                            filename = "__base__/graphics/entity/laser-turret/laser-end-light.png",
                             width = 110,
                             height = 62,
                             frame_count = 8,
@@ -117,7 +124,7 @@ local function make_laser_beam()
                     body =
                         {
                             {
-                                filename = "__base__/graphics/entity/laser-turret/hr-laser-body-light.png",
+                                filename = "__base__/graphics/entity/laser-turret/laser-body-light.png",
                                 line_length = 8,
                                 width = 64,
                                 height = 12,
@@ -189,62 +196,33 @@ local function laser_turret_extension(inputs)
         {
             filename = "__base__/graphics/entity/laser-turret/laser-turret-raising.png",
             priority = "medium",
-            width = 66,
-            height = 64,
+            width = 130,
+            height = 126,
+            tint = {r=0.5,g=0.7,b=0.7,a=1},
             frame_count = inputs.frame_count and inputs.frame_count or 15,
             line_length = inputs.line_length and inputs.line_length or 0,
             run_mode = inputs.run_mode and inputs.run_mode or "forward",
             axially_symmetrical = false,
-            tint = {r=0.5,g=0.7,b=0.7,a=1},
             direction_count = 4,
-            shift = util.by_pixel(0, -37),
-            scale = 2,
-            hr_version =
-                {
-                    filename = "__base__/graphics/entity/laser-turret/hr-laser-turret-raising.png",
-                    priority = "medium",
-                    width = 130,
-                    height = 126,
-                    tint = {r=0.5,g=0.7,b=0.7,a=1},
-                    frame_count = inputs.frame_count and inputs.frame_count or 15,
-                    line_length = inputs.line_length and inputs.line_length or 0,
-                    run_mode = inputs.run_mode and inputs.run_mode or "forward",
-                    axially_symmetrical = false,
-                    direction_count = 4,
-                    shift = util.by_pixel(0, -37.5),
-                    scale = 1
-                }
-        }
+            shift = util.by_pixel(0, -37.5),
+            scale = 1        
+         }
 end
 
 local function laser_turret_extension_shadow(inputs)
     return
         {
             filename = "__base__/graphics/entity/laser-turret/laser-turret-raising-shadow.png",
-            width = 92,
-            height = 50,
+            width = 182,
+            height = 96,
             frame_count = inputs.frame_count and inputs.frame_count or 15,
             line_length = inputs.line_length and inputs.line_length or 0,
             run_mode = inputs.run_mode and inputs.run_mode or "forward",
             axially_symmetrical = false,
             direction_count = 4,
             draw_as_shadow = true,
-            shift = util.by_pixel(47, 3),
-            scale = 2,
-            hr_version =
-                {
-                    filename = "__base__/graphics/entity/laser-turret/hr-laser-turret-raising-shadow.png",
-                    width = 182,
-                    height = 96,
-                    frame_count = inputs.frame_count and inputs.frame_count or 15,
-                    line_length = inputs.line_length and inputs.line_length or 0,
-                    run_mode = inputs.run_mode and inputs.run_mode or "forward",
-                    axially_symmetrical = false,
-                    direction_count = 4,
-                    draw_as_shadow = true,
-                    shift = util.by_pixel(47, 2.5),
-                    scale = 1
-                }
+            shift = util.by_pixel(47, 2.5),
+            scale = 1
         }
 end
 
@@ -253,8 +231,8 @@ local function laser_turret_extension_mask(inputs)
         {
             filename = "__base__/graphics/entity/laser-turret/laser-turret-raising-mask.png",
             flags = { "mask" },
-            width = 44,
-            height = 40,
+            width = 86,
+            height = 80,
             frame_count = inputs.frame_count and inputs.frame_count or 15,
             line_length = inputs.line_length and inputs.line_length or 0,
             run_mode = inputs.run_mode and inputs.run_mode or "forward",
@@ -262,22 +240,7 @@ local function laser_turret_extension_mask(inputs)
             apply_runtime_tint = true,
             direction_count = 4,
             shift = util.by_pixel(0, -59),
-            scale = 2,
-            hr_version =
-                {
-                    filename = "__base__/graphics/entity/laser-turret/hr-laser-turret-raising-mask.png",
-                    flags = { "mask" },
-                    width = 86,
-                    height = 80,
-                    frame_count = inputs.frame_count and inputs.frame_count or 15,
-                    line_length = inputs.line_length and inputs.line_length or 0,
-                    run_mode = inputs.run_mode and inputs.run_mode or "forward",
-                    axially_symmetrical = false,
-                    apply_runtime_tint = true,
-                    direction_count = 4,
-                    shift = util.by_pixel(0, -59),
-                    scale = 1
-                }
+            scale = 1
         }
 end
 
@@ -286,25 +249,13 @@ local function laser_turret_shooting()
         {
             filename = "__base__/graphics/entity/laser-turret/laser-turret-shooting.png",
             line_length = 8,
-            width = 64,
-            height = 60,
-            frame_count = 1,
+            width = 126,
+            height = 120,
             tint = {r=0.5,g=0.7,b=0.7,a=1},
+            frame_count = 1,
             direction_count = 64,
             shift = util.by_pixel(0, -35),
-            scale = 2,
-            hr_version =
-                {
-                    filename = "__base__/graphics/entity/laser-turret/hr-laser-turret-shooting.png",
-                    line_length = 8,
-                    width = 126,
-                    height = 120,
-                    tint = {r=0.5,g=0.7,b=0.7,a=1},
-                    frame_count = 1,
-                    direction_count = 64,
-                    shift = util.by_pixel(0, -35),
-                    scale = 1
-                }
+            scale = 1
         }
 end
 
@@ -313,25 +264,13 @@ local function laser_turret_shooting_glow()
         {
             filename = "__base__/graphics/entity/laser-turret/laser-turret-shooting-light.png",
             line_length = 8,
-            width = 62,
-            height = 58,
+            width = 122,
+            height = 116,
             frame_count = 1,
             direction_count = 64,
+            shift = util.by_pixel(-0.5, -35),
             blend_mode = "additive",
-            shift = util.by_pixel(0, -35),
-            scale = 2,
-            hr_version =
-                {
-                    filename = "__base__/graphics/entity/laser-turret/hr-laser-turret-shooting-light.png",
-                    line_length = 8,
-                    width = 122,
-                    height = 116,
-                    frame_count = 1,
-                    direction_count = 64,
-                    shift = util.by_pixel(-0.5, -35),
-                    blend_mode = "additive",
-                    scale = 1
-                }
+            scale = 1
         }
 end
 
@@ -341,26 +280,13 @@ local function laser_turret_shooting_mask()
             filename = "__base__/graphics/entity/laser-turret/laser-turret-shooting-mask.png",
             flags = { "mask" },
             line_length = 8,
-            width = 46,
-            height = 42,
+            width = 92,
+            height = 80,
             frame_count = 1,
             apply_runtime_tint = true,
             direction_count = 64,
-            shift = util.by_pixel(0, -53),
-            scale = 2,
-            hr_version =
-                {
-                    filename = "__base__/graphics/entity/laser-turret/hr-laser-turret-shooting-mask.png",
-                    flags = { "mask" },
-                    line_length = 8,
-                    width = 92,
-                    height = 80,
-                    frame_count = 1,
-                    apply_runtime_tint = true,
-                    direction_count = 64,
-                    shift = util.by_pixel(0, -53.5),
-                    scale = 1
-                }
+            shift = util.by_pixel(0, -53.5),
+            scale = 1
         }
 end
 
@@ -369,25 +295,13 @@ local function laser_turret_shooting_shadow()
         {
             filename = "__base__/graphics/entity/laser-turret/laser-turret-shooting-shadow.png",
             line_length = 8,
-            width = 86,
-            height = 46,
+            width = 170,
+            height = 92,
             frame_count = 1,
             direction_count = 64,
             draw_as_shadow = true,
-            shift = util.by_pixel(51, 2),
-            scale = 2,
-            hr_version =
-                {
-                    filename = "__base__/graphics/entity/laser-turret/hr-laser-turret-shooting-shadow.png",
-                    line_length = 8,
-                    width = 170,
-                    height = 92,
-                    frame_count = 1,
-                    direction_count = 64,
-                    draw_as_shadow = true,
-                    shift = util.by_pixel(50.5, 2.5),
-                    scale = 1
-                }
+            shift = util.by_pixel(50.5, 2.5),
+            scale = 1
         }
 end
 
@@ -736,54 +650,29 @@ function lasers.enable()
         basePicture = {
             layers =
                 {
-                    {
-                        filename = "__base__/graphics/entity/laser-turret/laser-turret-base.png",
-                        priority = "high",
-                        width = 70,
-                        height = 52,
-                        direction_count = 1,
-                        frame_count = 1,
-                        shift = util.by_pixel(0, 2),
-                        scale = 2,
-                        tint = {r=0.5,g=0.7,b=0.7,a=1},
-                        hr_version =
-                            {
-                                filename = "__base__/graphics/entity/laser-turret/hr-laser-turret-base.png",
-                                priority = "high",
-                                width = 138,
-                                height = 104,
-                                direction_count = 1,
-                                tint = {r=0.5,g=0.7,b=0.7,a=1},
-                                frame_count = 1,
-                                shift = util.by_pixel(-0.5, 2),
-                                scale = 1
-                            }
-                    },
-                    {
-                        filename = "__base__/graphics/entity/laser-turret/laser-turret-base-shadow.png",
-                        flags = { "mask" },
-                        line_length = 1,
-                        width = 66,
-                        height = 42,
-                        draw_as_shadow = true,
-                        direction_count = 1,
-                        frame_count = 1,
-                        shift = util.by_pixel(6, 3),
-                        scale = 2,
-                        hr_version =
-                            {
-                                filename = "__base__/graphics/entity/laser-turret/hr-laser-turret-base-shadow.png",
-                                flags = { "mask" },
-                                line_length = 1,
-                                width = 132,
-                                height = 82,
-                                draw_as_shadow = true,
-                                direction_count = 1,
-                                frame_count = 1,
-                                shift = util.by_pixel(6, 3),
-                                scale = 1
-                            }
-                    }
+
+                    filename = "__base__/graphics/entity/laser-turret/laser-turret-base.png",
+                    priority = "high",
+                    width = 138,
+                    height = 104,
+                    direction_count = 1,
+                    tint = {r=0.5,g=0.7,b=0.7,a=1},
+                    frame_count = 1,
+                    shift = util.by_pixel(-0.5, 2),
+                    scale = 1,
+                    tint = {r=0.5,g=0.7,b=0.7,a=1},
+                },
+                {
+                    filename = "__base__/graphics/entity/laser-turret/laser-turret-base-shadow.png",
+                    flags = { "mask" },
+                    line_length = 1,
+                    width = 132,
+                    height = 82,
+                    draw_as_shadow = true,
+                    direction_count = 1,
+                    frame_count = 1,
+                    shift = util.by_pixel(6, 3),
+                    scale = 1
                 }
         },
         foldedAnimation = {
@@ -887,12 +776,12 @@ function lasers.enable()
             icon = "__RampantArsenal__/graphics/icons/advancedLaserTurret.png",
             enabled = false,
             ingredients = {
-                {"steel-plate", 30},
-                {"electric-engine-unit", 20},
-                {"processing-unit", 30},
-                {"accumulator", 15}
+                {type="item", name="steel-plate", amount=30},
+                {type="item", name="electric-engine-unit", amount=20},
+                {type="item", name="processing-unit", amount=30},
+                {type="item", name="accumulator", amount=15}
             },
-            result = advancedElectricTurretItem,
+            results = {{type="item", name=advancedElectricTurretItem, amount=1}}
     })
 
     makeRecipe({
@@ -900,12 +789,12 @@ function lasers.enable()
             icon = "__RampantArsenal__/graphics/icons/advanced-beam-turret.png",
             enabled = false,
             ingredients = {
-                {"steel-plate", 15},
-                {"engine-unit", 10},
-                {"advanced-circuit", 15},
-                {"laser-turret", 4}
+                {type="item", name="steel-plate", amount=15},
+                {type="item", name="engine-unit", amount=10},
+                {type="item", name="advanced-circuit", amount=15},
+                {type="item", name="laser-turret", amount=4}
             },
-            result = advancedBeamTurret
+            results = {{type="item", name=advancedBeamTurret, amount=1}}
     })
 
     makeRecipe({
@@ -913,12 +802,12 @@ function lasers.enable()
             icon = "__RampantArsenal__/graphics/icons/lightningTurret.png",
             enabled = false,
             ingredients = {
-                {"steel-plate", 15},
-                {"iron-gear-wheel", 10},
-                {"advanced-circuit", 10},
-                {"battery", 15}
+                {type="item", name="steel-plate", amount=15},
+                {type="item", name="iron-gear-wheel", amount=10},
+                {type="item", name="advanced-circuit", amount=10},
+                {type="item", name="battery", amount=15}
             },
-            result = lightningTowerTurretItem,
+            results = {{type="item", name=lightningTowerTurretItem, amount=1}}
     })
 
 
